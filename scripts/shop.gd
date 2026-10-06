@@ -4,6 +4,11 @@ const STORY_PATH: String = "res://story/shop.txt"
 const LETTER_PATH: String = "res://story/letter.txt"
 const APARTMENT_SCENE: String = "res://scenes/apartment.tscn"
 
+const LIGHTS: Dictionary = {
+	"office": Color(0.17, 0.14, 0.09),
+}
+const LIGHT_FLASH: Color = Color(0.55, 0.5, 0.4)
+
 @onready var narrator: Narrator = %Narrator
 @onready var letter_panel: ColorRect = %LetterPanel
 @onready var letter_text: Label = %LetterText
@@ -12,6 +17,10 @@ const APARTMENT_SCENE: String = "res://scenes/apartment.tscn"
 @onready var phone_choices: HBoxContainer = %PhoneChoices
 @onready var pick_up_button: Button = %PickUpButton
 @onready var let_it_ring_button: Button = %LetItRingButton
+@onready var door_choices: HBoxContainer = %DoorChoices
+@onready var knock_button: Button = %KnockButton
+@onready var open_door_button: Button = %OpenDoorButton
+@onready var background: ColorRect = $Background
 @onready var fade: ColorRect = %Fade
 @onready var shop_hum: AudioStreamPlayer = %ShopHum
 @onready var action_button: Button = %ActionButton
@@ -31,7 +40,10 @@ func _ready() -> void:
 	letter_panel.visible = false
 	hang_up_button.visible = false
 	phone_choices.visible = false
+	door_choices.visible = false
 	action_button.visible = false
+	knock_button.pressed.connect(_on_door_choice.bind("knock"))
+	open_door_button.pressed.connect(_on_door_choice.bind("office"))
 	action_button.pressed.connect(_on_action_pressed)
 	letter_text.text = _read_letter(LETTER_PATH)
 	fold_button.pressed.connect(_on_fold_pressed)
@@ -64,8 +76,13 @@ func _on_section_finished(section: String) -> void:
 			narrator.set_input_enabled(false)
 			hang_up_button.visible = true
 		"after_call", "let_it_ring":
-			narrator.play("envelope")
-		"envelope":
+			narrator.play("office_door")
+		"office_door":
+			narrator.set_input_enabled(false)
+			door_choices.visible = true
+		"knock":
+			narrator.play("office")
+		"office":
 			_prompt("Take the envelope", _take_envelope)
 		"envelope_held":
 			_prompt("Open it", _open_envelope)
@@ -89,6 +106,11 @@ func _on_let_it_ring_pressed() -> void:
 	narrator.set_input_enabled(true)
 	narrator.play("let_it_ring")
 
+func _on_door_choice(section: String) -> void:
+	door_choices.visible = false
+	narrator.set_input_enabled(true)
+	narrator.play(section)
+
 func _on_hang_up_pressed() -> void:
 	hang_up_button.visible = false
 	sounds["deadline"].stop()
@@ -102,6 +124,17 @@ func _on_line_shown(line: Dictionary) -> void:
 		_stop_sound(line["stop"])
 	if line.has("sound"):
 		_play_sound(line["sound"])
+	if line.has("light"):
+		_set_light(line["light"])
+
+func _set_light(light_name: String) -> void:
+	if not LIGHTS.has(light_name):
+		push_warning("Unknown light: " + light_name)
+		return
+	# A quick glare, then the eyes adjust to the room's light.
+	background.color = LIGHT_FLASH
+	var tween: Tween = create_tween()
+	tween.tween_property(background, "color", LIGHTS[light_name], 1.2)
 
 func _play_sound(sound_name: String) -> void:
 	if not sounds.has(sound_name):
