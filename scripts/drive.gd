@@ -20,6 +20,7 @@ const STATIC_LEVELS: Dictionary = {
 @onready var radio_static: AudioStreamPlayer = $RadioStatic
 @onready var car_interior: AudioStreamPlayer = $CarInterior
 @onready var fade: ColorRect = $Fade
+@onready var document_viewer: DocumentViewer = %DocumentViewer
 
 var _examining: bool = false
 var _main_index: int = 0
@@ -34,6 +35,7 @@ func _ready() -> void:
 	glovebox_button.pressed.connect(_examine.bind("glovebox", glovebox_button))
 	mirror_button.pressed.connect(_examine.bind("mirror", mirror_button))
 	passenger_button.pressed.connect(_examine.bind("passenger", passenger_button))
+	document_viewer.closed.connect(_on_document_closed)
 	wheel_button.pressed.connect(_on_wheel_pressed)
 	wheel_button.visible = false
 	narrator.line_shown.connect(_on_line_shown)
@@ -59,10 +61,20 @@ func _on_section_finished(section: String) -> void:
 		_check_wheel()
 	elif section == "wheel":
 		_arrive()
+	elif section == "glovebox":
+		narrator.set_input_enabled(false)
+		document_viewer.open("rental_agreement")
 	else:
-		_examining = false
-		narrator.play("main", _main_index, true)
-		_check_wheel()
+		_return_to_main()
+
+func _on_document_closed(_doc_id: String) -> void:
+	narrator.set_input_enabled(true)
+	_return_to_main()
+
+func _return_to_main() -> void:
+	_examining = false
+	narrator.play("main", _main_index, true)
+	_check_wheel()
 
 func _examine(object_id: String, button: Button) -> void:
 	if _examining or _ending:

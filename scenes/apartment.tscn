@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b70g8y11p0px" path="res://scripts/apartment.gd" id="1_pkwu2"]
 [ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_jq6rh"]
+[ext_resource type="AudioStream" uid="uid://d36jhfis185x" path="res://audio/freesound_community-radio-static-2-26831.mp3" id="3_jq6rh"]
 
 [node name="Apartment" type="Control" unique_id=1639265716]
 layout_mode = 3
@@ -24,6 +25,80 @@ color = Color(0.05490196, 0.07058824, 0.09411765, 1)
 [node name="Narrator" parent="." unique_id=1399626938 instance=ExtResource("2_jq6rh")]
 unique_name_in_owner = true
 layout_mode = 1
+
+[node name="Objects" type="HBoxContainer" parent="." unique_id=1128439452]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -40.0
+offset_right = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="WindowButton" type="Button" parent="Objects" unique_id=714600136]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Window"
+
+[node name="RadioButton" type="Button" parent="Objects" unique_id=1541773938]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Radio"
+
+[node name="CalendarButton" type="Button" parent="Objects" unique_id=1726114784]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Calendar"
+
+[node name="BedButton" type="Button" parent="Objects" unique_id=198472520]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Bed"
+
+[node name="MirrorButton" type="Button" parent="Objects" unique_id=900851283]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mirror"
+
+[node name="CoatButton" type="Button" parent="Objects" unique_id=902986971]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Coat"
+
+[node name="ChoiceBox" type="HBoxContainer" parent="." unique_id=479468100]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -40.0
+offset_right = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="ChoiceA" type="Button" parent="ChoiceBox" unique_id=1334642618]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ChoiceB" type="Button" parent="ChoiceBox" unique_id=359540258]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RadioNight" type="AudioStreamPlayer" parent="." unique_id=1629980858]
+unique_name_in_owner = true
+stream = ExtResource("3_jq6rh")
+volume_db = -20.0
+parameters/looping = true
 
 [node name="Fade" type="ColorRect" parent="." unique_id=542480751]
 unique_name_in_owner = true

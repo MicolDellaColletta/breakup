@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://dmf5kqhdutj3f" path="res://scripts/shop.gd" id="1_1l46r"]
 [ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_032fp"]
 [ext_resource type="AudioStream" uid="uid://cvrknc547f8sh" path="res://audio/freesound_community-rotary-phone-ring-medium-103869.mp3" id="3_8r1wq"]
+[ext_resource type="AudioStream" uid="uid://d2vpsu42pay10" path="res://audio/cartoon_music-shop-bell-ring-543931.mp3" id="3_m4ofw"]
 [ext_resource type="AudioStream" uid="uid://buttnji3lpwvj" path="res://audio/freesound_community-phone-pick-up-46796.mp3" id="4_ajxib"]
+[ext_resource type="AudioStream" uid="uid://b6dkrnkat1vi3" path="res://audio/freesound_community-hum-59083.mp3" id="4_heatd"]
+[ext_resource type="AudioStream" uid="uid://cspfg3qbi7lob" path="res://audio/makigai_maimai-paper-245786.mp3" id="5_1v8qu"]
+[ext_resource type="AudioStream" uid="uid://e45tsmdy1v6x" path="res://audio/freesound_community-tear-paper-103161.mp3" id="6_tear"]
 [ext_resource type="AudioStream" uid="uid://l26hxl6mp4k7" path="res://audio/freesound_community-phone-hang-up-46793.mp3" id="5_y6sft"]
 [ext_resource type="AudioStream" uid="uid://dia8qe3m72c7e" path="res://audio/freesound_community-telephone-off-hook-us-74706.mp3" id="6_m4ofw"]
 
@@ -28,6 +32,20 @@ color = Color(0.078431375, 0.0627451, 0.047058824, 1)
 [node name="Narrator" parent="." unique_id=1399626938 instance=ExtResource("2_032fp")]
 unique_name_in_owner = true
 layout_mode = 1
+
+[node name="ActionButton" type="Button" parent="." unique_id=94935523]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -31.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="PhoneChoices" type="HBoxContainer" parent="." unique_id=1274232933]
 unique_name_in_owner = true
@@ -108,6 +126,25 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Fold the letter"
+
+[node name="DoorBell" type="AudioStreamPlayer" parent="." unique_id=1026672605]
+unique_name_in_owner = true
+stream = ExtResource("3_m4ofw")
+
+[node name="ShopHum" type="AudioStreamPlayer" parent="." unique_id=1260304033]
+unique_name_in_owner = true
+stream = ExtResource("4_heatd")
+volume_db = -24.0
+autoplay = true
+parameters/looping = true
+
+[node name="PaperSound" type="AudioStreamPlayer" parent="." unique_id=1534522359]
+unique_name_in_owner = true
+stream = ExtResource("5_1v8qu")
+
+[node name="EnvelopeTear" type="AudioStreamPlayer" parent="." unique_id=1417366792]
+unique_name_in_owner = true
+stream = ExtResource("6_tear")
 
 [node name="PhoneRing" type="AudioStreamPlayer" parent="." unique_id=1122386887]
 unique_name_in_owner = true

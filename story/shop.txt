@@ -2,7 +2,8 @@
 
 === arrival
 narration: The key in your pocket fits the lock. You're sure it isn't your key.
-narration | sound=ring: The door opens on a dark that smells of cold metal, gun oil and old fur. Somewhere at the back, a phone is ringing.
+narration | sound=bell: The door opens. A bell rings above it, small and bright, too cheerful for the dark.
+narration | sound=ring: The dark smells of cold metal, gun oil and old fur. Somewhere at the back, a phone is ringing.
 paranoia: Who calls a closed shop in the middle of the night?
 narration: Shapes in the dark. A glass counter. Antlers on the wall. Something standing very still in the corner.
 narration: It's only a bear. It's only a stuffed bear.
@@ -25,7 +26,12 @@ narration | stop=ring: Then, in the middle of a ring, it stops.
 narration: The silence afterwards is very loud.
 
 === envelope
-narration: Under the phone, an envelope. Not your name. Just three words, in that same handwriting: FOR THE KEEPER.
+narration: Under the phone, an envelope, propped against the base as if it was put there for you to find.
+
+=== envelope_held
+narration: It's heavier than a letter should be. The paper is soft, as if it's been handled many times.
+narration: Three words on the front: FOR THE KEEPER. The handwriting presses so hard you can feel it through the other side.
+paranoia: Whoever wrote this was very sure you'd come.
 
 === after_letter_answered
 paranoia: Rule four.

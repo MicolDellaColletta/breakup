@@ -7,9 +7,9 @@ signal section_finished(section: String)
 const CHARACTERS_PER_SECOND: float = 30.0
 
 const SPEAKERS: Dictionary = {
-	"narration": {"name": "", "color": Color(0.85, 0.87, 0.91)},
-	"paranoia": {"name": "Paranoia", "color": Color(0.79, 0.71, 0.35)},
-	"unknown": {"name": "???", "color": Color(0.78, 0.36, 0.43)},
+	"narration": {"name": "", "color": Color(0.85, 0.87, 0.91), "speed": 30.0},
+	"paranoia": {"name": "Paranoia", "color": Color(0.79, 0.71, 0.35), "speed": 45.0},
+	"unknown": {"name": "???", "color": Color(0.78, 0.36, 0.43), "speed": 18.0},
 }
 
 @onready var speaker_label: Label = $TextBox/SpeakerLabel
@@ -23,6 +23,7 @@ var _line_index: int = 0
 var _revealed: float = 0.0
 var _input_enabled: bool = true
 var _section_done: bool = false
+var _speed: float = CHARACTERS_PER_SECOND
 
 func _ready() -> void:
 	advance_button.pressed.connect(_on_advance_pressed)
@@ -30,7 +31,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _is_line_finished():
 		return
-	_revealed += CHARACTERS_PER_SECOND * delta
+	_revealed += _speed * delta
 	narration_label.visible_characters = int(_revealed)
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -83,6 +84,7 @@ func _show_line(index: int) -> void:
 	_line_index = index
 	var line: Dictionary = _lines[index]
 	var speaker: Dictionary = SPEAKERS[line["speaker"]]
+	_speed = speaker.get("speed", CHARACTERS_PER_SECOND)
 	speaker_label.text = speaker["name"]
 	speaker_label.add_theme_color_override("font_color", speaker["color"])
 	narration_label.add_theme_color_override("font_color", speaker["color"])

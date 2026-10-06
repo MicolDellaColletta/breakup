@@ -15,3 +15,67 @@ unknown: And you didn't say a word. You're learning.
 === echo_ignored
 paranoia: Downstairs, the phone sits quiet. Waiting.
 unknown: It'll ring again. And next time, you'll answer.
+
+=== window
+narration: The window looks down on the main street. One streetlight. Snow falling through it, slow, like it has all the time in the world.
+narration: Across the street, every window is dark. Every curtain is open.
+paranoia: Rule one. Close every window before dark.
+unknown: Or don't. Let some air in, sweetheart. Let them see you.
+
+=== window_closed
+narration: The latch is stiff with cold. It closes with a sound like a held breath let go.
+narration: For a second, in the glass, you think someone is standing behind you. It's only the coat on the hook.
+
+=== window_open
+narration: You leave it. The cold comes in slowly, the way water fills a footprint.
+narration: Down in the street, under the streetlight, there are footprints in the fresh snow. They lead to the shop door. None lead away.
+paranoia: Those weren't there a minute ago.
+
+=== radio
+narration: An old radio on the table, the kind with a dial that glows amber. It's unplugged, the cord wrapped neatly around it, as if someone wanted it found that way.
+paranoia: Rule seven. Keep the radio on at night. The silence is worse.
+
+=== radio_on
+narration: You plug it in. Amber light, a hum, then static, then a man's voice in the middle of a sentence.
+narration: "...and to our new arrival over at the pawn shop: welcome to Kettle Lake. Keep the radio on, friend. It's a long winter."
+paranoia: He knows you're here. Everyone knows you're here.
+
+=== radio_off
+narration: You leave it wrapped. The silence settles over the room like snow.
+narration: In the silence you can hear the compressor downstairs. And under it, something else. A slow knocking, somewhere below the floor.
+unknown: Hear that, sweetheart? That's the house getting used to you.
+
+=== calendar
+narration: A feed store calendar from Anchorage, still on October. Days crossed out in pencil, one by one, by someone before you.
+narration: The crosses stop four days ago.
+narration: Far ahead, at the end of April, a single date is circled in red. No note. Just the circle, gone over so many times the pencil tore the paper.
+
+=== mirror
+narration: A small mirror above the sink, the silver going black at the edges.
+narration: Your face. Tired. Older than you remember.
+narration: You turn your head. Your reflection turns too, half a second late.
+paranoia: You're exhausted. That's all. That's all it is.
+unknown: There you are, sweetheart. I'd know that face anywhere.
+
+=== coat
+narration: The coat by the door. Heavy canvas, lined with wool. It fits you as if it was bought for you.
+narration: In the inside pocket, a Polaroid. The shop at night, taken from across the street. Your car is parked outside.
+narration: On the white strip at the bottom, in neat pencil, a date. Last week.
+paranoia: You were still in the city last week. So was your car.
+unknown: Somebody's been expecting you for a long time.
+
+=== sleep
+narration: The sheets are cold, and smell faintly of someone else's soap.
+narration: You lie awake and count the sounds of the building. The compressor. The wind. Your own heart.
+narration: Somewhere around three, you stop counting.
+
+=== wake_bed
+narration: You wake in the gray half-light, in the bed, exactly where you fell asleep.
+paranoia: Good. Good. Nothing happened.
+paranoia: Nothing you remember, anyway.
+
+=== wake_standing
+narration: You wake standing up.
+narration: You're at the bottom of the stairs, barefoot, one hand on the handle of the heavy door at the back of the shop. The compressor hums against your palm.
+narration: Your feet are wet. There's snow melting on the floor around them.
+unknown: Not yet, sweetheart. Not yet.
