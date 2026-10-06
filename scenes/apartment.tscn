@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ddcrmcuryf0pc"]
+
+[ext_resource type="Script" uid="uid://b70g8y11p0px" path="res://scripts/apartment.gd" id="1_pkwu2"]
+[ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_jq6rh"]
+
+[node name="Apartment" type="Control" unique_id=1639265716]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pkwu2")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2091371637]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05490196, 0.07058824, 0.09411765, 1)
+
+[node name="Narrator" parent="." unique_id=1399626938 instance=ExtResource("2_jq6rh")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Fade" type="ColorRect" parent="." unique_id=542480751]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

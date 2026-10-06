@@ -1,0 +1,40 @@
+# THE SHOP: ARRIVAL
+
+=== arrival
+narration: The key in your pocket fits the lock. You're sure it isn't your key.
+narration | sound=ring: The door opens on a dark that smells of cold metal, gun oil and old fur. Somewhere at the back, a phone is ringing.
+paranoia: Who calls a closed shop in the middle of the night?
+narration: Shapes in the dark. A glass counter. Antlers on the wall. Something standing very still in the corner.
+narration: It's only a bear. It's only a stuffed bear.
+narration: The phone sits on the counter by the register. Black, heavy, old. Still ringing.
+unknown: Aren't you going to get that, sweetheart?
+
+=== dead_line
+narration: You lift the receiver.
+narration: No voice. No dial tone. Just a thin, steady beep, as if the line was never connected to anything.
+narration: For a moment you think you hear breathing on the other end. Then you realize it's yours.
+paranoia: Put it down.
+
+=== after_call
+narration: You put it down. Carefully, as if it might notice.
+
+=== let_it_ring
+narration: You don't move. It rings. And rings.
+paranoia: Let it. Whoever it is, let them wait.
+narration | stop=ring: Then, in the middle of a ring, it stops.
+narration: The silence afterwards is very loud.
+
+=== envelope
+narration: Under the phone, an envelope. Not your name. Just three words, in that same handwriting: FOR THE KEEPER.
+
+=== after_letter_answered
+paranoia: Rule four.
+paranoia: You'd broken it before you even knew it existed.
+unknown: You didn't speak first, though. Good instincts, sweetheart.
+narration: Somewhere at the back of the shop, behind a heavy door, a compressor hums.
+
+=== after_letter_ignored
+paranoia: Rule four. You didn't answer.
+paranoia: Not knowing saved you. It won't, next time.
+unknown: They'll call again, sweetheart. They always call again.
+narration: Somewhere at the back of the shop, behind a heavy door, a compressor hums.

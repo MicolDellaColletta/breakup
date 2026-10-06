@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://dl1mega7f33u1"]
+
+[ext_resource type="Script" uid="uid://dmf5kqhdutj3f" path="res://scripts/shop.gd" id="1_1l46r"]
+[ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_032fp"]
+[ext_resource type="AudioStream" uid="uid://cvrknc547f8sh" path="res://audio/freesound_community-rotary-phone-ring-medium-103869.mp3" id="3_8r1wq"]
+[ext_resource type="AudioStream" uid="uid://buttnji3lpwvj" path="res://audio/freesound_community-phone-pick-up-46796.mp3" id="4_ajxib"]
+[ext_resource type="AudioStream" uid="uid://l26hxl6mp4k7" path="res://audio/freesound_community-phone-hang-up-46793.mp3" id="5_y6sft"]
+[ext_resource type="AudioStream" uid="uid://dia8qe3m72c7e" path="res://audio/freesound_community-telephone-off-hook-us-74706.mp3" id="6_m4ofw"]
+
+[node name="Shop" type="Control" unique_id=1335316952]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1l46r")
+
+[node name="Background" type="ColorRect" parent="." unique_id=378818267]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.0627451, 0.047058824, 1)
+
+[node name="Narrator" parent="." unique_id=1399626938 instance=ExtResource("2_032fp")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="PhoneChoices" type="HBoxContainer" parent="." unique_id=1274232933]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -40.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="PickUpButton" type="Button" parent="PhoneChoices" unique_id=2128294497]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pick up"
+
+[node name="LetItRingButton" type="Button" parent="PhoneChoices" unique_id=1760198284]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Let it ring"
+
+[node name="HangUpButton" type="Button" parent="." unique_id=2136034170]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -31.0
+offset_right = 36.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Hang up"
+
+[node name="LetterPanel" type="ColorRect" parent="." unique_id=2137375348]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9098039, 0.8745098, 0.78431374, 1)
+
+[node name="LetterMargins" type="MarginContainer" parent="LetterPanel" unique_id=1679226906]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 60
+
+[node name="LetterLayout" type="VBoxContainer" parent="LetterPanel/LetterMargins" unique_id=271398422]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="LetterText" type="Label" parent="LetterPanel/LetterMargins/LetterLayout" unique_id=1720282857]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6666667, 0.13333334, 0.06666667, 1)
+autowrap_mode = 2
+
+[node name="FoldButton" type="Button" parent="LetterPanel/LetterMargins/LetterLayout" unique_id=1562331033]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fold the letter"
+
+[node name="PhoneRing" type="AudioStreamPlayer" parent="." unique_id=1122386887]
+unique_name_in_owner = true
+stream = ExtResource("3_8r1wq")
+parameters/looping = true
+
+[node name="PhonePickup" type="AudioStreamPlayer" parent="." unique_id=246781574]
+unique_name_in_owner = true
+stream = ExtResource("4_ajxib")
+
+[node name="PhoneHangup" type="AudioStreamPlayer" parent="." unique_id=2117680200]
+unique_name_in_owner = true
+stream = ExtResource("5_y6sft")
+
+[node name="DeadLine" type="AudioStreamPlayer" parent="." unique_id=738919607]
+unique_name_in_owner = true
+stream = ExtResource("6_m4ofw")
+volume_db = -12.0
+parameters/looping = true
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1640841800]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

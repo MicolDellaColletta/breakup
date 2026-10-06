@@ -1,0 +1,48 @@
+# THE DRIVE
+# Format:  speaker: text
+# Options: speaker | option=value: text
+# Sections start with === and a name.
+
+=== main
+narration: The wipers drag across the glass, squealing on every return.
+narration: Snow rushes the headlights and vanishes. Rushes and vanishes.
+narration: The heater smells of burning dust. Your fingers are still cold.
+narration: The radio drifts between stations. A voice, static, half a hymn, static.
+narration: No taillights ahead. None behind. It has been just you for miles.
+paranoia: Where are you going?
+paranoia: You don't know, do you.
+narration: The paper in your coat pocket. An address, in handwriting you don't recognize. You've touched it so often the folds have gone soft.
+paranoia: Don't take it out. You know what it says.
+narration: The road ends where the headlights end. Past that, nothing. Not dark. Nothing.
+unknown: Where are you going, sweetheart?
+unknown: And what will you do when you get there?
+narration | static=silent: The radio clears for a single moment. A man's voice, very close to the microphone: "...so tell me, caller. How much is the truth worth to you?"
+narration | static=loud: Static.
+
+=== radio
+narration | static=loud: You turn the dial. Static, a preacher, static, a man selling snow tires, static.
+narration: Then a caller, mid-sentence: "...an old sedan, northbound, one headlight dimmer than the other..."
+paranoia | static=normal: One headlight dimmer than the other. Check yours. No. Don't.
+
+=== glovebox
+narration: Napkins. A tire gauge. A pawn ticket, number 0447, from a shop you've never heard of.
+narration: On the back, in pencil: an address. The same address as the paper in your pocket.
+unknown: Two copies, sweetheart. Somebody really wanted you to arrive.
+
+=== mirror
+narration: Headlights, far back. They've kept the same distance for an hour.
+narration: You look away. You look back. The road behind you is empty.
+paranoia: They turned their lights off. That's what you'd do.
+
+=== passenger
+narration: On the passenger seat, something wrapped in a towel. About the size of a loaf of bread. Heavier than it looks.
+narration: You don't remember putting it there. You don't remember not putting it there.
+paranoia: Leave it wrapped.
+unknown: Not yet, sweetheart. Not yet.
+
+=== wheel
+narration: You put both hands on the wheel. Ten and two, the way someone taught you once.
+paranoia: Just drive.
+unknown: You're almost there, sweetheart.
+unknown: Maybe.
+narration: The sign comes out of the snow all at once. PAWN, GUNS, FURS, TAXIDERMY. One letter dead in the neon.

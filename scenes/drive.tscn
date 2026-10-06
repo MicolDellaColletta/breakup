@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://byvefafr14ehr"]
+
+[ext_resource type="Script" uid="uid://bmyhedgiw74cl" path="res://scripts/drive.gd" id="1_kjaxf"]
+[ext_resource type="AudioStream" uid="uid://bupqc6w8gpn40" path="res://audio/arunangshubanerjee-loopable-car-interior-driving-with-wipers-in-rain-366316.mp3" id="2_gd2ya"]
+[ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_iq54g"]
+[ext_resource type="AudioStream" uid="uid://ditsyfdr0wlmw" path="res://audio/freesound_community-tuning-radio-7150.mp3" id="3_iq54g"]
+
+[node name="Drive" type="Control" unique_id=263192477]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kjaxf")
+
+[node name="Background" type="ColorRect" parent="." unique_id=719809507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.043137256, 0.05882353, 0.078431375, 1)
+
+[node name="Narrator" parent="." unique_id=1399626938 instance=ExtResource("2_iq54g")]
+layout_mode = 1
+
+[node name="Objects" type="HBoxContainer" parent="." unique_id=1392606893]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="RadioButton" type="Button" parent="Objects" unique_id=103426008]
+layout_mode = 2
+text = "Radio"
+
+[node name="GloveboxButton" type="Button" parent="Objects" unique_id=91125391]
+layout_mode = 2
+text = "Glovebox"
+
+[node name="MirrorButton" type="Button" parent="Objects" unique_id=1242854421]
+layout_mode = 2
+text = "Rearview mirror"
+
+[node name="PassengerButton" type="Button" parent="Objects" unique_id=217801255]
+layout_mode = 2
+text = "Passenger seat"
+
+[node name="WheelButton" type="Button" parent="Objects" unique_id=237791908]
+layout_mode = 2
+text = "Steering wheel"
+
+[node name="CarInterior" type="AudioStreamPlayer" parent="." unique_id=1114652426]
+stream = ExtResource("2_gd2ya")
+volume_db = -25.0
+autoplay = true
+parameters/looping = true
+
+[node name="RadioStatic" type="AudioStreamPlayer" parent="." unique_id=1655135672]
+stream = ExtResource("3_iq54g")
+volume_db = -12.0
+autoplay = true
+parameters/looping = true
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1866317839]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

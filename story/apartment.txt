@@ -1,0 +1,17 @@
+# THE APARTMENT: FIRST NIGHT
+
+=== arrival
+narration: The stairs behind the counter creak on every step.
+narration: One room. A bed, a table, a radio, a calendar on the wall. A window looking down on the empty street.
+narration: A coat hangs by the door. It's your size.
+narration: The toothbrush by the sink is still wet.
+paranoia: Someone was here. Recently.
+unknown: Make yourself at home, sweetheart. You live here now.
+
+=== echo_answered
+paranoia: You picked up a dead phone in a dead shop.
+unknown: And you didn't say a word. You're learning.
+
+=== echo_ignored
+paranoia: Downstairs, the phone sits quiet. Waiting.
+unknown: It'll ring again. And next time, you'll answer.
