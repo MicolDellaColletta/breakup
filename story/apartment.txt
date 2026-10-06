@@ -1,10 +1,12 @@
 # THE APARTMENT: FIRST NIGHT
 
 === arrival
-narration: The stairs behind the counter creak on every step.
-narration: One room. A bed, a table, a radio, a calendar on the wall. A window looking down on the empty street.
-narration: A coat hangs by the door. It's your size.
-narration: The toothbrush by the sink is still wet.
+narration: The stairs start at the back of the hallway, right beside the steel door, and climb toward the front of the building. They creak on every step.
+narration: At the top, a small landing, and then the room opens up in front of you.
+narration: A kitchen corner with a stove and a little table. An armchair facing an old TV. A radio. Two windows at the front, and the neon from below painting the ceiling red.
+narration: A coat hangs on a hook by the landing. It's your size.
+narration: A short hall leads toward the back. A bathroom, a bedroom. At the very end, one more door. You try the handle. Locked.
+narration: In the bathroom, the toothbrush by the sink is still wet.
 paranoia: Someone was here. Recently.
 unknown: Make yourself at home, sweetheart. You live here now.
 
@@ -17,8 +19,8 @@ paranoia: Downstairs, the phone sits quiet. Waiting.
 unknown: It'll ring again. And next time, you'll answer.
 
 === window
-narration: The window looks down on the main street. One streetlight. Snow falling through it, slow, like it has all the time in the world.
-narration: Across the street, every window is dark. Every curtain is open.
+narration: The windows look down over the neon sign. The empty lot, your car going white under the snow, the road. Snow falling through the red light, slow, like it has all the time in the world.
+narration: Past the road, the trees. A black wall of them, as far as you can see. Anything could be standing just inside that wall, looking out.
 paranoia: Rule one. Close every window before dark.
 unknown: Or don't. Let some air in, sweetheart. Let them see you.
 
@@ -28,11 +30,11 @@ narration: For a second, in the glass, you think someone is standing behind you.
 
 === window_open
 narration: You leave it. The cold comes in slowly, the way water fills a footprint.
-narration: Down in the street, under the streetlight, there are footprints in the fresh snow. They lead to the shop door. None lead away.
+narration: Down in the lot, in the red of the neon, there are footprints in the fresh snow. They come out of the trees and lead to the shop door. None lead away.
 paranoia: Those weren't there a minute ago.
 
 === radio
-narration: An old radio on the table, the kind with a dial that glows amber. It's unplugged, the cord wrapped neatly around it, as if someone wanted it found that way.
+narration: An old radio on a side table by the armchair, the kind with a dial that glows amber. It's unplugged, the cord wrapped neatly around it, as if someone wanted it found that way.
 paranoia: Rule seven. Keep the radio on at night. The silence is worse.
 
 === radio_on
@@ -46,27 +48,27 @@ narration: In the silence you can hear the compressor downstairs. And under it, 
 unknown: Hear that, sweetheart? That's the house getting used to you.
 
 === calendar
-narration: A feed store calendar from Anchorage, still on October. Days crossed out in pencil, one by one, by someone before you.
+narration: Above the kitchen table, a feed store calendar from Anchorage, still on October. Days crossed out in pencil, one by one, by someone before you.
 narration: The crosses stop four days ago.
 narration: Far ahead, at the end of April, a single date is circled in red. No note. Just the circle, gone over so many times the pencil tore the paper.
 
 === mirror
-narration: A small mirror above the sink, the silver going black at the edges.
+narration: In the bathroom, a small mirror above the sink, the silver going black at the edges.
 narration: Your face. Tired. Older than you remember.
 narration: You turn your head. Your reflection turns too, half a second late.
 paranoia: You're exhausted. That's all. That's all it is.
 unknown: There you are, sweetheart. I'd know that face anywhere.
 
 === coat
-narration: The coat by the door. Heavy canvas, lined with wool. It fits you as if it was bought for you.
-narration: In the inside pocket, a Polaroid. The shop at night, taken from across the street. Your car is parked outside.
+narration: The coat by the landing. Heavy canvas, lined with wool. It fits you as if it was bought for you.
+narration: In the inside pocket, a Polaroid. The shop at night, taken from the trees across the road. Your car is parked outside.
 narration: On the white strip at the bottom, in neat pencil, a date. Last week.
 paranoia: You were still in the city last week. So was your car.
 unknown: Somebody's been expecting you for a long time.
 
 === sleep
 narration: The sheets are cold, and smell faintly of someone else's soap.
-narration: You lie awake and count the sounds of the building. The compressor. The wind. Your own heart.
+narration: You lie awake and count the sounds of the building. The compressor, right under the floor. The wind in the trees. Your own heart.
 narration: Somewhere around three, you stop counting.
 
 === wake_bed
