@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://dl1mega7f33u1"]
+
+[ext_resource type="Script" uid="uid://dmf5kqhdutj3f" path="res://scripts/shop.gd" id="1_1l46r"]
+[ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_032fp"]
+[ext_resource type="AudioStream" uid="uid://cvrknc547f8sh" path="res://audio/freesound_community-rotary-phone-ring-medium-103869.mp3" id="3_8r1wq"]
+[ext_resource type="AudioStream" uid="uid://d2vpsu42pay10" path="res://audio/cartoon_music-shop-bell-ring-543931.mp3" id="3_m4ofw"]
+[ext_resource type="AudioStream" uid="uid://buttnji3lpwvj" path="res://audio/freesound_community-phone-pick-up-46796.mp3" id="4_ajxib"]
+[ext_resource type="AudioStream" uid="uid://b6dkrnkat1vi3" path="res://audio/freesound_community-hum-59083.mp3" id="4_heatd"]
+[ext_resource type="AudioStream" uid="uid://cspfg3qbi7lob" path="res://audio/makigai_maimai-paper-245786.mp3" id="5_1v8qu"]
+[ext_resource type="AudioStream" uid="uid://e45tsmdy1v6x" path="res://audio/freesound_community-tear-paper-103161.mp3" id="6_tear"]
+[ext_resource type="AudioStream" uid="uid://b4gelg4sv5fd1" path="res://audio/soundreality-closed-door-411628.mp3" id="7_doorshut"]
+[ext_resource type="AudioStream" uid="uid://cj2muj1x5nnsb" path="res://audio/soundsgoodmusic-creaking-stairs-306029.mp3" id="8_floor"]
+[ext_resource type="AudioStream" uid="uid://cygvbcgbg1esw" path="res://audio/soundreality-door-knocking-175163.mp3" id="9_knock"]
+[ext_resource type="AudioStream" uid="uid://dgk873oa6xgdh" path="res://audio/dragon-studio-knocking-door-1-397992.mp3" id="10_knockback"]
+[ext_resource type="AudioStream" uid="uid://l26hxl6mp4k7" path="res://audio/freesound_community-phone-hang-up-46793.mp3" id="5_y6sft"]
+[ext_resource type="AudioStream" uid="uid://dia8qe3m72c7e" path="res://audio/freesound_community-telephone-off-hook-us-74706.mp3" id="6_m4ofw"]
+
+[node name="Shop" type="Control" unique_id=1335316952]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1l46r")
+
+[node name="Background" type="ColorRect" parent="." unique_id=378818267]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.0627451, 0.047058824, 1)
+
+[node name="Narrator" parent="." unique_id=1399626938 instance=ExtResource("2_032fp")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="LetterPanel" type="ColorRect" parent="." unique_id=2137375348]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9098039, 0.8745098, 0.78431374, 1)
+
+[node name="LetterMargins" type="MarginContainer" parent="LetterPanel" unique_id=1679226906]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 60
+
+[node name="LetterLayout" type="VBoxContainer" parent="LetterPanel/LetterMargins" unique_id=271398422]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="LetterText" type="Label" parent="LetterPanel/LetterMargins/LetterLayout" unique_id=1720282857]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6666667, 0.13333334, 0.06666667, 1)
+autowrap_mode = 2
+
+[node name="FoldButton" type="Button" parent="LetterPanel/LetterMargins/LetterLayout" unique_id=1562331033]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fold the letter"
+
+[node name="DoorBell" type="AudioStreamPlayer" parent="." unique_id=1026672605]
+unique_name_in_owner = true
+stream = ExtResource("3_m4ofw")
+
+[node name="ShopHum" type="AudioStreamPlayer" parent="." unique_id=1260304033]
+unique_name_in_owner = true
+stream = ExtResource("4_heatd")
+volume_db = -24.0
+autoplay = true
+parameters/looping = true
+
+[node name="PaperSound" type="AudioStreamPlayer" parent="." unique_id=1534522359]
+unique_name_in_owner = true
+stream = ExtResource("5_1v8qu")
+
+[node name="EnvelopeTear" type="AudioStreamPlayer" parent="." unique_id=1417366792]
+unique_name_in_owner = true
+stream = ExtResource("6_tear")
+
+[node name="PhoneRing" type="AudioStreamPlayer" parent="." unique_id=1122386887]
+unique_name_in_owner = true
+stream = ExtResource("3_8r1wq")
+parameters/looping = true
+
+[node name="PhonePickup" type="AudioStreamPlayer" parent="." unique_id=246781574]
+unique_name_in_owner = true
+stream = ExtResource("4_ajxib")
+
+[node name="PhoneHangup" type="AudioStreamPlayer" parent="." unique_id=2117680200]
+unique_name_in_owner = true
+stream = ExtResource("5_y6sft")
+
+[node name="DeadLine" type="AudioStreamPlayer" parent="." unique_id=738919607]
+unique_name_in_owner = true
+stream = ExtResource("6_m4ofw")
+volume_db = -12.0
+parameters/looping = true
+
+
+[node name="DoorShut" type="AudioStreamPlayer" parent="." unique_id=1520394857]
+unique_name_in_owner = true
+stream = ExtResource("7_doorshut")
+volume_db = -6.0
+
+[node name="Floorboards" type="AudioStreamPlayer" parent="." unique_id=1620495958]
+unique_name_in_owner = true
+stream = ExtResource("8_floor")
+volume_db = -8.0
+
+[node name="Knock" type="AudioStreamPlayer" parent="." unique_id=1720596059]
+unique_name_in_owner = true
+stream = ExtResource("9_knock")
+volume_db = -6.0
+
+[node name="KnockBack" type="AudioStreamPlayer" parent="." unique_id=1820697160]
+unique_name_in_owner = true
+stream = ExtResource("10_knockback")

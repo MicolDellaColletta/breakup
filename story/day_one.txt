@@ -1,0 +1,86 @@
+# DAY ONE
+# Same format as drive.txt (see the notes at the top of that file).
+# Counter scenes also understand:
+#   | sold=duck_call     the item leaves the shelf
+#   > Let me look -> @browse   the player looks for an item to offer
+# A customer's sections: <id>_enters, then <id>_given_<item> or
+# <id>_given_other when something is offered, and <id>_nothing when refused.
+# When a section ends with nowhere to go, the next customer comes in.
+
+=== morning
+narration | time=08:40: Morning comes late this far north. At twenty to nine it's still full dark outside.
+-> morning_fed | if=fed_dog
+-> morning_unfed
+
+=== morning_fed
+narration: The bowl by the stove is empty. Licked clean, and pushed a few inches from where you left it.
+paranoia: Mice. Big mice.
+-> opening
+
+=== morning_unfed
+narration: The bowl by the stove is where you left it. Empty.
+narration: On the door at the bottom of the stairs, low down, there are long pale scratches in the paint. They weren't there last night.
+paranoia: You didn't feed it.
+paranoia: There is no it.
+-> opening
+
+=== opening
+narration: You go down and turn the sign in the window. OPEN. The neon outside buzzes and goes pale as the sky starts to gray.
+narration | time=09:00: Behind the counter, everything is where you left it. The phone. The register, still open, still empty. The shelves.
+paranoia: Just act like you know what you're doing.
+
+=== widow_enters
+narration | sound=bell | time=+40: The bell over the door. A woman stamps the snow off her boots on the mat, and keeps stamping long after it's gone.
+narration: Sixties, maybe. A man's parka, much too big for her, zipped to the chin.
+widow: You're the new one.
+widow: John, they said.
+paranoia: Answer to it.
+> "That's right." -> widow_ask
+> Say nothing -> widow_silent
+
+=== widow_silent
+widow: Quiet one. That's all right. Ray was quiet.
+-> widow_ask
+
+=== widow_ask
+widow: I need something. For my husband. Ray. Ray Hollis.
+widow: He went out on the lake three weeks ago, before the ice was any good. They found the truck. They haven't found him.
+widow: The pastor says I should put something in the ground anyway. Something he loved.
+widow: Every fall since he was a boy, he sat in a blind out on the north shore. Before dawn. Talking to them, he said. He said they talked back.
+widow: Last winter was bad. He sold things, one at a time, and didn't tell me. Some of it ended up here, I'd bet.
+paranoia: She means something specific. Look.
+> Let me look -> @browse
+> I don't think I can help -> widow_nothing
+
+=== widow_given_duck_call
+narration | sold=duck_call: She turns it over in her hands. Her thumb finds the initials before her eyes do.
+widow: R.H.
+widow: He carved this when he was twelve. He told me he'd lost it.
+widow: He told me a lot of things, last winter.
+narration | sound=bell: She leaves fifteen dollars on the counter, all in ones, smoothed flat, and goes without waiting for change.
+unknown: She'll be back, sweetheart. Not for anything on the shelves.
+
+=== widow_given_decoy
+widow: That's the club's. Look at the bottom.
+widow: Ray would never have taken a thing that wasn't his.
+narration: She says it like she's said it before. To other people. Recently.
+-> widow_leaves_empty
+
+=== widow_given_other
+widow: No.
+widow: No, that's not his. Ray wouldn't have had a thing like that.
+narration: She looks at you a moment longer than she needs to.
+-> widow_leaves_empty
+
+=== widow_nothing
+widow: No. No, I suppose not.
+-> widow_leaves_empty
+
+=== widow_leaves_empty
+widow: Maybe they should have hired somebody who knew the shop.
+narration | sound=bell: She goes out the way she came, into the dark, and doesn't close the door all the way. The cold comes all the way to the counter.
+paranoia: She'll tell people. Everybody knew Ray.
+
+=== day_so_far
+narration | time=+30: The shop goes quiet again. The hum. The clock. The dark outside going gray.
+narration: (The rest of day one is still being written.)

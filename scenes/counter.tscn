@@ -1,0 +1,133 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/counter.gd" id="1_counter"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_column.tscn" id="2_column"]
+[ext_resource type="AudioStream" uid="uid://d2vpsu42pay10" path="res://audio/cartoon_music-shop-bell-ring-543931.mp3" id="3_bell"]
+[ext_resource type="AudioStream" uid="uid://b6dkrnkat1vi3" path="res://audio/freesound_community-hum-59083.mp3" id="4_hum"]
+
+[node name="Counter" type="Control" unique_id=1110293847]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_counter")
+
+[node name="SceneArea" type="ColorRect" parent="." unique_id=1210394857]
+layout_mode = 1
+anchor_right = 0.64
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0.07, 0.06, 0.05, 1)
+
+[node name="SceneMargins" type="MarginContainer" parent="SceneArea" unique_id=1310495867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 32
+
+[node name="SceneLayout" type="VBoxContainer" parent="SceneArea/SceneMargins" unique_id=1410596877]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="ViewTitle" type="Label" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1510697887]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 0.85)
+theme_override_font_sizes/font_size = 30
+text = "Behind the counter"
+
+[node name="ViewText" type="Label" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1610798897]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.62, 0.6, 1)
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 2
+
+[node name="ViewButtons" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1710899907]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CounterButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1811000917]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Counter"
+
+[node name="FloorButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1911101927]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Shop floor"
+
+[node name="BackButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=2011202937]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back shelves"
+
+[node name="ShelfPanel" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="ShelfItems" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1012404957]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+
+[node name="ItemDetails" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1112505967]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="ItemName" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1212606977]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="ItemDescription" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1312707987]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.72, 0.7, 1)
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 2
+
+[node name="ItemTag" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1412808997]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.79, 0.71, 0.35, 0.9)
+theme_override_font_sizes/font_size = 16
+
+[node name="OfferButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1512909907]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Offer this"
+
+[node name="NothingButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1613010917]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Tell her there's nothing"
+
+[node name="DialogueColumn" parent="." unique_id=1713111927 instance=ExtResource("2_column")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Bell" type="AudioStreamPlayer" parent="." unique_id=1813212937]
+unique_name_in_owner = true
+stream = ExtResource("3_bell")
+
+[node name="ShopHum" type="AudioStreamPlayer" parent="." unique_id=1913313947]
+stream = ExtResource("4_hum")
+volume_db = -24.0
+autoplay = true
+parameters/looping = true
