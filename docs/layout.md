@@ -143,16 +143,18 @@ at a **landing at the front of the stairwell** that opens straight into the main
 ### The locked door
 - At the end of the hall. The room behind it is directly **above the back room and the
   freezer**. Locked on the first night.
-- What's behind it, and where the key is, are still open (see below).
+- **It was Ruth's bedroom** when she was a child (see `story.md`, "The owner"). Abraham
+  locked it when she moved out in 1989. **Ruth has the key.** What's in it now is still open.
 
 ---
 
 ## Open questions
 
-- **What's behind the locked door?** The previous keeper's room? A second staircase down
+- **What's in the locked room now?** (It was Ruth's childhood room; Ruth has the key.)
+  Kept as she left it in 1989? Her mother's things? A second staircase or a hatch down
   to the back room? Something that should only be opened at breakup?
-- **Where is the key?** Ideas: on the pawned shelves as someone's collateral; in a hidden
-  counter drawer; on the coat, found much later.
+- **How does MC get in?** Ruth gives him the key, he takes it from her, or he finds
+  another way.
 - **What does the TV show?** Only static and the one local channel? The same voice as the radio?
 - **Is there a way down from the apartment besides the stairs?** The locked room sits right
   above the back room, so a hatch in its floor down to the freezer would fit. That matters
