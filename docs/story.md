@@ -68,9 +68,30 @@ and the job offer doesn't really care whose name is on it.
 
 Dead in the freezer when MC arrives. The person who knew the most.
 
-- **He was a Keeper himself,** years ago, and the only one who survived
-  breakup. He found a way out: **he became the one who hires.** Every winter
-  since, he sent the notice, and someone else's season ended in his place.
+- **He was a Keeper himself,** in the winter of **1958–59**, and the only one in
+  living memory who survived breakup. He found a way out: **he became the one
+  who hires.** Every winter since, he sent the notice, and someone else's season
+  ended in his place. Forty-one Keepers, counting MC.
+- **He married a Kettle Lake woman** and raised Ruth (born 1959) in the
+  apartment above the shop. Every winter the Keeper had the bedroom; the family
+  had the rest. Ruth's room was the one at the end of the hall, above the
+  freezer: the door that's locked now.
+- **1989.** In the winter of 1988–89 the Keeper ran, in February. The shop was
+  unkept for one night, and it took the one holding the keys: **Abraham's wife**,
+  alone in the shop while he was in town. Nobody in Kettle Lake says it that
+  way; they say she went through the ice. That spring someone painted the lake
+  breaking up, with a small figure standing on a floe (the painting over the
+  armchair; who painted it is open). This is where the rule "never unkept"
+  comes from, and where every "ten" in the game starts:
+  - Ruth moved out, bought the Gleaner and started the wall: a Polaroid of
+    every Keeper from then on. Ten before MC.
+  - Abraham kept the carbon of every job offer from then on. Ten.
+  - Sam arrived that autumn. Ten in his log.
+- **After 1989 he left every September.** He handed the shop to the new Keeper
+  and was gone until after breakup. He never said where (Ruth: "Doesn't tell me
+  where, never has"). He locked Ruth's old room behind him.
+- **This year he stayed,** because John was late. "You're later than I hoped."
+  Staying is what killed him.
 - **He signed the job offers "Management",** but Management isn't him. It's
   what he made the deal with (layer 3).
 - **He knew John.** He wrote ticket 0527.
@@ -95,12 +116,27 @@ Dead in the freezer when MC arrives. The person who knew the most.
 - **They always die or disappear at breakup.** Every one. The player realises
   this slowly.
 - **The town knows,** the way small towns know things they don't say. Everyone
-  calls the Keeper by whatever name they arrived with. Some residents have met
-  five Keepers. "Welcome to Kettle Lake, friend" on the radio is a ritual.
+  calls the Keeper by whatever name they arrived with. The old-timers have met
+  forty. "Welcome to Kettle Lake, friend" on the radio is a ritual.
 - **The rules** in the letter are how a Keeper lasts until breakup.
 - **The shop must never be unkept** (see "The owner"). A Keeper who runs leaves
-  the shop empty, and something has to be taken. What happens if MC simply
-  drives away is still open, but this is the rule it hangs on.
+  the shop empty, and something has to be taken: whoever holds the keys.
+
+### If MC drives away
+
+- **Early on, ordinary things stop him.** Layer 1 does the work: the rental is
+  overdue from ~October 30 and reported stolen; Olstad knows the plate and sits
+  at the town line; from December the road can close for days. Each attempt is
+  a scene, never a game over, and each one costs something (time, suspicion,
+  Olstad's patience).
+- **Later, he really can leave.** And it's an ending: **Run.** The shop is
+  unkept, and it takes whoever holds the keys.
+- **MC chooses who that is.** Whoever he leaves holding a key: Olstad (the back
+  door), Ruth (her old room), someone he hands the front-door key to on his way
+  out, or nobody, in which case it takes what the keys were left with. The
+  epilogue is that person's spring.
+- The previous Keeper who ran (February 1989) is the precedent. Sam and Ruth
+  both know the story, from opposite sides.
 
 ## Management's envelopes
 
@@ -416,8 +452,8 @@ crazy because he's the only one who says the pattern out loud.
 
 - **Looks:** mid-thirties to forty. Beard, unkempt, clothes worn for warmth and
   nothing else.
-- **Who he is:** a hydrologist who came about ten years ago, a young researcher
-  sent to study the ice for a university. The funding ended; he stayed. He's
+- **Who he is:** a hydrologist who came in the autumn of 1989, a young
+  researcher sent to study the ice for a university after a strange spring. The funding ended; he stayed. He's
   the town's official timekeeper for the breakup pool and tends the tripod on
   the lake.
 - **Paranoid,** like MC. He locks things, checks things, notices cars. The two
@@ -439,8 +475,12 @@ crazy because he's the only one who says the pattern out loud.
   same minute. That shouldn't be possible. It's a dry line in a notebook, not a
   prophecy.
 - **What he wants:** to be proved right. And, once, to see what's under the ice.
-- **His secret:** years ago, he got the notice. He said no. Someone else went in
-  his place, and didn't see May. That's why he writes down every Keeper.
+- **His secret:** in September 1993 the funding had died and he wanted to
+  disappear from his own failure. The notice came to his cabin. He said no.
+  That winter's Keeper didn't see May. That's why he writes down every Keeper.
+- **It has come every September since.** Six more envelopes, all unopened, in a
+  drawer in the lab, in order. He knows what they say. Not opening them is the
+  only rule he keeps that he didn't write himself.
 - **The romance:** two people who know too much in a town that pretends not to.
   He's the one who believes MC, and the one MC learns to believe. Rewards a
   strong **Appraisal**.
@@ -451,9 +491,15 @@ crazy because he's the only one who says the pattern out loud.
 **The owner's daughter.** Divorced.
 Suspicious of everyone, the new Keeper most of all.
 
-- **She grew up next to the shop.** She knows her father survived by sending
+- **She grew up above the shop.** Every winter of her childhood a stranger lived
+  down the hall: the Keeper. They taught her card games, fixed her bike, and
+  every spring they were gone. She knows her father survived by sending
   someone else into every breakup, and she has lived off it. The pub was paid
   for with Keepers.
+- **Her mother is the one the shop took in 1989.** Ruth bought the Gleaner that
+  summer and started the wall. She has the key to her old room, the locked one.
+- **The locked room is hers.** What's in it now is still open (see
+  `layout.md`, "The locked door").
 - **She doesn't know he's dead.** He's been "away" since September. She comes to
   the shop asking MC where he is. MC knows exactly where he is.
 - **What she wants:** her father back, or to be free of him. Depending on the
@@ -476,6 +522,7 @@ Suspicious of everyone, the new Keeper most of all.
 | Ending | How you get it |
 |---|---|
 | **The season ends** | Default. MC dies or disappears at breakup, like every Keeper. |
+| **Run** | MC drives away once he finally can. The shop takes whoever he left holding the keys. Their spring is the epilogue. |
 | **The new owner** | MC takes the owner's deal. Last scene: typing next winter's job offer. |
 | **Break the cycle** | Pub owner romance. MC is still there after the ice goes out; it costs something. |
 | **The truth** | Hermit romance. MC learns what's under the ice and chooses it, with them. |
@@ -488,7 +535,12 @@ Suspicious of everyone, the new Keeper most of all.
 
 | Date | |
 |---|---|
-| Months before | John hides what he stole at the shop. Ticket 0527. |
+| Winter 1958–59 | Abraham is the Keeper. He survives breakup by taking the deal, and becomes the one who hires. |
+| 1959 | Ruth is born. She grows up above the shop, with a Keeper down the hall every winter. |
+| February 1989 | The Keeper runs. The shop is unkept; it takes Abraham's wife. "She went through the ice." |
+| Spring–autumn 1989 | Someone paints the breakup. Ruth buys the Gleaner and starts the wall. Abraham starts keeping carbons, and starts leaving every September. Sam arrives. |
+| September 1993 | Sam gets the notice and refuses. That winter's Keeper doesn't see May. It comes to him every September after. |
+| May 1999 | John hides what he stole at the shop. Ticket 0527. |
 | September 14, 1999 | The job offer to John. |
 | Mid-September | Duck season. Ray Hollis goes out to his blind by canoe. The canoe comes back without him. Draft: he pawned his rifle (tag 0431) that week. |
 | October 2 | John rents the car in Anchorage and calls the shop. |
@@ -571,7 +623,9 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
       (Decided: she was in the shop on Oct 4 and told the town the name. Still
       open: did she open the freezer?)
 - [ ] The freezer: who put Abraham in it? Did it, or did he walk in himself?
-- [ ] What happens if MC drives away (see "The shop is never unkept").
+- [x] What happens if MC drives away (see "If MC drives away").
+- [ ] Who painted the 1989 breakup painting?
+- [ ] Who owned the shop before Abraham, and what happened to them in 1959?
 - [ ] Ray's rifle: is tag 0431 his? (Draft: yes.)
 - [ ] Management's envelopes: who delivers them, and what comes besides cash (and when).
 - [x] The recurring customer from day one: the Reverend Elias (draft; see "The church and the radio").
