@@ -8,7 +8,7 @@
 # When a section ends with nowhere to go, the next customer comes in.
 
 === morning
-narration | time=08:40: Morning comes late this far north. At twenty to nine it's still full dark outside.
+narration | time=07:40: Morning comes late this far north. At twenty to eight it's still dark outside. The sun won't clear the trees for another half hour.
 -> morning_fed | if=fed_dog
 -> morning_unfed
 
@@ -19,7 +19,7 @@ paranoia: Mice. Big mice.
 
 === morning_unfed
 narration: The bowl by the stove is where you left it. Empty.
-narration: On the door at the bottom of the stairs, low down, there are long pale scratches in the paint. They weren't there last night.
+narration: At the bottom of the stairs, on the steel door, low down, there are long pale scratches in the paint. On this side. The hallway side. They weren't there last night.
 paranoia: You didn't feed it.
 paranoia: There is no it.
 -> opening
@@ -29,7 +29,7 @@ narration: You go down into the dark shop. Something pale lies on the mat inside
 narration: An envelope, pushed through the gap underneath. FOR THE KEEPER, typed on a label, like the job offer.
 narration | cash=+150: Inside, three fifties, folded once. Nothing else.
 paranoia: Somebody knows you're here. Somebody's paying you to stay.
-narration: You turn the sign in the window. OPEN. The neon outside buzzes and goes pale as the sky starts to gray.
+narration: You turn the sign in the window. OPEN. Outside, the neon buzzes on, pale and pointless against a low gray sky.
 narration | time=09:00: Behind the counter, everything is where you left it. The phone. The register, still open, still empty. The shelves.
 paranoia: Just act like you know what you're doing.
 
@@ -196,7 +196,7 @@ appraisal | if=appraisal>=1: Thirty silver dollars, and you never asked what hap
 # --- The Reverend Elias. Buying. Recurring: the town plot. ---
 
 === reverend_enters
-narration | sound=bell | time=+60: The bell. A tall man in a long black coat, a white collar showing at the throat. Sixty, maybe. He closes the door gently behind him, as if the shop were asleep.
+narration | sound=bell | time=+60: The bell. A tall man in a long black coat and a felt hat, a white collar showing at the throat. Sixty, maybe. He closes the door gently behind him, as if the shop were asleep.
 reverend: Good afternoon. You'll be our new Keeper. I'm Elias. I have the church, up the hill.
 narration: His voice is calm and unhurried, like someone sitting up with a sick friend.
 appraisal | if=appraisal>=2: You've heard that voice before. Through static, on the road, in the dark.
@@ -307,7 +307,7 @@ unknown: She likes you, sweetheart. You can tell.
 # --- Closing time. When this ends, the town map opens. ---
 
 === closing
-narration | time=17:00: By five the sky outside the front windows has gone the dark blue of deep water. Then just dark.
+narration | time=19:10: By ten past seven the sky outside the front windows has gone the dark blue of deep water. Then just dark.
 narration: You turn the sign in the window. CLOSED. The neon stays on. It isn't yours to turn off.
 -> closing_invited | if=invited_to_pub
 -> closing_alone
@@ -324,7 +324,8 @@ paranoia: Nobody's expecting you anywhere. Good. Keep it that way.
 
 === look_counter_drawer
 narration | time=+5: The counter drawer sticks, then gives. Receipt books. Rubber stamps. A box of blank pawn tickets, numbered in order.
-narration: You thumb through them. 0432, 0433, 0434. They pick up right where the ledger's numbers stop.
+narration | if=!broke:warm: You thumb through them. 0432, 0433, 0434. They pick up right where the ledger's numbers stop.
+narration | if=broke:warm: You thumb through them. 0433, 0434, 0435. The stub of 0432 is still in the book, in your handwriting. Walt Pruitt.
 appraisal | if=appraisal>=1: Nothing anywhere near 0527. Somebody skipped ahead to write that one. On purpose.
 paranoia: Then where did yours come from?
 

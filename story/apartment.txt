@@ -55,7 +55,7 @@ unknown: Hear that, sweetheart? That's the house getting used to you.
 
 === calendar
 narration | time=+10: Above the kitchen table, a feed store calendar from Anchorage, still on October. Days crossed out in pencil, one by one, by someone before you.
-narration: The crosses stop four days ago.
+narration: The crosses stop two days ago.
 narration: Far ahead, at the end of April, a single date is circled in red. No note. Just the circle, gone over so many times the pencil tore the paper.
 
 === mirror
