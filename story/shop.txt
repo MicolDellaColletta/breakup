@@ -25,8 +25,10 @@ unknown: Aren't you going to get that, sweetheart?
 
 === dead_line
 narration: You lift the receiver.
-narration: No voice. No dial tone. Just a thin, steady beep, as if the line was never connected to anything.
-narration: For a moment you think you hear breathing on the other end. Then you realize it's yours.
+narration: No voice. No dial tone. Not a dead line: an open one.
+narration: Somewhere on the other end, a room. A clock ticking in it.
+narration: You hold your breath. On the other end, someone lets theirs out. Slowly. Like a man with all the time in the world.
+narration: He doesn't speak. Neither do you.
 paranoia: Put it down.
 > Hang up -> after_call
 

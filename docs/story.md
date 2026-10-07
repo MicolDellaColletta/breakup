@@ -451,15 +451,16 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 
 - [x] **Drive, the passenger seat:** MC knows it's John's gun. Replace "You don't
       remember putting it there."
-- [ ] **Drive, the radio:** the clear moment ("How much is the truth worth to
+- [x] **Drive, the radio:** the clear moment ("How much is the truth worth to
       you?") is the helper, the church's night host. Make it the same calm voice
       that gives hints later.
 - [x] **Rental agreement:** "Note at pick-up: no damage." (Currently "one headlight
       dim".)
 - [x] **Office letter:** written not knowing if anyone would come. John isn't coming;
       he's writing anyway.
-- [ ] **The phone call in the shop:** decide whether it's Daniel (still calling for
-      John).
+- [x] **The phone call in the shop:** it's Daniel, still calling for John. An open
+      line, a clock, someone breathing. Nobody speaks. Paid off by "Happy New Year,
+      sweetheart" on the same phone.
 
 ## Open questions
 

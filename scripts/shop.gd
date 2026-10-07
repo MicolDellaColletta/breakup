@@ -73,10 +73,10 @@ func _pick_up() -> void:
 	GameState.answered_phone = true
 	sounds["ring"].stop()
 	sounds["pickup"].play()
-	# Hold the text until the dead line tone starts.
+	# Hold the text until the pick-up sound ends. No tone after it: the line is
+	# open, and someone is on it (Daniel; see docs/story.md).
 	narrator.set_input_enabled(false)
 	await _wait(_length_of("pickup"))
-	sounds["deadline"].play()
 	narrator.set_input_enabled(true)
 
 func _on_line_shown(line: Dictionary) -> void:
