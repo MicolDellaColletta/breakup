@@ -11,6 +11,7 @@ const STORY_PATH: String = "res://story/apartment.txt"
 @onready var mirror_button: Button = %MirrorButton
 @onready var coat_button: Button = %CoatButton
 @onready var tv_button: Button = %TVButton
+@onready var kitchen_button: Button = %KitchenButton
 @onready var radio_night: AudioStreamPlayer = %RadioNight
 @onready var wind: AudioStreamPlayer = %Wind
 
@@ -31,6 +32,7 @@ func _ready() -> void:
 	mirror_button.pressed.connect(_examine.bind("mirror", mirror_button))
 	coat_button.pressed.connect(_examine.bind("coat", coat_button))
 	tv_button.pressed.connect(_examine.bind("tv", tv_button))
+	kitchen_button.pressed.connect(_examine.bind("kitchen", kitchen_button))
 	bed_button.pressed.connect(_on_bed_pressed)
 	narrator.use_sounds(sounds)
 	narrator.section_finished.connect(_on_section_finished)

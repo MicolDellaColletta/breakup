@@ -8,7 +8,7 @@
 # Conditions, on choices and continues: | if=answered_phone   | if=!answered_phone
 #          | if=rules_broken>=2   | if=broke:window
 #          | if=has:pawn_ticket   | if=hour>=24  (past midnight)
-# Line and choice effects: | sound=bell  | stop=ring (or stop=all)  | after=bell (wait for it to finish)
+# Line and choice effects: | set=fed_dog (turns a GameState true/false on)  | sound=bell  | stop=ring (or stop=all)  | after=bell (wait for it to finish)
 #          | time=+15 (minutes pass)  | time=23:30 (clock moves forward to it)
 #          | take=pawn_ticket  | lose=key  (items live in story/items.cfg)  | break=window
 # Sections start with === and a name. A section with only -> lines just picks a route.

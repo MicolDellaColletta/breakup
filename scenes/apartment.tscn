@@ -80,6 +80,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "TV"
 
+[node name="KitchenButton" type="Button" parent="Objects" unique_id=2029384756]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kitchen"
+
 [node name="RadioNight" type="AudioStreamPlayer" parent="." unique_id=1629980858]
 unique_name_in_owner = true
 stream = ExtResource("3_jq6rh")

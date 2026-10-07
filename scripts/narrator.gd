@@ -241,6 +241,15 @@ func _apply_effects(entry: Dictionary) -> void:
 		GameState.remove_item(entry["lose"])
 	if entry.has("break"):
 		GameState.break_rule(entry["break"])
+	if entry.has("set"):
+		_set_flag(entry["set"])
+
+# set=fed_dog turns a true/false value in GameState on.
+func _set_flag(name: String) -> void:
+	if not name in GameState or not GameState.get(name) is bool:
+		push_warning("set= needs a true/false value in GameState: " + name)
+		return
+	GameState.set(name, true)
 
 # sound=door_shut | after=bell: wait for the bell to finish first.
 func _play_after(sound_name: String, first: String) -> void:

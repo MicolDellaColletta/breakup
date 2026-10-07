@@ -79,9 +79,37 @@ narration: The chair is empty. The picture is taken from right where you're stan
 narration: Then only snow again.
 paranoia: Bad reception. Out here, everything's bad reception.
 
+=== kitchen
+narration | time=+10: The kitchen corner. A two-ring stove, a kettle, a sink with a slow drip.
+narration: On the floor by the stove, a dog bowl. Steel, dented, licked clean.
+narration: Next to it, a paper sack of kibble, rolled shut at the top. Half full.
+paranoia: Rule five. Feed the dog.
+paranoia: What dog?
+> Fill the bowl -> dog_fed | set=fed_dog
+> Leave it -> dog_unfed
+
+=== dog_fed
+narration: The kibble rattles into the steel, far too loud in the quiet. You set the bowl back exactly where it was.
+narration: You wait. Nothing comes.
+unknown: Good. It knows you now, sweetheart.
+
+=== dog_unfed
+narration: You roll the sack shut again and leave the bowl where it is. Empty.
+paranoia: There's no dog. You'd have heard a dog.
+
 === sleep
 narration: The sheets are cold, and smell faintly of someone else's soap.
 narration: You lie awake and count the sounds of the building. The compressor, right under the floor. The wind in the trees. Your own heart.
+-> scratching | if=!fed_dog
+-> sleep_end
+
+=== scratching
+narration | break=dog: And something else. Claws on wood, slow and patient, somewhere in the building.
+narration: You hold your breath. It stops. You let it out. It starts again.
+paranoia: Rule five.
+-> sleep_end
+
+=== sleep_end
 narration | time=03:00: Somewhere around three, you stop counting.
 -> wake_standing | if=rules_broken>=2
 -> wake_bed

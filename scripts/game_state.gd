@@ -7,6 +7,7 @@ const ITEMS_PATH: String = "res://story/items.cfg"
 const MINUTES_PER_DAY: int = 24 * 60
 
 var answered_phone: bool = false
+var fed_dog: bool = false
 var rules_broken: Array[String] = []
 
 # Minutes since midnight on the first evening. Past midnight it keeps
