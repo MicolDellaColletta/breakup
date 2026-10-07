@@ -101,9 +101,12 @@ Dead in the freezer when MC arrives. The person who knew the most.
   loud. From the first week of October the shop must have a Keeper in it, every
   night, until breakup. Breakup takes the Keeper; but if there's no Keeper, it
   takes whoever is holding the keys. On the night of **October 3**, John's
-  arrival date, the shop was empty except for Abraham. It took him. His body is
-  in the freezer. (Who put it there is open; see "The freezer" in open questions.)
+  arrival date, the shop was empty except for Abraham. It took him. He walked
+  into the freezer himself, and he waits there (see "The shop's own rules").
 - **The calendar upstairs** is his: his crosses stop on October 3.
+- **He wrote rule five for himself.** He knew what the shop does with the ones
+  it takes off-season, because he fed his wife from that bowl in the spring of
+  1989. "Feed the dog" is a dying man asking a stranger to feed him.
 - **He wrote the letter anyway,** not knowing if anyone would come. That's why
   it's addressed "FOR THE KEEPER" and not to John.
 - **Now nobody is hiring.** The dead phone still rings in the dead shop.
@@ -137,6 +140,73 @@ Dead in the freezer when MC arrives. The person who knew the most.
   epilogue is that person's spring.
 - The previous Keeper who ran (February 1989) is the precedent. Sam and Ruth
   both know the story, from opposite sides.
+
+## The shop's own rules
+
+What the shop actually does, under the eight rules. None of this is ever said
+outright; the player pieces it together.
+
+### The freezer: where the taken wait
+
+- Layer 1: it's a taxidermy shop. A walk-in freezer full of carcasses waiting
+  to be mounted is ordinary. That's why nobody looks twice.
+- Layer 2: **whoever the shop takes off-season waits in the freezer until
+  breakup,** then goes to the lake with the Keeper. Abraham walked in on the
+  night of October 3 and closed the door behind him.
+- **The taken walk at night.** The boot prints that come in through the back
+  door and go into the freezer and don't come out (night one) are Abraham coming
+  home. Where he goes, before he comes back, is open.
+- Opening the freezer is never forbidden by the letter. Paranoia forbids it.
+  When MC finally opens it is a set piece (not before December).
+
+### The dog: the last one taken
+
+- **"The dog" is whoever the shop took last,** while they wait. They come up at
+  night, and they're hungry. Fed, they're quiet. Unfed, they look for you.
+- In spring 1989 it was Abraham's wife. The bowl is hers: the dent in it is
+  from 1989. Since October 3, it's Abraham.
+- Clues, in order of how late they come: the bowl licked clean and moved; long
+  gray hairs in it; the scratches on the hallway side of the steel door; the
+  stairs creaking, slowly, while MC lies in bed; one night the bowl is licked
+  clean and **set back exactly where MC left it**, the way MC always does it.
+- Ruth would recognise the bowl. That's a scene.
+
+### The back door: for them
+
+- "Leave the back door unlocked." **At breakup, the town comes for the Keeper
+  through the back door.** Every night MC checks the lock, he's leaving the door
+  open for the people who will walk him to the lake.
+- Olstad gave MC her spare key. She has another; she always has another.
+  ("Don't lock it, though. He never did.")
+- The radio helper's line, "A back door is for coming in. Not for keeping out,"
+  reads as reassurance the first time and a confession the second.
+- Locking it doesn't stop them. It makes them knock. (Night one: the handle
+  turning from outside.)
+
+### The bear: the owner before Abraham
+
+- **NOT FOR SALE. NEVER.** Unpriced, unledgered: rule 3 can't price a man.
+- In 1959 Abraham, that winter's Keeper, found the owner's way out and turned it
+  on him: **he gave the owner to breakup in his own place.** The ram caught in
+  the thicket, with Abraham as both Abraham and the knife.
+- **The lake gives back what it took** when the ice goes out ("the sea gave up
+  the dead which were in it"). In May 1959 it gave the old owner back to the
+  shore. Abraham, who was learning taxidermy, put what was left inside the bear
+  he'd shot that winter, and stood it in the corner where he'd see it every day.
+- So "Every Keeper is the ram" (see "Names") has a first ram, and he's in the
+  shop. A strong Appraisal notices the bear's stitching was done twice, decades
+  apart.
+- The lake giving back the dead also means: **Ray Hollis comes back in May.**
+
+### Pawning a name (rule 6)
+
+- "If someone asks to pawn a name, say no. Be polite about it."
+- **The shop can take a name.** Accepted, it goes in the ledger, held, with a
+  ticket number, and from that day **nobody in Kettle Lake can say it.** They
+  reach for it and it isn't there. Redeem the ticket and it comes back.
+- It feeds ??? and breaks rule 6. Refusing rudely breaks it too ("Be polite").
+- First one: **Walt Pruitt, day two, his wife's name: Ida** (see `day_two.md`).
+- Later hook: an old ledger line, held, with a name MC knows. His own.
 
 ## Management's envelopes
 
@@ -622,10 +692,11 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [ ] Sgt. Olstad: how much she knows about the Keepers, and about John's tin box.
       (Decided: she was in the shop on Oct 4 and told the town the name. Still
       open: did she open the freezer?)
-- [ ] The freezer: who put Abraham in it? Did it, or did he walk in himself?
+- [x] The freezer: he walked in himself; the taken wait there (see "The shop's own rules").
+- [ ] Where does Abraham walk at night, before he comes back to the freezer?
+- [ ] Who owned the shop before Abraham? (Now: he's in the bear. Needs a name.)
 - [x] What happens if MC drives away (see "If MC drives away").
 - [ ] Who painted the 1989 breakup painting?
-- [ ] Who owned the shop before Abraham, and what happened to them in 1959?
 - [ ] Ray's rifle: is tag 0431 his? (Draft: yes.)
 - [ ] Management's envelopes: who delivers them, and what comes besides cash (and when).
 - [x] The recurring customer from day one: the Reverend Elias (draft; see "The church and the radio").

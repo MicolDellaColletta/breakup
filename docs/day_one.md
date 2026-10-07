@@ -179,7 +179,7 @@ Each step can be played and tested before the next.
 5. Done: the voices (`voices.md`); still to build: Paranoia talking over the
    others, being frayed, and backgrounds settling.
 6. Done: closing time, the map, the pub (The Gleaner) and the lake.
-7. Done: the night at the shop (`story/night_one.txt`). Day two is next to design.
+7. Done: the night at the shop (`story/night_one.txt`). Day two is designed in `day_two.md`.
 
 Also built along the way: the title screen, pause menu, saving and loading;
 looking around the shop after closing and the apartment at night
