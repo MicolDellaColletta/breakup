@@ -10,14 +10,20 @@ const STORY_SCENES: Dictionary = {
 	"res://story/shop.txt": "res://scenes/shop.tscn",
 	"res://story/apartment.txt": "res://scenes/apartment.tscn",
 	"res://story/day_one.txt": "res://scenes/counter.tscn",
+	"res://story/day_two.txt": "res://scenes/counter.tscn",
+	"res://story/shop_looks.txt": "res://scenes/counter.tscn",
 	"res://story/town.txt": "res://scenes/map.tscn",
 	"res://story/night_one.txt": "res://scenes/night.tscn",
+	"res://story/night_two.txt": "res://scenes/night.tscn",
 }
 
+# Where each scene's spots must find their sections: every file listed.
 const SPOT_STORIES: Dictionary = {
-	"shop": "res://story/day_one.txt",
-	"night": "res://story/night_one.txt",
+	"shop": ["res://story/shop_looks.txt"],
+	"night": ["res://story/night_one.txt", "res://story/night_two.txt"],
 }
+
+var places: ConfigFile = ConfigFile.new()
 
 func run() -> void:
 	_check_spots()
@@ -25,6 +31,8 @@ func run() -> void:
 	items.load("res://story/items.cfg")
 	var stock: ConfigFile = ConfigFile.new()
 	stock.load("res://story/stock.cfg")
+	places.load("res://story/places.cfg")
+	_check_places(items, stock)
 	for path in STORY_SCENES:
 		section(path.get_file())
 		var scene: Node = load(STORY_SCENES[path]).instantiate()
@@ -58,12 +66,13 @@ func _check_spots() -> void:
 		if not SPOT_STORIES.has(scene):
 			problems.append("[%s] unknown scene '%s'" % [spot_id, scene])
 			continue
-		var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
-		var story: Dictionary = column._parse_story(SPOT_STORIES[scene])
-		column.free()
-		var target: String = spots.get_value(spot_id, "section", "")
-		if not story.has(target):
-			problems.append("[%s] no section '%s' in %s" % [spot_id, target, SPOT_STORIES[scene].get_file()])
+		for path in SPOT_STORIES[scene]:
+			var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
+			var story: Dictionary = column._parse_story(path)
+			column.free()
+			var target: String = spots.get_value(spot_id, "section", "")
+			if not story.has(target):
+				problems.append("[%s] no section '%s' in %s" % [spot_id, target, path.get_file()])
 	for problem in problems:
 		print("  FAIL  ", problem)
 	check(problems.is_empty(), "%d spots, every one leads to a section" % spots.get_sections().size())
@@ -113,14 +122,50 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 	if entry.has("target") and not entry["target"].begins_with("@") and not column._story.has(entry["target"]):
 		problems.append("leads to a missing section '%s'  %s" % [entry["target"], where])
 	if entry.has("if"):
-		var condition: String = entry["if"].trim_prefix("!")
-		if condition.begins_with("has:"):
-			if not items.has_section(condition.trim_prefix("has:")):
-				problems.append("if: no item '%s'  %s" % [condition, where])
-		elif not condition.begins_with("broke:"):
-			var value: String = condition
-			for op in [">=", "<=", "==", "!=", ">", "<"]:
-				value = value.split(op)[0]
-			value = value.strip_edges()
-			if not gs.voices.has(value) and not value in gs:
-				problems.append("if: GameState has no '%s'  %s" % [value, where])
+		for problem in _condition_problems(entry["if"], items, stock):
+			problems.append("if: %s  %s" % [problem, where])
+
+# What's wrong with a condition: "day>=2 or flag:x and !sold:ice_picks".
+func _condition_problems(text: String, items: ConfigFile, stock: ConfigFile) -> Array:
+	var problems: Array = []
+	for either in text.split(" or "):
+		for part in either.split(" and "):
+			var condition: String = part.strip_edges().trim_prefix("!").strip_edges()
+			if condition.begins_with("has:"):
+				if not items.has_section(condition.trim_prefix("has:")):
+					problems.append("no item '%s'" % condition)
+			elif condition.begins_with("sold:"):
+				if not stock.has_section(condition.trim_prefix("sold:")):
+					problems.append("no stock item '%s'" % condition)
+			elif condition.begins_with("visited:"):
+				if not places.has_section(condition.trim_prefix("visited:")):
+					problems.append("no place '%s' in places.cfg" % condition)
+			elif condition.begins_with("flag:") or condition.begins_with("broke:"):
+				pass
+			else:
+				var value: String = condition
+				for op in [">=", "<=", "==", "!=", ">", "<"]:
+					value = value.split(op)[0]
+				value = value.strip_edges()
+				if not gs.voices.has(value) and not value in gs:
+					problems.append("GameState has no '%s'" % value)
+	return problems
+
+# The town map's own conditions, and the counter's visitors.
+func _check_places(items: ConfigFile, stock: ConfigFile) -> void:
+	section("places.cfg and the counter's visitors")
+	var problems: Array = []
+	for place_id in places.get_sections():
+		for problem in _condition_problems(places.get_value(place_id, "if", "day>=0"), items, stock):
+			problems.append("[%s] %s" % [place_id, problem])
+	var visits: Dictionary = load("res://scripts/counter.gd").VISITS
+	for day in visits:
+		for visit in visits[day]:
+			var parts: PackedStringArray = visit.split("| if=", true, 1)
+			if parts.size() == 2:
+				for problem in _condition_problems(parts[1], items, stock):
+					problems.append("day %d, %s: %s" % [day, parts[0].strip_edges(), problem])
+	for problem in problems:
+		print("  FAIL  ", problem)
+	check(problems.is_empty(), "every place and visitor condition makes sense")
+	failures += max(0, problems.size() - 1)

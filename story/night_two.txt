@@ -1,0 +1,175 @@
+# THE SECOND NIGHT: Thursday (after day two)
+# Same format as night_one.txt. Every spot in story/spots.cfg needs its
+# section here too. The night: the Thursday broadcast, the dog, and the phone
+# at eleven (rule four). Design: docs/day_two.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. You know which ones complain now, and you step on them anyway.
+narration | stop=stairs: The apartment, cold and patient. Everything where you left it. You check that it's where you left it.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Thursday.
+paranoia: Rule seven.
+> Turn it on -> radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration: Static. Then the static thins, and thins, and is gone.
+narration: The calm voice, clear as if he were in the room. Not a few seconds this time. A whole minute.
+narration: "...the Thursday watch, friends, keeping you company through the dark. Tonight's hymns, for those following along at home."
+narration: "Number one. Number five. And number four."
+narration: "One. Five. Four."
+narration | if=flag:at_church: "And thank you to our visitor this evening. It was good of you to come up."
+narration: Then a hymn, very far away, and the static comes back over it like water over ice.
+appraisal | if=appraisal>=1: One, five, four. Windows and the back door. The dog. The phone.
+paranoia: He's reading you the rules. Out loud. To the whole town.
+paranoia: Which means the whole town knows them.
+
+=== radio_off
+narration: You leave it off.
+narration: In the quiet, the freezer. Then, under it, the tapping again. Slower than last night. As if whatever it is has all the time it needs.
+
+=== kitchen
+narration | time=+10: The bowl by the stove.
+narration | if=broke:dog: It's back where it belongs this morning. Somebody put it back. You didn't put it back.
+paranoia: Rule five.
+> Fill the bowl -> kitchen_fed | set=fed_dog
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles into the steel. You set it down exactly where it was, and line it up with the scuff on the floor, the way someone else always did before you.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+paranoia: Twice now. Whatever it is, it's counting too.
+
+=== windows
+narration | time=+10: The front windows, red with neon, white with frost.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window
+
+=== windows_closed
+narration: Latched. Both. You check them twice, then make yourself stop at twice.
+
+=== windows_open
+narration: Cold pours in. Fourteen below by morning, the Reverend said.
+narration: Down in the lot, your car. A shape on the hood, in the snow. A handprint, or just the wind.
+
+=== dresser
+narration | time=+5: The dresser. The flannel shirts, folded with somebody else's care.
+narration | if=has:church_bulletin: The bottom drawer, the newspaper lining. Nothing else under it now. You took what there was.
+narration | if=!has:church_bulletin: Under the newspaper lining in the bottom drawer, flat against the wood, a folded sheet of paper.
+narration | if=!has:church_bulletin | take=church_bulletin: A church bulletin, mimeographed, the ink gone purple. You fold it into your pocket.
+paranoia: Whoever lived here hid things from somebody.
+
+=== painting
+narration | time=+5: The painting over the armchair. The lake breaking into white plates on black water. The small figure, far out, with its back to you.
+narration: You look at it a long time. It's exactly as it was.
+paranoia: You checked. It's exactly as it was.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked.
+narration | if=flag:ruth_upstairs: You crouch at the keyhole. Last night there was cold air and the hum. Tonight there's nothing. Something has been hung over the keyhole on the other side.
+narration | if=!flag:ruth_upstairs: You crouch at the keyhole. Cold air on your eye, and the freezer's hum, louder here than anywhere else.
+narration | if=flag:ruth_upstairs: She was in there this afternoon. Whatever she went to see, she made sure you wouldn't.
+paranoia: Stand up. Walk away.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, along the hallway, through the steel door.
+narration | sound=door_shut: The back room. The crates. The freezer, furred white, humming.
+narration: The back door, at the far end. The deadbolt, and the keyhole under it.
+narration | if=!has:back_door_key: No key. There never was one, for you.
+paranoia: Rule one. The other half of it.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. Your hand doesn't want to come away from the bolt. You make it.
+
+=== back_door_locked
+narration: The key turns. Clean, heavy, final. You try the handle.
+narration: Last night it turned anyway, from outside. You stand there a while, waiting to see if it will.
+narration: It doesn't. Not while you're watching.
+
+=== sleep
+narration | time=+20: You lie down in your clothes. The sheets are cold. The radio, if it's on, murmurs to itself in the next room.
+narration | sound=ring: Downstairs, the shop phone rings.
+paranoia: Eleven. Near enough. Rule four.
+paranoia: Don't answer the phone after dark. If you do, don't speak first.
+> Go down and answer it -> phone_down | break=phone | lean=animal
+> Let it ring -> phone_ignored | lean=paranoia
+
+=== phone_ignored
+narration: It rings. You count. Twelve. Twenty. You stop counting.
+narration | stop=ring: It stops in the middle of a ring, the way it did the first night.
+narration: The quiet afterwards is the loudest thing in the building.
+-> night_dog
+
+=== phone_down
+narration | sound=stairs: Down the stairs in your socks, in the dark, toward the ringing.
+narration | stop=stairs: Behind the counter. The phone, shaking very slightly with every ring.
+narration | stop=ring | sound=pickup: You lift the receiver and hold it to your ear.
+narration: You don't say anything.
+> Say "Hello?" -> phone_spoke | lean=unknown
+> Wait. Say nothing. -> phone_wait
+
+=== phone_spoke
+narration: "Hello?"
+narration: Your voice, small in the dark shop.
+narration: On the other end, a breath. Then, very quietly, in your own voice, the word comes back to you.
+narration: "Hello?"
+narration | sound=hangup: You put it down so hard the bell on the register jumps.
+paranoia: Don't speak first. It was half the rule. It was the half that mattered.
+-> night_dog
+
+=== phone_wait
+-> phone_neighbour | if=flag:ida_pawned
+-> phone_open_line
+
+=== phone_neighbour
+narration: An old woman's voice, thin with cold or crying.
+narration: "Walt? Is that... no. I'm sorry. I'm calling for Walt Pruitt. He's not home. His porch light's off and he never turns it off."
+narration: "I'm calling about his wife. About..."
+narration: A long pause. You can hear her reaching for it.
+narration: "About... his wife. You know. I've known her fifty years. I've known her since we were girls. Her name is..."
+narration: Nothing. Just her breathing, faster now.
+narration: "Why can't I..."
+narration | sound=hangup: She hangs up crying.
+unknown: You did that.
+paranoia: You wrote it in the book. You did that.
+-> night_dog
+
+=== phone_open_line
+narration: An open line again. A room on the other end, and a clock ticking in it.
+narration: Someone breathing, slow and even. Nothing else.
+narration: You both wait. Neither of you speaks.
+narration | sound=deadline: Then a soft click, and the dial tone, and nothing.
+narration | stop=deadline | sound=hangup: You set the receiver down.
+paranoia: The same as the first night. Whoever it is, he's patient.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=fed_dog
+-> night_dog_unfed
+
+=== night_dog_fed
+narration: Back in bed, you don't sleep. You lie on your side, facing the door.
+narration | sound=stairs: Somewhere after midnight, the stairs.
+narration: One step. A rest. Another step. A rest. Slow, the way an old man climbs, with a hand on the rail.
+narration | stop=stairs: It reaches the top. The kitchen. A scrape of steel on the floor, small and patient. Then quiet, for a long time.
+narration | sound=stairs: Then the stairs again, going down, one step and a rest.
+paranoia: You fed it. It's quiet when you feed it. That's all you need to know.
+paranoia: That's all you need to know.
+-> morning_after
+
+=== night_dog_unfed
+narration: Back in bed, you don't sleep. You lie on your side, facing the door.
+narration: Nothing comes up the stairs tonight.
+narration: But all night, from the bottom of them, you can feel something waiting. The way you can feel someone in a dark room before you find the light switch.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Morning, in the end. Gray at the window. Friday.
+narration: (End of day two. Day three is still being written. Thank you for playing.)

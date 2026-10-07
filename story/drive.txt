@@ -7,11 +7,15 @@
 #          (when a section ends with no choices, the first matching -> is played)
 # Conditions, on choices and continues: | if=answered_phone   | if=!answered_phone
 #          | if=rules_broken>=2   | if=broke:window
-#          | if=has:pawn_ticket   | if=hour>=24  (past midnight)
+#          | if=has:pawn_ticket   | if=hour>=24  (past midnight)   | if=day==2
+#          | if=sold:ice_picks   | if=visited:lake   | if=flag:ezra_satisfied
+#          Join with " and " / " or ":  | if=day>=2 and !flag:ruth_refused
 # Line and choice effects: | set=fed_dog (turns a GameState true/false on)  | sound=bell  | stop=ring (or stop=all)  | after=bell (wait for it to finish)
 #          | time=+15 (minutes pass)  | time=23:30 (clock moves forward to it)
 #          | take=pawn_ticket  | lose=key  (items live in story/items.cfg)  | break=window
 #          | cash=+150  | cash=-5  (money in your pocket)
+#          | flag=ezra_satisfied (remember that it happened)
+#          | write=Cody Hollis went out on the ice. (a line in the ledger, no item)
 #          | lean=warmth (one point for that voice; the prologue only feeds paranoia)
 # Voices: paranoia, john, appraisal, warmth, animal, and the ??? track (unknown).
 #          See docs/voices.md. Strength lives in GameState.voices.

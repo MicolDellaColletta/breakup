@@ -3,11 +3,17 @@ extends Control
 # The shop's home screen: behind the counter, shelves on the left, the
 # dialogue column on the right. Customers come in one at a time.
 
-const STORY_PATH: String = "res://story/day_one.txt"
+const LOOKS_PATH: String = "res://story/shop_looks.txt"
 const STOCK_PATH: String = "res://story/stock.cfg"
+const LEDGER_PATH: String = "res://story/ledger.cfg"
 const MAP_SCENE: String = "res://scenes/map.tscn"
-# Who comes through the door today, in order: customers and visitors.
-const VISITS: Array[String] = ["widow", "nephew", "trooper", "seller", "reverend"]
+# Who comes through the door each day, in order: customers and visitors. The
+# id is the speaker (and the start of their sections: widow_enters). "| if="
+# keeps someone away unless it holds, the same as in story files.
+const VISITS: Dictionary = {
+	1: ["widow", "nephew", "trooper", "seller", "reverend"],
+	2: ["nephew | if=sold:ice_picks", "widow | if=!sold:ice_picks", "ezra", "seller", "ruth"],
+}
 const CUSTOMER_GAP: float = 1.5
 
 # Placeholder text until there's art for each view.
@@ -76,6 +82,8 @@ const TAKE_AMOUNT: int = 20
 }
 
 var _stock: ConfigFile = ConfigFile.new()
+var _ledger_history: ConfigFile = ConfigFile.new()
+var _visits: Array = []
 var _customer_index: int = -1
 var _customer: String = ""
 var _browsing: bool = false
@@ -87,6 +95,9 @@ var _looked: Array[String] = []
 func _ready() -> void:
 	if _stock.load(STOCK_PATH) != OK:
 		push_error("Could not load stock: " + STOCK_PATH)
+	if _ledger_history.load(LEDGER_PATH) != OK:
+		push_error("Could not load the ledger's older pages: " + LEDGER_PATH)
+	_visits = VISITS.get(GameState.day, VISITS[1])
 	counter_button.pressed.connect(_show_view.bind("counter"))
 	floor_button.pressed.connect(_show_view.bind("floor"))
 	back_button.pressed.connect(_show_view.bind("back"))
@@ -102,7 +113,8 @@ func _ready() -> void:
 	column.line_shown.connect(_on_line_shown)
 	column.section_finished.connect(_on_section_finished)
 	column.choice_made.connect(_on_choice_made)
-	column.load_story(STORY_PATH)
+	column.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[1]))
+	column.add_story(LOOKS_PATH)
 	_show_view("counter")
 	column.set_input_enabled(false)
 	await Transition.fade_in(2.0)
@@ -122,17 +134,24 @@ func _on_section_finished(_section: String) -> void:
 
 func _next_customer() -> void:
 	_customer_index += 1
+	# Skip anyone whose "| if=" doesn't hold today.
+	while _customer_index < _visits.size() and not _visit_happens(_visits[_customer_index]):
+		_customer_index += 1
 	# After the last visit, closing time; after closing, the shop is yours to
 	# look around until you leave by the front door.
-	if _customer_index > VISITS.size():
+	if _customer_index > _visits.size():
 		_start_exploring()
 		return
-	if _customer_index == VISITS.size():
+	if _customer_index == _visits.size():
 		column.start_conversation("closing")
 		return
-	_customer = VISITS[_customer_index]
+	_customer = _visits[_customer_index].get_slice("|", 0).strip_edges()
 	await get_tree().create_timer(CUSTOMER_GAP).timeout
 	column.start_conversation(_customer + "_enters")
+
+func _visit_happens(visit: String) -> bool:
+	var parts: PackedStringArray = visit.split("| if=", true, 1)
+	return parts.size() < 2 or column._condition_met(parts[1])
 
 func _on_choice_made(choice: Dictionary) -> void:
 	if choice["target"] == "@browse":
@@ -170,7 +189,7 @@ func _on_line_shown(line: Dictionary) -> void:
 	if line.has("pawned"):
 		var pawned: String = line["pawned"]
 		GameState.record_pawn(_stock.get_value(pawned, "name"), pawned, int(line.get("loan", "0")),
-			_stock.get_value(pawned, "pawn_tag", ""), Narrator.speaker_info(_customer)["name"])
+			_stock.get_value(pawned, "pawn_tag", "new"), Narrator.speaker_info(_customer)["name"])
 		_show_view(_view)
 
 # --- The shelves ---
@@ -216,7 +235,7 @@ func _select(item_id: String) -> void:
 		item_name.text = _stock.get_value(item_id, "name")
 		item_description.text = _stock.get_value(item_id, "description")
 		if _stock.get_value(item_id, "shelf") == "back":
-			item_tag.text = "Pawn tag no. %s. Held, not for sale." % _stock.get_value(item_id, "pawn_tag")
+			item_tag.text = "Pawn tag no. %s. Held, not for sale." % _tag(item_id)
 		else:
 			item_tag.text = "$%d" % _stock.get_value(item_id, "price")
 	_show_voice_notes(item_id)
@@ -286,6 +305,11 @@ func _leave_for_the_evening() -> void:
 	create_tween().tween_property($ShopHum, "volume_db", -80.0, 1.5)
 	Transition.go_to(MAP_SCENE, 1.5, 0.5)
 
+# The ticket number: the one written this season, or the owner's.
+func _tag(item_id: String) -> String:
+	var written: String = GameState.pawn_tag_of(item_id)
+	return written if written != "" else str(_stock.get_value(item_id, "pawn_tag", ""))
+
 # Items marked arrives=true in stock.cfg aren't in the shop until someone brings
 # them in (pawned= in a story file).
 func _in_shop(item_id: String) -> bool:
@@ -305,11 +329,17 @@ func _write_ledger() -> void:
 		if GameState.sold.has(item_id):
 			price = "sold"
 		elif _stock.get_value(item_id, "shelf") == "back":
-			price = "tag %s" % _stock.get_value(item_id, "pawn_tag")
+			price = "tag %s" % _tag(item_id)
 		else:
 			price = "$%d" % _stock.get_value(item_id, "price")
 		text += "\n[b]%s[/b], %s\n[i]%s[/i]\n" % [_stock.get_value(item_id, "name"), price,
 			_stock.get_value(item_id, "ledger", "No entry.").replace("[", "[lb]")]
+	var older: Array = _ledger_history.get_value("older_pages", "lines", [])
+	if not older.is_empty():
+		text += "\n[b]OLDER PAGES[/b]\n"
+		for line in older:
+			text += "\n[i]%s[/i]" % line.replace("[", "[lb]")
+		text += "\n"
 	text += "\n[b]THIS SEASON[/b]\n"
 	if GameState.ledger_lines.is_empty():
 		text += "\nNothing yet. The last line in the owner's hand is three weeks old.\n"

@@ -7,6 +7,7 @@ Checks that run Godot without a window and play through the game.
 | `check_story.gd` | Every story file: speakers, sounds, items, stock, voices, conditions, clock times and where choices lead all exist. **Run it after writing.** |
 | `test_prologue.gd` | The drive, the shop (both phone routes, both doors), the first night (dog fed and not fed). |
 | `test_day_one.gd` | The morning, Mrs. Hollis three ways, the voices, the colored choice rules, number keys. |
+| `test_day_two.gd` | Day two two ways (the morning after night one, Cody or Mrs. Hollis, Ezra, Walt's name, Ruth), the church and Sam's cabin, and the second night's phone three ways. |
 | `test_evening.gd` | The town map: which places show, travel time, the pub, the lake, going home. |
 | `test_night.gd` | The first night as Keeper: radio, back door with and without the key, the reflection after three, staying in bed. |
 | `test_menu.gd` | The title screen, pause menu, saving, loading and settings. Uses its own save folder, never your saves. |

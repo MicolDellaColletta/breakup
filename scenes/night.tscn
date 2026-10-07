@@ -8,6 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://cj2muj1x5nnsb" path="res://audio/soundsgoodmusic-creaking-stairs-306029.mp3" id="6_floor"]
 [ext_resource type="AudioStream" uid="uid://b4gelg4sv5fd1" path="res://audio/soundreality-closed-door-411628.mp3" id="7_door"]
 [ext_resource type="AudioStream" uid="uid://d2vpsu42pay10" path="res://audio/cartoon_music-shop-bell-ring-543931.mp3" id="8_bell"]
+[ext_resource type="AudioStream" uid="uid://cvrknc547f8sh" path="res://audio/freesound_community-rotary-phone-ring-medium-103869.mp3" id="9_ring"]
+[ext_resource type="AudioStream" uid="uid://buttnji3lpwvj" path="res://audio/freesound_community-phone-pick-up-46796.mp3" id="10_pickup"]
+[ext_resource type="AudioStream" uid="uid://l26hxl6mp4k7" path="res://audio/freesound_community-phone-hang-up-46793.mp3" id="11_hangup"]
+[ext_resource type="AudioStream" uid="uid://dia8qe3m72c7e" path="res://audio/freesound_community-telephone-off-hook-us-74706.mp3" id="12_deadline"]
 
 [node name="Night" type="Control" unique_id=1070605040]
 layout_mode = 3
@@ -77,3 +81,23 @@ volume_db = -6.0
 unique_name_in_owner = true
 stream = ExtResource("8_bell")
 volume_db = -16.0
+
+[node name="PhoneRing" type="AudioStreamPlayer" parent="." unique_id=1580756555]
+unique_name_in_owner = true
+stream = ExtResource("9_ring")
+volume_db = -10.0
+parameters/looping = true
+
+[node name="PhonePickup" type="AudioStreamPlayer" parent="." unique_id=1680766656]
+unique_name_in_owner = true
+stream = ExtResource("10_pickup")
+
+[node name="PhoneHangup" type="AudioStreamPlayer" parent="." unique_id=1780776757]
+unique_name_in_owner = true
+stream = ExtResource("11_hangup")
+
+[node name="DeadLine" type="AudioStreamPlayer" parent="." unique_id=1880786858]
+unique_name_in_owner = true
+stream = ExtResource("12_deadline")
+volume_db = -12.0
+parameters/looping = true

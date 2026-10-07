@@ -89,7 +89,7 @@ func _three_am(lock: bool, wave: String, expected_room: String) -> void:
 	check(route.has(expected_room), "the back room plays %s" % expected_room)
 	check(route[-1] == "morning_after", "then morning")
 	await wait(4.5)
-	check(current_scene.name == "Title" and gs.day == 2, "the end of day one goes back to the title screen")
+	check(current_scene.name == "Counter" and gs.day == 2, "the end of night one leads to day two at the counter")
 
 func _stay_in_bed() -> void:
 	section("After three: staying in bed")
