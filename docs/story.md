@@ -474,6 +474,16 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [x] **The phone call in the shop:** it's Daniel, still calling for John. An open
       line, a clock, someone breathing. Nobody speaks. Paid off by "Happy New Year,
       sweetheart" on the same phone.
+- [x] **The office:** the ram's head above Abraham's desk.
+- [x] **The drive:** the hand-painted PREPARE TO MEET THY G... sign and the white
+      roadside crosses.
+- [x] **The counter:** the brass balance for weighing gold.
+- [x] **The pub:** The Gleaner, Ruth, the Keeper's stool, the Polaroid "for the
+      wall" (ten before MC). Ruth asks MC to tell her father the Gleaner's still
+      standing: she doesn't know he's dead.
+- [x] **The apartment:** the radio is the same calm voice as on the drive; the
+      phone echo matches the open line.
+- [x] **The lake:** a light moving on the ice (Sam, out measuring).
 
 ## Open questions
 

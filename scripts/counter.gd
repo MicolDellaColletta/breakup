@@ -14,7 +14,7 @@ const CUSTOMER_GAP: float = 1.5
 const VIEWS: Dictionary = {
 	"counter": {
 		"title": "Behind the counter",
-		"text": "Glass under your hands. The register, open and empty. The phone. Past the shop floor, the front windows, and the neon on the snow.",
+		"text": "Glass under your hands. The register, open and empty. The phone. A brass balance at the end of the glass, the kind for weighing gold. Past the shop floor, the front windows, and the neon on the snow.",
 	},
 	"floor": {
 		"title": "The shop floor",

@@ -13,7 +13,7 @@ unknown: Make yourself at home, sweetheart. You live here now.
 -> echo_ignored
 
 === echo_answered
-paranoia: You picked up a dead phone in a dead shop.
+paranoia: You picked up the phone in a dead shop, and someone was on the other end. Breathing.
 unknown: And you didn't say a word. You're learning.
 
 === echo_ignored
@@ -44,7 +44,7 @@ paranoia: Rule seven. Keep the radio on at night. The silence is worse.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration: You plug it in. Amber light, a hum, then static, then a man's voice in the middle of a sentence.
+narration: You plug it in. Amber light, a hum, then static, then a voice in the middle of a sentence. Calm, unhurried. The voice that came through the static on the road.
 narration: "...and to our new arrival over at the pawn shop: welcome to Kettle Lake. Keep the radio on, friend. It's a long winter."
 paranoia: He knows you're here. Everyone knows you're here.
 
