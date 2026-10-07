@@ -1,7 +1,7 @@
 # DAY ONE
 # Same format as drive.txt (see the notes at the top of that file).
 # Counter scenes also understand:
-#   | sold=duck_call     the item leaves the shelf
+#   | sold=duck_call     the item is sold: off the shelf, into the till and the ledger
 #   > Let me look -> @browse   the player looks for an item to offer
 # A customer's sections: <id>_enters, then <id>_given_<item> or
 # <id>_given_other when something is offered, and <id>_nothing when refused.
@@ -25,7 +25,11 @@ paranoia: There is no it.
 -> opening
 
 === opening
-narration: You go down and turn the sign in the window. OPEN. The neon outside buzzes and goes pale as the sky starts to gray.
+narration: You go down into the dark shop. Something pale lies on the mat inside the front door.
+narration: An envelope, pushed through the gap underneath. FOR THE KEEPER, typed on a label, like the job offer.
+narration | cash=+150: Inside, three fifties, folded once. Nothing else.
+paranoia: Somebody knows you're here. Somebody's paying you to stay.
+narration: You turn the sign in the window. OPEN. The neon outside buzzes and goes pale as the sky starts to gray.
 narration | time=09:00: Behind the counter, everything is where you left it. The phone. The register, still open, still empty. The shelves.
 paranoia: Just act like you know what you're doing.
 

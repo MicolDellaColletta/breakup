@@ -69,6 +69,8 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 		problems.append("sold: no item '%s' in stock.cfg  %s" % [entry["sold"], where])
 	if entry.has("set") and not (entry["set"] in gs and gs.get(entry["set"]) is bool):
 		problems.append("set: GameState has no true/false '%s'  %s" % [entry["set"], where])
+	if entry.has("cash") and not entry["cash"].trim_prefix("+").is_valid_int():
+		problems.append("cash '%s' should look like +150 or -5  %s" % [entry["cash"], where])
 	if entry.has("time") and not entry["time"].begins_with("+") and entry["time"].split(":").size() != 2:
 		problems.append("time '%s' should look like +15 or 23:30  %s" % [entry["time"], where])
 	if entry.has("target") and not entry["target"].begins_with("@") and not column._story.has(entry["target"]):

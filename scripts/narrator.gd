@@ -341,6 +341,8 @@ func _apply_effects(entry: Dictionary) -> void:
 		_set_flag(entry["set"])
 	if entry.has("lean"):
 		GameState.lean(entry["lean"])
+	if entry.has("cash"):
+		GameState.add_cash(entry["cash"].to_int())
 
 # set=fed_dog turns a true/false value in GameState on.
 func _set_flag(name: String) -> void:

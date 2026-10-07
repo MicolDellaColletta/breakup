@@ -71,6 +71,16 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Back shelves"
 
+[node name="LedgerButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1021324354]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ledger"
+
+[node name="RegisterButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1121424555]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Register"
+
 [node name="ShelfPanel" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
 unique_name_in_owner = true
 layout_mode = 2
@@ -116,6 +126,43 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Offer this"
+
+[node name="LedgerPanel" type="ScrollContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1221524656]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="LedgerText" type="RichTextLabel" parent="SceneArea/SceneMargins/SceneLayout/LedgerPanel" unique_id=1321624757]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.82, 0.8, 0.74, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 17
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="RegisterPanel" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1421724858]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="DrawerLabel" type="Label" parent="SceneArea/SceneMargins/SceneLayout/RegisterPanel" unique_id=1521824959]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="TakeButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/RegisterPanel" unique_id=1621925060]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Take $20 for yourself"
 
 [node name="NothingButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1613010917]
 unique_name_in_owner = true

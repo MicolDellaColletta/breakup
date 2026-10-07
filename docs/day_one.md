@@ -56,17 +56,25 @@ to take it and at what price. This is where the rules get tested.
   back for it. Creates callbacks later.
 - **Sell** = final. The item goes out front for sale.
 
-### Day one: 4 customers (placeholders)
+### Day one: 4 customers
 
-1. **Buyer: someone who knew the old keeper.** Asks for "the usual" and expects
-   you to know what that is. The ledger has the answer, if you look. Tests
-   whether you can pass as the keeper.
-2. **Buyer: a gift for someone who's gone.** "Something my husband would have
-   wanted. He hunted. He'd have hated that I came here." Find the right item.
-3. **Buyer: wants something specific and won't say why.** Leaves a strange
-   feeling. Their item could be connected to the past (see Items).
-4. **Seller: the warm item. Rule 2, "Don't buy anything that's still warm."**
-   They put it on the counter. When you pick it up, it's warm. Buy it or not.
+3 come to buy, 1 comes to sell.
+
+- **Mrs. Hollis (built).** Buying something of her missing husband Ray's to bury.
+  The duck call puzzle.
+- **Two one- or two-time customers.** They come once, maybe come back once.
+- **One recurring customer, central to the town plot.** Comes back across the
+  winter.
+
+Who the three are is still open. Ideas from earlier, free to use or drop:
+
+- **Someone who knew the old keeper.** Asks for "the usual" and expects you to
+  know what that is. The ledger has the answer, if you look. Tests whether you
+  can pass as the keeper.
+- **Wants something specific and won't say why.** Leaves a strange feeling.
+  Their item could be connected to the past (see Items).
+- **The seller: the warm item. Rule 2, "Don't buy anything that's still warm."**
+  They put it on the counter. When you pick it up, it's warm. Buy it or not.
 
 ## The Trooper
 
@@ -115,7 +123,8 @@ Careful: money should create pressure and consequences, never a spreadsheet.
 - **No game over from running out**, at least early on.
 - **It starts almost empty.** The register drawer is open and empty (prologue).
   MC has a little cash of their own; why depends on the background.
-- Wages: weekly, in cash (the job offer). Who pays them?
+- **Wages: Management's weekly envelope** (see `story.md`). Cash, and sometimes
+  a note or an object. The owner is dead, but the envelopes keep coming.
 
 ## Evening: the town map
 
@@ -164,10 +173,11 @@ Each step can be played and tested before the next.
 
 ## Open questions
 
-- [ ] The four customers: who they are, what they want, how each connects to
+- [ ] The three other customers (two one-or-two-time, one recurring): who they
+      are, what they want, how each connects to
       the backgrounds or the plot.
 - [ ] Which choices feed which voice (see `voices.md`).
-- [ ] Money: MC's starting cash, who pays wages, what money is for (gas, the
+- [ ] Money: MC's starting cash, what money is for (gas, the
       pub, a debt?).
 - [ ] How the night ends without the dog being fed: scratching where?
 - [ ] The pub: who are the residents?

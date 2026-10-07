@@ -36,6 +36,7 @@ func _morning_and_pockets() -> void:
 	var column: Node = counter.get_node("%DialogueColumn")
 	check(column._section == "widow_enters", "Mrs. Hollis comes in after the morning")
 	check(counter.sounds["bell"].playing, "the bell rings as she comes in")
+	check(gs.cash == 38 + 150, "Management's first envelope puts $150 in your pocket")
 	check(gs.clock_text() == "9:40 AM", "it's 9:40 AM")
 	check(choices(column) == ["\"That's right.\"", "Say nothing"], "she asks if you're John")
 	var hud: Node = root.get_node("Hud")
@@ -68,6 +69,24 @@ func _widow_kind() -> void:
 	var shelf: Array = counter.get_node("%ShelfItems").get_children().filter(
 		func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return b.text)
 	check(not shelf.has("Duck call"), "the duck call is sold and leaves the shelf")
+	check(gs.till == 15 and gs.till_by_ledger == 15, "her $15 goes in the till")
+	check(gs.ledger_lines == ["Oct 6. Duck call, sold to Mrs. Hollis. $15"], "the ledger writes the sale down, dated")
+	counter._show_view("ledger")
+	var ledger: String = counter.get_node("%LedgerText").get_parsed_text()
+	check(ledger.contains("R. Hollis") and ledger.contains("tag 0447"), "the ledger shows the owner's entries")
+	check(ledger.contains("Duck call, sold"), "a sold item keeps its entry, marked sold")
+	counter._show_view("register")
+	check(counter.get_node("%DrawerLabel").text == "In the drawer: $15.", "the register shows what's in the drawer")
+	counter._on_take_pressed()
+	check(gs.till == 0 and gs.cash == 188 + 15, "taking from the till moves it to your pocket (only what's there)")
+	check(gs.till_short == 15, "and the ledger no longer matches the drawer")
+	var hud: Node = root.get_node("Hud")
+	hud.open_pockets()
+	await process_frame
+	var last: Node = hud.get_node("%ItemButtons").get_children().filter(
+		func(n: Node) -> bool: return not n.is_queued_for_deletion())[-1]
+	check(last is Label and last.text.contains("Cash: $203"), "your cash shows in the pockets")
+	hud.close_pockets()
 
 func _widow_price() -> void:
 	section("Mrs. Hollis: silent, asks the price, offers the decoy")
