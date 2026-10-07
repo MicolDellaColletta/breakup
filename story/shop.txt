@@ -13,13 +13,13 @@ paranoia: Why are you here, again?
 paranoia: This place looks like it fell out of a cheap horror movie. And the longer you look at it, the less it looks like a movie.
 paranoia: Don't make a sound.
 paranoia: Not that it matters. There's no one here. Right?
-unknown: Right, sweetheart. All alone.
+unknown: Right. All alone.
 narration | sound=floorboards: You cross the shop one careful step at a time. The floorboards wait until your full weight is on them, then complain.
 narration: Your hands find the cold glass of the counter. A register, its drawer hanging open and empty. Beside it, a telephone. Black, heavy, old.
 narration | sound=ring: It rings.
 paranoia: Who calls a closed shop in the middle of the night?
 narration: You haven't told anyone where you were going. There's nobody left to tell.
-unknown: Aren't you going to get that, sweetheart?
+unknown: Aren't you going to get that?
 > Pick up -> dead_line | break=phone
 > Let it ring -> let_it_ring
 
@@ -58,7 +58,7 @@ narration | sound=knock: You knock. Twice. Softly, the way you'd knock on a hosp
 narration: Nothing.
 narration | sound=knock_back: Then, from the other side, one knock back.
 paranoia: Pipes. Old buildings knock. That's all that was.
-unknown: Come in, sweetheart. Don't be rude.
+unknown: Come in. Don't be rude.
 -> office
 
 === office
@@ -85,14 +85,14 @@ narration: Under the bulb, the ink is sharp and black. You won't have any troubl
 === after_letter_answered
 paranoia: Rule four.
 paranoia: You'd broken it before you even knew it existed.
-unknown: You didn't speak first, though. Good instincts, sweetheart.
+unknown: You didn't speak first, though. Good instincts.
 narration: Out in the dark, the hum goes on. Now you can place it: behind a heavy steel door at the very back of the shop. A compressor. A freezer, maybe.
 -> upstairs
 
 === after_letter_ignored
 paranoia: Rule four. You didn't answer.
 paranoia: Not knowing saved you. It won't, next time.
-unknown: They'll call again, sweetheart. They always call again.
+unknown: They'll call again. They always call again.
 narration: Out in the dark, the hum goes on. Now you can place it: behind a heavy steel door at the very back of the shop. A compressor. A freezer, maybe.
 -> upstairs
 

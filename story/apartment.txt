@@ -8,7 +8,7 @@ narration: A coat hangs on a hook by the landing. It's your size.
 narration: A short hall leads toward the back. A bathroom, a bedroom. At the very end, one more door. You try the handle. Locked.
 narration: In the bathroom, the toothbrush by the sink is still wet.
 paranoia: Someone was here. Recently.
-unknown: Make yourself at home, sweetheart. You live here now.
+unknown: Make yourself at home. You live here now.
 -> echo_answered | if=answered_phone
 -> echo_ignored
 
@@ -21,10 +21,10 @@ paranoia: Downstairs, the phone sits quiet. Waiting.
 unknown: It'll ring again. And next time, you'll answer.
 
 === window
-narration | time=+10: The windows look down over the neon sign. The empty lot, your car going white under the snow, the road. Snow falling through the red light, slow, like it has all the time in the world.
+narration | time=+10: The windows look down over the neon sign. The empty lot, your car going white under the snow, the road. Snow falling through the red light, slow, as if it had nowhere else to be.
 narration: Past the road, the trees. A black wall of them, as far as you can see. Anything could be standing just inside that wall, looking out.
 paranoia: Rule one. Close every window before dark.
-unknown: Or don't. Let some air in, sweetheart. Let them see you.
+unknown: Or don't. Let some air in. Let them see you.
 > Close it -> window_closed
 > Leave it open -> window_open | break=window
 
@@ -51,7 +51,7 @@ paranoia: He knows you're here. Everyone knows you're here.
 === radio_off
 narration: You leave it wrapped. The silence settles over the room like snow.
 narration: In the silence you can hear the compressor downstairs. And under it, something else. A slow knocking, somewhere below the floor.
-unknown: Hear that, sweetheart? That's the house getting used to you.
+unknown: Hear that? That's the house getting used to you.
 
 === calendar
 narration | time=+10: Above the kitchen table, a feed store calendar from Anchorage, still on October. Days crossed out in pencil, one by one, by someone before you.
@@ -91,7 +91,7 @@ paranoia: What dog?
 === dog_fed
 narration: The kibble rattles into the steel, far too loud in the quiet. You set the bowl back exactly where it was.
 narration: You wait. Nothing comes.
-unknown: Good. It knows you now, sweetheart.
+unknown: Good. It knows you now.
 
 === dog_unfed
 narration: You roll the sack shut again and leave the bowl where it is. Empty.
@@ -123,4 +123,4 @@ paranoia: Nothing you remember, anyway.
 narration | time=05:20: You wake standing up.
 narration: You're at the bottom of the stairs, barefoot, one hand on the handle of the heavy door at the back of the shop. The compressor hums against your palm.
 narration: Your feet are wet. There's snow melting on the floor around them.
-unknown: Not yet, sweetheart. Not yet.
+unknown: Not yet. Not yet.

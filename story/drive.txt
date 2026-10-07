@@ -51,7 +51,7 @@ paranoia | static=normal: One headlight dimmer than the other. Check yours. No. 
 narration | time=+5: Napkins. A tire gauge. A pawn ticket, number 0527. The shop's name is stamped across the top. You know it. You've read it a hundred times, on the letterhead in your pocket.
 narration: On the back, in pencil, the address. Somebody wrote it down twice, in two different places, so they couldn't lose it.
 narration | take=pawn_ticket: You slip the ticket into your pocket. You couldn't say why.
-unknown: Two copies, sweetheart. Somebody really wanted you to arrive.
+unknown: Two copies. Somebody really wanted you to arrive.
 
 === mirror
 narration | time=+5: Headlights, far back. They've kept the same distance for an hour.
@@ -62,7 +62,7 @@ paranoia: They turned their lights off. That's what you'd do.
 narration | time=+5: On the passenger seat, something wrapped in a towel. About the size of a loaf of bread. Heavier than it looks.
 narration: You know what it is. It was here when you took the car. Like the car, it isn't yours.
 paranoia: Leave it wrapped.
-unknown: Not yet, sweetheart. Not yet.
+unknown: Not yet. Not yet.
 > Count the bullets -> passenger_count
 > Leave it wrapped -> passenger_wrapped
 
@@ -97,6 +97,6 @@ narration: You say it, quietly, to the windshield. It doesn't sound right.
 === wheel
 narration: You put both hands on the wheel. Ten and two, the way someone taught you once.
 paranoia: Just drive.
-unknown: You're almost there, sweetheart.
+unknown: You're almost there.
 unknown: Maybe.
 narration | time=23:20: The sign comes out of the snow all at once. PAWN, GUNS, FURS, TAXIDERMY. One letter dead in the neon.

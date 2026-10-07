@@ -66,7 +66,7 @@ narration: Further along the shore, a shack with one lit window. Smoke from a st
 narration: Out on the thin ice, where nobody could be walking, a light moves. Stops. Moves again. Then it goes out.
 paranoia: That ice wouldn't hold a dog.
 paranoia: Somebody who watches the ice all winter. Don't knock.
-unknown: Not yet, sweetheart.
+unknown: Not yet.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.
