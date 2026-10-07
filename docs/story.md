@@ -600,7 +600,28 @@ Suspicious of everyone, the new Keeper most of all.
 | **The truth** | Hermit romance. MC learns what's under the ice and chooses it, with them. |
 | **Daniel** | MC goes with him at breakup. |
 | **Daniel, secret** | Hidden (??? choices, a high ??? track, ticket 0527). Daniel becomes the owner, and MC becomes the Keeper who never dies. Kept. |
-| **Thaw** (proposal) | MC rebuilds without a romance: gets through the winter keeping faith with the rules and the people he's met. See `themes.md`. |
+| **Thaw** | The bright one. MC rebuilds without a romance, through the people he kept faith with. See "Thaw" below. |
+
+### Thaw (draft)
+
+The one brighter ending. Earned, not given, and it still costs.
+
+- **How you get it (draft):** keep faith through the winter. Not perfectly:
+  MC can fray and come back. What counts is the end: not frayed at breakup,
+  no name left pawned (refused, or given back), and enough of the town's lonely
+  people kept faith with (Walt, the Hollises, Ezra, Ruth, Sam, Olstad), without
+  choosing any romance ending.
+- **At breakup,** the town comes through the back door for the Keeper, the way
+  it always has. This time the ones who come are the people MC kept faith with.
+  They walk him to the shore, the way the town always walks the Keeper. They
+  stand with him and watch the ice go out. Then they walk him back.
+- **It costs:** before the ice goes, MC has to stop running from what he did,
+  saw, owed or forgot (his background). He says it to someone. Possibly to
+  Olstad, which may mean he doesn't stay free.
+- **Last image:** the tripod falls and the clock on the shore stops. Someone asks
+  his name, and for the first time he gives his own.
+- Open: what happens with Daniel in this ending, and whether the shop needs a
+  Keeper next winter (and whether MC chooses to be one, of his own will).
 
 ---
 

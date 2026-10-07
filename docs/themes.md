@@ -64,11 +64,10 @@ rebuild, and the rebuilding has to cost something.
 | The truth | Meaning found by facing the meaningless, with someone else. |
 | Daniel | Desire as self-destruction. |
 | Daniel, secret | Emptiness kept forever. |
+| **Thaw** | Rebuilding through suffering, without a romance: through small kept promises and the people MC kept faith with. The brighter possibility. MC gets his own name back. |
 
-**Gap:** every ending where MC rebuilds needs a romance. There should probably
-be one where MC rebuilds **alone**, or with the town, or simply by getting
-through the winter keeping faith with the rules and the people he's met. Call
-it **Thaw**. To decide.
+Thaw is decided (see `story.md`, "Thaw"): the game needs one brighter ending
+that doesn't depend on a romance.
 
 ## Writing it with care
 
