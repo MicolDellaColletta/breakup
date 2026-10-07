@@ -22,7 +22,18 @@ const VIEWS: Dictionary = {
 		"title": "The back shelves",
 		"text": "Things people left as a promise to come back. Each one has a pawn tag. None of them are yours to sell.",
 	},
+	"ledger": {
+		"title": "The ledger",
+		"text": "A clothbound book, swollen with damp. Every item the shop holds, in the owner's small, careful hand.",
+	},
+	"register": {
+		"title": "The register",
+		"text": "Old brass, heavy as an anvil. The drawer sticks, then rolls open with a bell of its own.",
+	},
 }
+
+# Money taken from the till at a time, for yourself.
+const TAKE_AMOUNT: int = 20
 
 @onready var column: DialogueColumn = %DialogueColumn
 @onready var view_title: Label = %ViewTitle
@@ -30,7 +41,14 @@ const VIEWS: Dictionary = {
 @onready var counter_button: Button = %CounterButton
 @onready var floor_button: Button = %FloorButton
 @onready var back_button: Button = %BackButton
+@onready var ledger_button: Button = %LedgerButton
+@onready var register_button: Button = %RegisterButton
 @onready var shelf_panel: Control = %ShelfPanel
+@onready var ledger_panel: ScrollContainer = %LedgerPanel
+@onready var ledger_text: RichTextLabel = %LedgerText
+@onready var register_panel: Control = %RegisterPanel
+@onready var drawer_label: Label = %DrawerLabel
+@onready var take_button: Button = %TakeButton
 @onready var shelf_items: VBoxContainer = %ShelfItems
 @onready var item_name: Label = %ItemName
 @onready var item_description: Label = %ItemDescription
@@ -44,7 +62,6 @@ const VIEWS: Dictionary = {
 }
 
 var _stock: ConfigFile = ConfigFile.new()
-var _sold: Array[String] = []
 var _customer_index: int = -1
 var _customer: String = ""
 var _browsing: bool = false
@@ -57,6 +74,9 @@ func _ready() -> void:
 	counter_button.pressed.connect(_show_view.bind("counter"))
 	floor_button.pressed.connect(_show_view.bind("floor"))
 	back_button.pressed.connect(_show_view.bind("back"))
+	ledger_button.pressed.connect(_show_view.bind("ledger"))
+	register_button.pressed.connect(_show_view.bind("register"))
+	take_button.pressed.connect(_on_take_pressed)
 	offer_button.pressed.connect(_on_offer_pressed)
 	nothing_button.pressed.connect(_on_nothing_pressed)
 	column.use_sounds(sounds)
@@ -116,8 +136,10 @@ func _stop_browsing() -> void:
 
 func _on_line_shown(line: Dictionary) -> void:
 	if line.has("sold"):
-		_sold.append(line["sold"])
-		if _selected == line["sold"]:
+		var item_id: String = line["sold"]
+		GameState.record_sale(_stock.get_value(item_id, "name"), item_id,
+			int(_stock.get_value(item_id, "price", 0)), Narrator.speaker_info(_customer)["name"])
+		if _selected == item_id:
 			_selected = ""
 		_show_view(_view)
 
@@ -127,14 +149,20 @@ func _show_view(view: String) -> void:
 	_view = view
 	view_title.text = VIEWS[view]["title"]
 	view_text.text = VIEWS[view]["text"]
-	shelf_panel.visible = view != "counter"
+	shelf_panel.visible = view == "floor" or view == "back"
+	ledger_panel.visible = view == "ledger"
+	register_panel.visible = view == "register"
 	for old in shelf_items.get_children():
 		old.queue_free()
-	if view == "counter":
+	if view == "ledger":
+		_write_ledger()
+	if view == "register":
+		_open_register()
+	if not shelf_panel.visible:
 		return
 	var first: String = ""
 	for item_id in _stock.get_sections():
-		if _stock.get_value(item_id, "shelf") != view or _sold.has(item_id):
+		if _stock.get_value(item_id, "shelf") != view or GameState.sold.has(item_id):
 			continue
 		if first == "":
 			first = item_id
@@ -143,7 +171,7 @@ func _show_view(view: String) -> void:
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.pressed.connect(_select.bind(item_id))
 		shelf_items.add_child(button)
-	_select(first if _stock.get_value(_selected, "shelf", "") != view or _sold.has(_selected) else _selected)
+	_select(first if _stock.get_value(_selected, "shelf", "") != view or GameState.sold.has(_selected) else _selected)
 
 func _select(item_id: String) -> void:
 	_selected = item_id
@@ -184,6 +212,43 @@ func _show_voice_notes(item_id: String) -> void:
 		note.add_theme_color_override("default_color", speaker["color"])
 		note.text = "[b]%s[/b] — %s" % [speaker["name"].to_upper(), _stock.get_value(item_id, voice).replace("[", "[lb]")]
 		voice_notes.add_child(note)
+
+# --- The ledger and the register ---
+
+# Every item the shop holds, with the owner's entry for it, then this
+# season's sales, then what the drawer should hold by the book.
+func _write_ledger() -> void:
+	var text: String = "[b]HELD BY THE SHOP[/b]\n"
+	for item_id in _stock.get_sections():
+		# A ledger never erases: a sold item keeps its entry, marked sold.
+		var price: String
+		if GameState.sold.has(item_id):
+			price = "sold"
+		elif _stock.get_value(item_id, "shelf") == "back":
+			price = "tag %s" % _stock.get_value(item_id, "pawn_tag")
+		else:
+			price = "$%d" % _stock.get_value(item_id, "price")
+		text += "\n[b]%s[/b], %s\n[i]%s[/i]\n" % [_stock.get_value(item_id, "name"), price,
+			_stock.get_value(item_id, "ledger", "No entry.").replace("[", "[lb]")]
+	text += "\n[b]THIS SEASON[/b]\n"
+	if GameState.ledger_lines.is_empty():
+		text += "\nNothing yet. The last line in the owner's hand is four days old.\n"
+	for line in GameState.ledger_lines:
+		text += "\n" + line.replace("[", "[lb]")
+	text += "\n\n[b]THE DRAWER, BY THE BOOK[/b]\n\n$%d" % GameState.till_by_ledger
+	ledger_text.text = text
+
+func _open_register() -> void:
+	if GameState.till == 0:
+		drawer_label.text = "The drawer is empty."
+	else:
+		drawer_label.text = "In the drawer: $%d." % GameState.till
+	take_button.visible = GameState.till > 0
+
+# Not written in the ledger. The book and the drawer stop agreeing.
+func _on_take_pressed() -> void:
+	GameState.take_from_till(TAKE_AMOUNT)
+	_open_register()
 
 # Only floor items can be offered, and only while a customer is waiting.
 func _refresh_offer() -> void:

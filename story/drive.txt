@@ -11,6 +11,7 @@
 # Line and choice effects: | set=fed_dog (turns a GameState true/false on)  | sound=bell  | stop=ring (or stop=all)  | after=bell (wait for it to finish)
 #          | time=+15 (minutes pass)  | time=23:30 (clock moves forward to it)
 #          | take=pawn_ticket  | lose=key  (items live in story/items.cfg)  | break=window
+#          | cash=+150  | cash=-5  (money in your pocket)
 #          | lean=warmth (one point for that voice; the prologue only feeds paranoia)
 # Voices: paranoia, john, appraisal, warmth, animal, and the ??? track (unknown).
 #          See docs/voices.md. Strength lives in GameState.voices.

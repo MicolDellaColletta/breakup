@@ -42,6 +42,11 @@ func open_pockets() -> void:
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.pressed.connect(_select.bind(item_id))
 		item_buttons.add_child(button)
+	var cash: Label = Label.new()
+	cash.text = "\nCash: $%d" % GameState.cash
+	cash.add_theme_color_override("font_color", Color(0.79, 0.71, 0.35, 0.9))
+	cash.add_theme_font_size_override("font_size", 18)
+	item_buttons.add_child(cash)
 	_select(GameState.inventory[0] if not GameState.inventory.is_empty() else "")
 	pockets_panel.visible = true
 	# Holding focus here keeps Space/Enter from advancing the story underneath.
@@ -49,6 +54,11 @@ func open_pockets() -> void:
 
 func close_pockets() -> void:
 	pockets_panel.visible = false
+
+# True while the pockets (or a paper read from them) cover the screen, so
+# keys don't reach the story underneath.
+func is_covering() -> bool:
+	return pockets_panel.visible or document_viewer.visible
 
 # --- Private: the machinery ---
 

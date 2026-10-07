@@ -84,6 +84,19 @@ Dead in the freezer when MC arrives. The person who knew the most.
   five Keepers. "Welcome to Kettle Lake, friend" on the radio is a ritual.
 - **The rules** in the letter are how a Keeper lasts until breakup.
 
+## Management's envelopes
+
+The Keeper's wages. The owner is dead, but they keep coming.
+
+- **Every week, an envelope** with the week's pay in cash, as the job offer
+  promised. Addressed to the Keeper, never to a name.
+- **Sometimes there's something else in it:** a note, or an object. Sometimes
+  nothing but the money.
+- **Who sends them** now that the owner is in the freezer is part of the
+  question of what Management is (layer 3).
+- In the game, the envelope is where money comes from, and a weekly beat:
+  the player learns to dread or look forward to what's inside.
+
 ## Breakup
 
 When the ice goes out on the lake, something below is let out, or fed, or wakes
@@ -124,6 +137,24 @@ toss).
 player shouldn't be sure whether what's under the ice learned that voice from
 him, or the other way round. A man that patient would make a perfect owner for
 the shop. Maybe Management thinks so too.
+
+## The Trooper
+
+An Alaska State Trooper: in rural Alaska, outside the towns, the Troopers are
+the police. For someone living under a stolen name, the most dangerous person
+in Kettle Lake who isn't Daniel.
+
+- **First visit: day one,** between customers. Not a customer.
+- **Calls MC "John"** and watches how long it takes them to answer.
+- **Knows too much, quietly.** "Saw a sedan come in late last night. One
+  headlight dimmer than the other. Yours?" The radio caller's words from the
+  drive, said to MC's face.
+- **Strange warnings** that sound like small talk.
+- **Invites MC to the pub that night** to meet the residents. This is how the
+  player first opens the map.
+
+Layer 1: a cop who is good at their job and suspicious of a stranger.
+Layer 2: they've met other Keepers, and know how every season ends.
 
 ## The car, the gun, the ticket
 
@@ -206,6 +237,8 @@ don't get attached to Keepers"), then helps in secret.
 | October 2 | John rents the car in Anchorage and calls the shop. |
 | Soon after | John dies. Daniel meets MC and lets them go. Daniel phones the shop. The owner dies. |
 | First week of October | The drive. MC arrives. (The prologue.) |
+| Day one | The first customers. The Trooper visits and invites MC to the pub. |
+| Every week | Management's envelope: the pay, and sometimes something else. |
 | December 31 | The party at the pub. "Happy New Year, sweetheart." |
 | Early January | Daniel arrives. |
 | End of April | Breakup. The date circled on the calendar upstairs. |
@@ -235,3 +268,6 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [ ] What soaked the rental agreement, per background.
 - [ ] What exactly happens to Keepers at breakup.
 - [ ] Ray Hollis: just the widow's husband, or connected?
+- [ ] The Trooper: name, gender, how much they know about the Keepers.
+- [ ] Management's envelopes: who delivers them, and what comes besides cash (and when).
+- [ ] The recurring customer from day one who matters to the town plot.
