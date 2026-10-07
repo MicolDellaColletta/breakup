@@ -18,6 +18,7 @@ var day: int
 var answered_phone: bool
 var fed_dog: bool
 var invited_to_pub: bool
+var locked_back_door: bool
 var rules_broken: Array[String] = []
 
 # Minutes since midnight on the first evening. Past midnight it keeps
@@ -61,6 +62,7 @@ func reset() -> void:
 	answered_phone = false
 	fed_dog = false
 	invited_to_pub = false
+	locked_back_door = false
 	rules_broken.clear()
 	minutes = 22 * 60
 	# Paranoia starts high: in the prologue fear drowns everything else out.
@@ -87,7 +89,7 @@ func reset() -> void:
 # Everything a save file keeps. A new value that should survive saving and
 # loading needs its name added here.
 const SAVED: Array[String] = [
-	"day", "answered_phone", "fed_dog", "invited_to_pub", "rules_broken",
+	"day", "answered_phone", "fed_dog", "invited_to_pub", "locked_back_door", "rules_broken",
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
 	"sold", "ledger_lines",
 ]

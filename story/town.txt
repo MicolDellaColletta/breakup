@@ -65,4 +65,3 @@ unknown: Not yet, sweetheart.
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.
 narration: The shop is dark. The neon is the only thing awake.
-narration: (The night at the shop is still being written. To be continued.)
