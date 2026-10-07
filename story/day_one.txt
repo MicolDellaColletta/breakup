@@ -187,6 +187,17 @@ narration | sound=bell: The bell, and the cold, and she's gone.
 paranoia: Why do the police have a key to this place?
 unknown: She likes you, sweetheart. You can tell.
 
-=== day_so_far
-narration | time=+30: The shop goes quiet again. The hum. The clock. The dark outside going gray.
-narration: (The rest of day one is still being written.)
+# --- Closing time. When this ends, the town map opens. ---
+
+=== closing
+narration | time=17:00: By five the sky outside the front windows has gone the dark blue of deep water. Then just dark.
+narration: You turn the sign in the window. CLOSED. The neon stays on. It isn't yours to turn off.
+-> closing_invited | if=invited_to_pub
+-> closing_alone
+
+=== closing_invited
+paranoia: Eight o'clock, she said. You don't have to go.
+paranoia: You do have to go. Not going is a thing people notice.
+
+=== closing_alone
+paranoia: Nobody's expecting you anywhere. Good. Keep it that way.

@@ -7,6 +7,7 @@ Checks that run Godot without a window and play through the game.
 | `check_story.gd` | Every story file: speakers, sounds, items, stock, voices, conditions, clock times and where choices lead all exist. **Run it after writing.** |
 | `test_prologue.gd` | The drive, the shop (both phone routes, both doors), the first night (dog fed and not fed). |
 | `test_day_one.gd` | The morning, Mrs. Hollis three ways, the voices, the colored choice rules, number keys. |
+| `test_evening.gd` | The town map: which places show, travel time, the pub, the lake, going home. |
 | `test_base.gd` | Shared helpers the tests use. Not a test itself. |
 
 ## Running them

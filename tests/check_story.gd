@@ -10,6 +10,7 @@ const STORY_SCENES: Dictionary = {
 	"res://story/shop.txt": "res://scenes/shop.tscn",
 	"res://story/apartment.txt": "res://scenes/apartment.tscn",
 	"res://story/day_one.txt": "res://scenes/counter.tscn",
+	"res://story/town.txt": "res://scenes/map.tscn",
 }
 
 func run() -> void:

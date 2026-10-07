@@ -6,7 +6,7 @@ set GODOT=C:\Users\clari\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-st
 
 cd /d "%~dp0.."
 set FAILED=0
-for %%T in (check_story test_prologue test_day_one) do (
+for %%T in (check_story test_prologue test_day_one test_evening) do (
 	echo.
 	echo ===== %%T
 	"%GODOT%" --headless --path . --script res://tests/%%T.gd

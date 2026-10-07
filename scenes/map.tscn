@@ -1,0 +1,109 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_map"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_column.tscn" id="2_column"]
+
+[node name="Map" type="Control" unique_id=1050607080]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_map")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1150617181]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.05, 0.07, 1)
+
+[node name="MapArea" type="Control" parent="." unique_id=1250627282]
+layout_mode = 1
+anchor_right = 0.62
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="MapArea" unique_id=1350637383]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 36.0
+offset_right = 600.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 0.85)
+theme_override_font_sizes/font_size = 30
+text = "Kettle Lake"
+
+[node name="Lake" type="ColorRect" parent="MapArea" unique_id=1450647484]
+layout_mode = 1
+anchor_left = 0.08
+anchor_top = 0.4
+anchor_right = 0.6
+anchor_bottom = 0.7
+mouse_filter = 2
+color = Color(0.13, 0.16, 0.2, 1)
+
+[node name="LakeLabel" type="Label" parent="MapArea/Lake" unique_id=1550657585]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.78
+anchor_right = 0.5
+anchor_bottom = 0.78
+offset_left = -80.0
+offset_top = -12.0
+offset_right = 80.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.55, 0.62, 0.7, 0.45)
+theme_override_font_sizes/font_size = 16
+text = "the lake"
+horizontal_alignment = 1
+
+[node name="Places" type="Control" parent="MapArea" unique_id=1650667686]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 100.0
+offset_right = -40.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Details" type="Label" parent="MapArea" unique_id=1750677787]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -128.0
+offset_right = 640.0
+offset_bottom = -76.0
+theme_override_colors/font_color = Color(0.72, 0.72, 0.7, 1)
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 2
+
+[node name="HomeButton" type="Button" parent="MapArea" unique_id=1850687888]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -64.0
+offset_right = 160.0
+offset_bottom = -28.0
+text = "Go home"
+
+[node name="DialogueColumn" parent="." unique_id=1950697989 instance=ExtResource("2_column")]
+unique_name_in_owner = true
+layout_mode = 1

@@ -157,7 +157,10 @@ func _trooper(answer: String) -> void:
 	check(gs.invited_to_pub, "and you're invited to the pub tonight")
 	await wait(1.8)
 	advance(column)
-	check(column._section == "day_so_far", "then the day carries on")
+	check(column._section == "closing_invited", "then closing time, remembering the invitation")
+	advance(column)
+	await wait(2.5)
+	check(current_scene.name == "Map", "after closing, the town map opens")
 
 func _colored_rules() -> void:
 	section("Colored choice rules (docs/voices.md)")
