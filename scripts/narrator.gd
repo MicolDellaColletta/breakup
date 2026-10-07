@@ -314,6 +314,7 @@ static func speaker_info(speaker_id: String) -> Dictionary:
 		"name": _speakers.get_value(speaker_id, "name", ""),
 		"color": _speakers.get_value(speaker_id, "color", Color.WHITE),
 		"speed": float(_speakers.get_value(speaker_id, "speed", CHARACTERS_PER_SECOND)),
+		"voice": bool(_speakers.get_value(speaker_id, "voice", false)),
 	}
 
 static func is_speaker(speaker_id: String) -> bool:

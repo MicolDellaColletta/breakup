@@ -168,20 +168,25 @@ func _add_entry(text: String, speaker: Dictionary) -> RichTextLabel:
 	entry.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	entry.add_theme_font_size_override("normal_font_size", FONT_SIZE)
 	entry.add_theme_font_size_override("bold_font_size", FONT_SIZE)
+	entry.add_theme_font_size_override("italics_font_size", FONT_SIZE)
 	entry.add_theme_color_override("default_color", speaker["color"])
-	entry.text = _format(text, speaker["name"])
+	entry.text = _format(text, speaker)
 	log_box.add_child(entry)
 	_current = entry
 	while log_box.get_child_count() > MAX_ENTRIES:
 		log_box.get_child(0).free()
 	return entry
 
-# "PARANOIA — Don't make a sound." Narration has no name in front.
-func _format(text: String, speaker_name: String) -> String:
+# A voice in MC's head: "PARANOIA — [i]Don't make a sound.[/i]"
+# A character: "Ruth — You'll be John." Narration has no name in front.
+func _format(text: String, speaker: Dictionary) -> String:
 	var safe: String = text.replace("[", "[lb]")
+	var speaker_name: String = speaker["name"]
 	if speaker_name == "":
 		return safe
-	return "[b]%s[/b] — %s" % [speaker_name.to_upper(), safe]
+	if speaker.get("voice", false):
+		return "[b]%s[/b] — [i]%s[/i]" % [speaker_name.to_upper(), safe]
+	return "[b]%s[/b] — %s" % [speaker_name, safe]
 
 func _scroll_to_end() -> void:
 	scroll.scroll_vertical = int(scroll.get_v_scroll_bar().max_value)

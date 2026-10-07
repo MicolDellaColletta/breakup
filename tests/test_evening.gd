@@ -48,3 +48,5 @@ func _pub_then_lake() -> void:
 	map._go_home()
 	advance(column)
 	check(column._section == "home", "going home ends the evening")
+	await wait(2.3)
+	check(current_scene.name == "Night", "and leads to the night at the shop")

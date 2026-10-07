@@ -32,6 +32,14 @@ const VIEWS: Dictionary = {
 		"title": "The register",
 		"text": "Old brass, heavy as an anvil. The drawer sticks, then rolls open with a bell of its own.",
 	},
+	"office": {
+		"title": "The office",
+		"text": "The bare bulb on its cord, the desk, the chair still pushed back. Above the desk, the ram's head.",
+	},
+	"hallway": {
+		"title": "The hallway",
+		"text": "Behind the counter, a narrow hallway. The stairs up to the apartment, a fuse box, and at the end, the heavy steel door.",
+	},
 }
 
 # Money taken from the till at a time, for yourself.
@@ -45,6 +53,10 @@ const TAKE_AMOUNT: int = 20
 @onready var back_button: Button = %BackButton
 @onready var ledger_button: Button = %LedgerButton
 @onready var register_button: Button = %RegisterButton
+@onready var office_button: Button = %OfficeButton
+@onready var hallway_button: Button = %HallwayButton
+@onready var spots_row: HBoxContainer = %SpotsRow
+@onready var door_button: Button = %DoorButton
 @onready var shelf_panel: Control = %ShelfPanel
 @onready var ledger_panel: ScrollContainer = %LedgerPanel
 @onready var ledger_text: RichTextLabel = %LedgerText
@@ -69,6 +81,8 @@ var _customer: String = ""
 var _browsing: bool = false
 var _view: String = ""
 var _selected: String = ""
+var _exploring: bool = false
+var _looked: Array[String] = []
 
 func _ready() -> void:
 	if _stock.load(STOCK_PATH) != OK:
@@ -78,6 +92,9 @@ func _ready() -> void:
 	back_button.pressed.connect(_show_view.bind("back"))
 	ledger_button.pressed.connect(_show_view.bind("ledger"))
 	register_button.pressed.connect(_show_view.bind("register"))
+	office_button.pressed.connect(_show_view.bind("office"))
+	hallway_button.pressed.connect(_show_view.bind("hallway"))
+	door_button.pressed.connect(_leave_for_the_evening)
 	take_button.pressed.connect(_on_take_pressed)
 	offer_button.pressed.connect(_on_offer_pressed)
 	nothing_button.pressed.connect(_on_nothing_pressed)
@@ -98,14 +115,17 @@ func _ready() -> void:
 func _on_section_finished(_section: String) -> void:
 	if _browsing:
 		return
+	if _exploring:
+		_fill_spots()
+		return
 	_next_customer()
 
 func _next_customer() -> void:
 	_customer_index += 1
-	# After the last visit, closing time; after closing, the town map.
+	# After the last visit, closing time; after closing, the shop is yours to
+	# look around until you leave by the front door.
 	if _customer_index > VISITS.size():
-		create_tween().tween_property($ShopHum, "volume_db", -80.0, 1.5)
-		Transition.go_to(MAP_SCENE, 1.5, 0.5)
+		_start_exploring()
 		return
 	if _customer_index == VISITS.size():
 		column.start_conversation("closing")
@@ -163,6 +183,7 @@ func _show_view(view: String) -> void:
 		_write_ledger()
 	if view == "register":
 		_open_register()
+	_fill_spots()
 	if not shelf_panel.visible:
 		return
 	var first: String = ""
@@ -217,6 +238,43 @@ func _show_voice_notes(item_id: String) -> void:
 		note.add_theme_color_override("default_color", speaker["color"])
 		note.text = "[b]%s[/b] — %s" % [speaker["name"].to_upper(), _stock.get_value(item_id, voice).replace("[", "[lb]")]
 		voice_notes.add_child(note)
+
+# --- After closing: looking around (story/spots.cfg) ---
+
+func _start_exploring() -> void:
+	_exploring = true
+	office_button.visible = true
+	hallway_button.visible = true
+	door_button.visible = true
+	_show_view("counter")
+
+# Looks at one thing in the room. Public so tests can use it.
+func look(spot_id: String) -> void:
+	_looked.append(spot_id)
+	spots_row.visible = false
+	door_button.visible = false
+	column.start_conversation(Spots.section(spot_id))
+
+# The things to look at in the room on screen, once the shop is closed.
+func _fill_spots() -> void:
+	for old in spots_row.get_children():
+		old.queue_free()
+	spots_row.visible = _exploring
+	if not _exploring:
+		return
+	door_button.visible = true
+	for spot_id in Spots.in_room("shop", _view, column):
+		var button: Button = Button.new()
+		button.name = spot_id
+		button.text = Spots.label(spot_id)
+		button.disabled = _looked.has(spot_id)
+		button.pressed.connect(look.bind(spot_id))
+		spots_row.add_child(button)
+
+func _leave_for_the_evening() -> void:
+	door_button.disabled = true
+	create_tween().tween_property($ShopHum, "volume_db", -80.0, 1.5)
+	Transition.go_to(MAP_SCENE, 1.5, 0.5)
 
 # --- The ledger and the register ---
 

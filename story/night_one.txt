@@ -1,0 +1,152 @@
+# THE FIRST NIGHT AS KEEPER (after day one)
+# Same format as drive.txt (see the notes at the top of that file).
+# The apartment at night: radio, kitchen, windows, back door, bed. When a
+# section ends with nowhere to go, you're back in the apartment.
+
+=== arrival
+narration | sound=stairs: Up the stairs from the back of the hallway. Every step, the same complaint.
+narration | stop=stairs: The apartment is colder than you left it. Your breath shows, a little, in the kitchen corner.
+paranoia: The rules. All of them. Before you sleep.
+
+=== radio
+narration | time=+10: The radio on the side table, amber dial, the cord still where you left it.
+paranoia: Rule seven. Keep the radio on at night. The silence is worse.
+> Turn it on -> radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration: Static. Then, for a few seconds, the static thins and something clear comes through.
+narration: That calm voice again. Unhurried, like someone sitting up with a sick friend.
+narration: "...and a reminder for our friends out at the edge of town, on a cold night like this one. A back door is for coming in. Not for keeping out."
+narration: Then a hymn, very far away, and the static closes over it.
+paranoia: He's talking to you. He can't be talking to you.
+
+=== radio_off
+narration: You leave it. The quiet settles over the room like snow.
+narration: In the quiet, the freezer downstairs. And under it, so faint you could be making it up, a slow tapping. Like a fingernail on glass.
+
+=== kitchen
+narration | time=+10: The bowl by the stove. Empty again. Licked clean, as if it had never been anything else.
+paranoia: Rule five. Feed the dog.
+> Fill the bowl -> kitchen_fed | set=fed_dog
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles into the steel. You set the bowl back exactly where it was. You've learned that much.
+
+=== kitchen_unfed
+narration: You roll the sack shut. The bowl stays empty.
+paranoia: You know what happened last time. Or you don't, and that's worse.
+
+=== windows
+narration | time=+10: The two front windows, the neon below painting the frost on the glass red.
+paranoia: Rule one. Close every window before dark. It's been dark for hours.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window
+
+=== windows_closed
+narration: Both latched. You check them again anyway, then a third time, until the checking feels like a rule of its own.
+
+=== windows_open
+narration: Cold pours in at once, sweet and sharp. Down in the lot, nothing moves.
+narration: Then, at the edge of the trees, something does. Or the wind does.
+
+=== dresser
+narration | time=+10: The dresser in the bedroom. The top drawers are full of a man's clothes, folded with care. Flannel, wool, long johns. All of it your size.
+narration: The bottom drawer is lined with old newspaper. Under the lining, flat against the wood, a folded sheet of paper.
+narration | take=church_bulletin: A church bulletin. Typed, mimeographed, the ink gone purple. You fold it into your pocket before you can decide not to.
+paranoia: Whoever lived here hid it. From whom?
+
+=== painting
+narration | time=+10: Over the armchair, an oil painting in a plain frame. The lake, in spring, the ice breaking up into white plates on black water.
+narration: Far out, on one of the floating plates, a small figure stands with its back to you, looking at the far shore.
+narration: Somebody painted it carefully. The figure most carefully of all.
+appraisal | if=appraisal>=1: No signature. Just a date in the corner, scraped half away. A spring, in the eighties.
+unknown: You'd look good out there, sweetheart.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. You try the handle again. Still locked.
+narration: You crouch at the keyhole. Cold air on your eye, and the freezer's hum, louder than anywhere else in the apartment.
+narration: It's right underneath this room, you realize. Whatever's in the freezer is right under this door.
+paranoia: Stand up. Walk away. You were never here.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs again. At the bottom, the hallway, and the heavy steel door at the end of it.
+narration | sound=door_shut: It's colder past the steel door, and louder. The back room: shelving, crates, a mop gone stiff in its bucket.
+narration: And the freezer. A walk-in, its door as big as a closet, its handle furred white with frost. The hum comes from inside it, steady as breathing.
+paranoia: Not tonight.
+narration: The back door is at the far end, past the freezer. A deadbolt, and a keyhole under it.
+narration | if=!has:back_door_key: There's no key in the lock. Whoever had one took it with them.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. Every part of you that has ever lived in a city wants to lock it.
+narration: You walk back past the freezer without looking at it. It's harder than it should be.
+
+=== back_door_locked
+narration: Olstad's key turns with a clean, heavy sound. You try the handle. Locked.
+narration: You stand there with your hand on it longer than you need to.
+unknown: She told you not to, sweetheart. Didn't she.
+
+=== sleep
+narration | time=+10: The sheets are just as cold as last night. You lie there and count the rules you kept.
+narration | time=03:10: Somewhere after three, a sound wakes you. Downstairs. Not the freezer. Not the wind.
+narration: Then quiet. The kind of quiet that's waiting for you to move.
+> Go down and look -> go_down | lean=animal
+> Stay in bed -> stay_in_bed | lean=paranoia
+
+=== stay_in_bed
+narration: You pull the blanket up and lie there with your eyes open.
+narration: It doesn't come again. You almost wish it would. Not knowing sits on your chest until the window goes gray.
+-> morning_after
+
+=== go_down
+narration | sound=stairs: Down the stairs in your socks. You don't turn on a light.
+narration | stop=stairs: You take the shortcut through the shop: behind the counter, out across the floor, past the front windows.
+narration: The neon is still on. In the dark glass of the window, there you are. A shape against the red.
+narration: You stop. The shape stops.
+narration: Then your reflection raises one hand, slowly, as if to say hello.
+paranoia: Rule eight. If you see yourself in the shop window after midnight, don't wave.
+paranoia: Your hands are at your sides. Both of them. You checked.
+> Wave back -> waved | break=wave | lean=unknown
+> Don't wave -> didnt_wave
+> Look away -> didnt_wave | lean=paranoia
+
+=== waved
+narration: You lift your hand. In the glass, your reflection lowers its own, as if it had only been waiting for you.
+narration: Then it's just your reflection again. Doing what you do. You think.
+unknown: There. Was that so hard, sweetheart?
+-> back_room
+
+=== didnt_wave
+narration: You keep your hands at your sides. After a long moment, the hand in the glass goes down.
+narration: You walk the rest of the way without looking at the window again.
+-> back_room
+
+=== back_room
+narration | sound=door_shut: Through the hallway. Through the steel door. The freezer hums.
+-> back_room_locked | if=locked_back_door
+-> back_room_open
+
+=== back_room_locked
+narration: The back door is shut and locked, the way you left it.
+narration: As you watch, the handle turns. Slowly, all the way down, from outside.
+narration: It holds there. Then, just as slowly, it comes back up.
+narration: Nothing knocks. Nothing tries again.
+paranoia: Somebody knows the old man never locked it.
+-> morning_after
+
+=== back_room_open
+narration: The back door stands open an inch. Snow has blown in across the floor in a pale tongue.
+narration: In the snow, footprints. Boots, big ones. They come in from outside.
+narration: They go to the freezer door.
+narration: They don't come back out.
+paranoia: Close the door. Go upstairs. Don't open the freezer.
+paranoia: Don't open the freezer.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: In the morning you can't say for sure how much of it you dreamed.
+narration: (End of day one. Day two is still being written. Thank you for playing.)

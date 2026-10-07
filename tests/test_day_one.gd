@@ -159,8 +159,34 @@ func _trooper(answer: String) -> void:
 	advance(column)
 	check(column._section == "closing_invited", "then closing time, remembering the invitation")
 	advance(column)
+	await process_frame
+	check(counter.get_node("%DoorButton").visible and counter.get_node("%OfficeButton").visible, "after closing, the shop is yours to look around")
+	if answer == "That's right":
+		await _explore(counter, column)
+	counter._leave_for_the_evening()
 	await wait(2.5)
-	check(current_scene.name == "Map", "after closing, the town map opens")
+	check(current_scene.name == "Map", "the front door leads out to the town map")
+
+func _spots_shown(counter: Node) -> Array:
+	return counter.get_node("%SpotsRow").get_children().filter(
+		func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return String(b.name))
+
+func _explore(counter: Node, column: Node) -> void:
+	check(_spots_shown(counter) == ["counter_drawer", "balance"], "the counter: its drawer and the brass balance")
+	counter._show_view("floor")
+	check(_spots_shown(counter) == ["bear", "front_window"], "the shop floor: the bear and the front window")
+	counter._show_view("hallway")
+	check(_spots_shown(counter) == ["fuse_box", "steel_door"], "the hallway: the fuse box and the steel door")
+	counter._show_view("office")
+	check(_spots_shown(counter) == ["ram", "desk"], "the office: the ram's head and the desk")
+	counter.look("desk")
+	check(not counter.get_node("%SpotsRow").visible, "the spots hide while you look")
+	advance(column)
+	await process_frame
+	check(gs.has_item("carbon_copies"), "the desk drawer gives you the carbon copies")
+	var desk: Button = counter.get_node("%SpotsRow").get_children().filter(
+		func(b: Node) -> bool: return not b.is_queued_for_deletion() and b.name == "desk")[0]
+	check(desk.disabled, "and you can't look at the same thing twice")
 
 func _colored_rules() -> void:
 	section("Colored choice rules (docs/voices.md)")

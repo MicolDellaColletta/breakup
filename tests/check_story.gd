@@ -11,9 +11,16 @@ const STORY_SCENES: Dictionary = {
 	"res://story/apartment.txt": "res://scenes/apartment.tscn",
 	"res://story/day_one.txt": "res://scenes/counter.tscn",
 	"res://story/town.txt": "res://scenes/map.tscn",
+	"res://story/night_one.txt": "res://scenes/night.tscn",
+}
+
+const SPOT_STORIES: Dictionary = {
+	"shop": "res://story/day_one.txt",
+	"night": "res://story/night_one.txt",
 }
 
 func run() -> void:
+	_check_spots()
 	var items: ConfigFile = ConfigFile.new()
 	items.load("res://story/items.cfg")
 	var stock: ConfigFile = ConfigFile.new()
@@ -39,6 +46,28 @@ func run() -> void:
 		column.queue_free()
 		scene.queue_free()
 		await process_frame
+
+# Every spot in spots.cfg must point at a section in its scene's story file.
+func _check_spots() -> void:
+	section("spots.cfg")
+	var spots: ConfigFile = ConfigFile.new()
+	spots.load("res://story/spots.cfg")
+	var problems: Array = []
+	for spot_id in spots.get_sections():
+		var scene: String = spots.get_value(spot_id, "scene", "")
+		if not SPOT_STORIES.has(scene):
+			problems.append("[%s] unknown scene '%s'" % [spot_id, scene])
+			continue
+		var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
+		var story: Dictionary = column._parse_story(SPOT_STORIES[scene])
+		column.free()
+		var target: String = spots.get_value(spot_id, "section", "")
+		if not story.has(target):
+			problems.append("[%s] no section '%s' in %s" % [spot_id, target, SPOT_STORIES[scene].get_file()])
+	for problem in problems:
+		print("  FAIL  ", problem)
+	check(problems.is_empty(), "%d spots, every one leads to a section" % spots.get_sections().size())
+	failures += max(0, problems.size() - 1)
 
 # The game quietly turns an unknown speaker into narration, so look for them here.
 func _check_speakers(path: String) -> Array:

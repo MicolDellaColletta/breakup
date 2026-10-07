@@ -2,10 +2,12 @@ extends Control
 
 # The town map, in the evening after the shop closes. Places come from
 # story/places.cfg; each visit costs travel time there and back, and plays
-# that place's section from story/town.txt. "Go home" ends the evening.
+# that place's section from story/town.txt. "Go home" ends the evening and
+# leads to the night (night.tscn).
 
 const STORY_PATH: String = "res://story/town.txt"
 const PLACES_PATH: String = "res://story/places.cfg"
+const NIGHT_SCENE: String = "res://scenes/night.tscn"
 
 @onready var column: DialogueColumn = %DialogueColumn
 @onready var places_layer: Control = %Places
@@ -52,6 +54,7 @@ func visit(place_id: String) -> void:
 # from wherever you were), or the evening is over.
 func _on_section_finished(_section: String) -> void:
 	if _going_home:
+		Transition.go_to(NIGHT_SCENE, 1.5, 0.5)
 		return
 	if _away != "":
 		GameState.pass_time(_travel(_away))

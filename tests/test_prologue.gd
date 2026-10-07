@@ -74,7 +74,9 @@ func _shop(pick_up: bool, door: String) -> void:
 		check(gs.answered_phone and gs.rules_broken.has("phone"), "picking up breaks rule four")
 		await wait(shop._length_of("pickup") + 0.2)
 		advance(column)
+		check(shop.get_node("%DeadLine").playing, "after the breathing, the line goes dead: the tone plays")
 		await pick(column, "Hang up")
+		check(not shop.get_node("%DeadLine").playing, "hanging up stops it")
 	else:
 		await pick(column, "Let it ring")
 		check(not gs.answered_phone and gs.rules_broken.is_empty(), "letting it ring breaks no rule")

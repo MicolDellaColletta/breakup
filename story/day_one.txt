@@ -201,3 +201,51 @@ paranoia: You do have to go. Not going is a thing people notice.
 
 === closing_alone
 paranoia: Nobody's expecting you anywhere. Good. Keep it that way.
+
+# --- After closing: looking around the shop (story/spots.cfg). The front door
+# leads out to the town map. ---
+
+=== look_counter_drawer
+narration | time=+5: The counter drawer sticks, then gives. Receipt books. Rubber stamps. A box of blank pawn tickets, numbered in order.
+narration: You thumb through them. 0432, 0433, 0434. They pick up right where the ledger's numbers stop.
+appraisal | if=appraisal>=1: Nothing anywhere near 0527. Somebody skipped ahead to write that one. On purpose.
+paranoia: Then where did yours come from?
+
+=== look_balance
+narration | time=+5: A brass balance at the end of the counter: two shallow pans on a beam, the kind for weighing gold dust.
+narration: Both pans are empty. One of them sits a little lower than the other anyway.
+paranoia: It's old. It's out of true. That's all it is.
+
+=== look_bear
+narration | time=+5: The bear in the corner. Up close it's bigger than you thought, reared up, mouth open on a roar nobody heard.
+narration: A cardboard tag hangs from one claw, in the owner's small hand: NOT FOR SALE. NEVER.
+appraisal | if=appraisal>=1: It isn't in the ledger, either. Every item gets a price, the letter said. Even the ones you'd never sell.
+warmth | if=warmth>=1: Somebody loved this ugly thing.
+
+=== look_front_window
+narration | time=+5: The front window. The neon on the snow, your car going white in the lot, the dark line of the trees.
+narration: In the glass, your own reflection, faint, laid over all of it. It does what you do.
+paranoia: It's not midnight. Rule eight is for after midnight.
+paranoia: Remember that.
+
+=== look_ram
+narration | time=+5: The ram's head above the desk. Its horns curl back so far they nearly close into circles.
+narration: Someone has wedged a sprig of dried spruce into one horn, as if the ram had been caught in a thicket.
+narration: Its glass eyes are set exactly right. Whoever mounted the fox didn't mount this.
+
+=== look_desk
+narration | time=+10: The desk drawers. Pens, a stapler, a ring of small keys that don't look like they open anything in this room.
+narration: In the bottom drawer, a sheaf of thin carbon copies, clipped together.
+narration | take=carbon_copies: Typed letters. You know the first line of them by heart. You take them.
+paranoia: Read them later. Or don't.
+
+=== look_fuse_box
+narration | time=+5: In the hallway, a gray fuse box. Most of the switches are up. Three are held down with yellowed tape.
+narration: Under them, a label in the owner's hand: SHOP LIGHTS. DON'T.
+paranoia: That's why it's always dark in here. He wanted it that way.
+paranoia: Or something did.
+
+=== look_steel_door
+narration | time=+5: The heavy steel door at the end of the hallway. Behind it, the hum.
+narration: You put your palm flat on it. The metal is cold, and it shivers, very slightly, in time with the hum.
+paranoia: Not now. Tonight, if you have to. Not now.

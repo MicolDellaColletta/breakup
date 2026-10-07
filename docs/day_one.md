@@ -162,14 +162,18 @@ Never seen. Rule 5: "Feed the dog."
 
 Each step can be played and tested before the next.
 
-1. **Counter view + one customer, end to end** (the vertical slice): look
-   around, find the item, hand it over or refuse.
-2. Money and the ledger.
-3. The other three customers, including the warm item.
-4. The Trooper.
-5. The voices (`voices.md`): leaning, colored choices, voice lines with conditions.
-6. Closing time, the map, the pub.
-7. Night at the shop, then sleep into day two.
+1. Done: **counter view + one customer, end to end** (Mrs. Hollis).
+2. Done: money and the ledger.
+3. **The other three customers, including the warm item.** Waiting on who they are.
+4. Done: the Trooper (Sgt. Olstad).
+5. Done: the voices (`voices.md`); still to build: Paranoia talking over the
+   others, being frayed, and backgrounds settling.
+6. Done: closing time, the map, the pub (The Gleaner) and the lake.
+7. Done: the night at the shop (`story/night_one.txt`). Day two is next to design.
+
+Also built along the way: the title screen, pause menu, saving and loading;
+looking around the shop after closing and the apartment at night
+(`story/spots.cfg`).
 
 ## Open questions
 
