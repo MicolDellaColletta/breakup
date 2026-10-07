@@ -203,22 +203,34 @@ toss).
   ringing. "Happy New Year, sweetheart." He arrives a few days later. Halfway
   through the season, everything changes.
 
-### The new Reverend
+### The preacher
 
-Daniel doesn't arrive as a stranger. **He arrives as the town's new minister.**
+Daniel is a **con artist.** He comes to Kettle Lake for MC and for ticket 0447,
+finds a frightened town that already believes the end is coming, and sees
+fertile ground. **He makes himself its preacher.**
 
-- Around Christmas, the Reverend (see "The town's faith") disappears. The church
-  elders put out word for a replacement, and Daniel answers it: a notice
-  answered, like every Keeper's.
-- **Was he ever a priest?** Yes, once. Ordained, and thrown out long ago. His
-  scripture is real, which is worse than a fake.
+Reference: *The Night of the Hunter* (1955). Robert Mitchum's fake preacher,
+charming and murderous, hunting the money a dead man hid.
+
+- **Nobody appoints him.** Around Christmas, the Reverend (see "The town's faith")
+  disappears. Daniel arrives in early January, just passing through, and offers
+  to say a few words on Sunday. After one sermon, the town begs him to stay.
+- **He was never ordained,** but his scripture is perfect. He learned it the way a
+  con man learns any script. That's scarier than a preacher who gets the verses
+  wrong.
+- **He sells salvation.** He doesn't need to know if breakup is real. He only needs
+  the town to believe he can save them from it. In a game about a pawn shop,
+  that's people paying for their sins.
 - **The collar is his cover.** The town trusts him on sight, more than it will
   ever trust the Keeper. He sits at every table in Kettle Lake.
+- **He learns what the Keeper is for,** and he can turn the whole congregation
+  against MC with one sermon. Before he arrives, MC's enemies are fear and the
+  cold. After, it's the town.
 - **He hears confessions.** Landa's interrogations, with a booth and a screen.
   Everybody tells him everything, Ruth included. MC can confess to him too, and
   what MC says there matters.
-- **He takes over the radio station.** From the first Sunday of January, the voice
-  on the night broadcast is Daniel's. Rule seven, "Keep the radio on at night",
+- **He takes over the radio station.** From his first week in town, the voice on
+  the night broadcast is Daniel's. Rule seven, "Keep the radio on at night",
   now means listening to him in your apartment, every night, until breakup.
 - **Did he make the Reverend disappear?** Layer 1 says yes, probably. The game
   never quite proves it.
@@ -376,7 +388,7 @@ Suspicious of everyone, the new Keeper most of all.
 | Every week | Management's envelope: the pay, and sometimes something else. |
 | Around Christmas | The Reverend disappears. The radio goes quiet. |
 | December 31 | The party at the pub. "Happy New Year, sweetheart." |
-| Early January | Daniel arrives as the new Reverend. From the first Sunday, the night radio is his. |
+| Early January | Daniel arrives, "passing through". One sermon, and the town begs him to stay. From then on, the night radio is his. |
 | End of April | Breakup. The date circled on the calendar upstairs. |
 
 ---
