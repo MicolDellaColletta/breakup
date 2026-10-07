@@ -73,7 +73,7 @@ func _widow_kind() -> void:
 	check(gs.ledger_lines == ["Oct 6. Duck call, sold to Mrs. Hollis. $15"], "the ledger writes the sale down, dated")
 	counter._show_view("ledger")
 	var ledger: String = counter.get_node("%LedgerText").get_parsed_text()
-	check(ledger.contains("R. Hollis") and ledger.contains("tag 0447"), "the ledger shows the owner's entries")
+	check(ledger.contains("R. Hollis") and ledger.contains("tag 0527"), "the ledger shows the owner's entries")
 	check(ledger.contains("Duck call, sold"), "a sold item keeps its entry, marked sold")
 	counter._show_view("register")
 	check(counter.get_node("%DrawerLabel").text == "In the drawer: $15.", "the register shows what's in the drawer")

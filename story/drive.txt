@@ -45,7 +45,7 @@ narration: Then a caller, mid-sentence: "...an old sedan, northbound, one headli
 paranoia | static=normal: One headlight dimmer than the other. Check yours. No. Don't.
 
 === glovebox
-narration | time=+5: Napkins. A tire gauge. A pawn ticket, number 0447, from a shop you've never heard of.
+narration | time=+5: Napkins. A tire gauge. A pawn ticket, number 0527, from a shop you've never heard of.
 narration: On the back, in pencil: an address. The same address as the paper in your pocket.
 narration | take=pawn_ticket: You slip the ticket into your pocket. You couldn't say why.
 unknown: Two copies, sweetheart. Somebody really wanted you to arrive.

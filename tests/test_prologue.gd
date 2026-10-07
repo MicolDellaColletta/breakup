@@ -22,7 +22,7 @@ func _drive() -> void:
 
 	drive._examine("glovebox", drive.get_node("Objects/GloveboxButton"))
 	advance(column)
-	check(gs.has_item("pawn_ticket"), "the glovebox puts pawn ticket 0447 in your pockets")
+	check(gs.has_item("pawn_ticket"), "the glovebox puts pawn ticket 0527 in your pockets")
 	check(drive.get_node("%DocumentViewer").visible, "the rental agreement opens")
 	drive.get_node("%DocumentViewer")._on_close_pressed()
 	check(gs.has_item("rental_agreement"), "the rental agreement goes in your pockets")
