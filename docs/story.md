@@ -114,6 +114,69 @@ the ice breaks.** A tripod stands out on the ice with a line to a clock on
 shore. When the ice moves, the clock stops. Kettle Lake has one. The Hermit
 tends it.
 
+## The town's faith
+
+The town believes breakup is a kind of Judgment Day. **It isn't the apocalypse.**
+It's collective folly: a small town's faith that has grown around one real,
+terrible thing, with symbols, omens, rumours and rituals.
+
+| Layer | The apocalypse is... |
+|---|---|
+| 1 | Just people. A strange little church, and a man with a gun coming north. |
+| 2 | The town's belief. Breakup as Judgment, the Keeper as the offering. |
+| 3 | The doubt. What if they're a little bit right? |
+
+**Keep it subtle.** Most of the town has ordinary names and ordinary lives. Only
+the old families, the church and the characters who matter carry scripture. The
+player should notice the pattern, not be hit with it. And it's **this town's own
+faith,** a small local congregation with its own reading, not a real church.
+
+### The church and the radio
+
+- **A small congregation** in Kettle Lake, led by **the Reverend** (name to
+  decide; proposal: **Elias**, after Elijah, the prophet who was taken up and
+  never died).
+- **The church runs the night radio station.** The preacher MC hears on the
+  drive is on it.
+- **The night host is an invisible helper.** When the static clears, a calm voice
+  comes through with something useful: a warning, a hint, a word about the
+  rules. Only when the radio is clear, never when it flickers. Is it real, or is
+  MC making it up? The game never says.
+- **Who the voice is:** the Reverend, quietly helping the Keeper against his own
+  congregation's belief. Which may be why he disappears around Christmas.
+- **After he's gone, the voice still comes through,** once or twice, on the
+  clearest nights. A recording? MC's own mind? Something else? Then, from
+  January, the station is Daniel's.
+- The drive's radio line, "How much is the truth worth to you?", belongs to the
+  helper. When Daniel takes over the station, **he says it too.** Where did he
+  learn it?
+
+### Symbols
+
+- **The Keeper is the scapegoat.** In Leviticus, once a year a goat carries the
+  people's sins into the wilderness. Breakup is the town's Day of Atonement.
+- **"The sea gave up the dead which were in it"** (Revelation). When the ice goes
+  out, the lake gives back what it took.
+- **The mark of Cain.** A murderer sent off to wander, marked so nobody would kill
+  him. Daniel letting MC go is that mark: nobody else gets to have him.
+- **"Of that day and hour knoweth no man."** The town bets on the exact minute
+  anyway. The unbeliever, Samuel, keeps the clock.
+- **Omens with ordinary explanations:** red snow (real: algae), a blood-coloured
+  aurora, birds flying the wrong way, animals leaving the woods. The town reads
+  signs; Sam explains every one. Except the clock that stops at the same minute
+  every spring.
+
+### Names
+
+| Character | Echo |
+|---|---|
+| **John** (MC) | John of Patmos, who wrote Revelation. The believers would notice. |
+| **Daniel** | The writing on the wall: weighed and found wanting. |
+| **Samuel** (Sam) | The prophet called by a voice in the night. He hates the name and goes by Sam. |
+| **Ruth** (the owner's daughter) | "Whither thou goest, I will go." Loyal; the one who stays. |
+| **Abraham** (the owner, proposal) | Saved by a substitute: the ram that died in his son's place. Every Keeper is the ram. |
+| **Elias** (the Reverend, proposal) | Elijah, taken up without dying. Disappears; expected to return before the end. |
+
 ---
 
 ## Daniel Hale
@@ -128,8 +191,8 @@ toss).
 
 - **Courtesy that's worse than threats.** Never in a hurry. Makes you talk.
 - **He thinks in prices.** Things have a price and the price gets paid. In a
-  pawn shop, that's everywhere. The voice on the radio in the drive ("How much is
-  the truth worth to you?") is the first time the player hears him.
+  pawn shop, that's everywhere. His name carries it: the biblical Daniel read the
+  writing on the wall, *"weighed in the balances, and found wanting."*
 - **He calls MC "sweetheart."**
 - **He met MC the night John died, and let them go.** Nobody knows why, maybe
   not even Daniel.
@@ -139,6 +202,26 @@ toss).
 - **New Year's Eve:** MC comes back from the party at the pub and the phone is
   ringing. "Happy New Year, sweetheart." He arrives a few days later. Halfway
   through the season, everything changes.
+
+### The new Reverend
+
+Daniel doesn't arrive as a stranger. **He arrives as the town's new minister.**
+
+- Around Christmas, the Reverend (see "The town's faith") disappears. The church
+  elders put out word for a replacement, and Daniel answers it: a notice
+  answered, like every Keeper's.
+- **Was he ever a priest?** Yes, once. Ordained, and thrown out long ago. His
+  scripture is real, which is worse than a fake.
+- **The collar is his cover.** The town trusts him on sight, more than it will
+  ever trust the Keeper. He sits at every table in Kettle Lake.
+- **He hears confessions.** Landa's interrogations, with a booth and a screen.
+  Everybody tells him everything, Ruth included. MC can confess to him too, and
+  what MC says there matters.
+- **He takes over the radio station.** From the first Sunday of January, the voice
+  on the night broadcast is Daniel's. Rule seven, "Keep the radio on at night",
+  now means listening to him in your apartment, every night, until breakup.
+- **Did he make the Reverend disappear?** Layer 1 says yes, probably. The game
+  never quite proves it.
 
 **??? also calls MC "sweetheart."** In layer 1 Daniel is a man. By layer 3 the
 player shouldn't be sure whether what's under the ice learned that voice from
@@ -209,7 +292,7 @@ To keep them from turning into clichés, every love interest:
 The dark option. Falling for what you ran from. Locks the **dark ending** and a
 **secret darker ending.**
 
-### Sam, the Hermit (layer 3)
+### Samuel "Sam", the Hermit (layer 3)
 
 Not a mystic: **the most rational person in Kettle Lake.** The town calls him
 crazy because he's the only one who says the pattern out loud.
@@ -246,7 +329,7 @@ crazy because he's the only one who says the pattern out loud.
   strong **Appraisal**.
 - Locks **the truth** ending.
 
-### The pub owner (layer 2)
+### Ruth, the pub owner (layer 2)
 
 **The owner's daughter.** Divorced.
 Suspicious of everyone, the new Keeper most of all.
@@ -291,8 +374,9 @@ Suspicious of everyone, the new Keeper most of all.
 | First week of October | The drive. MC arrives. (The prologue.) |
 | Day one | The first customers. The Trooper visits and invites MC to the pub. |
 | Every week | Management's envelope: the pay, and sometimes something else. |
+| Around Christmas | The Reverend disappears. The radio goes quiet. |
 | December 31 | The party at the pub. "Happy New Year, sweetheart." |
-| Early January | Daniel arrives. |
+| Early January | Daniel arrives as the new Reverend. From the first Sunday, the night radio is his. |
 | End of April | Breakup. The date circled on the calendar upstairs. |
 
 ---
@@ -303,7 +387,9 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 
 - [x] **Drive, the passenger seat:** MC knows it's John's gun. Replace "You don't
       remember putting it there."
-- [ ] **Drive, the radio:** make the radio voice recognisably Daniel's, later on.
+- [ ] **Drive, the radio:** the clear moment ("How much is the truth worth to
+      you?") is the helper, the church's night host. Make it the same calm voice
+      that gives hints later.
 - [x] **Rental agreement:** "Note at pick-up: no damage." (Currently "one headlight
       dim".)
 - [x] **Office letter:** written not knowing if anyone would come. John isn't coming;
@@ -313,8 +399,11 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 
 ## Open questions
 
-- [ ] The pub owner: name, and why the marriage ended.
+- [ ] Ruth: why the marriage ended.
 - [ ] Sam: surname.
+- [ ] The owner's name: Abraham?
+- [ ] The Reverend's name (Elias?), and what really happened to him.
+- [ ] How often the radio helper speaks, and what rules it follows.
 - [ ] What's under ticket 0447: the money, the books, or something else?
 - [ ] What soaked the rental agreement, per background.
 - [ ] What exactly happens to Keepers at breakup.
