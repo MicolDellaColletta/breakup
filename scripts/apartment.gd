@@ -33,12 +33,6 @@ func _ready() -> void:
 
 func _on_section_finished(section: String) -> void:
 	match section:
-		"arrival":
-			var echo: String = "echo_answered" if GameState.answered_phone else "echo_ignored"
-			narrator.play(echo)
-		"sleep":
-			var wake: String = "wake_standing" if GameState.rules_broken.size() >= 2 else "wake_bed"
-			narrator.play(wake)
 		"wake_bed", "wake_standing":
 			_end_night()
 		_:

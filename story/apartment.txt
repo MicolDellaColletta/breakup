@@ -9,6 +9,8 @@ narration: A short hall leads toward the back. A bathroom, a bedroom. At the ver
 narration: In the bathroom, the toothbrush by the sink is still wet.
 paranoia: Someone was here. Recently.
 unknown: Make yourself at home, sweetheart. You live here now.
+-> echo_answered | if=answered_phone
+-> echo_ignored
 
 === echo_answered
 paranoia: You picked up a dead phone in a dead shop.
@@ -74,6 +76,8 @@ unknown: Somebody's been expecting you for a long time.
 narration: The sheets are cold, and smell faintly of someone else's soap.
 narration: You lie awake and count the sounds of the building. The compressor, right under the floor. The wind in the trees. Your own heart.
 narration: Somewhere around three, you stop counting.
+-> wake_standing | if=rules_broken>=2
+-> wake_bed
 
 === wake_bed
 narration: You wake in the gray half-light, in the bed, exactly where you fell asleep.

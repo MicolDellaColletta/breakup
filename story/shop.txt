@@ -32,12 +32,14 @@ paranoia: Put it down.
 
 === after_call
 narration: You put it down. Carefully, as if it might notice.
+-> office_door
 
 === let_it_ring
 narration: You don't move. It rings. And rings.
 paranoia: Let it. Whoever it is, let them wait.
 narration | stop=ring: Then, in the middle of a ring, it stops.
 narration: The silence afterwards is very loud.
+-> office_door
 
 === office_door
 narration: Your eyes have adjusted to the dark now. Enough to notice what you missed.
@@ -54,6 +56,7 @@ narration: Nothing.
 narration: Then, from the other side, one knock back.
 paranoia: Pipes. Old buildings knock. That's all that was.
 unknown: Come in, sweetheart. Don't be rude.
+-> office
 
 === office
 narration: You push the door. It swings inward without a sound, as if someone oiled the hinges for you.
@@ -71,17 +74,23 @@ paranoia: Whoever wrote this was very sure you'd come.
 narration: Under the bulb, the ink is sharp and black. You won't have any trouble reading it.
 > Open it -> @open_letter
 
+=== after_letter
+-> after_letter_answered | if=answered_phone
+-> after_letter_ignored
+
 === after_letter_answered
 paranoia: Rule four.
 paranoia: You'd broken it before you even knew it existed.
 unknown: You didn't speak first, though. Good instincts, sweetheart.
 narration: Out in the dark, the hum goes on. Now you can place it: behind a heavy steel door at the very back of the shop. A compressor. A freezer, maybe.
+-> upstairs
 
 === after_letter_ignored
 paranoia: Rule four. You didn't answer.
 paranoia: Not knowing saved you. It won't, next time.
 unknown: They'll call again, sweetheart. They always call again.
 narration: Out in the dark, the hum goes on. Now you can place it: behind a heavy steel door at the very back of the shop. A compressor. A freezer, maybe.
+-> upstairs
 
 === upstairs
 narration: Your legs are heavy. You've been driving since before it got dark, and for a long time before that.

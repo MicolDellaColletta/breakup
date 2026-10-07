@@ -3,7 +3,11 @@
 # Options: speaker | option=value: text
 # Choices: > Button label -> section | option=value
 #          (shown when the section ends; @name sends an event to the scene instead)
-# Sections start with === and a name.
+# Continue: -> section
+#          (when a section ends with no choices, the first matching -> is played)
+# Conditions, on choices and continues: | if=answered_phone   | if=!answered_phone
+#          | if=rules_broken>=2   | if=broke:window
+# Sections start with === and a name. A section with only -> lines just picks a route.
 
 === main
 narration: The wipers drag across the glass, squealing on every return.

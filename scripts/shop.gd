@@ -31,7 +31,6 @@ func _ready() -> void:
 	letter_text.text = _read_letter(LETTER_PATH)
 	fold_button.pressed.connect(_on_fold_pressed)
 	narrator.line_shown.connect(_on_line_shown)
-	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(STORY_PATH)
 	narrator.set_input_enabled(false)
@@ -44,15 +43,6 @@ func _read_letter(path: String) -> String:
 	if text == "":
 		push_error("Could not read the letter: " + path)
 	return text
-
-func _on_section_finished(section: String) -> void:
-	match section:
-		"after_call", "let_it_ring":
-			narrator.play("office_door")
-		"knock":
-			narrator.play("office")
-		"after_letter_answered", "after_letter_ignored":
-			narrator.play("upstairs")
 
 # The story file decides where each choice leads; this only adds the sounds.
 func _on_choice_made(choice: Dictionary) -> void:
@@ -139,8 +129,7 @@ func _on_fold_pressed() -> void:
 	sounds["paper"].play()
 	letter_panel.visible = false
 	narrator.set_input_enabled(true)
-	var reaction: String = "after_letter_answered" if GameState.answered_phone else "after_letter_ignored"
-	narrator.play(reaction)
+	narrator.play("after_letter")
 	
 func _go_upstairs() -> void:
 	narrator.set_input_enabled(false)

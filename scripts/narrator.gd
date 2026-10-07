@@ -59,6 +59,10 @@ func play(section: String, start_index: int = 0, instant: bool = false) -> void:
 	_choices = _story[section]["choices"]
 	_section_done = false
 	_hide_choices()
+	# A section with no lines only routes to another one.
+	if _lines.is_empty():
+		_end_section()
+		return
 	_show_line(start_index)
 	if instant:
 		_finish_line()
@@ -86,16 +90,77 @@ func _advance() -> void:
 	if next_index < _lines.size():
 		_show_line(next_index)
 		return
-	_section_done = true
-	if _choices.is_empty():
-		section_finished.emit(_section)
-	else:
-		_show_choices()
+	_end_section()
 
-func _show_choices() -> void:
+# What happens after the last line: choices if there are any, otherwise the
+# first "->" whose condition holds. Only when neither applies does the
+# scene get section_finished.
+func _end_section() -> void:
+	_section_done = true
+	var choices: Array = _story[_section]["choices"].filter(_is_available)
+	if not choices.is_empty():
+		_show_choices(choices)
+		return
+	for next in _story[_section]["next"]:
+		if _is_available(next):
+			play(next["target"])
+			return
+	section_finished.emit(_section)
+
+func _is_available(entry: Dictionary) -> bool:
+	return not entry.has("if") or _condition_met(entry["if"])
+
+# answered_phone, !answered_phone, rules_broken>=2, broke:window
+func _condition_met(condition: String) -> bool:
+	var text: String = condition.strip_edges()
+	var negate: bool = text.begins_with("!")
+	if negate:
+		text = text.substr(1).strip_edges()
+	var result: bool
+	if text.begins_with("broke:"):
+		result = GameState.rules_broken.has(text.trim_prefix("broke:"))
+	else:
+		result = _compare(text)
+	return result != negate
+
+func _compare(text: String) -> bool:
+	for op in [">=", "<=", "==", "!=", ">", "<"]:
+		var parts: PackedStringArray = text.split(op, true, 1)
+		if parts.size() < 2:
+			continue
+		var value: float = _state_number(parts[0].strip_edges())
+		var wanted: float = parts[1].strip_edges().to_float()
+		match op:
+			">=": return value >= wanted
+			"<=": return value <= wanted
+			"==": return value == wanted
+			"!=": return value != wanted
+			">": return value > wanted
+			"<": return value < wanted
+	var state: Variant = _state_value(text)
+	return true if state else false
+
+func _state_value(name: String) -> Variant:
+	if not name in GameState:
+		push_warning("Story condition uses unknown GameState value: " + name)
+		return null
+	return GameState.get(name)
+
+# Lists count their items, true/false count as 1/0.
+func _state_number(name: String) -> float:
+	var state: Variant = _state_value(name)
+	if state is Array:
+		return state.size()
+	if state is bool:
+		return 1.0 if state else 0.0
+	if state is int or state is float:
+		return float(state)
+	return 0.0
+
+func _show_choices(choices: Array) -> void:
 	for old in choice_box.get_children():
 		old.queue_free()
-	for choice in _choices:
+	for choice in choices:
 		var button: Button = Button.new()
 		button.text = choice["label"]
 		button.pressed.connect(_on_choice_pressed.bind(choice))
@@ -149,10 +214,16 @@ func _parse_story(path: String) -> Dictionary:
 			continue
 		if text.begins_with("==="):
 			current = text.trim_prefix("===").strip_edges()
-			sections[current] = {"lines": [], "choices": []}
+			sections[current] = {"lines": [], "choices": [], "next": []}
 			continue
 		if current == "":
 			push_warning("Skipping line outside a section: " + raw)
+			continue
+		if text.begins_with("->"):
+			var parts: PackedStringArray = text.trim_prefix("->").split("|")
+			var next: Dictionary = {"target": parts[0].strip_edges()}
+			_parse_options(parts, next)
+			sections[current]["next"].append(next)
 			continue
 		if text.begins_with(">"):
 			var choice: Dictionary = _parse_choice(text.trim_prefix(">"))
@@ -195,13 +266,13 @@ func _parse_choice(body: String) -> Dictionary:
 # Reads "name=value" options from every part after the first.
 func _parse_options(parts: PackedStringArray, into: Dictionary) -> void:
 	for i in range(1, parts.size()):
-		var option: PackedStringArray = parts[i].split("=")
+		var option: PackedStringArray = parts[i].split("=", true, 1)
 		if option.size() == 2:
 			into[option[0].strip_edges()] = option[1].strip_edges()
 
 func _check_targets(path: String) -> void:
 	for section in _story:
-		for choice in _story[section]["choices"]:
-			var target: String = choice["target"]
+		for entry in _story[section]["choices"] + _story[section]["next"]:
+			var target: String = entry["target"]
 			if not target.begins_with("@") and not _story.has(target):
-				push_warning("Choice '%s' in %s points to a missing section: %s" % [choice["label"], path, target])
+				push_warning("'%s' in %s points to a missing section: %s" % [section, path, target])
