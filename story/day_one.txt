@@ -162,7 +162,7 @@ paranoia: Stop talking. Every word is a mile of rope.
 narration: She wanders while she talks. Picks up the brass compass, weighs it, sets it down a little to the left of where it was.
 narration: She stops at the fox and leans in until she's nose to nose with it.
 trooper: Oh, for cute. Eyes are wrong. Old man always got the eyes wrong.
-narration: Then she's behind the counter, where she has no reason to be, at the back shelves. Her fingers find the tin box with tag 0447 and stay there.
+narration: Then she's behind the counter, where she has no reason to be, at the back shelves. Her fingers find the tin box with tag 0527 and stay there.
 trooper: What's in the tin, Johnny?
 > "I don't know. It was here when I came." -> trooper_tin_truth | lean=warmth
 > "That one's not for sale." -> trooper_tin_keeper | lean=john
