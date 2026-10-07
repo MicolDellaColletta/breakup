@@ -87,7 +87,7 @@ widow: R.H.
 widow: He carved this when he was twelve. He told me he'd lost it.
 widow: He told me a lot of things, last winter.
 narration | sound=bell: She leaves fifteen dollars on the counter, all in ones, smoothed flat, and goes without waiting for change.
-unknown: She'll be back, sweetheart. Not for anything on the shelves.
+unknown: She'll be back. Not for anything on the shelves.
 
 === widow_given_decoy
 widow: That's the club's. Look at the bottom.
@@ -178,7 +178,7 @@ narration: He doesn't look at the shelves. He comes straight to the counter and 
 seller: Walt Pruitt. I'd like to pawn these. Thirty silver dollars. Morgans, every one.
 narration: You pick up the roll.
 narration: It's warm. Not pocket-warm. Warm the way a cup is warm a minute after someone has set it down.
-paranoia: Rule two. Don't buy anything that's still warm.
+paranoia: Rule two.
 seller: They were my wife's. She collected them. She won't be needing them now.
 appraisal | if=appraisal>=1: Thirty Morgan dollars. Worth a great deal more than thirty, to the right buyer.
 > Offer him fifteen -> seller_low | lean=appraisal | break=warm
@@ -253,8 +253,8 @@ narration: He walks out onto the shop floor and goes straight to the brass compa
 narration | sound=bell | time=+50: The bell. Cold air, and a woman in a Trooper's parka who doesn't bother to stamp her boots.
 narration: Late thirties. Pregnant, six months or more. The parka won't close over her belly anymore, and she's let it hang open as if the cold were beneath her notice.
 narration: She takes her time looking at the shop before she looks at you.
-trooper: Ohh, so you're the new one.
-trooper: Sergeant Olstad. Troopers. Anything out past the town line is mine, and that's most everything, hon.
+trooper: So you're the new one.
+trooper: Sergeant Olstad. Troopers. Anything out past the town line is mine, and that's most everything.
 trooper: John, ya?
 > "That's right." -> trooper_john | lean=john
 > Take a second too long. -> trooper_slow | lean=paranoia
@@ -272,7 +272,7 @@ paranoia: She didn't mean a new place.
 -> trooper_car
 
 === trooper_who
-trooper: Who's asking. Ohh, I like that.
+trooper: Who's asking. I like that.
 narration: She taps the badge on her chest, twice, without looking down at it.
 trooper: The State of Alaska's asking, Johnny. But nicely. For now.
 -> trooper_car
@@ -280,12 +280,14 @@ trooper: The State of Alaska's asking, Johnny. But nicely. For now.
 === trooper_car
 trooper: Real cold one last night. Guess you're not used to it yet. You'll learn.
 trooper: Or you won't. Some don't.
+trooper: My grandma came up in thirty-five, with the colony folks. Minnesota. Government promised them a valley and a farm apiece.
+trooper: First winter, she helped bury two of the men who'd made the promise. Cold's honest like that.
 trooper: Saw a sedan come up the road late. One headlight dimmer than the other. That yours, Johnny?
 > "It's a rental." -> trooper_rental | lean=appraisal
 > "Must have been somebody else." -> trooper_somebody | lean=john
 
 === trooper_rental
-trooper: Ohh, I know it's a rental, hon. Northern Lights, Anchorage. Little sticker on the bumper.
+trooper: Ohh, I know it's a rental. Northern Lights, Anchorage. Little sticker on the bumper.
 appraisal | if=appraisal>=1: She read the bumper in the dark, from a moving cruiser. Or she's seen the paperwork.
 -> trooper_looks
 
@@ -298,7 +300,7 @@ paranoia: Stop talking. Every word is a mile of rope.
 === trooper_looks
 narration: She wanders while she talks. Picks up the brass compass, weighs it, sets it down a little to the left of where it was.
 narration: She stops at the fox and leans in until she's nose to nose with it.
-trooper: Oh, for cute. Eyes are wrong. Old man always got the eyes wrong.
+trooper: Eyes are wrong. Old man always got the eyes wrong.
 narration: Then she's behind the counter, where she has no reason to be, at the back shelves. Her fingers find the tin box with tag 0527 and stay there.
 trooper: What's in the tin, Johnny?
 > "I don't know. It was here when I came." -> trooper_tin_truth | lean=warmth
@@ -322,7 +324,7 @@ trooper: Figured you'd want it.
 trooper: Don't lock it, though. He never did.
 narration | sound=bell: The bell, and the cold, and she's gone.
 paranoia: Why do the police have a key to this place?
-unknown: She likes you, sweetheart. You can tell.
+unknown: She likes you. You can tell.
 
 # --- Closing time. When this ends, the town map opens. ---
 
@@ -368,7 +370,7 @@ paranoia: Remember that.
 
 === look_ram
 narration | time=+5: The ram's head above the desk. Its horns curl back so far they nearly close into circles.
-narration: Someone has wedged a sprig of dried spruce into one horn, as if the ram had been caught in a thicket.
+narration: Someone has wedged a sprig of dried spruce into one horn.
 narration: Its glass eyes are set exactly right. Whoever mounted the fox didn't mount this.
 
 === look_desk

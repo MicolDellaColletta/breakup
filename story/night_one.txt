@@ -10,7 +10,7 @@ paranoia: The rules. All of them. Before you sleep.
 
 === radio
 narration | time=+10: The radio on the side table, amber dial, the cord still where you left it.
-paranoia: Rule seven. Keep the radio on at night. The silence is worse.
+paranoia: Rule seven.
 > Turn it on -> radio_on
 > Leave it off -> radio_off | break=radio
 
@@ -27,7 +27,7 @@ narration: In the quiet, the freezer downstairs. And under it, so faint you coul
 
 === kitchen
 narration | time=+10: The bowl by the stove. Empty again. Licked clean, as if it had never been anything else.
-paranoia: Rule five. Feed the dog.
+paranoia: Rule five.
 > Fill the bowl -> kitchen_fed | set=fed_dog
 > Leave it -> kitchen_unfed | break=dog
 
@@ -40,7 +40,7 @@ paranoia: You know what happened last time. Or you don't, and that's worse.
 
 === windows
 narration | time=+10: The two front windows, the neon below painting the frost on the glass red.
-paranoia: Rule one. Close every window before dark. It's been dark for hours.
+paranoia: Rule one. It's been dark for hours.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window
 
@@ -62,7 +62,7 @@ narration | time=+10: Over the armchair, an oil painting in a plain frame. The l
 narration: Far out, on one of the floating plates, a small figure stands with its back to you, looking at the far shore.
 narration: Somebody painted it carefully. The figure most carefully of all.
 appraisal | if=appraisal>=1: No signature. Just a date in the corner, scraped half away. A spring, in the eighties.
-unknown: You'd look good out there, sweetheart.
+unknown: You'd look good out there.
 
 === locked_door
 narration | time=+5: The door at the end of the hall. You try the handle again. Still locked.
@@ -77,7 +77,7 @@ narration: And the freezer. A walk-in, its door as big as a closet, its handle f
 paranoia: Not tonight.
 narration: The back door is at the far end, past the freezer. A deadbolt, and a keyhole under it.
 narration | if=!has:back_door_key: There's no key in the lock. Whoever had one took it with them.
-paranoia: Rule one. Leave the back door unlocked.
+paranoia: Rule one. The other half of it.
 > Leave it unlocked -> back_door_unlocked | lean=paranoia
 > Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
 
@@ -88,7 +88,7 @@ narration: You walk back past the freezer without looking at it. It's harder tha
 === back_door_locked
 narration: Olstad's key turns with a clean, heavy sound. You try the handle. Locked.
 narration: You stand there with your hand on it longer than you need to.
-unknown: She told you not to, sweetheart. Didn't she.
+unknown: She told you not to. Didn't she.
 
 === sleep
 narration | time=+10: The sheets are just as cold as last night. You lie there and count the rules you kept.
@@ -110,7 +110,7 @@ narration: The front door is shut. Locked. The bell hangs still.
 narration: The neon is still on. In the dark glass of the window, there you are. A shape against the red.
 narration: You stop. The shape stops.
 narration: Then your reflection raises one hand, slowly, as if to say hello.
-paranoia: Rule eight. If you see yourself in the shop window after midnight, don't wave.
+paranoia: Rule eight. Don't wave.
 paranoia: Your hands are at your sides. Both of them. You checked.
 > Wave back -> waved | break=wave | lean=unknown
 > Don't wave -> didnt_wave
