@@ -185,6 +185,9 @@ func _format(text: String, speaker: Dictionary) -> String:
 	if speaker_name == "":
 		return safe
 	if speaker.get("voice", false):
+		# Frayed, ??? won't hold still.
+		if speaker.get("id", "") == "unknown" and GameState.frayed:
+			safe = "[shake rate=6.0 level=3]%s[/shake]" % safe
 		return "[b]%s[/b] — [i]%s[/i]" % [speaker_name.to_upper(), safe]
 	return "[b]%s[/b] — %s" % [speaker_name, safe]
 

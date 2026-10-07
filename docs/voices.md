@@ -79,15 +79,34 @@ Following ??? doesn't strengthen a voice; it's MC slipping.
   maybe a little broken. It follows the same one-per-moment rule, and wins
   over the others.
 
+### How Paranoia talks over the others (built)
+
+- Paranoia is **loud** from 6 points (it starts at 3, so it takes a few
+  frightened choices).
+- When it's loud, it cuts off any voice **3 or more points weaker** than it.
+  Where that voice would have spoken, Paranoia says one of its `talks_over`
+  lines instead (`story/speakers.cfg`): "Quiet. Listen for the door." Once per
+  section; after that, the other drowned lines just go.
+- A drowned voice also stops commenting on shelf items.
+- ??? is never drowned. Paranoia can't talk over it.
+
 ## Frayed
 
-A state, not a voice. Unsettling items and broken rules fray MC (see
-`day_one.md`).
+A state, not a voice. Felt, never shown: no meter, no number.
 
-- **When frayed, the voices give bad advice.** You can no longer trust your own
-  head.
-- **??? gets louder** and starts drowning the others out.
-- Rest, keeping the rules, or small comforts bring MC back. (To design.)
+- **What frays MC (built):** every broken rule (`break=`), and every ??? choice
+  (`lean=unknown`). One point each. The prologue doesn't count.
+- **What brings MC back (built):** a whole day and night with no rule broken
+  takes a point away at the end of the night. Story files can also add or take
+  points: `fray=+1` (a warm thing in your hands), `fray=-1` (a small comfort).
+- **Frayed at 3 points.**
+- **When frayed (built):**
+  - **??? gets louder:** a ??? choice shows from 1 point instead of 3, and ???'s
+    lines shake slightly on screen.
+  - **The voices give bad advice:** written into the story with
+    `| if=frayed`. Day two has the first ones: Appraisal sends you to the wrong
+    shelf for Ezra, Warmth tells you taking Walt's name would be a mercy, and
+    on night two John and ??? both tell you to speak first on the phone.
 
 ## Backgrounds
 
@@ -101,7 +120,15 @@ MC's past isn't picked from a menu; it comes from which voices MC listens to.
 | **Insanity**: lost time, gaps in memory. | the ??? track, plus being frayed |
 
 **Animal** doesn't map to a background. It's about *how* MC acts, not what
-they're running from. (Open question below.)
+they're running from.
+
+**Built:** the background is worked out from the voices at any moment: the
+strongest of the four, if one leads outright (being frayed adds 2 to
+insanity). A story moment can **settle** it with `settle=background`; after
+that it stays. Story files ask with `| if=background:guilt` (or debt,
+witness, insanity). **It settles at the end of the first week,** before
+anything reveals what happened to John (decided; not written yet, since the
+first week isn't).
 
 ## In the story files
 
@@ -135,15 +162,24 @@ All of this is built. The colored-choice rules (3 points, one per moment,
 ??? wins, ties go to the one written first) live in `scripts/narrator.gd`;
 the hover wave and the slow ??? typing in `scripts/dialogue_column.gd`.
 
-Not built yet: Paranoia talking over the others when high, and frayed.
+Also built: Paranoia talking over the others, frayed, and backgrounds (above).
+The numbers live in `scripts/game_state.gd` (PARANOIA_LOUD, DROWN_MARGIN,
+FRAYED_AT, FRAYED_UNKNOWN_CHOICE_AT).
 
 ---
 
 ## Open questions
 
 - [ ] Colors for John, Warmth and Animal.
-- [ ] Does Animal feed a background, or stay outside them?
-- [ ] What brings MC back from frayed?
-- [ ] Is "frayed" shown to the player, or only felt? (Also in `day_one.md`.)
+- [x] Does Animal feed a background? No: it's how MC acts.
+- [x] What brings MC back from frayed? A day and night with every rule kept;
+      `fray=-1` for small comforts, to be written.
+- [x] Is "frayed" shown to the player? Only felt.
+- [x] Where does the background settle? At the end of the first week.
+- [ ] Which moments are small comforts (`fray=-1`), and which unsettling items
+      fray when handled (`fray=+1`)? Guideline: **once or twice a week each**,
+      rare enough to matter (see `themes.md`). To check while writing.
+- [ ] The numbers (loud at 6, frayed at 3, and the rest): fine for now, to
+      revisit after playtesting.
 - [ ] First test: rewrite the widow scene in `story/day_one.txt` with the voices,
       on paper, and see how it reads.

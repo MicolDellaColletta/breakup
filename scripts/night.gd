@@ -85,6 +85,7 @@ func _end_of_day() -> void:
 	var tween: Tween = create_tween().set_parallel()
 	tween.tween_property(radio_night, "volume_db", -80.0, 3.0)
 	tween.tween_property(wind, "volume_db", -80.0, 3.0)
+	GameState.end_night()
 	GameState.day += 1
 	var next: String = COUNTER_SCENE if GameState.DAY_STORIES.has(GameState.day) else TITLE_SCENE
 	Transition.go_to(next, 3.0, 1.0)

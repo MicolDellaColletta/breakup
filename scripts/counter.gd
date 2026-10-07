@@ -253,6 +253,8 @@ func _show_voice_notes(item_id: String) -> void:
 			continue
 		if GameState.voices[voice] < int(_stock.get_value(item_id, voice + "_at", 1)):
 			continue
+		if GameState.drowned(voice):
+			continue
 		var speaker: Dictionary = Narrator.speaker_info(voice)
 		var note: RichTextLabel = RichTextLabel.new()
 		note.bbcode_enabled = true

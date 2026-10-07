@@ -153,6 +153,7 @@ narration: Seventies. He doesn't look at you. He looks at the place behind the c
 ezra: The usual.
 narration: That's all. He waits.
 paranoia: The usual what.
+appraisal | if=appraisal>=1 and frayed: The rifle on the back shelf. He's come for the rifle. Tell him it's his.
 > Check the ledger -> ezra_ledger | lean=appraisal
 > Check the counter drawer -> ezra_drawer | if=flag:seen_shells
 > "The usual what?" -> ezra_fail | lean=animal
@@ -234,6 +235,8 @@ narration: The shop is very quiet. Even the hum seems to have stepped back.
 seller: Forty-one years I've said it. Morning and night. I'd like to stop.
 seller: I don't want money for it. Just take it. Write me a ticket.
 paranoia: Rule six. Say no. Be polite about it.
+warmth | if=warmth>=1 and frayed: Take it. Look at him. It would be a mercy.
+unknown | if=frayed: Write it down. Go on. It's only a word.
 > "I can't take that, Mr. Pruitt. I'm sorry." -> walt_kind | lean=warmth
 > "Names aren't for sale. Go home, Walt." -> walt_hard | break=name | lean=animal
 > Write him a ticket -> walt_accept | break=name | flag=ida_pawned | lean=unknown
@@ -282,6 +285,7 @@ ruth: Can I go up? I left something up there. A long time ago.
 narration: Her keys are already in her hand. On the ring, among the truck key and the bar keys, a small brass one with a pink plastic tag. A child's tag.
 appraisal | if=appraisal>=1: That's the one. The locked door upstairs.
 warmth | if=warmth>=1: She's carrying her childhood around on a key ring.
+unknown | if=frayed: Let her go up. Let her see what you've been feeding.
 > "Go ahead." -> ruth_upstairs | flag=ruth_upstairs | lean=warmth
 > "I'd rather you didn't." -> ruth_refused | flag=ruth_refused | lean=paranoia
 

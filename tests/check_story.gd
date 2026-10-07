@@ -140,6 +140,9 @@ func _condition_problems(text: String, items: ConfigFile, stock: ConfigFile) -> 
 			elif condition.begins_with("visited:"):
 				if not places.has_section(condition.trim_prefix("visited:")):
 					problems.append("no place '%s' in places.cfg" % condition)
+			elif condition.begins_with("background:"):
+				if not gs.BACKGROUNDS.has(condition.trim_prefix("background:")):
+					problems.append("no background '%s' (guilt, debt, witness, insanity)" % condition)
 			elif condition.begins_with("flag:") or condition.begins_with("broke:"):
 				pass
 			else:
