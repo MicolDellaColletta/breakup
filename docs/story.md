@@ -121,7 +121,7 @@ When the ice goes out on the lake, something below is let out, or fed, or wakes
 up. The Keeper is part of how the town survives it. Kept vague for a long time.
 
 Real detail to use: towns in Alaska run **betting pools on the exact minute
-the ice breaks.** A tripod stands out on the ice with a line to a clock on
+the ice breaks.** From late winter, once the ice is thick, a tripod stands out on it with a line to a clock on
 shore. When the ice moves, the clock stops. Kettle Lake has one. The Hermit
 tends it.
 

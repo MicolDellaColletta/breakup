@@ -60,9 +60,11 @@ narration: The cold outside is almost a relief.
 
 === lake
 narration | time=+20: The road ends at the shore. Past it, the lake: white, and flat, and so big the far side is just an idea.
-narration: Out on the ice, a hundred yards from shore, something stands on three legs. A tripod of spruce poles, a wire running from its top all the way back to a shed on the bank.
+narration: The ice reaches out from the shore in a gray skin, thin enough to see the black water moving under it. Further out, open water.
+narration: On the bank, four spruce poles lie lashed together under a tarp, a coil of wire beside them, waiting. A shed with a padlock. Somebody means to stand them up out there, once the ice can take it.
 narration: Further along the shore, a shack with one lit window. Smoke from a stovepipe. Somebody lives out here.
-narration: Out past the tripod, a light moves on the ice. Stops. Moves again. Then it goes out.
+narration: Out on the thin ice, where nobody could be walking, a light moves. Stops. Moves again. Then it goes out.
+paranoia: That ice wouldn't hold a dog.
 paranoia: Somebody who watches the ice all winter. Don't knock.
 unknown: Not yet, sweetheart.
 

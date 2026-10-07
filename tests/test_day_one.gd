@@ -179,9 +179,9 @@ func _cody(counter: Node, column: Node, run: String) -> void:
 	match run:
 		"That's right":
 			await pick(column, "Let me look")
-			counter._select("snowshoes")
+			counter._select("ice_picks")
 			counter._on_offer_pressed()
-			check(column._section == "nephew_given_snowshoes" and gs.sold.has("snowshoes"), "the snowshoes are what he needs: sold")
+			check(column._section == "nephew_given_ice_picks" and gs.sold.has("ice_picks"), "the ice picks are what he needs: sold")
 		"Take a second":
 			await pick(column, "won't hold")
 			check(column._section == "nephew_refuse", "refusing to help him onto the ice")
