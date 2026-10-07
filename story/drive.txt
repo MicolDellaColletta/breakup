@@ -11,6 +11,11 @@
 # Line and choice effects: | set=fed_dog (turns a GameState true/false on)  | sound=bell  | stop=ring (or stop=all)  | after=bell (wait for it to finish)
 #          | time=+15 (minutes pass)  | time=23:30 (clock moves forward to it)
 #          | take=pawn_ticket  | lose=key  (items live in story/items.cfg)  | break=window
+#          | grow=tongue (a voice gets stronger)
+# Voices: body, mind, feeling, tongue, paranoia (strength in GameState.voices).
+#          mind | if=mind>=2: ...   a line only a strong enough voice says
+#          > Lie -> lie | voice=tongue | if=tongue>=2   a choice shown as [TONGUE]
+# Any line can have | if=... and is skipped when it doesn't hold.
 # Sections start with === and a name. A section with only -> lines just picks a route.
 
 === main
@@ -25,6 +30,7 @@ paranoia: You don't know, do you.
 narration: The paper in your coat pocket. A typed letter, and folded inside it, directions in handwriting you don't recognize. You've touched it so often the folds have gone soft.
 paranoia: Don't take it out. You know what it says.
 narration: At the last gas station you signed for the fuel without thinking. Halfway through, you had to stop and start again.
+tongue: Next time, sign it fast. Like it's nothing. Like it's yours.
 narration: The road ends where the headlights end. Past that, nothing. Not dark. Nothing.
 unknown: Where are you going, sweetheart?
 unknown: And what will you do when you get there?
@@ -50,14 +56,15 @@ paranoia: They turned their lights off. That's what you'd do.
 === passenger
 narration | time=+5: On the passenger seat, something wrapped in a towel. About the size of a loaf of bread. Heavier than it looks.
 narration: You don't remember putting it there. You don't remember not putting it there.
+body: Your arms remember carrying it. They won't tell you from where.
 paranoia: Leave it wrapped.
 unknown: Not yet, sweetheart. Not yet.
 
 === coat
 narration | time=+5: Your hand finds the coat pocket on its own. The paper is still there. It's always still there.
 paranoia: Leave it. You've read it a hundred times.
-> Take it out -> @read_job_offer
-> Leave it -> coat_left
+> Take it out -> @read_job_offer | grow=mind
+> Leave it -> coat_left | grow=paranoia
 
 === coat_left
 narration: You leave it where it is. Your hand stays on it a while anyway, the way you'd keep a hand pressed to a cut.

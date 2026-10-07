@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmyhedgiw74cl" path="res://scripts/drive.gd" id="1_kjaxf"]
 [ext_resource type="AudioStream" uid="uid://bupqc6w8gpn40" path="res://audio/arunangshubanerjee-loopable-car-interior-driving-with-wipers-in-rain-366316.mp3" id="2_gd2ya"]
-[ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_iq54g"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_column.tscn" id="2_iq54g"]
 [ext_resource type="AudioStream" uid="uid://ditsyfdr0wlmw" path="res://audio/freesound_community-tuning-radio-7150.mp3" id="3_iq54g"]
 [ext_resource type="PackedScene" uid="uid://tyul2dy2d37i" path="res://scenes/document_viewer.tscn" id="5_iihft"]
 
@@ -30,16 +30,15 @@ layout_mode = 1
 
 [node name="Objects" type="HBoxContainer" parent="." unique_id=1392606893]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
+offset_left = 40.0
+offset_top = -64.0
+offset_right = 40.0
+offset_bottom = -28.0
 grow_vertical = 0
+theme_override_constants/separation = 10
 mouse_filter = 2
 
 [node name="RadioButton" type="Button" parent="Objects" unique_id=103426008]

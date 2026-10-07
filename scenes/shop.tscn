@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dl1mega7f33u1"]
 
 [ext_resource type="Script" uid="uid://dmf5kqhdutj3f" path="res://scripts/shop.gd" id="1_1l46r"]
-[ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_032fp"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_column.tscn" id="2_032fp"]
 [ext_resource type="AudioStream" uid="uid://cvrknc547f8sh" path="res://audio/freesound_community-rotary-phone-ring-medium-103869.mp3" id="3_8r1wq"]
 [ext_resource type="AudioStream" uid="uid://d2vpsu42pay10" path="res://audio/cartoon_music-shop-bell-ring-543931.mp3" id="3_m4ofw"]
 [ext_resource type="AudioStream" uid="uid://buttnji3lpwvj" path="res://audio/freesound_community-phone-pick-up-46796.mp3" id="4_ajxib"]

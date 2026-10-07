@@ -82,11 +82,11 @@ func _next_customer() -> void:
 	if _customer_index > CUSTOMERS.size():
 		return
 	if _customer_index == CUSTOMERS.size():
-		column.play("day_so_far")
+		column.start_conversation("day_so_far")
 		return
 	_customer = CUSTOMERS[_customer_index]
 	await get_tree().create_timer(CUSTOMER_GAP).timeout
-	column.play(_customer + "_enters")
+	column.start_conversation(_customer + "_enters")
 
 func _on_choice_made(choice: Dictionary) -> void:
 	if choice["target"] == "@browse":

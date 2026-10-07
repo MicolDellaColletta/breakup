@@ -3,7 +3,7 @@ extends Control
 const STORY_PATH: String = "res://story/apartment.txt"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
 
-@onready var narrator: Narrator = %Narrator
+@onready var narrator: DialogueColumn = %Narrator
 @onready var objects: HBoxContainer = %Objects
 @onready var window_button: Button = %WindowButton
 @onready var radio_button: Button = %RadioButton
@@ -54,7 +54,7 @@ func _on_section_finished(section: String) -> void:
 func _examine(object_id: String, button: Button) -> void:
 	button.disabled = true
 	objects.visible = false
-	narrator.play(object_id)
+	narrator.start_conversation(object_id)
 
 func _on_choice_made(choice: Dictionary) -> void:
 	_decided.append(choice["from"])
@@ -68,7 +68,7 @@ func _check_bed() -> void:
 
 func _on_bed_pressed() -> void:
 	objects.visible = false
-	narrator.play("sleep")
+	narrator.start_conversation("sleep")
 
 func _end_night() -> void:
 	narrator.set_input_enabled(false)

@@ -15,7 +15,7 @@ const STATIC_LEVELS: Dictionary = {
 	"loud": -6.0,
 }
 
-@onready var narrator: Narrator = $Narrator
+@onready var narrator: DialogueColumn = $Narrator
 @onready var objects: HBoxContainer = $Objects
 @onready var radio_button: Button = $Objects/RadioButton
 @onready var glovebox_button: Button = $Objects/GloveboxButton
@@ -87,7 +87,9 @@ func _on_document_closed(doc_id: String) -> void:
 func _return_to_main() -> void:
 	_examining = false
 	objects.visible = true
-	narrator.play("main", _main_index, true)
+	# Once the main text is over there's nothing to pick back up.
+	if not _main_finished:
+		narrator.start_conversation("main", _main_index, true)
 	_check_wheel()
 
 func _examine(object_id: String, button: Button) -> void:
@@ -99,14 +101,14 @@ func _examine(object_id: String, button: Button) -> void:
 	objects.visible = false
 	_examined.append(object_id)
 	_main_index = narrator.get_line_index()
-	narrator.play(object_id)
+	narrator.start_conversation(object_id)
 
 func _on_wheel_pressed() -> void:
 	if _examining:
 		return
 	_ending = true
 	objects.visible = false
-	narrator.play("wheel")
+	narrator.start_conversation("wheel")
 
 func _check_wheel() -> void:
 	if not _main_finished:

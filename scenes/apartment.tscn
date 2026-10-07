@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddcrmcuryf0pc"]
 
 [ext_resource type="Script" uid="uid://b70g8y11p0px" path="res://scripts/apartment.gd" id="1_pkwu2"]
-[ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_jq6rh"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_column.tscn" id="2_jq6rh"]
 [ext_resource type="AudioStream" uid="uid://d36jhfis185x" path="res://audio/freesound_community-radio-static-2-26831.mp3" id="3_jq6rh"]
 [ext_resource type="AudioStream" uid="uid://taqq4f8e7x83" path="res://audio/freesound_community-2-wood-staircase-old-creaking-footsteps-25941.mp3" id="4_stairs"]
 [ext_resource type="AudioStream" uid="uid://c0jpknx6vd8yr" path="res://audio/freesound_community-windy-day-indoors-windows-rattle-17087.mp3" id="5_wind"]
@@ -33,16 +33,15 @@ layout_mode = 1
 [node name="Objects" type="HBoxContainer" parent="." unique_id=1128439452]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -22.0
-offset_top = -40.0
-offset_right = 22.0
-grow_horizontal = 2
+offset_left = 40.0
+offset_top = -64.0
+offset_right = 40.0
+offset_bottom = -28.0
 grow_vertical = 0
+theme_override_constants/separation = 10
 mouse_filter = 2
 
 [node name="WindowButton" type="Button" parent="Objects" unique_id=714600136]

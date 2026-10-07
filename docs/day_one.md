@@ -102,8 +102,8 @@ MC's past is shaped by choices, not picked from a menu. Four directions:
 - **Insanity**: lost time, gaps in memory; they don't know why they ran.
   (Something specific, so it doesn't turn into "it was all in their head".)
 
-Each choice that matters can lean one way (`| lean=guilt` in story files). The
-prologue's hints are written to fit all four.
+The background grows out of which voices MC listens to (see `voices.md`), not
+from separate tags. The prologue's hints are written to fit all four.
 
 ## Money
 
@@ -158,7 +158,7 @@ Each step can be played and tested before the next.
 2. Money and the ledger.
 3. The other three customers, including the warm item.
 4. The Trooper.
-5. Background leanings (`lean=`), once the mapping is decided.
+5. Voices shaping the background (see `voices.md`), once the mapping is decided.
 6. Closing time, the map, the pub.
 7. Night at the shop, then sleep into day two.
 

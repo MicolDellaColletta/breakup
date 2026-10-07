@@ -66,9 +66,15 @@ func play(section: String, start_index: int = 0, instant: bool = false) -> void:
 		return
 	# An instant start resumes a line the player already saw, so its
 	# sounds, time and items don't happen a second time.
-	_show_line(start_index, not instant)
 	if instant:
+		_show_line(start_index, false)
 		_finish_line()
+		return
+	var first: int = _next_line_from(start_index)
+	if first == -1:
+		_end_section()
+		return
+	_show_line(first)
 
 func get_line_index() -> int:
 	return _line_index
@@ -109,11 +115,19 @@ func _advance() -> void:
 	# A finished section stays on its last line until play() starts a new one.
 	if _section_done:
 		return
-	var next_index: int = _line_index + 1
-	if next_index < _lines.size():
+	var next_index: int = _next_line_from(_line_index + 1)
+	if next_index != -1:
 		_show_line(next_index)
 		return
 	_end_section()
+
+# The first line from here on whose condition holds (mind | if=mind>=2: ...),
+# or -1 when the section has nothing more to show.
+func _next_line_from(index: int) -> int:
+	for i in range(index, _lines.size()):
+		if _is_available(_lines[i]):
+			return i
+	return -1
 
 # What happens after the last line: choices if there are any, otherwise the
 # first "->" whose condition holds. Only when neither applies does the
@@ -166,6 +180,8 @@ func _compare(text: String) -> bool:
 	return true if state else false
 
 func _state_value(name: String) -> Variant:
+	if GameState.voices.has(name):
+		return GameState.voices[name]
 	if not name in GameState:
 		push_warning("Story condition uses unknown GameState value: " + name)
 		return null
@@ -215,13 +231,14 @@ func _show_line(index: int, with_effects: bool = true) -> void:
 		_apply_effects(line)
 	var speaker: Dictionary = speaker_info(line["speaker"])
 	_speed = speaker["speed"]
-	_display_line(line, speaker)
+	_display_line(line, speaker, not with_effects)
 	_revealed = 0.0
 	_text_label().set("visible_characters", 0)
 	line_shown.emit(line)
 
 # Shows a line's text; it starts hidden and types out in _process.
-func _display_line(line: Dictionary, speaker: Dictionary) -> void:
+# resumed is true when play() picks up a line the player already saw.
+func _display_line(line: Dictionary, speaker: Dictionary, _resumed: bool) -> void:
 	speaker_label.text = speaker["name"]
 	speaker_label.add_theme_color_override("font_color", speaker["color"])
 	narration_label.add_theme_color_override("font_color", speaker["color"])
@@ -270,6 +287,8 @@ func _apply_effects(entry: Dictionary) -> void:
 		GameState.break_rule(entry["break"])
 	if entry.has("set"):
 		_set_flag(entry["set"])
+	if entry.has("grow"):
+		GameState.grow_voice(entry["grow"])
 
 # set=fed_dog turns a true/false value in GameState on.
 func _set_flag(name: String) -> void:

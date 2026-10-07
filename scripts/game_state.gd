@@ -19,6 +19,16 @@ var hour: int:
 	get:
 		return floori(minutes / 60.0)
 
+# The voices in MC's head and how strong each one is. The player never sees
+# the numbers: a strong voice speaks up more and opens choices of its own.
+var voices: Dictionary = {
+	"body": 1,
+	"mind": 1,
+	"feeling": 1,
+	"tongue": 1,
+	"paranoia": 2,
+}
+
 var inventory: Array[String] = ["key", "job_offer"]
 var _items: ConfigFile = ConfigFile.new()
 
@@ -29,6 +39,12 @@ func _ready() -> void:
 func break_rule(rule: String) -> void:
 	if not rules_broken.has(rule):
 		rules_broken.append(rule)
+
+func grow_voice(voice: String, amount: int = 1) -> void:
+	if not voices.has(voice):
+		push_warning("Unknown voice: " + voice)
+		return
+	voices[voice] += amount
 
 # --- Time ---
 
