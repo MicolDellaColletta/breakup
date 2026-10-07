@@ -17,6 +17,7 @@ const COLORED_CHOICE_AT: int = 3
 var day: int
 var answered_phone: bool
 var fed_dog: bool
+var invited_to_pub: bool
 var rules_broken: Array[String] = []
 
 # Minutes since midnight on the first evening. Past midnight it keeps
@@ -59,6 +60,7 @@ func reset() -> void:
 	day = 0
 	answered_phone = false
 	fed_dog = false
+	invited_to_pub = false
 	rules_broken.clear()
 	minutes = 22 * 60
 	# Paranoia starts high: in the prologue fear drowns everything else out.

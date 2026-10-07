@@ -76,7 +76,7 @@ Who the three are is still open. Ideas from earlier, free to use or drop:
 - **The seller: the warm item. Rule 2, "Don't buy anything that's still warm."**
   They put it on the counter. When you pick it up, it's warm. Buy it or not.
 
-## The Trooper
+## The Trooper: Sgt. Marit Olstad (see story.md)
 
 Alaska State Trooper (the police outside towns in rural Alaska). The most
 dangerous person in the game for someone living under a stolen name.

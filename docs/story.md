@@ -138,12 +138,25 @@ player shouldn't be sure whether what's under the ice learned that voice from
 him, or the other way round. A man that patient would make a perfect owner for
 the shop. Maybe Management thinks so too.
 
-## The Trooper
+## The Trooper: Sgt. Marit Olstad
 
 An Alaska State Trooper: in rural Alaska, outside the towns, the Troopers are
 the police. For someone living under a stolen name, the most dangerous person
 in Kettle Lake who isn't Daniel.
 
+- **Who she is:** late thirties, pregnant (six months or more), parka hanging
+  open as if the cold were beneath her notice. Intimidating and rude in a
+  mannered way: polite words, a cold edge. Inspired by Marge Gunderson in
+  *Fargo*, but not kind.
+- **How she talks:** Upper Midwest. ("Ohh, ya." "Oh, for cute." "Hon.")
+  Real reason: in 1935 the government moved about 200 families from Minnesota,
+  Wisconsin and Michigan to Alaska's Matanuska Valley. Calls MC "Johnny".
+- **She handles things that aren't hers.** Moves items a little out of place,
+  goes behind the counter without asking, and lingers on the tin box with
+  ticket 0447: "What's in the tin, Johnny?"
+- **She has a key to the shop.** A spare for the back door, the old owner
+  gave her "a few winters back". She gives it to MC: "Don't lock it, though.
+  He never did." (Rule 1.)
 - **First visit: day one,** between customers. Not a customer.
 - **Calls MC "John"** and watches how long it takes them to answer.
 - **Knows too much, quietly.** "Saw a sedan come in late last night. One
@@ -268,6 +281,6 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [ ] What soaked the rental agreement, per background.
 - [ ] What exactly happens to Keepers at breakup.
 - [ ] Ray Hollis: just the widow's husband, or connected?
-- [ ] The Trooper: name, gender, how much they know about the Keepers.
+- [ ] Sgt. Olstad: how much she knows about the Keepers, and about John's tin box.
 - [ ] Management's envelopes: who delivers them, and what comes besides cash (and when).
 - [ ] The recurring customer from day one who matters to the town plot.
