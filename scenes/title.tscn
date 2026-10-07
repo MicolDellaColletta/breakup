@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_title"]
+[ext_resource type="AudioStream" uid="uid://c0jpknx6vd8yr" path="res://audio/freesound_community-windy-day-indoors-windows-rattle-17087.mp3" id="2_wind"]
+
+[node name="Title" type="Control" unique_id=1090807060]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_title")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1190817161]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.035, 0.05, 1)
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=1290827262]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = -210.0
+offset_right = 596.0
+offset_bottom = 210.0
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="GameTitle" type="Label" parent="Layout" unique_id=1390837363]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.89, 0.92, 1)
+theme_override_font_sizes/font_size = 64
+text = "BREAKUP"
+
+[node name="Subtitle" type="Label" parent="Layout" unique_id=1490847464]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.62, 0.66, 1)
+theme_override_font_sizes/font_size = 18
+text = "Kettle Lake, Alaska. Winter, 1999."
+
+[node name="Spacer" type="Control" parent="Layout" unique_id=1590857565]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ContinueButton" type="Button" parent="Layout" unique_id=1690867666]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="Layout" unique_id=1790877767]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "New game"
+
+[node name="LoadButton" type="Button" parent="Layout" unique_id=1890887868]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Load"
+
+[node name="SettingsButton" type="Button" parent="Layout" unique_id=1990897969]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Layout" unique_id=1000908070]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Quit"
+
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1100918171]
+unique_name_in_owner = true
+stream = ExtResource("2_wind")
+volume_db = -18.0
+autoplay = true
+parameters/looping = true

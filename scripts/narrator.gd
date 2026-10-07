@@ -37,8 +37,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _is_line_finished():
 		return
-	_revealed += _speed * delta
+	_revealed += _speed * _speed_setting() * delta
 	_text_label().set("visible_characters", int(_revealed))
+
+# The player's text speed setting (Settings menu).
+func _speed_setting() -> float:
+	var settings: Node = get_node_or_null("/root/Settings")
+	return settings.speed_multiplier() if settings else 1.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not _input_enabled or _hud_covering():

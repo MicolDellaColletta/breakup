@@ -5,7 +5,9 @@ extends Control
 
 const STORY_PATH: String = "res://story/day_one.txt"
 const STOCK_PATH: String = "res://story/stock.cfg"
-const CUSTOMERS: Array[String] = ["widow"]
+const MAP_SCENE: String = "res://scenes/map.tscn"
+# Who comes through the door today, in order: customers and visitors.
+const VISITS: Array[String] = ["widow", "trooper"]
 const CUSTOMER_GAP: float = 1.5
 
 # Placeholder text until there's art for each view.
@@ -100,12 +102,15 @@ func _on_section_finished(_section: String) -> void:
 
 func _next_customer() -> void:
 	_customer_index += 1
-	if _customer_index > CUSTOMERS.size():
+	# After the last visit, closing time; after closing, the town map.
+	if _customer_index > VISITS.size():
+		create_tween().tween_property($ShopHum, "volume_db", -80.0, 1.5)
+		Transition.go_to(MAP_SCENE, 1.5, 0.5)
 		return
-	if _customer_index == CUSTOMERS.size():
-		column.start_conversation("day_so_far")
+	if _customer_index == VISITS.size():
+		column.start_conversation("closing")
 		return
-	_customer = CUSTOMERS[_customer_index]
+	_customer = VISITS[_customer_index]
 	await get_tree().create_timer(CUSTOMER_GAP).timeout
 	column.start_conversation(_customer + "_enters")
 

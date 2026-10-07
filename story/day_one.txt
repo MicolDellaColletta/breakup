@@ -110,6 +110,94 @@ widow: Maybe they should have hired somebody who knew the shop.
 narration | sound=bell: She goes out the way she came, into the dark, and doesn't close the door all the way. The cold comes all the way to the counter.
 paranoia: She'll tell people. Everybody knew Ray.
 
-=== day_so_far
-narration | time=+30: The shop goes quiet again. The hum. The clock. The dark outside going gray.
-narration: (The rest of day one is still being written.)
+# --- Sgt. Marit Olstad, Alaska State Troopers. Not a customer. ---
+
+=== trooper_enters
+narration | sound=bell | time=+50: The bell. Cold air, and a woman in a Trooper's parka who doesn't bother to stamp her boots.
+narration: Late thirties. Pregnant, six months or more. The parka won't close over her belly anymore, and she's let it hang open as if the cold were beneath her notice.
+narration: She takes her time looking at the shop before she looks at you.
+trooper: Ohh, so you're the new one.
+trooper: Sergeant Olstad. Troopers. Anything out past the town line is mine, and that's most everything, hon.
+trooper: John, ya?
+> "That's right." -> trooper_john | lean=john
+> Take a second too long. -> trooper_slow | lean=paranoia
+> "Who's asking?" -> trooper_who | lean=animal
+
+=== trooper_john
+trooper: Ya. John. Real good.
+narration: She says it the way you'd test a step on a frozen pond.
+-> trooper_car
+
+=== trooper_slow
+narration: You open your mouth. Nothing comes out for a moment that goes on too long.
+trooper: Oh, for cute. Takes a while to get used to, a new name. Or a new place. I meant a new place.
+paranoia: She didn't mean a new place.
+-> trooper_car
+
+=== trooper_who
+trooper: Who's asking. Ohh, I like that.
+narration: She taps the badge on her chest, twice, without looking down at it.
+trooper: The State of Alaska's asking, Johnny. But nicely. For now.
+-> trooper_car
+
+=== trooper_car
+trooper: Real cold one last night. Guess you're not used to it yet. You'll learn.
+trooper: Or you won't. Some don't.
+trooper: Saw a sedan come up the road late. One headlight dimmer than the other. That yours, Johnny?
+> "It's a rental." -> trooper_rental | lean=appraisal
+> "Must have been somebody else." -> trooper_somebody | lean=john
+
+=== trooper_rental
+trooper: Ohh, I know it's a rental, hon. Northern Lights, Anchorage. Little sticker on the bumper.
+appraisal | if=appraisal>=1: She read the bumper in the dark, from a moving cruiser. Or she's seen the paperwork.
+-> trooper_looks
+
+=== trooper_somebody
+trooper: Huh. Somebody else. Out here.
+trooper: Funny, there's only the one car parked outside. Blue. Dim headlight. Must be a real popular model.
+paranoia: Stop talking. Every word is a mile of rope.
+-> trooper_looks
+
+=== trooper_looks
+narration: She wanders while she talks. Picks up the brass compass, weighs it, sets it down a little to the left of where it was.
+narration: She stops at the fox and leans in until she's nose to nose with it.
+trooper: Oh, for cute. Eyes are wrong. Old man always got the eyes wrong.
+narration: Then she's behind the counter, where she has no reason to be, at the back shelves. Her fingers find the tin box with tag 0527 and stay there.
+trooper: What's in the tin, Johnny?
+> "I don't know. It was here when I came." -> trooper_tin_truth | lean=warmth
+> "That one's not for sale." -> trooper_tin_keeper | lean=john
+
+=== trooper_tin_truth
+trooper: Ya. Lot of things here were here when you came. That's kind of the job, isn't it.
+-> trooper_leaves
+
+=== trooper_tin_keeper
+trooper: Everything's for sale in a pawn shop, hon. That's the whole idea.
+narration: She sets it back down. Exactly where it was, this time.
+-> trooper_leaves
+
+=== trooper_leaves
+trooper: Folks get together at the pub tonight. Eight o'clock. You should come. People like to see the new Keeper.
+trooper | set=invited_to_pub: Gives them something to talk about besides the weather.
+narration: At the door she stops, digs in her parka, and comes back. A key on a red tag lands on the glass.
+trooper | take=back_door_key: Old man gave me this a few winters back. Spare for the back door. In case.
+trooper: Figured you'd want it.
+trooper: Don't lock it, though. He never did.
+narration | sound=bell: The bell, and the cold, and she's gone.
+paranoia: Why do the police have a key to this place?
+unknown: She likes you, sweetheart. You can tell.
+
+# --- Closing time. When this ends, the town map opens. ---
+
+=== closing
+narration | time=17:00: By five the sky outside the front windows has gone the dark blue of deep water. Then just dark.
+narration: You turn the sign in the window. CLOSED. The neon stays on. It isn't yours to turn off.
+-> closing_invited | if=invited_to_pub
+-> closing_alone
+
+=== closing_invited
+paranoia: Eight o'clock, she said. You don't have to go.
+paranoia: You do have to go. Not going is a thing people notice.
+
+=== closing_alone
+paranoia: Nobody's expecting you anywhere. Good. Keep it that way.

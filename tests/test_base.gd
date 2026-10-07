@@ -8,8 +8,15 @@ var checks: int = 0
 var failures: int = 0
 var gs: Node
 
+const TEST_SAVES: String = "user://test_saves/"
+
 func _initialize() -> void:
 	gs = root.get_node("GameState")
+	# Tests save into their own folder, emptied first, so they never touch
+	# the player's saves (every new part of the game autosaves).
+	root.get_node("Saves").save_dir = TEST_SAVES
+	for file in DirAccess.get_files_at(TEST_SAVES):
+		DirAccess.remove_absolute(TEST_SAVES + file)
 	_start.call_deferred()
 
 func _start() -> void:

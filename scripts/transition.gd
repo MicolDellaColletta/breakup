@@ -28,6 +28,10 @@ func go_to(scene_path: String, fade_duration: float, hold: float = 0.0) -> void:
 	await fade_out(fade_duration)
 	if hold > 0.0:
 		await get_tree().create_timer(hold).timeout
+	# A new part of the game starts here: the autosave remembers it.
+	var saves: Node = get_node_or_null("/root/Saves")
+	if saves:
+		saves.mark_checkpoint(scene_path)
 	get_tree().change_scene_to_file(scene_path)
 
 # --- Private: the machinery ---

@@ -1,0 +1,54 @@
+# THE TOWN (evenings, from the map)
+# Same format as drive.txt (see the notes at the top of that file).
+# Each place in story/places.cfg plays the section with its id on arrival.
+# When a section ends with nowhere to go, you're back at the map.
+
+=== map_first
+narration: The road into Kettle Lake is one lane of packed snow between two black walls of spruce.
+narration: The town is a gas station, a church, a post office, a handful of houses, and the lights of the bar. Beyond them, the lake, flat and white and enormous.
+paranoia: Go if you have to. Come back before it's late.
+
+=== pub
+narration | time=20:00: The Tripod. Wood paneling, a jukebox nobody's feeding, a moose head wearing a Santa hat from some other year.
+narration: Twenty people, maybe. The talking stops when the door closes behind you, then starts again, a little louder than before.
+narration: At the end of the bar, Sergeant Olstad lifts a glass of milk an inch in your direction.
+narration: Someone raises a beer. Then someone else. Then the whole room, not quite in time.
+narration: "Welcome to Kettle Lake, friend."
+paranoia: The radio said that. Word for word.
+> Buy a round back -> pub_round | if=cash>=40 | cash=-40 | lean=john
+> Take a stool at the far end -> pub_stool | lean=paranoia
+> Ask who the last Keeper was -> pub_ask | lean=appraisal
+
+=== pub_round
+narration: You put two twenties on the bar. The room cheers, the way rooms cheer for anyone who buys a round.
+narration: For an hour you're John, and John is easy to like. Your face hurts from it by the end.
+john | if=john>=2: See? Nobody here wants to know anything. They want you to be him.
+-> pub_leave
+
+=== pub_stool
+narration: You take the last stool, the one with your back to the wall. From there you can see the door and every face in the mirror behind the bottles.
+narration: Nobody sits next to you. Everybody looks, once.
+-> pub_leave
+
+=== pub_ask
+narration: You ask the woman behind the bar who had the shop before you.
+narration: She keeps drying the same glass.
+narration: "The Keeper," she says. "Same as you, hon. There's always a Keeper."
+appraisal | if=appraisal>=1: Not a name. A job title. Like asking who the mailman was.
+-> pub_leave
+
+=== pub_leave
+narration | time=+90: You leave before they can ask you anything you'd have to answer.
+narration: The cold outside is almost a relief.
+
+=== lake
+narration | time=+20: The road ends at the shore. Past it, the lake: white, and flat, and so big the far side is just an idea.
+narration: Out on the ice, a hundred yards from shore, something stands on three legs. A tripod of spruce poles, a wire running from its top all the way back to a shed on the bank.
+narration: Further along the shore, a shack with one lit window. Smoke from a stovepipe. Somebody lives out here.
+paranoia: Somebody who watches the ice all winter. Don't knock.
+unknown: Not yet, sweetheart.
+
+=== home
+narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.
+narration: The shop is dark. The neon is the only thing awake.
+narration: (The night at the shop is still being written. To be continued.)

@@ -8,6 +8,8 @@ func run() -> void:
 	await _widow_kind()
 	await _widow_price()
 	await _widow_john()
+	for answer in ["That's right", "Take a second", "Who's asking"]:
+		await _trooper(answer)
 	await _colored_rules()
 
 # Opens the counter and plays until Mrs. Hollis has come in.
@@ -117,6 +119,48 @@ func _widow_john() -> void:
 	advance(column)
 	check(_log(column).contains("JOHN —"), "John speaks after the lie")
 	check(gs.voices["john"] == 4, "the lie feeds John again")
+
+const TROOPER_ROUTES: Dictionary = {
+	"That's right": ["trooper_john", "john"],
+	"Take a second": ["trooper_slow", "paranoia"],
+	"Who's asking": ["trooper_who", "animal"],
+}
+
+func _trooper(answer: String) -> void:
+	section("Sgt. Olstad, answering: " + answer)
+	var counter: Node = await _until_widow(true)
+	var column: Node = counter.get_node("%DialogueColumn")
+	# Mrs. Hollis leaves quickly.
+	await pick(column, "Say nothing")
+	advance(column)
+	await pick(column, "sorry")
+	advance(column)
+	await pick(column, "I don't think I can help")
+	advance(column)
+	await wait(1.8)
+	advance(column)
+	await process_frame
+	check(column._section == "trooper_enters", "the Trooper comes in after Mrs. Hollis")
+	check(choices(column) == ["\"That's right.\"", "Take a second too long.", "\"Who's asking?\""], "she asks if you're John: three ways to answer")
+	var before: int = gs.voices[TROOPER_ROUTES[answer][1]]
+	await pick(column, answer)
+	check(column._section == TROOPER_ROUTES[answer][0], "the answer plays its own reaction")
+	check(gs.voices[TROOPER_ROUTES[answer][1]] == before + 1, "it feeds " + TROOPER_ROUTES[answer][1].capitalize())
+	advance(column)
+	check(choices(column) == ["\"It's a rental.\"", "\"Must have been somebody else.\""], "then the dim headlight")
+	await pick(column, "rental")
+	advance(column)
+	check(choices(column).size() == 2 and _log(column).contains("What's in the tin"), "she finds the tin box with tag 0527")
+	await pick(column, "not for sale")
+	advance(column)
+	check(gs.has_item("back_door_key"), "she leaves you the back door key")
+	check(gs.invited_to_pub, "and you're invited to the pub tonight")
+	await wait(1.8)
+	advance(column)
+	check(column._section == "closing_invited", "then closing time, remembering the invitation")
+	advance(column)
+	await wait(2.5)
+	check(current_scene.name == "Map", "after closing, the town map opens")
 
 func _colored_rules() -> void:
 	section("Colored choice rules (docs/voices.md)")
