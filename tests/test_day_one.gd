@@ -137,10 +137,11 @@ func _trooper(answer: String) -> void:
 	advance(column)
 	await pick(column, "I don't think I can help")
 	advance(column)
+	await _cody(counter, column, answer)
 	await wait(1.8)
 	advance(column)
 	await process_frame
-	check(column._section == "trooper_enters", "the Trooper comes in after Mrs. Hollis")
+	check(column._section == "trooper_enters", "the Trooper comes in after Cody")
 	check(choices(column) == ["\"That's right.\"", "Take a second too long.", "\"Who's asking?\""], "she asks if you're John: three ways to answer")
 	var before: int = gs.voices[TROOPER_ROUTES[answer][1]]
 	await pick(column, answer)
@@ -155,6 +156,8 @@ func _trooper(answer: String) -> void:
 	advance(column)
 	check(gs.has_item("back_door_key"), "she leaves you the back door key")
 	check(gs.invited_to_pub, "and you're invited to the pub tonight")
+	await _walt(counter, column, answer)
+	await _reverend(counter, column, answer)
 	await wait(1.8)
 	advance(column)
 	check(column._section == "closing_invited", "then closing time, remembering the invitation")
@@ -166,6 +169,75 @@ func _trooper(answer: String) -> void:
 	counter._leave_for_the_evening()
 	await wait(2.5)
 	check(current_scene.name == "Map", "the front door leads out to the town map")
+
+# Each run of the day plays the other customers a different way.
+func _cody(counter: Node, column: Node, run: String) -> void:
+	await wait(1.8)
+	advance(column)
+	await process_frame
+	check(column._section == "nephew_enters", "Cody Hollis comes in after his aunt")
+	match run:
+		"That's right":
+			await pick(column, "Let me look")
+			counter._select("snowshoes")
+			counter._on_offer_pressed()
+			check(column._section == "nephew_given_snowshoes" and gs.sold.has("snowshoes"), "the snowshoes are what he needs: sold")
+		"Take a second":
+			await pick(column, "won't hold")
+			check(column._section == "nephew_refuse", "refusing to help him onto the ice")
+		_:
+			await pick(column, "I don't think I can help")
+			check(column._section == "nephew_nothing", "or telling him there's nothing")
+	advance(column)
+
+func _walt(counter: Node, column: Node, run: String) -> void:
+	await wait(1.8)
+	advance(column)
+	await process_frame
+	check(column._section == "seller_enters", "Walt Pruitt comes in after the Trooper")
+	check(choices(column).size() == 4, "four answers to the warm coins")
+	var cash_before: int = gs.cash
+	var till_before: int = gs.till
+	match run:
+		"That's right":
+			await pick(column, "thirty")
+			advance(column)
+			check(gs.acquired.has("silver_dollars") and gs.rules_broken.has("warm"), "taking the warm coins breaks rule two")
+			check(gs.cash + gs.till == cash_before + till_before - 30, "a fair loan: thirty dollars")
+			check(gs.ledger_lines[-1].contains("Thirty silver dollars, pawned by Walt Pruitt, tag 0432. $30 loan"), "the ledger writes down the pawn")
+			counter._show_view("back")
+			var shelf: Array = counter.get_node("%ShelfItems").get_children().filter(
+				func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return b.text)
+			check(shelf.has("Thirty silver dollars"), "the coins go on the back shelf")
+			counter._show_view("counter")
+		"Take a second":
+			await pick(column, "can't take these")
+			advance(column)
+			check(not gs.acquired.has("silver_dollars") and not gs.rules_broken.has("warm"), "turning him away keeps rule two")
+		_:
+			await pick(column, "forty-five")
+			advance(column)
+			check(gs.cash + gs.till == cash_before + till_before - 45, "a generous loan: forty-five, from the till and your pocket")
+
+func _reverend(counter: Node, column: Node, run: String) -> void:
+	await wait(1.8)
+	advance(column)
+	await process_frame
+	check(column._section == "reverend_enters", "the Reverend Elias comes in last")
+	match run:
+		"That's right":
+			await pick(column, "I don't think I can help")
+		"Take a second":
+			await pick(column, "Let me look")
+			counter._select("compass")
+			counter._on_offer_pressed()
+		_:
+			await pick(column, "Let me look")
+			counter._select("decoy")
+			counter._on_offer_pressed()
+	advance(column)
+	check(gs.sold.has("compass") and gs.has_item("compass"), "however it goes, he buys the compass and gives it to you")
+	check(not gs.sold.has("decoy"), "nothing else is sold to him")
 
 func _spots_shown(counter: Node) -> Array:
 	return counter.get_node("%SpotsRow").get_children().filter(

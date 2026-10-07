@@ -110,6 +110,123 @@ widow: Maybe they should have hired somebody who knew the shop.
 narration | sound=bell: She goes out the way she came, into the dark, and doesn't close the door all the way. The cold comes all the way to the counter.
 paranoia: She'll tell people. Everybody knew Ray.
 
+# --- Cody Hollis, Ray's nephew. Buying. One or two visits. ---
+
+=== nephew_enters
+narration | sound=bell | time=+40: The bell. A young man in a canvas work jacket, twenty at most, snow on his shoulders he hasn't bothered to brush off.
+narration: He looks like someone you've already met today. Something around the eyes.
+nephew: You the new guy? Cody. Cody Hollis. My aunt was in here. I saw her truck.
+nephew: Look, I need something to get out on the lake. Out past the point, on the north shore.
+nephew: Everybody says the ice won't hold yet. Everybody said Uncle Ray knew the lake better than anybody, too.
+nephew: I'm not waiting till spring to find him under it. I need something to walk on, so I don't go through. You got anything like that?
+paranoia: The ice isn't ready. He knows it isn't ready.
+> Let me look -> @browse
+> "The ice won't hold. I'm not helping you go out there." -> nephew_refuse | lean=warmth
+> I don't think I can help -> nephew_nothing
+
+=== nephew_given_snowshoes
+narration | sold=snowshoes: He turns the snowshoes over and tests the wire binding with his thumb.
+nephew: These'll do. These'll do fine.
+narration: Thirty dollars in tens, damp from his pocket. He's out the door before you can say anything else.
+narration | sound=bell: The bell swings and goes still.
+warmth | if=warmth>=1: You just sold him a way out onto the ice.
+paranoia: Not your business. None of this is your business.
+
+=== nephew_given_other
+nephew: Man, that's not going to keep me on top of the ice.
+-> nephew_leaves_empty
+
+=== nephew_nothing
+nephew: Right. Sure. Thanks a lot.
+-> nephew_leaves_empty
+
+=== nephew_refuse
+narration: He stares at you as if you'd slapped him.
+nephew: You don't even know him.
+nephew: Nobody in this whole town is going to look for him. Not one person. You'll see.
+-> nephew_leaves_empty
+
+=== nephew_leaves_empty
+narration | sound=bell: The door bangs shut behind him, hard enough to ring the bell twice.
+paranoia: He'll go out there anyway. With your snowshoes or without them.
+
+# --- Walt Pruitt. Pawning thirty silver dollars. Rule two. One or two visits. ---
+
+=== seller_enters
+narration | sound=bell | time=+60: The bell. An old man in a sheepskin coat, moving slowly, as if every step had to be argued for.
+narration: He doesn't look at the shelves. He comes straight to the counter and sets down a paper roll of coins.
+seller: Walt Pruitt. I'd like to pawn these. Thirty silver dollars. Morgans, every one.
+narration: You pick up the roll.
+narration: It's warm. Not pocket-warm. Warm the way a cup is warm a minute after someone has set it down.
+paranoia: Rule two. Don't buy anything that's still warm.
+seller: They were my wife's. She collected them. She won't be needing them now.
+appraisal | if=appraisal>=1: Thirty Morgan dollars. Worth a great deal more than thirty, to the right buyer.
+> Offer him fifteen -> seller_low | lean=appraisal | break=warm
+> Offer him thirty -> seller_fair | lean=warmth | break=warm
+> Offer him forty-five -> seller_high | lean=john | break=warm
+> "I can't take these." -> seller_refuse | lean=paranoia
+
+=== seller_low
+narration | pawned=silver_dollars | loan=15: He looks at the fifteen dollars for a long time. Then he takes it, folds it once, and puts it away.
+seller: Fifteen. All right. She always said I never could bargain.
+-> seller_ticket
+
+=== seller_fair
+narration | pawned=silver_dollars | loan=30: Thirty dollars. He nods, as if that were the number he'd expected all along.
+seller: Thirty. That's fair. That's what she'd have called fair.
+-> seller_ticket
+
+=== seller_high
+narration | pawned=silver_dollars | loan=45: Forty-five. He looks at the money, then at you, for a long, steady moment.
+seller: That's more than they're worth to you, son. I won't ask why.
+-> seller_ticket
+
+=== seller_ticket
+narration: You write him a ticket. Number 0432. He tucks it into his coat without reading it.
+narration | sound=bell: The bell, and he's gone, slow and careful, into the snow.
+narration: On the glass where the roll lay, there's a small round patch of fog. It doesn't fade.
+paranoia: Rule two. You knew, and you did it anyway.
+
+=== seller_refuse
+seller: No. No, I suppose you can't.
+narration: He takes the roll back. Holding it, he looks a little more alive.
+narration | sound=bell: The bell, and he's gone.
+appraisal | if=appraisal>=1: Thirty silver dollars, and you never asked what happened to her.
+
+# --- The Reverend Elias. Buying. Recurring: the town plot. ---
+
+=== reverend_enters
+narration | sound=bell | time=+60: The bell. A tall man in a long black coat, a white collar showing at the throat. Sixty, maybe. He closes the door gently behind him, as if the shop were asleep.
+reverend: Good afternoon. You'll be our new Keeper. I'm Elias. I have the church, up the hill.
+narration: His voice is calm and unhurried, like someone sitting up with a sick friend.
+appraisal | if=appraisal>=2: You've heard that voice before. Through static, on the road, in the dark.
+reverend: I'm looking for something, and I hope you'll forgive me for being roundabout about it.
+reverend: Something that tells you where north is when you can't see the shore. When the snow comes down and the whole lake is the same white in every direction.
+> Let me look -> @browse
+> I don't think I can help -> reverend_nothing
+
+=== reverend_given_compass
+narration | sold=compass: He weighs the compass in his palm and watches the needle settle, slowly, on north.
+reverend: Yes. That's the one. It takes its time, doesn't it? The honest ones do.
+narration: He pays, twenty dollars exactly. Then he slides the compass back across the glass to you.
+reverend | take=compass: It's for you. When it snows out there, the shore disappears. Don't ever go out on the ice without knowing where north is.
+reverend: And on Sunday, if anyone asks you to come up to the church and be prayed for, you might find you're busy.
+warmth | if=warmth>=1: He means it kindly. Whatever it means, he means it kindly.
+narration | sound=bell: He touches two fingers to the brim of his hat, and he's gone.
+
+=== reverend_given_other
+narration: He looks at it, smiles, and sets it gently down.
+reverend: Not quite. Might I?
+-> reverend_finds_it
+
+=== reverend_nothing
+reverend: No? Then let me look, if you don't mind.
+-> reverend_finds_it
+
+=== reverend_finds_it
+narration: He walks out onto the shop floor and goes straight to the brass compass, as if he'd known where it was all along.
+-> reverend_given_compass
+
 # --- Sgt. Marit Olstad, Alaska State Troopers. Not a customer. ---
 
 === trooper_enters

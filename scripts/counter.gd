@@ -7,7 +7,7 @@ const STORY_PATH: String = "res://story/day_one.txt"
 const STOCK_PATH: String = "res://story/stock.cfg"
 const MAP_SCENE: String = "res://scenes/map.tscn"
 # Who comes through the door today, in order: customers and visitors.
-const VISITS: Array[String] = ["widow", "trooper"]
+const VISITS: Array[String] = ["widow", "nephew", "trooper", "seller", "reverend"]
 const CUSTOMER_GAP: float = 1.5
 
 # Placeholder text until there's art for each view.
@@ -167,6 +167,11 @@ func _on_line_shown(line: Dictionary) -> void:
 		if _selected == item_id:
 			_selected = ""
 		_show_view(_view)
+	if line.has("pawned"):
+		var pawned: String = line["pawned"]
+		GameState.record_pawn(_stock.get_value(pawned, "name"), pawned, int(line.get("loan", "0")),
+			_stock.get_value(pawned, "pawn_tag", ""), Narrator.speaker_info(_customer)["name"])
+		_show_view(_view)
 
 # --- The shelves ---
 
@@ -188,6 +193,8 @@ func _show_view(view: String) -> void:
 		return
 	var first: String = ""
 	for item_id in _stock.get_sections():
+		if not _in_shop(item_id):
+			continue
 		if _stock.get_value(item_id, "shelf") != view or GameState.sold.has(item_id):
 			continue
 		if first == "":
@@ -276,6 +283,11 @@ func _leave_for_the_evening() -> void:
 	create_tween().tween_property($ShopHum, "volume_db", -80.0, 1.5)
 	Transition.go_to(MAP_SCENE, 1.5, 0.5)
 
+# Items marked arrives=true in stock.cfg aren't in the shop until someone brings
+# them in (pawned= in a story file).
+func _in_shop(item_id: String) -> bool:
+	return not _stock.get_value(item_id, "arrives", false) or GameState.acquired.has(item_id)
+
 # --- The ledger and the register ---
 
 # Every item the shop holds, with the owner's entry for it, then this
@@ -283,6 +295,8 @@ func _leave_for_the_evening() -> void:
 func _write_ledger() -> void:
 	var text: String = "[b]HELD BY THE SHOP[/b]\n"
 	for item_id in _stock.get_sections():
+		if not _in_shop(item_id):
+			continue
 		# A ledger never erases: a sold item keeps its entry, marked sold.
 		var price: String
 		if GameState.sold.has(item_id):

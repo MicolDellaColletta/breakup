@@ -49,6 +49,8 @@ var till_short: int:
 # Shop items that have been sold, and the lines written in the ledger this
 # season ("Oct 6. Duck call, sold to Mrs. Hollis. $15").
 var sold: Array[String] = []
+# Items people brought in this season (pawned or sold to the shop).
+var acquired: Array[String] = []
 var ledger_lines: Array[String] = []
 
 func _ready() -> void:
@@ -81,6 +83,7 @@ func reset() -> void:
 	till = 0
 	till_by_ledger = 0
 	sold.clear()
+	acquired.clear()
 	ledger_lines.clear()
 	time_changed.emit()
 
@@ -91,7 +94,7 @@ func reset() -> void:
 const SAVED: Array[String] = [
 	"day", "answered_phone", "fed_dog", "invited_to_pub", "locked_back_door", "rules_broken",
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
-	"sold", "ledger_lines",
+	"sold", "acquired", "ledger_lines",
 ]
 
 func to_dict() -> Dictionary:
@@ -177,6 +180,18 @@ func record_sale(item_name: String, item_id: String, price: int, buyer: String) 
 	till_by_ledger += price
 	var to: String = (" to " + buyer) if buyer != "" else ""
 	ledger_lines.append("%s. %s, sold%s. $%d" % [date_text(), item_name, to, price])
+
+# Someone pawns an item: the loan comes out of the till, and out of your own
+# pocket when the till runs short. The ledger writes down the whole loan; its
+# drawer total only drops by what actually left the drawer.
+func record_pawn(item_name: String, item_id: String, loan: int, tag: String, seller: String) -> void:
+	acquired.append(item_id)
+	var from_till: int = mini(loan, till)
+	till -= from_till
+	cash -= loan - from_till
+	till_by_ledger -= from_till
+	var by: String = (" by " + seller) if seller != "" else ""
+	ledger_lines.append("%s. %s, pawned%s, tag %s. $%d loan" % [date_text(), item_name, by, tag, loan])
 
 # Money taken from the till for yourself. The ledger doesn't know.
 func take_from_till(amount: int) -> void:
