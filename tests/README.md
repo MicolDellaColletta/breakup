@@ -10,6 +10,7 @@ Checks that run Godot without a window and play through the game.
 | `test_day_two.gd` | Day two two ways (the morning after night one, Cody or Mrs. Hollis, Ezra, Walt's name, Ruth), the church and Sam's cabin, and the second night's phone three ways. |
 | `test_evening.gd` | The town map: which places show, travel time, the pub, the lake, going home. |
 | `test_night.gd` | The first night as Keeper: radio, back door with and without the key, the reflection after three, staying in bed. |
+| `test_voices.gd` | The voices' own rules: Paranoia talking over the others, fraying and coming back, ??? when frayed, the background. |
 | `test_menu.gd` | The title screen, pause menu, saving, loading and settings. Uses its own save folder, never your saves. |
 | `test_base.gd` | Shared helpers the tests use. Not a test itself. |
 

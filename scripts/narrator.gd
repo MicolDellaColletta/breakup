@@ -29,6 +29,8 @@ var _input_enabled: bool = true
 var _section_done: bool = false
 var _speed: float = CHARACTERS_PER_SECOND
 var _sounds: Dictionary = {}
+# Paranoia has already talked over a voice in this section: once is enough.
+var _talked_over: bool = false
 
 func _ready() -> void:
 	advance_button.pressed.connect(_on_advance_pressed)
@@ -91,6 +93,7 @@ func play(section: String, start_index: int = 0, instant: bool = false) -> void:
 	_section = section
 	_lines = _story[section]["lines"]
 	_section_done = false
+	_talked_over = false
 	_hide_choices()
 	# A section with no lines only routes to another one.
 	if _lines.is_empty():
@@ -157,9 +160,24 @@ func _advance() -> void:
 # or -1 when the section has nothing more to show.
 func _next_line_from(index: int) -> int:
 	for i in range(index, _lines.size()):
-		if _is_available(_lines[i]):
-			return i
+		if not _is_available(_lines[i]):
+			continue
+		# After Paranoia has cut in once, the other drowned lines just go.
+		if _talked_over and _is_drowned(_lines[i]):
+			continue
+		return i
 	return -1
+
+# A voice line Paranoia is loud enough to talk over (docs/voices.md).
+func _is_drowned(line: Dictionary) -> bool:
+	return GameState.drowned(line.get("speaker", ""))
+
+# What Paranoia says instead, from talks_over= in speakers.cfg.
+func _talk_over() -> Dictionary:
+	speaker_info("narration")
+	var lines: Array = _speakers.get_value("paranoia", "talks_over", ["Not now."])
+	var text: String = lines[(_section.hash() & 0x7fffffff) % lines.size()]
+	return {"speaker": "paranoia", "text": text}
 
 # What happens after the last line: choices if there are any, otherwise the
 # first "->" whose condition holds. Only when neither applies does the
@@ -185,6 +203,7 @@ func _is_available(entry: Dictionary) -> bool:
 func _visible_choices() -> Array:
 	var all: Array = _story[_section]["choices"]
 	var best: int = -1
+	var unknown_at: int = GameState.FRAYED_UNKNOWN_CHOICE_AT if GameState.frayed else GameState.COLORED_CHOICE_AT
 	var best_rank: int = -1
 	for i in all.size():
 		var choice: Dictionary = all[i]
@@ -195,7 +214,7 @@ func _visible_choices() -> Array:
 			push_warning("Paranoia never gets a colored choice: " + choice["label"])
 			continue
 		var strength: int = GameState.voices.get(voice, 0)
-		if strength < GameState.COLORED_CHOICE_AT:
+		if strength < (unknown_at if voice == "unknown" else GameState.COLORED_CHOICE_AT):
 			continue
 		var rank: int = strength + (1000 if voice == "unknown" else 0)
 		if rank > best_rank:
@@ -211,7 +230,7 @@ func _visible_choices() -> Array:
 	return shown
 
 # answered_phone, !answered_phone, rules_broken>=2, broke:window, has:key,
-# sold:ice_picks, visited:lake, flag:ezra_satisfied. Join them with " and " or
+# sold:ice_picks, visited:lake, flag:ezra_satisfied, frayed, background:guilt. Join them with " and " or
 # " or " (and binds tighter): day>=2 or invited_to_pub
 func _condition_met(condition: String) -> bool:
 	for either in condition.split(" or "):
@@ -240,6 +259,8 @@ func _single_condition_met(condition: String) -> bool:
 		result = GameState.visited.has(text.trim_prefix("visited:"))
 	elif text.begins_with("flag:"):
 		result = GameState.flags.has(text.trim_prefix("flag:"))
+	elif text.begins_with("background:"):
+		result = GameState.background() == text.trim_prefix("background:")
 	else:
 		result = _compare(text)
 	return result != negate
@@ -309,6 +330,9 @@ func _on_choice_pressed(choice: Dictionary) -> void:
 func _show_line(index: int, with_effects: bool = true) -> void:
 	_line_index = index
 	var line: Dictionary = _lines[index]
+	if _is_drowned(line):
+		line = _talk_over()
+		_talked_over = true
 	if with_effects:
 		_apply_effects(line)
 	var speaker: Dictionary = speaker_info(line["speaker"])
@@ -335,6 +359,7 @@ static func speaker_info(speaker_id: String) -> Dictionary:
 		if _speakers.load(SPEAKERS_PATH) != OK:
 			push_error("Could not load speakers: " + SPEAKERS_PATH)
 	return {
+		"id": speaker_id,
 		"name": _speakers.get_value(speaker_id, "name", ""),
 		"color": _speakers.get_value(speaker_id, "color", Color.WHITE),
 		"speed": float(_speakers.get_value(speaker_id, "speed", CHARACTERS_PER_SECOND)),
@@ -347,7 +372,7 @@ static func is_speaker(speaker_id: String) -> bool:
 
 # Options that change the world, on a line when it's shown or on a choice
 # when it's picked: stop=, sound=, time=, take=, lose=, break=, set=, flag=,
-# lean=, cash=, write=
+# lean=, cash=, write=, fray=, settle=
 func _apply_effects(entry: Dictionary) -> void:
 	if entry.has("stop"):
 		stop_sound(entry["stop"])
@@ -378,6 +403,10 @@ func _apply_effects(entry: Dictionary) -> void:
 		GameState.set_flag(entry["flag"])
 	if entry.has("write"):
 		GameState.write_ledger(entry["write"])
+	if entry.has("fray"):
+		GameState.add_fray(entry["fray"].to_int())
+	if entry.has("settle") and entry["settle"] == "background":
+		GameState.settle_background()
 
 # set=fed_dog turns a true/false value in GameState on.
 func _set_flag(name: String) -> void:

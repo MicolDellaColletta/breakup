@@ -98,6 +98,7 @@ narration | time=+20: You lie down in your clothes. The sheets are cold. The rad
 narration | sound=ring: Downstairs, the shop phone rings.
 paranoia: Eleven. Near enough. Rule four.
 paranoia: Don't answer the phone after dark. If you do, don't speak first.
+john | if=john>=2 and frayed: Answer it like John would. John has nothing to hide.
 > Go down and answer it -> phone_down | break=phone | lean=animal
 > Let it ring -> phone_ignored | lean=paranoia
 
@@ -112,6 +113,7 @@ narration | sound=stairs: Down the stairs in your socks, in the dark, toward the
 narration | stop=stairs: Behind the counter. The phone, shaking very slightly with every ring.
 narration | stop=ring | sound=pickup: You lift the receiver and hold it to your ear.
 narration: You don't say anything.
+unknown | if=frayed: Say hello. Be polite. It's rude, keeping someone waiting.
 > Say "Hello?" -> phone_spoke | lean=unknown
 > Wait. Say nothing. -> phone_wait
 

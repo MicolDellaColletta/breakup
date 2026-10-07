@@ -176,8 +176,8 @@ Each step can be played and tested before the next.
 3. Done (drafts): the other three customers, Cody Hollis, Walt Pruitt (the warm
    item) and the Reverend Elias.
 4. Done: the Trooper (Sgt. Olstad).
-5. Done: the voices (`voices.md`); still to build: Paranoia talking over the
-   others, being frayed, and backgrounds settling.
+5. Done: the voices (`voices.md`), including Paranoia talking over the others,
+   being frayed, and backgrounds.
 6. Done: closing time, the map, the pub (The Gleaner) and the lake.
 7. Done: the night at the shop (`story/night_one.txt`).
 8. Done (draft): day two, from morning to night (`day_two.md`, "Built").
@@ -195,5 +195,5 @@ looking around the shop after closing and the apartment at night
       pub, a debt?).
 - [ ] How the night ends without the dog being fed: scratching where?
 - [ ] The pub: who are the residents?
-- [ ] Is "frayed" shown to the player, or only felt (voices, events)?
+- [x] Is "frayed" shown to the player, or only felt? Only felt (`voices.md`).
 - [ ] Does a customer ever come in after dark?

@@ -10,6 +10,25 @@ const FIRST_NIGHT_DATE: int = 5
 
 # A colored choice (needs=john) shows once its voice has this many points.
 const COLORED_CHOICE_AT: int = 3
+# While MC is frayed, a ??? choice shows from this many points instead.
+const FRAYED_UNKNOWN_CHOICE_AT: int = 1
+# Paranoia talks over the other voices once it's this loud (it starts at 3,
+# so it takes a few frightened choices), and only over a voice at least
+# DROWN_MARGIN points weaker than it.
+const PARANOIA_LOUD: int = 6
+const DROWN_MARGIN: int = 3
+# Fray points at which MC is frayed (see docs/voices.md, "Frayed").
+const FRAYED_AT: int = 3
+# The voices Paranoia can talk over: not itself, not ???.
+const QUIET_VOICES: Array[String] = ["john", "appraisal", "warmth", "animal"]
+# Each background and the voice it comes from. Insanity comes from the ???
+# track, plus being frayed.
+const BACKGROUNDS: Dictionary = {
+	"guilt": "warmth",
+	"debt": "john",
+	"witness": "appraisal",
+	"insanity": "unknown",
+}
 
 # Each day's story at the counter, and each night's. A day that isn't here
 # yet ends the game on the title screen after the night before it.
@@ -56,6 +75,17 @@ var hour: int:
 # voice, MC slipping.
 var voices: Dictionary = {}
 
+# How frayed MC is. Every broken rule and every ??? choice adds a point (from
+# day one; the prologue doesn't count). A day and night with no rule broken
+# takes one away. The player never sees the number, only what it does.
+var fray: int
+var frayed: bool:
+	get:
+		return fray >= FRAYED_AT
+var broke_today: bool
+# Empty until a story moment settles it (settle=background).
+var background_settled: String
+
 var inventory: Array[String] = []
 var _items: ConfigFile = ConfigFile.new()
 
@@ -94,6 +124,9 @@ func reset() -> void:
 	flags.clear()
 	visited.clear()
 	minutes = 22 * 60
+	fray = 0
+	broke_today = false
+	background_settled = ""
 	# Paranoia starts high: in the prologue fear drowns everything else out.
 	# The others wake up on day one.
 	voices = {
@@ -123,6 +156,7 @@ const SAVED: Array[String] = [
 	"day", "answered_phone", "fed_dog", "invited_to_pub", "locked_back_door", "rules_broken",
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
 	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags",
+	"fray", "broke_today", "background_settled",
 ]
 
 func to_dict() -> Dictionary:
@@ -157,6 +191,51 @@ func from_dict(data: Dictionary) -> void:
 func break_rule(rule: String) -> void:
 	if not rules_broken.has(rule):
 		rules_broken.append(rule)
+	if day >= 1:
+		fray += 1
+		broke_today = true
+
+# fray=+1 or fray=-1 in a story file: a warm thing in your hands, a small
+# comfort. Never below zero.
+func add_fray(amount: int) -> void:
+	fray = maxi(0, fray + amount)
+
+# The end of a night: a whole day and night with no rule broken brings MC
+# back a little.
+func end_night() -> void:
+	if not broke_today:
+		add_fray(-1)
+	broke_today = false
+
+# True when Paranoia is loud enough to talk over this voice.
+func drowned(voice: String) -> bool:
+	var paranoia: int = voices.get("paranoia", 0)
+	return QUIET_VOICES.has(voice) and paranoia >= PARANOIA_LOUD and paranoia - voices.get(voice, 0) >= DROWN_MARGIN
+
+# The background MC's voices point to right now: the strongest of the four,
+# if one leads outright. "" while nothing leads, or once settled, what it
+# settled on.
+func background() -> String:
+	if background_settled != "":
+		return background_settled
+	var best: String = ""
+	var best_score: int = 0
+	var tied: bool = false
+	for name in BACKGROUNDS:
+		var score: int = voices.get(BACKGROUNDS[name], 0)
+		if name == "insanity" and frayed:
+			score += 2
+		if score > best_score:
+			best = name
+			best_score = score
+			tied = false
+		elif score == best_score and score > 0:
+			tied = true
+	return "" if tied else best
+
+# settle=background: from now on the background stays what it is.
+func settle_background() -> void:
+	background_settled = background()
 
 func set_flag(flag: String) -> void:
 	if not flags.has(flag):
@@ -167,6 +246,9 @@ func lean(voice: String, amount: int = 1) -> void:
 		push_warning("Unknown voice: " + voice)
 		return
 	voices[voice] += amount
+	# Following ??? is MC slipping.
+	if voice == "unknown" and day >= 1:
+		fray += amount
 
 # --- Time ---
 
