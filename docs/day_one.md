@@ -62,8 +62,9 @@ to take it and at what price. This is where the rules get tested.
 
 - **Mrs. Hollis (built).** Buying something of her missing husband Ray's to bury.
   The duck call puzzle.
-- **Cody Hollis (built, draft), one or two visits.** Ray's nephew, buying something
-  to walk on the thin ice to look for his uncle: the snowshoes. Selling them is
+- **Cody Hollis (built, draft), one or two visits.** Ray's nephew, going out on
+  the first thin ice to look for his uncle: the ice picks, which Ray himself
+  traded in last March (see the ledger). Snowshoes get a scornful refusal. Selling them is
   a moral choice; refusing costs the sale.
 - **Walt Pruitt (built, draft), one or two visits. The seller.** Pawns thirty
   silver dollars, his late wife's, and they're warm (rule two). Offer $15, $30

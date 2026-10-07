@@ -48,7 +48,7 @@ widow: Quiet one. That's all right. Ray was quiet.
 
 === widow_ask
 widow: I need something. For my husband. Ray. Ray Hollis.
-widow: He went out on the lake three weeks ago, before the ice was any good. They found the truck. They haven't found him.
+widow: He went out to his blind three weeks ago, in the canoe, before it was light. The canoe came back to shore by itself. They haven't found him.
 > Tell her you're sorry to hear it. -> widow_kind | lean=warmth
 > Ask what it's worth to her. -> widow_price | lean=appraisal
 > [John] "Ray mentioned you. Said you'd come in." -> widow_lie | needs=john | lean=john
@@ -95,6 +95,15 @@ widow: Ray would never have taken a thing that wasn't his.
 narration: She says it like she's said it before. To other people. Recently.
 -> widow_leaves_empty
 
+=== widow_given_ice_picks
+widow: Those were his.
+narration: She doesn't pick them up. She looks at the cord a long time.
+widow: He wore those every winter of his life. Every single one.
+widow: He wouldn't have sold those. Not unless he'd already decided something.
+narration: She pushes them back toward you, very gently, as if they might go off.
+widow: You don't bury a thing like that. You'd only be burying the reason.
+-> widow_leaves_empty
+
 === widow_given_other
 widow: No.
 widow: No, that's not his. Ray wouldn't have had a thing like that.
@@ -116,21 +125,32 @@ paranoia: She'll tell people. Everybody knew Ray.
 narration | sound=bell | time=+40: The bell. A young man in a canvas work jacket, twenty at most, snow on his shoulders he hasn't bothered to brush off.
 narration: He looks like someone you've already met today. Something around the eyes.
 nephew: You the new guy? Cody. Cody Hollis. My aunt was in here. I saw her truck.
-nephew: Look, I need something to get out on the lake. Out past the point, on the north shore.
-nephew: Everybody says the ice won't hold yet. Everybody said Uncle Ray knew the lake better than anybody, too.
-nephew: I'm not waiting till spring to find him under it. I need something to walk on, so I don't go through. You got anything like that?
+nephew: Look, I need something to get out on the lake. The point on the north shore, where his blind is. Where they found the canoe.
+nephew: It's been icing over since Sunday. Thin. Everybody says it won't hold yet. Everybody said Uncle Ray knew the lake better than anybody, too.
+nephew: I'm not waiting till spring to find him under it. I need something so that if I go through, I come back up. You got anything like that?
 paranoia: The ice isn't ready. He knows it isn't ready.
 > Let me look -> @browse
 > "The ice won't hold. I'm not helping you go out there." -> nephew_refuse | lean=warmth
 > I don't think I can help -> nephew_nothing
 
-=== nephew_given_snowshoes
-narration | sold=snowshoes: He turns the snowshoes over and tests the wire binding with his thumb.
+=== nephew_given_ice_picks
+narration | sold=ice_picks: He turns the picks over. Stabs the air once with each hand, the way you'd test a hammer.
 nephew: These'll do. These'll do fine.
-narration: Thirty dollars in tens, damp from his pocket. He's out the door before you can say anything else.
+narration: Then he finds the price tag, and the little ledger number under it, and goes still.
+appraisal | if=appraisal>=1: He knows that handwriting on the tag. Or he knows the picks.
+nephew: Twelve bucks.
+nephew: Twelve bucks, and he sold them.
+narration: Twelve dollars in ones and quarters, counted out of a damp pocket. He hangs the cord around his neck and he's out the door before you can say anything else.
 narration | sound=bell: The bell swings and goes still.
-warmth | if=warmth>=1: You just sold him a way out onto the ice.
+warmth | if=warmth>=1: You didn't keep him off the ice. You just made it more likely he comes back.
 paranoia: Not your business. None of this is your business.
+
+=== nephew_given_snowshoes
+nephew: Snowshoes.
+nephew: You know what snowshoes do on thin ice? Nothing. You go through slower. That's all.
+narration: He pushes them back across the glass.
+nephew: You really don't know anything about this place, do you.
+-> nephew_leaves_empty
 
 === nephew_given_other
 nephew: Man, that's not going to keep me on top of the ice.

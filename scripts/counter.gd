@@ -309,7 +309,7 @@ func _write_ledger() -> void:
 			_stock.get_value(item_id, "ledger", "No entry.").replace("[", "[lb]")]
 	text += "\n[b]THIS SEASON[/b]\n"
 	if GameState.ledger_lines.is_empty():
-		text += "\nNothing yet. The last line in the owner's hand is four days old.\n"
+		text += "\nNothing yet. The last line in the owner's hand is three weeks old.\n"
 	for line in GameState.ledger_lines:
 		text += "\n" + line.replace("[", "[lb]")
 	text += "\n\n[b]THE DRAWER, BY THE BOOK[/b]\n\n$%d" % GameState.till_by_ledger
