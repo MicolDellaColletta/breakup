@@ -20,6 +20,7 @@ const ROOM: String = "apartment"
 	"stairs": %Stairs,
 	"floorboards": %Floorboards,
 	"door_shut": %DoorShut,
+	"bell": %Bell,
 }
 
 var _looked: Array[String] = []
@@ -54,7 +55,9 @@ func _on_section_finished(section: String) -> void:
 		_show_spots()
 
 func _show_spots() -> void:
+	# Out now, not at the end of the frame, so the new buttons keep their names.
 	for old in objects.get_children():
+		objects.remove_child(old)
 		old.queue_free()
 	for spot_id in Spots.in_room("night", ROOM, narrator):
 		var button: Button = Button.new()

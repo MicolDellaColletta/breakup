@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://taqq4f8e7x83" path="res://audio/freesound_community-2-wood-staircase-old-creaking-footsteps-25941.mp3" id="5_stairs"]
 [ext_resource type="AudioStream" uid="uid://cj2muj1x5nnsb" path="res://audio/soundsgoodmusic-creaking-stairs-306029.mp3" id="6_floor"]
 [ext_resource type="AudioStream" uid="uid://b4gelg4sv5fd1" path="res://audio/soundreality-closed-door-411628.mp3" id="7_door"]
+[ext_resource type="AudioStream" uid="uid://d2vpsu42pay10" path="res://audio/cartoon_music-shop-bell-ring-543931.mp3" id="8_bell"]
 
 [node name="Night" type="Control" unique_id=1070605040]
 layout_mode = 3
@@ -71,3 +72,8 @@ volume_db = -8.0
 unique_name_in_owner = true
 stream = ExtResource("7_door")
 volume_db = -6.0
+
+[node name="Bell" type="AudioStreamPlayer" parent="." unique_id=1480746454]
+unique_name_in_owner = true
+stream = ExtResource("8_bell")
+volume_db = -16.0

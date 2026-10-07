@@ -264,7 +264,10 @@ func look(spot_id: String) -> void:
 
 # The things to look at in the room on screen, once the shop is closed.
 func _fill_spots() -> void:
+	# Take the old buttons out now, not at the end of the frame, so the new ones
+	# can have the same names (they're named after their spot).
 	for old in spots_row.get_children():
+		spots_row.remove_child(old)
 		old.queue_free()
 	spots_row.visible = _exploring
 	if not _exploring:

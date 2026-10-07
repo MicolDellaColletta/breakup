@@ -82,7 +82,9 @@ func _show_places() -> void:
 	details.text = "It's %s. Where to?" % GameState.clock_text()
 
 func _hide_places() -> void:
+	# Out now, not at the end of the frame, so new buttons keep their names.
 	for old in places_layer.get_children():
+		places_layer.remove_child(old)
 		old.queue_free()
 	home_button.visible = false
 	details.text = ""
