@@ -62,19 +62,27 @@ to take it and at what price. This is where the rules get tested.
 
 - **Mrs. Hollis (built).** Buying something of her missing husband Ray's to bury.
   The duck call puzzle.
-- **Two one- or two-time customers.** They come once, maybe come back once.
-- **One recurring customer, central to the town plot.** Comes back across the
-  winter.
+- **Cody Hollis (built, draft), one or two visits.** Ray's nephew, buying something
+  to walk on the thin ice to look for his uncle: the snowshoes. Selling them is
+  a moral choice; refusing costs the sale.
+- **Walt Pruitt (built, draft), one or two visits. The seller.** Pawns thirty
+  silver dollars, his late wife's, and they're warm (rule two). Offer $15, $30
+  (fair), $45, or turn him away. Taking them goes on the back shelf as tag 0432.
+- **The Reverend Elias (built, draft), recurring, central to the town plot.**
+  The radio helper (his voice is the one from the drive). Buys the brass compass
+  and gives it to MC: "Don't ever go out on the ice without knowing where north
+  is." Warns MC off being prayed for on Sunday.
 
-Who the three are is still open. Ideas from earlier, free to use or drop:
+Ruth would also fit as a recurring customer, from day two: she meets MC for the
+first time at the pub that evening.
+
+Earlier ideas, kept for later customers:
 
 - **Someone who knew the old keeper.** Asks for "the usual" and expects you to
   know what that is. The ledger has the answer, if you look. Tests whether you
   can pass as the keeper.
 - **Wants something specific and won't say why.** Leaves a strange feeling.
   Their item could be connected to the past (see Items).
-- **The seller: the warm item. Rule 2, "Don't buy anything that's still warm."**
-  They put it on the counter. When you pick it up, it's warm. Buy it or not.
 
 ## The Trooper: Sgt. Marit Olstad (see story.md)
 
@@ -164,7 +172,8 @@ Each step can be played and tested before the next.
 
 1. Done: **counter view + one customer, end to end** (Mrs. Hollis).
 2. Done: money and the ledger.
-3. **The other three customers, including the warm item.** Waiting on who they are.
+3. Done (drafts): the other three customers, Cody Hollis, Walt Pruitt (the warm
+   item) and the Reverend Elias.
 4. Done: the Trooper (Sgt. Olstad).
 5. Done: the voices (`voices.md`); still to build: Paranoia talking over the
    others, being frayed, and backgrounds settling.
@@ -177,9 +186,8 @@ looking around the shop after closing and the apartment at night
 
 ## Open questions
 
-- [ ] The three other customers (two one-or-two-time, one recurring): who they
-      are, what they want, how each connects to
-      the backgrounds or the plot.
+- [x] The three other customers: Cody Hollis, Walt Pruitt, the Reverend Elias
+      (drafts; see Customers above).
 - [ ] Which choices feed which voice (see `voices.md`).
 - [ ] Money: MC's starting cash, what money is for (gas, the
       pub, a debt?).

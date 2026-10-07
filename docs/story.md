@@ -143,6 +143,10 @@ faith,** a small local congregation with its own reading, not a real church.
   MC making it up? The game never says.
 - **Who the voice is:** the Reverend, quietly helping the Keeper against his own
   congregation's belief. Which may be why he disappears around Christmas.
+- **In the shop:** a recurring customer from day one. He buys the brass compass and
+  gives it to MC ("Don't ever go out on the ice without knowing where north
+  is"), and suggests MC be busy on Sunday if anyone wants to pray for him. His
+  voice is the one from the radio, for players who notice.
 - **After he's gone, the voice still comes through,** once or twice, on the
   clearest nights. A recording? MC's own mind? Something else? Then, from
   January, the station is Daniel's.
@@ -496,4 +500,4 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [ ] Ray Hollis: just the widow's husband, or connected?
 - [ ] Sgt. Olstad: how much she knows about the Keepers, and about John's tin box.
 - [ ] Management's envelopes: who delivers them, and what comes besides cash (and when).
-- [ ] The recurring customer from day one who matters to the town plot.
+- [x] The recurring customer from day one: the Reverend Elias (draft; see "The church and the radio").

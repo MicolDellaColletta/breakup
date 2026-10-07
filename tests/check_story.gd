@@ -97,6 +97,13 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 			problems.append("%s: no voice '%s'  %s" % [key, entry[key], where])
 	if entry.has("sold") and not stock.has_section(entry["sold"]):
 		problems.append("sold: no item '%s' in stock.cfg  %s" % [entry["sold"], where])
+	if entry.has("pawned"):
+		if not stock.has_section(entry["pawned"]):
+			problems.append("pawned: no item '%s' in stock.cfg  %s" % [entry["pawned"], where])
+		elif not stock.get_value(entry["pawned"], "arrives", false):
+			problems.append("pawned: '%s' needs arrives=true in stock.cfg  %s" % [entry["pawned"], where])
+		if not entry.get("loan", "").is_valid_int():
+			problems.append("pawned: needs a loan=amount  %s" % where)
 	if entry.has("set") and not (entry["set"] in gs and gs.get(entry["set"]) is bool):
 		problems.append("set: GameState has no true/false '%s'  %s" % [entry["set"], where])
 	if entry.has("cash") and not entry["cash"].trim_prefix("+").is_valid_int():
