@@ -209,24 +209,32 @@ To keep them from turning into clichés, every love interest:
 The dark option. Falling for what you ran from. Locks the **dark ending** and a
 **secret darker ending.**
 
-### The Hermit (layer 3)
+### Sam, the Hermit (layer 3)
 
 Not a mystic: **the most rational person in Kettle Lake.** The town calls him
 crazy because he's the only one who says the pattern out loud.
 
-- **Who he is:** a hydrologist who came about twenty years ago to study the ice
-  for a university. The funding ended; he stayed. He's the town's official
-  timekeeper for the breakup pool and tends the tripod on the lake.
+- **Looks:** mid-thirties to forty. Beard, unkempt, clothes worn for warmth and
+  nothing else.
+- **Who he is:** a hydrologist who came about ten years ago, a young researcher
+  sent to study the ice for a university. The funding ended; he stayed. He's
+  the town's official timekeeper for the breakup pool and tends the tripod on
+  the lake.
+- **Paranoid,** like MC. He locks things, checks things, notices cars. The two
+  of them recognise it in each other.
 - **Where he lives:** a cabin by the shore with a **laboratory** built into it.
   Ice cores in a chest freezer, water samples, instruments, a radio receiver,
-  notebooks going back decades.
+  books everywhere, and his own notebooks plus the ones he inherited from
+  whoever kept the pool before him.
 - **He goes out at night.** Lights moving on the ice, footprints in the snow
   around the shop. In layer 1 that makes him the obvious suspect, for the town
   and for MC. He's measuring things.
 - **He keeps logs:** ice thickness, temperatures, the minute the clock stops
-  every spring. **And every Keeper,** each name and date. "Eleven Keepers since
+  every spring. **And every Keeper,** each name and date. "Ten Keepers since
   I came here. None of them saw May."
-- **He talks plainly.** Numbers, dates, short sentences. No riddles.
+- **Extremely literate and articulate.** Well read, precise, a little formal,
+  dryly funny. He says exactly what he means, with numbers and dates when he has
+  them. Never riddles: the horror is that he's so clear.
 - **Layer 3 is in his data:** every spring the clock on the tripod stops at the
   same minute. That shouldn't be possible. It's a dry line in a notebook, not a
   prophecy.
@@ -240,7 +248,7 @@ crazy because he's the only one who says the pattern out loud.
 
 ### The pub owner (layer 2)
 
-**The owner's daughter.** (Proposal: son is the alternative.) Divorced.
+**The owner's daughter.** Divorced.
 Suspicious of everyone, the new Keeper most of all.
 
 - **She grew up next to the shop.** She knows her father survived by sending
@@ -305,8 +313,8 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 
 ## Open questions
 
-- [ ] The pub owner: daughter or son? Name? Why did the marriage end?
-- [ ] The Hermit: name and age.
+- [ ] The pub owner: name, and why the marriage ended.
+- [ ] Sam: surname.
 - [ ] What's under ticket 0447: the money, the books, or something else?
 - [ ] What soaked the rental agreement, per background.
 - [ ] What exactly happens to Keepers at breakup.
