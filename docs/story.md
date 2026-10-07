@@ -1,5 +1,7 @@
 # Breakup: Story
 
+(What the story is *about*, under the plot, is in `themes.md`.)
+
 The story bible: what really happened before the game starts, who is who, and
 where it's going. The player learns most of this slowly, or never.
 
@@ -598,6 +600,7 @@ Suspicious of everyone, the new Keeper most of all.
 | **The truth** | Hermit romance. MC learns what's under the ice and chooses it, with them. |
 | **Daniel** | MC goes with him at breakup. |
 | **Daniel, secret** | Hidden (??? choices, a high ??? track, ticket 0527). Daniel becomes the owner, and MC becomes the Keeper who never dies. Kept. |
+| **Thaw** (proposal) | MC rebuilds without a romance: gets through the winter keeping faith with the rules and the people he's met. See `themes.md`. |
 
 ---
 

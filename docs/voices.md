@@ -126,8 +126,9 @@ they're running from.
 strongest of the four, if one leads outright (being frayed adds 2 to
 insanity). A story moment can **settle** it with `settle=background`; after
 that it stays. Story files ask with `| if=background:guilt` (or debt,
-witness, insanity). Where it settles is still to decide (proposal: the end of
-the first week, before anything reveals what happened to John).
+witness, insanity). **It settles at the end of the first week,** before
+anything reveals what happened to John (decided; not written yet, since the
+first week isn't).
 
 ## In the story files
 
@@ -174,8 +175,11 @@ FRAYED_AT, FRAYED_UNKNOWN_CHOICE_AT).
 - [x] What brings MC back from frayed? A day and night with every rule kept;
       `fray=-1` for small comforts, to be written.
 - [x] Is "frayed" shown to the player? Only felt.
-- [ ] Where does the background settle? (Proposal: end of the first week.)
-- [ ] Which moments are small comforts (`fray=-1`)? Which unsettling items fray
-      when handled (`fray=+1`)?
+- [x] Where does the background settle? At the end of the first week.
+- [ ] Which moments are small comforts (`fray=-1`), and which unsettling items
+      fray when handled (`fray=+1`)? Guideline: **once or twice a week each**,
+      rare enough to matter (see `themes.md`). To check while writing.
+- [ ] The numbers (loud at 6, frayed at 3, and the rest): fine for now, to
+      revisit after playtesting.
 - [ ] First test: rewrite the widow scene in `story/day_one.txt` with the voices,
       on paper, and see how it reads.
