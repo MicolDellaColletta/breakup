@@ -57,6 +57,8 @@ explanation, it does, at least at first.
 - **He called the shop** when he picked up the car, as agreed. He was supposed
   to call again when he left town. He never did.
 - **He died** before he could leave Anchorage. How depends on the background.
+- **He was due at the shop on October 3.** He never arrived. "Please don't be
+  late" in the job offer isn't politeness (see "The owner").
 
 MC and John were **strangers.** They crossed paths by chance, days or hours
 before. Or the job found MC through John. The shop needs a Keeper every winter,
@@ -74,7 +76,13 @@ Dead in the freezer when MC arrives. The person who knew the most.
 - **He knew John.** He wrote ticket 0527.
 - **This winter, John was late.** No second call. Then the phone rang, and it
   was a man with a pleasant voice asking for John (Daniel). The owner understood.
-  With no Keeper in place when the season started, it took him instead.
+- **The shop is never unkept.** This is the half of the bargain nobody says out
+  loud. From the first week of October the shop must have a Keeper in it, every
+  night, until breakup. Breakup takes the Keeper; but if there's no Keeper, it
+  takes whoever is holding the keys. On the night of **October 3**, John's
+  arrival date, the shop was empty except for Abraham. It took him. His body is
+  in the freezer. (Who put it there is open; see "The freezer" in open questions.)
+- **The calendar upstairs** is his: his crosses stop on October 3.
 - **He wrote the letter anyway,** not knowing if anyone would come. That's why
   it's addressed "FOR THE KEEPER" and not to John.
 - **Now nobody is hiring.** The dead phone still rings in the dead shop.
@@ -90,6 +98,9 @@ Dead in the freezer when MC arrives. The person who knew the most.
   calls the Keeper by whatever name they arrived with. Some residents have met
   five Keepers. "Welcome to Kettle Lake, friend" on the radio is a ritual.
 - **The rules** in the letter are how a Keeper lasts until breakup.
+- **The shop must never be unkept** (see "The owner"). A Keeper who runs leaves
+  the shop empty, and something has to be taken. What happens if MC simply
+  drives away is still open, but this is the rule it hangs on.
 
 ## Management's envelopes
 
@@ -172,7 +183,7 @@ faith,** a small local congregation with its own reading, not a real church.
   balances, and art found wanting."* Nobody says so. Pawn tickets are numbered
   in order, and the ledger's numbers around it stop in the 0430s; this one
   jumps ahead. The owner chose it. Later, Daniel quotes the verse in a sermon
-  without ever having seen the ticket, or Sam points it out, drily.
+  without ever knowing why the ticket has that number, or Sam points it out, drily.
 
 ### Symbols by place
 
@@ -245,8 +256,15 @@ toss).
   pawn shop, that's everywhere. His name carries it: the biblical Daniel read the
   writing on the wall, *"weighed in the balances, and found wanting."*
 - **He calls MC "sweetheart."**
-- **He met MC the night John died, and let them go.** Nobody knows why, maybe
-  not even Daniel.
+- **He met MC the night John died, and let them go, with the ticket.** That's
+  the point. A pawn shop releases an item only to whoever holds the ticket, and
+  the Keeper is the one person who can open the tin without anyone asking why.
+  MC is his courier and doesn't know it. (There's also something else in it
+  that even Daniel can't name; he'd never admit that.)
+- **He was shot that night.** The sixth bullet from John's revolver is in him
+  (who fired it depends on the background; see "Backgrounds"). He spends
+  October to December healing, which is why he waits until January. He has
+  thought about MC every day of it.
 - **He knows where MC went.** He phoned the shop asking for John. He was never
   following the car; he already knew where it was going.
 - **He wants what's under ticket 0527.** And he wants to see what MC has become.
@@ -310,11 +328,23 @@ in Kettle Lake who isn't Daniel.
 - **She has a key to the shop.** A spare for the back door, the old owner
   gave her "a few winters back". She gives it to MC: "Don't lock it, though.
   He never did." (Rule 1.)
+- **She was in the shop the night before MC arrived.** October 4, late. In
+  through the back door with her key, because the old man hadn't been seen and
+  the new Keeper hadn't come. She went upstairs (the toothbrush MC finds still
+  wet is hers: she washed up in the dead man's bathroom like she had every
+  right). She found the carbon of John's job offer on the desk. Whether she
+  opened the freezer is open.
+- **She told the town the name.** By the morning of day one, everyone in Kettle
+  Lake knows the new Keeper is "John". That came from her.
+- **She lets Ruth believe her father is "away".** If she opened the freezer, she
+  knows he isn't. That's a lie the player can catch much later.
 - **First visit: day one,** between customers. Not a customer.
-- **Calls MC "John"** and watches how long it takes them to answer.
+- **Calls MC "John"** and watches how long it takes them to answer. She's
+  checking a name she already read off a page.
 - **Knows too much, quietly.** "Saw a sedan come in late last night. One
   headlight dimmer than the other. Yours?" The radio caller's words from the
-  drive, said to MC's face.
+  drive, said to MC's face. She heard the call on the night radio like
+  everybody else; whether she also saw the car is her own business.
 - **Strange warnings** that sound like small talk.
 - **Invites MC to the pub that night** to meet the residents. This is how the
   player first opens the map.
@@ -330,8 +360,9 @@ Layer 2: they've met other Keepers, and know how every season ends.
   was in John's pocket. What soaked it depends on the background. (Mundane
   explanation.)
 - **The gun:** John's. It was in the car when MC took it. MC knows what's in the
-  towel on the passenger seat. The question is whether it's been fired. Counting
-  the bullets is a choice the player can make or avoid.
+  towel on the passenger seat. Five rounds in six chambers. Counting them is a
+  choice the player can make or avoid. **The sixth is in Daniel.** The player
+  finds that out in January, and it changes what "five" meant on the drive.
 - **Ticket 0527:** in the glovebox, with the shop's address on the back. John's
   reason for coming. MC doesn't know what it's for. (The number is Daniel 5:27;
   see "Symbols".)
@@ -351,6 +382,15 @@ Backgrounds come from which voices MC listens to (see `voices.md`).
 | **Insanity** (??? and frayed) | MC doesn't remember. They woke up in his car with his things. | A voice from the missing hours. Nothing else. | They don't know. Something wanted them here. |
 
 By the end, the player finds out for certain, differently for each background.
+
+### The sixth bullet (draft)
+
+| Background | Who fired it |
+|---|---|
+| **Guilt** | MC. John was already dead from the fight. Daniel came through the door, and MC fired once, in panic. Daniel looked at the hole in his side and laughed. That's why he's interested in MC and not the money. |
+| **Witness** | John, at Daniel, a second before Daniel killed him. MC saw both. Daniel let MC go anyway, bleeding. |
+| **Debt** | John, at the men who came for MC. He hit Daniel. They killed John thinking he was MC. |
+| **Insanity** | MC doesn't know. A hole in Daniel's side is the only proof the missing hours happened at all. |
 
 ---
 
@@ -450,15 +490,44 @@ Suspicious of everyone, the new Keeper most of all.
 |---|---|
 | Months before | John hides what he stole at the shop. Ticket 0527. |
 | September 14, 1999 | The job offer to John. |
+| Mid-September | Duck season. Ray Hollis goes out to his blind by canoe. The canoe comes back without him. Draft: he pawned his rifle (tag 0431) that week. |
 | October 2 | John rents the car in Anchorage and calls the shop. |
-| Soon after | John dies. Daniel meets MC and lets them go. Daniel phones the shop. The owner dies. |
-| First week of October | The drive. MC arrives. (The prologue.) |
-| Day one | The first customers. The Trooper visits and invites MC to the pub. |
+| October 2–3 | John dies; the sixth bullet goes into Daniel. Daniel lets MC go, with the ticket. Daniel phones the shop. |
+| October 3, night | John's arrival date. The shop is unkept. It takes Abraham. His calendar crosses stop here. |
+| October 4, night | Olstad lets herself in the back door. Finds the carbon with "John" on it. Uses the bathroom upstairs. |
+| October 5, night | The drive. MC arrives at 23:25. (The prologue.) Sunset was 19:14. |
+| October 6 (day one) | The town already knows the name "John". The first customers. Olstad visits and invites MC to the pub. Sunrise 8:16, sunset 19:11. |
 | Every week | Management's envelope: the pay, and sometimes something else. |
-| Around Christmas | The Reverend disappears. The radio goes quiet. |
+| ~October 30 | The car's four prepaid weeks run out. Northern Lights reports it. Olstad already read the sticker. |
+| October 31 | Halloween, and the clocks fall back: sunset jumps from 17:58 to 16:55 overnight. The dark arrives an hour early, all at once. |
+| October to December | Daniel heals. |
+| Around Christmas | The Reverend disappears. The radio goes quiet. Shortest day, Dec 21: light from 10:15 to 15:33. |
 | December 31 | The party at the pub. "Happy New Year, sweetheart." |
 | Early January | Daniel arrives, "passing through". One sermon, and the town begs him to stay. From then on, the night radio is his. |
-| End of April | Breakup. The date circled on the calendar upstairs. |
+| April 2 | Clocks spring forward. Sunset at 20:46. The light is coming back, and that's the worst news in the game. |
+| End of April | Breakup. The date circled on the calendar upstairs. Sunset after 22:00. |
+
+### The light
+
+Kettle Lake sits in south-central Alaska (roughly 61.6° N, the Matanuska–Susitna
+country, which is also why Olstad's family is here). Times are real for
+1999–2000, Alaska time.
+
+| Date | Sunrise | Sunset | Daylight |
+|---|---|---|---|
+| Oct 6 | 8:16 | 19:11 | 10h55 |
+| Oct 30 | 9:20 | 17:58 | 8h38 |
+| Oct 31 (clocks back) | 8:23 | 16:55 | 8h32 |
+| Nov 25 (Thanksgiving) | 9:31 | 15:54 | 6h22 |
+| Dec 21 | 10:15 | 15:33 | 5h17 |
+| Jan 15 | 9:58 | 16:13 | 6h15 |
+| Feb 15 | 8:41 | 17:40 | 8h58 |
+| Mar 15 | 7:12 | 18:59 | 11h47 |
+| Apr 2 (clocks forward) | 7:14 | 20:46 | 13h32 |
+| Apr 30 | 5:46 | 22:01 | 16h15 |
+
+Days lose about **6 minutes** each in October. The rules are tied to the dark, so
+the dark eats the shop's hours, then gives them back as breakup comes.
 
 ---
 
@@ -499,5 +568,10 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [ ] What exactly happens to Keepers at breakup.
 - [ ] Ray Hollis: just the widow's husband, or connected?
 - [ ] Sgt. Olstad: how much she knows about the Keepers, and about John's tin box.
+      (Decided: she was in the shop on Oct 4 and told the town the name. Still
+      open: did she open the freezer?)
+- [ ] The freezer: who put Abraham in it? Did it, or did he walk in himself?
+- [ ] What happens if MC drives away (see "The shop is never unkept").
+- [ ] Ray's rifle: is tag 0431 his? (Draft: yes.)
 - [ ] Management's envelopes: who delivers them, and what comes besides cash (and when).
 - [x] The recurring customer from day one: the Reverend Elias (draft; see "The church and the radio").

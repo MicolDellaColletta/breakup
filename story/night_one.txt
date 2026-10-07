@@ -16,7 +16,7 @@ paranoia: Rule seven. Keep the radio on at night. The silence is worse.
 
 === radio_on
 narration: Static. Then, for a few seconds, the static thins and something clear comes through.
-narration: That calm voice again. Unhurried, like someone sitting up with a sick friend.
+narration: That calm voice again, the one from the road.
 narration: "...and a reminder for our friends out at the edge of town, on a cold night like this one. A back door is for coming in. Not for keeping out."
 narration: Then a hymn, very far away, and the static closes over it.
 paranoia: He's talking to you. He can't be talking to you.
@@ -92,8 +92,9 @@ unknown: She told you not to, sweetheart. Didn't she.
 
 === sleep
 narration | time=+10: The sheets are just as cold as last night. You lie there and count the rules you kept.
-narration | time=03:10: Somewhere after three, a sound wakes you. Downstairs. Not the freezer. Not the wind.
+narration | time=03:10 | sound=bell: Somewhere after three, a sound wakes you. Downstairs, at the front. Small and bright. The bell over the shop door.
 narration: Then quiet. The kind of quiet that's waiting for you to move.
+paranoia: The front door is locked. You locked it.
 > Go down and look -> go_down | lean=animal
 > Stay in bed -> stay_in_bed | lean=paranoia
 
@@ -104,7 +105,8 @@ narration: It doesn't come again. You almost wish it would. Not knowing sits on 
 
 === go_down
 narration | sound=stairs: Down the stairs in your socks. You don't turn on a light.
-narration | stop=stairs: You take the shortcut through the shop: behind the counter, out across the floor, past the front windows.
+narration | stop=stairs: You go to the front first, toward the bell: along the hallway, behind the counter, out across the floor.
+narration: The front door is shut. Locked. The bell hangs still.
 narration: The neon is still on. In the dark glass of the window, there you are. A shape against the red.
 narration: You stop. The shape stops.
 narration: Then your reflection raises one hand, slowly, as if to say hello.
@@ -126,7 +128,8 @@ narration: You walk the rest of the way without looking at the window again.
 -> back_room
 
 === back_room
-narration | sound=door_shut: Through the hallway. Through the steel door. The freezer hums.
+narration: Then, from the back of the building, the freezer's hum changes pitch. Just for a moment.
+narration | sound=door_shut: Back through the hallway. Through the steel door. The freezer hums.
 -> back_room_locked | if=locked_back_door
 -> back_room_open
 

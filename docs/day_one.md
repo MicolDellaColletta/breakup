@@ -14,10 +14,10 @@ painterly scenes, time as the main resource).
 | Time (rough) | Part | What happens |
 |---|---|---|
 | 7:00 AM | Morning, apartment | Wake scene (from the prologue). The dog bowl. Consequences of last night's rules. |
-| 9:00 AM | Open the shop | It's still dark: in October the sun rises around 9 and sets around 6:30. |
+| 9:00 AM | Open the shop | Day one: sunrise 8:16, sunset 19:11. Real times, shrinking ~6 min a day (see "The light" in `story.md`). |
 | 9 AM to 5 PM | Shop hours | 4 customers, one at a time. Each one takes time. |
 | Afternoon | The Trooper | Not a customer. Comes in between customers. |
-| ~5 PM | Close the shop | Rule 1: windows closed before dark. |
+| Sunset | Close the shop | Rule 1: windows closed before dark. Closing follows the sunset, so it moves earlier every day. |
 | Evening | Town map | Travel to the pub (day one). Travel costs time. |
 | Night | Back at the shop | Rules, exploring, main plot. Then sleep. |
 

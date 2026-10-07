@@ -18,7 +18,7 @@ narration | sound=floorboards: You cross the shop one careful step at a time. Th
 narration: Your hands find the cold glass of the counter. A register, its drawer hanging open and empty. Beside it, a telephone. Black, heavy, old.
 narration | sound=ring: It rings.
 paranoia: Who calls a closed shop in the middle of the night?
-narration: Nobody knows you're here. You didn't know you'd be here until an hour ago.
+narration: You haven't told anyone where you were going. There's nobody left to tell.
 unknown: Aren't you going to get that, sweetheart?
 > Pick up -> dead_line | break=phone
 > Let it ring -> let_it_ring

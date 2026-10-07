@@ -39,7 +39,7 @@ narration: A hand-painted sign leans out of a snowbank, half buried: PREPARE TO 
 unknown: Where are you going, sweetheart?
 unknown: And what will you do when you get there?
 narration | static=silent: The radio clears for a single moment. A man's voice, calm and unhurried, like someone sitting up with a sick friend: "...so tell me, caller. How much is the truth worth to you?"
-narration: "And to anyone still out on the road tonight: wherever you're going, close your windows before dark."
+narration: "And to anyone still out on the road tonight: wherever you're going, keep your windows shut when you get there."
 narration | static=loud: Static.
 
 === radio
@@ -48,8 +48,8 @@ narration: Then a caller, mid-sentence: "...an old sedan, northbound, one headli
 paranoia | static=normal: One headlight dimmer than the other. Check yours. No. Don't.
 
 === glovebox
-narration | time=+5: Napkins. A tire gauge. A pawn ticket, number 0527, from a shop you've never heard of.
-narration: On the back, in pencil: an address. The same address as the paper in your pocket.
+narration | time=+5: Napkins. A tire gauge. A pawn ticket, number 0527. The shop's name is stamped across the top. You know it. You've read it a hundred times, on the letterhead in your pocket.
+narration: On the back, in pencil, the address. Somebody wrote it down twice, in two different places, so they couldn't lose it.
 narration | take=pawn_ticket: You slip the ticket into your pocket. You couldn't say why.
 unknown: Two copies, sweetheart. Somebody really wanted you to arrive.
 
