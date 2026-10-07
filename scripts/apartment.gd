@@ -10,7 +10,15 @@ const STORY_PATH: String = "res://story/apartment.txt"
 @onready var bed_button: Button = %BedButton
 @onready var mirror_button: Button = %MirrorButton
 @onready var coat_button: Button = %CoatButton
+@onready var tv_button: Button = %TVButton
 @onready var radio_night: AudioStreamPlayer = %RadioNight
+@onready var wind: AudioStreamPlayer = %Wind
+
+@onready var sounds: Dictionary = {
+	"stairs": %Stairs,
+	"chimes": %Chimes,
+	"tv": %TVStatic,
+}
 
 var _decided: Array[String] = []
 
@@ -22,7 +30,9 @@ func _ready() -> void:
 	calendar_button.pressed.connect(_examine.bind("calendar", calendar_button))
 	mirror_button.pressed.connect(_examine.bind("mirror", mirror_button))
 	coat_button.pressed.connect(_examine.bind("coat", coat_button))
+	tv_button.pressed.connect(_examine.bind("tv", tv_button))
 	bed_button.pressed.connect(_on_bed_pressed)
+	narrator.use_sounds(sounds)
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(STORY_PATH)
@@ -59,6 +69,8 @@ func _on_bed_pressed() -> void:
 
 func _end_night() -> void:
 	narrator.set_input_enabled(false)
-	create_tween().tween_property(radio_night, "volume_db", -80.0, 2.0)
+	var tween: Tween = create_tween().set_parallel()
+	tween.tween_property(radio_night, "volume_db", -80.0, 2.0)
+	tween.tween_property(wind, "volume_db", -80.0, 2.0)
 	await Transition.fade_out(2.0)
 	print("End of the first night. Prologue complete!")

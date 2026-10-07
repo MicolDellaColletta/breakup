@@ -29,6 +29,7 @@ var _revealed: float = 0.0
 var _input_enabled: bool = true
 var _section_done: bool = false
 var _speed: float = CHARACTERS_PER_SECOND
+var _sounds: Dictionary = {}
 
 func _ready() -> void:
 	advance_button.pressed.connect(_on_advance_pressed)
@@ -63,12 +64,34 @@ func play(section: String, start_index: int = 0, instant: bool = false) -> void:
 	if _lines.is_empty():
 		_end_section()
 		return
-	_show_line(start_index)
+	# An instant start resumes a line the player already saw, so its
+	# sounds, time and items don't happen a second time.
+	_show_line(start_index, not instant)
 	if instant:
 		_finish_line()
 
 func get_line_index() -> int:
 	return _line_index
+
+# The scene's sounds, by the names story files use: sound=bell, stop=ring.
+func use_sounds(sounds: Dictionary) -> void:
+	_sounds = sounds
+
+func play_sound(sound_name: String) -> void:
+	if not _sounds.has(sound_name):
+		push_warning("Unknown sound: " + sound_name)
+		return
+	_sounds[sound_name].play()
+
+func stop_sound(sound_name: String) -> void:
+	if sound_name == "all":
+		for player in _sounds.values():
+			player.stop()
+		return
+	if not _sounds.has(sound_name):
+		push_warning("Unknown sound: " + sound_name)
+		return
+	_sounds[sound_name].stop()
 
 func set_input_enabled(enabled: bool) -> void:
 	_input_enabled = enabled
@@ -119,6 +142,8 @@ func _condition_met(condition: String) -> bool:
 	var result: bool
 	if text.begins_with("broke:"):
 		result = GameState.rules_broken.has(text.trim_prefix("broke:"))
+	elif text.begins_with("has:"):
+		result = GameState.has_item(text.trim_prefix("has:"))
 	else:
 		result = _compare(text)
 	return result != negate
@@ -172,17 +197,18 @@ func _hide_choices() -> void:
 
 func _on_choice_pressed(choice: Dictionary) -> void:
 	_hide_choices()
-	if choice.has("break"):
-		GameState.break_rule(choice["break"])
+	_apply_effects(choice)
 	choice_made.emit(choice)
 	# Targets starting with @ are events for the scene, not story sections.
 	var target: String = choice["target"]
 	if not target.begins_with("@"):
 		play(target)
 
-func _show_line(index: int) -> void:
+func _show_line(index: int, with_effects: bool = true) -> void:
 	_line_index = index
 	var line: Dictionary = _lines[index]
+	if with_effects:
+		_apply_effects(line)
 	var speaker: Dictionary = SPEAKERS[line["speaker"]]
 	_speed = speaker.get("speed", CHARACTERS_PER_SECOND)
 	speaker_label.text = speaker["name"]
@@ -192,6 +218,35 @@ func _show_line(index: int) -> void:
 	_revealed = 0.0
 	narration_label.visible_characters = 0
 	line_shown.emit(line)
+
+# Options that change the world, on a line when it's shown or on a choice
+# when it's picked: stop=, sound=, time=, take=, lose=, break=
+func _apply_effects(entry: Dictionary) -> void:
+	if entry.has("stop"):
+		stop_sound(entry["stop"])
+	if entry.has("sound"):
+		if entry.has("after"):
+			_play_after(entry["sound"], entry["after"])
+		else:
+			play_sound(entry["sound"])
+	if entry.has("time"):
+		var time: String = entry["time"]
+		if time.begins_with("+"):
+			GameState.pass_time(time.to_int())
+		else:
+			GameState.set_clock(time)
+	if entry.has("take"):
+		GameState.add_item(entry["take"])
+	if entry.has("lose"):
+		GameState.remove_item(entry["lose"])
+	if entry.has("break"):
+		GameState.break_rule(entry["break"])
+
+# sound=door_shut | after=bell: wait for the bell to finish first.
+func _play_after(sound_name: String, first: String) -> void:
+	if _sounds.has(first) and _sounds[first].playing:
+		await _sounds[first].finished
+	play_sound(sound_name)
 
 func _finish_line() -> void:
 	_revealed = narration_label.get_total_character_count()
@@ -233,7 +288,8 @@ func _parse_story(path: String) -> Dictionary:
 			choice["from"] = current
 			sections[current]["choices"].append(choice)
 			continue
-		var parts: PackedStringArray = text.split(":", true, 1)
+		# Split at ": " so options like time=23:30 or if=has:key stay whole.
+		var parts: PackedStringArray = text.split(": ", true, 1)
 		if parts.size() < 2:
 			push_warning("Skipping line: " + raw)
 			continue

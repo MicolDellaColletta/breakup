@@ -26,7 +26,7 @@ func open(doc_id: String) -> void:
 	title_label.text = parts[0].strip_edges()
 	body_label.text = parts[1].strip_edges() if parts.size() > 1 else ""
 	_doc_id = doc_id
-	GameState.add_evidence(doc_id)
+	GameState.add_item(doc_id)
 	paper_sound.play()
 	visible = true
 

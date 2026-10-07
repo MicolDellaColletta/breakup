@@ -7,10 +7,14 @@
 #          (when a section ends with no choices, the first matching -> is played)
 # Conditions, on choices and continues: | if=answered_phone   | if=!answered_phone
 #          | if=rules_broken>=2   | if=broke:window
+#          | if=has:pawn_ticket   | if=hour>=24  (past midnight)
+# Line and choice effects: | sound=bell  | stop=ring (or stop=all)  | after=bell (wait for it to finish)
+#          | time=+15 (minutes pass)  | time=23:30 (clock moves forward to it)
+#          | take=pawn_ticket  | lose=key  (items live in story/items.cfg)  | break=window
 # Sections start with === and a name. A section with only -> lines just picks a route.
 
 === main
-narration: The wipers drag across the glass, squealing on every return.
+narration | time=22:40: The wipers drag across the glass, squealing on every return.
 narration: Snow rushes the headlights and vanishes. Rushes and vanishes.
 narration: The heater smells of burning dust. Your fingers are still cold.
 narration: The radio drifts between stations. A voice, static, half a hymn, static.
@@ -28,28 +32,29 @@ narration | static=silent: The radio clears for a single moment. A man's voice, 
 narration | static=loud: Static.
 
 === radio
-narration | static=loud: You turn the dial. Static, a preacher, static, a man selling snow tires, static.
+narration | static=loud | time=+5: You turn the dial. Static, a preacher, static, a man selling snow tires, static.
 narration: Then a caller, mid-sentence: "...an old sedan, northbound, one headlight dimmer than the other..."
 paranoia | static=normal: One headlight dimmer than the other. Check yours. No. Don't.
 
 === glovebox
-narration: Napkins. A tire gauge. A pawn ticket, number 0447, from a shop you've never heard of.
+narration | time=+5: Napkins. A tire gauge. A pawn ticket, number 0447, from a shop you've never heard of.
 narration: On the back, in pencil: an address. The same address as the paper in your pocket.
+narration | take=pawn_ticket: You slip the ticket into your pocket. You couldn't say why.
 unknown: Two copies, sweetheart. Somebody really wanted you to arrive.
 
 === mirror
-narration: Headlights, far back. They've kept the same distance for an hour.
+narration | time=+5: Headlights, far back. They've kept the same distance for an hour.
 narration: You look away. You look back. The road behind you is empty.
 paranoia: They turned their lights off. That's what you'd do.
 
 === passenger
-narration: On the passenger seat, something wrapped in a towel. About the size of a loaf of bread. Heavier than it looks.
+narration | time=+5: On the passenger seat, something wrapped in a towel. About the size of a loaf of bread. Heavier than it looks.
 narration: You don't remember putting it there. You don't remember not putting it there.
 paranoia: Leave it wrapped.
 unknown: Not yet, sweetheart. Not yet.
 
 === coat
-narration: Your hand finds the coat pocket on its own. The paper is still there. It's always still there.
+narration | time=+5: Your hand finds the coat pocket on its own. The paper is still there. It's always still there.
 paranoia: Leave it. You've read it a hundred times.
 > Take it out -> @read_job_offer
 > Leave it -> coat_left
@@ -69,4 +74,4 @@ narration: You put both hands on the wheel. Ten and two, the way someone taught 
 paranoia: Just drive.
 unknown: You're almost there, sweetheart.
 unknown: Maybe.
-narration: The sign comes out of the snow all at once. PAWN, GUNS, FURS, TAXIDERMY. One letter dead in the neon.
+narration | time=23:20: The sign comes out of the snow all at once. PAWN, GUNS, FURS, TAXIDERMY. One letter dead in the neon.

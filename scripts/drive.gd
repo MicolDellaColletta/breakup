@@ -86,6 +86,7 @@ func _on_document_closed(doc_id: String) -> void:
 
 func _return_to_main() -> void:
 	_examining = false
+	objects.visible = true
 	narrator.play("main", _main_index, true)
 	_check_wheel()
 
@@ -94,6 +95,8 @@ func _examine(object_id: String, button: Button) -> void:
 		return
 	button.disabled = true
 	_examining = true
+	# Hidden while examining, so choices like the coat pocket's aren't covered.
+	objects.visible = false
 	_examined.append(object_id)
 	_main_index = narrator.get_line_index()
 	narrator.play(object_id)

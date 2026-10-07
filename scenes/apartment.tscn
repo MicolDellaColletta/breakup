@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://b70g8y11p0px" path="res://scripts/apartment.gd" id="1_pkwu2"]
 [ext_resource type="PackedScene" uid="uid://52gnq1c4els7" path="res://scenes/narrator.tscn" id="2_jq6rh"]
 [ext_resource type="AudioStream" uid="uid://d36jhfis185x" path="res://audio/freesound_community-radio-static-2-26831.mp3" id="3_jq6rh"]
+[ext_resource type="AudioStream" uid="uid://taqq4f8e7x83" path="res://audio/freesound_community-2-wood-staircase-old-creaking-footsteps-25941.mp3" id="4_stairs"]
+[ext_resource type="AudioStream" uid="uid://c0jpknx6vd8yr" path="res://audio/freesound_community-windy-day-indoors-windows-rattle-17087.mp3" id="5_wind"]
+[ext_resource type="AudioStream" uid="uid://b18rc4uxj4gv3" path="res://audio/freesound_community-small-wind-chimes-29982.mp3" id="6_chimes"]
+[ext_resource type="AudioStream" uid="uid://csrlyhxwjl870" path="res://audio/yourugor-tv-static-noise-291374.mp3" id="7_tv"]
 
 [node name="Apartment" type="Control" unique_id=1639265716]
 layout_mode = 3
@@ -71,9 +75,36 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Coat"
 
+[node name="TVButton" type="Button" parent="Objects" unique_id=1928374650]
+unique_name_in_owner = true
+layout_mode = 2
+text = "TV"
+
 [node name="RadioNight" type="AudioStreamPlayer" parent="." unique_id=1629980858]
 unique_name_in_owner = true
 stream = ExtResource("3_jq6rh")
 volume_db = -20.0
 parameters/looping = true
 
+
+[node name="Stairs" type="AudioStreamPlayer" parent="." unique_id=1530495867]
+unique_name_in_owner = true
+stream = ExtResource("4_stairs")
+volume_db = -6.0
+
+[node name="Wind" type="AudioStreamPlayer" parent="." unique_id=1630596968]
+unique_name_in_owner = true
+stream = ExtResource("5_wind")
+volume_db = -22.0
+autoplay = true
+parameters/looping = true
+
+[node name="Chimes" type="AudioStreamPlayer" parent="." unique_id=1730698069]
+unique_name_in_owner = true
+stream = ExtResource("6_chimes")
+volume_db = -14.0
+
+[node name="TVStatic" type="AudioStreamPlayer" parent="." unique_id=1830799170]
+unique_name_in_owner = true
+stream = ExtResource("7_tv")
+volume_db = -12.0

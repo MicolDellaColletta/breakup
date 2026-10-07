@@ -1,9 +1,9 @@
 # THE SHOP: ARRIVAL
 
 === arrival
-narration: The key in your pocket fits the lock. You're sure it isn't your key.
+narration | time=23:25: The key in your pocket fits the lock. You're sure it isn't your key.
 narration | sound=bell: The door opens. A bell rings above it, small and bright, too cheerful for the dark.
-narration: The sound dies away. The door clicks shut behind you.
+narration | sound=door_shut | after=bell: The sound dies away. The door clicks shut behind you.
 narration: The only light is the neon sign outside, bleeding red through the front windows. It reaches a few feet into the shop and gives up.
 narration: No sound. Just a low mechanical hum, somewhere deeper in the dark. Steady. Patient.
 narration: The air smells of cold metal, gun oil and old fur.
@@ -14,7 +14,7 @@ paranoia: This place looks like it fell out of a cheap horror movie. And the lon
 paranoia: Don't make a sound.
 paranoia: Not that it matters. There's no one here. Right?
 unknown: Right, sweetheart. All alone.
-narration: You cross the shop one careful step at a time. The floorboards wait until your full weight is on them, then complain.
+narration | sound=floorboards: You cross the shop one careful step at a time. The floorboards wait until your full weight is on them, then complain.
 narration: Your hands find the cold glass of the counter. A register, its drawer hanging open and empty. Beside it, a telephone. Black, heavy, old.
 narration | sound=ring: It rings.
 paranoia: Who calls a closed shop in the middle of the night?
@@ -42,7 +42,7 @@ narration: The silence afterwards is very loud.
 -> office_door
 
 === office_door
-narration: Your eyes have adjusted to the dark now. Enough to notice what you missed.
+narration | time=+5: Your eyes have adjusted to the dark now. Enough to notice what you missed.
 narration: Behind the counter, a door stands open a crack. A thin blade of yellow light lies across the floorboards.
 paranoia: Was that on when you came in?
 paranoia: It was. It must have been.
@@ -51,15 +51,15 @@ narration: A metal plate is screwed to the door at eye level. You lean in close 
 > Push it open -> office
 
 === knock
-narration: You knock. Twice. Softly, the way you'd knock on a hospital room door.
+narration | sound=knock: You knock. Twice. Softly, the way you'd knock on a hospital room door.
 narration: Nothing.
-narration: Then, from the other side, one knock back.
+narration | sound=knock_back: Then, from the other side, one knock back.
 paranoia: Pipes. Old buildings knock. That's all that was.
 unknown: Come in, sweetheart. Don't be rude.
 -> office
 
 === office
-narration: You push the door. It swings inward without a sound, as if someone oiled the hinges for you.
+narration | time=+5: You push the door. It swings inward without a sound, as if someone oiled the hinges for you.
 narration | light=office: The light hurts your eyes. A bare bulb, far too bright, hanging from a cord.
 narration: A small room. A wooden desk. An office chair, pushed back, as if someone just stood up. Nothing on the walls. Nothing else at all.
 narration: And a smell. Sweet and heavy, underneath the dust. You can't name it. You don't want to.
@@ -93,7 +93,7 @@ narration: Out in the dark, the hum goes on. Now you can place it: behind a heav
 -> upstairs
 
 === upstairs
-narration: Your legs are heavy. You've been driving since before it got dark, and for a long time before that.
+narration | time=00:10: Your legs are heavy. You've been driving since before it got dark, and for a long time before that.
 narration: The offer said there'd be a room upstairs. Room and board.
 paranoia: It said that to John.
 paranoia: Go up. Lock the door. Don't think about it.

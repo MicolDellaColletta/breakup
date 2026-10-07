@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*uid://bnkvfcratkrx3"
 Transition="*res://scripts/transition.gd"
+Hud="*res://scenes/hud.tscn"
 
 [display]
 

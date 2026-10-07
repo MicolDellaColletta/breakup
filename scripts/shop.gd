@@ -1,7 +1,7 @@
 extends Control
 
 const STORY_PATH: String = "res://story/shop.txt"
-const LETTER_PATH: String = "res://story/letter.txt"
+const LETTER_PATH: String = "res://story/documents/letter.txt"
 const APARTMENT_SCENE: String = "res://scenes/apartment.tscn"
 
 const LIGHTS: Dictionary = {
@@ -24,12 +24,17 @@ const LIGHT_FLASH: Color = Color(0.55, 0.5, 0.4)
 	"bell": %DoorBell,
 	"paper": %PaperSound,
 	"tear": %EnvelopeTear,
+	"door_shut": %DoorShut,
+	"floorboards": %Floorboards,
+	"knock": %Knock,
+	"knock_back": %KnockBack,
 }
 
 func _ready() -> void:
 	letter_panel.visible = false
 	letter_text.text = _read_letter(LETTER_PATH)
 	fold_button.pressed.connect(_on_fold_pressed)
+	narrator.use_sounds(sounds)
 	narrator.line_shown.connect(_on_line_shown)
 	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(STORY_PATH)
@@ -38,11 +43,14 @@ func _ready() -> void:
 	narrator.set_input_enabled(true)
 	narrator.play("arrival")
 
+# The first line of a document is its title; the letter panel only shows the body.
 func _read_letter(path: String) -> String:
 	var text: String = FileAccess.get_file_as_string(path)
 	if text == "":
 		push_error("Could not read the letter: " + path)
-	return text
+		return text
+	var parts: PackedStringArray = text.split("\n", true, 1)
+	return parts[1].strip_edges() if parts.size() > 1 else ""
 
 # The story file decides where each choice leads; this only adds the sounds.
 func _on_choice_made(choice: Dictionary) -> void:
@@ -72,10 +80,6 @@ func _pick_up() -> void:
 	narrator.set_input_enabled(true)
 
 func _on_line_shown(line: Dictionary) -> void:
-	if line.has("stop"):
-		_stop_sound(line["stop"])
-	if line.has("sound"):
-		_play_sound(line["sound"])
 	if line.has("light"):
 		_set_light(line["light"])
 
@@ -87,22 +91,6 @@ func _set_light(light_name: String) -> void:
 	background.color = LIGHT_FLASH
 	var tween: Tween = create_tween()
 	tween.tween_property(background, "color", LIGHTS[light_name], 1.2)
-
-func _play_sound(sound_name: String) -> void:
-	if not sounds.has(sound_name):
-		push_warning("Unknown sound: " + sound_name)
-		return
-	sounds[sound_name].play()
-
-func _stop_sound(sound_name: String) -> void:
-	if sound_name == "all":
-		for player in sounds.values():
-			player.stop()
-		return
-	if not sounds.has(sound_name):
-		push_warning("Unknown sound: " + sound_name)
-		return
-	sounds[sound_name].stop()
 
 func _wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
@@ -120,8 +108,9 @@ func _open_envelope() -> void:
 	_open_letter()
 
 func _open_letter() -> void:
-	_stop_sound("all")
+	narrator.stop_sound("all")
 	sounds["paper"].play()
+	GameState.add_item("letter")
 	narrator.set_input_enabled(false)
 	letter_panel.visible = true
 

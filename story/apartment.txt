@@ -1,8 +1,8 @@
 # THE APARTMENT: FIRST NIGHT
 
 === arrival
-narration: The stairs start at the back of the hallway, right beside the steel door, and climb toward the front of the building. They creak on every step.
-narration: At the top, a small landing, and then the room opens up in front of you.
+narration | sound=stairs | time=+5: The stairs start at the back of the hallway, right beside the steel door, and climb toward the front of the building. They creak on every step.
+narration | stop=stairs: At the top, a small landing, and then the room opens up in front of you.
 narration: A kitchen corner with a stove and a little table. An armchair facing an old TV. A radio. Two windows at the front, and the neon from below painting the ceiling red.
 narration: A coat hangs on a hook by the landing. It's your size.
 narration: A short hall leads toward the back. A bathroom, a bedroom. At the very end, one more door. You try the handle. Locked.
@@ -21,7 +21,7 @@ paranoia: Downstairs, the phone sits quiet. Waiting.
 unknown: It'll ring again. And next time, you'll answer.
 
 === window
-narration: The windows look down over the neon sign. The empty lot, your car going white under the snow, the road. Snow falling through the red light, slow, like it has all the time in the world.
+narration | time=+10: The windows look down over the neon sign. The empty lot, your car going white under the snow, the road. Snow falling through the red light, slow, like it has all the time in the world.
 narration: Past the road, the trees. A black wall of them, as far as you can see. Anything could be standing just inside that wall, looking out.
 paranoia: Rule one. Close every window before dark.
 unknown: Or don't. Let some air in, sweetheart. Let them see you.
@@ -33,12 +33,12 @@ narration: The latch is stiff with cold. It closes with a sound like a held brea
 narration: For a second, in the glass, you think someone is standing behind you. It's only the coat on the hook.
 
 === window_open
-narration: You leave it. The cold comes in slowly, the way water fills a footprint.
+narration | sound=chimes: You leave it. The cold comes in slowly, the way water fills a footprint.
 narration: Down in the lot, in the red of the neon, there are footprints in the fresh snow. They come out of the trees and lead to the shop door. None lead away.
 paranoia: Those weren't there a minute ago.
 
 === radio
-narration: An old radio on a side table by the armchair, the kind with a dial that glows amber. It's unplugged, the cord wrapped neatly around it, as if someone wanted it found that way.
+narration | time=+10: An old radio on a side table by the armchair, the kind with a dial that glows amber. It's unplugged, the cord wrapped neatly around it, as if someone wanted it found that way.
 paranoia: Rule seven. Keep the radio on at night. The silence is worse.
 > Turn it on -> radio_on
 > Leave it off -> radio_off | break=radio
@@ -54,38 +54,45 @@ narration: In the silence you can hear the compressor downstairs. And under it, 
 unknown: Hear that, sweetheart? That's the house getting used to you.
 
 === calendar
-narration: Above the kitchen table, a feed store calendar from Anchorage, still on October. Days crossed out in pencil, one by one, by someone before you.
+narration | time=+10: Above the kitchen table, a feed store calendar from Anchorage, still on October. Days crossed out in pencil, one by one, by someone before you.
 narration: The crosses stop four days ago.
 narration: Far ahead, at the end of April, a single date is circled in red. No note. Just the circle, gone over so many times the pencil tore the paper.
 
 === mirror
-narration: In the bathroom, a small mirror above the sink, the silver going black at the edges.
+narration | time=+10: In the bathroom, a small mirror above the sink, the silver going black at the edges.
 narration: Your face. Tired. Older than you remember.
 narration: You turn your head. Your reflection turns too, half a second late.
 paranoia: You're exhausted. That's all. That's all it is.
 unknown: There you are, sweetheart. I'd know that face anywhere.
 
 === coat
-narration: The coat by the landing. Heavy canvas, lined with wool. It fits you as if it was bought for you.
+narration | time=+10: The coat by the landing. Heavy canvas, lined with wool. It fits you as if it was bought for you.
 narration: In the inside pocket, a Polaroid. The shop at night, taken from the trees across the road. Your car is parked outside.
-narration: On the white strip at the bottom, in neat pencil, a date. Last week.
+narration | take=polaroid: On the white strip at the bottom, in neat pencil, a date. Last week.
 paranoia: You were still in the city last week. So was your car.
 unknown: Somebody's been expecting you for a long time.
+
+=== tv
+narration | sound=tv | time=+10: You turn the knob. The screen blooms white, then settles into snow.
+narration: Under the hiss, for a moment, a picture. A small room. An armchair facing a TV.
+narration: The chair is empty. The picture is taken from right where you're standing.
+narration: Then only snow again.
+paranoia: Bad reception. Out here, everything's bad reception.
 
 === sleep
 narration: The sheets are cold, and smell faintly of someone else's soap.
 narration: You lie awake and count the sounds of the building. The compressor, right under the floor. The wind in the trees. Your own heart.
-narration: Somewhere around three, you stop counting.
+narration | time=03:00: Somewhere around three, you stop counting.
 -> wake_standing | if=rules_broken>=2
 -> wake_bed
 
 === wake_bed
-narration: You wake in the gray half-light, in the bed, exactly where you fell asleep.
+narration | time=07:10: You wake in the gray half-light, in the bed, exactly where you fell asleep.
 paranoia: Good. Good. Nothing happened.
 paranoia: Nothing you remember, anyway.
 
 === wake_standing
-narration: You wake standing up.
+narration | time=05:20: You wake standing up.
 narration: You're at the bottom of the stairs, barefoot, one hand on the handle of the heavy door at the back of the shop. The compressor hums against your palm.
 narration: Your feet are wet. There's snow melting on the floor around them.
 unknown: Not yet, sweetheart. Not yet.
