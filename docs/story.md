@@ -199,7 +199,7 @@ Each one has an ordinary explanation. Most players won't notice most of them.
 
 **In the pub**
 
-- **Its name** (proposal): **The Gleaner.** In the Bible, Ruth gleans what the
+- **Its name: The Gleaner.** In the Bible, Ruth gleans what the
   harvesters leave in the field. Ruth's family named it; she took it on.
 - **The Keeper's stool.** Twelve stools at the bar, and a thirteenth at the end
   where the locals never sit. Every Keeper is shown to it on their first night.
@@ -219,7 +219,7 @@ Each one has an ordinary explanation. Most players won't notice most of them.
 |---|---|
 | **John** (MC) | John of Patmos, who wrote Revelation. The believers would notice. |
 | **Daniel** | The writing on the wall: weighed and found wanting. |
-| **Dr. Samuel Wakeman** (Sam) | The prophet called by a voice in the night; he hates the name and goes by Sam. *Wakeman* is an old word for a watchman. In Ezekiel, the watchman's duty is to warn the town, and if it doesn't listen, its blood is on its own head. (Surname: proposal.) |
+| **Dr. Samuel Wakeman** (Sam) | The prophet called by a voice in the night; he hates the name and goes by Sam. *Wakeman* is an old word for a watchman. In Ezekiel, the watchman's duty is to warn the town, and if it doesn't listen, its blood is on its own head. |
 | **Ruth** (the owner's daughter) | "Whither thou goest, I will go." Loyal; the one who stays. |
 | **Abraham** (the owner) | Saved by a substitute: the ram that died in his son's place. Every Keeper is the ram. |
 | **Elias** (the Reverend) | Elijah, taken up without dying. Disappears; expected to return before the end. |
@@ -463,8 +463,6 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 
 ## Open questions
 
-- [ ] Sam's surname: Wakeman?
-- [ ] The pub's name: The Gleaner?
 - [ ] Ruth's ex: where is he now? Still in town, in the congregation?
 - [ ] What really happened to the Reverend Elias.
 - [ ] How often the radio helper speaks, and what rules it follows.
