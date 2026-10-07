@@ -16,6 +16,13 @@ keeper of a pawn shop outside Kettle Lake, Alaska, "until breakup", when the
 ice goes out on the lake in spring. Every winter there's a Keeper, and no
 Keeper has ever seen the summer.
 
+## MC
+
+- **Male, but never said outright.** The narration speaks to MC as "you" and
+  never names his gender; other characters can use "he" where it's natural. It
+  makes passing as John plausible.
+- His real name is never given (or only at the very end).
+
 ## Three layers
 
 The player moves down through them. Layer 1 explains the fear. Layer 2 explains
@@ -191,6 +198,12 @@ By the end, the player finds out for certain, differently for each background.
 
 Each one belongs to a layer and locks its own ending.
 
+To keep them from turning into clichés, every love interest:
+
+1. **Wants something for themself,** not just to help MC.
+2. **Has a secret** that changes how you read everything they said before.
+3. **Lies to MC at least once.**
+
 ### Daniel Hale (layer 1, rising into 3)
 
 The dark option. Falling for what you ran from. Locks the **dark ending** and a
@@ -198,22 +211,53 @@ The dark option. Falling for what you ran from. Locks the **dark ending** and a
 
 ### The Hermit (layer 3)
 
-Lives in a shack by the lake, tends the breakup tripod, and is considered crazy in
-town. The only person who watches the ice every day and knows what breakup is.
-Talks in truths that sound like madness.
+Not a mystic: **the most rational person in Kettle Lake.** The town calls him
+crazy because he's the only one who says the pattern out loud.
 
-- **Arc:** MC thinks they're crazy, then realises everything they say comes true,
-  then is the only one who believes them.
-- **Possible history:** meant to be a Keeper once and never arrived? Went under the
-  ice one spring and came back?
+- **Who he is:** a hydrologist who came about twenty years ago to study the ice
+  for a university. The funding ended; he stayed. He's the town's official
+  timekeeper for the breakup pool and tends the tripod on the lake.
+- **Where he lives:** a cabin by the shore with a **laboratory** built into it.
+  Ice cores in a chest freezer, water samples, instruments, a radio receiver,
+  notebooks going back decades.
+- **He goes out at night.** Lights moving on the ice, footprints in the snow
+  around the shop. In layer 1 that makes him the obvious suspect, for the town
+  and for MC. He's measuring things.
+- **He keeps logs:** ice thickness, temperatures, the minute the clock stops
+  every spring. **And every Keeper,** each name and date. "Eleven Keepers since
+  I came here. None of them saw May."
+- **He talks plainly.** Numbers, dates, short sentences. No riddles.
+- **Layer 3 is in his data:** every spring the clock on the tripod stops at the
+  same minute. That shouldn't be possible. It's a dry line in a notebook, not a
+  prophecy.
+- **What he wants:** to be proved right. And, once, to see what's under the ice.
+- **His secret:** years ago, he got the notice. He said no. Someone else went in
+  his place, and didn't see May. That's why he writes down every Keeper.
+- **The romance:** two people who know too much in a town that pretends not to.
+  He's the one who believes MC, and the one MC learns to believe. Rewards a
+  strong **Appraisal**.
 - Locks **the truth** ending.
 
-### The pub owner (layer 2, maybe)
+### The pub owner (layer 2)
 
-Has watched Keepers come and go, and loved one once. Keeps their distance ("I
-don't get attached to Keepers"), then helps in secret.
+**The owner's daughter.** (Proposal: son is the alternative.) Divorced.
+Suspicious of everyone, the new Keeper most of all.
 
-- Locks **break the cycle.**
+- **She grew up next to the shop.** She knows her father survived by sending
+  someone else into every breakup, and she has lived off it. The pub was paid
+  for with Keepers.
+- **She doesn't know he's dead.** He's been "away" since September. She comes to
+  the shop asking MC where he is. MC knows exactly where he is.
+- **What she wants:** her father back, or to be free of him. Depending on the
+  night, she doesn't know which.
+- **Her secret:** she has helped. She welcomes every Keeper at the pub, makes
+  them feel at home and keeps them in town, knowing how it ends.
+- **The divorce:** her ex left Kettle Lake. Did he leave because of what he found
+  out? (Open.)
+- **The romance:** guilt and complicity. Loving MC means betraying the town, her
+  family, and the person she's been.
+- Locks **break the cycle,** which now costs her father's legacy and the town's
+  protection.
 
 ## Endings (draft)
 
@@ -261,9 +305,8 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 
 ## Open questions
 
-- [ ] The pub owner: keep, or does the Hermit replace them?
-- [ ] The Hermit: age, gender, name, history.
-- [ ] MC: fixed gender, or the player's choice?
+- [ ] The pub owner: daughter or son? Name? Why did the marriage end?
+- [ ] The Hermit: name and age.
 - [ ] What's under ticket 0447: the money, the books, or something else?
 - [ ] What soaked the rental agreement, per background.
 - [ ] What exactly happens to Keepers at breakup.
