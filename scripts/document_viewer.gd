@@ -21,6 +21,9 @@ func open(doc_id: String) -> void:
 	var text: String = FileAccess.get_file_as_string(path)
 	if text == "":
 		push_error("Could not read document: " + path)
+		# Act as if it was put away at once, so the story doesn't get stuck
+		# waiting for a page that never opened.
+		closed.emit.call_deferred(doc_id)
 		return
 	var parts: PackedStringArray = text.split("\n", true, 1)
 	title_label.text = parts[0].strip_edges()

@@ -50,6 +50,11 @@ func open_pockets() -> void:
 func close_pockets() -> void:
 	pockets_panel.visible = false
 
+# True while the pockets (or a paper read from them) cover the screen, so
+# keys don't reach the story underneath.
+func is_covering() -> bool:
+	return pockets_panel.visible or document_viewer.visible
+
 # --- Private: the machinery ---
 
 func _update_clock() -> void:

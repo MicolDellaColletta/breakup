@@ -13,17 +13,16 @@ const SPEAKERS_PATH: String = "res://story/speakers.cfg"
 # Loaded once from speakers.cfg and shared by every narrator.
 static var _speakers: ConfigFile
 
-# The centered prologue display. Other displays (like the dialogue column)
-# extend this script and replace _display_line and _text_label.
-@onready var speaker_label: Label = get_node_or_null("TextBox/SpeakerLabel")
-@onready var narration_label: Label = get_node_or_null("TextBox/NarrationLabel")
+# The story machinery: reading story files, choices, conditions, effects.
+# A display (the dialogue column) extends this script and fills in
+# _display_line and _text_label; its scene needs an AdvanceButton and a
+# ChoiceBox with unique names.
 @onready var advance_button: Button = %AdvanceButton
 @onready var choice_box: Container = %ChoiceBox
 
 var _story: Dictionary = {}
 var _section: String = ""
 var _lines: Array = []
-var _choices: Array = []
 var _line_index: int = 0
 var _revealed: float = 0.0
 var _input_enabled: bool = true
@@ -42,8 +41,32 @@ func _process(delta: float) -> void:
 	_text_label().set("visible_characters", int(_revealed))
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _input_enabled and event.is_action_pressed("ui_accept"):
+	if not _input_enabled or _hud_covering():
+		return
+	if event.is_action_pressed("ui_accept"):
 		_on_advance_pressed()
+	elif event is InputEventKey and event.pressed and not event.echo:
+		_pick_by_number(event)
+
+# The pockets (or a paper read from them) are open over the story.
+func _hud_covering() -> bool:
+	var hud: Node = get_node_or_null("/root/Hud")
+	return hud != null and hud.is_covering()
+
+# 1 to 9 on the keyboard (or the number pad) picks that choice.
+func _pick_by_number(event: InputEventKey) -> void:
+	var number: int = -1
+	if event.keycode >= KEY_1 and event.keycode <= KEY_9:
+		number = event.keycode - KEY_0
+	elif event.keycode >= KEY_KP_1 and event.keycode <= KEY_KP_9:
+		number = event.keycode - KEY_KP_0
+	if number == -1 or not choice_box.visible:
+		return
+	var buttons: Array = choice_box.get_children().filter(
+		func(b: Node) -> bool: return not b.is_queued_for_deletion())
+	if number <= buttons.size():
+		get_viewport().set_input_as_handled()
+		buttons[number - 1].pressed.emit()
 
 # --- Public: what other scenes can use ---
 
@@ -57,7 +80,6 @@ func play(section: String, start_index: int = 0, instant: bool = false) -> void:
 		return
 	_section = section
 	_lines = _story[section]["lines"]
-	_choices = _story[section]["choices"]
 	_section_done = false
 	_hide_choices()
 	# A section with no lines only routes to another one.
@@ -269,15 +291,14 @@ func _show_line(index: int, with_effects: bool = true) -> void:
 
 # Shows a line's text; it starts hidden and types out in _process.
 # resumed is true when play() picks up a line the player already saw.
-func _display_line(line: Dictionary, speaker: Dictionary, _resumed: bool) -> void:
-	speaker_label.text = speaker["name"]
-	speaker_label.add_theme_color_override("font_color", speaker["color"])
-	narration_label.add_theme_color_override("font_color", speaker["color"])
-	narration_label.text = line["text"]
+# Filled in by the display (see dialogue_column.gd).
+func _display_line(_line: Dictionary, _speaker: Dictionary, _resumed: bool) -> void:
+	push_error("A narrator display must define _display_line")
 
-# The label whose text is typing out right now (a Label or RichTextLabel).
+# The label whose text is typing out right now (a Label or RichTextLabel),
+# or null when there is none.
 func _text_label() -> Variant:
-	return narration_label
+	return null
 
 static func speaker_info(speaker_id: String) -> Dictionary:
 	if _speakers == null:

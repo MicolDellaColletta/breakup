@@ -122,7 +122,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Tell her there's nothing"
+text = "Say there's nothing here"
 
 [node name="DialogueColumn" parent="." unique_id=1713111927 instance=ExtResource("2_column")]
 unique_name_in_owner = true
