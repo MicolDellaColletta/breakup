@@ -63,7 +63,8 @@ unknown: Come in, sweetheart. Don't be rude.
 === office
 narration | time=+5: You push the door. It swings inward without a sound, as if someone oiled the hinges for you.
 narration | light=office: The light hurts your eyes. A bare bulb, far too bright, hanging from a cord.
-narration: A small room. A wooden desk. An office chair, pushed back, as if someone just stood up. Nothing on the walls. Nothing else at all.
+narration: A small room. A wooden desk. An office chair, pushed back, as if someone just stood up.
+narration: Above the desk, a ram's head, mounted, its horns curling back on themselves. Nothing else on the walls. Nothing else at all.
 narration: And a smell. Sweet and heavy, underneath the dust. You can't name it. You don't want to.
 paranoia: Breathe through your mouth.
 narration: On the desk, squared neatly in the middle, an envelope. Propped up and waiting, as if it was put there for you to find.

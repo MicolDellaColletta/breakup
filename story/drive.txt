@@ -30,10 +30,12 @@ narration: No taillights ahead. None behind. It has been just you for miles.
 paranoia: Good. Keep it that way.
 paranoia: Where are you going?
 paranoia: You don't know, do you.
+narration: A white cross at the side of the road, plastic flowers frozen to it. A mile on, another. Then two together. A road this empty shouldn't need so many.
 narration: The paper in your coat pocket. A typed letter, and folded inside it, directions in handwriting you don't recognize. You've touched it so often the folds have gone soft.
 paranoia: Don't take it out. You know what it says.
 narration: At the last gas station you signed for the fuel without thinking. Halfway through, you had to stop and start again.
 narration: The road ends where the headlights end. Past that, nothing. Not dark. Nothing.
+narration: A hand-painted sign leans out of a snowbank, half buried: PREPARE TO MEET THY G... The rest is under the snow.
 unknown: Where are you going, sweetheart?
 unknown: And what will you do when you get there?
 narration | static=silent: The radio clears for a single moment. A man's voice, calm and unhurried, like someone sitting up with a sick friend: "...so tell me, caller. How much is the truth worth to you?"
