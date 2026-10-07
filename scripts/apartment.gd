@@ -1,6 +1,7 @@
 extends Control
 
 const STORY_PATH: String = "res://story/apartment.txt"
+const COUNTER_SCENE: String = "res://scenes/counter.tscn"
 
 @onready var narrator: Narrator = %Narrator
 @onready var objects: HBoxContainer = %Objects
@@ -74,5 +75,5 @@ func _end_night() -> void:
 	var tween: Tween = create_tween().set_parallel()
 	tween.tween_property(radio_night, "volume_db", -80.0, 2.0)
 	tween.tween_property(wind, "volume_db", -80.0, 2.0)
-	await Transition.fade_out(2.0)
-	print("End of the first night. Prologue complete!")
+	GameState.day = 1
+	Transition.go_to(COUNTER_SCENE, 2.0, 1.0)

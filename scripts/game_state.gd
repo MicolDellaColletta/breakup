@@ -6,6 +6,8 @@ signal item_added(item_id: String)
 const ITEMS_PATH: String = "res://story/items.cfg"
 const MINUTES_PER_DAY: int = 24 * 60
 
+# 0 is the prologue night; day one starts the morning after.
+var day: int = 0
 var answered_phone: bool = false
 var fed_dog: bool = false
 var rules_broken: Array[String] = []

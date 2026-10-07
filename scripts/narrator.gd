@@ -8,17 +8,17 @@ signal section_finished(section: String)
 signal choice_made(choice: Dictionary)
 
 const CHARACTERS_PER_SECOND: float = 30.0
+const SPEAKERS_PATH: String = "res://story/speakers.cfg"
 
-const SPEAKERS: Dictionary = {
-	"narration": {"name": "", "color": Color(0.85, 0.87, 0.91), "speed": 30.0},
-	"paranoia": {"name": "Paranoia", "color": Color(0.79, 0.71, 0.35), "speed": 45.0},
-	"unknown": {"name": "???", "color": Color(0.78, 0.36, 0.43), "speed": 18.0},
-}
+# Loaded once from speakers.cfg and shared by every narrator.
+static var _speakers: ConfigFile
 
-@onready var speaker_label: Label = $TextBox/SpeakerLabel
-@onready var narration_label: Label = $TextBox/NarrationLabel
-@onready var advance_button: Button = $AdvanceButton
-@onready var choice_box: HBoxContainer = $ChoiceBox
+# The centered prologue display. Other displays (like the dialogue column)
+# extend this script and replace _display_line and _text_label.
+@onready var speaker_label: Label = get_node_or_null("TextBox/SpeakerLabel")
+@onready var narration_label: Label = get_node_or_null("TextBox/NarrationLabel")
+@onready var advance_button: Button = %AdvanceButton
+@onready var choice_box: Container = %ChoiceBox
 
 var _story: Dictionary = {}
 var _section: String = ""
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	if _is_line_finished():
 		return
 	_revealed += _speed * delta
-	narration_label.visible_characters = int(_revealed)
+	_text_label().set("visible_characters", int(_revealed))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _input_enabled and event.is_action_pressed("ui_accept"):
@@ -185,12 +185,16 @@ func _state_number(name: String) -> float:
 func _show_choices(choices: Array) -> void:
 	for old in choice_box.get_children():
 		old.queue_free()
-	for choice in choices:
-		var button: Button = Button.new()
-		button.text = choice["label"]
-		button.pressed.connect(_on_choice_pressed.bind(choice))
+	for i in choices.size():
+		var button: Button = _make_choice_button(choices[i], i + 1)
+		button.pressed.connect(_on_choice_pressed.bind(choices[i]))
 		choice_box.add_child(button)
 	choice_box.visible = true
+
+func _make_choice_button(choice: Dictionary, _number: int) -> Button:
+	var button: Button = Button.new()
+	button.text = choice["label"]
+	return button
 
 func _hide_choices() -> void:
 	choice_box.visible = false
@@ -209,15 +213,38 @@ func _show_line(index: int, with_effects: bool = true) -> void:
 	var line: Dictionary = _lines[index]
 	if with_effects:
 		_apply_effects(line)
-	var speaker: Dictionary = SPEAKERS[line["speaker"]]
-	_speed = speaker.get("speed", CHARACTERS_PER_SECOND)
+	var speaker: Dictionary = speaker_info(line["speaker"])
+	_speed = speaker["speed"]
+	_display_line(line, speaker)
+	_revealed = 0.0
+	_text_label().set("visible_characters", 0)
+	line_shown.emit(line)
+
+# Shows a line's text; it starts hidden and types out in _process.
+func _display_line(line: Dictionary, speaker: Dictionary) -> void:
 	speaker_label.text = speaker["name"]
 	speaker_label.add_theme_color_override("font_color", speaker["color"])
 	narration_label.add_theme_color_override("font_color", speaker["color"])
 	narration_label.text = line["text"]
-	_revealed = 0.0
-	narration_label.visible_characters = 0
-	line_shown.emit(line)
+
+# The label whose text is typing out right now (a Label or RichTextLabel).
+func _text_label() -> Variant:
+	return narration_label
+
+static func speaker_info(speaker_id: String) -> Dictionary:
+	if _speakers == null:
+		_speakers = ConfigFile.new()
+		if _speakers.load(SPEAKERS_PATH) != OK:
+			push_error("Could not load speakers: " + SPEAKERS_PATH)
+	return {
+		"name": _speakers.get_value(speaker_id, "name", ""),
+		"color": _speakers.get_value(speaker_id, "color", Color.WHITE),
+		"speed": float(_speakers.get_value(speaker_id, "speed", CHARACTERS_PER_SECOND)),
+	}
+
+static func is_speaker(speaker_id: String) -> bool:
+	speaker_info("narration")
+	return _speakers.has_section(speaker_id)
 
 # Options that change the world, on a line when it's shown or on a choice
 # when it's picked: stop=, sound=, time=, take=, lose=, break=
@@ -258,11 +285,17 @@ func _play_after(sound_name: String, first: String) -> void:
 	play_sound(sound_name)
 
 func _finish_line() -> void:
-	_revealed = narration_label.get_total_character_count()
-	narration_label.visible_characters = int(_revealed)
+	var label = _text_label()
+	if label == null:
+		return
+	_revealed = label.get_total_character_count()
+	label.visible_characters = int(_revealed)
 
 func _is_line_finished() -> bool:
-	return narration_label.visible_characters >= narration_label.get_total_character_count()
+	var label = _text_label()
+	if label == null:
+		return true
+	return label.visible_characters >= label.get_total_character_count()
 
 func _parse_story(path: String) -> Dictionary:
 	var sections: Dictionary = {}
@@ -304,7 +337,7 @@ func _parse_story(path: String) -> Dictionary:
 			continue
 		var header: PackedStringArray = parts[0].split("|")
 		var speaker: String = header[0].strip_edges()
-		if not SPEAKERS.has(speaker):
+		if not is_speaker(speaker):
 			push_warning("Unknown speaker '%s' in %s, using narration: %s" % [speaker, path, raw])
 			speaker = "narration"
 		var line: Dictionary = {
