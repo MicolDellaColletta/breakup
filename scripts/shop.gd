@@ -13,18 +13,8 @@ const LIGHT_FLASH: Color = Color(0.55, 0.5, 0.4)
 @onready var letter_panel: ColorRect = %LetterPanel
 @onready var letter_text: Label = %LetterText
 @onready var fold_button: Button = %FoldButton
-@onready var hang_up_button: Button = %HangUpButton
-@onready var phone_choices: HBoxContainer = %PhoneChoices
-@onready var pick_up_button: Button = %PickUpButton
-@onready var let_it_ring_button: Button = %LetItRingButton
-@onready var door_choices: HBoxContainer = %DoorChoices
-@onready var knock_button: Button = %KnockButton
-@onready var open_door_button: Button = %OpenDoorButton
 @onready var background: ColorRect = $Background
-@onready var fade: ColorRect = %Fade
 @onready var shop_hum: AudioStreamPlayer = %ShopHum
-@onready var action_button: Button = %ActionButton
-var _action: Callable
 
 @onready var sounds: Dictionary = {
 	"ring": %PhoneRing,
@@ -38,26 +28,14 @@ var _action: Callable
 
 func _ready() -> void:
 	letter_panel.visible = false
-	hang_up_button.visible = false
-	phone_choices.visible = false
-	door_choices.visible = false
-	action_button.visible = false
-	knock_button.pressed.connect(_on_door_choice.bind("knock"))
-	open_door_button.pressed.connect(_on_door_choice.bind("office"))
-	action_button.pressed.connect(_on_action_pressed)
 	letter_text.text = _read_letter(LETTER_PATH)
 	fold_button.pressed.connect(_on_fold_pressed)
-	hang_up_button.pressed.connect(_on_hang_up_pressed)
-	pick_up_button.pressed.connect(_on_pick_up_pressed)
-	let_it_ring_button.pressed.connect(_on_let_it_ring_pressed)
 	narrator.line_shown.connect(_on_line_shown)
 	narrator.section_finished.connect(_on_section_finished)
+	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(STORY_PATH)
 	narrator.set_input_enabled(false)
-	fade.modulate.a = 1.0
-	var tween: Tween = create_tween()
-	tween.tween_property(fade, "modulate:a", 0.0, 2.0)
-	await tween.finished
+	await Transition.fade_in(2.0)
 	narrator.set_input_enabled(true)
 	narrator.play("arrival")
 
@@ -69,55 +47,39 @@ func _read_letter(path: String) -> String:
 
 func _on_section_finished(section: String) -> void:
 	match section:
-		"arrival":
-			narrator.set_input_enabled(false)
-			phone_choices.visible = true
-		"dead_line":
-			narrator.set_input_enabled(false)
-			hang_up_button.visible = true
 		"after_call", "let_it_ring":
 			narrator.play("office_door")
-		"office_door":
-			narrator.set_input_enabled(false)
-			door_choices.visible = true
 		"knock":
 			narrator.play("office")
-		"office":
-			_prompt("Take the envelope", _take_envelope)
-		"envelope_held":
-			_prompt("Open it", _open_envelope)
 		"after_letter_answered", "after_letter_ignored":
+			narrator.play("upstairs")
+
+# The story file decides where each choice leads; this only adds the sounds.
+func _on_choice_made(choice: Dictionary) -> void:
+	match choice["target"]:
+		"dead_line":
+			_pick_up()
+		"let_it_ring":
+			GameState.answered_phone = false
+		"after_call":
+			sounds["deadline"].stop()
+			sounds["hangup"].play()
+		"envelope_held":
+			sounds["paper"].play()
+		"@open_letter":
+			_open_envelope()
+		"@go_upstairs":
 			_go_upstairs()
 
-func _on_pick_up_pressed() -> void:
+func _pick_up() -> void:
 	GameState.answered_phone = true
-	GameState.break_rule("phone")
-	phone_choices.visible = false
 	sounds["ring"].stop()
 	sounds["pickup"].play()
-	narrator.play("dead_line")
+	# Hold the text until the dead line tone starts.
+	narrator.set_input_enabled(false)
 	await _wait(_length_of("pickup"))
 	sounds["deadline"].play()
 	narrator.set_input_enabled(true)
-
-func _on_let_it_ring_pressed() -> void:
-	GameState.answered_phone = false
-	phone_choices.visible = false
-	narrator.set_input_enabled(true)
-	narrator.play("let_it_ring")
-
-func _on_door_choice(section: String) -> void:
-	door_choices.visible = false
-	narrator.set_input_enabled(true)
-	narrator.play(section)
-
-func _on_hang_up_pressed() -> void:
-	hang_up_button.visible = false
-	sounds["deadline"].stop()
-	sounds["hangup"].play()
-	await _wait(_length_of("hangup"))
-	narrator.set_input_enabled(true)
-	narrator.play("after_call")
 
 func _on_line_shown(line: Dictionary) -> void:
 	if line.has("stop"):
@@ -162,21 +124,6 @@ func _length_of(sound_name: String) -> float:
 		return 0.0
 	return player.stream.get_length()
 
-func _prompt(label: String, action: Callable) -> void:
-	_action = action
-	action_button.text = label
-	narrator.set_input_enabled(false)
-	action_button.visible = true
-
-func _on_action_pressed() -> void:
-	action_button.visible = false
-	_action.call()
-
-func _take_envelope() -> void:
-	sounds["paper"].play()
-	narrator.set_input_enabled(true)
-	narrator.play("envelope_held")
-
 func _open_envelope() -> void:
 	sounds["tear"].play()
 	await _wait(_length_of("tear"))
@@ -197,9 +144,5 @@ func _on_fold_pressed() -> void:
 	
 func _go_upstairs() -> void:
 	narrator.set_input_enabled(false)
-	var tween: Tween = create_tween()
-	tween.tween_property(fade, "modulate:a", 1.0, 1.5)
-	tween.parallel().tween_property(shop_hum, "volume_db", -80.0, 1.5)
-	await tween.finished
-	await _wait(0.5)
-	get_tree().change_scene_to_file(APARTMENT_SCENE)
+	create_tween().tween_property(shop_hum, "volume_db", -80.0, 1.5)
+	Transition.go_to(APARTMENT_SCENE, 1.5, 0.5)

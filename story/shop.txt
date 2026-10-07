@@ -20,12 +20,15 @@ narration | sound=ring: It rings.
 paranoia: Who calls a closed shop in the middle of the night?
 narration: Nobody knows you're here. You didn't know you'd be here until an hour ago.
 unknown: Aren't you going to get that, sweetheart?
+> Pick up -> dead_line | break=phone
+> Let it ring -> let_it_ring
 
 === dead_line
 narration: You lift the receiver.
 narration: No voice. No dial tone. Just a thin, steady beep, as if the line was never connected to anything.
 narration: For a moment you think you hear breathing on the other end. Then you realize it's yours.
 paranoia: Put it down.
+> Hang up -> after_call
 
 === after_call
 narration: You put it down. Carefully, as if it might notice.
@@ -42,6 +45,8 @@ narration: Behind the counter, a door stands open a crack. A thin blade of yello
 paranoia: Was that on when you came in?
 paranoia: It was. It must have been.
 narration: A metal plate is screwed to the door at eye level. You lean in close enough to read it: OFFICE.
+> Knock -> knock
+> Push it open -> office
 
 === knock
 narration: You knock. Twice. Softly, the way you'd knock on a hospital room door.
@@ -57,12 +62,14 @@ narration: A small room. A wooden desk. An office chair, pushed back, as if some
 narration: And a smell. Sweet and heavy, underneath the dust. You can't name it. You don't want to.
 paranoia: Breathe through your mouth.
 narration: On the desk, squared neatly in the middle, an envelope. Propped up and waiting, as if it was put there for you to find.
+> Take the envelope -> envelope_held
 
 === envelope_held
 narration: It's heavier than a letter should be. The paper is soft, as if it's been handled many times.
 narration: Three words on the front: FOR THE KEEPER. The handwriting presses so hard you can feel it through the other side.
 paranoia: Whoever wrote this was very sure you'd come.
 narration: Under the bulb, the ink is sharp and black. You won't have any trouble reading it.
+> Open it -> @open_letter
 
 === after_letter_answered
 paranoia: Rule four.
@@ -75,3 +82,10 @@ paranoia: Rule four. You didn't answer.
 paranoia: Not knowing saved you. It won't, next time.
 unknown: They'll call again, sweetheart. They always call again.
 narration: Out in the dark, the hum goes on. Now you can place it: behind a heavy steel door at the very back of the shop. A compressor. A freezer, maybe.
+
+=== upstairs
+narration: Your legs are heavy. You've been driving since before it got dark, and for a long time before that.
+narration: The offer said there'd be a room upstairs. Room and board.
+paranoia: It said that to John.
+paranoia: Go up. Lock the door. Don't think about it.
+> Go upstairs -> @go_upstairs

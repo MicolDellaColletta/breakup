@@ -2,7 +2,12 @@ extends Control
 
 const STORY_PATH: String = "res://story/drive.txt"
 const SHOP_SCENE: String = "res://scenes/shop.tscn"
-const MANDATORY: Array[String] = ["radio", "glovebox", "mirror"]
+const MANDATORY: Array[String] = ["radio", "glovebox", "mirror", "coat"]
+
+# Story section that plays after a document is put away.
+const AFTER_READING: Dictionary = {
+	"job_offer": "job_offer_read",
+}
 
 const STATIC_LEVELS: Dictionary = {
 	"silent": -80.0,
@@ -15,11 +20,11 @@ const STATIC_LEVELS: Dictionary = {
 @onready var radio_button: Button = $Objects/RadioButton
 @onready var glovebox_button: Button = $Objects/GloveboxButton
 @onready var mirror_button: Button = $Objects/MirrorButton
+@onready var coat_button: Button = $Objects/CoatButton
 @onready var passenger_button: Button = $Objects/PassengerButton
 @onready var wheel_button: Button = $Objects/WheelButton
 @onready var radio_static: AudioStreamPlayer = $RadioStatic
 @onready var car_interior: AudioStreamPlayer = $CarInterior
-@onready var fade: ColorRect = $Fade
 @onready var document_viewer: DocumentViewer = %DocumentViewer
 
 var _examining: bool = false
@@ -34,19 +39,18 @@ func _ready() -> void:
 	radio_button.pressed.connect(_examine.bind("radio", radio_button))
 	glovebox_button.pressed.connect(_examine.bind("glovebox", glovebox_button))
 	mirror_button.pressed.connect(_examine.bind("mirror", mirror_button))
+	coat_button.pressed.connect(_examine.bind("coat", coat_button))
 	passenger_button.pressed.connect(_examine.bind("passenger", passenger_button))
 	document_viewer.closed.connect(_on_document_closed)
 	wheel_button.pressed.connect(_on_wheel_pressed)
 	wheel_button.visible = false
 	narrator.line_shown.connect(_on_line_shown)
 	narrator.section_finished.connect(_on_section_finished)
+	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(STORY_PATH)
 	narrator.set_input_enabled(false)
 	objects.visible = false
-	fade.modulate.a = 1.0
-	var tween: Tween = create_tween()
-	tween.tween_property(fade, "modulate:a", 0.0, 2.0)
-	await tween.finished
+	await Transition.fade_in(2.0)
 	objects.visible = true
 	narrator.set_input_enabled(true)
 	narrator.play("main")
@@ -67,9 +71,18 @@ func _on_section_finished(section: String) -> void:
 	else:
 		_return_to_main()
 
-func _on_document_closed(_doc_id: String) -> void:
+func _on_choice_made(choice: Dictionary) -> void:
+	var target: String = choice["target"]
+	if target.begins_with("@read_"):
+		narrator.set_input_enabled(false)
+		document_viewer.open(target.trim_prefix("@read_"))
+
+func _on_document_closed(doc_id: String) -> void:
 	narrator.set_input_enabled(true)
-	_return_to_main()
+	if AFTER_READING.has(doc_id):
+		narrator.play(AFTER_READING[doc_id])
+	else:
+		_return_to_main()
 
 func _return_to_main() -> void:
 	_examining = false
@@ -115,12 +128,7 @@ func _arrive() -> void:
 	narrator.set_input_enabled(false)
 	if _static_tween:
 		_static_tween.kill()
-	var tween: Tween = create_tween()
-	tween.tween_property(fade, "modulate:a", 1.0, 2.0)
-	tween.parallel().tween_property(car_interior, "volume_db", -80.0, 2.0)
-	tween.parallel().tween_property(radio_static, "volume_db", -80.0, 2.0)
-	tween.tween_interval(1.0)
-	tween.tween_callback(_go_to_shop)
-
-func _go_to_shop() -> void:
-	get_tree().change_scene_to_file(SHOP_SCENE)
+	var tween: Tween = create_tween().set_parallel()
+	tween.tween_property(car_interior, "volume_db", -80.0, 2.0)
+	tween.tween_property(radio_static, "volume_db", -80.0, 2.0)
+	Transition.go_to(SHOP_SCENE, 2.0, 1.0)

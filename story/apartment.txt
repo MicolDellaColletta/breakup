@@ -23,6 +23,8 @@ narration: The windows look down over the neon sign. The empty lot, your car goi
 narration: Past the road, the trees. A black wall of them, as far as you can see. Anything could be standing just inside that wall, looking out.
 paranoia: Rule one. Close every window before dark.
 unknown: Or don't. Let some air in, sweetheart. Let them see you.
+> Close it -> window_closed
+> Leave it open -> window_open | break=window
 
 === window_closed
 narration: The latch is stiff with cold. It closes with a sound like a held breath let go.
@@ -36,6 +38,8 @@ paranoia: Those weren't there a minute ago.
 === radio
 narration: An old radio on a side table by the armchair, the kind with a dial that glows amber. It's unplugged, the cord wrapped neatly around it, as if someone wanted it found that way.
 paranoia: Rule seven. Keep the radio on at night. The silence is worse.
+> Turn it on -> radio_on
+> Leave it off -> radio_off | break=radio
 
 === radio_on
 narration: You plug it in. Amber light, a hum, then static, then a man's voice in the middle of a sentence.

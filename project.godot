@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameState="*uid://bnkvfcratkrx3"
+Transition="*res://scripts/transition.gd"
 
 [display]
 

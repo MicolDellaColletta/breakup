@@ -71,43 +71,9 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Coat"
 
-[node name="ChoiceBox" type="HBoxContainer" parent="." unique_id=479468100]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -22.0
-offset_top = -40.0
-offset_right = 22.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-
-[node name="ChoiceA" type="Button" parent="ChoiceBox" unique_id=1334642618]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="ChoiceB" type="Button" parent="ChoiceBox" unique_id=359540258]
-unique_name_in_owner = true
-layout_mode = 2
-
 [node name="RadioNight" type="AudioStreamPlayer" parent="." unique_id=1629980858]
 unique_name_in_owner = true
 stream = ExtResource("3_jq6rh")
 volume_db = -20.0
 parameters/looping = true
 
-[node name="Fade" type="ColorRect" parent="." unique_id=542480751]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)

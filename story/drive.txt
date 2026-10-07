@@ -1,6 +1,8 @@
 # THE DRIVE
 # Format:  speaker: text
 # Options: speaker | option=value: text
+# Choices: > Button label -> section | option=value
+#          (shown when the section ends; @name sends an event to the scene instead)
 # Sections start with === and a name.
 
 === main
@@ -9,10 +11,12 @@ narration: Snow rushes the headlights and vanishes. Rushes and vanishes.
 narration: The heater smells of burning dust. Your fingers are still cold.
 narration: The radio drifts between stations. A voice, static, half a hymn, static.
 narration: No taillights ahead. None behind. It has been just you for miles.
+paranoia: Good. Keep it that way.
 paranoia: Where are you going?
 paranoia: You don't know, do you.
-narration: The paper in your coat pocket. An address, in handwriting you don't recognize. You've touched it so often the folds have gone soft.
+narration: The paper in your coat pocket. A typed letter, and folded inside it, directions in handwriting you don't recognize. You've touched it so often the folds have gone soft.
 paranoia: Don't take it out. You know what it says.
+narration: At the last gas station you signed for the fuel without thinking. Halfway through, you had to stop and start again.
 narration: The road ends where the headlights end. Past that, nothing. Not dark. Nothing.
 unknown: Where are you going, sweetheart?
 unknown: And what will you do when you get there?
@@ -39,6 +43,22 @@ narration: On the passenger seat, something wrapped in a towel. About the size o
 narration: You don't remember putting it there. You don't remember not putting it there.
 paranoia: Leave it wrapped.
 unknown: Not yet, sweetheart. Not yet.
+
+=== coat
+narration: Your hand finds the coat pocket on its own. The paper is still there. It's always still there.
+paranoia: Leave it. You've read it a hundred times.
+> Take it out -> @read_job_offer
+> Leave it -> coat_left
+
+=== coat_left
+narration: You leave it where it is. Your hand stays on it a while anyway, the way you'd keep a hand pressed to a cut.
+paranoia: Good. Eyes on the road.
+
+=== job_offer_read
+narration: The key was taped to the bottom of the page when it arrived. It's in your other pocket now. You check that it's still there. It is.
+paranoia: John.
+paranoia: That's your name now. Say it until it sounds right.
+narration: You say it, quietly, to the windshield. It doesn't sound right.
 
 === wheel
 narration: You put both hands on the wheel. Ten and two, the way someone taught you once.
