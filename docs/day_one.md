@@ -171,7 +171,9 @@ Each step can be played and tested before the next.
 6. Done: closing time, the map, the pub (The Gleaner) and the lake.
 7. Done: the night at the shop (`story/night_one.txt`). Day two is next to design.
 
-Also built along the way: the title screen, pause menu, saving and loading.
+Also built along the way: the title screen, pause menu, saving and loading;
+looking around the shop after closing and the apartment at night
+(`story/spots.cfg`).
 
 ## Open questions
 

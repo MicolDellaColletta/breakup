@@ -29,6 +29,7 @@ narration: No voice. No dial tone. Not a dead line: an open one.
 narration: Somewhere on the other end, a room. A clock ticking in it.
 narration: You hold your breath. On the other end, someone lets theirs out. Slowly. Like a man with all the time in the world.
 narration: He doesn't speak. Neither do you.
+narration | sound=deadline: Then a soft click on the other end, and he's gone. The line goes dead: a thin, steady tone in your ear, like a held note that will never end.
 paranoia: Put it down.
 > Hang up -> after_call
 

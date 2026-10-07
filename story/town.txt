@@ -16,11 +16,13 @@ narration: Someone raises a beer. Then someone else. Then the whole room, not qu
 narration: "Welcome to Kettle Lake, friend."
 paranoia: The radio said that. Word for word.
 narration: The woman behind the bar is already pulling a beer you didn't order. Forty, maybe. Sleeves rolled. Eyes that have done this before.
-ruth: You'll be John. I'm Ruth. This is mine.
-ruth: Your seat's at the end. Go on. Nobody else sits there.
+narration: She sets it down in front of you before you can say anything.
+ruth: You'll be John. First one's on the house. I'm Ruth, I own the place, for my sins.
+narration: She tips her head toward the far end of the bar.
+ruth: You're down at the end there. Don't worry, nobody's going to fight you for it.
 narration: Twelve stools along the bar, every one taken. A thirteenth at the far end, a little apart from the rest, its seat worn smooth.
 narration: As you sit down, a flash. Ruth lowers a Polaroid camera and waves the picture dry.
-ruth: For the wall.
+ruth: Oh, don't make that face. Everybody gets one. It goes up on the wall with the others.
 narration: Behind the bar, between the bottles, a row of Polaroids. Faces you don't know, every one of them on this stool, every one with the look you can feel on your own face right now.
 narration: You count them. Ten. She tapes yours up at the end. Eleven.
 > Buy a round back -> pub_round | if=cash>=40 | cash=-40 | lean=john
@@ -40,16 +42,18 @@ narration: Nobody sits next to you. Everybody looks, once. Then back at the new 
 
 === pub_ask
 narration: You ask Ruth about the faces on the wall.
-narration: She keeps drying the same glass.
-ruth: Keepers. Every one of them sat where you're sitting.
-ruth: There's always a Keeper.
+ruth: Them? The ones who had the shop before you. First night, every one of them sat right where you're sitting. Same face you're making now.
+narration: She keeps drying the same glass, around and around.
+ruth: Some of them stayed a while. Most of them were nice enough. Shop always needs somebody.
+ruth: You'll want another of those.
 appraisal | if=appraisal>=1: Ten photos, ten winters. The tape on the oldest has gone brown. None of them look older than you.
 -> pub_leave
 
 === pub_leave
 narration: When you get up to go, Ruth leans across the bar.
-ruth: My father owns your shop. Abraham. He's been away since September.
-ruth: If he turns up, you tell him the Gleaner's still standing.
+ruth: Hey. John. My dad owns that shop of yours. Abraham.
+ruth: He's been off somewhere since September. Doesn't tell me where, never has.
+ruth: If he shows up, tell him the Gleaner's still standing. And tell him to call his daughter.
 warmth | if=warmth>=1: She says "away" like a word she's had a lot of practice with.
 narration | time=+90: You leave before anyone can ask you anything you'd have to answer.
 narration: The cold outside is almost a relief.

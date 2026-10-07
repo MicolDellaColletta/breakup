@@ -32,13 +32,20 @@ func _rules(has_key: bool) -> void:
 	var column: Node = night.get_node("%Narrator")
 	check(not gs.fed_dog, "tonight's bowl starts empty")
 	check(night.get_node("%Objects").visible, "the apartment buttons show after arriving")
+	var spots: Array = night.get_node("%Objects").get_children().filter(
+		func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return String(b.name))
+	check(spots == ["radio", "kitchen", "windows", "dresser", "painting", "locked_door", "back_door", "bed"], "eight things to look at in the apartment")
+	if has_key:
+		night.look("dresser")
+		advance(column)
+		check(gs.has_item("church_bulletin"), "the dresser hides a church bulletin")
 	check(root.get_node("Saves").slot_info(0).get("label", "").begins_with("The night"), "the night is a part of its own: it autosaves")
-	night._examine("radio", night.get_node("%RadioButton"))
+	night.look("radio")
 	advance(column)
 	await pick(column, "Turn it on")
 	advance(column)
 	check(night.get_node("%RadioNight").playing and not gs.rules_broken.has("radio"), "the radio plays; rule seven kept")
-	night._examine("back_door", night.get_node("%BackDoorButton"))
+	night.look("back_door")
 	advance(column)
 	await process_frame
 	if has_key:
@@ -58,11 +65,11 @@ func _three_am(lock: bool, wave: String, expected_room: String) -> void:
 	var night: Node = await _open_night(lock)
 	var column: Node = night.get_node("%Narrator")
 	if lock:
-		night._examine("back_door", night.get_node("%BackDoorButton"))
+		night.look("back_door")
 		advance(column)
 		await pick(column, "Lock it")
 		advance(column)
-	night._on_bed_pressed()
+	night.look("bed")
 	advance(column)
 	check(gs.clock_text() == "3:10 AM", "a sound wakes you after three")
 	await pick(column, "Go down")
@@ -88,7 +95,7 @@ func _stay_in_bed() -> void:
 	section("After three: staying in bed")
 	var night: Node = await _open_night(false)
 	var column: Node = night.get_node("%Narrator")
-	night._on_bed_pressed()
+	night.look("bed")
 	advance(column)
 	var paranoia: int = gs.voices["paranoia"]
 	await pick(column, "Stay in bed")

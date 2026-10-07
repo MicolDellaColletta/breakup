@@ -51,6 +51,25 @@ narration: Both latched. You check them again anyway, then a third time, until t
 narration: Cold pours in at once, sweet and sharp. Down in the lot, nothing moves.
 narration: Then, at the edge of the trees, something does. Or the wind does.
 
+=== dresser
+narration | time=+10: The dresser in the bedroom. The top drawers are full of a man's clothes, folded with care. Flannel, wool, long johns. All of it your size.
+narration: The bottom drawer is lined with old newspaper. Under the lining, flat against the wood, a folded sheet of paper.
+narration | take=church_bulletin: A church bulletin. Typed, mimeographed, the ink gone purple. You fold it into your pocket before you can decide not to.
+paranoia: Whoever lived here hid it. From whom?
+
+=== painting
+narration | time=+10: Over the armchair, an oil painting in a plain frame. The lake, in spring, the ice breaking up into white plates on black water.
+narration: Far out, on one of the floating plates, a small figure stands with its back to you, looking at the far shore.
+narration: Somebody painted it carefully. The figure most carefully of all.
+appraisal | if=appraisal>=1: No signature. Just a date in the corner, scraped half away. A spring, in the eighties.
+unknown: You'd look good out there, sweetheart.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. You try the handle again. Still locked.
+narration: You crouch at the keyhole. Cold air on your eye, and the freezer's hum, louder than anywhere else in the apartment.
+narration: It's right underneath this room, you realize. Whatever's in the freezer is right under this door.
+paranoia: Stand up. Walk away. You were never here.
+
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs again. At the bottom, the hallway, and the heavy steel door at the end of it.
 narration | sound=door_shut: It's colder past the steel door, and louder. The back room: shelving, crates, a mop gone stiff in its bucket.

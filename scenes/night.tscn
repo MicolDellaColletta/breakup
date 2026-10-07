@@ -44,31 +44,6 @@ grow_vertical = 0
 theme_override_constants/separation = 10
 mouse_filter = 2
 
-[node name="RadioButton" type="Button" parent="Objects" unique_id=1470645444]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Radio"
-
-[node name="KitchenButton" type="Button" parent="Objects" unique_id=1570655545]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Kitchen"
-
-[node name="WindowsButton" type="Button" parent="Objects" unique_id=1670665646]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Windows"
-
-[node name="BackDoorButton" type="Button" parent="Objects" unique_id=1770675747]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Back door"
-
-[node name="BedButton" type="Button" parent="Objects" unique_id=1870685848]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Bed"
-
 [node name="RadioNight" type="AudioStreamPlayer" parent="." unique_id=1970695949]
 unique_name_in_owner = true
 stream = ExtResource("3_radio")

@@ -81,6 +81,24 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Register"
 
+[node name="OfficeButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1222333444]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Office"
+
+[node name="HallwayButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1322434545]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Hallway"
+
+[node name="SpotsRow" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1422535646]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
 [node name="ShelfPanel" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
 unique_name_in_owner = true
 layout_mode = 2
@@ -184,3 +202,10 @@ stream = ExtResource("4_hum")
 volume_db = -24.0
 autoplay = true
 parameters/looping = true
+
+[node name="DoorButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1522636747]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Leave by the front door"
