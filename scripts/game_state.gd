@@ -11,6 +11,24 @@ const FIRST_NIGHT_DATE: int = 5
 # A colored choice (needs=john) shows once its voice has this many points.
 const COLORED_CHOICE_AT: int = 3
 
+# Each day's story at the counter, and each night's. A day that isn't here
+# yet ends the game on the title screen after the night before it.
+const DAY_STORIES: Dictionary = {
+	1: "res://story/day_one.txt",
+	2: "res://story/day_two.txt",
+}
+const NIGHT_STORIES: Dictionary = {
+	1: "res://story/night_one.txt",
+	2: "res://story/night_two.txt",
+}
+
+# The last ticket number in the owner's hand (the rifle). New pawns count on
+# from here. 0527 doesn't count: he skipped ahead to write that one.
+const LAST_OWNER_TAG: int = 431
+const WEEKDAYS: Array[String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+# October 5, 1999 was a Tuesday.
+const FIRST_NIGHT_WEEKDAY: int = 2
+
 # Everything below is set in reset(), where a new game starts.
 
 # 0 is the prologue night; day one starts the morning after.
@@ -20,6 +38,11 @@ var fed_dog: bool
 var invited_to_pub: bool
 var locked_back_door: bool
 var rules_broken: Array[String] = []
+# Things that happened, for later story to remember: flag=ezra_satisfied in a
+# story file, if=flag:ezra_satisfied to ask.
+var flags: Array[String] = []
+# Places on the town map you've been to, any evening (if=visited:lake).
+var visited: Array[String] = []
 
 # Minutes since midnight on the first evening. Past midnight it keeps
 # counting up, so 1:00 AM that night is 25 * 60.
@@ -52,6 +75,8 @@ var sold: Array[String] = []
 # Items people brought in this season (pawned or sold to the shop).
 var acquired: Array[String] = []
 var ledger_lines: Array[String] = []
+# The ticket written for each thing pawned this season, as "item_id=0433".
+var pawn_tags: Array[String] = []
 
 func _ready() -> void:
 	if _items.load(ITEMS_PATH) != OK:
@@ -66,6 +91,8 @@ func reset() -> void:
 	invited_to_pub = false
 	locked_back_door = false
 	rules_broken.clear()
+	flags.clear()
+	visited.clear()
 	minutes = 22 * 60
 	# Paranoia starts high: in the prologue fear drowns everything else out.
 	# The others wake up on day one.
@@ -85,6 +112,7 @@ func reset() -> void:
 	sold.clear()
 	acquired.clear()
 	ledger_lines.clear()
+	pawn_tags.clear()
 	time_changed.emit()
 
 # --- Saving ---
@@ -94,7 +122,7 @@ func reset() -> void:
 const SAVED: Array[String] = [
 	"day", "answered_phone", "fed_dog", "invited_to_pub", "locked_back_door", "rules_broken",
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
-	"sold", "acquired", "ledger_lines",
+	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags",
 ]
 
 func to_dict() -> Dictionary:
@@ -130,6 +158,10 @@ func break_rule(rule: String) -> void:
 	if not rules_broken.has(rule):
 		rules_broken.append(rule)
 
+func set_flag(flag: String) -> void:
+	if not flags.has(flag):
+		flags.append(flag)
+
 func lean(voice: String, amount: int = 1) -> void:
 	if not voices.has(voice):
 		push_warning("Unknown voice: " + voice)
@@ -159,6 +191,11 @@ func set_clock(clock: String) -> void:
 func date_text() -> String:
 	return "Oct %d" % (FIRST_NIGHT_DATE + floori(float(minutes) / MINUTES_PER_DAY))
 
+# "Thu Oct 7", for the clock on screen.
+func weekday_text() -> String:
+	var days: int = floori(float(minutes) / MINUTES_PER_DAY)
+	return "%s %s" % [WEEKDAYS[(FIRST_NIGHT_WEEKDAY + days) % 7], date_text()]
+
 func clock_text() -> String:
 	var of_day: int = minutes % MINUTES_PER_DAY
 	var h: int = floori(of_day / 60.0)
@@ -183,15 +220,38 @@ func record_sale(item_name: String, item_id: String, price: int, buyer: String) 
 
 # Someone pawns an item: the loan comes out of the till, and out of your own
 # pocket when the till runs short. The ledger writes down the whole loan; its
-# drawer total only drops by what actually left the drawer.
+# drawer total only drops by what actually left the drawer. With no tag given
+# (pawn_tag="new" in stock.cfg), it gets the next number in the book.
 func record_pawn(item_name: String, item_id: String, loan: int, tag: String, seller: String) -> void:
+	if tag == "" or tag == "new":
+		tag = next_pawn_tag()
 	acquired.append(item_id)
+	pawn_tags.append("%s=%s" % [item_id, tag])
 	var from_till: int = mini(loan, till)
 	till -= from_till
 	cash -= loan - from_till
 	till_by_ledger -= from_till
 	var by: String = (" by " + seller) if seller != "" else ""
-	ledger_lines.append("%s. %s, pawned%s, tag %s. $%d loan" % [date_text(), item_name, by, tag, loan])
+	var money: String = ("$%d loan" % loan) if loan > 0 else "No loan"
+	ledger_lines.append("%s. %s, pawned%s, tag %s. %s" % [date_text(), item_name, by, tag, money])
+
+# The next ticket number: one past the highest written so far.
+func next_pawn_tag() -> String:
+	var highest: int = LAST_OWNER_TAG
+	for entry in pawn_tags:
+		highest = maxi(highest, entry.get_slice("=", 1).to_int())
+	return "%04d" % (highest + 1)
+
+# The ticket written for something pawned this season, or "" if it wasn't.
+func pawn_tag_of(item_id: String) -> String:
+	for entry in pawn_tags:
+		if entry.get_slice("=", 0) == item_id:
+			return entry.get_slice("=", 1)
+	return ""
+
+# A line in the ledger with no item and no money (write= in a story file).
+func write_ledger(text: String) -> void:
+	ledger_lines.append("%s. %s" % [date_text(), text])
 
 # Money taken from the till for yourself. The ledger doesn't know.
 func take_from_till(amount: int) -> void:

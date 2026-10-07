@@ -44,6 +44,8 @@ func shown_places() -> Array:
 func visit(place_id: String) -> void:
 	_away = place_id
 	_visited.append(place_id)
+	if not GameState.visited.has(place_id):
+		GameState.visited.append(place_id)
 	_hide_places()
 	GameState.pass_time(_travel(place_id))
 	column.start_conversation(place_id)

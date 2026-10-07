@@ -2,13 +2,23 @@
 # Same format as drive.txt (see the notes at the top of that file).
 # Each place in story/places.cfg plays the section with its id on arrival.
 # When a section ends with nowhere to go, you're back at the map.
+# A place's section can route by day (-> pub_first | if=day==1) so each
+# evening has its own version.
 
 === map_first
+-> map_day_one | if=day==1
+-> map_day_two
+
+=== map_day_one
 narration: The road into Kettle Lake is one lane of packed snow between two black walls of spruce.
 narration: The town is a gas station, a church, a post office, a handful of houses, and the lights of the bar. Beyond them, the lake, flat and white and enormous.
 paranoia: Go if you have to. Come back before it's late.
 
 === pub
+-> pub_first | if=day==1
+-> pub_two
+
+=== pub_first
 narration | time=20:00: The Gleaner. Wood paneling, a jukebox nobody's feeding, a moose head wearing a Santa hat from some other year.
 narration: Twenty people, maybe. The talking stops when the door closes behind you, then starts again, a little louder than before.
 narration: At the end of the bar, Sergeant Olstad lifts a glass of milk an inch in your direction.
@@ -59,6 +69,10 @@ narration | time=+90: You leave before anyone can ask you anything you'd have to
 narration: The cold outside is almost a relief.
 
 === lake
+-> lake_first | if=day==1
+-> lake_two
+
+=== lake_first
 narration | time=+20: The road ends at the shore. Past it, the lake: white, and flat, and so big the far side is just an idea.
 narration: The ice reaches out from the shore in a gray skin, thin enough to see the black water moving under it. Further out, open water.
 narration: On the bank, four spruce poles lie lashed together under a tarp, a coil of wire beside them, waiting. A shed with a padlock. Somebody means to stand them up out there, once the ice can take it.
@@ -67,6 +81,148 @@ narration: Out on the thin ice, where nobody could be walking, a light moves. St
 paranoia: That ice wouldn't hold a dog.
 paranoia: Somebody who watches the ice all winter. Don't knock.
 unknown: Not yet.
+
+# --- Day two: Thursday ---
+
+=== map_day_two
+narration: Thursday. The same black corridor of spruce, three minutes darker than yesterday.
+narration: Up on the hill, every window of the church is lit, as if someone were expecting a crowd.
+paranoia: Thursday watch. Ezra said.
+
+=== pub_two
+-> pub_two_warm | if=flag:ruth_upstairs
+-> pub_two_cold
+
+=== pub_two_warm
+narration | time=+60: The Gleaner, quieter on a Thursday. Half the stools empty. The jukebox playing something nobody chose.
+narration: Ruth sets a beer in front of you before you ask, and then, after a moment, a second glass for herself. Clear. She doesn't say what's in it.
+ruth: Thanks. For today. For letting me.
+ruth: I hadn't been in that room since I was eleven. It still smells like crayons. Can you believe that?
+narration: She drinks. She doesn't look at the Polaroids behind her, and you understand she never does.
+> Ask about her father -> pub_two_father | lean=warmth
+> Ask what she left up there -> pub_two_left | lean=appraisal
+
+=== pub_two_father
+ruth: Dad goes away every fall. Every September since I can remember. Comes back when the ice is in. Doesn't say where.
+ruth: This year he didn't even say goodbye. Just the truck in the yard and the shop locked.
+warmth | if=warmth>=1: She's waiting for a phone call she's stopped expecting.
+-> pub_two_leave
+
+=== pub_two_left
+ruth: Nothing. I went to see if it was still there. It was.
+narration: That's all she'll say. She refills her own glass, and wipes the bar where it's already dry.
+-> pub_two_leave
+
+=== pub_two_cold
+narration | time=+60: The Gleaner, quieter on a Thursday. Half the stools empty.
+narration: Ruth serves you without a word and goes to the far end of the bar, where there's nothing to do, and does it.
+narration: Behind the bar, between the bottles, the row of Polaroids. Yours is at the end. You look like someone you'd cross the road to avoid.
+paranoia: She's decided something about you. You were there when she decided it.
+-> pub_two_leave
+
+=== pub_two_leave
+narration: You leave money on the bar and go before the room can decide to be friendly.
+
+=== church
+narration | time=+20: The church at the top of the hill. White clapboard, a squat steeple, every window lit.
+narration: Behind the vestry, a room no bigger than a closet: egg-carton foam on the walls, a desk, a microphone on a stand, a red bulb over the door. ON AIR, the bulb says, glowing.
+narration: The Reverend Elias sits at the microphone in his shirtsleeves, reading. Ezra Lund stands at a hot plate in the corner, making coffee as if it were a sacrament.
+narration: The Reverend looks up. He knows you at once. Something crosses his face, and goes, and he leans to the microphone.
+reverend: ...and the forecast for the lake tonight is clear and cold. Fourteen below by morning. Keep your stoves fed, friends.
+narration: His eyes on yours the whole time. He's talking about the weather. He isn't talking about the weather.
+-> church_ezra_warm | if=flag:ezra_satisfied
+-> church_ezra_cold
+
+=== church_ezra_warm
+narration | flag=at_church: Ezra pours a second cup without being asked and holds it out to you. The red bulb hums.
+-> church_choice
+
+=== church_ezra_cold
+narration | flag=at_church: Ezra doesn't offer you coffee. He watches you over the rim of his cup, the way he watched the counter this morning.
+-> church_choice
+
+=== church_choice
+paranoia: The light is on. Anything you say in this room goes out to every kitchen in Kettle Lake.
+> Say nothing. Listen. -> church_listen | lean=paranoia
+> "Who do you pray for, on the Thursday watch?" -> church_ask | flag=said_on_air | lean=appraisal
+> "Just came to hear the watch. Don't mind me." -> church_john | flag=said_on_air | lean=john
+
+=== church_listen
+narration: You stand against the foam and listen. He reads the rules of a church potluck. A hymn number. A name for the prayer list. Another hymn number.
+appraisal | if=appraisal>=1: Three hymn numbers, and he never plays a hymn. Somebody out there is meant to look them up.
+-> church_hymn
+
+=== church_ask
+narration: The Reverend's hand moves toward the switch on the desk. Not fast enough. Your question goes out over the air into every kitchen in town.
+reverend: For whoever needs it, friend. Tonight, as every night, for our Keeper.
+narration: Ezra sets down the coffee pot very carefully.
+-> church_hymn
+
+=== church_john
+narration: Your voice in the little room sounds like somebody else's. Friendly. Easy. John's.
+reverend: Our visitor is very welcome. Thursday nights get long.
+narration: Ezra nods, once. Somewhere in town, a dozen people just heard the new Keeper say he was at the church.
+-> church_hymn
+
+=== church_hymn
+narration: The Reverend puts a record on the turntable at his elbow. A hymn, scratched and slow. He flips the switch. The red bulb goes dark.
+reverend: Four minutes. That's all this one gives us.
+reverend: You shouldn't be up here. Not on a Thursday. They'll think you've come to be counted.
+reverend: Go home before eleven. Keep the radio on. When the static clears, listen to the numbers, not the words.
+narration: The hymn ends. The bulb comes back on. He's already leaning to the microphone, as if you'd never spoken.
+narration | time=+120: You stay until the coffee's gone. Nobody asks you to leave. Nobody asks you to stay.
+
+=== cabin
+narration | time=+10: The shack on the shore, the one with the lit window. Up close it's bigger than it looked: a cabin, with a lean-to built on the side, and a stovepipe, and a second pipe that isn't for a stove.
+narration: Nobody answers your knock. Out on the ice, a lamp moves.
+narration: It comes toward you, slowly, straight across the gray skin of ice that wouldn't hold a dog. A man, carrying it. He walks as if it were a floor.
+paranoia: That ice is two inches thick. You saw it yesterday.
+narration: He steps onto the bank. Thirties, maybe forty. A beard that has given up being a decision. A parka held together with duct tape at one elbow.
+sam: It'll hold me. I know where it holds.
+sam: You're the Keeper. You came yesterday and looked at the poles and didn't knock. Today you knocked. That's quicker than most.
+> "Who are you?" -> cabin_who | lean=appraisal
+> "You were out on that ice." -> cabin_ice | lean=paranoia
+
+=== cabin_who
+sam: Wakeman. Samuel, if you insist, and please don't. Sam.
+sam: I keep the clock for the breakup pool. Among other things nobody asked me to keep.
+-> cabin_inside
+
+=== cabin_ice
+sam: Every night. Two inches over moving water is nothing. Two inches over a shoal is a sidewalk. You just have to know which is which, and write it down, and not get sentimental.
+sam: Wakeman. Sam.
+-> cabin_inside
+
+=== cabin_inside
+narration: He lets you into the lean-to without quite inviting you. Inside it's a laboratory: shelves of jars, each labelled in a tiny precise hand, a chest freezer humming in the corner, a radio receiver with its back off, books stacked to the ceiling.
+narration: On the table, a notebook, open. Columns of figures. Dates. Thicknesses.
+narration: He closes it before you can read it. Not hurriedly. The way you'd close a door on a room you haven't cleaned.
+-> cabin_cody | if=sold:ice_picks
+-> cabin_talk
+
+=== cabin_cody
+sam: Your customer went through at the point this morning. Forty-one feet from the shore. I measured, afterwards.
+sam: He did very well. Most people panic. He had the picks. Somebody sold him the picks.
+narration: He looks at you over his glasses, as if checking a figure.
+-> cabin_talk
+
+=== cabin_talk
+sam: People will tell you I'm crazy. That's fine. It saves time.
+sam: I'm the only person in Kettle Lake who writes things down and then reads them back. That's the whole of my madness.
+appraisal | if=appraisal>=1: The chest freezer. Ice cores, the labels say. Dates going back years. He's been keeping the lake, a piece at a time.
+narration: He walks you to the door. On the threshold he stops.
+sam: Do you know how many Keepers there have been since I came here?
+narration: He doesn't wait for you to guess.
+sam: Ten. I have them in the notebook. Their names, the dates. I'll show you, one day. Not tonight.
+sam: Tonight, go home and keep your rules. All of them. I'd like you to be eleven for a while.
+paranoia: He counts them. Somebody in this town counts them.
+
+=== lake_two
+narration | time=+20: The shore again. The ice reaches further out than yesterday, gray and dull, with a skin of new snow on it.
+narration | if=sold:ice_picks: Off the point to the north, a dark ragged hole in the shore ice, freezing over at the edges. Bootprints lead to it. Different bootprints lead away, staggering.
+narration: The poles are still under their tarp on the bank. Someone has brushed the snow off it.
+narration: Further along the shore, the cabin's window is lit. Out on the ice, the lamp is moving again.
+paranoia: Go home. Or knock. Pick one.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

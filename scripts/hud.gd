@@ -63,7 +63,7 @@ func is_covering() -> bool:
 # --- Private: the machinery ---
 
 func _update_clock() -> void:
-	clock_label.text = GameState.clock_text()
+	clock_label.text = "%s  ·  %s" % [GameState.weekday_text(), GameState.clock_text()]
 
 func _select(item_id: String) -> void:
 	_selected = item_id

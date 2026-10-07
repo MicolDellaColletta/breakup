@@ -156,18 +156,40 @@ visit costs the whole evening (it's past the lake).
 
 ---
 
-## What needs building (for the Claude Code chat)
+## Built (first draft, playable)
 
-- A **condition for day-one sales:** `if=sold:ice_picks` (GameState already
-  keeps `sold`).
-- A **condition for places visited:** `if=visited:lake` for Sam's cabin.
-- **Ledger lines with no item** (Mrs. Hollis), and a held line with no stock
-  item (the name). Maybe a `pawned_name=` effect, or reuse `pawned=` with a
-  stock entry `[name_ida]` that has `arrives=true`.
-- **Weekday on the HUD** ("Thu Oct 7") and closing at the real sunset (a
-  small table of sunset times per date, from `story.md` "The light").
-- Ezra's past Thursday entries in the ledger.
-- Speakers: `ezra`, `cody` already exists as `nephew`.
+- `story/day_two.txt` (the counter), `story/night_two.txt`, day-two sections in
+  `story/town.txt` (the church, Sam's cabin, the pub and the lake on Thursday).
+- Conditions `if=sold:ice_picks`, `if=visited:lake`, `if=flag:...`, and
+  `and` / `or` between conditions. Effects `flag=` and `write=` (a ledger line
+  with no item).
+- Pawn tickets number themselves (`pawn_tag="new"`): Walt's silver is 0432, the
+  next thing pawned gets 0433, and so on. A pawn with `loan=0` reads "No loan".
+- The name is a stock entry `[name_ida]` on the back shelf: "One name".
+- Ezra's Thursdays are in `story/ledger.cfg` (the ledger's older pages); the
+  shells are a stock item kept in the drawer (`shelf="drawer"`). Looking in the
+  counter drawer after closing on day one shows them, and unlocks "Check the
+  counter drawer" when Ezra asks.
+- The weekday is on the clock ("Thu Oct 7"). Closing is written at the real
+  sunset in each day's story (19:08 today); no table needed yet.
+- The things to look at after closing moved to `story/shop_looks.txt`, shared
+  by every day.
+- Night one now leads to day two; night two ends on the title screen until day
+  three exists.
+- New: Ruth's rental-company letter (`story/documents/rental_letter.txt`),
+  speakers `ezra` and `sam`.
+
+Choices made while writing it (change freely):
+
+- Cody's picks: write a ticket for $6, or tell him to keep them (he leaves
+  them anyway, no loan). Either way they're held on the back shelf.
+- Mrs. Hollis: leave the price blank (breaks rule 3), price it at $12 (what
+  the picks cost), or refuse, and she writes it herself (breaks rule 3).
+- At the church, MC can speak while the ON AIR light is on (`said_on_air`).
+  The Reverend, off the air during a hymn: "Go home before eleven... listen to
+  the numbers, not the words."
+- The Thursday broadcast's hymn numbers are rules: one, five, four.
+- Night two's phone: speaking first gets your own "Hello?" back, in your voice.
 
 ## Open questions
 

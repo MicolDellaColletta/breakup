@@ -152,4 +152,3 @@ paranoia: Don't open the freezer.
 
 === morning_after
 narration | time=07:30: In the morning you can't say for sure how much of it you dreamed.
-narration: (End of day one. Day two is still being written. Thank you for playing.)

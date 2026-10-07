@@ -3,12 +3,12 @@ extends Control
 # The apartment at night, after the shop has closed and the evening is over:
 # the rules (radio, the dog, the windows, the back door), things to look at,
 # then bed, and whatever wakes you. What's in the room comes from
-# story/spots.cfg; each day's night has its own story file.
+# story/spots.cfg; each day's night has its own story file
+# (GameState.NIGHT_STORIES). In the morning, the next day at the counter, or
+# the title screen if that day isn't written yet.
 
-const STORIES: Dictionary = {
-	1: "res://story/night_one.txt",
-}
 const TITLE_SCENE: String = "res://scenes/title.tscn"
+const COUNTER_SCENE: String = "res://scenes/counter.tscn"
 const ROOM: String = "apartment"
 
 @onready var narrator: DialogueColumn = %Narrator
@@ -21,18 +21,24 @@ const ROOM: String = "apartment"
 	"floorboards": %Floorboards,
 	"door_shut": %DoorShut,
 	"bell": %Bell,
+	"ring": %PhoneRing,
+	"pickup": %PhonePickup,
+	"hangup": %PhoneHangup,
+	"deadline": %DeadLine,
 }
 
 var _looked: Array[String] = []
 
 func _ready() -> void:
-	# Tonight's bowl starts empty, whatever happened last night.
+	# Tonight's bowl starts empty and the back door starts as the old man left
+	# it, whatever happened last night. (The morning already read last night's.)
 	GameState.fed_dog = false
+	GameState.locked_back_door = false
 	objects.visible = false
 	narrator.use_sounds(sounds)
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
-	narrator.load_story(STORIES.get(GameState.day, STORIES[1]))
+	narrator.load_story(GameState.NIGHT_STORIES.get(GameState.day, GameState.NIGHT_STORIES[1]))
 	narrator.set_input_enabled(false)
 	await Transition.fade_in(1.5)
 	narrator.set_input_enabled(true)
@@ -72,11 +78,13 @@ func _on_choice_made(choice: Dictionary) -> void:
 	if choice["target"] == "radio_on":
 		radio_night.play()
 
-# Day two isn't written yet: the night ends on the title screen.
+# Morning: the next day at the counter, or the title screen when that day
+# isn't written yet.
 func _end_of_day() -> void:
 	narrator.set_input_enabled(false)
 	var tween: Tween = create_tween().set_parallel()
 	tween.tween_property(radio_night, "volume_db", -80.0, 3.0)
 	tween.tween_property(wind, "volume_db", -80.0, 3.0)
-	GameState.day = 2
-	Transition.go_to(TITLE_SCENE, 3.0, 1.0)
+	GameState.day += 1
+	var next: String = COUNTER_SCENE if GameState.DAY_STORIES.has(GameState.day) else TITLE_SCENE
+	Transition.go_to(next, 3.0, 1.0)

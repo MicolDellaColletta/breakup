@@ -1,0 +1,327 @@
+# DAY TWO: Thursday, October 7, 1999
+# Same format as day_one.txt (see the notes at the top of that file and of
+# drive.txt). Design: docs/day_two.md.
+# Also understood here:
+#   | write=Cody Hollis went out on the ice.   a ledger line with no item
+#   | flag=ezra_satisfied    remembered for later (if=flag:ezra_satisfied)
+#   | pawned=name_ida | loan=0   a pawn with no money: "No loan" in the ledger
+# Who comes in, in order: Cody (if he bought the ice picks) or Mrs. Hollis,
+# then Ezra Lund, Walt Pruitt, and Ruth (see VISITS in scripts/counter.gd).
+
+=== morning
+narration | time=07:30: Thursday. Still dark at half past seven, and darker than yesterday by a few minutes. You can feel it, the way you feel a step that isn't there.
+-> morning_fed | if=fed_dog
+-> morning_unfed
+
+=== morning_fed
+narration: The bowl by the stove is licked clean and moved, the way it was yesterday.
+narration: This time there's something stuck to the steel. Two long gray hairs, fine and straight, a foot long at least.
+appraisal | if=appraisal>=2: Not a dog's.
+paranoia: Don't.
+-> morning_door
+
+=== morning_unfed
+narration: The bowl isn't by the stove.
+narration: You find it at the bottom of the stairs, upside down, as if it had been carried there and set down hard.
+narration: On the steel door, new scratches. Above yesterday's. Higher up than any dog could reach standing.
+paranoia: You didn't feed it. Again.
+-> morning_door
+
+=== morning_door
+-> morning_door_locked | if=locked_back_door
+-> morning_door_open
+
+=== morning_door_locked
+narration: In the kitchen, on the table, the key on the red tag. You left it in the back door. You're sure you left it in the back door.
+narration: Downstairs, past the freezer, the back door is unlocked again.
+paranoia: Rule one. The other half of it. Somebody minds it, even if you don't.
+-> morning_window
+
+=== morning_door_open
+narration: Downstairs, past the freezer, the back door is shut. Just inside it, the snow that blew in overnight has been swept into a neat pile by the frame.
+paranoia: Nobody sweeps up after a thief.
+-> morning_window
+
+=== morning_window
+-> morning_waved | if=broke:wave
+-> morning_still
+
+=== morning_waved
+narration: In the gray light the front window shows a handprint. Fingers spread. At your height.
+narration: You put your own hand up to it. It's on the outside of the glass.
+-> opening
+
+=== morning_still
+narration: The front window. Frost, the lot, the trees. Nothing on the glass.
+paranoia: Nothing. That's worse.
+-> opening
+
+=== opening
+narration: The mat inside the front door is bare this morning. No envelope.
+paranoia: Weekly, the letter said. Don't count on it. Count it.
+narration | time=09:00: You turn the sign. OPEN. The neon buzzes on against a sky the color of dishwater.
+
+# --- Cody Hollis, if you sold him the ice picks yesterday. ---
+
+=== nephew_enters
+narration | sound=bell | time=+5: The bell, before the sign has stopped swinging. Cody Hollis, in the doorway.
+narration: He's wet to the waist. His jeans have frozen stiff and crack when he walks. His lips are the color of a bruise.
+nephew: Went out at first light. To the point.
+nephew: It held for about forty feet. Then it didn't.
+narration: The ice picks hang around his neck on their cord. One of the spikes is bent.
+nephew: Those things work. Swear to God. You stab and you pull and you stab. I'd be under there.
+> Ask if he's all right -> nephew_ok | lean=warmth
+> Ask what happened out there -> nephew_saw | lean=appraisal
+
+=== nephew_ok
+nephew: No. Yeah. I don't know.
+narration: He laughs, once. It isn't a laugh.
+-> nephew_saw
+
+=== nephew_saw
+nephew: When I was in. Before I got out. I looked down.
+nephew: There was something under there. A yard down, maybe. Looking up.
+narration: He waits for you to ask. When you don't, he says it anyway, quietly, to the counter.
+nephew: It had his jacket.
+paranoia: Don't ask whose. You know whose.
+nephew: I want to pawn these. The picks. I don't want them in the house.
+> Write him a ticket. A few dollars. -> nephew_pawn | lean=warmth
+> "Keep them. You might need them again." -> nephew_keep | lean=appraisal
+
+=== nephew_pawn
+narration | pawned=ice_picks_held | loan=6: Six dollars, half what he paid. He takes the ticket without looking at the number.
+nephew: Don't sell them to anybody else. Okay? Just. Don't.
+-> nephew_leaves
+
+=== nephew_keep
+nephew: I'm not going back out there. Not till it's thick. Not till spring.
+narration | pawned=ice_picks_held | loan=0: He lifts the cord over his head and lays the picks on the glass, and walks away from them. You write a ticket anyway. Somebody has to.
+-> nephew_leaves
+
+=== nephew_leaves
+nephew: Nobody went looking for him, you know. Nobody's going to.
+nephew: They'll say the lake gives them back in May. That's what they say here. Like it's a library.
+narration | sound=bell: The bell, and the cold, and he's gone. On the floor by the counter, a puddle of lake water, slowly skinning over with ice.
+warmth | if=warmth>=2: He'll be standing on the shore in May. Every morning, until it does.
+
+# --- Mrs. Hollis, if Cody went out without the picks. ---
+
+=== widow_enters
+narration | sound=bell | time=+20: The bell. Mrs. Hollis, in the same parka, zipped to the chin. She doesn't stamp her boots this time.
+widow: Cody didn't come home.
+widow: His truck's at the point. Keys in it. Engine cold.
+narration: She says it the way people read out a list at the hardware store.
+widow: I don't want anything. I want you to write it in the book.
+narration: She nods at the ledger, open on the counter.
+widow: You write everything in there. Ray's old duck call. A box of shells. Write that he went out.
+paranoia: Rule three. Every item gets a price.
+> Write it. Leave the price blank. -> widow_write | write=Cody Hollis went out on the ice. | break=price | lean=warmth
+> Write it. Price it at twelve dollars, what the ice picks cost. -> widow_price | write=Cody Hollis went out on the ice. $12 | lean=appraisal
+> "It's a shop ledger, Mrs. Hollis." -> widow_refuse | lean=animal
+
+=== widow_write
+narration: You write it in your own hand, under yesterday's lines. Cody Hollis went out on the ice. Where the price goes, nothing.
+narration: She watches every letter. When you put the pen down, she turns the book around to read it, and turns it back.
+widow: Thank you.
+-> widow_two
+
+=== widow_price
+narration: You write it. Where the price goes, you write twelve dollars, and you don't let yourself think about why.
+narration: She reads it upside down. She looks at the number a long time.
+widow: Twelve dollars.
+widow: I suppose that's about right. I suppose that's what it came to.
+-> widow_two
+
+=== widow_refuse
+narration: She takes the pen out of your hand. Not roughly. The way you'd take something from a child.
+narration | write=Cody Hollis went out on the ice. | break=price: She writes it herself, in a round schoolteacher's hand, under yesterday's lines. No price.
+widow: There. Now it's written.
+-> widow_two
+
+=== widow_two
+widow: Two of them, now. Under there. My husband and his brother's boy.
+widow: Nobody here goes looking. Not in October. You wait for May.
+narration | sound=bell: She goes. She closes the door all the way this time, carefully, as if someone were sleeping.
+paranoia: You could have sold him the picks.
+paranoia: You didn't make the ice.
+
+# --- Ezra Lund: "the usual". Someone who knew the old keeper. ---
+
+=== ezra_enters
+narration | sound=bell | time=+60: The bell. An old man in a Sunday overcoat on a Thursday morning, a wool scarf crossed at his throat.
+narration: Seventies. He doesn't look at you. He looks at the place behind the counter where you're standing, as if someone else should be in it.
+ezra: The usual.
+narration: That's all. He waits.
+paranoia: The usual what.
+> Check the ledger -> ezra_ledger | lean=appraisal
+> Check the counter drawer -> ezra_drawer | if=flag:seen_shells
+> "The usual what?" -> ezra_fail | lean=animal
+
+=== ezra_ledger
+narration: You turn back a few pages, then a few more, as if you're checking a figure.
+narration: There. And there. And there. The same line in the owner's hand, every Thursday, page after page: E. Lund. .22 shells, one box. $6.
+narration: Nothing on the shelves out front looks like a box of shells.
+> Check the counter drawer -> ezra_drawer
+> Look on the shelves -> @browse
+
+=== ezra_drawer
+narration: You slide the counter drawer open without looking down, the way you'd reach for something that's always been there.
+narration | sold=shells: At the back, a single box of .22 shells. A slip of paper under the rubber band, in the owner's hand: THURS.
+narration: You set it on the glass.
+ezra | flag=ezra_satisfied: Abraham kept them in the drawer too.
+narration: Something in his shoulders lets go a fraction of an inch. He puts six dollars on the counter, a five and a one, folded together.
+ezra: Three Thursdays I came by. Locked. I thought he'd gone early this year.
+ezra: I take the watch tonight. On the radio. Somebody has to sit with it.
+narration: He tucks the box into his coat. At the door he stops, and for the first time he looks straight at you.
+ezra: You'll come up to the church on Sunday. We pray for the Keeper.
+> "I'll be busy." -> ezra_busy | lean=paranoia
+> "I'll be there." -> ezra_sunday | flag=promised_sunday | lean=john
+> Say nothing -> ezra_silent
+
+=== ezra_busy
+ezra: Busy.
+narration: He considers the word as if it were a coin of doubtful weight.
+ezra: The Reverend said you might be. We'll pray for you anyway. You don't have to be in the room.
+-> ezra_leaves
+
+=== ezra_sunday
+ezra: Good. Ten o'clock. You'll sit at the front.
+john | if=john>=2: There. Easy. John goes to church.
+paranoia: The Reverend told you to be busy. You heard him.
+-> ezra_leaves
+
+=== ezra_silent
+narration: He waits. You don't fill the silence. After a while he nods, as if you'd answered.
+-> ezra_leaves
+
+=== ezra_leaves
+narration | sound=bell: The bell, and he's gone, walking uphill toward the church without looking back.
+
+=== ezra_given_other
+ezra: No.
+-> ezra_fail
+
+=== ezra_nothing
+-> ezra_fail
+
+=== ezra_fail
+narration | flag=ezra_doubts: He looks at the counter. Then at you. Then at the counter again.
+ezra: Abraham would have known.
+narration | sound=bell: He leaves without buying anything. Through the window you watch him stop in the road and look back at the shop for a long moment, the way you'd memorise a face.
+paranoia: He'll tell people. The Keeper didn't know the shop.
+paranoia: He'll tell the right person, one day.
+
+# --- Walt Pruitt: pawning a name. Rule six. ---
+
+=== seller_enters
+narration | sound=bell | time=+60: The bell. Walt Pruitt, in the sheepskin coat. Slower than yesterday. He doesn't look at the shelves at all.
+-> walt_took | if=broke:warm
+-> walt_refused
+
+=== walt_took
+seller: The silver didn't help. I thought it would. Getting it out of the house.
+-> walt_asks
+
+=== walt_refused
+seller: You were right not to take those. They were hers. So's this.
+-> walt_asks
+
+=== walt_asks
+narration: He puts both hands flat on the glass, as if the counter were a pulpit.
+seller: I'd like to pawn a name. Hers.
+seller: Ida.
+narration: The shop is very quiet. Even the hum seems to have stepped back.
+seller: Forty-one years I've said it. Morning and night. I'd like to stop.
+seller: I don't want money for it. Just take it. Write me a ticket.
+paranoia: Rule six. Say no. Be polite about it.
+> "I can't take that, Mr. Pruitt. I'm sorry." -> walt_kind | lean=warmth
+> "Names aren't for sale. Go home, Walt." -> walt_hard | break=name | lean=animal
+> Write him a ticket -> walt_accept | break=name | flag=ida_pawned | lean=unknown
+
+=== walt_kind
+narration: He nods slowly, as if you'd told him the weather.
+seller: She'd have said the same. She always said I asked for the wrong things.
+narration: At the door he stops, his hand on the frame.
+seller: Ida.
+narration: He says it once more, softly, like trying a key in a lock. Then he goes.
+warmth | if=warmth>=1: He'll carry it. That's what it's for.
+
+=== walt_hard
+narration: His face doesn't change. That's the worst of it.
+seller: Then I'll carry it.
+narration | sound=bell: The bell, and the door, harder than he needed to.
+paranoia: Rule six. Be polite, it said. That was the whole rule.
+
+=== walt_accept
+narration | pawned=name_ida | loan=0: You take a blank ticket from the drawer. You write the next number. On the line for the item, you write: One name.
+narration: Then the name itself. Your pen moves. You watch it move.
+seller: Thank you.
+narration: He takes the stub and puts it in his coat. He turns to go.
+narration: In the doorway he stops. He looks out at the road, then back at the shop, at you, at the counter.
+seller: I'm sorry. I came in for something.
+seller: I can't think what.
+narration | sound=bell: He stands there a moment longer. Then the bell, and he's gone, walking a little straighter than when he came.
+narration: In the ledger, in your own hand: One name. And after it, a word. The ink is dark and fresh. You can't read it.
+appraisal | if=appraisal>=2: Ida. You wrote Ida. You can still see it, if you don't look straight at it.
+unknown: There. Was that so hard?
+
+# --- Ruth. Not a customer. ---
+
+=== ruth_enters
+narration | sound=bell | time=+90: The bell. Then nothing. Whoever opened the door is standing in it, letting the cold in, not coming further.
+narration: Ruth. She's looking at the shop the way you'd look at a grave you haven't visited in a long time.
+narration: Then she comes in, all at once, and drops a bundle of mail on the counter.
+ruth: Post office was holding these. Dad never picks up in September. Bills, mostly. Seed catalogs. God knows.
+ruth: This one's yours, I guess.
+narration: A window envelope. NORTHERN LIGHTS AUTO RENTAL, ANCHORAGE. In the window, typed: J. and then a pale ghost of letters where the ribbon ran dry. c/o Kettle Lake Pawn.
+narration | take=rental_letter: You put it in your pocket before she can see your face.
+paranoia: John gave this address. John's still getting mail.
+ruth: You look like a man who doesn't like mail.
+narration: She doesn't wait for an answer. She's looking past you, at the hallway, at the foot of the stairs.
+ruth: Can I go up? I left something up there. A long time ago.
+narration: Her keys are already in her hand. On the ring, among the truck key and the bar keys, a small brass one with a pink plastic tag. A child's tag.
+appraisal | if=appraisal>=1: That's the one. The locked door upstairs.
+warmth | if=warmth>=1: She's carrying her childhood around on a key ring.
+> "Go ahead." -> ruth_upstairs | flag=ruth_upstairs | lean=warmth
+> "I'd rather you didn't." -> ruth_refused | flag=ruth_refused | lean=paranoia
+
+=== ruth_upstairs
+narration: She goes past you into the hallway without another word.
+narration: You hear her on the stairs. Every step, the same complaint. Then the floor above.
+narration: Then a key in a lock. A door opening, at the end of the upstairs hall. A long silence.
+narration: The door closing. The key again.
+narration: When she comes down, her hands are empty. Her eyes are wet, and she's angry at them for it.
+-> ruth_bowl_fed | if=fed_dog
+-> ruth_bowl_unfed
+
+=== ruth_bowl_fed
+narration: At the counter she stops.
+ruth: The bowl. By the stove.
+ruth: Where did you find that?
+narration: You open your mouth. She's already shaking her head, as if whatever you'd say would be worse than nothing.
+narration: She's frightened. Not of you. You've never seen anyone look so frightened in daylight.
+-> ruth_goes
+
+=== ruth_bowl_unfed
+narration: At the foot of the stairs, she steps around the overturned bowl without looking at it.
+narration: Very carefully without looking at it.
+-> ruth_goes
+
+=== ruth_refused
+ruth: It's my father's building.
+narration: You hear yourself say it. It's my building this winter.
+narration: She looks at you for a long moment. Something in her face settles, like a decision being filed away.
+ruth: Sure. This winter.
+-> ruth_goes
+
+=== ruth_goes
+ruth: If he calls. Dad. Tell him the mail's here.
+narration | sound=bell: The bell. Through the window you watch her stand by her truck a while before she gets in, her hand on the door, not opening it.
+
+# --- Closing time. When this ends, the shop is yours to look around (story/shop_looks.txt). ---
+
+=== closing
+narration | time=19:08: Eight minutes past seven, and the light goes. Three minutes earlier than yesterday. It will be six minutes tomorrow, then more.
+narration: You turn the sign. CLOSED. The neon stays on.
+paranoia: Up the hill, the church has its lights on. Thursday.
+paranoia: Somebody sits with the radio on Thursdays. You heard.

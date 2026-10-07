@@ -79,6 +79,11 @@ func load_story(path: String) -> void:
 	_story = _parse_story(path)
 	_check_targets(path)
 
+# Adds another file's sections to the story already loaded (the shop's
+# things to look at, shared by every day).
+func add_story(path: String) -> void:
+	_story.merge(_parse_story(path), true)
+
 func play(section: String, start_index: int = 0, instant: bool = false) -> void:
 	if not _story.has(section):
 		push_error("No story section called: " + section)
@@ -205,8 +210,21 @@ func _visible_choices() -> Array:
 			shown.append(all[i])
 	return shown
 
-# answered_phone, !answered_phone, rules_broken>=2, broke:window
+# answered_phone, !answered_phone, rules_broken>=2, broke:window, has:key,
+# sold:ice_picks, visited:lake, flag:ezra_satisfied. Join them with " and " or
+# " or " (and binds tighter): day>=2 or invited_to_pub
 func _condition_met(condition: String) -> bool:
+	for either in condition.split(" or "):
+		var all_hold: bool = true
+		for part in either.split(" and "):
+			if not _single_condition_met(part):
+				all_hold = false
+				break
+		if all_hold:
+			return true
+	return false
+
+func _single_condition_met(condition: String) -> bool:
 	var text: String = condition.strip_edges()
 	var negate: bool = text.begins_with("!")
 	if negate:
@@ -216,6 +234,12 @@ func _condition_met(condition: String) -> bool:
 		result = GameState.rules_broken.has(text.trim_prefix("broke:"))
 	elif text.begins_with("has:"):
 		result = GameState.has_item(text.trim_prefix("has:"))
+	elif text.begins_with("sold:"):
+		result = GameState.sold.has(text.trim_prefix("sold:"))
+	elif text.begins_with("visited:"):
+		result = GameState.visited.has(text.trim_prefix("visited:"))
+	elif text.begins_with("flag:"):
+		result = GameState.flags.has(text.trim_prefix("flag:"))
 	else:
 		result = _compare(text)
 	return result != negate
@@ -322,7 +346,8 @@ static func is_speaker(speaker_id: String) -> bool:
 	return _speakers.has_section(speaker_id)
 
 # Options that change the world, on a line when it's shown or on a choice
-# when it's picked: stop=, sound=, time=, take=, lose=, break=
+# when it's picked: stop=, sound=, time=, take=, lose=, break=, set=, flag=,
+# lean=, cash=, write=
 func _apply_effects(entry: Dictionary) -> void:
 	if entry.has("stop"):
 		stop_sound(entry["stop"])
@@ -349,6 +374,10 @@ func _apply_effects(entry: Dictionary) -> void:
 		GameState.lean(entry["lean"])
 	if entry.has("cash"):
 		GameState.add_cash(entry["cash"].to_int())
+	if entry.has("flag"):
+		GameState.set_flag(entry["flag"])
+	if entry.has("write"):
+		GameState.write_ledger(entry["write"])
 
 # set=fed_dog turns a true/false value in GameState on.
 func _set_flag(name: String) -> void:
