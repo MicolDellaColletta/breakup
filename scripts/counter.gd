@@ -35,6 +35,7 @@ const VIEWS: Dictionary = {
 @onready var item_name: Label = %ItemName
 @onready var item_description: Label = %ItemDescription
 @onready var item_tag: Label = %ItemTag
+@onready var voice_notes: VBoxContainer = %VoiceNotes
 @onready var offer_button: Button = %OfferButton
 @onready var nothing_button: Button = %NothingButton
 
@@ -157,7 +158,32 @@ func _select(item_id: String) -> void:
 			item_tag.text = "Pawn tag no. %s. Held, not for sale." % _stock.get_value(item_id, "pawn_tag")
 		else:
 			item_tag.text = "$%d" % _stock.get_value(item_id, "price")
+	_show_voice_notes(item_id)
 	_refresh_offer()
+
+# appraisal="..." with appraisal_at=1 in stock.cfg: that voice comments on
+# the item once it's strong enough. A weak voice stays quiet.
+func _show_voice_notes(item_id: String) -> void:
+	for old in voice_notes.get_children():
+		old.queue_free()
+	if item_id == "":
+		return
+	for voice in GameState.voices:
+		if not _stock.has_section_key(item_id, voice):
+			continue
+		if GameState.voices[voice] < int(_stock.get_value(item_id, voice + "_at", 1)):
+			continue
+		var speaker: Dictionary = Narrator.speaker_info(voice)
+		var note: RichTextLabel = RichTextLabel.new()
+		note.bbcode_enabled = true
+		note.fit_content = true
+		note.scroll_active = false
+		note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		note.add_theme_font_size_override("normal_font_size", 17)
+		note.add_theme_font_size_override("bold_font_size", 17)
+		note.add_theme_color_override("default_color", speaker["color"])
+		note.text = "[b]%s[/b] — %s" % [speaker["name"].to_upper(), _stock.get_value(item_id, voice).replace("[", "[lb]")]
+		voice_notes.add_child(note)
 
 # Only floor items can be offered, and only while a customer is waiting.
 func _refresh_offer() -> void:

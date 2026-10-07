@@ -106,6 +106,11 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.79, 0.71, 0.35, 0.9)
 theme_override_font_sizes/font_size = 16
 
+[node name="VoiceNotes" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1717171717]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
 [node name="OfferButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1512909907]
 unique_name_in_owner = true
 layout_mode = 2

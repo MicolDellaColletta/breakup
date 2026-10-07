@@ -13,6 +13,7 @@ const FONT_SIZE: int = 18
 const CHOICE_COLOR: Color = Color(0.86, 0.47, 0.29)
 const SLIDE_DISTANCE: float = 48.0
 const SLIDE_TIME: float = 0.25
+const UNKNOWN_TYPE_TIME: float = 2.5
 
 @onready var scroll: ScrollContainer = %Scroll
 @onready var log_box: VBoxContainer = %Log
@@ -101,19 +102,53 @@ func _text_label() -> Variant:
 
 func _make_choice_button(choice: Dictionary, number: int) -> Button:
 	var button: Button = Button.new()
-	var color: Color = CHOICE_COLOR
-	button.text = "%d. %s" % [number, choice["label"]]
-	# voice=tongue: a choice that voice put in your head, shown in its color.
-	if choice.has("voice"):
-		var voice: Dictionary = speaker_info(choice["voice"])
-		button.text = "%d. [%s] %s" % [number, voice["name"].to_upper(), choice["label"]]
-		color = voice["color"]
 	button.flat = true
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.add_theme_font_size_override("font_size", FONT_SIZE)
-	button.add_theme_color_override("font_color", color)
+	if choice.has("needs"):
+		_make_colored(button, choice, number)
+		return button
+	button.text = "%d. %s" % [number, choice["label"]]
+	button.add_theme_color_override("font_color", CHOICE_COLOR)
 	return button
+
+# needs=john: a choice that voice put in your head, in the voice's color and
+# marked with its name. Static until hovered, then the letters move in a slow
+# wave. A ??? choice also types itself out slowly.
+func _make_colored(button: Button, choice: Dictionary, number: int) -> void:
+	var voice: Dictionary = speaker_info(choice["needs"])
+	var label_text: String = choice["label"]
+	if not label_text.begins_with("["):
+		label_text = "[%s] %s" % [voice["name"], label_text]
+	# The button keeps its own (invisible) text so it sizes itself normally;
+	# a label that can wave sits exactly on top of it.
+	button.text = "%d. %s" % [number, label_text]
+	for state in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_hover_pressed_color"]:
+		button.add_theme_color_override(state, Color(0, 0, 0, 0))
+	var plain: String = "%d. %s" % [number, label_text.replace("[", "[lb]")]
+	var text: RichTextLabel = RichTextLabel.new()
+	text.bbcode_enabled = true
+	text.scroll_active = false
+	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	text.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	text.add_theme_font_size_override("normal_font_size", FONT_SIZE)
+	text.add_theme_color_override("default_color", voice["color"])
+	text.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var box: StyleBox = button.get_theme_stylebox("normal")
+	text.offset_left = box.get_margin(SIDE_LEFT)
+	text.offset_top = box.get_margin(SIDE_TOP)
+	text.offset_right = -box.get_margin(SIDE_RIGHT)
+	text.offset_bottom = -box.get_margin(SIDE_BOTTOM)
+	text.text = plain
+	button.add_child(text)
+	button.mouse_entered.connect(func() -> void:
+		text.text = "[wave amp=10.0 freq=3.0]%s[/wave]" % plain)
+	button.mouse_exited.connect(func() -> void:
+		text.text = plain)
+	if choice["needs"] == "unknown":
+		text.visible_ratio = 0.0
+		create_tween().tween_property(text, "visible_ratio", 1.0, UNKNOWN_TYPE_TIME)
 
 func _on_choice_pressed(choice: Dictionary) -> void:
 	var entry: RichTextLabel = _add_entry(choice["label"], speaker_info("you"))

@@ -11,10 +11,12 @@
 # Line and choice effects: | set=fed_dog (turns a GameState true/false on)  | sound=bell  | stop=ring (or stop=all)  | after=bell (wait for it to finish)
 #          | time=+15 (minutes pass)  | time=23:30 (clock moves forward to it)
 #          | take=pawn_ticket  | lose=key  (items live in story/items.cfg)  | break=window
-#          | grow=tongue (a voice gets stronger)
-# Voices: body, mind, feeling, tongue, paranoia (strength in GameState.voices).
-#          mind | if=mind>=2: ...   a line only a strong enough voice says
-#          > Lie -> lie | voice=tongue | if=tongue>=2   a choice shown as [TONGUE]
+#          | lean=warmth (one point for that voice; the prologue only feeds paranoia)
+# Voices: paranoia, john, appraisal, warmth, animal, and the ??? track (unknown).
+#          See docs/voices.md. Strength lives in GameState.voices.
+#          appraisal | if=appraisal>=2: ...   a line only a strong enough voice says
+#          > [John] "Ray mentioned you." -> widow_lie | needs=john   a colored choice:
+#            needs 3 points, only one per moment (the strongest voice; ??? wins)
 # Any line can have | if=... and is skipped when it doesn't hold.
 # Sections start with === and a name. A section with only -> lines just picks a route.
 
@@ -30,7 +32,6 @@ paranoia: You don't know, do you.
 narration: The paper in your coat pocket. A typed letter, and folded inside it, directions in handwriting you don't recognize. You've touched it so often the folds have gone soft.
 paranoia: Don't take it out. You know what it says.
 narration: At the last gas station you signed for the fuel without thinking. Halfway through, you had to stop and start again.
-tongue: Next time, sign it fast. Like it's nothing. Like it's yours.
 narration: The road ends where the headlights end. Past that, nothing. Not dark. Nothing.
 unknown: Where are you going, sweetheart?
 unknown: And what will you do when you get there?
@@ -55,16 +56,29 @@ paranoia: They turned their lights off. That's what you'd do.
 
 === passenger
 narration | time=+5: On the passenger seat, something wrapped in a towel. About the size of a loaf of bread. Heavier than it looks.
-narration: You don't remember putting it there. You don't remember not putting it there.
-body: Your arms remember carrying it. They won't tell you from where.
+narration: You know what it is. It was here when you took the car. Like the car, it isn't yours.
 paranoia: Leave it wrapped.
 unknown: Not yet, sweetheart. Not yet.
+> Count the bullets -> passenger_count
+> Leave it wrapped -> passenger_wrapped
+
+=== passenger_count
+narration: You fold the towel back one corner at a time, one hand still on the wheel.
+narration: A revolver. Six chambers. You open the cylinder against your knee and count by touch, because you won't look down for long.
+narration: Five.
+paranoia: That doesn't mean anything. Plenty of people carry five, with the hammer down on the empty one.
+unknown: You know exactly what it means, sweetheart.
+narration: You fold the towel back the way it was. Exactly the way it was.
+
+=== passenger_wrapped
+narration: You leave it. Your eyes keep going back to it anyway, the way a tongue goes back to a loose tooth.
+paranoia: Good. You don't need to know tonight.
 
 === coat
 narration | time=+5: Your hand finds the coat pocket on its own. The paper is still there. It's always still there.
 paranoia: Leave it. You've read it a hundred times.
-> Take it out -> @read_job_offer | grow=mind
-> Leave it -> coat_left | grow=paranoia
+> Take it out -> @read_job_offer
+> Leave it -> coat_left | lean=paranoia
 
 === coat_left
 narration: You leave it where it is. Your hand stays on it a while anyway, the way you'd keep a hand pressed to a cut.

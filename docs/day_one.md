@@ -102,8 +102,8 @@ MC's past is shaped by choices, not picked from a menu. Four directions:
 - **Insanity**: lost time, gaps in memory; they don't know why they ran.
   (Something specific, so it doesn't turn into "it was all in their head".)
 
-The background grows out of which voices MC listens to (see `voices.md`), not
-from separate tags. The prologue's hints are written to fit all four.
+The background comes from which voices MC listens to, not from a separate
+tag: see `voices.md`. The prologue's hints are written to fit all four.
 
 ## Money
 
@@ -158,7 +158,7 @@ Each step can be played and tested before the next.
 2. Money and the ledger.
 3. The other three customers, including the warm item.
 4. The Trooper.
-5. Voices shaping the background (see `voices.md`), once the mapping is decided.
+5. The voices (`voices.md`): leaning, colored choices, voice lines with conditions.
 6. Closing time, the map, the pub.
 7. Night at the shop, then sleep into day two.
 
@@ -166,7 +166,7 @@ Each step can be played and tested before the next.
 
 - [ ] The four customers: who they are, what they want, how each connects to
       the backgrounds or the plot.
-- [ ] Which choices lean toward which background.
+- [ ] Which choices feed which voice (see `voices.md`).
 - [ ] Money: MC's starting cash, who pays wages, what money is for (gas, the
       pub, a debt?).
 - [ ] How the night ends without the dog being fed: scratching where?

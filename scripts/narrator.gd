@@ -121,7 +121,7 @@ func _advance() -> void:
 		return
 	_end_section()
 
-# The first line from here on whose condition holds (mind | if=mind>=2: ...),
+# The first line from here on whose condition holds (appraisal | if=appraisal>=1: ...),
 # or -1 when the section has nothing more to show.
 func _next_line_from(index: int) -> int:
 	for i in range(index, _lines.size()):
@@ -134,7 +134,7 @@ func _next_line_from(index: int) -> int:
 # scene get section_finished.
 func _end_section() -> void:
 	_section_done = true
-	var choices: Array = _story[_section]["choices"].filter(_is_available)
+	var choices: Array = _visible_choices()
 	if not choices.is_empty():
 		_show_choices(choices)
 		return
@@ -146,6 +146,37 @@ func _end_section() -> void:
 
 func _is_available(entry: Dictionary) -> bool:
 	return not entry.has("if") or _condition_met(entry["if"])
+
+# A colored choice (needs=john) shows once that voice has enough points, and
+# only one shows per moment: the strongest voice's, with ??? beating the rest.
+# On a tie the one written first in the story file wins.
+func _visible_choices() -> Array:
+	var all: Array = _story[_section]["choices"]
+	var best: int = -1
+	var best_rank: int = -1
+	for i in all.size():
+		var choice: Dictionary = all[i]
+		if not choice.has("needs") or not _is_available(choice):
+			continue
+		var voice: String = choice["needs"]
+		if voice == "paranoia":
+			push_warning("Paranoia never gets a colored choice: " + choice["label"])
+			continue
+		var strength: int = GameState.voices.get(voice, 0)
+		if strength < GameState.COLORED_CHOICE_AT:
+			continue
+		var rank: int = strength + (1000 if voice == "unknown" else 0)
+		if rank > best_rank:
+			best = i
+			best_rank = rank
+	var shown: Array = []
+	for i in all.size():
+		if all[i].has("needs"):
+			if i == best:
+				shown.append(all[i])
+		elif _is_available(all[i]):
+			shown.append(all[i])
+	return shown
 
 # answered_phone, !answered_phone, rules_broken>=2, broke:window
 func _condition_met(condition: String) -> bool:
@@ -287,8 +318,8 @@ func _apply_effects(entry: Dictionary) -> void:
 		GameState.break_rule(entry["break"])
 	if entry.has("set"):
 		_set_flag(entry["set"])
-	if entry.has("grow"):
-		GameState.grow_voice(entry["grow"])
+	if entry.has("lean"):
+		GameState.lean(entry["lean"])
 
 # set=fed_dog turns a true/false value in GameState on.
 func _set_flag(name: String) -> void:

@@ -19,14 +19,19 @@ var hour: int:
 	get:
 		return floori(minutes / 60.0)
 
-# The voices in MC's head and how strong each one is. The player never sees
-# the numbers: a strong voice speaks up more and opens choices of its own.
+# The voices in MC's head and how strong each one is (see docs/voices.md).
+# The player never sees the numbers. Paranoia starts high: in the prologue
+# fear drowns everything else out. The others wake up on day one.
+# "unknown" is the ??? track: not a voice, MC slipping.
+const COLORED_CHOICE_AT: int = 3
+
 var voices: Dictionary = {
-	"body": 1,
-	"mind": 1,
-	"feeling": 1,
-	"tongue": 1,
-	"paranoia": 2,
+	"paranoia": 3,
+	"john": 0,
+	"appraisal": 0,
+	"warmth": 0,
+	"animal": 0,
+	"unknown": 0,
 }
 
 var inventory: Array[String] = ["key", "job_offer"]
@@ -40,7 +45,7 @@ func break_rule(rule: String) -> void:
 	if not rules_broken.has(rule):
 		rules_broken.append(rule)
 
-func grow_voice(voice: String, amount: int = 1) -> void:
+func lean(voice: String, amount: int = 1) -> void:
 	if not voices.has(voice):
 		push_warning("Unknown voice: " + voice)
 		return

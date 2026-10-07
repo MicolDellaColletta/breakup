@@ -35,8 +35,8 @@ narration: Sixties, maybe. A man's parka, much too big for her, zipped to the ch
 widow: You're the new one.
 widow: John, they said.
 paranoia: Answer to it.
-> "That's right." -> widow_ask | grow=tongue
-> Say nothing -> widow_silent | grow=paranoia
+> "That's right." -> widow_ask | lean=john
+> Say nothing -> widow_silent | lean=paranoia
 
 === widow_silent
 widow: Quiet one. That's all right. Ray was quiet.
@@ -45,22 +45,35 @@ widow: Quiet one. That's all right. Ray was quiet.
 === widow_ask
 widow: I need something. For my husband. Ray. Ray Hollis.
 widow: He went out on the lake three weeks ago, before the ice was any good. They found the truck. They haven't found him.
-feeling: She hasn't said he's dead. She won't be the first to say it.
-widow: The pastor says I should put something in the ground anyway. Something he loved.
-widow: Every fall since he was a boy, he sat in a blind out on the north shore. Before dawn. Talking to them, he said. He said they talked back.
-mind | if=mind>=2: Before dawn, hidden, talking to them. Not with a gun. With something that sounds like them.
-widow: Last winter was bad. He sold things, one at a time, and didn't tell me. Some of it ended up here, I'd bet.
-paranoia: She means something specific. Look.
-> "I knew Ray a little. He talked about that blind." -> widow_lie | voice=tongue | if=tongue>=2 | grow=tongue
-> Let me look -> @browse
-> I don't think I can help -> widow_nothing
+> Tell her you're sorry to hear it. -> widow_kind | lean=warmth
+> Ask what it's worth to her. -> widow_price | lean=appraisal
+> [John] "Ray mentioned you. Said you'd come in." -> widow_lie | needs=john | lean=john
+
+=== widow_kind
+widow: Everybody's sorry. Sorry doesn't find anybody.
+narration: But she looks at you a moment longer, as if this time it counted for something.
+warmth | if=warmth>=1: She hasn't said he's dead. She won't be the first to say it.
+-> widow_need
+
+=== widow_price
+widow: Whatever it costs. That's what money's for, isn't it.
+appraisal | if=appraisal>=1: Ones and fives, folded in her fist. She counted them before she came in, and she's counting them again.
+-> widow_need
 
 === widow_lie
 widow: Did he.
-widow: He never talked about it to me. Not once in forty years.
+widow: Ray didn't talk about me to anybody. Not in forty years.
 narration: She studies your face, as if she's trying to place it.
-tongue: Too much. Pull it back. Smile.
+john: Too much. Pull it back. Smile.
 paranoia: She'll remember that. They always remember the lie, not the face.
+-> widow_need
+
+=== widow_need
+widow: The pastor says I should put something in the ground anyway. Something he loved.
+widow: Every fall since he was a boy, he sat in a blind out on the north shore. Before dawn. Talking to them, he said. He said they talked back.
+appraisal | if=appraisal>=1: Before dawn, hidden, talking to them. Not with a gun. With something that sounds like them.
+widow: Last winter was bad. He sold things, one at a time, and didn't tell me. Some of it ended up here, I'd bet.
+paranoia: She means something specific. Look.
 > Let me look -> @browse
 > I don't think I can help -> widow_nothing
 
