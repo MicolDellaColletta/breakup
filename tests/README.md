@@ -8,6 +8,7 @@ Checks that run Godot without a window and play through the game.
 | `test_prologue.gd` | The drive, the shop (both phone routes, both doors), the first night (dog fed and not fed). |
 | `test_day_one.gd` | The morning, Mrs. Hollis three ways, the voices, the colored choice rules, number keys. |
 | `test_evening.gd` | The town map: which places show, travel time, the pub, the lake, going home. |
+| `test_menu.gd` | The title screen, pause menu, saving, loading and settings. Uses its own save folder, never your saves. |
 | `test_base.gd` | Shared helpers the tests use. Not a test itself. |
 
 ## Running them

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Breakup"
-run/main_scene="uid://byvefafr14ehr"
+run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 GameState="*uid://bnkvfcratkrx3"
 Transition="*res://scripts/transition.gd"
 Hud="*res://scenes/hud.tscn"
+Settings="*res://scripts/settings.gd"
+Saves="*res://scripts/saves.gd"
+Menu="*res://scenes/menu.tscn"
 
 [display]
 
