@@ -1,3 +1,4 @@
+@tool
 extends Control
 
 # Placeholder art for the drive, drawn in code until there's a painting: the
