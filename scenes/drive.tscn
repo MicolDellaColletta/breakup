@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ditsyfdr0wlmw" path="res://audio/freesound_community-tuning-radio-7150.mp3" id="3_iq54g"]
 [ext_resource type="PackedScene" uid="uid://tyul2dy2d37i" path="res://scenes/document_viewer.tscn" id="5_iihft"]
 [ext_resource type="Script" path="res://scripts/car_art.gd" id="6_art"]
+[ext_resource type="Script" path="res://scripts/glovebox_art.gd" id="9_glove"]
 [ext_resource type="Script" path="res://scripts/hotspot_layer.gd" id="7_spots"]
 [ext_resource type="AudioStream" uid="uid://cspfg3qbi7lob" path="res://audio/makigai_maimai-paper-245786.mp3" id="8_paper"]
 
@@ -28,6 +29,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("6_art")
+
+[node name="GloveboxArt" type="Control" parent="." unique_id=819809508]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_glove")
 
 [node name="Hotspots" type="Control" parent="." unique_id=1392606893]
 unique_name_in_owner = true
@@ -57,7 +70,6 @@ parameters/looping = true
 
 [node name="DocumentViewer" parent="." unique_id=1286025754 instance=ExtResource("5_iihft")]
 unique_name_in_owner = true
-layout_mode = 1
 
 [node name="Paper" type="AudioStreamPlayer" parent="." unique_id=1501928374]
 unique_name_in_owner = true
