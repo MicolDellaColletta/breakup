@@ -55,10 +55,31 @@ narration: Then a caller, mid-sentence: "...an old sedan, northbound, one headli
 paranoia | static=normal: One headlight dimmer than the other. Check yours. No. Don't.
 
 === glovebox
-narration | time=+5: Napkins. A tire gauge. A pawn ticket, number 0527. The shop's name is stamped across the top. You know it. You've read it a hundred times, on the letterhead in your pocket.
+narration | time=+5: The latch sticks, then gives. The lid drops open, and the little bulb inside comes on, yellow and weak.
+paranoia: It isn't yours either. None of it is.
+
+# The open glovebox is its own close-up view (spots.cfg, room "glovebox").
+
+=== glovebox_napkins
+narration: Paper napkins, a fistful, balled up. Gas station coffee, by the smell. Somebody's mornings.
+paranoia: Put them back the way they were.
+
+=== glovebox_gauge
+narration: A tire gauge, cold and thin as a pencil. You turn it over in your fingers and put it back exactly where it was.
+paranoia: Good. Exactly where it was.
+
+=== glovebox_ticket
+narration | time=+5: A pawn ticket, number 0527. The shop's name is stamped across the top. You know it. You've read it a hundred times, on the letterhead in your pocket.
 narration: On the back, in pencil, the address. Somebody wrote it down twice, in two different places, so they couldn't lose it.
 narration | take=pawn_ticket: You slip the ticket into your pocket. You couldn't say why.
 unknown: Two copies. Somebody really wanted you to arrive.
+
+=== glovebox_papers
+narration: Under everything, folded in three, a sheet of paper gone soft at the creases.
+narration: The rental agreement. You know whose name is on it. You open it anyway.
+
+=== glovebox_close
+narration: You push the lid up until the latch catches. The little bulb goes out.
 
 === mirror
 narration | time=+5: Headlights, far back. They've kept the same distance for an hour.

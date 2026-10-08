@@ -26,11 +26,26 @@ func _drive() -> void:
 	drive.click("car_glovebox")
 	check(not hotspots.interactive, "the car stops reacting while the story talks")
 	advance(column)
-	check(gs.has_item("pawn_ticket"), "the glovebox puts pawn ticket 0527 in your pockets")
-	check(drive.get_node("%DocumentViewer").visible, "the rental agreement opens")
-	drive.get_node("%DocumentViewer")._on_close_pressed()
-	check(gs.has_item("rental_agreement"), "the rental agreement goes in your pockets")
-	check(hotspots.interactive and hotspots.get_spot("car_glovebox").used, "back in the car; the glovebox is done")
+	await wait(0.7)
+	check(drive.current_view() == "glovebox" and hotspots.interactive, "the glovebox opens into a close-up")
+	check(hotspots.spot_ids() == ["glove_napkins", "glove_gauge", "glove_ticket", "glove_papers", "glove_close"], "napkins, the tire gauge, the ticket, the papers, and closing it")
+	drive.click("glove_napkins")
+	advance(column)
+	check(hotspots.interactive and hotspots.get_spot("glove_napkins").used, "the napkins, then back to the glovebox")
+	drive.click("glove_ticket")
+	advance(column)
+	check(gs.has_item("pawn_ticket"), "the ticket goes in your pockets")
+	drive.click("glove_papers")
+	advance(column)
+	var viewer: Node = drive.get_node("%DocumentViewer")
+	check(viewer.visible and gs.has_item("rental_agreement"), "the papers are the rental agreement: it opens, and goes in your pockets")
+	viewer.get_node("%Backdrop").gui_input.emit(_mouse_down())
+	check(not viewer.visible and hotspots.interactive, "a click outside the page puts it away, back to the glovebox")
+	drive.click("glove_close")
+	advance(column)
+	await wait(0.7)
+	check(drive.current_view() == "car" and hotspots.interactive, "closing it, back in the car")
+	check(hotspots.get_spot("car_glovebox").used, "the glovebox is done once the ticket is taken")
 
 	drive.click("car_coat")
 	check(drive.sounds["paper"].playing, "clicking the coat pocket plays the paper, right away")
@@ -141,3 +156,9 @@ func _night(feed: bool) -> void:
 	check(route == expected, "the night goes " + " > ".join(expected))
 	await wait(3.3)
 	check(current_scene.name == "Counter" and gs.day == 1, "morning comes: day one at the counter")
+
+func _mouse_down() -> InputEventMouseButton:
+	var event: InputEventMouseButton = InputEventMouseButton.new()
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.pressed = true
+	return event

@@ -3,21 +3,26 @@
 [ext_resource type="AudioStream" uid="uid://cspfg3qbi7lob" path="res://audio/makigai_maimai-paper-245786.mp3" id="1_84wdj"]
 [ext_resource type="Script" uid="uid://0v77bobutudb" path="res://scripts/document_viewer.gd" id="2_84wdj"]
 
-[node name="DocumentViewer" type="Control" unique_id=1286025754]
-layout_mode = 3
+[node name="DocumentViewer" type="CanvasLayer" unique_id=1286025754]
+layer = 60
+script = ExtResource("2_84wdj")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1386025755]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_84wdj")
+color = Color(0.01, 0.012, 0.018, 0.78)
 
 [node name="Paper" type="ColorRect" parent="." unique_id=938391366]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.22
+anchor_top = 0.07
+anchor_right = 0.78
+anchor_bottom = 0.84
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9098039, 0.8745098, 0.78431374, 1)
@@ -29,34 +34,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 160
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 160
-theme_override_constants/margin_bottom = 60
+theme_override_constants/margin_left = 44
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 44
+theme_override_constants/margin_bottom = 28
 
-[node name="Layout" type="VBoxContainer" parent="Paper/MarginContainer" unique_id=693986059]
+[node name="Scroll" type="ScrollContainer" parent="Paper/MarginContainer" unique_id=1486025756]
 layout_mode = 2
-alignment = 1
+horizontal_scroll_mode = 0
 
-[node name="TitleLabel" type="Label" parent="Paper/MarginContainer/Layout" unique_id=944070166]
+[node name="Layout" type="VBoxContainer" parent="Paper/MarginContainer/Scroll" unique_id=693986059]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="Paper/MarginContainer/Scroll/Layout" unique_id=944070166]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.16470589, 0.12941177, 0.09411765, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
-
-[node name="BodyLabel" type="Label" parent="Paper/MarginContainer/Layout" unique_id=1259989605]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.16470589, 0.12941177, 0.09411765, 1)
-theme_override_font_sizes/font_size = 18
 autowrap_mode = 2
 
-[node name="CloseButton" type="Button" parent="Paper/MarginContainer/Layout" unique_id=39538381]
+[node name="BodyLabel" type="Label" parent="Paper/MarginContainer/Scroll/Layout" unique_id=1259989605]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.16470589, 0.12941177, 0.09411765, 1)
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="." unique_id=39538381]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.87
+anchor_right = 0.5
+anchor_bottom = 0.87
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 36.0
+grow_horizontal = 2
 text = "Put it away"
+
+[node name="Hint" type="Label" parent="." unique_id=1586025757]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.94
+anchor_right = 0.5
+anchor_bottom = 0.94
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.72, 0.6)
+theme_override_font_sizes/font_size = 14
+text = "Click outside the page, or press Esc"
+horizontal_alignment = 1
 
 [node name="PaperSound" type="AudioStreamPlayer" parent="." unique_id=753470556]
 unique_name_in_owner = true

@@ -1,10 +1,15 @@
 class_name DocumentViewer
-extends Control
+extends CanvasLayer
+
+# A paper held up to read: a page over the dimmed scene, above everything but
+# the pause menu and fades. Nothing underneath reacts while it's open. Put it
+# away with the button, a click outside the page, or Esc.
 
 signal closed(doc_id: String)
 
 const DOCUMENTS_PATH: String = "res://story/documents/"
 
+@onready var backdrop: ColorRect = %Backdrop
 @onready var title_label: Label = %TitleLabel
 @onready var body_label: Label = %BodyLabel
 @onready var close_button: Button = %CloseButton
@@ -15,6 +20,13 @@ var _doc_id: String = ""
 func _ready() -> void:
 	visible = false
 	close_button.pressed.connect(_on_close_pressed)
+	backdrop.gui_input.connect(_on_backdrop_input)
+
+# Esc puts the paper away before the pause menu sees it.
+func _input(event: InputEvent) -> void:
+	if visible and event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
+		_on_close_pressed()
 
 func open(doc_id: String) -> void:
 	var path: String = DOCUMENTS_PATH + doc_id + ".txt"
@@ -32,8 +44,15 @@ func open(doc_id: String) -> void:
 	GameState.add_item(doc_id)
 	paper_sound.play()
 	visible = true
+	close_button.grab_focus()
+
+func _on_backdrop_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		_on_close_pressed()
 
 func _on_close_pressed() -> void:
+	if not visible:
+		return
 	paper_sound.play()
 	visible = false
 	closed.emit(_doc_id)
