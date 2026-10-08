@@ -27,6 +27,23 @@ static func label(spot_id: String) -> String:
 static func section(spot_id: String) -> String:
 	return _spots().get_value(spot_id, "section", spot_id)
 
+# Where it sits on the picture: rect="x, y, width, height", each from 0 to 1
+# of the screen. Spots without one get a small box in the middle.
+static func rect(spot_id: String) -> Rect2:
+	var parts: PackedStringArray = str(_spots().get_value(spot_id, "rect", "0.45, 0.45, 0.1, 0.1")).split(",")
+	if parts.size() != 4:
+		push_warning("rect= needs four numbers (x, y, width, height): " + spot_id)
+		return Rect2(0.45, 0.45, 0.1, 0.1)
+	return Rect2(parts[0].to_float(), parts[1].to_float(), parts[2].to_float(), parts[3].to_float())
+
+# A sound to play the moment it's clicked (sound=paper), before any text.
+static func sound(spot_id: String) -> String:
+	return _spots().get_value(spot_id, "sound", "")
+
+# hidden=true: not on screen until the scene shows it (the steering wheel).
+static func starts_hidden(spot_id: String) -> bool:
+	return bool(_spots().get_value(spot_id, "hidden", false))
+
 static func _spots() -> ConfigFile:
 	if _file == null:
 		_file = ConfigFile.new()

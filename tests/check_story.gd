@@ -19,6 +19,7 @@ const STORY_SCENES: Dictionary = {
 
 # Where each scene's spots must find their sections: every file listed.
 const SPOT_STORIES: Dictionary = {
+	"drive": ["res://story/drive.txt"],
 	"shop": ["res://story/shop_looks.txt"],
 	"night": ["res://story/night_one.txt", "res://story/night_two.txt"],
 }
@@ -66,6 +67,8 @@ func _check_spots() -> void:
 		if not SPOT_STORIES.has(scene):
 			problems.append("[%s] unknown scene '%s'" % [spot_id, scene])
 			continue
+		if spots.has_section_key(spot_id, "rect") and str(spots.get_value(spot_id, "rect")).split(",").size() != 4:
+			problems.append("[%s] rect= needs four numbers: x, y, width, height" % spot_id)
 		for path in SPOT_STORIES[scene]:
 			var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
 			var story: Dictionary = column._parse_story(path)
