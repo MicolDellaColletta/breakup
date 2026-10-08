@@ -1,8 +1,14 @@
 extends Control
 
+# The drive: the inside of the car, first person. Click things in the car
+# (story/spots.cfg, scene "drive") to look at them; once the radio, glovebox,
+# mirror and coat are done, the steering wheel takes you the rest of the way.
+
 const STORY_PATH: String = "res://story/drive.txt"
 const SHOP_SCENE: String = "res://scenes/shop.tscn"
 const MANDATORY: Array[String] = ["radio", "glovebox", "mirror", "coat"]
+# Hotspot ids in spots.cfg are the section name with this in front.
+const SPOT_PREFIX: String = "car_"
 
 # Story section that plays after a document is put away.
 const AFTER_READING: Dictionary = {
@@ -16,16 +22,14 @@ const STATIC_LEVELS: Dictionary = {
 }
 
 @onready var narrator: DialogueColumn = $Narrator
-@onready var objects: HBoxContainer = $Objects
-@onready var radio_button: Button = $Objects/RadioButton
-@onready var glovebox_button: Button = $Objects/GloveboxButton
-@onready var mirror_button: Button = $Objects/MirrorButton
-@onready var coat_button: Button = $Objects/CoatButton
-@onready var passenger_button: Button = $Objects/PassengerButton
-@onready var wheel_button: Button = $Objects/WheelButton
+@onready var hotspots: HotspotLayer = %Hotspots
 @onready var radio_static: AudioStreamPlayer = $RadioStatic
 @onready var car_interior: AudioStreamPlayer = $CarInterior
 @onready var document_viewer: DocumentViewer = %DocumentViewer
+
+@onready var sounds: Dictionary = {
+	"paper": %Paper,
+}
 
 var _examining: bool = false
 var _main_index: int = 0
@@ -36,24 +40,30 @@ var _ending: bool = false
 var _arriving: bool = false
 
 func _ready() -> void:
-	radio_button.pressed.connect(_examine.bind("radio", radio_button))
-	glovebox_button.pressed.connect(_examine.bind("glovebox", glovebox_button))
-	mirror_button.pressed.connect(_examine.bind("mirror", mirror_button))
-	coat_button.pressed.connect(_examine.bind("coat", coat_button))
-	passenger_button.pressed.connect(_examine.bind("passenger", passenger_button))
 	document_viewer.closed.connect(_on_document_closed)
-	wheel_button.pressed.connect(_on_wheel_pressed)
-	wheel_button.visible = false
+	narrator.use_sounds(sounds)
 	narrator.line_shown.connect(_on_line_shown)
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(STORY_PATH)
+	hotspots.fill("drive", "car", narrator)
+	hotspots.spot_clicked.connect(click)
 	narrator.set_input_enabled(false)
-	objects.visible = false
+	hotspots.interactive = false
 	await Transition.fade_in(2.0)
-	objects.visible = true
+	hotspots.interactive = true
 	narrator.set_input_enabled(true)
 	narrator.play("main")
+
+# --- Public: what tests can use ---
+
+# Clicking a hotspot: car_radio, car_wheel, and so on.
+func click(spot_id: String) -> void:
+	var object_id: String = spot_id.trim_prefix(SPOT_PREFIX)
+	if object_id == "wheel":
+		_on_wheel_pressed()
+	else:
+		_examine(object_id)
 
 func _on_line_shown(line: Dictionary) -> void:
 	if line.has("static"):
@@ -86,19 +96,22 @@ func _on_document_closed(doc_id: String) -> void:
 
 func _return_to_main() -> void:
 	_examining = false
-	objects.visible = true
+	hotspots.interactive = true
 	# Once the main text is over there's nothing to pick back up.
 	if not _main_finished:
 		narrator.start_conversation("main", _main_index, true)
 	_check_wheel()
 
-func _examine(object_id: String, button: Button) -> void:
-	if _examining or _ending:
+func _examine(object_id: String) -> void:
+	if _examining or _ending or _examined.has(object_id):
 		return
-	button.disabled = true
 	_examining = true
-	# Hidden while examining, so choices like the coat pocket's aren't covered.
-	objects.visible = false
+	# Asleep while the story talks, so a stray click doesn't start another.
+	hotspots.interactive = false
+	hotspots.mark_used(SPOT_PREFIX + object_id)
+	var sound: String = Spots.sound(SPOT_PREFIX + object_id)
+	if sound != "":
+		narrator.play_sound(sound)
 	_examined.append(object_id)
 	_main_index = narrator.get_line_index()
 	narrator.start_conversation(object_id)
@@ -107,7 +120,8 @@ func _on_wheel_pressed() -> void:
 	if _examining:
 		return
 	_ending = true
-	objects.visible = false
+	hotspots.interactive = false
+	hotspots.mark_used(SPOT_PREFIX + "wheel")
 	narrator.start_conversation("wheel")
 
 func _check_wheel() -> void:
@@ -116,7 +130,7 @@ func _check_wheel() -> void:
 	for object_id in MANDATORY:
 		if not _examined.has(object_id):
 			return
-	wheel_button.visible = true
+	hotspots.set_shown(SPOT_PREFIX + "wheel", true)
 
 func _set_static(level: String) -> void:
 	var target_db: float = STATIC_LEVELS[level]

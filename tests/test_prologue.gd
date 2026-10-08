@@ -16,28 +16,33 @@ func _drive() -> void:
 	gs.reset()
 	var drive: Node = await open_scene("res://scenes/drive.tscn")
 	var column: Node = drive.get_node("Narrator")
-	var objects: Control = drive.get_node("Objects")
-	check(objects.visible, "the car buttons show after the fade-in")
+	var hotspots: Node = drive.get_node("%Hotspots")
+	check(hotspots.spot_ids() == ["car_radio", "car_glovebox", "car_mirror", "car_passenger", "car_coat", "car_wheel"], "the car's hotspots are laid over the picture")
+	check(hotspots.interactive and not hotspots.get_spot("car_wheel").visible, "they're clickable after the fade-in; the wheel waits")
+	var radio: Control = hotspots.get_spot("car_radio")
+	check(radio.size.x > 50 and radio.position.x > drive.size.x * 0.4, "the radio's hotspot sits on the dashboard")
 	check(gs.clock_text() == "10:40 PM", "the clock starts at 10:40 PM")
 
-	drive._examine("glovebox", drive.get_node("Objects/GloveboxButton"))
+	drive.click("car_glovebox")
+	check(not hotspots.interactive, "the car stops reacting while the story talks")
 	advance(column)
 	check(gs.has_item("pawn_ticket"), "the glovebox puts pawn ticket 0527 in your pockets")
 	check(drive.get_node("%DocumentViewer").visible, "the rental agreement opens")
 	drive.get_node("%DocumentViewer")._on_close_pressed()
 	check(gs.has_item("rental_agreement"), "the rental agreement goes in your pockets")
+	check(hotspots.interactive and hotspots.get_spot("car_glovebox").used, "back in the car; the glovebox is done")
 
-	drive._examine("coat", drive.get_node("Objects/CoatButton"))
+	drive.click("car_coat")
+	check(drive.sounds["paper"].playing, "clicking the coat pocket plays the paper, right away")
 	advance(column)
 	await process_frame
 	check(choices(column) == ["Take it out", "Leave it"], "the coat pocket offers Take it out / Leave it")
-	check(not objects.visible, "the car buttons hide while choices show")
 	await press_key(KEY_2)
 	check(column._section == "coat_left", "pressing 2 picks the second choice")
 	check(gs.voices["paranoia"] == 4, "leaving the job offer feeds Paranoia")
 	advance(column)
 
-	drive._examine("passenger", drive.get_node("Objects/PassengerButton"))
+	drive.click("car_passenger")
 	advance(column)
 	await process_frame
 	check(choices(column) == ["Count the bullets", "Leave it wrapped"], "the passenger seat offers counting the bullets")
@@ -45,11 +50,13 @@ func _drive() -> void:
 	check(column._section == "passenger_count", "counting the bullets plays its scene")
 	advance(column)
 
-	for object in ["radio", "mirror"]:
-		drive._examine(object, drive.get_node("Objects/%sButton" % object.capitalize()))
+	for spot in ["car_radio", "car_mirror"]:
+		drive.click(spot)
 		advance(column)
 	advance(column)
-	check(drive.get_node("Objects/WheelButton").visible, "the wheel appears once the radio, glovebox, mirror and coat are done")
+	check(hotspots.get_spot("car_wheel").visible, "the wheel appears once the radio, glovebox, mirror and coat are done")
+	drive.click("car_radio")
+	check(column._section != "radio", "a used hotspot doesn't play again")
 	var others: int = gs.voices["john"] + gs.voices["appraisal"] + gs.voices["warmth"] + gs.voices["animal"]
 	check(others == 0, "the prologue feeds no voice but Paranoia")
 
