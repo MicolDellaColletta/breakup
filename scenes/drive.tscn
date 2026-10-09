@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tyul2dy2d37i" path="res://scenes/document_viewer.tscn" id="5_iihft"]
 [ext_resource type="Script" path="res://scripts/car_art.gd" id="6_art"]
 [ext_resource type="Script" path="res://scripts/glovebox_art.gd" id="9_glove"]
+[ext_resource type="Script" path="res://scripts/exterior_art.gd" id="10_ext"]
 [ext_resource type="Script" path="res://scripts/hotspot_layer.gd" id="7_spots"]
 [ext_resource type="AudioStream" uid="uid://cspfg3qbi7lob" path="res://audio/makigai_maimai-paper-245786.mp3" id="8_paper"]
 
@@ -52,6 +53,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_spots")
+
+[node name="ExteriorArt" type="Control" parent="." unique_id=919809509]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("10_ext")
 
 [node name="Narrator" parent="." unique_id=1399626938 instance=ExtResource("2_iq54g")]
 layout_mode = 1

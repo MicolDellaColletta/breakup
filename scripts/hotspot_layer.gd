@@ -41,6 +41,7 @@ func fill(scene: String, room: String, narrator: Narrator) -> void:
 		spot.name = spot_id
 		spot.spot_id = spot_id
 		spot.label_text = Spots.label(spot_id)
+		spot.arrow = Spots.arrow(spot_id)
 		spot.visible = not Spots.starts_hidden(spot_id)
 		spot.clicked.connect(_on_clicked)
 		add_child(spot)

@@ -85,10 +85,19 @@ func _missing_document() -> void:
 	check(column._input_enabled, "the story carries on when a paper can't be found")
 
 func _shop(pick_up: bool, door: String) -> void:
-	section("The shop: " + ("picks up, knocks" if pick_up else "lets it ring, pushes the door"))
+	section("The shop: " + ("picks up, knocks" if pick_up else "lets it ring, wanders first, pushes the door"))
 	gs.reset()
 	var shop: Node = await open_scene("res://scenes/shop.tscn")
 	var column: Node = shop.get_node("%Narrator")
+	var hotspots: Node = shop.get_node("%Hotspots")
+	advance(column)
+	await process_frame
+	check(shop.current_room() == "floor" and hotspots.interactive, "you come in on the shop floor, and can move once the text is done")
+	check(hotspots.spot_ids() == ["n_floor_counter", "n_floor_bear", "n_floor_furs", "n_floor_door_early"], "an arrow to the counter, the bear, the furs, the door behind you")
+	shop.click("n_floor_counter")
+	check(shop.sounds["floorboards"].playing, "walking plays the floorboards, on the click")
+	await wait(0.8)
+	check(shop.current_room() == "counter" and column._section == "at_counter", "at the counter, the phone")
 	advance(column)
 	check(choices(column) == ["Pick up", "Let it ring"], "the phone rings: Pick up / Let it ring")
 	if pick_up:
@@ -103,25 +112,54 @@ func _shop(pick_up: bool, door: String) -> void:
 		await pick(column, "Let it ring")
 		check(not gs.answered_phone and gs.rules_broken.is_empty(), "letting it ring breaks no rule")
 	advance(column)
-	check(column._section == "office_door", "then the office door")
+	await process_frame
+	check(gs.flags.has("office_noticed") and hotspots.interactive, "then you notice the light under the office door, and can move")
+	check(hotspots.spot_ids().has("n_counter_office_first") and hotspots.spot_ids().has("n_counter_hall"), "the office door and the hallway are there now")
+	if not pick_up:
+		shop.walk("hallway")
+		await wait(0.8)
+		shop.click("n_hall_stairs_early")
+		advance(column)
+		check(_log(column).contains("Not yet"), "the stairs send you back to the office")
+		await process_frame
+		shop.click("n_hall_back")
+		await wait(0.8)
+	shop.click("n_counter_office_first")
+	advance(column)
+	check(choices(column) == ["Knock", "Push it open"], "the office door: Knock / Push it open")
 	await pick(column, door)
 	advance(column)
 	advance(column)
-	check(column._section == "office", door + " leads into the office")
-	await pick(column, "Take the envelope")
+	await wait(0.8)
+	check(shop.current_room() == "office" and hotspots.spot_ids().has("n_office_envelope"), door + " leads into the office, and the envelope on the desk")
+	shop.click("n_office_envelope")
 	advance(column)
 	await pick(column, "Open it")
 	await wait(shop._length_of("tear") + 0.3)
-	check(shop.get_node("%LetterPanel").visible and gs.has_item("letter"), "the letter opens and goes in your pockets")
-	check(shop.get_node("%LetterText").text.begins_with("If you're reading this"), "the letter starts as the story bible says")
-	shop._on_fold_pressed()
+	var viewer: Node = shop.get_node("%DocumentViewer")
+	check(viewer.visible and gs.has_item("letter"), "the letter opens and goes in your pockets")
+	check(viewer.get_node("%BodyLabel").text.begins_with("If you're reading this"), "the letter starts as the story bible says")
+	viewer._on_close_pressed()
 	var reaction: String = "after_letter_answered" if pick_up else "after_letter_ignored"
-	check(column._section == reaction, "folding it plays " + reaction)
+	check(column._section == reaction, "putting it away plays " + reaction)
 	advance(column)
-	check(choices(column) == ["Go upstairs"], "and ends on Go upstairs")
-	await pick(column, "Go upstairs")
+	await process_frame
+	check(gs.flags.has("letter_read") and hotspots.interactive and not hotspots.spot_ids().has("n_office_envelope"), "then you can move again; the envelope's gone")
+	shop.click("n_office_back")
+	await wait(0.8)
+	shop.walk("hallway")
+	await wait(0.8)
+	check(hotspots.spot_ids().has("n_hall_stairs"), "now the stairs go up")
+	shop.click("n_hall_stairs")
+	advance(column)
 	await wait(2.3)
 	check(current_scene.name == "Apartment", "going upstairs leads to the apartment")
+
+func _log(column: Node) -> String:
+	var text: String = ""
+	for entry in column.get_node("%Log").get_children():
+		text += entry.get_parsed_text() + "\n"
+	return text
 
 func _night(feed: bool) -> void:
 	section("The first night: " + ("feeds the dog" if feed else "doesn't feed the dog"))
