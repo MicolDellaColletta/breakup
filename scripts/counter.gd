@@ -67,6 +67,7 @@ const TAKE_AMOUNT: int = 20
 
 @onready var explore_art: Control = %ExploreArt
 @onready var explore_spots: HotspotLayer = %ExploreSpots
+@onready var document_viewer: DocumentViewer = %DocumentViewer
 
 @onready var sounds: Dictionary = {
 	"bell": %Bell,
@@ -106,6 +107,7 @@ func _ready() -> void:
 	column.section_finished.connect(_on_section_finished)
 	column.choice_made.connect(_on_choice_made)
 	explore_spots.spot_clicked.connect(click)
+	document_viewer.closed.connect(_on_page_closed)
 	column.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[1]))
 	column.add_story(LOOKS_PATH)
 	_show_view("counter")
@@ -278,7 +280,7 @@ func _start_exploring() -> void:
 func current_room() -> String:
 	return _room
 
-# Clicking a hotspot after closing: walk, leave, or look.
+# Clicking a hotspot after closing: walk, leave, read the ledger, or look.
 func click(spot_id: String) -> void:
 	if not _exploring or _walking or not explore_spots.interactive:
 		return
@@ -288,6 +290,8 @@ func click(spot_id: String) -> void:
 	var to: String = Spots.go(spot_id)
 	if to == "@leave":
 		_leave_for_the_evening()
+	elif to == "@ledger":
+		read_ledger()
 	elif to != "":
 		walk(to)
 	else:
@@ -312,6 +316,16 @@ func look(spot_id: String) -> void:
 	explore_spots.mark_used(spot_id)
 	explore_spots.interactive = false
 	column.start_conversation(Spots.section(spot_id))
+
+# The ledger, open on the counter after closing: as often as you like.
+func read_ledger() -> void:
+	explore_spots.interactive = false
+	column.set_input_enabled(false)
+	document_viewer.open_page("ledger", "The ledger", _ledger_bbcode())
+
+func _on_page_closed(_page_id: String) -> void:
+	column.set_input_enabled(true)
+	explore_spots.interactive = _exploring
 
 # The things to look at in the room you're in, once the shop is closed.
 func _fill_spots() -> void:
@@ -342,6 +356,9 @@ func _in_shop(item_id: String) -> bool:
 # Every item the shop holds, with the owner's entry for it, then this
 # season's sales, then what the drawer should hold by the book.
 func _write_ledger() -> void:
+	ledger_text.text = _ledger_bbcode()
+
+func _ledger_bbcode() -> String:
 	var text: String = "[b]HELD BY THE SHOP[/b]\n"
 	for item_id in _stock.get_sections():
 		if not _in_shop(item_id):
@@ -368,7 +385,7 @@ func _write_ledger() -> void:
 	for line in GameState.ledger_lines:
 		text += "\n" + line.replace("[", "[lb]")
 	text += "\n\n[b]THE DRAWER, BY THE BOOK[/b]\n\n$%d" % GameState.till_by_ledger
-	ledger_text.text = text
+	return text
 
 func _open_register() -> void:
 	if GameState.till == 0:

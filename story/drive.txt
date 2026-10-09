@@ -82,9 +82,20 @@ narration: The rental agreement. You know whose name is on it. You open it anywa
 narration: You push the lid up until the latch catches. The little bulb goes out.
 
 === mirror
-narration | time=+5: Headlights, far back. They've kept the same distance for an hour.
-narration: You look away. You look back. The road behind you is empty.
+narration | time=+5: You tilt the mirror. Headlights, far back. Two of them, low and steady. They've kept the same distance for an hour.
+narration: Not gaining. Not falling behind. When you slowed for the crosses, they slowed.
+paranoia: Don't speed up. Don't let them know you've seen them.
+narration: You look at the road for one breath. You look back.
+narration | show=mirror_empty: The road behind you is empty. Your own taillights, red on the snow, and past them nothing at all.
 paranoia: They turned their lights off. That's what you'd do.
+unknown: Or there was never anyone. Which would be worse, sweetheart?
+
+# The mirror is a close-up too (spots.cfg, room "mirror").
+
+=== mirror_eyes
+narration: Along the bottom of the glass, a strip of your own face. Just the eyes.
+narration: Red-rimmed. Older than you remember them. You hold your own gaze, and it's like being looked at by a stranger who knows something about you.
+paranoia: John's eyes now. Get used to them.
 
 === passenger
 narration | time=+5: On the passenger seat, something wrapped in a towel. About the size of a loaf of bread. Heavier than it looks.

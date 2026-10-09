@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/shop_art.gd" id="20_art"]
 [ext_resource type="Script" path="res://scripts/hotspot_layer.gd" id="21_spots"]
 [ext_resource type="AudioStream" uid="uid://cj2muj1x5nnsb" path="res://audio/soundsgoodmusic-creaking-stairs-306029.mp3" id="22_floor"]
+[ext_resource type="PackedScene" uid="uid://tyul2dy2d37i" path="res://scenes/document_viewer.tscn" id="23_viewer"]
 
 [node name="Counter" type="Control" unique_id=1110293847]
 layout_mode = 3
@@ -217,3 +218,6 @@ parameters/looping = true
 unique_name_in_owner = true
 stream = ExtResource("22_floor")
 volume_db = -8.0
+
+[node name="DocumentViewer" parent="." unique_id=1717171717 instance=ExtResource("23_viewer")]
+unique_name_in_owner = true

@@ -246,7 +246,14 @@ func _spots_shown(counter: Node) -> Array:
 	return counter.get_node("%ExploreSpots").spot_ids()
 
 func _explore(counter: Node, column: Node) -> void:
-	check(_spots_shown(counter) == ["counter_drawer", "balance", "closed_counter_office", "closed_counter_hall", "closed_counter_floor"], "the counter: its drawer, the brass balance, and the ways to the office, hallway and floor")
+	check(_spots_shown(counter) == ["counter_drawer", "ledger", "balance", "closed_counter_office", "closed_counter_hall", "closed_counter_floor"], "the counter: its drawer, the ledger, the brass balance, and the ways to the office, hallway and floor")
+	var viewer: Node = counter.get_node("%DocumentViewer")
+	counter.click("ledger")
+	var page: String = viewer.get_node("%RichBody").get_parsed_text()
+	check(viewer.visible and page.contains("R. Hollis") and page.contains("THIS SEASON"), "the ledger opens on the counter, the owner's entries and this season's")
+	check(not counter.get_node("%ExploreSpots").interactive and not gs.has_item("ledger"), "the shop waits while you read; the book stays on the counter")
+	viewer._on_close_pressed()
+	check(counter.get_node("%ExploreSpots").interactive and not counter.get_node("%ExploreSpots").get_spot("ledger").used, "closing it, and it can be read again")
 	counter.click("closed_counter_floor")
 	await wait(0.7)
 	check(_spots_shown(counter) == ["bear", "front_window", "closed_floor_counter", "closed_floor_door"], "the shop floor: the bear, the front window, and the front door out")
