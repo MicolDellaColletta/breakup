@@ -9,6 +9,7 @@ extends Control
 # lead up to the apartment.
 
 const STORY_PATH: String = "res://story/shop.txt"
+const USE_PATH: String = "res://story/use.txt"
 const APARTMENT_SCENE: String = "res://scenes/apartment.tscn"
 const SCENE_ID: String = "shop_night"
 const VIEW_FADE: float = 0.25
@@ -46,7 +47,9 @@ func _ready() -> void:
 	narrator.choice_made.connect(_on_choice_made)
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.load_story(STORY_PATH)
+	narrator.add_story(USE_PATH)
 	hotspots.spot_clicked.connect(click)
+	hotspots.aside.connect(play_aside)
 	art.view = _room
 	_refresh()
 	hotspots.interactive = false
@@ -75,6 +78,15 @@ func click(spot_id: String) -> void:
 	if section.begins_with("look_"):
 		_looked.append(spot_id)
 		hotspots.mark_used(spot_id)
+	_busy = true
+	hotspots.interactive = false
+	narrator.start_conversation(section)
+
+# A short scene that changes nothing: something from your pockets used on a
+# hotspot, or a second look (story/use.txt).
+func play_aside(section: String) -> void:
+	if _busy or _leaving:
+		return
 	_busy = true
 	hotspots.interactive = false
 	narrator.start_conversation(section)

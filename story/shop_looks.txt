@@ -1,11 +1,13 @@
 # THE SHOP AFTER CLOSING: things to look at (story/spots.cfg)
 # Same format as drive.txt (see the notes at the top of that file).
 # Shared by every day at the counter: the counter loads the day's story, then
-# adds these. Lines with | if=day>=2 only show from day two on.
+# adds these. Lines with | if=day>=2 only show from day two on. Some things
+# aren't quite where they were the day before (shop_art.gd draws them moved):
+# the bear's head, the balance, the office chair. The ledger gets a line.
 # The front door (a button, not a story line) leads out to the town map.
 
 === look_counter_drawer
-narration | time=+5: The counter drawer sticks, then gives. Receipt books. Rubber stamps. A box of blank pawn tickets, numbered in order.
+narration | time=+5 | sound=drawer: The counter drawer sticks, then gives. Receipt books. Rubber stamps. A box of blank pawn tickets, numbered in order.
 narration | if=day==1 and !broke:warm: You thumb through them. 0432, 0433, 0434. They pick up right where the ledger's numbers stop.
 narration | if=day==1 and broke:warm: You thumb through them. 0433, 0434, 0435. The stub of 0432 is still in the book, in your handwriting. Walt Pruitt.
 narration | if=day>=2: You thumb through them. The stubs of this week's tickets, in your handwriting, and then the blanks, waiting.
@@ -15,34 +17,47 @@ paranoia: Then where did yours come from?
 
 === look_balance
 narration | time=+5: A brass balance at the end of the counter: two shallow pans on a beam, the kind for weighing gold dust.
-narration: Both pans are empty. One of them sits a little lower than the other anyway.
-paranoia: It's old. It's out of true. That's all it is.
+narration | if=day<2: Both pans are empty. The left one sits a little lower than the other anyway.
+paranoia | if=day<2: It's old. It's out of true. That's all it is.
+narration | if=day>=2: Both pans are empty. Today it's the right one that sits lower.
+paranoia | if=day>=2: Yesterday it was the left. You're sure it was the left.
+appraisal | if=day>=2 and appraisal>=1: A balance doesn't drift from one side to the other. Something has to be put in the pan.
 
 === look_bear
 narration | time=+5: The bear in the corner. Up close it's bigger than you thought, reared up, mouth open on a roar nobody heard.
 narration: A cardboard tag hangs from one claw, in the owner's small hand: NOT FOR SALE. NEVER.
 appraisal | if=appraisal>=1: It isn't in the ledger, either. Every item gets a price, the letter said. Even the ones you'd never sell.
 warmth | if=warmth>=1: Somebody loved this ugly thing.
+narration | if=day>=2: Its head is turned a little further toward the counter than you remember. Toward where you stand all day.
+paranoia | if=day>=2: You remember wrong. You've been here two days. You don't remember anything yet.
 
 === look_front_window
 narration | time=+5: The front window. The neon on the snow, your car going white in the lot, the dark line of the trees.
 narration: In the glass, your own reflection, faint, laid over all of it. It does what you do.
 paranoia: It's not midnight. Rule eight is for after midnight.
 paranoia: Remember that.
+narration | if=day>=2: Low in one corner of the glass, in the frost, a handprint. Small. A child's, or a woman's.
+narration | if=day>=2: You put your own hand against it, to be sure. It's on the inside.
 
 === look_ram
 narration | time=+5: The ram's head above the desk. Its horns curl back so far they nearly close into circles.
 narration: Someone has wedged a sprig of dried spruce into one horn.
 narration: Its glass eyes are set exactly right. Whoever mounted the fox didn't mount this.
 
+=== look_chair
+narration | time=+5 | if=day<2: The office chair, rolled back from the desk, turned a little toward the door. As if someone stood up in a hurry and never came back to sit down.
+narration | time=+5 | if=day>=2: The office chair is pushed in to the desk. Square. Neat.
+narration | if=day>=2: Yesterday it was rolled back, turned toward the door. You didn't touch it. You'd remember touching it.
+paranoia | if=day>=2: Someone sat here last night. Someone tidied up after.
+
 === look_desk
-narration | time=+10: The desk drawers. Pens, a stapler, a ring of small keys that don't look like they open anything in this room.
+narration | time=+10 | sound=drawer: The desk drawers. Pens, a stapler, a ring of small keys that don't look like they open anything in this room.
 narration: In the bottom drawer, a sheaf of thin carbon copies, clipped together.
 narration | take=carbon_copies: Typed letters. You know the first line of them by heart. You take them.
 paranoia: Read them later. Or don't.
 
 === look_fuse_box
-narration | time=+5: In the hallway, a gray fuse box. Most of the switches are up. Three are held down with yellowed tape.
+narration | time=+5 | sound=latch: In the hallway, a gray fuse box. Most of the switches are up. Three are held down with yellowed tape.
 narration: Under them, a label in the owner's hand: SHOP LIGHTS. DON'T.
 paranoia: That's why it's always dark in here. He wanted it that way.
 paranoia: Or something did.

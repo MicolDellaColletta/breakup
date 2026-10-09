@@ -19,7 +19,8 @@ var label_text: String = ""
 # "forward", "back", "left" or "right": a way to walk, drawn as an arrow that's
 # always faintly visible. "" for an ordinary thing to look at.
 var arrow: String = ""
-# Looked at already: still there, but no longer clickable.
+# Looked at already: still there, but drawn as nothing; a click gets a short
+# reply instead of the whole scene again.
 var used: bool = false:
 	set(value):
 		used = value
@@ -36,11 +37,10 @@ var _hovered: bool = false
 func _ready() -> void:
 	mouse_entered.connect(_on_hover.bind(true))
 	mouse_exited.connect(_on_hover.bind(false))
+	_hud().held_changed.connect(_refresh.unbind(1))
 	_refresh()
 
 func _gui_input(event: InputEvent) -> void:
-	if used:
-		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		accept_event()
 		clicked.emit(spot_id)
@@ -50,11 +50,18 @@ func _on_hover(inside: bool) -> void:
 	queue_redraw()
 
 func _refresh() -> void:
-	mouse_default_cursor_shape = Control.CURSOR_ARROW if used else Control.CURSOR_POINTING_HAND
+	mouse_default_cursor_shape = Control.CURSOR_ARROW if used and not _holding() else Control.CURSOR_POINTING_HAND
 	queue_redraw()
 
+func _hud() -> Node:
+	return get_node("/root/Hud")
+
+# Something from your pockets is in your hand.
+func _holding() -> bool:
+	return _hud().held_item != ""
+
 func _draw() -> void:
-	if used:
+	if used and not _holding():
 		return
 	var rect: Rect2 = Rect2(Vector2.ZERO, size)
 	if arrow != "":
@@ -85,12 +92,16 @@ func _draw_arrow() -> void:
 # the hotspot touches the top of the screen).
 func _draw_label() -> void:
 	var font: Font = ThemeDB.fallback_font
-	var text_size: Vector2 = font.get_string_size(label_text, HORIZONTAL_ALIGNMENT_LEFT, -1, FONT_SIZE)
+	var text: String = label_text
+	# Holding something: "Polaroid on Front window".
+	if _holding() and arrow == "":
+		text = "%s on %s" % [GameState.item_info(_hud().held_item, "name"), label_text]
+	var text_size: Vector2 = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, FONT_SIZE)
 	var pad: Vector2 = Vector2(8, 4)
 	var top: float = -text_size.y - pad.y * 2 - 4
 	if global_position.y + top < 0:
 		top = 4
 	var tag: Rect2 = Rect2(Vector2((size.x - text_size.x) / 2 - pad.x, top), text_size + pad * 2)
 	draw_rect(tag, LABEL_BACK)
-	draw_string(font, tag.position + Vector2(pad.x, pad.y + font.get_ascent(FONT_SIZE)), label_text,
+	draw_string(font, tag.position + Vector2(pad.x, pad.y + font.get_ascent(FONT_SIZE)), text,
 		HORIZONTAL_ALIGNMENT_LEFT, -1, FONT_SIZE, LABEL_COLOR)

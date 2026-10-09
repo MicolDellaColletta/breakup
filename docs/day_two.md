@@ -146,8 +146,11 @@ visit costs the whole evening (it's past the lake).
 - **The dog:** if fed tonight, MC lies in bed and **hears it come up the
   stairs.** Slow. One step at a time, with a rest between, the way an old man
   climbs. The bowl scrapes. Then the stairs again, going down.
-- **The phone (rule 4).** 23:00, the shop phone rings downstairs. If MC answers
-  and doesn't speak first:
+- **The phone (rule 4).** 23:00, the shop phone rings downstairs. Going to it is
+  walked, not told: down the stairs into the dark hallway (a knock behind the
+  steel door, if you stop there; the stairs back up, if you lose your nerve,
+  and then it just rings), then the counter, then the phone itself. Only
+  lifting the receiver breaks the rule. If MC answers and doesn't speak first:
   - If MC accepted Ida's name: an old woman's voice, a neighbour, asking for
     Walt: *"Is he there? He's not home. I'm calling about his wife, about...
     about..."* She can't find the name. She hangs up crying.

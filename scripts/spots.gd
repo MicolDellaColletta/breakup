@@ -5,6 +5,8 @@ extends RefCounted
 # spots in a room and make a button (later, a clickable spot) for each.
 
 const PATH: String = "res://story/spots.cfg"
+# How many seen_ sections story/use.txt has.
+const SEEN_REPLIES: int = 4
 
 static var _file: ConfigFile
 
@@ -53,6 +55,21 @@ static func arrow(spot_id: String) -> String:
 # again=true: stays clickable after it's been looked at.
 static func again(spot_id: String) -> bool:
 	return bool(_spots().get_value(spot_id, "again", false))
+
+# use_compass=use_compass_painting: the section that plays when that item
+# from your pockets is used on it. Anything else used on it plays
+# "use_nothing" (story/use.txt).
+static func use_section(spot_id: String, item_id: String) -> String:
+	return _spots().get_value(spot_id, "use_" + item_id, "use_nothing")
+
+# A second look at something already looked at: seen="section" if it has
+# its own, or one of the seen_ replies in story/use.txt, in turn.
+static func seen_section(spot_id: String) -> String:
+	if _spots().has_section_key(spot_id, "seen"):
+		return _spots().get_value(spot_id, "seen")
+	var state: Node = Engine.get_main_loop().root.get_node("GameState")
+	state.second_looks += 1
+	return "seen_%d" % (state.second_looks % SEEN_REPLIES)
 
 # hidden=true: not on screen until the scene shows it (the steering wheel).
 static func starts_hidden(spot_id: String) -> bool:

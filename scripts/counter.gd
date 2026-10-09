@@ -4,6 +4,7 @@ extends Control
 # dialogue column on the right. Customers come in one at a time.
 
 const LOOKS_PATH: String = "res://story/shop_looks.txt"
+const USE_PATH: String = "res://story/use.txt"
 const STOCK_PATH: String = "res://story/stock.cfg"
 const LEDGER_PATH: String = "res://story/ledger.cfg"
 const MAP_SCENE: String = "res://scenes/map.tscn"
@@ -107,9 +108,11 @@ func _ready() -> void:
 	column.section_finished.connect(_on_section_finished)
 	column.choice_made.connect(_on_choice_made)
 	explore_spots.spot_clicked.connect(click)
+	explore_spots.aside.connect(play_aside)
 	document_viewer.closed.connect(_on_page_closed)
 	column.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[1]))
 	column.add_story(LOOKS_PATH)
+	column.add_story(USE_PATH)
 	_show_view("counter")
 	column.set_input_enabled(false)
 	await Transition.fade_in(2.0)
@@ -317,6 +320,14 @@ func look(spot_id: String) -> void:
 	explore_spots.interactive = false
 	column.start_conversation(Spots.section(spot_id))
 
+# A short scene that changes nothing: something from your pockets used on a
+# hotspot, or a second look (story/use.txt).
+func play_aside(section: String) -> void:
+	if not _exploring or _walking or not explore_spots.interactive:
+		return
+	explore_spots.interactive = false
+	column.start_conversation(section)
+
 # The ledger, open on the counter after closing: as often as you like.
 func read_ledger() -> void:
 	explore_spots.interactive = false
@@ -384,6 +395,9 @@ func _ledger_bbcode() -> String:
 		text += "\nNothing yet. The last line in the owner's hand is three weeks old.\n"
 	for line in GameState.ledger_lines:
 		text += "\n" + line.replace("[", "[lb]")
+	# From day two, a line you didn't write, in the owner's small, careful hand.
+	if GameState.day >= 2:
+		text += "\n[i]Oct 6. Keeper settling in.[/i]"
 	text += "\n\n[b]THE DRAWER, BY THE BOOK[/b]\n\n$%d" % GameState.till_by_ledger
 	return text
 

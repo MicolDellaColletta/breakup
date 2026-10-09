@@ -119,10 +119,22 @@ func use_sounds(sounds: Dictionary) -> void:
 	_sounds = sounds
 
 func play_sound(sound_name: String) -> void:
+	if not _sounds.has(sound_name) and Sfx.has(sound_name):
+		_play_sfx(sound_name)
+		return
 	if not _sounds.has(sound_name):
 		push_warning("Unknown sound: " + sound_name)
 		return
 	_sounds[sound_name].play()
+
+# One of the small sounds made in code (Sfx), when the scene has no file for it.
+func _play_sfx(sound_name: String) -> void:
+	var player: AudioStreamPlayer = AudioStreamPlayer.new()
+	player.stream = Sfx.stream(sound_name)
+	player.volume_db = -10.0
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
 
 func stop_sound(sound_name: String) -> void:
 	if sound_name == "all":

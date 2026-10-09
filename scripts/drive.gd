@@ -9,6 +9,7 @@ extends Control
 # rearview mirror (room "mirror"), where the headlights behind you go out.
 
 const STORY_PATH: String = "res://story/drive.txt"
+const USE_PATH: String = "res://story/use.txt"
 const SHOP_SCENE: String = "res://scenes/shop.tscn"
 # How many of the car's things to look at before the wheel shows up.
 const ENOUGH_LOOKED: int = 3
@@ -61,8 +62,10 @@ func _ready() -> void:
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(STORY_PATH)
+	narrator.add_story(USE_PATH)
 	hotspots.fill("drive", "car", narrator)
 	hotspots.spot_clicked.connect(click)
+	hotspots.aside.connect(play_aside)
 	narrator.set_input_enabled(false)
 	hotspots.interactive = false
 	await Transition.fade_in(2.0)
@@ -85,6 +88,16 @@ func click(spot_id: String) -> void:
 		_on_wheel_pressed()
 	else:
 		_examine(object_id)
+
+# A short scene that changes nothing: something from your pockets used on a
+# hotspot, or a second look (story/use.txt).
+# The hotspots only pass it on while they're awake, so nothing else is talking.
+func play_aside(section: String) -> void:
+	if not _main_finished or _ending:
+		return
+	_examining = true
+	hotspots.interactive = false
+	narrator.start_conversation(section)
 
 func current_view() -> String:
 	return _view

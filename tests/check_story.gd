@@ -15,9 +15,10 @@ const STORY_SCENES: Dictionary = {
 	"res://story/town.txt": "res://scenes/map.tscn",
 	"res://story/night_one.txt": "res://scenes/night.tscn",
 	"res://story/night_two.txt": "res://scenes/night.tscn",
+	"res://story/use.txt": "res://scenes/counter.tscn",
 }
 
-# Where each scene's spots must find their sections: every file listed.
+# Where each scene's spots must find their sections: in one of the files listed.
 const SPOT_STORIES: Dictionary = {
 	"drive": ["res://story/drive.txt"],
 	"shop_night": ["res://story/shop.txt"],
@@ -64,8 +65,28 @@ func _check_spots() -> void:
 	var spots: ConfigFile = ConfigFile.new()
 	spots.load("res://story/spots.cfg")
 	var problems: Array = []
+	var items: ConfigFile = ConfigFile.new()
+	items.load("res://story/items.cfg")
+	var parser: Node = load("res://scenes/dialogue_column.tscn").instantiate()
+	var uses: Dictionary = parser._parse_story("res://story/use.txt")
+	parser.free()
+	if not uses.has("use_nothing"):
+		problems.append("use.txt needs a use_nothing section")
+	for i in load("res://scripts/spots.gd").SEEN_REPLIES:
+		if not uses.has("seen_%d" % i):
+			problems.append("use.txt needs a seen_%d section (Spots.SEEN_REPLIES)" % i)
 	for spot_id in spots.get_sections():
 		var scene: String = spots.get_value(spot_id, "scene", "")
+		if spots.has_section_key(spot_id, "seen") and not uses.has(spots.get_value(spot_id, "seen")):
+			problems.append("[%s] seen: no section '%s' in use.txt" % [spot_id, spots.get_value(spot_id, "seen")])
+		# use_<item>= : a real item, and a section in use.txt.
+		for key in spots.get_section_keys(spot_id):
+			if not key.begins_with("use_"):
+				continue
+			if not items.has_section(key.trim_prefix("use_")):
+				problems.append("[%s] %s: no item '%s' in items.cfg" % [spot_id, key, key.trim_prefix("use_")])
+			if not uses.has(spots.get_value(spot_id, key)):
+				problems.append("[%s] %s: no section '%s' in use.txt" % [spot_id, key, spots.get_value(spot_id, key)])
 		if not SPOT_STORIES.has(scene):
 			problems.append("[%s] unknown scene '%s'" % [spot_id, scene])
 			continue
@@ -81,13 +102,16 @@ func _check_spots() -> void:
 				problems.append("[%s] go='%s': no spot in that room, so you'd walk into nothing" % [spot_id, room_to])
 		if room_to != "":
 			continue
+		# A scene with several story files (a night for each day) needs the
+		# section in at least one of them.
+		var target: String = spots.get_value(spot_id, "section", "")
+		var found: bool = false
 		for path in SPOT_STORIES[scene]:
 			var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
-			var story: Dictionary = column._parse_story(path)
+			found = found or column._parse_story(path).has(target)
 			column.free()
-			var target: String = spots.get_value(spot_id, "section", "")
-			if not story.has(target):
-				problems.append("[%s] no section '%s' in %s" % [spot_id, target, path.get_file()])
+		if not found:
+			problems.append("[%s] no section '%s' in %s" % [spot_id, target, ", ".join(SPOT_STORIES[scene].map(func(p: String) -> String: return p.get_file()))])
 	for problem in problems:
 		print("  FAIL  ", problem)
 	check(problems.is_empty(), "%d spots, every one leads to a section" % spots.get_sections().size())
@@ -111,7 +135,7 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 		stock: ConfigFile, column: Node, problems: Array) -> void:
 	var where: String = "[%s] %s" % [part, entry.get("text", entry.get("label", "-> " + entry.get("target", ""))).left(50)]
 	for key in ["sound", "stop", "after"]:
-		if entry.has(key) and entry[key] != "all" and not sounds.has(entry[key]):
+		if entry.has(key) and entry[key] != "all" and not sounds.has(entry[key]) and not Sfx.has(entry[key]):
 			problems.append("%s: this scene has no sound '%s'  %s" % [key, entry[key], where])
 	for key in ["take", "lose"]:
 		if entry.has(key) and not items.has_section(entry[key]):

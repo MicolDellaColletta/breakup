@@ -6,6 +6,7 @@ extends Control
 # the window and the radio (rules one and seven); then sleep, and morning.
 
 const STORY_PATH: String = "res://story/apartment.txt"
+const USE_PATH: String = "res://story/use.txt"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
 const SCENE_ID: String = "apartment_first"
 const VIEW_FADE: float = 0.25
@@ -34,7 +35,9 @@ func _ready() -> void:
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(STORY_PATH)
+	narrator.add_story(USE_PATH)
 	hotspots.spot_clicked.connect(click)
+	hotspots.aside.connect(play_aside)
 	art.view = _room
 	_refresh()
 	hotspots.interactive = false
@@ -64,6 +67,15 @@ func click(spot_id: String) -> void:
 	_busy = true
 	hotspots.interactive = false
 	narrator.start_conversation(Spots.section(spot_id))
+
+# A short scene that changes nothing: something from your pockets used on a
+# hotspot, or a second look (story/use.txt).
+func play_aside(section: String) -> void:
+	if _busy or _ending:
+		return
+	_busy = true
+	hotspots.interactive = false
+	narrator.start_conversation(section)
 
 func walk(room: String) -> void:
 	_busy = true

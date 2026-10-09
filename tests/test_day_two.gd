@@ -14,6 +14,7 @@ func run() -> void:
 	await _night("Wait", true, "phone_neighbour")
 	await _night("Wait", false, "phone_open_line")
 	await _night("Hello", false, "phone_spoke")
+	await _night_turn_back()
 
 func _log(column: Node) -> String:
 	var text: String = ""
@@ -106,6 +107,7 @@ func _cody_ezra_found_walt_accepts_ruth_upstairs() -> void:
 	counter._show_view("ledger")
 	var ledger: String = counter.get_node("%LedgerText").get_parsed_text()
 	check(ledger.contains("OLDER PAGES") and ledger.contains("E. Lund. .22 shells"), "the ledger's older pages show Ezra's Thursdays")
+	check(ledger.contains("Oct 6. Keeper settling in."), "and a line you didn't write, in the owner's hand")
 
 func _widow_ezra_fails_walt_refused_ruth_refused() -> void:
 	section("Day two: left the dog unfed and the door open, waved, didn't sell the picks or take the coins")
@@ -185,8 +187,21 @@ func _night(answer: String, ida: bool, expected: String) -> void:
 	night.look("bed")
 	advance(column)
 	check(night.sounds["ring"].playing, "at eleven, the shop phone rings")
-	await pick(column, "answer it")
+	await pick(column, "Go down to it")
 	advance(column)
+	await wait(0.7)
+	var hotspots: Node = night.get_node("%Hotspots")
+	check(night.current_room() == "shop_hall" and night.get_node("%ShopArt").visible and hotspots.interactive, "down the stairs: the shop's hallway in the dark, and you can move")
+	check(night.sounds["ring"].playing and not gs.rules_broken.has("phone"), "still ringing; nothing broken yet")
+	night.click("night_shop_steel")
+	advance(column)
+	check(_log(column).contains("One knock"), "the steel door, and a knock from the other side")
+	night.click("night_shop_counter")
+	await wait(0.7)
+	check(night.current_room() == "shop_counter", "at the counter, the phone")
+	night.click("night_shop_phone")
+	advance(column)
+	check(gs.rules_broken.has("phone"), "picking it up breaks rule four")
 	await pick(column, answer)
 	check(not night.sounds["ring"].playing, "picking up stops the ringing")
 	var route: Array = [column._section]
@@ -197,5 +212,35 @@ func _night(answer: String, ida: bool, expected: String) -> void:
 	check(route.has(expected), "the call plays %s" % expected)
 	check(route.has("night_dog_fed"), "fed, the dog comes up the stairs in the night")
 	check(route[-1] == "morning_after", "then Friday morning")
+	await wait(0.7)
+	check(night.current_room() == "bedroom" and not night.get_node("%ShopArt").visible, "back in bed: the picture is the bedroom again")
 	await wait(4.5)
 	check(current_scene.name == "Title" and gs.day == 3, "day three isn't written yet: back to the title screen")
+
+func _night_turn_back() -> void:
+	section("The second night: down to the phone, then back up")
+	gs.reset()
+	gs.day = 2
+	gs.minutes = THURSDAY_DAWN + 15 * 60
+	root.get_node("Transition").go_to("res://scenes/night.tscn", 0.1)
+	await wait(2.0)
+	var night: Node = current_scene
+	var column: Node = night.get_node("%Narrator")
+	advance(column)
+	await process_frame
+	night.look("bed")
+	advance(column)
+	await pick(column, "Go down to it")
+	advance(column)
+	await wait(0.7)
+	night.click("night_shop_up")
+	var route: Array = [column._section]
+	for i in 40:
+		column._on_advance_pressed()
+		if route[-1] != column._section:
+			route.append(column._section)
+	check(route.has("phone_ignored") and not gs.rules_broken.has("phone"), "turning back on the stairs lets it ring: rule four kept")
+	await wait(0.7)
+	check(night.current_room() == "bedroom", "and you're back in bed")
+	await wait(4.0)
+

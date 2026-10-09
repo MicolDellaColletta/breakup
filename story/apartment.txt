@@ -29,7 +29,7 @@ unknown: Or don't. Let some air in. Let them see you.
 > Leave it open -> window_open | break=window | flag=window_decided
 
 === window_closed
-narration: The latch is stiff with cold. It closes with a sound like a held breath let go.
+narration | sound=latch: The latch is stiff with cold. It closes with a sound like a held breath let go.
 narration: For a second, in the glass, you think someone is standing behind you. It's only the coat on the hook.
 
 === window_open
@@ -44,7 +44,7 @@ paranoia: Rule seven. Keep the radio on at night. The silence is worse.
 > Leave it off -> radio_off | break=radio | flag=radio_decided
 
 === radio_on
-narration | flag=radio_on: You plug it in. Amber light, a hum, then static, then a voice in the middle of a sentence. Calm, unhurried. The voice that came through the static on the road.
+narration | sound=click | flag=radio_on: You plug it in. Amber light, a hum, then static, then a voice in the middle of a sentence. Calm, unhurried. The voice that came through the static on the road.
 narration: "...and to our new arrival over at the pawn shop: welcome to Kettle Lake. Keep the radio on, friend. It's a long winter."
 paranoia: He knows you're here. Everyone knows you're here.
 
