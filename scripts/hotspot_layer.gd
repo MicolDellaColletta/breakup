@@ -4,10 +4,13 @@ extends Control
 # The clickable things in one room, laid over its picture. Reads them from
 # story/spots.cfg (rect= says where, as fractions of the screen), so moving a
 # hotspot is a text edit. Hold Tab to see everything clickable. Clicking a
-# thing with an item in your hand (Hud.held_item) uses the item on it.
+# thing with an item in your hand (Hud.held_item) uses the item on it;
+# clicking something already looked at gets a short reply instead of nothing.
 
 signal spot_clicked(spot_id: String)
-signal item_used(spot_id: String, item_id: String)
+# A short scene that changes nothing in the room: something from your pockets
+# used on a thing (story/use.txt), or a second look at something.
+signal aside(section: String)
 
 var _spots: Dictionary = {}
 # False while the story is talking: hotspots stay on screen but don't react.
@@ -75,8 +78,10 @@ func _on_clicked(spot_id: String) -> void:
 	var walks: bool = Spots.go(spot_id) != "" and not Spots.go(spot_id).begins_with("@")
 	if held != "" and not walks:
 		get_node("/root/Hud").drop()
-		item_used.emit(spot_id, held)
-	elif not _spots[spot_id].used:
+		aside.emit(Spots.use_section(spot_id, held))
+	elif _spots[spot_id].used:
+		aside.emit(Spots.seen_section(spot_id))
+	else:
 		spot_clicked.emit(spot_id)
 
 func _place_all() -> void:

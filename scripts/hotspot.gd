@@ -19,8 +19,8 @@ var label_text: String = ""
 # "forward", "back", "left" or "right": a way to walk, drawn as an arrow that's
 # always faintly visible. "" for an ordinary thing to look at.
 var arrow: String = ""
-# Looked at already: still there, but no longer clickable (except to use
-# something from your pockets on it).
+# Looked at already: still there, but drawn as nothing; a click gets a short
+# reply instead of the whole scene again.
 var used: bool = false:
 	set(value):
 		used = value
@@ -41,8 +41,6 @@ func _ready() -> void:
 	_refresh()
 
 func _gui_input(event: InputEvent) -> void:
-	if used and not _holding():
-		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		accept_event()
 		clicked.emit(spot_id)

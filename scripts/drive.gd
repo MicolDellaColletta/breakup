@@ -65,7 +65,7 @@ func _ready() -> void:
 	narrator.add_story(USE_PATH)
 	hotspots.fill("drive", "car", narrator)
 	hotspots.spot_clicked.connect(click)
-	hotspots.item_used.connect(use_item)
+	hotspots.aside.connect(play_aside)
 	narrator.set_input_enabled(false)
 	hotspots.interactive = false
 	await Transition.fade_in(2.0)
@@ -89,14 +89,15 @@ func click(spot_id: String) -> void:
 	else:
 		_examine(object_id)
 
-# Something from your pockets used on a hotspot (story/use.txt). The hotspots
-# only pass it on while they're awake, so nothing else is talking.
-func use_item(spot_id: String, item_id: String) -> void:
+# A short scene that changes nothing: something from your pockets used on a
+# hotspot, or a second look (story/use.txt).
+# The hotspots only pass it on while they're awake, so nothing else is talking.
+func play_aside(section: String) -> void:
 	if not _main_finished or _ending:
 		return
 	_examining = true
 	hotspots.interactive = false
-	narrator.start_conversation(Spots.use_section(spot_id, item_id))
+	narrator.start_conversation(section)
 
 func current_view() -> String:
 	return _view

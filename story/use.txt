@@ -3,6 +3,24 @@
 # ("Use it on something") and click a thing in the room with it: the spot's
 # use_<item>= in story/spots.cfg names the section here that plays. Anything
 # without one plays use_nothing. Every scene with hotspots loads this file.
+# The seen_ sections are the replies, in turn, when you click something
+# you've already looked at (unless its spot has a seen= of its own).
+
+=== seen_0
+narration: Nothing new. It's exactly as it was.
+
+=== seen_1
+paranoia: You already checked. Check again. No. Don't.
+
+=== seen_2
+narration: You look again anyway. It doesn't look back.
+
+=== seen_3
+paranoia: It hasn't changed. You'd know if it had. Wouldn't you?
+
+=== seen_car_mirror
+narration: You check the mirror again. The road behind you stays empty, and stays empty.
+paranoia: Keep checking. That's what they'd want, too.
 
 === use_nothing
 paranoia: That isn't what it's for. Put it away before someone sees you fumbling.

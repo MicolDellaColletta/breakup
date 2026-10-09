@@ -62,6 +62,8 @@ var rules_broken: Array[String] = []
 var flags: Array[String] = []
 # Places on the town map you've been to, any evening (if=visited:lake).
 var visited: Array[String] = []
+# Times something already looked at was clicked again: picks the reply.
+var second_looks: int
 
 # Minutes since midnight on the first evening. Past midnight it keeps
 # counting up, so 1:00 AM that night is 25 * 60.
@@ -116,6 +118,7 @@ func _ready() -> void:
 # How a new game starts.
 func reset() -> void:
 	day = 0
+	second_looks = 0
 	answered_phone = false
 	fed_dog = false
 	invited_to_pub = false

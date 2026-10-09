@@ -110,6 +110,13 @@ func _drive() -> void:
 	check(drive.current_view() == "car" and hotspots.interactive and hotspots.get_spot("car_mirror").used, "back to the road; the mirror is done")
 	drive.click("car_mirror")
 	check(drive.current_view() == "car", "a used hotspot doesn't play again")
+	hotspots._on_clicked("car_mirror")
+	check(column._section == "seen_car_mirror", "clicking it gets a short reply of its own instead")
+	advance(column)
+	hotspots._on_clicked("car_coat")
+	check(column._section.begins_with("seen_") and column._section != "seen_car_mirror", "anything else looked at gets one of the shared replies")
+	advance(column)
+	check(hotspots.interactive, "and the car wakes again")
 	var others: int = gs.voices["john"] + gs.voices["appraisal"] + gs.voices["warmth"] + gs.voices["animal"]
 	check(others == 0, "the prologue feeds no voice but Paranoia")
 

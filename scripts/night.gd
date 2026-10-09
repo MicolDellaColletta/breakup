@@ -48,7 +48,7 @@ func _ready() -> void:
 		GameState.flags.erase(flag)
 	art.view = _room
 	hotspots.spot_clicked.connect(click)
-	hotspots.item_used.connect(use_item)
+	hotspots.aside.connect(play_aside)
 	hotspots.interactive = false
 	narrator.use_sounds(sounds)
 	narrator.section_finished.connect(_on_section_finished)
@@ -84,13 +84,14 @@ func look(spot_id: String) -> void:
 	hotspots.interactive = false
 	narrator.start_conversation(Spots.section(spot_id))
 
-# Something from your pockets used on a hotspot (story/use.txt).
-func use_item(spot_id: String, item_id: String) -> void:
+# A short scene that changes nothing: something from your pockets used on a
+# hotspot, or a second look (story/use.txt).
+func play_aside(section: String) -> void:
 	if _busy or _ending:
 		return
 	_busy = true
 	hotspots.interactive = false
-	narrator.start_conversation(Spots.use_section(spot_id, item_id))
+	narrator.start_conversation(section)
 
 func walk(room: String) -> void:
 	_busy = true

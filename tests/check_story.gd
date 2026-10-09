@@ -72,8 +72,13 @@ func _check_spots() -> void:
 	parser.free()
 	if not uses.has("use_nothing"):
 		problems.append("use.txt needs a use_nothing section")
+	for i in load("res://scripts/spots.gd").SEEN_REPLIES:
+		if not uses.has("seen_%d" % i):
+			problems.append("use.txt needs a seen_%d section (Spots.SEEN_REPLIES)" % i)
 	for spot_id in spots.get_sections():
 		var scene: String = spots.get_value(spot_id, "scene", "")
+		if spots.has_section_key(spot_id, "seen") and not uses.has(spots.get_value(spot_id, "seen")):
+			problems.append("[%s] seen: no section '%s' in use.txt" % [spot_id, spots.get_value(spot_id, "seen")])
 		# use_<item>= : a real item, and a section in use.txt.
 		for key in spots.get_section_keys(spot_id):
 			if not key.begins_with("use_"):
