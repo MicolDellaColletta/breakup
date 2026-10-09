@@ -1,0 +1,61 @@
+# EXAMINING THINGS FROM THE SHELVES
+# Same format as the other story files. While a customer waits, pick a thing
+# up and click Examine: a close-up, with its details as hotspots
+# (story/spots.cfg, scene "examine", room = the item id). Each detail plays
+# its section here. Write them as clues: what a customer asks for should be
+# decided by these, not by the descriptions.
+
+=== examine_call_letters
+narration: Two letters, scratched in with a knife point, by someone young enough to press too hard: R.H.
+appraisal | if=appraisal>=1: Initials on a thing you made yourself. Nobody scratches their name on something they bought.
+
+=== examine_call_reed
+narration: The reed is worn thin and soft. Somebody blew through this on a thousand cold mornings, until it sounded right to the birds.
+
+=== examine_decoy_head
+narration: The paint on the head flakes under your thumbnail. Green over an older green over bare wood.
+
+=== examine_decoy_under
+narration: You turn it over. Stamped into the bottom: PROPERTY OF KETTLE LAKE ROD & GUN CLUB.
+narration: Someone has tried to sand it off and given up halfway.
+appraisal | if=appraisal>=1: Whoever brought this in knew it wasn't theirs to sell.
+
+=== examine_compass_needle
+narration: The needle swings, wavers, and settles on north. Slowly. As if it has to think about it first.
+
+=== examine_compass_back
+narration: You turn it over. Engraved on the back, worn almost smooth: a single letter, E., and a line under it, the way a man signs a thing he means to keep.
+
+=== examine_fox_eye
+narration: One glass eye is set a hair too high. The fox looks past you, at the door, as if it's waiting for someone.
+
+=== examine_fox_seam
+narration: The stitching along the belly is coarse and quick, done by somebody who didn't know how, or didn't care.
+appraisal | if=appraisal>=1: Not the hand that mounted the ram in the office. Two different people have worked in this shop.
+
+=== examine_tin_lock
+narration: A padlock no bigger than your thumbnail. The brass around the keyhole is scratched bright, as if someone tried a lot of wrong keys.
+
+=== examine_tin_tag
+narration: The tag on its string: 0527. Where the name was, the card is scratched through to nothing.
+paranoia: The same number as yours. Put it back.
+
+=== examine_tin_shake
+narration: You tilt it. Something shifts inside, soft, then a hard edge knocks against the tin. Paper, and something that isn't paper.
+paranoia: You didn't hear that. Put it back on the shelf.
+
+=== examine_knife_blade
+narration: Sharpened so many times the blade has worn narrow, curved like a thin smile.
+
+=== examine_knife_handle
+narration: Antler, the grip polished dark by one man's hand. In the crack where the blade meets it, something rust-brown that didn't wash out.
+paranoia: Deer. It's a skinning knife. It's for deer.
+
+=== examine_snowshoes_lacing
+narration: The rawhide lacing has been mended in three places, each with a different knot. Three people, at least, walked a long way in these.
+
+=== examine_snowshoes_frame
+narration: Burned into the ash frame, small, with a hot nail: A.K. 98.
+narration: Under it, scratched in later and fainter, one word: KEEPER.
+paranoia: Last winter's. From the Keeper's things, after breakup, the ledger said.
+paranoia: Things. Not the Keeper. The Keeper's things.

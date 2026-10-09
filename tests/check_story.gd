@@ -16,6 +16,7 @@ const STORY_SCENES: Dictionary = {
 	"res://story/night_one.txt": "res://scenes/night.tscn",
 	"res://story/night_two.txt": "res://scenes/night.tscn",
 	"res://story/use.txt": "res://scenes/counter.tscn",
+	"res://story/examine.txt": "res://scenes/counter.tscn",
 }
 
 # Where each scene's spots must find their sections: in one of the files listed.
@@ -25,6 +26,7 @@ const SPOT_STORIES: Dictionary = {
 	"apartment_first": ["res://story/apartment.txt"],
 	"shop": ["res://story/shop_looks.txt"],
 	"night": ["res://story/night_one.txt", "res://story/night_two.txt"],
+	"examine": ["res://story/examine.txt"],
 }
 
 var places: ConfigFile = ConfigFile.new()
@@ -176,6 +178,10 @@ func _condition_problems(text: String, items: ConfigFile, stock: ConfigFile) -> 
 			elif condition.begins_with("sold:"):
 				if not stock.has_section(condition.trim_prefix("sold:")):
 					problems.append("no stock item '%s'" % condition)
+			elif condition.begins_with("window:"):
+				var in_window: String = condition.trim_prefix("window:")
+				if not stock.has_section(in_window) or stock.get_value(in_window, "shelf", "") != "floor":
+					problems.append("'%s': only floor items go in the window" % condition)
 			elif condition.begins_with("visited:"):
 				if not places.has_section(condition.trim_prefix("visited:")):
 					problems.append("no place '%s' in places.cfg" % condition)

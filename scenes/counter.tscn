@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scripts/hotspot_layer.gd" id="21_spots"]
 [ext_resource type="AudioStream" uid="uid://cj2muj1x5nnsb" path="res://audio/soundsgoodmusic-creaking-stairs-306029.mp3" id="22_floor"]
 [ext_resource type="PackedScene" uid="uid://tyul2dy2d37i" path="res://scenes/document_viewer.tscn" id="23_viewer"]
+[ext_resource type="Script" path="res://scripts/shelf_view.gd" id="24_shelves"]
+[ext_resource type="Script" path="res://scripts/examine_view.gd" id="25_examine"]
 
 [node name="Counter" type="Control" unique_id=1110293847]
 layout_mode = 3
@@ -85,27 +87,29 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Register"
 
-[node name="ShelfPanel" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
+[node name="ShelfPanel" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 32
+theme_override_constants/separation = 14
 
-[node name="ShelfItems" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1012404957]
+[node name="ShelfView" type="Control" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1012404957]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(220, 0)
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("24_shelves")
 
 [node name="ItemDetails" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1112505967]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 12
+theme_override_constants/separation = 6
 
 [node name="ItemName" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1212606977]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 
 [node name="ItemDescription" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1312707987]
 unique_name_in_owner = true
@@ -125,11 +129,19 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="OfferButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1512909907]
+[node name="ItemButtons" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1532939937]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ExamineButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1542949947]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
-text = "Offer this"
+text = "Examine"
+
+[node name="OfferButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1512909907]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hand it over"
 
 [node name="LedgerPanel" type="ScrollContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1221524656]
 unique_name_in_owner = true
@@ -175,6 +187,52 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Say there's nothing here"
 
+[node name="Examine" type="Control" parent="." unique_id=1744474447]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_right = 0.62
+anchor_bottom = 1.0
+script = ExtResource("25_examine")
+
+[node name="ExamineSpots" type="Control" parent="Examine" unique_id=1754475447]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("21_spots")
+
+[node name="ExamineTitle" type="Label" parent="Examine" unique_id=1764476447]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 36.0
+offset_right = 600.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 0.85)
+theme_override_font_sizes/font_size = 26
+text = "A closer look"
+
+[node name="PutDownButton" type="Button" parent="Examine" unique_id=1774477447]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -70.0
+offset_right = 90.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Put it down"
+
 [node name="ExploreArt" type="Control" parent="." unique_id=1614141414]
 unique_name_in_owner = true
 visible = false
@@ -219,5 +277,5 @@ unique_name_in_owner = true
 stream = ExtResource("22_floor")
 volume_db = -8.0
 
-[node name="DocumentViewer" parent="." unique_id=1717171717 instance=ExtResource("23_viewer")]
+[node name="DocumentViewer" parent="." unique_id=1727272727 instance=ExtResource("23_viewer")]
 unique_name_in_owner = true

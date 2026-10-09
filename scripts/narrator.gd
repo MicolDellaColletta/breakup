@@ -267,6 +267,8 @@ func _single_condition_met(condition: String) -> bool:
 		result = GameState.has_item(text.trim_prefix("has:"))
 	elif text.begins_with("sold:"):
 		result = GameState.sold.has(text.trim_prefix("sold:"))
+	elif text.begins_with("window:"):
+		result = GameState.shelf_window.has(text.trim_prefix("window:"))
 	elif text.begins_with("visited:"):
 		result = GameState.visited.has(text.trim_prefix("visited:"))
 	elif text.begins_with("flag:"):

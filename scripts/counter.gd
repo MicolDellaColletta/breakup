@@ -1,10 +1,14 @@
 extends Control
 
-# The shop's home screen: behind the counter, shelves on the left, the
-# dialogue column on the right. Customers come in one at a time.
+# The shop's home screen: behind the counter, the shop on the left, the
+# dialogue column on the right. Customers come in one at a time and stand
+# across the counter (PersonArt). The shelves are drawn (ShelfView): pick a
+# thing up, put it down somewhere else, put it in the front window, or hand
+# it over to whoever's waiting.
 
 const LOOKS_PATH: String = "res://story/shop_looks.txt"
 const USE_PATH: String = "res://story/use.txt"
+const EXAMINE_PATH: String = "res://story/examine.txt"
 const STOCK_PATH: String = "res://story/stock.cfg"
 const LEDGER_PATH: String = "res://story/ledger.cfg"
 const MAP_SCENE: String = "res://scenes/map.tscn"
@@ -21,11 +25,11 @@ const CUSTOMER_GAP: float = 1.5
 const VIEWS: Dictionary = {
 	"counter": {
 		"title": "Behind the counter",
-		"text": "Glass under your hands. The register, open and empty. The phone. A brass balance at the end of the glass, the kind for weighing gold. Past the shop floor, the front windows, and the neon on the snow.",
+		"text": "Glass under your hands. Past the shop floor, the front window: three spots on the ledge, seen from the road.",
 	},
 	"floor": {
 		"title": "The shop floor",
-		"text": "Everything out here is for sale.",
+		"text": "Everything out here is for sale. Click a thing to pick it up, and a spot to put it down. Right-click puts it back.",
 	},
 	"back": {
 		"title": "The back shelves",
@@ -58,7 +62,10 @@ const TAKE_AMOUNT: int = 20
 @onready var register_panel: Control = %RegisterPanel
 @onready var drawer_label: Label = %DrawerLabel
 @onready var take_button: Button = %TakeButton
-@onready var shelf_items: VBoxContainer = %ShelfItems
+@onready var shelf_view: ShelfView = %ShelfView
+@onready var examine_button: Button = %ExamineButton
+@onready var examine_view: ExamineView = %Examine
+@onready var examine_spots: HotspotLayer = %ExamineSpots
 @onready var item_name: Label = %ItemName
 @onready var item_description: Label = %ItemDescription
 @onready var item_tag: Label = %ItemTag
@@ -82,12 +89,18 @@ var _customer_index: int = -1
 var _customer: String = ""
 var _browsing: bool = false
 var _view: String = ""
+# The thing in your hand, picked up off a shelf ("" for nothing). It's also
+# what the details under the shelves describe.
 var _selected: String = ""
 var _exploring: bool = false
 var _looked: Array[String] = []
 # After closing: which of the shop's rooms you're standing in.
 var _room: String = "counter"
 var _walking: bool = false
+# A close-up is open (Examine).
+var _examining: bool = false
+# Details looked at in close-ups, as "item_id/spot_id": they stay looked at.
+var _details_seen: Array[String] = []
 
 func _ready() -> void:
 	if _stock.load(STOCK_PATH) != OK:
@@ -102,6 +115,15 @@ func _ready() -> void:
 	register_button.pressed.connect(_show_view.bind("register"))
 	take_button.pressed.connect(_on_take_pressed)
 	offer_button.pressed.connect(_on_offer_pressed)
+	examine_button.pressed.connect(_on_examine_pressed)
+	shelf_view.setup(_stock, _tag)
+	shelf_view.spot_clicked.connect(_on_spot_clicked)
+	shelf_view.counter_clicked.connect(_on_counter_clicked)
+	shelf_view.put_back.connect(_put_down)
+	examine_spots.spot_clicked.connect(_on_detail_clicked)
+	examine_spots.aside.connect(_on_detail_aside)
+	%PutDownButton.pressed.connect(close_examine)
+	_fill_shelves()
 	nothing_button.pressed.connect(_on_nothing_pressed)
 	column.use_sounds(sounds)
 	column.line_shown.connect(_on_line_shown)
@@ -113,6 +135,7 @@ func _ready() -> void:
 	column.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[1]))
 	column.add_story(LOOKS_PATH)
 	column.add_story(USE_PATH)
+	column.add_story(EXAMINE_PATH)
 	_show_view("counter")
 	column.set_input_enabled(false)
 	await Transition.fade_in(2.0)
@@ -123,11 +146,17 @@ func _ready() -> void:
 
 # The story has nowhere left to go: the next customer comes in.
 func _on_section_finished(_section: String) -> void:
+	if _examining:
+		examine_spots.interactive = true
+		return
 	if _browsing:
 		return
 	if _exploring:
 		_fill_spots()
 		return
+	# They go out while the next one is still on the way (CUSTOMER_GAP).
+	if shelf_view.person != "":
+		_person_leaves()
 	_next_customer()
 
 func _next_customer() -> void:
@@ -145,6 +174,7 @@ func _next_customer() -> void:
 		return
 	_customer = _visits[_customer_index].get_slice("|", 0).strip_edges()
 	await get_tree().create_timer(CUSTOMER_GAP).timeout
+	_person_comes_in(_customer)
 	column.start_conversation(_customer + "_enters")
 
 func _visit_happens(visit: String) -> bool:
@@ -161,6 +191,7 @@ func _on_choice_made(choice: Dictionary) -> void:
 
 func _on_offer_pressed() -> void:
 	var item_id: String = _selected
+	_put_down()
 	_stop_browsing()
 	var section: String = "%s_given_%s" % [_customer, item_id]
 	if not column.has_section(section):
@@ -172,6 +203,8 @@ func _on_nothing_pressed() -> void:
 	column.play(_customer + "_nothing")
 
 func _stop_browsing() -> void:
+	if _examining:
+		close_examine()
 	_browsing = false
 	nothing_button.visible = false
 	_refresh_offer()
@@ -182,12 +215,13 @@ func _on_line_shown(line: Dictionary) -> void:
 		GameState.record_sale(_stock.get_value(item_id, "name"), item_id,
 			int(_stock.get_value(item_id, "price", 0)), Narrator.speaker_info(_customer)["name"])
 		if _selected == item_id:
-			_selected = ""
+			_put_down()
 		_show_view(_view)
 	if line.has("pawned"):
 		var pawned: String = line["pawned"]
 		GameState.record_pawn(_stock.get_value(pawned, "name"), pawned, int(line.get("loan", "0")),
 			_stock.get_value(pawned, "pawn_tag", "new"), Narrator.speaker_info(_customer)["name"])
+		_fill_shelves()
 		_show_view(_view)
 
 # --- The shelves ---
@@ -196,36 +230,85 @@ func _show_view(view: String) -> void:
 	_view = view
 	view_title.text = VIEWS[view]["title"]
 	view_text.text = VIEWS[view]["text"]
-	shelf_panel.visible = view == "floor" or view == "back"
+	shelf_panel.visible = view == "floor" or view == "back" or view == "counter"
 	ledger_panel.visible = view == "ledger"
 	register_panel.visible = view == "register"
-	for old in shelf_items.get_children():
-		old.queue_free()
 	if view == "ledger":
 		_write_ledger()
 	if view == "register":
 		_open_register()
-	if not shelf_panel.visible:
-		return
-	var first: String = ""
-	for item_id in _stock.get_sections():
-		if not _in_shop(item_id):
-			continue
-		if _stock.get_value(item_id, "shelf") != view or GameState.sold.has(item_id):
-			continue
-		if first == "":
-			first = item_id
-		var button: Button = Button.new()
-		button.text = _stock.get_value(item_id, "name")
-		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		button.pressed.connect(_select.bind(item_id))
-		shelf_items.add_child(button)
-	_select(first if _stock.get_value(_selected, "shelf", "") != view or GameState.sold.has(_selected) else _selected)
+	if shelf_panel.visible:
+		shelf_view.mode = view
+	_show_details()
 
+# Picks a thing up off its shelf (tests use it to choose what to offer).
 func _select(item_id: String) -> void:
 	_selected = item_id
+	shelf_view.held = item_id
+	_show_details()
+
+# Puts down whatever you're holding: it stays where it was.
+func _put_down() -> void:
+	_selected = ""
+	shelf_view.held = ""
+	_show_details()
+
+# A spot on a shelf (or in the window) was clicked: pick up what's there, or
+# put what you're holding there (swapping with what was there).
+func _on_spot_clicked(shelf: String, spot: int) -> void:
+	var there: String = GameState.shelf(shelf)[spot]
+	if _selected == "":
+		if there != "":
+			_select(there)
+		return
+	if there == _selected:
+		_put_down()
+		return
+	if not _fits(_selected, shelf) or (there != "" and not _fits(there, GameState.shelf_spot_of(_selected)[0])):
+		view_text.text = _wont_fit(_selected, shelf)
+		return
+	GameState.place_on_shelf(_selected, shelf, spot)
+	_put_down()
+
+# Floor things (for sale) go on the floor shelves or in the window; held
+# things only on the back shelf.
+func _fits(item_id: String, shelf: String) -> bool:
+	var kind: String = _stock.get_value(item_id, "shelf", "")
+	if kind == "back":
+		return shelf == "back"
+	return shelf == "floor" or shelf == "window"
+
+func _wont_fit(item_id: String, shelf: String) -> String:
+	if _stock.get_value(item_id, "shelf", "") == "back":
+		return "That's held against a ticket. It stays on the back shelf."
+	return "Things for sale go out front, or in the window." if shelf == "back" else VIEWS[_view]["text"]
+
+func _on_counter_clicked() -> void:
+	if offer_button.visible:
+		_on_offer_pressed()
+
+# Every thing in the shop has a spot: anything new (just pawned, or never
+# arranged) goes in the first empty spot on its shelf; anything gone (sold,
+# not arrived yet) comes off.
+func _fill_shelves() -> void:
+	GameState.ready_shelves()
+	for item_id in _stock.get_sections():
+		var kind: String = _stock.get_value(item_id, "shelf", "")
+		if kind != "floor" and kind != "back":
+			continue
+		if not _in_shop(item_id) or GameState.sold.has(item_id):
+			GameState.take_off_shelves(item_id)
+			continue
+		if GameState.shelf_spot_of(item_id)[1] == -1:
+			var spot: int = GameState.empty_spot(kind)
+			if spot != -1:
+				GameState.shelf(kind)[spot] = item_id
+	shelf_view.queue_redraw()
+
+func _show_details() -> void:
+	var item_id: String = _selected
 	if item_id == "":
-		item_name.text = "Nothing left here."
+		item_name.text = "Nothing in your hands."
 		item_description.text = ""
 		item_tag.text = ""
 	else:
@@ -237,6 +320,55 @@ func _select(item_id: String) -> void:
 			item_tag.text = "$%d" % _stock.get_value(item_id, "price")
 	_show_voice_notes(item_id)
 	_refresh_offer()
+
+# --- Examining: a close-up of the thing in your hand ---
+
+func _on_examine_pressed() -> void:
+	if _selected == "":
+		return
+	_examining = true
+	examine_view.shape = _stock.get_value(_selected, "shape", "")
+	%ExamineTitle.text = _stock.get_value(_selected, "name")
+	examine_spots.fill("examine", _selected, column)
+	for seen in _details_seen:
+		if seen.begins_with(_selected + "/"):
+			examine_spots.mark_used(seen.get_slice("/", 1))
+	examine_spots.interactive = true
+	examine_view.visible = true
+
+func close_examine() -> void:
+	_examining = false
+	examine_view.visible = false
+	_refresh_offer()
+
+# A detail on the close-up: what it tells you plays in the column.
+func _on_detail_clicked(spot_id: String) -> void:
+	_details_seen.append(_selected + "/" + spot_id)
+	examine_spots.mark_used(spot_id)
+	examine_spots.interactive = false
+	column.start_conversation(Spots.section(spot_id))
+
+func _on_detail_aside(section: String) -> void:
+	examine_spots.interactive = false
+	column.start_conversation(section)
+
+# --- Who's across the counter ---
+
+const PERSON_FADE: float = 0.5
+
+func _person_comes_in(person_id: String) -> void:
+	if not PersonArt.has(person_id):
+		return
+	_show_view("counter")
+	shelf_view.person = person_id
+	shelf_view.person_alpha = 0.0
+	create_tween().tween_property(shelf_view, "person_alpha", 1.0, PERSON_FADE)
+
+func _person_leaves() -> void:
+	var fade: Tween = create_tween()
+	fade.tween_property(shelf_view, "person_alpha", 0.0, PERSON_FADE)
+	await fade.finished
+	shelf_view.person = ""
 
 # appraisal="..." with appraisal_at=1 in stock.cfg: that voice comments on
 # the item once it's strong enough. A weak voice stays quiet.
@@ -416,3 +548,7 @@ func _on_take_pressed() -> void:
 # Only floor items can be offered, and only while a customer is waiting.
 func _refresh_offer() -> void:
 	offer_button.visible = _browsing and _selected != "" and _stock.get_value(_selected, "shelf", "") == "floor"
+	shelf_view.can_hand_over = offer_button.visible
+	# Examining while someone waits: the close-up plays in the column, so only
+	# once they've asked and you're looking.
+	examine_button.visible = _browsing and _selected != "" and not Spots.in_room("examine", _selected, column).is_empty()

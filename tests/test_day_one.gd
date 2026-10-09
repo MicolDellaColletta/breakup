@@ -68,9 +68,7 @@ func _widow_kind() -> void:
 	advance(column)
 	counter._show_view("floor")
 	await process_frame
-	var shelf: Array = counter.get_node("%ShelfItems").get_children().filter(
-		func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return b.text)
-	check(not shelf.has("Duck call"), "the duck call is sold and leaves the shelf")
+	check(not gs.shelf_floor.has("duck_call") and gs.shelf_floor.has("decoy"), "the duck call is sold and leaves the shelf")
 	check(gs.till == 15 and gs.till_by_ledger == 15, "her $15 goes in the till")
 	check(gs.ledger_lines == ["Oct 6. Duck call, sold to Mrs. Hollis. $15"], "the ledger writes the sale down, dated")
 	counter._show_view("ledger")
@@ -209,9 +207,7 @@ func _walt(counter: Node, column: Node, run: String) -> void:
 			check(gs.cash + gs.till == cash_before + till_before - 30, "a fair loan: thirty dollars")
 			check(gs.ledger_lines[-1].contains("Thirty silver dollars, pawned by Walt Pruitt, tag 0432. $30 loan"), "the ledger writes down the pawn")
 			counter._show_view("back")
-			var shelf: Array = counter.get_node("%ShelfItems").get_children().filter(
-				func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return b.text)
-			check(shelf.has("Thirty silver dollars"), "the coins go on the back shelf")
+			check(gs.shelf_back.has("silver_dollars"), "the coins go on the back shelf")
 			counter._show_view("counter")
 		"Take a second":
 			await pick(column, "can't take these")
