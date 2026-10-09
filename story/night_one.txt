@@ -11,7 +11,7 @@ paranoia: The rules. All of them. Before you sleep.
 === radio
 narration | time=+10: The radio on the side table, amber dial, the cord still where you left it.
 paranoia: Rule seven.
-> Turn it on -> radio_on
+> Turn it on -> radio_on | flag=radio_on
 > Leave it off -> radio_off | break=radio
 
 === radio_on
@@ -42,7 +42,7 @@ paranoia: You know what happened last time. Or you don't, and that's worse.
 narration | time=+10: The two front windows, the neon below painting the frost on the glass red.
 paranoia: Rule one. It's been dark for hours.
 > Check the latches -> windows_closed
-> Open one, just a crack, for air -> windows_open | break=window
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
 
 === windows_closed
 narration: Both latched. You check them again anyway, then a third time, until the checking feels like a rule of its own.

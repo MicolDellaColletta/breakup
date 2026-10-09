@@ -11,7 +11,7 @@ paranoia: The rules.
 === radio
 narration | time=+10: The radio. Thursday.
 paranoia: Rule seven.
-> Turn it on -> radio_on
+> Turn it on -> radio_on | flag=radio_on
 > Leave it off -> radio_off | break=radio
 
 === radio_on
@@ -48,7 +48,7 @@ paranoia: Twice now. Whatever it is, it's counting too.
 narration | time=+10: The front windows, red with neon, white with frost.
 paranoia: Rule one.
 > Check the latches -> windows_closed
-> Open one, just a crack, for air -> windows_open | break=window
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
 
 === windows_closed
 narration: Latched. Both. You check them twice, then make yourself stop at twice.
