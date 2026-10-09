@@ -4,6 +4,7 @@ extends Control
 # dialogue column on the right. Customers come in one at a time.
 
 const LOOKS_PATH: String = "res://story/shop_looks.txt"
+const USE_PATH: String = "res://story/use.txt"
 const STOCK_PATH: String = "res://story/stock.cfg"
 const LEDGER_PATH: String = "res://story/ledger.cfg"
 const MAP_SCENE: String = "res://scenes/map.tscn"
@@ -107,9 +108,11 @@ func _ready() -> void:
 	column.section_finished.connect(_on_section_finished)
 	column.choice_made.connect(_on_choice_made)
 	explore_spots.spot_clicked.connect(click)
+	explore_spots.item_used.connect(use_item)
 	document_viewer.closed.connect(_on_page_closed)
 	column.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[1]))
 	column.add_story(LOOKS_PATH)
+	column.add_story(USE_PATH)
 	_show_view("counter")
 	column.set_input_enabled(false)
 	await Transition.fade_in(2.0)
@@ -316,6 +319,13 @@ func look(spot_id: String) -> void:
 	explore_spots.mark_used(spot_id)
 	explore_spots.interactive = false
 	column.start_conversation(Spots.section(spot_id))
+
+# Something from your pockets used on a hotspot (story/use.txt).
+func use_item(spot_id: String, item_id: String) -> void:
+	if not _exploring or _walking or not explore_spots.interactive:
+		return
+	explore_spots.interactive = false
+	column.start_conversation(Spots.use_section(spot_id, item_id))
 
 # The ledger, open on the counter after closing: as often as you like.
 func read_ledger() -> void:

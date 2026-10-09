@@ -15,6 +15,7 @@ const STORY_SCENES: Dictionary = {
 	"res://story/town.txt": "res://scenes/map.tscn",
 	"res://story/night_one.txt": "res://scenes/night.tscn",
 	"res://story/night_two.txt": "res://scenes/night.tscn",
+	"res://story/use.txt": "res://scenes/counter.tscn",
 }
 
 # Where each scene's spots must find their sections: every file listed.
@@ -64,8 +65,23 @@ func _check_spots() -> void:
 	var spots: ConfigFile = ConfigFile.new()
 	spots.load("res://story/spots.cfg")
 	var problems: Array = []
+	var items: ConfigFile = ConfigFile.new()
+	items.load("res://story/items.cfg")
+	var parser: Node = load("res://scenes/dialogue_column.tscn").instantiate()
+	var uses: Dictionary = parser._parse_story("res://story/use.txt")
+	parser.free()
+	if not uses.has("use_nothing"):
+		problems.append("use.txt needs a use_nothing section")
 	for spot_id in spots.get_sections():
 		var scene: String = spots.get_value(spot_id, "scene", "")
+		# use_<item>= : a real item, and a section in use.txt.
+		for key in spots.get_section_keys(spot_id):
+			if not key.begins_with("use_"):
+				continue
+			if not items.has_section(key.trim_prefix("use_")):
+				problems.append("[%s] %s: no item '%s' in items.cfg" % [spot_id, key, key.trim_prefix("use_")])
+			if not uses.has(spots.get_value(spot_id, key)):
+				problems.append("[%s] %s: no section '%s' in use.txt" % [spot_id, key, spots.get_value(spot_id, key)])
 		if not SPOT_STORIES.has(scene):
 			problems.append("[%s] unknown scene '%s'" % [spot_id, scene])
 			continue

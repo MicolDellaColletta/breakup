@@ -3,9 +3,11 @@ extends Control
 
 # The clickable things in one room, laid over its picture. Reads them from
 # story/spots.cfg (rect= says where, as fractions of the screen), so moving a
-# hotspot is a text edit. Hold Tab to see everything clickable.
+# hotspot is a text edit. Hold Tab to see everything clickable. Clicking a
+# thing with an item in your hand (Hud.held_item) uses the item on it.
 
 signal spot_clicked(spot_id: String)
+signal item_used(spot_id: String, item_id: String)
 
 var _spots: Dictionary = {}
 # False while the story is talking: hotspots stay on screen but don't react.
@@ -66,7 +68,15 @@ func mark_used(spot_id: String) -> void:
 # --- Private ---
 
 func _on_clicked(spot_id: String) -> void:
-	if interactive:
+	if not interactive:
+		return
+	var held: String = get_node("/root/Hud").held_item
+	# Walking somewhere with it in your hand just walks.
+	var walks: bool = Spots.go(spot_id) != "" and not Spots.go(spot_id).begins_with("@")
+	if held != "" and not walks:
+		get_node("/root/Hud").drop()
+		item_used.emit(spot_id, held)
+	elif not _spots[spot_id].used:
 		spot_clicked.emit(spot_id)
 
 func _place_all() -> void:

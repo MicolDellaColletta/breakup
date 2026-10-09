@@ -54,6 +54,12 @@ static func arrow(spot_id: String) -> String:
 static func again(spot_id: String) -> bool:
 	return bool(_spots().get_value(spot_id, "again", false))
 
+# use_compass=use_compass_painting: the section that plays when that item
+# from your pockets is used on it. Anything else used on it plays
+# "use_nothing" (story/use.txt).
+static func use_section(spot_id: String, item_id: String) -> String:
+	return _spots().get_value(spot_id, "use_" + item_id, "use_nothing")
+
 # hidden=true: not on screen until the scene shows it (the steering wheel).
 static func starts_hidden(spot_id: String) -> bool:
 	return bool(_spots().get_value(spot_id, "hidden", false))

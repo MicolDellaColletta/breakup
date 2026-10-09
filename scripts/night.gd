@@ -11,6 +11,7 @@ extends Control
 const TITLE_SCENE: String = "res://scenes/title.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
 const SCENE_ID: String = "night"
+const USE_PATH: String = "res://story/use.txt"
 const VIEW_FADE: float = 0.25
 # Flags the picture shows (an open window, the radio's dial) that belong to a
 # single night: cleared when the next one starts.
@@ -47,11 +48,13 @@ func _ready() -> void:
 		GameState.flags.erase(flag)
 	art.view = _room
 	hotspots.spot_clicked.connect(click)
+	hotspots.item_used.connect(use_item)
 	hotspots.interactive = false
 	narrator.use_sounds(sounds)
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
 	narrator.load_story(GameState.NIGHT_STORIES.get(GameState.day, GameState.NIGHT_STORIES[1]))
+	narrator.add_story(USE_PATH)
 	narrator.set_input_enabled(false)
 	await Transition.fade_in(1.5)
 	narrator.set_input_enabled(true)
@@ -80,6 +83,14 @@ func look(spot_id: String) -> void:
 	_busy = true
 	hotspots.interactive = false
 	narrator.start_conversation(Spots.section(spot_id))
+
+# Something from your pockets used on a hotspot (story/use.txt).
+func use_item(spot_id: String, item_id: String) -> void:
+	if _busy or _ending:
+		return
+	_busy = true
+	hotspots.interactive = false
+	narrator.start_conversation(Spots.use_section(spot_id, item_id))
 
 func walk(room: String) -> void:
 	_busy = true

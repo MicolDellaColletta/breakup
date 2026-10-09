@@ -1,0 +1,96 @@
+# USING THINGS FROM YOUR POCKETS
+# Same format as the other story files. Take something out of your pockets
+# ("Use it on something") and click a thing in the room with it: the spot's
+# use_<item>= in story/spots.cfg names the section here that plays. Anything
+# without one plays use_nothing. Every scene with hotspots loads this file.
+
+=== use_nothing
+paranoia: That isn't what it's for. Put it away before someone sees you fumbling.
+
+# --- The drive ---
+
+=== use_rental_eyes
+narration: You hold the rental agreement up to the mirror, beside the strip of your own eyes.
+narration: The renter's name has run, as if the paper got wet. You read it anyway. You know what it said.
+paranoia: Neither of you can read it now. That's the point.
+
+# --- The shop, the first night ---
+
+=== use_ticket_shelves_night
+narration: You run the ticket along the shelves, matching numbers by the light of the neon. 0431. 0480. 0502.
+narration: 0527. A tin box, the kind cough drops come in, shut with a padlock no bigger than your thumbnail.
+narration: The name on its tag has been scratched out.
+paranoia: You have the ticket for it. Somebody made sure you'd have the ticket for it.
+unknown: Not yet, sweetheart. Not tonight.
+
+=== use_key_steel_night
+narration: The brass key doesn't even go in. The keyhole is the wrong shape, an older shape.
+paranoia: The front door key opens the front door. Nothing else here is yours.
+
+# --- The apartment ---
+
+=== use_polaroid_window
+narration: You hold the Polaroid up against the glass.
+narration: The same tree line, across the road. The same angle, the same leaning spruce. The sign, the lot, your car.
+narration: Whoever took it stood right there, between those two trees, last week. Before you came.
+paranoia: Step back from the window.
+narration: You step back from the window.
+
+=== use_key_locked
+-> use_key_locked_again | if=flag:tried_locked_door
+-> use_key_locked_first
+
+=== use_key_locked_first
+narration: The front door key. It won't fit. You try it anyway.
+narration: It goes in halfway and stops, as if something on the other side were pressing a thumb against the end of it.
+paranoia: Take it out. Slowly.
+narration | flag=tried_locked_door: You take it out. The brass is cold. Colder than the hall.
+
+=== use_key_locked_again
+narration: You try the key again. You knew it wouldn't fit. You try it every night now.
+paranoia: That's how it starts. Checking things that can't have changed.
+
+=== use_job_offer_mirror
+narration: You unfold the job offer and hold it up beside your face. "Dear John."
+narration: The man in the glass reads it with you. He doesn't argue.
+paranoia: Good. Neither do you.
+
+# --- The shop after closing ---
+
+=== use_ticket_ledger
+narration: You lay the ticket on the open ledger and run your finger down the tags until the numbers match.
+narration: Tin box. May '99. Held. No loan, no price.
+narration: The name is scratched out so hard the pen went through the page. You turn the page over. On the back, the hole is the only thing written.
+appraisal | if=appraisal>=1: No loan means nobody was paid. Nobody pawned it. Somebody just left it here, and wrote you a ticket.
+paranoia: A ticket for a box nobody pawned. In a glovebox. In a car you rented to get here.
+
+=== use_polaroid_front_window
+narration: You hold the Polaroid up to the shop window and line it up with the night outside.
+narration: Across the road, the two spruce, the gap between them. In the picture, your car, parked where it's parked now. The same snow on the roof.
+narration: Dated last week. Last week you hadn't left yet.
+paranoia: Then somebody knew which car. And where it would be.
+
+=== use_compass_steel_door
+narration: You hold the compass flat on your palm. The needle settles on north, slowly, the way it does.
+narration: Then, as you stand there, it turns. Off north. Toward the steel door, and the freezer humming behind it.
+narration: It stays there.
+paranoia: Iron. A big steel door, a freezer full of metal. That's all it is.
+unknown: Go on. Ask it what's in there.
+
+=== use_back_key_steel_door
+narration: The red tag says BACK. Not this door. The back door's past this one, past the freezer.
+paranoia: You'll have to walk past it to use that key. Every night.
+
+# --- The nights ---
+
+=== use_compass_painting
+narration: You hold the compass up to the painting, not knowing why.
+narration: The needle swings off north and settles, trembling, on the small figure far out on the breaking ice.
+paranoia: Put it down.
+narration: You put it in your pocket. Through the cloth, you can feel the needle still turning.
+
+=== use_bulletin_radio
+narration: You hold the bulletin under the radio's amber light. "The night radio needs volunteers for the Thursday watch. See the Reverend."
+narration: The Thursday watch. The calm voice, reading out hymn numbers that are your rules.
+narration: In the margin, in pencil, pressed hard: DON'T LET THEM PRAY FOR YOU.
+paranoia: He's on the radio. He's in the bulletin. He walked into your shop and put a compass in your hand.

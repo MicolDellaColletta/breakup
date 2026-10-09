@@ -47,6 +47,19 @@ theme_override_font_sizes/font_size = 18
 text = "Added to your pockets: "
 horizontal_alignment = 1
 
+[node name="HeldLabel" type="Label" parent="." unique_id=1516978880]
+unique_name_in_owner = true
+visible = false
+offset_right = 300.0
+offset_bottom = 26.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.96, 0.92, 0.82, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 15
+text = "Holding: "
+
 [node name="PocketsPanel" type="ColorRect" parent="." unique_id=1607988980]
 unique_name_in_owner = true
 anchors_preset = 15
@@ -100,6 +113,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Read it"
+
+[node name="UseButton" type="Button" parent="PocketsPanel/Margins/Layout/Details" unique_id=1124058688]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Use it on something"
 
 [node name="Spacer" type="Control" parent="PocketsPanel/Margins/Layout/Details" unique_id=1215068788]
 layout_mode = 2
