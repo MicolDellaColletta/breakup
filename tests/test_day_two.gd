@@ -106,6 +106,7 @@ func _cody_ezra_found_walt_accepts_ruth_upstairs() -> void:
 	counter._show_view("ledger")
 	var ledger: String = counter.get_node("%LedgerText").get_parsed_text()
 	check(ledger.contains("OLDER PAGES") and ledger.contains("E. Lund. .22 shells"), "the ledger's older pages show Ezra's Thursdays")
+	check(ledger.contains("Oct 6. Keeper settling in."), "and a line you didn't write, in the owner's hand")
 
 func _widow_ezra_fails_walt_refused_ruth_refused() -> void:
 	section("Day two: left the dog unfed and the door open, waved, didn't sell the picks or take the coins")

@@ -395,6 +395,9 @@ func _ledger_bbcode() -> String:
 		text += "\nNothing yet. The last line in the owner's hand is three weeks old.\n"
 	for line in GameState.ledger_lines:
 		text += "\n" + line.replace("[", "[lb]")
+	# From day two, a line you didn't write, in the owner's small, careful hand.
+	if GameState.day >= 2:
+		text += "\n[i]Oct 6. Keeper settling in.[/i]"
 	text += "\n\n[b]THE DRAWER, BY THE BOOK[/b]\n\n$%d" % GameState.till_by_ledger
 	return text
 

@@ -44,6 +44,12 @@ func _flag(name: String) -> bool:
 		return true
 	return get_node("/root/GameState").flags.has(name)
 
+# Which day it is: some things in the shop aren't quite where they were.
+func _day() -> int:
+	if Engine.is_editor_hint():
+		return 1
+	return get_node("/root/GameState").day
+
 func _has(item_id: String) -> bool:
 	if Engine.is_editor_hint():
 		return false
@@ -117,12 +123,14 @@ func _draw_floor() -> void:
 		for side in [-1, 1]:
 			draw_line(base, base + Vector2(side * 18, -22), Color(0.12, 0.11, 0.1), 3.0)
 			draw_line(base + Vector2(side * 9, -11), base + Vector2(side * 22, -8), Color(0.12, 0.11, 0.1), 2.0)
-	# The bear, in the front corner, reared up.
+	# The bear, in the front corner, reared up. From day two its head is
+	# turned a little further toward the counter.
+	var turn: float = 0.04 if _day() >= 2 else 0.0
 	var bear: Array = [Vector2(0.03, 1), Vector2(0.05, 0.62), Vector2(0.02, 0.5), Vector2(0.06, 0.45),
-		Vector2(0.08, 0.36), Vector2(0.11, 0.34), Vector2(0.14, 0.37), Vector2(0.16, 0.44), Vector2(0.21, 0.42),
-		Vector2(0.19, 0.5), Vector2(0.17, 0.6), Vector2(0.19, 1)]
+		Vector2(0.08 + turn * 0.8, 0.36), Vector2(0.11 + turn, 0.34 + turn * 0.2), Vector2(0.14 + turn, 0.37 + turn * 0.4),
+		Vector2(0.16, 0.44), Vector2(0.21, 0.42), Vector2(0.19, 0.5), Vector2(0.17, 0.6), Vector2(0.19, 1)]
 	_poly(bear, Color(0.006, 0.006, 0.008))
-	draw_circle(_p(0.115, 0.38), 2.0, Color(NEON, 0.6))
+	draw_circle(_p(0.115 + turn, 0.38), 2.0, Color(NEON, 0.6))
 
 func _draw_counter() -> void:
 	# Behind the counter: shelves, the office door (left), the hallway (right).
@@ -164,17 +172,23 @@ func _draw_counter() -> void:
 	_rect(0.62, 0.78, 0.16, 0.08, Color(0.04, 0.042, 0.05))
 	_rect(0.62, 0.78, 0.16, 0.08, Color(0.09, 0.09, 0.1), false)
 	_rect(0.68, 0.815, 0.04, 0.012, Color(0.25, 0.25, 0.27))
-	# The brass balance at the end of the counter, for weighing gold.
+	# The brass balance at the end of the counter, for weighing gold. Both pans
+	# empty, one lower anyway: the left one, then from day two the right.
+	var tilt: float = -2.0 if _day() >= 2 else 2.0
 	var pivot: Vector2 = _p(0.885, 0.54)
 	draw_line(pivot, _p(0.885, 0.64), Color(0.45, 0.36, 0.18), 3.0)
-	draw_line(pivot + Vector2(-0.045 * size.x, 2), pivot + Vector2(0.045 * size.x, -2), Color(0.5, 0.4, 0.2), 3.0)
+	draw_line(pivot + Vector2(-0.045 * size.x, tilt), pivot + Vector2(0.045 * size.x, -tilt), Color(0.5, 0.4, 0.2), 3.0)
 	for side in [-1, 1]:
-		var hang: Vector2 = pivot + Vector2(side * 0.045 * size.x, -side * 2)
+		var hang: Vector2 = pivot + Vector2(side * 0.045 * size.x, -side * tilt)
 		draw_line(hang, hang + Vector2(0, 26 + side * 3), Color(0.35, 0.28, 0.15), 1.0)
 		draw_arc(hang + Vector2(0, 26 + side * 3), 14, 0, PI, 12, Color(0.5, 0.4, 0.2), 3.0)
 	_rect(0.86, 0.64, 0.05, 0.015, Color(0.35, 0.28, 0.15))
 	# The neon behind you, reflected faintly in the glass.
 	_poly([Vector2(0.5, 0.62), Vector2(0.62, 0.62), Vector2(0.66, 0.66), Vector2(0.46, 0.66)], Color(NEON, 0.08))
+
+func _draw_chair(shift: float) -> void:
+	_poly([Vector2(0.8 + shift, 0.5), Vector2(0.9 + shift, 0.52), Vector2(0.89 + shift, 0.72), Vector2(0.81 + shift, 0.7)], Color(0.1, 0.09, 0.08))
+	_rect(0.79 + shift, 0.72, 0.11, 0.03, Color(0.1, 0.09, 0.08))
 
 func _draw_hallway() -> void:
 	# A narrow corridor: stairs climbing on the left, the fuse box on the right,
@@ -216,12 +230,16 @@ func _draw_office() -> void:
 		draw_arc(ram + Vector2(side * size.x * 0.05, -size.y * 0.04), size.x * 0.03, 0, TAU * 0.85, 24, Color(0.42, 0.37, 0.3), 7.0)
 	draw_circle(ram + Vector2(-8, -6), 2.5, Color(0.05, 0.04, 0.03))
 	draw_circle(ram + Vector2(8, -6), 2.5, Color(0.05, 0.04, 0.03))
-	# The desk, and the chair pushed back as if someone just stood up.
+	# The desk, and the chair pushed back as if someone just stood up. From day
+	# two it's pushed in behind the desk, neatly, as if someone sat down and
+	# then tidied.
+	if _day() >= 2:
+		_draw_chair(-0.25)
 	_poly([Vector2(0.25, 0.62), Vector2(0.75, 0.62), Vector2(0.78, 0.7), Vector2(0.22, 0.7)], WOOD)
 	_rect(0.24, 0.7, 0.03, 0.22, Color(0.07, 0.055, 0.04))
 	_rect(0.73, 0.7, 0.03, 0.22, Color(0.07, 0.055, 0.04))
-	_poly([Vector2(0.8, 0.5), Vector2(0.9, 0.52), Vector2(0.89, 0.72), Vector2(0.81, 0.7)], Color(0.1, 0.09, 0.08))
-	_rect(0.79, 0.72, 0.11, 0.03, Color(0.1, 0.09, 0.08))
+	if _day() < 2:
+		_draw_chair(0.0)
 	if not _has("letter"):
 		_poly([Vector2(0.45, 0.635), Vector2(0.55, 0.63), Vector2(0.56, 0.665), Vector2(0.44, 0.67)], PAPER)
 	# The door back out, dark, on the left.

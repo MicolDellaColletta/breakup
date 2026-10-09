@@ -268,7 +268,7 @@ func _explore(counter: Node, column: Node) -> void:
 	check(_spots_shown(counter) == ["fuse_box", "steel_door", "closed_hall_back"], "the hallway: the fuse box and the steel door")
 	counter.walk("office")
 	await wait(0.7)
-	check(_spots_shown(counter) == ["ram", "desk", "closed_office_back"], "the office: the ram's head and the desk")
+	check(_spots_shown(counter) == ["ram", "chair", "desk", "closed_office_back"], "the office: the ram's head, the chair and the desk")
 	counter.click("desk")
 	check(not counter.get_node("%ExploreSpots").interactive, "the shop stops reacting while you look")
 	advance(column)
