@@ -163,10 +163,13 @@ func _trooper(answer: String) -> void:
 	check(column._section == "closing_invited", "then closing time, remembering the invitation")
 	advance(column)
 	await process_frame
-	check(counter.get_node("%DoorButton").visible and counter.get_node("%OfficeButton").visible, "after closing, the shop is yours to look around")
+	check(counter.get_node("%ExploreArt").visible and counter.current_room() == "counter", "after closing, the shop is yours to look around, first person")
 	if answer == "That's right":
 		await _explore(counter, column)
-	counter._leave_for_the_evening()
+	if counter.current_room() == "floor":
+		counter.click("closed_floor_door")
+	else:
+		counter._leave_for_the_evening()
 	await wait(2.5)
 	check(current_scene.name == "Map", "the front door leads out to the town map")
 
@@ -240,25 +243,27 @@ func _reverend(counter: Node, column: Node, run: String) -> void:
 	check(not gs.sold.has("decoy"), "nothing else is sold to him")
 
 func _spots_shown(counter: Node) -> Array:
-	return counter.get_node("%SpotsRow").get_children().filter(
-		func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return String(b.name))
+	return counter.get_node("%ExploreSpots").spot_ids()
 
 func _explore(counter: Node, column: Node) -> void:
-	check(_spots_shown(counter) == ["counter_drawer", "balance"], "the counter: its drawer and the brass balance")
-	counter._show_view("floor")
-	check(_spots_shown(counter) == ["bear", "front_window"], "the shop floor: the bear and the front window")
-	counter._show_view("hallway")
-	check(_spots_shown(counter) == ["fuse_box", "steel_door"], "the hallway: the fuse box and the steel door")
-	counter._show_view("office")
-	check(_spots_shown(counter) == ["ram", "desk"], "the office: the ram's head and the desk")
-	counter.look("desk")
-	check(not counter.get_node("%SpotsRow").visible, "the spots hide while you look")
+	check(_spots_shown(counter) == ["counter_drawer", "balance", "closed_counter_office", "closed_counter_hall", "closed_counter_floor"], "the counter: its drawer, the brass balance, and the ways to the office, hallway and floor")
+	counter.click("closed_counter_floor")
+	await wait(0.7)
+	check(_spots_shown(counter) == ["bear", "front_window", "closed_floor_counter", "closed_floor_door"], "the shop floor: the bear, the front window, and the front door out")
+	counter.walk("hallway")
+	await wait(0.7)
+	check(_spots_shown(counter) == ["fuse_box", "steel_door", "closed_hall_back"], "the hallway: the fuse box and the steel door")
+	counter.walk("office")
+	await wait(0.7)
+	check(_spots_shown(counter) == ["ram", "desk", "closed_office_back"], "the office: the ram's head and the desk")
+	counter.click("desk")
+	check(not counter.get_node("%ExploreSpots").interactive, "the shop stops reacting while you look")
 	advance(column)
 	await process_frame
 	check(gs.has_item("carbon_copies"), "the desk drawer gives you the carbon copies")
-	var desk: Button = counter.get_node("%SpotsRow").get_children().filter(
-		func(b: Node) -> bool: return not b.is_queued_for_deletion() and b.name == "desk")[0]
-	check(desk.disabled, "and you can't look at the same thing twice")
+	check(counter.get_node("%ExploreSpots").get_spot("desk").used and counter.get_node("%ExploreSpots").interactive, "and you can't look at the same thing twice")
+	counter.walk("floor")
+	await wait(0.7)
 
 func _colored_rules() -> void:
 	section("Colored choice rules (docs/voices.md)")

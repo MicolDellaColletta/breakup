@@ -152,6 +152,19 @@ func _draw_counter() -> void:
 	_poly([Vector2(0.6, 0.6), Vector2(0.74, 0.6), Vector2(0.76, 0.7), Vector2(0.58, 0.7)], Color(0.02, 0.02, 0.022))
 	draw_arc(_p(0.67, 0.6), 0.055 * size.x, PI, TAU, 24, Color(0.03, 0.03, 0.033), 10.0)
 	draw_circle(_p(0.67, 0.655), 0.022 * size.x, Color(0.06, 0.06, 0.065))
+	# A drawer in the front of the counter, under the phone.
+	_rect(0.62, 0.78, 0.16, 0.08, Color(0.04, 0.042, 0.05))
+	_rect(0.62, 0.78, 0.16, 0.08, Color(0.09, 0.09, 0.1), false)
+	_rect(0.68, 0.815, 0.04, 0.012, Color(0.25, 0.25, 0.27))
+	# The brass balance at the end of the counter, for weighing gold.
+	var pivot: Vector2 = _p(0.885, 0.54)
+	draw_line(pivot, _p(0.885, 0.64), Color(0.45, 0.36, 0.18), 3.0)
+	draw_line(pivot + Vector2(-0.045 * size.x, 2), pivot + Vector2(0.045 * size.x, -2), Color(0.5, 0.4, 0.2), 3.0)
+	for side in [-1, 1]:
+		var hang: Vector2 = pivot + Vector2(side * 0.045 * size.x, -side * 2)
+		draw_line(hang, hang + Vector2(0, 26 + side * 3), Color(0.35, 0.28, 0.15), 1.0)
+		draw_arc(hang + Vector2(0, 26 + side * 3), 14, 0, PI, 12, Color(0.5, 0.4, 0.2), 3.0)
+	_rect(0.86, 0.64, 0.05, 0.015, Color(0.35, 0.28, 0.15))
 	# The neon behind you, reflected faintly in the glass.
 	_poly([Vector2(0.5, 0.62), Vector2(0.62, 0.62), Vector2(0.66, 0.66), Vector2(0.46, 0.66)], Color(NEON, 0.08))
 

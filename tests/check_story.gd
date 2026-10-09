@@ -72,13 +72,14 @@ func _check_spots() -> void:
 		if spots.has_section_key(spot_id, "rect") and str(spots.get_value(spot_id, "rect")).split(",").size() != 4:
 			problems.append("[%s] rect= needs four numbers: x, y, width, height" % spot_id)
 		var room_to: String = spots.get_value(spot_id, "go", "")
-		if room_to != "":
+		if room_to != "" and not room_to.begins_with("@"):
 			var rooms: Array = []
 			for other in spots.get_sections():
 				if spots.get_value(other, "scene", "") == scene:
 					rooms.append(spots.get_value(other, "room", ""))
 			if not rooms.has(room_to):
 				problems.append("[%s] go='%s': no spot in that room, so you'd walk into nothing" % [spot_id, room_to])
+		if room_to != "":
 			continue
 		for path in SPOT_STORIES[scene]:
 			var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
