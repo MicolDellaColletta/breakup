@@ -5,7 +5,7 @@
 # The front door (a button, not a story line) leads out to the town map.
 
 === look_counter_drawer
-narration | time=+5: The counter drawer sticks, then gives. Receipt books. Rubber stamps. A box of blank pawn tickets, numbered in order.
+narration | time=+5 | sound=drawer: The counter drawer sticks, then gives. Receipt books. Rubber stamps. A box of blank pawn tickets, numbered in order.
 narration | if=day==1 and !broke:warm: You thumb through them. 0432, 0433, 0434. They pick up right where the ledger's numbers stop.
 narration | if=day==1 and broke:warm: You thumb through them. 0433, 0434, 0435. The stub of 0432 is still in the book, in your handwriting. Walt Pruitt.
 narration | if=day>=2: You thumb through them. The stubs of this week's tickets, in your handwriting, and then the blanks, waiting.
@@ -36,13 +36,13 @@ narration: Someone has wedged a sprig of dried spruce into one horn.
 narration: Its glass eyes are set exactly right. Whoever mounted the fox didn't mount this.
 
 === look_desk
-narration | time=+10: The desk drawers. Pens, a stapler, a ring of small keys that don't look like they open anything in this room.
+narration | time=+10 | sound=drawer: The desk drawers. Pens, a stapler, a ring of small keys that don't look like they open anything in this room.
 narration: In the bottom drawer, a sheaf of thin carbon copies, clipped together.
 narration | take=carbon_copies: Typed letters. You know the first line of them by heart. You take them.
 paranoia: Read them later. Or don't.
 
 === look_fuse_box
-narration | time=+5: In the hallway, a gray fuse box. Most of the switches are up. Three are held down with yellowed tape.
+narration | time=+5 | sound=latch: In the hallway, a gray fuse box. Most of the switches are up. Three are held down with yellowed tape.
 narration: Under them, a label in the owner's hand: SHOP LIGHTS. DON'T.
 paranoia: That's why it's always dark in here. He wanted it that way.
 paranoia: Or something did.

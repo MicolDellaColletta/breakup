@@ -29,6 +29,8 @@ func _drive() -> void:
 
 	drive.click("car_glovebox")
 	check(not hotspots.interactive, "the car stops reacting while the story talks")
+	var latch: Array = column.get_children().filter(func(n: Node) -> bool: return n is AudioStreamPlayer and n.stream == Sfx.stream("latch"))
+	check(latch.size() == 1 and latch[0].playing, "the glovebox latch clicks (a sound made in code)")
 	advance(column)
 	await wait(0.7)
 	check(drive.current_view() == "glovebox" and hotspots.interactive, "the glovebox opens into a close-up")

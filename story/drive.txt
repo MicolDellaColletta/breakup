@@ -50,12 +50,12 @@ narration: "And to anyone still out on the road tonight: wherever you're going, 
 narration | static=loud: Static.
 
 === radio
-narration | static=loud | time=+5: You turn the dial. Static, a preacher, static, a man selling snow tires, static.
+narration | static=loud | time=+5 | sound=click: You turn the dial. Static, a preacher, static, a man selling snow tires, static.
 narration: Then a caller, mid-sentence: "...an old sedan, northbound, one headlight dimmer than the other..."
 paranoia | static=normal: One headlight dimmer than the other. Check yours. No. Don't.
 
 === glovebox
-narration | time=+5: The latch sticks, then gives. The lid drops open, and the little bulb inside comes on, yellow and weak.
+narration | time=+5 | sound=latch: The latch sticks, then gives. The lid drops open, and the little bulb inside comes on, yellow and weak.
 paranoia: It isn't yours either. None of it is.
 
 # The open glovebox is its own close-up view (spots.cfg, room "glovebox").
@@ -79,7 +79,7 @@ narration: Under everything, folded in three, a sheet of paper gone soft at the 
 narration: The rental agreement. You know whose name is on it. You open it anyway.
 
 === glovebox_close
-narration: You push the lid up until the latch catches. The little bulb goes out.
+narration | sound=latch: You push the lid up until the latch catches. The little bulb goes out.
 
 === mirror
 narration | time=+5: You tilt the mirror. Headlights, far back. Two of them, low and steady. They've kept the same distance for an hour.

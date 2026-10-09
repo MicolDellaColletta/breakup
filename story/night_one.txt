@@ -15,7 +15,7 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration: Static. Then, for a few seconds, the static thins and something clear comes through.
+narration | sound=click: Static. Then, for a few seconds, the static thins and something clear comes through.
 narration: That calm voice again, the one from the road.
 narration: "...and a reminder for our friends out at the edge of town, on a cold night like this one. A back door is for coming in. Not for keeping out."
 narration: Then a hymn, very far away, and the static closes over it.
@@ -45,14 +45,14 @@ paranoia: Rule one. It's been dark for hours.
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
 
 === windows_closed
-narration: Both latched. You check them again anyway, then a third time, until the checking feels like a rule of its own.
+narration | sound=latch: Both latched. You check them again anyway, then a third time, until the checking feels like a rule of its own.
 
 === windows_open
 narration: Cold pours in at once, sweet and sharp. Down in the lot, nothing moves.
 narration: Then, at the edge of the trees, something does. Or the wind does.
 
 === dresser
-narration | time=+10: The dresser in the bedroom. The top drawers are full of a man's clothes, folded with care. Flannel, wool, long johns. All of it your size.
+narration | time=+10 | sound=drawer: The dresser in the bedroom. The top drawers are full of a man's clothes, folded with care. Flannel, wool, long johns. All of it your size.
 narration: The bottom drawer is lined with old newspaper. Under the lining, flat against the wood, a folded sheet of paper.
 narration | take=church_bulletin: A church bulletin. Typed, mimeographed, the ink gone purple. You fold it into your pocket before you can decide not to.
 paranoia: Whoever lived here hid it. From whom?

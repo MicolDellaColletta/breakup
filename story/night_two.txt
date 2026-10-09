@@ -15,7 +15,7 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration: Static. Then the static thins, and thins, and is gone.
+narration | sound=click: Static. Then the static thins, and thins, and is gone.
 narration: The calm voice, clear as if he were in the room. Not a few seconds this time. A whole minute.
 narration: "...the Thursday watch, friends, keeping you company through the dark. Tonight's hymns, for those following along at home."
 narration: "Number one. Number five. And number four."
@@ -51,14 +51,14 @@ paranoia: Rule one.
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
 
 === windows_closed
-narration: Latched. Both. You check them twice, then make yourself stop at twice.
+narration | sound=latch: Latched. Both. You check them twice, then make yourself stop at twice.
 
 === windows_open
 narration: Cold pours in. Fourteen below by morning, the Reverend said.
 narration: Down in the lot, your car. A shape on the hood, in the snow. A handprint, or just the wind.
 
 === dresser
-narration | time=+5: The dresser. The flannel shirts, folded with somebody else's care.
+narration | time=+5 | sound=drawer: The dresser. The flannel shirts, folded with somebody else's care.
 narration | if=has:church_bulletin: The bottom drawer, the newspaper lining. Nothing else under it now. You took what there was.
 narration | if=!has:church_bulletin: Under the newspaper lining in the bottom drawer, flat against the wood, a folded sheet of paper.
 narration | if=!has:church_bulletin | take=church_bulletin: A church bulletin, mimeographed, the ink gone purple. You fold it into your pocket.
@@ -89,7 +89,7 @@ paranoia: Rule one. The other half of it.
 narration: You leave it. Your hand doesn't want to come away from the bolt. You make it.
 
 === back_door_locked
-narration: The key turns. Clean, heavy, final. You try the handle.
+narration | sound=latch: The key turns. Clean, heavy, final. You try the handle.
 narration: Last night it turned anyway, from outside. You stand there a while, waiting to see if it will.
 narration: It doesn't. Not while you're watching.
 

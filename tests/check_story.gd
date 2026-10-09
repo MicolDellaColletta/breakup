@@ -127,7 +127,7 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 		stock: ConfigFile, column: Node, problems: Array) -> void:
 	var where: String = "[%s] %s" % [part, entry.get("text", entry.get("label", "-> " + entry.get("target", ""))).left(50)]
 	for key in ["sound", "stop", "after"]:
-		if entry.has(key) and entry[key] != "all" and not sounds.has(entry[key]):
+		if entry.has(key) and entry[key] != "all" and not sounds.has(entry[key]) and not Sfx.has(entry[key]):
 			problems.append("%s: this scene has no sound '%s'  %s" % [key, entry[key], where])
 	for key in ["take", "lose"]:
 		if entry.has(key) and not items.has_section(entry[key]):

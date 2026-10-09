@@ -24,7 +24,7 @@ paranoia: You have the ticket for it. Somebody made sure you'd have the ticket f
 unknown: Not yet, sweetheart. Not tonight.
 
 === use_key_steel_night
-narration: The brass key doesn't even go in. The keyhole is the wrong shape, an older shape.
+narration | sound=keys: The brass key doesn't even go in. The keyhole is the wrong shape, an older shape.
 paranoia: The front door key opens the front door. Nothing else here is yours.
 
 # --- The apartment ---
@@ -41,13 +41,13 @@ narration: You step back from the window.
 -> use_key_locked_first
 
 === use_key_locked_first
-narration: The front door key. It won't fit. You try it anyway.
+narration | sound=keys: The front door key. It won't fit. You try it anyway.
 narration: It goes in halfway and stops, as if something on the other side were pressing a thumb against the end of it.
 paranoia: Take it out. Slowly.
 narration | flag=tried_locked_door: You take it out. The brass is cold. Colder than the hall.
 
 === use_key_locked_again
-narration: You try the key again. You knew it wouldn't fit. You try it every night now.
+narration | sound=keys: You try the key again. You knew it wouldn't fit. You try it every night now.
 paranoia: That's how it starts. Checking things that can't have changed.
 
 === use_job_offer_mirror
@@ -78,7 +78,7 @@ paranoia: Iron. A big steel door, a freezer full of metal. That's all it is.
 unknown: Go on. Ask it what's in there.
 
 === use_back_key_steel_door
-narration: The red tag says BACK. Not this door. The back door's past this one, past the freezer.
+narration | sound=keys: The red tag says BACK. Not this door. The back door's past this one, past the freezer.
 paranoia: You'll have to walk past it to use that key. Every night.
 
 # --- The nights ---
