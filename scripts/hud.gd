@@ -43,6 +43,7 @@ func _ready() -> void:
 	GameState.time_changed.connect(_update_clock)
 	GameState.item_added.connect(_on_item_added)
 	_update_clock()
+	Cursors.apply(false)
 
 # --- Public: what other scenes can use ---
 
@@ -75,6 +76,7 @@ func hold(item_id: String) -> void:
 	held_label.text = "Holding: %s  (right-click to put it back)" % GameState.item_info(item_id, "name")
 	held_label.visible = true
 	_follow_mouse()
+	Cursors.apply(true)
 	held_changed.emit(item_id)
 
 # Puts it back.
@@ -83,6 +85,7 @@ func drop() -> void:
 		return
 	held_item = ""
 	held_label.visible = false
+	Cursors.apply(false)
 	held_changed.emit("")
 
 # True while the pockets (or a paper read from them) cover the screen, so
