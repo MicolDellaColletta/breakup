@@ -40,6 +40,16 @@ static func rect(spot_id: String) -> Rect2:
 static func sound(spot_id: String) -> String:
 	return _spots().get_value(spot_id, "sound", "")
 
+# go=counter: clicking it walks to that room (in the same scene) instead of
+# playing a section.
+static func go(spot_id: String) -> String:
+	return _spots().get_value(spot_id, "go", "")
+
+# arrow=forward (or back, left, right): drawn as an arrow you can always see,
+# for walking somewhere.
+static func arrow(spot_id: String) -> String:
+	return _spots().get_value(spot_id, "arrow", "")
+
 # hidden=true: not on screen until the scene shows it (the steering wheel).
 static func starts_hidden(spot_id: String) -> bool:
 	return bool(_spots().get_value(spot_id, "hidden", false))

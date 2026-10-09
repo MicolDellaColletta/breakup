@@ -8,6 +8,11 @@ extends CanvasLayer
 signal closed(doc_id: String)
 
 const DOCUMENTS_PATH: String = "res://story/documents/"
+const INK: Color = Color(0.16470589, 0.12941177, 0.09411765)
+# Papers written in something other than plain dark ink.
+const SPECIAL_INK: Dictionary = {
+	"letter": Color(0.6666667, 0.13333334, 0.06666667),
+}
 
 @onready var backdrop: ColorRect = %Backdrop
 @onready var title_label: Label = %TitleLabel
@@ -41,6 +46,9 @@ func open(doc_id: String) -> void:
 	title_label.text = parts[0].strip_edges()
 	body_label.text = parts[1].strip_edges() if parts.size() > 1 else ""
 	_doc_id = doc_id
+	var ink: Color = SPECIAL_INK.get(doc_id, INK)
+	title_label.add_theme_color_override("font_color", ink)
+	body_label.add_theme_color_override("font_color", ink)
 	GameState.add_item(doc_id)
 	paper_sound.play()
 	visible = true

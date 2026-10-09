@@ -20,6 +20,7 @@ const STORY_SCENES: Dictionary = {
 # Where each scene's spots must find their sections: every file listed.
 const SPOT_STORIES: Dictionary = {
 	"drive": ["res://story/drive.txt"],
+	"shop_night": ["res://story/shop.txt"],
 	"shop": ["res://story/shop_looks.txt"],
 	"night": ["res://story/night_one.txt", "res://story/night_two.txt"],
 }
@@ -69,6 +70,15 @@ func _check_spots() -> void:
 			continue
 		if spots.has_section_key(spot_id, "rect") and str(spots.get_value(spot_id, "rect")).split(",").size() != 4:
 			problems.append("[%s] rect= needs four numbers: x, y, width, height" % spot_id)
+		var room_to: String = spots.get_value(spot_id, "go", "")
+		if room_to != "":
+			var rooms: Array = []
+			for other in spots.get_sections():
+				if spots.get_value(other, "scene", "") == scene:
+					rooms.append(spots.get_value(other, "room", ""))
+			if not rooms.has(room_to):
+				problems.append("[%s] go='%s': no spot in that room, so you'd walk into nothing" % [spot_id, room_to])
+			continue
 		for path in SPOT_STORIES[scene]:
 			var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
 			var story: Dictionary = column._parse_story(path)

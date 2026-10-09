@@ -16,6 +16,9 @@ const FONT_SIZE: int = 16
 
 var spot_id: String = ""
 var label_text: String = ""
+# "forward", "back", "left" or "right": a way to walk, drawn as an arrow that's
+# always faintly visible. "" for an ordinary thing to look at.
+var arrow: String = ""
 # Looked at already: still there, but no longer clickable.
 var used: bool = false:
 	set(value):
@@ -54,12 +57,29 @@ func _draw() -> void:
 	if used:
 		return
 	var rect: Rect2 = Rect2(Vector2.ZERO, size)
+	if arrow != "":
+		_draw_arrow()
+		if _hovered or show_all:
+			_draw_label()
+		return
 	if _hovered:
 		draw_rect(rect, OUTLINE, false, 2.0)
 	elif show_all:
 		draw_rect(rect, SHOW_ALL, false, 1.0)
 	if _hovered or show_all:
 		_draw_label()
+
+# A chevron pointing the way, faint until the mouse is over it.
+func _draw_arrow() -> void:
+	var c: Vector2 = size / 2
+	var r: float = minf(size.x, size.y) * 0.32
+	var dir: Vector2 = {"forward": Vector2.UP, "back": Vector2.DOWN, "left": Vector2.LEFT, "right": Vector2.RIGHT}.get(arrow, Vector2.UP)
+	var side: Vector2 = Vector2(-dir.y, dir.x)
+	var tip: Vector2 = c + dir * r
+	var points: PackedVector2Array = PackedVector2Array([c - dir * r * 0.2 + side * r, tip, c - dir * r * 0.2 - side * r])
+	var color: Color = OUTLINE if _hovered else Color(LABEL_COLOR, 0.35 if not show_all else 0.6)
+	draw_circle(c, r * 1.35, Color(LABEL_BACK, 0.55 if _hovered else 0.3))
+	draw_polyline(points, Color(color, 1.0 if _hovered else color.a), 4.0 if _hovered else 3.0)
 
 # The name, in a small dark tag just above the top edge (or inside it, when
 # the hotspot touches the top of the screen).

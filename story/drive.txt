@@ -127,4 +127,4 @@ narration: You put both hands on the wheel. Ten and two, the way someone taught 
 paranoia: Just drive.
 unknown: You're almost there.
 unknown: Maybe.
-narration | time=23:20: The sign comes out of the snow all at once. PAWN, GUNS, FURS, TAXIDERMY. One letter dead in the neon.
+narration | time=23:20 | show=exterior: The sign comes out of the snow all at once. PAWN, GUNS, FURS, TAXIDERMY. One letter dead in the neon.

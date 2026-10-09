@@ -30,6 +30,7 @@ const STATIC_LEVELS: Dictionary = {
 @onready var hotspots: HotspotLayer = %Hotspots
 @onready var car_art: Control = %CarArt
 @onready var glovebox_art: Control = %GloveboxArt
+@onready var exterior_art: Control = %ExteriorArt
 @onready var radio_static: AudioStreamPlayer = $RadioStatic
 @onready var car_interior: AudioStreamPlayer = $CarInterior
 @onready var document_viewer: DocumentViewer = %DocumentViewer
@@ -85,6 +86,10 @@ func current_view() -> String:
 func _on_line_shown(line: Dictionary) -> void:
 	if line.has("static"):
 		_set_static(line["static"])
+	# show=exterior: the shop from the road, behind the text.
+	if line.get("show", "") == "exterior":
+		exterior_art.visible = true
+		create_tween().tween_property(exterior_art, "modulate:a", 1.0, 1.5)
 
 func _on_section_finished(section: String) -> void:
 	if section == "main":
@@ -215,6 +220,10 @@ func _arrive() -> void:
 	narrator.set_input_enabled(false)
 	if _static_tween:
 		_static_tween.kill()
+	# The text slides away and the shop stays on screen a moment, alone.
+	if exterior_art.visible:
+		narrator.hide_column()
+		await get_tree().create_timer(2.5).timeout
 	var tween: Tween = create_tween().set_parallel()
 	tween.tween_property(car_interior, "volume_db", -80.0, 2.0)
 	tween.tween_property(radio_static, "volume_db", -80.0, 2.0)
