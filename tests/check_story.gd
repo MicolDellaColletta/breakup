@@ -18,7 +18,7 @@ const STORY_SCENES: Dictionary = {
 	"res://story/use.txt": "res://scenes/counter.tscn",
 }
 
-# Where each scene's spots must find their sections: every file listed.
+# Where each scene's spots must find their sections: in one of the files listed.
 const SPOT_STORIES: Dictionary = {
 	"drive": ["res://story/drive.txt"],
 	"shop_night": ["res://story/shop.txt"],
@@ -102,13 +102,16 @@ func _check_spots() -> void:
 				problems.append("[%s] go='%s': no spot in that room, so you'd walk into nothing" % [spot_id, room_to])
 		if room_to != "":
 			continue
+		# A scene with several story files (a night for each day) needs the
+		# section in at least one of them.
+		var target: String = spots.get_value(spot_id, "section", "")
+		var found: bool = false
 		for path in SPOT_STORIES[scene]:
 			var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
-			var story: Dictionary = column._parse_story(path)
+			found = found or column._parse_story(path).has(target)
 			column.free()
-			var target: String = spots.get_value(spot_id, "section", "")
-			if not story.has(target):
-				problems.append("[%s] no section '%s' in %s" % [spot_id, target, path.get_file()])
+		if not found:
+			problems.append("[%s] no section '%s' in %s" % [spot_id, target, ", ".join(SPOT_STORIES[scene].map(func(p: String) -> String: return p.get_file()))])
 	for problem in problems:
 		print("  FAIL  ", problem)
 	check(problems.is_empty(), "%d spots, every one leads to a section" % spots.get_sections().size())

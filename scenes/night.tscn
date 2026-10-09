@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://dia8qe3m72c7e" path="res://audio/freesound_community-telephone-off-hook-us-74706.mp3" id="12_deadline"]
 [ext_resource type="Script" path="res://scripts/apartment_art.gd" id="13_art"]
 [ext_resource type="Script" path="res://scripts/hotspot_layer.gd" id="14_spots"]
+[ext_resource type="Script" path="res://scripts/shop_art.gd" id="15_shop"]
 
 [node name="Night" type="Control" unique_id=1070605040]
 layout_mode = 3
@@ -34,6 +35,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("13_art")
+
+[node name="ShopArt" type="Control" parent="." unique_id=1470645444]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("15_shop")
+view = "hallway"
 
 [node name="Hotspots" type="Control" parent="." unique_id=1370635343]
 unique_name_in_owner = true

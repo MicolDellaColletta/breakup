@@ -99,19 +99,35 @@ narration | sound=ring: Downstairs, the shop phone rings.
 paranoia: Eleven. Near enough. Rule four.
 paranoia: Don't answer the phone after dark. If you do, don't speak first.
 john | if=john>=2 and frayed: Answer it like John would. John has nothing to hide.
-> Go down and answer it -> phone_down | break=phone | lean=animal
+> Go down to it -> phone_go_down | lean=animal
 > Let it ring -> phone_ignored | lean=paranoia
 
 === phone_ignored
-narration: It rings. You count. Twelve. Twenty. You stop counting.
+narration | show=bedroom: It rings. You count. Twelve. Twenty. You stop counting.
 narration | stop=ring: It stops in the middle of a ring, the way it did the first night.
 narration: The quiet afterwards is the loudest thing in the building.
 -> night_dog
 
-=== phone_down
+# Going down is walking: the hallway, then the counter (spots.cfg, rooms
+# shop_hall and shop_counter). Picking up is what breaks rule four.
+
+=== phone_go_down
 narration | sound=stairs: Down the stairs in your socks, in the dark, toward the ringing.
-narration | stop=stairs: Behind the counter. The phone, shaking very slightly with every ring.
-narration | stop=ring | sound=pickup: You lift the receiver and hold it to your ear.
+narration | stop=stairs: The hallway. At the end of it, the steel door, and the hum behind it. Ahead, past the counter, the ringing. It hasn't stopped. It isn't going to.
+
+=== phone_steel_door
+narration: You stop at the steel door. The phone rings behind you. The hum, in front of you, doesn't change.
+narration: Then, between one ring and the next, a sound from the other side. One knock. Soft. A knuckle, low down.
+paranoia: The compressor, ticking over. That's all. Go and answer the phone, or go back to bed. Don't stand here.
+
+=== phone_turn_back
+narration | sound=stairs: You turn around on the bottom step and go back up, one hand on the rail.
+narration | stop=stairs: It keeps ringing behind you, all the way up.
+-> phone_ignored
+
+=== phone_down
+narration: Behind the counter. The phone, shaking very slightly with every ring.
+narration | stop=ring | sound=pickup | break=phone: You lift the receiver and hold it to your ear.
 narration: You don't say anything.
 unknown | if=frayed: Say hello. Be polite. It's rude, keeping someone waiting.
 > Say "Hello?" -> phone_spoke | lean=unknown
@@ -157,7 +173,7 @@ paranoia: The same as the first night. Whoever it is, he's patient.
 -> night_dog_unfed
 
 === night_dog_fed
-narration: Back in bed, you don't sleep. You lie on your side, facing the door.
+narration | show=bedroom: Back in bed, you don't sleep. You lie on your side, facing the door.
 narration | sound=stairs: Somewhere after midnight, the stairs.
 narration: One step. A rest. Another step. A rest. Slow, the way an old man climbs, with a hand on the rail.
 narration | stop=stairs: It reaches the top. The kitchen. A scrape of steel on the floor, small and patient. Then quiet, for a long time.
@@ -167,7 +183,7 @@ paranoia: That's all you need to know.
 -> morning_after
 
 === night_dog_unfed
-narration: Back in bed, you don't sleep. You lie on your side, facing the door.
+narration | show=bedroom: Back in bed, you don't sleep. You lie on your side, facing the door.
 narration: Nothing comes up the stairs tonight.
 narration: But all night, from the bottom of them, you can feel something waiting. The way you can feel someone in a dark room before you find the light switch.
 -> morning_after

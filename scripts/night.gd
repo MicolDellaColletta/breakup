@@ -4,7 +4,10 @@ extends Control
 # the rules (radio, the dog, the windows, the back door), things to look at,
 # then bed, and whatever wakes you. First person, three rooms you walk between
 # with arrows (story/spots.cfg, scene "night"): the main room, the hall and
-# the bedroom. Each day's night has its own story file
+# the bedroom. When the phone rings downstairs and you go to it, the shop
+# itself, in the dark: the hallway and the counter (SHOP_ROOMS). A line with
+# show=bedroom (or another room) takes the picture back without walking.
+# Each day's night has its own story file
 # (GameState.NIGHT_STORIES). In the morning, the next day at the counter, or
 # the title screen if that day isn't written yet.
 
@@ -16,9 +19,15 @@ const VIEW_FADE: float = 0.25
 # Flags the picture shows (an open window, the radio's dial) that belong to a
 # single night: cleared when the next one starts.
 const TONIGHT_FLAGS: Array[String] = ["window_open", "radio_on", "tv_on"]
+# Rooms downstairs, and the shop picture (shop_art.gd) each one shows.
+const SHOP_ROOMS: Dictionary = {
+	"shop_hall": "hallway",
+	"shop_counter": "counter",
+}
 
 @onready var narrator: DialogueColumn = %Narrator
 @onready var art: Control = %ApartmentArt
+@onready var shop_art: Control = %ShopArt
 @onready var hotspots: HotspotLayer = %Hotspots
 @onready var radio_night: AudioStreamPlayer = %RadioNight
 @onready var wind: AudioStreamPlayer = %Wind
@@ -53,6 +62,7 @@ func _ready() -> void:
 	narrator.use_sounds(sounds)
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
+	narrator.line_shown.connect(_on_line_shown)
 	narrator.load_story(GameState.NIGHT_STORIES.get(GameState.day, GameState.NIGHT_STORIES[1]))
 	narrator.add_story(USE_PATH)
 	narrator.set_input_enabled(false)
@@ -100,8 +110,7 @@ func walk(room: String) -> void:
 	var fade: Tween = create_tween()
 	fade.tween_property(self, "modulate", Color(0.15, 0.15, 0.15), VIEW_FADE)
 	await fade.finished
-	_room = room
-	art.view = room
+	_show_room(room)
 	fade = create_tween()
 	fade.tween_property(self, "modulate", Color.WHITE, VIEW_FADE)
 	_show_spots()
@@ -112,8 +121,34 @@ func walk(room: String) -> void:
 func _on_section_finished(section: String) -> void:
 	if section == "morning_after":
 		_end_of_day()
+	elif section == "phone_go_down":
+		# Down the stairs, toward the ringing.
+		walk("shop_hall")
 	else:
 		_show_spots()
+
+# show=bedroom: the picture changes to that room, with no walking.
+func _on_line_shown(line: Dictionary) -> void:
+	var room: String = line.get("show", "")
+	if room == "" or room == _room:
+		return
+	var fade: Tween = create_tween()
+	fade.tween_property(self, "modulate", Color(0.15, 0.15, 0.15), VIEW_FADE)
+	await fade.finished
+	_show_room(room)
+	fade = create_tween()
+	fade.tween_property(self, "modulate", Color.WHITE, VIEW_FADE)
+
+# Upstairs rooms are the apartment's picture; downstairs, the shop's.
+func _show_room(room: String) -> void:
+	_room = room
+	var downstairs: bool = SHOP_ROOMS.has(room)
+	art.visible = not downstairs
+	shop_art.visible = downstairs
+	if downstairs:
+		shop_art.view = SHOP_ROOMS[room]
+	else:
+		art.view = room
 
 func _show_spots() -> void:
 	hotspots.fill(SCENE_ID, _room, narrator)
