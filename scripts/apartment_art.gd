@@ -98,6 +98,13 @@ func _draw_main() -> void:
 	_rect(0.865, 0.47, 0.07, 0.05, Color(0.09, 0.07, 0.05))
 	var lit: bool = _flag("radio_on")
 	_rect(0.875, 0.48, 0.05, 0.015, Color(AMBER, 0.85 if lit else 0.12))
+	# Over the armchair, the painting of breakup: white plates on black water,
+	# and the small figure far out on one of them.
+	_rect(0.74, 0.17, 0.11, 0.13, Color(0.12, 0.1, 0.07))
+	_rect(0.75, 0.18, 0.09, 0.11, Color(0.04, 0.05, 0.07))
+	for k in 5:
+		_rect(0.755 + (k % 3) * 0.028, 0.21 + (k / 3) * 0.04, 0.022, 0.012, Color(0.6, 0.62, 0.65, 0.7))
+	draw_line(_p(0.8, 0.245), _p(0.8, 0.23), Color(0.02, 0.02, 0.02), 2.0)
 	# The coat on its hook by the landing, near and to the left.
 	_poly([Vector2(0.0, 0.3), Vector2(0.035, 0.28), Vector2(0.05, 0.62), Vector2(0.0, 0.66)], Color(0.08, 0.068, 0.055))
 	draw_circle(_p(0.025, 0.27), 4, STEEL)

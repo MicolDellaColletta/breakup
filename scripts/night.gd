@@ -2,17 +2,23 @@ extends Control
 
 # The apartment at night, after the shop has closed and the evening is over:
 # the rules (radio, the dog, the windows, the back door), things to look at,
-# then bed, and whatever wakes you. What's in the room comes from
-# story/spots.cfg; each day's night has its own story file
+# then bed, and whatever wakes you. First person, three rooms you walk between
+# with arrows (story/spots.cfg, scene "night"): the main room, the hall and
+# the bedroom. Each day's night has its own story file
 # (GameState.NIGHT_STORIES). In the morning, the next day at the counter, or
 # the title screen if that day isn't written yet.
 
 const TITLE_SCENE: String = "res://scenes/title.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
-const ROOM: String = "apartment"
+const SCENE_ID: String = "night"
+const VIEW_FADE: float = 0.25
+# Flags the picture shows (an open window, the radio's dial) that belong to a
+# single night: cleared when the next one starts.
+const TONIGHT_FLAGS: Array[String] = ["window_open", "radio_on", "tv_on"]
 
 @onready var narrator: DialogueColumn = %Narrator
-@onready var objects: HBoxContainer = %Objects
+@onready var art: Control = %ApartmentArt
+@onready var hotspots: HotspotLayer = %Hotspots
 @onready var radio_night: AudioStreamPlayer = %RadioNight
 @onready var wind: AudioStreamPlayer = %Wind
 
@@ -28,13 +34,20 @@ const ROOM: String = "apartment"
 }
 
 var _looked: Array[String] = []
+var _room: String = "main"
+var _busy: bool = true
+var _ending: bool = false
 
 func _ready() -> void:
 	# Tonight's bowl starts empty and the back door starts as the old man left
 	# it, whatever happened last night. (The morning already read last night's.)
 	GameState.fed_dog = false
 	GameState.locked_back_door = false
-	objects.visible = false
+	for flag in TONIGHT_FLAGS:
+		GameState.flags.erase(flag)
+	art.view = _room
+	hotspots.spot_clicked.connect(click)
+	hotspots.interactive = false
 	narrator.use_sounds(sounds)
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.choice_made.connect(_on_choice_made)
@@ -46,10 +59,40 @@ func _ready() -> void:
 
 # --- Public: what tests and other scenes can use ---
 
+func current_room() -> String:
+	return _room
+
+# Clicking a hotspot: walk to another room, or look at something there.
+func click(spot_id: String) -> void:
+	if _busy or _ending:
+		return
+	var room: String = Spots.go(spot_id)
+	if room != "":
+		walk(room)
+	else:
+		look(spot_id)
+
+# Plays what's there to see (tests use it directly, from any room). Each
+# thing can be looked at once a night.
 func look(spot_id: String) -> void:
 	_looked.append(spot_id)
-	objects.visible = false
+	hotspots.mark_used(spot_id)
+	_busy = true
+	hotspots.interactive = false
 	narrator.start_conversation(Spots.section(spot_id))
+
+func walk(room: String) -> void:
+	_busy = true
+	hotspots.interactive = false
+	narrator.play_sound("floorboards")
+	var fade: Tween = create_tween()
+	fade.tween_property(self, "modulate", Color(0.15, 0.15, 0.15), VIEW_FADE)
+	await fade.finished
+	_room = room
+	art.view = room
+	fade = create_tween()
+	fade.tween_property(self, "modulate", Color.WHITE, VIEW_FADE)
+	_show_spots()
 
 # --- Private: the machinery ---
 
@@ -61,18 +104,11 @@ func _on_section_finished(section: String) -> void:
 		_show_spots()
 
 func _show_spots() -> void:
-	# Out now, not at the end of the frame, so the new buttons keep their names.
-	for old in objects.get_children():
-		objects.remove_child(old)
-		old.queue_free()
-	for spot_id in Spots.in_room("night", ROOM, narrator):
-		var button: Button = Button.new()
-		button.name = spot_id
-		button.text = Spots.label(spot_id)
-		button.disabled = _looked.has(spot_id)
-		button.pressed.connect(look.bind(spot_id))
-		objects.add_child(button)
-	objects.visible = true
+	hotspots.fill(SCENE_ID, _room, narrator)
+	for spot_id in _looked:
+		hotspots.mark_used(spot_id)
+	_busy = false
+	hotspots.interactive = true
 
 func _on_choice_made(choice: Dictionary) -> void:
 	if choice["target"] == "radio_on":
@@ -81,6 +117,8 @@ func _on_choice_made(choice: Dictionary) -> void:
 # Morning: the next day at the counter, or the title screen when that day
 # isn't written yet.
 func _end_of_day() -> void:
+	_ending = true
+	hotspots.interactive = false
 	narrator.set_input_enabled(false)
 	var tween: Tween = create_tween().set_parallel()
 	tween.tween_property(radio_night, "volume_db", -80.0, 3.0)

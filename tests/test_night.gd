@@ -31,10 +31,15 @@ func _rules(has_key: bool) -> void:
 	var night: Node = await _open_night(has_key)
 	var column: Node = night.get_node("%Narrator")
 	check(not gs.fed_dog, "tonight's bowl starts empty")
-	check(night.get_node("%Objects").visible, "the apartment buttons show after arriving")
-	var spots: Array = night.get_node("%Objects").get_children().filter(
-		func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return String(b.name))
-	check(spots == ["radio", "kitchen", "windows", "dresser", "painting", "locked_door", "back_door", "bed"], "eight things to look at in the apartment")
+	var hotspots: Node = night.get_node("%Hotspots")
+	check(night.current_room() == "main" and hotspots.interactive, "you arrive in the main room, and can move")
+	check(hotspots.spot_ids() == ["radio", "kitchen", "windows", "painting", "back_door", "night_to_hall"], "the main room: radio, kitchen, windows, painting, downstairs, the hall")
+	night.click("night_to_hall")
+	await wait(0.7)
+	check(hotspots.spot_ids() == ["locked_door", "night_hall_bedroom", "night_hall_back"], "the hall: the locked door, the bedroom, back")
+	night.click("night_hall_bedroom")
+	await wait(0.7)
+	check(hotspots.spot_ids() == ["dresser", "bed", "night_bedroom_back"], "the bedroom: the dresser and the bed")
 	if has_key:
 		night.look("dresser")
 		advance(column)
@@ -58,7 +63,7 @@ func _rules(has_key: bool) -> void:
 		await pick(column, "Leave it unlocked")
 		check(not gs.locked_back_door, "the back door stays unlocked")
 	advance(column)
-	check(night.get_node("%Objects").visible, "back in the apartment afterwards")
+	check(night.get_node("%Hotspots").interactive, "back in the apartment afterwards")
 
 func _three_am(lock: bool, wave: String, expected_room: String) -> void:
 	section("After three: %s, %s" % ["door locked" if lock else "door unlocked", wave.to_lower()])

@@ -38,14 +38,6 @@ const VIEWS: Dictionary = {
 		"title": "The register",
 		"text": "Old brass, heavy as an anvil. The drawer sticks, then rolls open with a bell of its own.",
 	},
-	"office": {
-		"title": "The office",
-		"text": "The bare bulb on its cord, the desk, the chair still pushed back. Above the desk, the ram's head.",
-	},
-	"hallway": {
-		"title": "The hallway",
-		"text": "Behind the counter, a narrow hallway. The stairs up to the apartment, a fuse box, and at the end, the heavy steel door.",
-	},
 }
 
 # Money taken from the till at a time, for yourself.
@@ -59,10 +51,6 @@ const TAKE_AMOUNT: int = 20
 @onready var back_button: Button = %BackButton
 @onready var ledger_button: Button = %LedgerButton
 @onready var register_button: Button = %RegisterButton
-@onready var office_button: Button = %OfficeButton
-@onready var hallway_button: Button = %HallwayButton
-@onready var spots_row: HBoxContainer = %SpotsRow
-@onready var door_button: Button = %DoorButton
 @onready var shelf_panel: Control = %ShelfPanel
 @onready var ledger_panel: ScrollContainer = %LedgerPanel
 @onready var ledger_text: RichTextLabel = %LedgerText
@@ -77,8 +65,12 @@ const TAKE_AMOUNT: int = 20
 @onready var offer_button: Button = %OfferButton
 @onready var nothing_button: Button = %NothingButton
 
+@onready var explore_art: Control = %ExploreArt
+@onready var explore_spots: HotspotLayer = %ExploreSpots
+
 @onready var sounds: Dictionary = {
 	"bell": %Bell,
+	"floorboards": %Floorboards,
 }
 
 var _stock: ConfigFile = ConfigFile.new()
@@ -91,6 +83,9 @@ var _view: String = ""
 var _selected: String = ""
 var _exploring: bool = false
 var _looked: Array[String] = []
+# After closing: which of the shop's rooms you're standing in.
+var _room: String = "counter"
+var _walking: bool = false
 
 func _ready() -> void:
 	if _stock.load(STOCK_PATH) != OK:
@@ -103,9 +98,6 @@ func _ready() -> void:
 	back_button.pressed.connect(_show_view.bind("back"))
 	ledger_button.pressed.connect(_show_view.bind("ledger"))
 	register_button.pressed.connect(_show_view.bind("register"))
-	office_button.pressed.connect(_show_view.bind("office"))
-	hallway_button.pressed.connect(_show_view.bind("hallway"))
-	door_button.pressed.connect(_leave_for_the_evening)
 	take_button.pressed.connect(_on_take_pressed)
 	offer_button.pressed.connect(_on_offer_pressed)
 	nothing_button.pressed.connect(_on_nothing_pressed)
@@ -113,6 +105,7 @@ func _ready() -> void:
 	column.line_shown.connect(_on_line_shown)
 	column.section_finished.connect(_on_section_finished)
 	column.choice_made.connect(_on_choice_made)
+	explore_spots.spot_clicked.connect(click)
 	column.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[1]))
 	column.add_story(LOOKS_PATH)
 	_show_view("counter")
@@ -207,7 +200,6 @@ func _show_view(view: String) -> void:
 		_write_ledger()
 	if view == "register":
 		_open_register()
-	_fill_spots()
 	if not shelf_panel.visible:
 		return
 	var first: String = ""
@@ -267,43 +259,71 @@ func _show_voice_notes(item_id: String) -> void:
 		note.text = "[b]%s[/b] — %s" % [speaker["name"].to_upper(), _stock.get_value(item_id, voice).replace("[", "[lb]")]
 		voice_notes.add_child(note)
 
-# --- After closing: looking around (story/spots.cfg) ---
+# --- After closing: looking around (story/spots.cfg, scene "shop") ---
+# The counter screen gives way to the shop itself, first person: the same four
+# rooms as the first night (shop_art.gd), walked with arrows. The front door
+# leads out to the town map.
+
+const EXPLORE_FADE: float = 0.25
 
 func _start_exploring() -> void:
 	_exploring = true
-	office_button.visible = true
-	hallway_button.visible = true
-	door_button.visible = true
-	_show_view("counter")
+	_room = "counter"
+	explore_art.view = _room
+	explore_art.visible = true
+	explore_spots.visible = true
+	_fill_spots()
+
+# The room you're standing in after closing.
+func current_room() -> String:
+	return _room
+
+# Clicking a hotspot after closing: walk, leave, or look.
+func click(spot_id: String) -> void:
+	if not _exploring or _walking or not explore_spots.interactive:
+		return
+	var sound: String = Spots.sound(spot_id)
+	if sound != "":
+		column.play_sound(sound)
+	var to: String = Spots.go(spot_id)
+	if to == "@leave":
+		_leave_for_the_evening()
+	elif to != "":
+		walk(to)
+	else:
+		look(spot_id)
+
+func walk(room: String) -> void:
+	_walking = true
+	explore_spots.interactive = false
+	var fade: Tween = create_tween()
+	fade.tween_property(explore_art, "modulate", Color(0.15, 0.15, 0.15), EXPLORE_FADE)
+	await fade.finished
+	_room = room
+	explore_art.view = room
+	fade = create_tween()
+	fade.tween_property(explore_art, "modulate", Color.WHITE, EXPLORE_FADE)
+	_walking = false
+	_fill_spots()
 
 # Looks at one thing in the room. Public so tests can use it.
 func look(spot_id: String) -> void:
 	_looked.append(spot_id)
-	spots_row.visible = false
-	door_button.visible = false
+	explore_spots.mark_used(spot_id)
+	explore_spots.interactive = false
 	column.start_conversation(Spots.section(spot_id))
 
-# The things to look at in the room on screen, once the shop is closed.
+# The things to look at in the room you're in, once the shop is closed.
 func _fill_spots() -> void:
-	# Take the old buttons out now, not at the end of the frame, so the new ones
-	# can have the same names (they're named after their spot).
-	for old in spots_row.get_children():
-		spots_row.remove_child(old)
-		old.queue_free()
-	spots_row.visible = _exploring
 	if not _exploring:
 		return
-	door_button.visible = true
-	for spot_id in Spots.in_room("shop", _view, column):
-		var button: Button = Button.new()
-		button.name = spot_id
-		button.text = Spots.label(spot_id)
-		button.disabled = _looked.has(spot_id)
-		button.pressed.connect(look.bind(spot_id))
-		spots_row.add_child(button)
+	explore_spots.fill("shop", _room, column)
+	for spot_id in _looked:
+		explore_spots.mark_used(spot_id)
+	explore_spots.interactive = true
 
 func _leave_for_the_evening() -> void:
-	door_button.disabled = true
+	explore_spots.interactive = false
 	create_tween().tween_property($ShopHum, "volume_db", -80.0, 1.5)
 	Transition.go_to(MAP_SCENE, 1.5, 0.5)
 
