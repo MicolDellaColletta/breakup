@@ -17,6 +17,8 @@ const SPECIAL_INK: Dictionary = {
 @onready var backdrop: ColorRect = %Backdrop
 @onready var title_label: Label = %TitleLabel
 @onready var body_label: Label = %BodyLabel
+@onready var rich_body: RichTextLabel = %RichBody
+@onready var scroll: ScrollContainer = $Paper/MarginContainer/Scroll
 @onready var close_button: Button = %CloseButton
 @onready var paper_sound: AudioStreamPlayer = %PaperSound
 
@@ -50,6 +52,21 @@ func open(doc_id: String) -> void:
 	title_label.add_theme_color_override("font_color", ink)
 	body_label.add_theme_color_override("font_color", ink)
 	GameState.add_item(doc_id)
+	_show(false)
+
+# A page that isn't a paper you carry off, like the ledger: text with
+# [b]bold[/b] and [i]italics[/i], and nothing goes in your pockets.
+func open_page(page_id: String, title: String, bbcode: String) -> void:
+	title_label.text = title
+	rich_body.text = bbcode
+	_doc_id = page_id
+	title_label.add_theme_color_override("font_color", INK)
+	_show(true)
+
+func _show(rich: bool) -> void:
+	body_label.visible = not rich
+	rich_body.visible = rich
+	scroll.scroll_vertical = 0
 	paper_sound.play()
 	visible = true
 	close_button.grab_focus()

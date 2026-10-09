@@ -63,6 +63,17 @@ theme_override_colors/font_color = Color(0.16470589, 0.12941177, 0.09411765, 1)
 theme_override_font_sizes/font_size = 17
 autowrap_mode = 2
 
+[node name="RichBody" type="RichTextLabel" parent="Paper/MarginContainer/Scroll/Layout" unique_id=1659989606]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0.16470589, 0.12941177, 0.09411765, 1)
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+bbcode_enabled = true
+fit_content = true
+
 [node name="CloseButton" type="Button" parent="." unique_id=39538381]
 unique_name_in_owner = true
 anchors_preset = -1

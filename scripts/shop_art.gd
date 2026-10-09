@@ -152,6 +152,14 @@ func _draw_counter() -> void:
 	_poly([Vector2(0.6, 0.6), Vector2(0.74, 0.6), Vector2(0.76, 0.7), Vector2(0.58, 0.7)], Color(0.02, 0.02, 0.022))
 	draw_arc(_p(0.67, 0.6), 0.055 * size.x, PI, TAU, 24, Color(0.03, 0.03, 0.033), 10.0)
 	draw_circle(_p(0.67, 0.655), 0.022 * size.x, Color(0.06, 0.06, 0.065))
+	# The ledger, lying open between the register and the phone.
+	_poly([Vector2(0.47, 0.7), Vector2(0.58, 0.7), Vector2(0.585, 0.76), Vector2(0.465, 0.76)], Color(0.2, 0.08, 0.06))
+	_poly([Vector2(0.475, 0.695), Vector2(0.522, 0.7), Vector2(0.522, 0.752), Vector2(0.472, 0.75)], Color(0.62, 0.58, 0.48))
+	_poly([Vector2(0.528, 0.7), Vector2(0.575, 0.695), Vector2(0.578, 0.75), Vector2(0.528, 0.752)], Color(0.58, 0.54, 0.45))
+	for k in 5:
+		var y: float = 0.708 + k * 0.009
+		draw_line(_p(0.48, y), _p(0.515, y), Color(0.25, 0.2, 0.15, 0.6), 1.0)
+		draw_line(_p(0.534, y), _p(0.568 - (k % 2) * 0.012, y), Color(0.25, 0.2, 0.15, 0.6), 1.0)
 	# A drawer in the front of the counter, under the phone.
 	_rect(0.62, 0.78, 0.16, 0.08, Color(0.04, 0.042, 0.05))
 	_rect(0.62, 0.78, 0.16, 0.08, Color(0.09, 0.09, 0.1), false)

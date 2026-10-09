@@ -1,18 +1,21 @@
 extends Control
 
-# The drive: the inside of the car, first person. Click things in the car
-# (story/spots.cfg, scene "drive") to look at them; once the radio, glovebox,
-# mirror and coat are done, the steering wheel takes you the rest of the way.
-# The glovebox opens into a close-up of its own (room "glovebox"), where each
-# thing inside can be clicked; the glovebox counts as done once you've taken
-# the pawn ticket.
+# The drive: the inside of the car, first person. Nothing can be clicked until
+# the opening text is over; then click things in the car (story/spots.cfg,
+# scene "drive") to look at them. Once you've looked at enough of them, the
+# steering wheel takes you the rest of the way. Two things open into close-ups
+# of their own: the glovebox (room "glovebox"), where each thing inside can be
+# clicked and which counts as done once you've taken the pawn ticket; and the
+# rearview mirror (room "mirror"), where the headlights behind you go out.
 
 const STORY_PATH: String = "res://story/drive.txt"
 const SHOP_SCENE: String = "res://scenes/shop.tscn"
-const MANDATORY: Array[String] = ["radio", "glovebox", "mirror", "coat"]
+# How many of the car's things to look at before the wheel shows up.
+const ENOUGH_LOOKED: int = 3
 # Hotspot ids in spots.cfg are the section name with this in front.
 const SPOT_PREFIX: String = "car_"
-const GLOVE_PREFIX: String = "glove_"
+# Hotspots inside a close-up start with one of these.
+const CLOSEUP_PREFIXES: Array[String] = ["glove_", "mirror_"]
 const VIEW_FADE: float = 0.25
 
 # Story section that plays after a document is put away.
@@ -30,6 +33,7 @@ const STATIC_LEVELS: Dictionary = {
 @onready var hotspots: HotspotLayer = %Hotspots
 @onready var car_art: Control = %CarArt
 @onready var glovebox_art: Control = %GloveboxArt
+@onready var mirror_art: Control = %MirrorArt
 @onready var exterior_art: Control = %ExteriorArt
 @onready var radio_static: AudioStreamPlayer = $RadioStatic
 @onready var car_interior: AudioStreamPlayer = $CarInterior
@@ -40,13 +44,12 @@ const STATIC_LEVELS: Dictionary = {
 }
 
 var _examining: bool = false
-var _main_index: int = 0
 var _static_tween: Tween
 var _examined: Array[String] = []
 var _main_finished: bool = false
 var _ending: bool = false
 var _arriving: bool = false
-# "car" or "glovebox": which picture is on screen.
+# "car", "glovebox" or "mirror": which picture is on screen.
 var _view: String = "car"
 # Every hotspot already clicked, in any view, so it stays done when you come back.
 var _used: Array[String] = []
@@ -63,7 +66,7 @@ func _ready() -> void:
 	narrator.set_input_enabled(false)
 	hotspots.interactive = false
 	await Transition.fade_in(2.0)
-	hotspots.interactive = true
+	# The car wakes up once the opening text is over.
 	narrator.set_input_enabled(true)
 	narrator.play("main")
 
@@ -71,9 +74,12 @@ func _ready() -> void:
 
 # Clicking a hotspot: car_radio, car_wheel, and so on.
 func click(spot_id: String) -> void:
-	if spot_id.begins_with(GLOVE_PREFIX):
-		_glovebox_click(spot_id)
+	if not _main_finished:
 		return
+	for prefix in CLOSEUP_PREFIXES:
+		if spot_id.begins_with(prefix):
+			_closeup_click(spot_id)
+			return
 	var object_id: String = spot_id.trim_prefix(SPOT_PREFIX)
 	if object_id == "wheel":
 		_on_wheel_pressed()
@@ -90,10 +96,14 @@ func _on_line_shown(line: Dictionary) -> void:
 	if line.get("show", "") == "exterior":
 		exterior_art.visible = true
 		create_tween().tween_property(exterior_art, "modulate:a", 1.0, 1.5)
+	# show=mirror_empty: the headlights behind you go out.
+	if line.get("show", "") == "mirror_empty":
+		create_tween().tween_property(mirror_art, "lights", 0.0, 0.3)
 
 func _on_section_finished(section: String) -> void:
 	if section == "main":
 		_main_finished = true
+		hotspots.interactive = true
 		_check_wheel()
 	elif section == "wheel":
 		_arrive()
@@ -106,7 +116,8 @@ func _on_section_finished(section: String) -> void:
 	elif section == "glovebox_close":
 		await _show_view("car")
 		_return_to_main()
-	elif section.begins_with("glovebox_"):
+	elif _view != "car":
+		# Something in a close-up: back to it.
 		if section == "glovebox_ticket" and not _examined.has("glovebox"):
 			_examined.append("glovebox")
 		hotspots.interactive = true
@@ -121,7 +132,7 @@ func _on_choice_made(choice: Dictionary) -> void:
 
 func _on_document_closed(doc_id: String) -> void:
 	narrator.set_input_enabled(true)
-	if _view == "glovebox":
+	if _view != "car":
 		hotspots.interactive = true
 		return
 	if AFTER_READING.has(doc_id):
@@ -132,9 +143,6 @@ func _on_document_closed(doc_id: String) -> void:
 func _return_to_main() -> void:
 	_examining = false
 	hotspots.interactive = true
-	# Once the main text is over there's nothing to pick back up.
-	if not _main_finished:
-		narrator.start_conversation("main", _main_index, true)
 	_check_wheel()
 
 func _examine(object_id: String) -> void:
@@ -143,7 +151,6 @@ func _examine(object_id: String) -> void:
 	_examining = true
 	# Asleep while the story talks, so a stray click doesn't start another.
 	hotspots.interactive = false
-	_main_index = narrator.get_line_index()
 	# The glovebox can be opened again until you've taken what matters.
 	if object_id == "glovebox":
 		narrator.start_conversation("glovebox")
@@ -153,18 +160,26 @@ func _examine(object_id: String) -> void:
 	if sound != "":
 		narrator.play_sound(sound)
 	_examined.append(object_id)
+	# The mirror: a close-up, and the lights in it.
+	if object_id == "mirror":
+		await _show_view("mirror")
 	narrator.start_conversation(object_id)
 
-# Something inside the open glovebox, or closing it.
-func _glovebox_click(spot_id: String) -> void:
-	if _view != "glovebox" or not hotspots.interactive or _used.has(spot_id):
+# Something in a close-up (the open glovebox, the mirror), or leaving it.
+func _closeup_click(spot_id: String) -> void:
+	if _view == "car" or not hotspots.interactive or _used.has(spot_id):
 		return
 	hotspots.interactive = false
-	if spot_id != GLOVE_PREFIX + "close":
-		_use(spot_id)
 	var sound: String = Spots.sound(spot_id)
 	if sound != "":
 		narrator.play_sound(sound)
+	# go=car: eyes back on the road.
+	if Spots.go(spot_id) == "car":
+		await _show_view("car")
+		_return_to_main()
+		return
+	if spot_id != "glove_close":
+		_use(spot_id)
 	narrator.start_conversation(Spots.section(spot_id))
 
 func _use(spot_id: String) -> void:
@@ -179,6 +194,7 @@ func _show_view(view: String) -> void:
 	_view = view
 	car_art.visible = view == "car"
 	glovebox_art.visible = view == "glovebox"
+	mirror_art.visible = view == "mirror"
 	hotspots.fill("drive", view, narrator)
 	for spot_id in _used:
 		hotspots.mark_used(spot_id)
@@ -198,12 +214,8 @@ func _on_wheel_pressed() -> void:
 func _check_wheel() -> void:
 	if _examined.has("glovebox"):
 		hotspots.mark_used(SPOT_PREFIX + "glovebox")
-	if not _main_finished:
-		return
-	for object_id in MANDATORY:
-		if not _examined.has(object_id):
-			return
-	hotspots.set_shown(SPOT_PREFIX + "wheel", true)
+	if _main_finished and _examined.size() >= ENOUGH_LOOKED:
+		hotspots.set_shown(SPOT_PREFIX + "wheel", true)
 
 func _set_static(level: String) -> void:
 	var target_db: float = STATIC_LEVELS[level]
