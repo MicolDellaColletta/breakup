@@ -15,8 +15,9 @@ What `themes.md` asked day three for:
   feels it.
 - **Desire:** wanting to be seen. Ruth or Sam (see the open questions). Not
   romance yet.
-- **Rule 2** ("Don't buy anything that's still warm") hasn't come up yet. Today
-  it does.
+- **Rule 2** ("Don't buy anything that's still warm") came up once, with Walt's
+  silver on day one. Today it's harder: the warm thing belongs to a dead man
+  the player knows.
 - **Rule 8** (the window after midnight) hasn't either. Tonight, with the window
   you dressed.
 
@@ -97,8 +98,8 @@ Someone brings the Keeper something. Who it is depends on day one and two:
   winter. Warmth, if strong: *"They're being kind."* ??? (only if frayed):
   *"They feed the lamb too."*
 - **Rule 2 plays against it:** the dish is still warm. It isn't for sale and
-  isn't being bought, so the rule doesn't apply. Paranoia worries anyway. That
-  sets up customer 4, where it does apply.
+  isn't being bought, so the rule doesn't apply. Paranoia worries anyway (it
+  remembers Walt's coins). That sets up customer 4, where it does apply.
 
 ### 3. The afternoon caller (decided by the window)
 
@@ -172,7 +173,11 @@ Keeper's stool. Ruth works the bar alone.
 ## The shop: shelves, the window, examining, customers you can see
 
 The new mechanics (agreed: window draws customers, close-ups with clues). They
-work on every day, not just day three.
+work on every day, not just day three. **Built** (first version, playable on
+days one and two): `scripts/shelf_view.gd`, `item_art.gd`, `person_art.gd`,
+`examine_view.gd`, `story/people.cfg`, `story/examine.txt`, the `shape=` key in
+`stock.cfg`, and `if=window:fox`. Not built yet: Olstad moving a thing on the
+shelves, and day three's story itself.
 
 ### Shelves
 
@@ -194,7 +199,8 @@ work on every day, not just day three.
 
 ### Examining
 
-- Click **Examine** on a held object: a **close-up** fills the counter area.
+- While a customer waits, click **Examine** on a held object: a **close-up**
+  fills the shop side of the screen.
   Things on it can be clicked (the same hotspots as the rooms): open the lid,
   turn it over, read the tag.
 - Each click can reveal a **clue** (written in `stock.cfg` / a new

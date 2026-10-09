@@ -101,9 +101,7 @@ func _cody_ezra_found_walt_accepts_ruth_upstairs() -> void:
 	advance(column)
 	await process_frame
 	counter._show_view("back")
-	var shelf: Array = counter.get_node("%ShelfItems").get_children().filter(
-		func(b: Node) -> bool: return not b.is_queued_for_deletion()).map(func(b: Node) -> String: return b.text)
-	check(shelf.has("Ice picks") and shelf.has("One name"), "the picks and the name are on the back shelf")
+	check(gs.shelf_back.has("ice_picks_held") and gs.shelf_back.has("name_ida"), "the picks and the name are on the back shelf")
 	counter._show_view("ledger")
 	var ledger: String = counter.get_node("%LedgerText").get_parsed_text()
 	check(ledger.contains("OLDER PAGES") and ledger.contains("E. Lund. .22 shells"), "the ledger's older pages show Ezra's Thursdays")

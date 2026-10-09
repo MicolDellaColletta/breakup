@@ -9,6 +9,7 @@
 #          | if=rules_broken>=2   | if=broke:window
 #          | if=has:pawn_ticket   | if=hour>=24  (past midnight)   | if=day==2
 #          | if=sold:ice_picks   | if=visited:lake   | if=flag:ezra_satisfied
+#          | if=window:fox  (the fox is in the shop's front window)
 #          | if=frayed   | if=background:guilt (or debt, witness, insanity)
 #          Join with " and " / " or ":  | if=day>=2 and !flag:ruth_refused
 # Line and choice effects: | set=fed_dog (turns a GameState true/false on)  | sound=bell  | stop=ring (or stop=all)  | after=bell (wait for it to finish)

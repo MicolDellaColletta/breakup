@@ -110,6 +110,15 @@ var ledger_lines: Array[String] = []
 # The ticket written for each thing pawned this season, as "item_id=0433".
 var pawn_tags: Array[String] = []
 
+# How the shop is arranged: an item id per spot, "" for an empty one. The
+# floor shelves (for sale), the back shelf (held), and the front window (three
+# spots, seen from the road: for sale too). Empty until the counter first
+# fills them from stock.cfg; the player rearranges them from there.
+const SHELF_SPOTS: Dictionary = {"floor": 12, "back": 12, "window": 3}
+var shelf_floor: Array[String] = []
+var shelf_back: Array[String] = []
+var shelf_window: Array[String] = []
+
 func _ready() -> void:
 	if _items.load(ITEMS_PATH) != OK:
 		push_error("Could not load items: " + ITEMS_PATH)
@@ -149,6 +158,9 @@ func reset() -> void:
 	acquired.clear()
 	ledger_lines.clear()
 	pawn_tags.clear()
+	shelf_floor.clear()
+	shelf_back.clear()
+	shelf_window.clear()
 	time_changed.emit()
 
 # --- Saving ---
@@ -160,6 +172,7 @@ const SAVED: Array[String] = [
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
 	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags",
 	"fray", "broke_today", "background_settled",
+	"shelf_floor", "shelf_back", "shelf_window",
 ]
 
 func to_dict() -> Dictionary:
@@ -298,6 +311,7 @@ func add_cash(amount: int) -> void:
 # A sale: the money goes in the till and the ledger writes it down.
 func record_sale(item_name: String, item_id: String, price: int, buyer: String) -> void:
 	sold.append(item_id)
+	take_off_shelves(item_id)
 	till += price
 	till_by_ledger += price
 	var to: String = (" to " + buyer) if buyer != "" else ""
@@ -319,6 +333,49 @@ func record_pawn(item_name: String, item_id: String, loan: int, tag: String, sel
 	var by: String = (" by " + seller) if seller != "" else ""
 	var money: String = ("$%d loan" % loan) if loan > 0 else "No loan"
 	ledger_lines.append("%s. %s, pawned%s, tag %s. %s" % [date_text(), item_name, by, tag, money])
+
+# --- The shelves ---
+
+# The spots on one shelf ("floor", "back" or "window").
+func shelf(name: String) -> Array[String]:
+	match name:
+		"floor": return shelf_floor
+		"back": return shelf_back
+		_: return shelf_window
+
+# Makes sure every shelf has all its spots (empty ones are "").
+func ready_shelves() -> void:
+	for name in SHELF_SPOTS:
+		var spots: Array[String] = shelf(name)
+		while spots.size() < SHELF_SPOTS[name]:
+			spots.append("")
+
+# Where an item is: [shelf name, spot], or ["", -1] if it isn't on one.
+func shelf_spot_of(item_id: String) -> Array:
+	for name in SHELF_SPOTS:
+		var at: int = shelf(name).find(item_id)
+		if at != -1:
+			return [name, at]
+	return ["", -1]
+
+# Takes an item off whatever shelf it's on (it was sold, or picked up).
+func take_off_shelves(item_id: String) -> void:
+	var where: Array = shelf_spot_of(item_id)
+	if where[1] != -1:
+		shelf(where[0])[where[1]] = ""
+
+# Puts an item in a spot. Whatever was there goes where the item came from
+# (a swap), or nowhere if it came from nowhere.
+func place_on_shelf(item_id: String, name: String, spot: int) -> void:
+	var from: Array = shelf_spot_of(item_id)
+	var there: String = shelf(name)[spot]
+	if from[1] != -1:
+		shelf(from[0])[from[1]] = there
+	shelf(name)[spot] = item_id
+
+# The first empty spot on a shelf, or -1.
+func empty_spot(name: String) -> int:
+	return shelf(name).find("")
 
 # The next ticket number: one past the highest written so far.
 func next_pawn_tag() -> String:
