@@ -21,6 +21,7 @@ const STORY_SCENES: Dictionary = {
 const SPOT_STORIES: Dictionary = {
 	"drive": ["res://story/drive.txt"],
 	"shop_night": ["res://story/shop.txt"],
+	"apartment_first": ["res://story/apartment.txt"],
 	"shop": ["res://story/shop_looks.txt"],
 	"night": ["res://story/night_one.txt", "res://story/night_two.txt"],
 }
