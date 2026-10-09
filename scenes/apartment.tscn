@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://c0jpknx6vd8yr" path="res://audio/freesound_community-windy-day-indoors-windows-rattle-17087.mp3" id="5_wind"]
 [ext_resource type="AudioStream" uid="uid://b18rc4uxj4gv3" path="res://audio/freesound_community-small-wind-chimes-29982.mp3" id="6_chimes"]
 [ext_resource type="AudioStream" uid="uid://csrlyhxwjl870" path="res://audio/yourugor-tv-static-noise-291374.mp3" id="7_tv"]
+[ext_resource type="Script" path="res://scripts/apartment_art.gd" id="8_art"]
+[ext_resource type="Script" path="res://scripts/hotspot_layer.gd" id="9_spots"]
+[ext_resource type="AudioStream" uid="uid://cj2muj1x5nnsb" path="res://audio/soundsgoodmusic-creaking-stairs-306029.mp3" id="10_floor"]
 
 [node name="Apartment" type="Control" unique_id=1639265716]
 layout_mode = 3
@@ -17,72 +20,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pkwu2")
 
-[node name="Background" type="ColorRect" parent="." unique_id=2091371637]
+[node name="ApartmentArt" type="Control" parent="." unique_id=2091371637]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.05490196, 0.07058824, 0.09411765, 1)
+mouse_filter = 2
+script = ExtResource("8_art")
+
+[node name="Hotspots" type="Control" parent="." unique_id=1128439452]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_spots")
 
 [node name="Narrator" parent="." unique_id=1399626938 instance=ExtResource("2_jq6rh")]
 unique_name_in_owner = true
 layout_mode = 1
-
-[node name="Objects" type="HBoxContainer" parent="." unique_id=1128439452]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -64.0
-offset_right = 40.0
-offset_bottom = -28.0
-grow_vertical = 0
-theme_override_constants/separation = 10
-mouse_filter = 2
-
-[node name="WindowButton" type="Button" parent="Objects" unique_id=714600136]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Window"
-
-[node name="RadioButton" type="Button" parent="Objects" unique_id=1541773938]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Radio"
-
-[node name="CalendarButton" type="Button" parent="Objects" unique_id=1726114784]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Calendar"
-
-[node name="BedButton" type="Button" parent="Objects" unique_id=198472520]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Bed"
-
-[node name="MirrorButton" type="Button" parent="Objects" unique_id=900851283]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Mirror"
-
-[node name="CoatButton" type="Button" parent="Objects" unique_id=902986971]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Coat"
-
-[node name="TVButton" type="Button" parent="Objects" unique_id=1928374650]
-unique_name_in_owner = true
-layout_mode = 2
-text = "TV"
-
-[node name="KitchenButton" type="Button" parent="Objects" unique_id=2029384756]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Kitchen"
 
 [node name="RadioNight" type="AudioStreamPlayer" parent="." unique_id=1629980858]
 unique_name_in_owner = true
@@ -112,3 +74,8 @@ volume_db = -14.0
 unique_name_in_owner = true
 stream = ExtResource("7_tv")
 volume_db = -12.0
+
+[node name="Floorboards" type="AudioStreamPlayer" parent="." unique_id=1930899271]
+unique_name_in_owner = true
+stream = ExtResource("10_floor")
+volume_db = -10.0

@@ -50,6 +50,10 @@ static func go(spot_id: String) -> String:
 static func arrow(spot_id: String) -> String:
 	return _spots().get_value(spot_id, "arrow", "")
 
+# again=true: stays clickable after it's been looked at.
+static func again(spot_id: String) -> bool:
+	return bool(_spots().get_value(spot_id, "again", false))
+
 # hidden=true: not on screen until the scene shows it (the steering wheel).
 static func starts_hidden(spot_id: String) -> bool:
 	return bool(_spots().get_value(spot_id, "hidden", false))
