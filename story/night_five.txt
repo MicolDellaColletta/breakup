@@ -158,4 +158,3 @@ narration: Nothing comes up. Near three, from the bottom of the stairs, a long b
 
 === morning_after
 narration | time=07:30: Monday. Snow in the night, a lot of it. The window's gone white.
-narration: (End of day five. Day six is still being written. Thank you for playing.)

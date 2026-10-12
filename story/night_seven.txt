@@ -1,0 +1,192 @@
+# THE SEVENTH NIGHT: Tuesday, October 12. The John night.
+# Hard fork 1 (docs/forks.md): the background settles. The night: John's
+# revolver at the kitchen table; the Reverend, late and unscheduled; what MC
+# does with the gun (it leans the last point; the week decides, and a tie
+# goes to this choice); settle=background; the first flash of the night John
+# died, per background (docs/daniel.md 6d, docs/story.md "John"); and the dog
+# stops outside the bedroom door. Design: docs/days_four_to_seven.md.
+
+=== arrival
+narration | sound=stairs: You don't go up. Not yet. You go out the back, through the snow, to the car.
+narration: Under the passenger seat, where you pushed it a week ago, still in its towel. Heavier than it looks.
+narration | take=revolver: You bring it up the stairs held against your chest, the way the stranger carried the jacket, as if it might wake.
+narration | stop=stairs: You put it on the kitchen table. You don't unwrap it. You sit and look at the towel.
+paranoia: One week. You knew this was coming. You've known all day. You've known since the car.
+paranoia: Do the rules first. Do them like any night. Then you can sit with it.
+
+=== radio
+narration | time=+10: The radio. Tuesday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Static. Not the Thursday watch, not the request hour, not the hymns. Just the static, and you, and the towel on the table.
+narration: You leave it on. You'd rather have something.
+
+=== radio_off
+narration: You leave it off. It's just you, and the towel on the table, and the hum.
+
+=== kitchen
+narration | time=+10: The bowl. The towel on the table beside it, the shape of what's in it.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_seven
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. You set it on the line. Your hand is shaking. It isn't the cold.
+
+=== kitchen_unfed
+narration: You roll the sack shut. Not tonight. You can't tonight.
+
+=== windows
+narration | time=+10: The front windows. No snow tonight. The sky's cleared, and gone very black, and very far.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched. Twice. Three times. You let yourself have three, tonight.
+
+=== windows_open
+narration: Cold, and the stars, and nothing moving anywhere in Kettle Lake.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser. The flannel shirts. The bulletin, the rental papers, all the paper you've been hiding from yourself.
+narration | if=has:notebook: Sam's notebook. Today's date at the top of the page, and nothing under it. You could write it down. All of it. Two columns.
+paranoia: Not yet.
+
+=== painting
+narration | time=+5: The painting. The figure on the ice, with its back to you.
+narration: Tonight you'd give anything for it to turn around. You'd give anything for it not to.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked. Dark underneath. No light tonight.
+paranoia: Even the house is waiting.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door. Your own footprints out to the car and back, in the snow.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. Tonight, of all nights, you leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns. You stand with your forehead against the cold steel of it a while.
+
+# --- The table. ---
+
+=== sleep
+narration | time=+20: You don't go to bed. You sit down at the kitchen table, and you unwrap the towel, one corner at a time.
+narration: The revolver. You open the cylinder against your palm. Five rounds in six chambers. The empty one turns under your thumb, and turns, and comes round again.
+narration | if=flag:radio_on: On the radio, the static thins. The calm voice, at an hour he's never been on the air.
+narration | if=flag:radio_on: "For anyone awake tonight. The Lord knows your name, friend. Even if you've put it down somewhere."
+narration | if=flag:radio_on: Then static. He doesn't say anything else. You're not sure he meant to say that much.
+narration: It's one week since you drove in. It's longer since the night it was his, and you were there, or near, or somewhere you can't find.
+paranoia: Do something with it. Anything. You can't sleep with it on the table.
+> Put it under your pillow -> gun_pillow | lean=animal
+> Wrap it in a flannel shirt and hide it at the back of the dresser, with the papers -> gun_dresser | lean=appraisal
+> Take it outside and push it deep into the snowbank by the back door, till May -> gun_snow | lean=warmth
+> Try to load the sixth chamber with the .22s from the counter drawer -> gun_load | lean=john
+> Sit with it. Wait for the static to clear. Listen to what it says. -> gun_listen | lean=unknown
+
+=== gun_pillow
+narration: You carry it to the bedroom and put it under your pillow, and lie down with your head on it, and your hand under the pillow, on it.
+narration: It's the first time all week you've felt like nobody could come in.
+narration: It's the first time all week you've felt like somebody might have to.
+-> john_night
+
+=== gun_dresser
+narration: You wrap it in the red-and-black flannel, the way you'd wrap evidence, and push it to the back of the bottom drawer, behind the bulletin and the rental papers and the job offer.
+narration: Everything you know about the night is in that drawer now. Labeled, almost. Filed.
+narration: You close the drawer. You check it's closed. You know exactly what's in it, and in what order.
+-> john_night
+
+=== gun_snow
+narration | sound=floorboards: You take it down the stairs and out the back door in your socks, and kneel in the snowbank, and push it in up to your elbow, as deep as your arm will go.
+narration: The cold burns. You leave your arm there longer than you need to.
+narration | lose=revolver: When you pull it out, there's only a hole, and the snow already falling into it from the sides. In May the bank will melt, and there it'll be. In May.
+-> john_night
+
+=== gun_load
+narration | sound=drawer: You go down to the counter in the dark and take a box of .22 shells from the drawer, and bring it up, and try one in the empty chamber.
+narration: It doesn't fit. Too small. It rattles in there, loose, wrong.
+narration: You try another. You try them all. You sit there for an hour with a box of wrong bullets, trying to fill a dead man's gun, until you understand that you're doing it to be him.
+-> john_night
+
+=== gun_listen
+narration: You sit with it. You leave it open on the table, the empty chamber up, like an eye.
+narration: You wait. The static on the radio, or the hum, or the blood in your ears. You wait for it to say something.
+unknown: There you are, sweetheart. I've been waiting all week for you to sit still.
+narration: You sit very still. It doesn't say anything else. It doesn't need to.
+-> john_night
+
+# --- The fork: the background settles, and the first flash. ---
+
+=== john_night
+narration | settle=background | time=00:47: Somewhere after midnight you stop knowing if you're awake.
+-> flash_guilt | if=background:guilt
+-> flash_witness | if=background:witness
+-> flash_debt | if=background:debt
+-> flash_insanity
+
+=== flash_guilt
+narration: A motel room in Anchorage. Rain on a window. Two people and one gun, and the gun is between them, and then it's in your hand.
+narration: John on the carpet. He isn't moving. You didn't mean it. You don't know if you didn't mean it.
+narration: The door opens. A man in the doorway, against the light. You can't see his face. You'll never see his face, here.
+narration: You fire once. The sound fills the room like water filling a lung.
+narration: The man in the doorway looks down at his side. And laughs. Softly. As if you'd told him something he'd been waiting years to hear.
+-> flash_end
+
+=== flash_witness
+narration: A parking lot in Anchorage, under a sodium light. Rain. You're in a car, low in the seat. Nobody knows you're there.
+narration: John, by the dumpsters, with a revolver. Another man walking toward him, unhurried, hands in his coat. You can't see his face.
+narration: John fires. Once. The man's coat jerks at the side, and he keeps walking.
+narration: Then John is on the ground, and the man is standing over him, and then the man turns and looks straight at your car. Straight at you.
+narration: "Go on, sweetheart," he says. Not loud. You hear it anyway, through the glass. "Go on."
+-> flash_end
+
+=== flash_debt
+narration: An apartment in Anchorage. Your apartment. The door kicked in. Men in the hall, two, three, you don't know them, you know who sent them.
+narration: But you aren't there. You're across the street, in John's car, with John's things, watching your own windows light up.
+narration: John is in there. In your place. He came to give you the car keys and he's in your place, and they think he's you.
+narration: A shot. One. From inside. From John's gun. A man in the doorway staggers and holds his side and doesn't fall.
+narration: Then more shots, not John's. Then nothing. Then one of them comes to the window, a man you can't see the face of, and stands there looking at the street a long time.
+-> flash_end
+
+=== flash_insanity
+narration: Nothing. There's nothing. That's the flash.
+narration: A car, the engine running, the heater on, and you behind the wheel with your hands on the wheel and no idea how you got there. It's dark. It's raining. The clock on the dash says 3:12.
+narration: On the passenger seat, a towel, wrapped around something heavy. A rental agreement, soaked, the name run.
+narration: Your knuckles hurt. There's something on your sleeve that's dried dark. You don't know whose. You don't know.
+narration: In the mirror, for a second, in the back seat, a man's shape. No face. When you turn around, the seat is empty, and there's a dent in it, as if someone had been sitting there a long time.
+-> flash_end
+
+=== flash_end
+narration | sound=click: A revolver's cylinder, turning. One click. The empty chamber coming round.
+narration: And you're at the kitchen table in Kettle Lake, or in your bed, or on your knees in the snow, and it's ten to three, and the building is very quiet.
+paranoia: That's what happened. That's what you've been not remembering.
+paranoia: Or that's what you've decided happened. Because you had to decide something. Tonight, you had to.
+-> night_dog
+
+# --- The dog stops at the bedroom door. ---
+
+=== night_dog
+narration | show=bedroom: Back in bed. You don't remember getting there. Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: It doesn't stop in the kitchen tonight.
+narration | if=flag:fed_seven: It goes past the bowl, full, without touching it.
+narration: It comes down the hall. One and then the other. It stops outside the bedroom door.
+narration: It breathes. On the other side of the door, low down, at the height of a person kneeling. Slow. Patient.
+narration: You don't move. You don't breathe. You lie there and listen to it breathe, on the night you became the Keeper.
+narration: Then it goes. One and then the other, down the hall, down the stairs, and the back door, softly, and the snow.
+paranoia: It came to look at you. Tonight. Of all the nights.
+paranoia: Or you were standing outside your own door. Breathing. Looking in.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Wednesday. On the mat inside the door, an envelope. A hundred and fifty dollars, every bill the same way up.
+narration: The second week.
+narration: (End of week one. The story continues in the second week, which is still being written. Thank you for playing.)

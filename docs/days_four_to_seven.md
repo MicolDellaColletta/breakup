@@ -368,6 +368,47 @@ the church, the vestry and Mrs. Hollis's kitchen (`scripts/place_art.gd`).
   spoke first (the sentence is served), and at the other end a radio plays
   the same hymn a second behind; fed, something on the stairs hums it.
 
+## Days six and seven, as built (Oct 12)
+
+`story/day_six.txt`, `night_six.txt`, `day_seven.txt`, `night_seven.txt`,
+Monday and Tuesday in `town.txt`; tested in `tests/test_days_six_seven.gd`.
+**Week one is playable end to end.**
+
+- **Monday:** a foot of snow, footprints from the back door to the tree line;
+  shovel the walk (`fray=-1`) or a neighbour does it. **Olstad** at the bear
+  (Teague told her, or "Abraham ever tell you about the bear?"); while she
+  listens, **the rental company calls** (`flag:rental_call`): give the
+  thirtieth (`gave_return_date`), "wrong number" (it rings again; she watches
+  you let it), or hang up. Then **Thomas's photographs**: she found a tin of
+  them under the bed, him and his friend holding hands in the snow, and
+  burned them in the stove. Pleasant, never a joke, never excused. At the
+  door her hand comes up to knock on the frame, and she stops it. **Ezra**
+  for H.L. '89: give it (`gave_tooth`) or refuse (`refused_tooth`: "It'll be
+  asked again. On Sunday. By more of us."). **June** for a flannel shirt for
+  the boy who plays the Keeper in the pageant (`lent_shirt`). Everyone knocks
+  twice; MC catches their own hand rising.
+- **Monday evening:** **the town line** (new place, Monday only): Olstad in the
+  turnout, two fingers; turn around, or keep driving and be pulled over and
+  followed home (`tried_town_line`). Sam gives MC **a notebook**, KEEPER. 1999
+  (new item). Men checking the poles: "December, if it holds cold." The
+  Gleaner on a quiet Monday; the church's vestry light.
+- **Night six:** the Monday notices on the radio, with the Keeper's weight
+  (if weighed); no phone; a light under the locked door; fed, a word from the
+  kitchen: maybe "there".
+- **Tuesday:** Walt (rule six kept) says "Ida" out loud and doesn't knock; or
+  the boy (rule six broken) asks if MC is scared. At closing, an empty church
+  envelope, a day early, JOHN ruled through. In the ledger, in the owner's
+  hand: *Oct 12. One week.* The evening map offers nowhere to go.
+- **The John night:** John's revolver from the car (new item). The Reverend,
+  unscheduled, if the radio's on. Five things to do with the gun, each
+  leaning a voice; then `settle=background`. **A tie goes to the voice the
+  last choice leaned** (`GameState.last_lean`). The first flash, per
+  background (guilt: the motel, the fight, the shot, the laugh; witness: the
+  parking lot, "Go on, sweetheart"; debt: MC's own apartment, John taken for
+  MC; insanity: the car at 3:12, the empty back seat), each ending on the
+  cylinder's click. Then the dog doesn't stop at the bowl: it stops outside
+  the bedroom door, at the height of someone kneeling, and breathes.
+
 ## What has to be built
 
 - **Day five has no counter:** a new day shape. Probably the map and a few
