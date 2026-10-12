@@ -46,13 +46,13 @@ narration: The road ends where the headlights end. Past that, nothing. Not dark.
 narration: A hand-painted sign leans out of a snowbank, half buried: PREPARE TO MEET THY G... The rest is under the snow.
 unknown: Where are you going, sweetheart?
 unknown: And what will you do when you get there?
-narration | static=silent: The radio clears for a single moment. A man's voice, calm and unhurried, like someone sitting up with a sick friend: "...so tell me, caller. How much is the truth worth to you?"
+narration | static=silent: The radio clears for a single moment. A man's voice, calm and unhurried, like someone sitting up with a sick friend: "...so tell me, caller. What is it you're carrying that you can't put down?"
 narration: "And to anyone still out on the road tonight: wherever you're going, keep your windows shut when you get there."
 narration | static=loud: Static.
 
 === radio
 narration | static=loud | time=+5 | sound=click: You turn the dial. Static, a preacher, static, a man selling snow tires, static.
-narration: Then a caller, mid-sentence: "...an old sedan, northbound, one headlight dimmer than the other..."
+narration: Then a caller, mid-sentence: "...Hank, out past Mile 30. Saw an old sedan go by, northbound, one headlight dimmer than the other..."
 paranoia | static=normal: One headlight dimmer than the other. Check yours. No. Don't.
 
 === glovebox

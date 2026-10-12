@@ -161,7 +161,7 @@ narration: Ezra sets down the coffee pot very carefully.
 === church_john
 narration: Your voice in the little room sounds like somebody else's. Friendly. Easy. John's.
 reverend: Our visitor is very welcome. Thursday nights get long.
-narration: Ezra nods, once. Somewhere in town, a dozen people just heard the new Keeper say he was at the church.
+narration: Ezra nods, once. Somewhere in town, a dozen people just heard the new Keeper, up at the church, sounding friendly.
 -> church_hymn
 
 === church_hymn

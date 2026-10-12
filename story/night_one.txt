@@ -119,7 +119,7 @@ paranoia: Your hands are at your sides. Both of them. You checked.
 === waved
 narration: You lift your hand. In the glass, your reflection lowers its own, as if it had only been waiting for you.
 narration: Then it's just your reflection again. Doing what you do. You think.
-unknown: There. Was that so hard, sweetheart?
+unknown: There. Was that so hard?
 -> back_room
 
 === didnt_wave
