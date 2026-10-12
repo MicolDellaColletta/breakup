@@ -324,7 +324,19 @@ func _show_choices(choices: Array) -> void:
 		var button: Button = _make_choice_button(choices[i], i + 1)
 		button.pressed.connect(_on_choice_pressed.bind(choices[i]))
 		choice_box.add_child(button)
+		_arm_later(button)
 	choice_box.visible = true
+
+# Choices fade in and can't be clicked until they have, so clicking quickly
+# through the text never picks one by accident. (Number keys pick at once.)
+const CHOICE_ARM_TIME: float = 0.6
+
+func _arm_later(button: Button) -> void:
+	button.disabled = true
+	button.modulate.a = 0.0
+	var fade: Tween = button.create_tween()
+	fade.tween_property(button, "modulate:a", 1.0, CHOICE_ARM_TIME)
+	fade.tween_callback(func() -> void: button.disabled = false)
 
 func _make_choice_button(choice: Dictionary, _number: int) -> Button:
 	var button: Button = Button.new()
