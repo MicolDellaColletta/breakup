@@ -275,7 +275,7 @@ func _draw_items() -> void:
 	var all: Array[Dictionary] = spots()
 	for i in all.size():
 		var r: Rect2 = all[i]["rect"]
-		var item_id: String = GameState.shelf(all[i]["shelf"])[all[i]["spot"]]
+		var item_id: String = _item_in(all[i])
 		if i == _hovered:
 			draw_rect(r.grow(2), HOVER, false, 1.5)
 		if item_id == "":
@@ -289,10 +289,15 @@ func _draw_items() -> void:
 			_draw_tag(r, str(_tag_of.call(item_id)))
 	if _hovered != -1 and _hovered < all.size():
 		var r: Rect2 = all[_hovered]["rect"]
-		var under: String = GameState.shelf(all[_hovered]["shelf"])[all[_hovered]["spot"]]
+		var under: String = _item_in(all[_hovered])
 		var text: String = _name(under) if under != "" else ("Put it here" if held != "" else "")
 		if text != "":
 			_draw_label(text, r.get_center() - Vector2(0, r.size.y * 0.5 + 6))
+
+# What's in a spot ("" for nothing, or a shelf not filled in yet).
+func _item_in(s: Dictionary) -> String:
+	var on: Array[String] = GameState.shelf(s["shelf"])
+	return on[s["spot"]] if s["spot"] < on.size() else ""
 
 # The arrows at the edges: turn left, turn right.
 func _draw_arrows() -> void:

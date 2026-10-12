@@ -180,6 +180,7 @@ func _arrival(choice: String, flag: String) -> void:
 		return
 	ring_bell()
 	check(column._section == "closing", "closing")
+	advance(column)
 	await pick(column, "Olstad")
 	advance(column)
 	check(gs.flags.has("told_olstad_daniel") and _log(column).contains("I'll look at him real close."), "you tell Olstad; her headlights turn to the church")
