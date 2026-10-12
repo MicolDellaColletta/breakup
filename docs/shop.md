@@ -1,6 +1,6 @@
 # Breakup: The shop, redesigned
 
-A draft for discussion. Nothing here is built yet. Change anything. Written
+Agreed in outline on October 12 (decisions at the end). Nothing built yet. Written
 October 12 after an honest review of what the shop is now; checked against
 `pillars.md` (the rule of two explanations), `underneath.md`, `forks.md`.
 
@@ -335,17 +335,76 @@ where it touches the plot.
 
 ## Open questions
 
-- [ ] **"Next customer": a button, or the bell?** (Lean: a button that says what
-      it does, *Open the door*, and the bell when it's pressed.)
-- [ ] **Does exploring cost time?** (Lean: no. Only customers, trips and puzzles
-      that say so.)
-- [ ] **The freezer key: in the bear, or with Olstad?** (Lean: a spare in the
-      bear; Olstad has the other. Getting hers is a kept-faith moment.)
-- [ ] **The fuse box: can the freezer switch be turned off before December?**
-      (Lean: yes, and Olstad turns it back on within a day, saying nothing. The
-      first time the player sees her know.)
-- [ ] **How many objects by the end?** (Lean: 35 to 40 across the game, about 15
-      in the shop at any one time.)
-- [ ] **Folk vs plain answers:** does the game ever reward the folk answer more
-      than the plain one? (Lean: sometimes. The town rewards belief. That's the
-      trap.)
+- [x] **"Next customer": the bell** (decided). A button at the counter rings
+      it; the next person comes in on the bell.
+- [x] **Time: places have hours, not clicks** (decided). Exploring inside a
+      place is free. But places open and close, and people go home: arrive late
+      and the church is locked, the school empty, the Gleaner shut. Some places
+      are *better* empty (snooping costs the town's eye if someone sees).
+      Travel still costs time (as now).
+- [x] **The freezer key: a spare in the bear, and Olstad has the other**
+      (decided on the lean). Finding the bear's is exploration; getting hers is
+      trust (a kept-faith moment). Two ways in, two different stories about
+      how MC got there.
+- [x] **The freezer switch can be turned off** (decided), and that's exactly why
+      it matters: there's a body in there. Within hours the hum is gone; by
+      morning, water under the steel door and, faintly, a smell. Olstad arrives
+      before noon, turns it back on without a word, and puts new tape over the
+      switch. The first time the player sees her *know*. Do it twice and she
+      takes the fuse.
+- [x] **35 to 40 objects** across the game, about 15 in the shop at once
+      (decided).
+- [x] **Folk vs plain: layers** (decided). Objects come in three layers:
+      **one-time rewards** (money, a tool, a catalogue page), **small side
+      stories** (a person, a few visits, an ending of their own: June's mother,
+      Ida's sewing tin), and **the main plot** (the tin, the button, the
+      bullet, the freezer key). The town sometimes rewards belief over use.
+
+---
+
+## 11. Explorable places around town (to do)
+
+Places on the evening map (and some by day) become **explorable at certain
+times**, to wander and find objects. **Text choices first** (a list of things
+to look at, like the counter's choices), art added later. Each place has
+**hours** and **people**: who's there when, and what changes when nobody is.
+
+| Place | Open / who's there | Empty / closed | To find (examples) |
+|---|---|---|---|
+| **The church** | Sunday morning, Thursday night (the watch), Saturday night (the Circle scrubbing) | Weeknights: locked, but the vestry window doesn't latch | Lost property (the hymnal with notes), the vestry book, the coat on its hanger, the Polaroids of every Keeper |
+| **The Gleaner** | Evenings till last call | After hours: Ruth alone, or nobody (the cellar door) | Behind the bar: Ruth's camera; the wall; the cellar (her door) |
+| **The school** | Weekdays, June | Evenings: empty, a light in June's classroom | The children's drawings, the pageant props (a child-sized coat), the class register with every Keeper's year |
+| **The graveyard** | Any time (behind the church) | At night: someone tending a grave | Headstones with no bodies (lost to the lake: "Ray Hollis, 1999"), the Keepers' corner (no names, only years), flowers left by someone |
+| **Sam's cabin / laboratory** | After his first door; when he's out on the ice, the lab is open | When he's home: he talks; when he's out: you can look | The ice cores by year, the notebook, the wall (December), the clock (March) |
+| **The Gleaner's cellar** | Ruth's second door | | The second Polaroids |
+| **The Lunds'** | Thursdays (the Circle) | Other nights: Ezra alone, praying | The coat in progress; the seam ripper; the book of fittings |
+| **Mrs. Hollis's** | Sundays (lunch) | Weekdays: she's at church; the back door's open, the way everyone's is | The kitchen (the bowl, the hairpins); Ray's room |
+| **Walt's** | Afternoons | Evenings: asleep in his chair, the TV on | Ida's things (a buying trip: he gives) |
+| **The post office** | Weekdays till four | | The money orders' stubs (whoever sends them from here in December); the mail for "J." |
+| **The gas station** | Always (the payphone) | Night: the payphone lit | Daniel's matchbook; the payphone's log of calls, if MC talks the clerk round |
+| **The lake / the shore** | Always | Night: dangerous | Lanterns, the button, the wreath; after thaw, what washes up |
+| **The dump** | Daylight | Night: Teague, burning furs | Thrown-out things; the stopped watch |
+
+- **Being seen** where you shouldn't be counts toward the town's eye.
+- **Some finds need a tool** (the loupe, the candle, the magnet).
+- **Engine:** a place's section routes on hour and day (`if=hour>=20`), like
+  the map already routes on day; a new effect for "found" (adds to the shop).
+
+## To do (the whole shop pass, in order)
+
+1. [ ] The main view: window in the middle, shelves around it; turn left /
+       right / around; the bell (a button that rings it).
+2. [ ] The back room as a room (bench, crates, furnace, back door, freezer).
+3. [ ] Object properties in `stock.cfg`; Abraham's catalogue; the loupe.
+4. [ ] Examine reveals properties and fills the catalogue; object puzzles.
+5. [ ] Requests as needs (folk / plain / wrong answers).
+6. [ ] Getting stock: given, found, buying trips; shelf space; money.
+7. [ ] Appraisal for pawns.
+8. [ ] Hidden drawers; the bear's seam; the freezer and its two keys; the fuse
+       box's three switches.
+9. [ ] Places with hours: church, Gleaner, school, graveyard, Sam's lab,
+       Lunds', Mrs. Hollis's, Walt's, post office, gas station, dump (text
+       choices first).
+10. [ ] Rework days 1 to 15 around all of it.
+11. [ ] The review's second pass: nightly rules varied; flags paid off; faith,
+        closeness and the town's eye as real counts.
