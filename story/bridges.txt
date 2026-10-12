@@ -80,4 +80,32 @@ narration | if=flag:tin_opened: The locker key, where you put it. Anchorage is t
 narration | if=flag:tin_shut: The tin on the back shelf, its tag to the wall. You don't turn it round.
 narration | if=flag:tried_to_run: Olstad's cruiser at the end of the road again, at dawn, engine running. Then it goes.
 narration: The Reverend, on the radio, the morning service repeated: "Sixty-one days, friends."
-narration: (The end of October, and of the first act. November is still being written. Thank you for playing.)
+narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope. A hundred and fifty, faced. November's first.
+narration: The bulletin with it: the Thanksgiving pageant, the fitting on the twenty-first, and at the bottom, new: "Pray for travellers on the roads this season, and for any who come to us in need."
+
+# --- Before key day 14 (Sunday, November 21): two weeks. ---
+
+=== bridge_mid_november
+narration | card=November. The minister calls again.: He calls the night radio twice more that week, and the week after. The same beautiful voice, from a different payphone each time, a different town each time, nearer.
+narration: The Gleaner talks about him. The post office talks about him. Mrs. Hollis says she sat by the radio with her hands folded and cried, and didn't know why.
+narration: On the nights he's on the radio, the shop phone doesn't ring. On the nights he isn't, it does: a car, wipers, sleet on a windshield. The road you drove in on.
+narration | card=The Keeper is paid. | cash=+300: Two envelopes, two Wednesdays. Faced. The wool swatch again in the second, a little darker, as if it had been handled.
+narration | card=The road closes. Three days.: Snow, and the pass shut, and the lake road shut. Nobody in, nobody out. The minister calls anyway, from somewhere the snow hasn't reached. "I'll be with you when the road opens, friends. Keep a light on."
+narration: The Reverend, on the air, after him, quietly: "Our thanks to our caller." Nothing else. He doesn't sound grateful. He sounds like a man listening to a weather report.
+narration | card=Saturday. The count.: The Reverend's count, Saturday night. "Forty-one days, friends." He's lost his place. He corrects himself. "Forty. Forty days."
+paranoia: Forty days. The flood. The wilderness. He didn't mean it. Did he mean it.
+narration | if=flag:ruth_has_keys: Your car in the lot, under the snow. You haven't driven it in two weeks. You couldn't if you wanted to. Ruth has the keys.
+
+# --- Before key day 15 (Tuesday, November 23): Monday. ---
+
+=== bridge_thanksgiving_week
+narration | card=Monday. Thanksgiving week.: The plow at dawn. The road open. Turkeys in the window of the store, frozen, from Anchorage.
+narration: On the radio, at noon, the Reverend reads the notices, and then, in a voice you've never heard him use: "And our friend from the road writes to say he'll be passing through this week. He asks for nothing. Make him welcome."
+narration: Make him welcome. In the shop, you find you're standing very still.
+
+# --- After key day 15: the end of what's written. ---
+
+=== bridge_to_be_continued
+narration | card=Wednesday. Thanksgiving week.: The envelope. The roads open. A room taken above the Gleaner, for the week. Or longer.
+narration: He's here.
+narration: (The story continues in Thanksgiving week, which is still being written. Thank you for playing.)

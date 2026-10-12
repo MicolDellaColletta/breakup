@@ -1,0 +1,92 @@
+# KEY DAY 13: Friday, November 5, 1999.
+# Same format as the other counter days. Who comes in: Olstad, with the mail
+# (the second money order, postmarked Wasilla); June, about the pageant;
+# Sam, with his map (if MC has seen it, or his door is open). That night, a
+# caller on the night radio (night_thirteen.txt), and Ruth's cellar, if
+# faith with her holds (town.txt). Design: docs/november.md.
+
+=== morning
+narration | time=07:30: Friday, the fifth of November. Dark till nearly nine now. Dark again by half past four.
+narration | if=flag:ruth_has_keys: Your car in the lot, under the snow.
+narration | if=has:locker_key: The locker key, in your pocket. You move it from pocket to pocket every morning now, like a coin you're trying not to spend.
+narration: The wool on the back of the chair: your own coat, the thin one. You look at it the way you'd look at someone who's about to be replaced.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. The window's the same as last Friday. You haven't changed it in weeks. Nobody's said anything.
+
+# --- Olstad, with the mail. ---
+
+=== trooper_enters
+narration | sound=bell | time=+30: The bell. Olstad, with a rubber-banded bundle of mail, the way she brought it on the third day. As if nothing had happened since.
+trooper: Post office asked me again. Saves them the drive.
+narration: Circulars. A seed catalog, already, for spring. And a money order, folded once.
+narration | take=money_order_wasilla: Eleven dollars and twenty-seven cents. Pay to: KETTLE LAKE PAWN. Memo: INTEREST, TICKET 0527. Postmarked Wasilla, November 2.
+narration: She reads the postmark over your shoulder. She doesn't pretend not to.
+trooper: Wasilla. Last month Anchorage. Your friend's coming up the valley, Johnny.
+narration | if=flag:tin_opened: The tin's open. The key's in your pocket. And someone's still paying interest on it, from an hour away.
+narration | if=!flag:tin_opened: Somebody's paying interest on a tin you haven't opened, from an hour away. Closer every month.
+trooper: That car of yours is still in my book as stolen. I'm the only one who's opened the book.
+trooper: I'd like to know who you are before he gets here. Whoever he is.
+paranoia: She thinks it's one man. She thinks it's someone you know.
+> "So would I." -> trooper_true | lean=warmth
+> "Nobody's coming." -> trooper_lie | lean=john
+> Say nothing -> trooper_quiet | lean=paranoia
+
+=== trooper_true
+narration: It comes out before you can stop it. She looks at you for a long time.
+trooper: Huh.
+narration: For the first time, she looks almost like she believes you. It's worse than when she didn't.
+-> trooper_goes
+
+=== trooper_lie
+trooper: Ya. Nobody ever is.
+-> trooper_goes
+
+=== trooper_quiet
+trooper: Okay.
+-> trooper_goes
+
+=== trooper_goes
+narration | sound=bell: At the door, her hand comes up toward the frame. This time it touches, once, before she pulls it back. She looks at her hand. Then she goes.
+appraisal | if=appraisal>=1: Once. Not twice. She's fighting it.
+
+# --- June, about the pageant. ---
+
+=== june_enters
+narration | sound=bell | time=+60: The bell. June Merrill, with a clipboard, pencils behind both ears.
+june: The pageant's the twenty-fifth. Thanksgiving. You'll come? The Keeper always sits in front. The children perform it for you.
+narration: Perform it for you. She says it the way you'd say they sing it for the soldiers.
+june: There's a part where the Keeper walks out across the stage, in the coat, and the children wave. And then the lights go down. That's the end.
+narration | if=flag:lent_shirt: She has the red flannel shirt in her bag. You can see the elbow. "It fits Tommy Pruitt perfectly," she says. "He's so proud."
+paranoia: The lights go down. That's the end. She said it like a recipe.
+> "I'll be there." -> june_yes | flag=pageant_yes | lean=warmth
+> "I don't think I can." -> june_no | lean=paranoia
+
+=== june_yes
+june: Oh, good. The children will be so happy.
+narration | sound=bell: She knocks twice on the frame on her way out.
+
+=== june_no
+june: Everybody says that. Everybody comes.
+narration | sound=bell: She knocks twice on the frame on her way out.
+
+# --- Sam, with the map. ---
+
+=== sam_enters
+narration | sound=bell | time=+60: The bell. Sam, the notebook open on his forearm like a waiter's towel.
+narration: You show him the money order. You don't decide to; your hand does it.
+narration: He reads the postmark, and closes his eyes, and opens them, and he's smiling the way he smiles at numbers.
+sam: Wasilla. I told you. On the siding. On the line.
+narration | flag=sam_arrow: He opens the map. The circle at Wasilla, with "him" in it. He draws an arrow from it, up the valley road, toward Kettle Lake. Then he stops, the pencil just short of the town.
+sam: Coming up the valley. Anchorage, then Wasilla. Next month, here. He'll post it himself, from our post office. You'll see.
+unknown | if=frayed: He's right. You both are. Nobody else can see it.
+paranoia: He's guessing. He's guessing and he's right, and you can't tell the difference any more.
+narration | sound=bell: He goes, without knocking on the frame. Through the window you watch him stop in the road and write something in the notebook, standing in the snow.
+
+# --- Closing. ---
+
+=== closing
+narration | time=16:41: Nineteen minutes to five, and the light's gone. You turn the sign. CLOSED.
+narration: Friday. The Gleaner. Down the road, every window lit.
+paranoia: Tonight's the radio. Friday night. Something's going to be on the radio. You can feel it like weather.

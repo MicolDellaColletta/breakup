@@ -58,6 +58,13 @@ const VISITS: Dictionary = {
 	11: ["trooper", "widow", "sam | if=flag:knelt_with_sam or flag:door_sam_1",
 		"ruth | if=flag:door_ruth_1 and !flag:broke_faith_ruth"],
 	# Key day 12 is Halloween, a Sunday: no counter (GameState.DAY_SCENES).
+	# Key day 13, Friday November 5: Olstad with the mail (the second money
+	# order, from Wasilla); June, for the pageant; Sam, with his map.
+	13: ["trooper", "june", "sam | if=flag:sam_map or flag:door_sam_1"],
+	# Key day 14 is the fitting, a Sunday (GameState.DAY_SCENES).
+	# Key day 15, Tuesday November 23: Mrs. Hollis; then, in the last of the
+	# light, the man in the good coat.
+	15: ["widow", "daniel"],
 }
 const CUSTOMER_GAP: float = 1.5
 

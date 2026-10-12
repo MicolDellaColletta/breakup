@@ -9,6 +9,17 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 
 ---
 
+## October 12 — November, to Daniel's arrival (`november.md`)
+
+- Three key days: **Fri Nov 5** (the Wasilla money order; the minister calls
+  the night radio at eleven, instead of the shop phone; Ruth's cellar, and
+  she keeps MC's car keys), **Sun Nov 21** (the fitting: MC wears the coat,
+  or doesn't), **Tue Nov 23** (Daniel arrives: hard fork 3, the sixth
+  bullet; then tell Olstad, tell Sam, or no one).
+- Daniel speaks to MC face to face as a polite stranger; his first door is
+  MC saying "It came out of you." ("There you are.")
+- The coat's brass buttons are reused from Keeper to Keeper.
+
 ## October 12 — week four (`week_four.md`)
 
 - **Hard fork 2, the tin, happens in the double hour** (Saturday Oct 30, the
