@@ -103,14 +103,16 @@ theme_override_constants/separation = 10
 
 [node name="ShelfView" type="Control" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1012404957]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 380)
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
 script = ExtResource("24_shelves")
 
 [node name="ItemDetails" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1112505967]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 6
 
 [node name="ItemName" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1212606977]
@@ -118,35 +120,6 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 1)
 theme_override_font_sizes/font_size = 20
-
-[node name="ItemDescription" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1312707987]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.72, 0.72, 0.7, 1)
-theme_override_font_sizes/font_size = 17
-autowrap_mode = 2
-
-[node name="ItemTag" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1412808997]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.79, 0.71, 0.35, 0.9)
-theme_override_font_sizes/font_size = 16
-
-[node name="PropsText" type="RichTextLabel" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1717171718]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/default_color = Color(0.78, 0.76, 0.7, 1)
-theme_override_font_sizes/normal_font_size = 15
-theme_override_font_sizes/bold_font_size = 15
-theme_override_font_sizes/italics_font_size = 15
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
-
-[node name="VoiceNotes" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1717171717]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 6
 
 [node name="ItemButtons" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1532939937]
 layout_mode = 2
@@ -162,7 +135,7 @@ text = "Loupe"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-text = "Turn it over in your hands"
+text = "Handle it"
 
 [node name="ExamineButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1542949947]
 unique_name_in_owner = true
@@ -179,6 +152,45 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Next customer"
+
+[node name="DetailsScroll" type="ScrollContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1112505968]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="DetailsText" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll" unique_id=1112505969]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="ItemDescription" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll/DetailsText" unique_id=1312707987]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.72, 0.7, 1)
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 2
+
+[node name="ItemTag" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll/DetailsText" unique_id=1412808997]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.79, 0.71, 0.35, 0.9)
+theme_override_font_sizes/font_size = 16
+
+[node name="PropsText" type="RichTextLabel" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll/DetailsText" unique_id=1717171718]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.78, 0.76, 0.7, 1)
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+theme_override_font_sizes/italics_font_size = 15
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="VoiceNotes" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll/DetailsText" unique_id=1717171717]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
 
 [node name="LedgerPanel" type="ScrollContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1221524656]
 unique_name_in_owner = true
