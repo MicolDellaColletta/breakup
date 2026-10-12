@@ -9,6 +9,16 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 
 ---
 
+## October 12 — days four to seven (`days_four_to_seven.md`)
+
+- The end of week one as one arc: Saturday (the jacket comes home, Hanna Lund's
+  braid, **Sam's first door**), Sunday (no counter; church, **the whole town
+  lays hands**, **the weighing and the doorframe**; Mrs. Hollis's kitchen),
+  Monday (the rental company calls, Ezra asks for a tooth, the town line),
+  Tuesday (the John night: John's revolver; the gun choice **leans** the
+  background, it doesn't force it; the first flash).
+- Ruth's shoebox: letters she wrote to the 1989 Keeper, never sent.
+
 ## October 12 — the town underneath (`underneath.md`)
 
 - References: **_Horses_** (the disturbing as routine) and **_The Devil in

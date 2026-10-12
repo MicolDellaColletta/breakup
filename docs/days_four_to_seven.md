@@ -1,7 +1,7 @@
 # Breakup: Days four to seven (the end of week one)
 
-**Saturday October 9 to Tuesday October 12, 1999.** A draft for discussion,
-like `day_three.md` was. Nothing here is in the game yet. Change anything.
+**Saturday October 9 to Tuesday October 12, 1999.** Agreed on October 12
+(the open questions at the end are decided). Day four is being built first.
 Checked against `pillars.md`, `forks.md`, `daniel.md`, `underneath.md`.
 
 Sunset keeps the built pace, three minutes earlier a day: Sat 19:02, Sun
@@ -318,23 +318,19 @@ day, long night.
 
 ## Open questions
 
-- [ ] **Sam's door on day four, or later?** It's right after Ruth's. Two doors
-      in two days might be too fast, or it might be the point: two people now
-      hold something true about MC.
-- [ ] **Church: whole town lays hands, or just the elders?** The whole town is
-      more *Horses*; the elders is more restrained.
-- [ ] **The weighing and the doorframe on day five,** or save the doorframe for
-      Thanksgiving?
-- [ ] **What's in Ruth's shoebox,** 1989 to 1998? (Letters from the 1989 Keeper,
-      who she drove to the highway? He never wrote. She wrote to him.)
+- [x] **Sam's door on day four** (decided): two people now hold something true
+      about MC, and neither knows about the other.
+- [x] **Church: the whole town lays hands** (decided).
+- [x] **The weighing and the doorframe on day five** (decided).
+- [x] **Ruth's shoebox** (decided): letters she wrote to the 1989 Keeper, the one
+      she drove to the highway. Never sent. He never wrote.
 - [ ] **The empty envelope with JOHN crossed out:** whose idea? (Ezra testing
       whether MC answers to it. Or the congregation's way of saying the week's
       first name is spent.)
-- [ ] **The five gun choices:** do they force the background (a hard settle),
-      or only lean it (the voices still decide)? I'd lean, not force: the week
-      decides, the gun is one last push.
-- [ ] Monday's surname on the phone: do we ever hear it? I'd have the line
-      crackle on it. Every time.
+- [x] **The gun choices lean, they don't force** (decided): the week decides,
+      the gun is one last push.
+- [ ] Monday's surname on the phone: do we ever hear it? (Lean: the line
+      crackles on it, every time.)
 
 ## Fix elsewhere
 
