@@ -8,6 +8,8 @@ and check the scene against the list at the end.
 ## What it's about
 
 **Emptiness and loneliness, and the mental illness that grows in them.**
+Loneliness is the heart of it: every route in the game is an attempt to escape a
+loneliness that can't be escaped (`pillars.md`).
 Guilt, fear and desire. Not being able to say what you mean, or be heard.
 Meaninglessness, and the meaning people make anyway. Destroying yourself,
 and the chance to rebuild, which comes through suffering, not around it.
@@ -63,10 +65,11 @@ rebuild, and the rebuilding has to cost something.
 | The truth | Meaning found by facing the meaningless, with someone else: the rational answer, shared. |
 | Daniel | Desire as self-destruction. |
 | The ice (variant of The season ends) | Self-destruction, or transcendence; the game never says which. MC goes all the way into what the voices promised. |
-| **Thaw** | Rebuilding through suffering, without a romance: through small kept promises and the people MC kept faith with. The brighter possibility. MC gets his own name back. |
+| **The fire** | Rebuilding by burning down: refusing every pull, released by the people MC kept faith with, and leaving alone. The only true good ending; MC never knows if it was real. (Replaces Thaw.) |
 
-Thaw is decided (see `story.md`, "Thaw"): the game needs one brighter ending
-that doesn't depend on a romance. The full list is in `pillars.md`, "Endings".
+The fire replaced Thaw on October 12 (see `story.md`, "The fire"): the game's
+one good ending doesn't depend on a romance, and doesn't pretend MC stops being
+alone. It lets him be alone, and free. The full list is in `pillars.md`, "Endings".
 
 ## Writing it with care
 

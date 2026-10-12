@@ -1,6 +1,7 @@
 # Breakup: Forks and endings
 
-How the player's choices add up to an ending. **Many soft forks** (small
+How the player's choices add up to an ending. Every ending but one leaves MC
+alone in a new way; the fire leaves him alone, and free. **Many soft forks** (small
 choices that move a running total), **six hard forks** (choices that change
 what happens next), and **six endings**, read at breakup from both. Decided
 October 12. `pillars.md` wins any conflict.
@@ -17,9 +18,10 @@ own; together they decide which endings are open at breakup.
 | **The voices** (paranoia, john, appraisal, warmth, animal, ???) | How MC answers, `lean=` | The background (fork 1), colored choices, The ice variant | Yes (`GameState.voices`) |
 | **Fray** | Rules broken (+1), unsettling things (+1), small comforts (-1) | Frayed at breakup or not; The ice | Yes (`GameState.fray`) |
 | **Rules broken** | The eight rules | Fray; how the town sees MC | Yes (`GameState.rules_broken`) |
-| **Kept faith with**, per person | A kindness kept, a promise kept, a truth told: Walt, the Hollises, Ezra, Ruth, Sam, Olstad | Who comes to the shore (Thaw); who MC trusts with the keys (Run) | No: flags today (`flag=`), a count later |
+| **Kept faith with**, per person | A kindness kept, a promise kept, a truth told: Walt, the Hollises, Ezra, Ruth, Sam, Olstad | Who lets MC go (The fire); who MC trusts with the keys (Run) | No: flags today (`flag=`), a count later |
 | **Closeness**, per romance (Ruth, Sam, Daniel) | Three doors per person (below) | Which romance can lock at fork 5 | No |
 | **The town's eye** | The town seeing MC break a rule or a custom, through the people who watch (below) | How hard the frenzy turns on MC in February and March | No |
+| **The blur** | Fray, ???, and how deep MC is in a romance | How unreliable the game itself becomes (below) | No |
 
 Rule of thumb: a soft fork never asks the player to pick "the good option". Each
 choice costs something somewhere else (themes.md: "no clean options").
@@ -35,7 +37,8 @@ choice costs something somewhere else (themes.md: "no clean options").
   Two doors open by New Year's Eve make that person available at fork 5. All
   three, and the fork, lock the ending.
 - **Kept faith with: a count.** Six people (Walt, the Hollises, Ezra, Ruth, Sam,
-  Olstad), each kept or not, one moment at a time. **Thaw needs four of six.**
+  Olstad), each kept or not, one moment at a time. **The fire needs four of
+  six,** including someone who will let MC go.
 - **Broken faith closes doors.** An open betrayal (selling someone out, a
   promise broken in front of them) can close a person for good: no more kept
   faith with them, no more doors.
@@ -43,7 +46,17 @@ choice costs something somewhere else (themes.md: "no clean options").
 ### The romances, door by door (decided Oct 12)
 
 None of them is simply good. Each door is a scene, important and particular to
-that person, and each pulls MC further in.
+that person, and each pulls MC further in. **Every route is an attempt to
+escape a loneliness that can't be escaped:** each romance gives MC what he
+needs, takes something for it, blurs reality further, and leaves him alone in
+a new way.
+
+| | **Ruth** | **Sam** | **Daniel** |
+|---|---|---|---|
+| **The pull** | Being *remembered*: a home, a warm bar, someone who'll keep your photo when you're gone. | Being *believed*: the one person who says "you're not crazy, here's the proof." | Being *known completely*: no more pretending. He knows the name, the night, the lie, and wants you anyway. |
+| **The dark thread** | She catalogues Keepers for the church, keeps MC's car keys, would rather he die here than leave. Love as a cage. | Folie à deux: the wall, the list of the dead, the clock's hands. Every door he opens, MC goes down with him. | A killer, and possession. Being broken down and rebuilt as his feels like love. The darkest. |
+| **How reality blurs** | Once, drunk, she calls MC by the 1989 Keeper's name and doesn't notice. Does she love MC, or a replacement? MC starts to wonder too. | The conspiracy starts explaining things, and fits too well. Late on, MC finds pins on the wall in his own handwriting he doesn't remember. | ??? speaks in his cadence; with the insanity background he was only ever "a voice from the missing hours." Is he in the room? MC can't tell if he loves a man, ???, or his own destruction. |
+| **How MC ends up alone** | A photograph on her wall, loved as a stand-in. | Two people alone together inside a delusion nobody else shares. | The only person who knows MC's real name is the one who would kill him. Being completely known is the deepest isolation. |
 
 **Ruth: complicity, desperate attachment.** Being seen is being catalogued;
 loving her is loving someone who hands Keepers to the town, and won't let go.
@@ -115,7 +128,23 @@ One moment each. Keeping faith always costs MC something.
 | **Ezra** | February, after Daniel breaks his hand: he can't load his .22, and Thursday is the only routine he has left. | Load the shells for him and keep his Thursday line in the ledger. A kindness to the man who called MC the goat. | Turn him away. The Thursday line stops. |
 | **Ruth** | Her father. MC knows he's in the freezer; she believes he's "away". | Tell her, and take her to the freezer. The cruellest kind thing in the game. | Let her find out from someone else. Daniel would tell her: he never lies. |
 | **Sam** | February: the town wants the madman with the lights on the ice, and Daniel asks MC in confession where those lights come from. | Don't give him up; hide his notebooks if they come for the cabin. | Tell Daniel. The congregation goes to the cabin. |
-| **Olstad** | February, after Daniel's threat: she asks MC for the truth about the John night, to build a case. | Tell her, at the risk of MC's freedom. It's also the confession Thaw needs. | Lie to her. She'll know. |
+| **Olstad** | February, after Daniel's threat: she asks MC for the truth about the John night, to build a case. | Tell her, at the risk of MC's freedom. It's what makes her look away at the town line, for The fire. | Lie to her. She'll know. |
+
+### The blur (decided Oct 12)
+
+Up to a point, reality stops mattering. The blur rises with fray, with ???, and
+with how deep MC is into a romance. As it rises, **the game itself becomes
+unreliable:**
+
+- Characters mention conversations MC never had, or forget ones he did.
+- The ledger has lines in MC's handwriting he doesn't remember writing.
+- A scene from earlier replays slightly differently, and the old version is gone
+  from the log.
+- In the last weeks, the voices argue about what actually happened.
+
+By breakup, a player deep in any route can't separate reality, lies, paranoia
+and delusion. That's the point. (The rule of two explanations still holds:
+nothing is confirmed, everything could be MC.)
 
 ### The town's eye (decided Oct 12)
 
@@ -145,8 +174,8 @@ Each one changes what happens next. They're spread across the calendar
 - **The fork:** the background settles (guilt, witness, debt, insanity), from
   the voices MC listened to all week (`settle=background`, already built).
 - **It changes:** the flashes from October 12, who fired the sixth bullet
-  (`story.md`, "The sixth bullet"), what MC will have to confess for Thaw or
-  for Daniel.
+  (`story.md`, "The sixth bullet"), what MC will have to confess to Olstad or
+  to Daniel.
 
 ### 2. The tin (Halloween, October 31)
 
@@ -224,13 +253,13 @@ are read.
 | ↳ *Into the ice together* (variant) | The Daniel ending with ??? the strongest voice: he doesn't stop at the shore (`daniel.md`, 10b, outcome 4). |
 | **Break the cycle** (Ruth) | Fork 5 with Ruth, fork 6 pay, all three of her doors. MC stays past breakup because she couldn't let go, and the town lets them be, at a price (her father's legacy, the town's protection). Love as a cage, on both sides. |
 | **The truth** (Sam) | Fork 5 with Sam, fork 6 pay, all three of his doors. Folie à deux: at breakup MC and Sam are on the ice at the minute, doing what they've worked out together, and both survive. Did they beat the pattern, or go mad together? Different from *The ice*: that's madness alone with ???; this is madness shared. |
-| **Thaw** | No romance locked, fork 6 pay, enough people kept faith with, not frayed at breakup, and MC confesses his background to someone. They walk him to the shore, watch the ice go out, and walk him back. He gives his own name. |
+| **The fire** (the true good ending) | No romance locked; free of Daniel (fork 6 pay, or refuse and survive); four of six kept faith with, including **someone who lets MC go** (Olstad looking away at the town line, or Ruth giving back the keys). The night before breakup MC sets the shop on fire (the ledger, the freezer, the bear); the town's frenzy does the rest (the procession's candles, the church, the station), or MC only imagines it spreading. Morning, the highway south, John's car, the wipers; the radio says nothing about Kettle Lake; his coat smells of smoke, or doesn't. He doesn't know if any of it was real, and for the first time it doesn't matter. Alone, and free: nobody pays, because there's nothing left to pay. |
 
 Order of reading at breakup: Run (if MC is gone) → a locked romance whose
-conditions hold → Thaw → The season ends (or The ice).
+conditions hold → The fire → The season ends (or The ice).
 
 **Daniel's shore outcomes** (`daniel.md` 10b) sit inside these: he lets go
-(The season ends), he isn't there (Ruth, Sam, Thaw), he doesn't let go
+(The season ends), he isn't there (Ruth, Sam, The fire), he doesn't let go
 (Daniel), into the ice together (its variant).
 
 **Olstad** is on the shore in every ending where MC is.
@@ -274,7 +303,7 @@ conditions hold → Thaw → The season ends (or The ice).
 
 - [x] `breakup_decisions.md`: replaced by `decisions.md`, a dated log of every
       decision.
-- [x] The thresholds: three doors per romance (two by New Year's Eve); Thaw
+- [x] The thresholds: three doors per romance (two by New Year's Eve); the fire
       needs four of six kept faith with.
 - [x] What feeds the town's eye: strangeness, through the watchers; Daniel
       multiplies it from December.

@@ -186,7 +186,7 @@ Obsession, power, enemies-to-lovers.
 - He's the only one who knows MC's real name. Ruth asks what they called him before; Sam asks for a true name; Daniel knows and never says it.
 - The thing he can't price is why he let MC go. The romance is him finding out.
 - **The Daniel ending:** at breakup, he says MC's real name. MC goes with him.
-- **Thaw is its mirror:** MC says his own name. Given, or claimed.
+- **The fire is its opposite:** nobody says MC's name. He drives away unnamed, and free.
 - **The secret Daniel ending:** a variant of "The ice" (`pillars.md`, "Endings"): outcome 4 below.
 - **Some endings can turn on what MC offers him** (he can be bought). Not all. To design.
 
@@ -199,7 +199,7 @@ Everything converges on one moment: **the shore at breakup, Daniel holding MC's 
 | Outcome | How you get there | What happens |
 |---|---|---|
 | **1. He lets go** (*The season ends*, default) | MC never paid him and never gave him the truth. The town did pay: a collection plate, passed on a Sunday in April. | At the waterline he presses **exact change** into MC's palm. The ferryman's fare. Then he lets go. |
-| **2. He isn't there** (opens Thaw, The truth, Break the cycle) | MC opens the tin and hands over the books in March. | The job is done. He leaves Kettle Lake that night. The thriller ends early, and MC faces the town alone. You can only face the town once you've paid off the man. |
+| **2. He isn't there** (opens The fire, The truth, Break the cycle) | MC opens the tin and hands over the books in March. | The job is done. He leaves Kettle Lake that night. The thriller ends early, and MC faces the town alone. You can only face the town once you've paid off the man. |
 | **3. He doesn't let go** (*Daniel*, romance) | MC never paid him. MC gave him what he can't price: **the truth**, the John night, confessed in his own booth. | He walks MC past the waterline, along the shore, to the car. The town lets them: Leviticus 16, the scapegoat **led away into the wilderness by a chosen man**, not killed. The ritual looks complete. But the shop is unkept, and takes whoever holds the keys. **Daniel chose who:** whoever MC grew closest to over the winter. He knows. The epilogue is their spring. Last scene: driving south in the first spring rain, the prologue's wipers in reverse, and he says MC's real name. |
 | **4. Into the ice together** (*Daniel, secret*) | Romance track plus a high ??? track: MC wanted this. | He doesn't stop at the shore. They walk out onto ice that's already breaking. He doesn't believe in any of it, all the way down. In May the lake gives back what it took. Cody, who has stood on the shore every morning waiting for Ray, sees **two men come back, still holding on.** Kept. |
 

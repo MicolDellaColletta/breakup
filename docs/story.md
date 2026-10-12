@@ -652,7 +652,7 @@ Suspicious of everyone, the new Keeper most of all.
 ## Endings (draft)
 
 From `pillars.md`: six endings, one per strand plus the default, the way out
-and the brighter one. What each needs, and the six hard forks that lead there,
+and the true good one. What each needs, and the six hard forks that lead there,
 are in `forks.md`.
 
 | Ending | Strand | How you get it |
@@ -663,35 +663,36 @@ are in `forks.md`.
 | **Break the cycle** | Folk horror, romance | Ruth. MC is still there after the ice goes out; her complicity undone, at a price. |
 | **The truth** | Psychological, romance | Sam. The rational answer, shared: it was always the town. |
 | ↳ *The ice* (variant of The season ends) | Psychological / cosmic | ??? all the way, and frayed. MC walks out onto the ice and meets what's under it. Supernatural, or MC completely gone; the game never says. Daniel's "into the ice together" is the same variant inside his ending. |
-| **Thaw** | All three, no romance | The bright one. MC rebuilds through the people he kept faith with. See "Thaw" below. |
+| **The fire** | All three, no romance | The true good ending: the shop burns, the town with it (or not), and MC drives away unsure it was real. See "The fire" below. |
 
 Cut: "The new owner" (Daniel and Management no longer lead there) and "Daniel,
 secret" (now a variant of The ice).
 
-### Thaw (draft)
+### The fire (draft): the true good ending
 
-The one brighter ending. Earned, not given, and it still costs.
+Replaces Thaw (October 12). Every other ending leaves MC alone in a new way;
+this one leaves him alone, and free.
 
-- **How you get it (draft):** keep faith through the winter. Not perfectly:
-  MC can fray and come back. What counts is the end: not frayed at breakup,
-  no name left pawned (refused, or given back), and enough of the town's lonely
-  people kept faith with (Walt, the Hollises, Ezra, Ruth, Sam, Olstad), without
-  choosing any romance ending.
-- **At breakup,** the town comes through the back door for the Keeper, the way
-  it always has. This time the ones who come are the people MC kept faith with.
-  They walk him to the shore, the way the town always walks the Keeper. They
-  stand with him and watch the ice go out. Then they walk him back.
-- **It costs:** before the ice goes, MC has to stop running from what he did,
-  saw, owed or forgot (his background). He says it to someone. Possibly to
-  Olstad, which may mean he doesn't stay free.
-- **Last image:** the tripod falls and the clock on the shore stops. Someone asks
-  his name, and for the first time he gives his own.
-- **Daniel in this ending:** MC paid him off in March (the books, `daniel.md`
-  10b outcome 2), so he isn't on the shore. You can only face the town once
-  you've paid off the man.
-- **Olstad** is on the shore too, as in every ending where she lives.
-- Open: whether the shop needs a Keeper next winter (and whether MC chooses to
-  be one, of his own will).
+- **How you get it:** refuse every pull. No romance locked; free of Daniel
+  (paid off in March, or refused and survived); four of six kept faith with,
+  including **someone who lets MC go**: Olstad looking away at the town line,
+  or Ruth giving back the car keys. Kept faith doesn't save him here; it
+  releases him.
+- **The night before breakup,** MC sets the shop on fire: the ledger, with
+  every pawned name and every Keeper; the freezer; the bear in the corner. No
+  shop, no Keeper, no custom.
+- **The town's frenzy does the rest,** or MC only imagines it spreading: the
+  procession's candles, the church, the radio station. Maybe Daniel's sermons
+  set it up; maybe the congregation lights it themselves. Two explanations, as
+  always.
+- **Last scene:** morning, the highway south, John's car. The wipers. The radio
+  says nothing about Kettle Lake. The PREPARE TO MEET THY G... sign goes by
+  from the other side. His coat smells of smoke. Or doesn't. He doesn't know if
+  any of it happened, and for the first time, it doesn't matter.
+- **Olstad:** if she's the one who lets him go, the last person MC sees in
+  Kettle Lake is her cruiser at the town line, lights off, not moving.
+- Open: does anyone else get out? What the player sees of the town burning, and
+  how much is left ambiguous.
 
 ---
 

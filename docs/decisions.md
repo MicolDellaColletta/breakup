@@ -72,14 +72,31 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 - Hard forks: the John night (Oct 12), the tin (Halloween), the sixth bullet
   (late Nov), the Reverend (Dec), New Year's Eve, Daniel's price (March).
 - Endings: The season ends (*The ice* as its variant), Run, Daniel (*into the
-  ice together* as its variant), Break the cycle (Ruth), The truth (Sam), Thaw.
+  ice together* as its variant), Break the cycle (Ruth), The truth (Sam), Thaw
+  (later replaced by The fire, above).
 - **Thaw is back** as the brighter ending (it had fallen out of the pillars by
   mistake). "The new owner" is cut.
 - **Closeness: three doors** per romance (a true thing told, their secret
   shared, their lie forgiven); two by New Year's Eve to be available.
-- **Kept faith: a count;** Thaw needs four of six. Open betrayal closes a person.
+- **Kept faith: a count;** four of six needed (first for Thaw, now for The
+  fire). Open betrayal closes a person.
 - **The town's eye:** strangeness, seen by watchers (Ezra, Olstad, the bar, the
   radio); Daniel multiplies it from December.
+
+**Loneliness, the blur, the fire** (`pillars.md`, `forks.md`, `story.md`)
+
+- **Under it all, a loneliness that can't be escaped.** Every route is an
+  attempt to escape it; every romance leaves MC alone in a new way (Ruth: a
+  stand-in on her wall; Sam: alone together in the delusion; Daniel: known
+  only by the man who'd kill him).
+- **The blur:** a running total (fray, ???, depth in a romance) that makes the
+  game itself unreliable late on. Reality, lies, paranoia and delusion merge
+  until they stop mattering.
+- **The fire replaces Thaw** as the only true good ending: MC sets the shop on
+  fire the night before breakup, the town's frenzy does the rest (or he
+  imagines it), and he drives away at dawn unsure any of it was real. It needs
+  no romance, freedom from Daniel, four of six kept faith with, and someone who
+  lets him go.
 
 **The romances** (`forks.md`, "The romances, door by door")
 
