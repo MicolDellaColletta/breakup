@@ -1,7 +1,7 @@
 # Breakup: Week three (October 18 to 24)
 
-A draft for discussion, like `week_two.md` was. Nothing here is in the game
-yet. Change anything. Checked against `pillars.md`, `forks.md`, `daniel.md`,
+Agreed on October 12 (the leans below are decisions, except Halloween,
+still open). Built: see "As built" at the end. Checked against `pillars.md`, `forks.md`, `daniel.md`,
 `underneath.md`, `week_two.md`.
 
 ---
@@ -178,15 +178,45 @@ Friday the 29th, so the double hour falls on its night.)
 
 ## Open questions
 
-- [ ] **The shape under the ice:** Thomas, in the coat? Or keep it unclear
-      (a long dark shape, no coat)? I'd say the coat: it's the image the week
-      has been building to.
-- [ ] **The lake party: map visit or walk-around scene?** A walk-around (the
-      fire, the ring of children, Sam, Olstad, the shape) gives it room.
-- [ ] **Cody's button:** too much, with the shape the same night? Or the right
-      amount: two explanations meeting (a boy chipping a button out of the ice
-      vs. the shape a yard down).
-- [ ] **Olstad seeing it:** does she know it's Thomas? (Lean: she does, and
-      says "log" because of the crowd. Fear more than belief.)
+- [x] **The shape under the ice:** Thomas, in the coat (decided).
+- [x] **The lake party: a walked evening** (decided).
+- [x] **Cody's button, the same day** (decided): two explanations meeting.
+- [x] **Olstad knows** it's Thomas, and says "log" because of the crowd
+      (decided).
 - [ ] **Halloween:** church and the tin on the same Sunday, or the tin on
       Saturday night, during the double hour?
+
+## As built (Oct 12)
+
+`story/bridges.txt` (Monday to Friday extended; Sunday added),
+`day_ten.txt`, `evening_ten.txt`, `night_ten.txt`; tested in
+`tests/test_week_three.gd`.
+
+- **Engine:** walked evenings (`GameState.EVENINGS`, `evening_scene()`): after
+  closing, key day 10 leaves the counter for `visit.tscn`, which plays the
+  evening story from `evening` and ends it with `end=night`. Place art for
+  the shore (the bonfire, the poles, lanterns, skaters) and the far ice (black
+  ice, the shape, Sam kneeling). `DAY_DATES[11]` = October 30, with the
+  Sunday bridge before it.
+- **The bridge:** Wednesday's envelope holds a two-inch strip of brown wool;
+  Thursday's call has footsteps and a stick; Friday the pass closes
+  (`road_closed`).
+- **Key day 10:** thirty below, the lake a floor, the road drifted; the
+  notebook's third line (*"It's warm. It's not for you yet."*). Olstad,
+  stuck: *"Kids say a lot... Keep your eyes on the fire."* Cody with the brass
+  button (pawned, new stock `brass_button`, or `button_with_cody`), or Mrs.
+  Hollis saying he hasn't been home two nights. Hanna's invitation
+  (`invited_ice`).
+- **The first-ice party:** the fire (Mrs. Hollis's cocoa; Ruth beside you, or
+  across the fire, by the collision; Olstad on a folding chair), the children
+  skating the rhyme in a ring, the poles rewired. Out past the lanterns:
+  **the shape, in a long brown coat, face up, a yard down** (`saw_shape`).
+  Skate over it (`skated_over`), get Olstad (`showed_olstad_ice`: *"Log."
+  ... "Don't you say that word to anybody else."*), kneel with Sam
+  (`knelt_with_sam`: *"That's Thomas. I have his date."*), or walk off the ice
+  (`walked_from_ice`). Or go home without ever going past the lanterns.
+- **Night ten:** the request hour for the Keeper who came out on the ice (or
+  went home); the call, and a train outside his window, twice (Appraisal,
+  if strong: *"Through Wasilla."*); a damp brass button by the bowl.
+- **The Sunday bridge:** the tooth asked again (if refused in public); Monday,
+  the road opens, and MC drives to the end of town and back. Week three ends.

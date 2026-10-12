@@ -1,0 +1,123 @@
+# KEY DAY 10: Saturday, October 23, 1999. The ice.
+# Same format as the other counter days. The lake has frozen shore to shore,
+# and the road is closed till Sunday. Who comes in: Olstad, stuck in town;
+# Cody with a brass button (if MC gave him the picks back) or Mrs. Hollis;
+# Hanna, with an invitation (see VISITS in scripts/counter.gd). The evening
+# is walked, on the ice (story/evening_ten.txt). Design: docs/week_three.md.
+
+=== morning
+narration | time=07:30: Saturday. Thirty below in the night. The pipes upstairs have frozen again; you boil the kettle on the hot plate behind the counter, in your coat.
+narration: From the front window: the lake. White, to the far shore. No open water anywhere. No gray, no black. A floor.
+narration: Already, a line of people walking out on it with augers and buckets and folding chairs, the way you'd walk across a field.
+narration: The road out is drifted to the tops of the fence posts. Nothing's come in. Nothing's gone out.
+-> morning_notebook | if=has:notebook
+-> opening
+
+=== morning_notebook
+narration: Sam's notebook, on the dresser. Under the other lines, a third, in your hand. The pen's pressed hard.
+narration: "It's warm. It's not for you yet."
+paranoia: You don't remember. You don't remember any of them. Stop reading it. No. Keep reading it. Write that down.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Nobody can get to town, and nobody can leave, and the shop is open anyway.
+
+# --- Olstad, stuck. ---
+
+=== trooper_enters
+narration | sound=bell | time=+30: The bell. Olstad, out of uniform, in a parka that won't zip over her belly. She stamps the snow off and stands by the radiator like she's paying rent on it.
+trooper: Road's shut. I can't get out to anything that's mine. Figured I'd come stand somewhere warm and look at you.
+narration: She does. For a while.
+trooper: Rental's due Saturday next, Johnny. Roads permitting.
+narration | if=flag:gave_return_date: She says the thirtieth the way you'd say a number you'd written on your hand.
+narration: She picks up the compass, sets it down, picks it up.
+trooper: Kids are saying something about the ice off the point. Something under it.
+trooper: Kids say a lot.
+narration: She doesn't look at you while she says it. She looks out the window, at the lake, at the line of people walking out on it.
+paranoia: She's heard. She's heard and she's here, telling you she's heard.
+> "What kind of something?" -> trooper_ask | lean=appraisal
+> Say nothing -> trooper_quiet | lean=paranoia
+
+=== trooper_ask
+trooper: The kind kids say.
+narration: She puts the compass down. Exactly where it was.
+trooper: There's a party on the ice tonight. Whole town. You'll go. Everybody goes. Keep your eyes on the fire.
+-> trooper_goes
+
+=== trooper_quiet
+narration: She waits. You don't fill it.
+trooper: Good. Keep doing that tonight. There's a party on the ice. Keep your eyes on the fire.
+-> trooper_goes
+
+=== trooper_goes
+narration | sound=bell: At the door, her hand comes up toward the frame, and stops. She goes.
+
+# --- Cody, with what he found. ---
+
+=== nephew_enters
+narration | sound=bell | time=+60: The bell. Cody Hollis, the ice picks round his neck. His face is wind-burned raw. He looks like he hasn't been inside in days.
+nephew: I found it.
+narration: That's all he says about what. He doesn't say what it is. He puts something on the glass.
+narration: A brass button. Big, the kind on a heavy coat. A scrap of brown wool still caught in the shank, frozen stiff.
+nephew: It was in the ice. Frozen in, right at the top. Off the point. I chipped it out with these.
+nephew: There's more under it. Down. I could see.
+paranoia: Brown wool. The coat. The coat is in the ice.
+appraisal | if=appraisal>=1: Two explanations. A button off somebody's coat, lost on the ice last winter. Or a button off somebody, under it.
+> Write him a ticket for it. A few dollars. -> nephew_pawn | lean=appraisal
+> "Keep it, Cody. It's yours." -> nephew_keep | flag=button_with_cody | lean=warmth
+
+=== nephew_pawn
+narration | pawned=brass_button | loan=3: Three dollars. He takes the ticket without looking at it, and the money without counting it.
+nephew: Good. I don't want it in the house. Aunt can't see it.
+-> nephew_goes
+
+=== nephew_keep
+narration: He looks at it on the glass. Then he picks it up and closes his hand on it.
+nephew: Yeah. Somebody should keep it.
+-> nephew_goes
+
+=== nephew_goes
+nephew: You going tonight? The party?
+nephew: Don't skate out past the lanterns.
+narration | sound=bell: He goes. Not toward home. Toward the lake.
+
+# --- Mrs. Hollis, if Cody didn't have the picks. ---
+
+=== widow_enters
+narration | sound=bell | time=+60: The bell. Mrs. Hollis, with a dish, though it's not Thursday.
+widow: Cody's not been home two nights. He does that. He's always done that.
+narration: She says it to the dish, not to you.
+widow: He's out on the ice. He says he saw something under it. He was always seeing things. Since he was little.
+narration: There's a brown thread caught in the lining of her glove. She doesn't see it.
+widow: There's a party tonight. On the ice. You'll come. Eat this first.
+-> widow_goes
+
+=== widow_goes
+narration | sound=bell: She knocks twice on the frame. The bell.
+
+# --- Hanna, with the invitation. ---
+
+=== hanna_enters
+narration | sound=bell | time=+90: The bell. Hanna Lund, red-cheeked, a scarf wound to her nose. Her hair's growing back, a soft fair fuzz at the neck.
+hanna: The first-ice party's tonight. On the lake. The whole town. There's a fire and cocoa and Mr. Teague brings his fiddle.
+hanna: The Keeper always comes. It's for you, sort of. It's for the ice, and the ice is for... you know.
+narration: She doesn't finish. She smiles as if she had.
+paranoia: The ice is for you. She was about to say it.
+> "I'll be there." -> hanna_yes | flag=invited_ice | lean=john
+> "Maybe." -> hanna_maybe | lean=paranoia
+
+=== hanna_yes
+hanna: Good! Wear warm things.
+narration | sound=bell: She knocks twice on the frame, and runs.
+
+=== hanna_maybe
+hanna: Everybody says maybe. Everybody comes.
+narration | sound=bell: She knocks twice on the frame, and runs.
+
+# --- Closing. ---
+
+=== closing
+narration | time=18:20: Twenty past six, and the light goes. You turn the sign. CLOSED.
+narration: Down on the lake, the bonfire's already lit. You can see it from here: a point of orange on the white, and lanterns going out from it, and small dark figures, gliding.
+narration: The Gleaner is dark. Everyone's on the ice.
+paranoia: Everyone. That's the point. You'll go because everyone goes.

@@ -1,0 +1,144 @@
+# THE TENTH NIGHT: Saturday, October 23 (after key day 10 and the ice)
+# Same format as the other nights. The night: the request hour, for the Keeper
+# who came out on the ice (or didn't); the call, and outside his window a
+# train, twice (the Alaska Railroad runs through Wasilla); and by the bowl in
+# the morning, a brass button. Going down to the phone is the same walk as
+# night two. Design: docs/week_three.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs, with the cold of the lake still in your feet.
+narration | stop=stairs: The apartment. From the front window, the bonfire, burning down, and the last lanterns going out one by one.
+narration | if=flag:saw_shape: You don't look past where the lanterns were. You look anyway.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Saturday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The Saturday request hour. The calm voice, tired, as if he'd been at the party too, and left early.
+narration | if=!flag:walked_from_ice: "A request, friends. For the Keeper, who came out on the ice with us tonight. Number nine."
+narration | if=flag:walked_from_ice: "A request, friends. For the Keeper, who went home early tonight. Number nine."
+narration: Then a hymn, a lot of voices, far away.
+paranoia: Nine again. Every week there's a nine.
+
+=== radio_off
+narration: You leave it off. Through the wall, from somewhere up the shore, someone's radio, and the word nine.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_ten
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. On the line. Your hand's still shaking from the cold. It's the cold.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. The lake, dark now. The fire, embers.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: The cold, and from the lake, very faint, the ice talking to itself. A long low note, like a held breath let out.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser.
+narration | if=has:notebook and flag:knelt_with_sam: The notebook. You write it, finally, yourself, on purpose: "Oct 23. 400 m off the point. Face up. A yard down." Your hand is steady. That frightens you more than the rest.
+narration | if=has:notebook and !flag:knelt_with_sam: The notebook. You hold the pen over the page a long time. You don't write anything. You can't decide which column it goes in.
+narration | if=!has:notebook: The flannel shirts. You touch them. Wool. Not brown. Not yet.
+
+=== painting
+narration | time=+5: The painting. The figure on the breaking ice, in its long coat.
+narration | if=flag:saw_shape: Tonight you see what you never saw before: under the ice in the painting, a darker shape, faint, long, painted over, as if the painter had changed their mind.
+paranoia: You can see what you want in paint. You can see what you want in ice.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked. Dark. Cold air under it, colder than the hall.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+# --- Bed, and the call. ---
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Your feet won't get warm. Eleven.
+narration | sound=ring: The shop phone.
+paranoia: Rule four.
+> Go down to it -> phone_go_down | lean=animal
+> Let it ring -> phone_ignored | lean=paranoia
+
+=== phone_ignored
+narration | show=bedroom: It rings. You let it.
+narration | stop=ring: It stops.
+-> night_dog
+
+=== phone_go_down
+narration | sound=stairs: Down the stairs, toward the ringing.
+narration | stop=stairs: The hallway. The steel door. The phone.
+
+=== phone_steel_door
+narration: The steel door. The cold under it. Lake-cold, tonight.
+
+=== phone_turn_back
+narration | sound=stairs: You go back up.
+-> phone_ignored
+
+=== phone_down
+narration: Behind the counter.
+narration | stop=ring | sound=pickup | break=phone: You lift the receiver. You don't speak.
+narration: The room. The clock. The breathing, easier now. He's healing.
+narration: And then, outside his window, far away: a train horn. Long. Twice. The way they blow it for a crossing.
+narration: A long while later, another, the other way.
+paranoia: A train. There's no train here. There's no train for a hundred miles.
+appraisal | if=appraisal>=2: There's a railroad. Anchorage to Fairbanks, through the valley. Through Wasilla. Through Palmer. He's on the line.
+> Wait -> phone_wait
+> Hang up first -> phone_hang_up | lean=animal
+
+=== phone_wait
+narration: You wait until the second train's gone. He waits too. As if he wanted you to hear it.
+narration | sound=hangup: A soft click.
+-> night_dog
+
+=== phone_hang_up
+narration | sound=hangup: You put it down. The train horn goes on in your head.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_ten
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Back in bed. Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. The bowl. Then down.
+narration: In the morning, on the line beside the bowl: a brass button. Big. A coat button. A scrap of brown wool in the shank, still damp.
+narration | if=!flag:button_with_cody and flag:gave_picks_back: You go down to the back shelf. Cody's button is still there, on its tag. This is another one.
+paranoia: Lake water. It's still damp with lake water.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Back in bed. Facing the door.
+narration: Nothing comes up. In the morning, on the bottom step, a puddle, frozen, with a brown thread in it.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Sunday.
