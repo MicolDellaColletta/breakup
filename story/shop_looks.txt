@@ -67,3 +67,61 @@ paranoia: You will too. You already are.
 narration | time=+5: The heavy steel door at the end of the hallway. Behind it, the hum.
 narration: You put your palm flat on it. The metal is cold, and it shivers, very slightly, in time with the hum.
 paranoia: Not now. Tonight, if you have to. Not now.
+
+# --- The back room, behind the steel door (from day two) ---
+# The freezer is padlocked until December (docs/shop.md). Nothing here is
+# taken yet: the bench's tools, the crates and the furnace come later.
+
+=== look_freezer
+narration | time=+5: The freezer. A walk-in, its door as big as a closet. The hum comes out of it, steady as breathing.
+narration: A padlock on the hasp. Heavy, brass, new: the shackle still bright, a scrap of price sticker on the body. Nothing else back here is new.
+narration: You put your hand flat on the door. Cold. Colder than the room, colder than the snow outside. Frost has grown out of the seal in little white ferns.
+narration: On the floor in front of it, the boards are darker than the rest, as if they'd been wet and dried. A patch the size of a man lying down.
+appraisal | if=appraisal>=1: A Master lock, the kind the hardware store in Palmer sells off a card. Whoever locked this went and bought a lock for it.
+paranoia: Don't listen at it. Whatever you do.
+> Put your ear to the door -> freezer_listen | flag=listened_freezer | lean=animal
+> Take your hand away -> freezer_leave | lean=paranoia
+
+=== freezer_listen
+narration: The steel against your ear, so cold it burns. The hum, all through your skull.
+narration: And under the hum, once, a small dry sound. Like someone on a crate shifting their weight.
+appraisal: Compressors tick as they cool. Ice settles. Everybody knows that.
+paranoia: Once. It only did it once. Because it heard you.
+
+=== freezer_leave
+narration: You take your hand away. The print of it stays on the frost a long moment, then fills in.
+
+=== look_bench
+narration | time=+5: The owner's workbench. A pegboard over it, every tool hanging inside its own outline, painted in white. Knives, scrapers, awls, curved needles, a fleshing beam.
+narration: Every outline full but one. Something small, with a hook at the end.
+narration: On the bench, a stoat in its white winter coat, half drawn over its form. The stitches stop in the middle of the belly. The needle's still threaded, hanging from the last one, turning slowly in the draught.
+narration: Pinned to the pegboard, a feed-store calendar on October. The fourth is circled, twice, in pencil.
+paranoia: October fourth. The day before you came. He put down the needle in the middle of a stitch.
+warmth | if=warmth>=1: The tools are clean. Oiled. Somebody loved this work.
+
+=== look_glass_eyes
+narration | time=+5: A baby-food jar of glass eyes, sorted by size, small at the top. Amber for owls. Black for bears. A yellow-green that can only be a fox.
+narration | flag=seen_human_eyes: At the very bottom, one pair that isn't any animal's. White, with a brown iris, the veins painted in, fine as hair.
+paranoia: People's. Those are people's eyes.
+appraisal: Doll makers buy them. Mannequins. The supply catalogs sell them by the pair.
+paranoia: Brown. Whose were brown?
+
+=== look_back_room_door
+narration | time=+5: The back door. A deadbolt, and a keyhole under it, and the cold coming in around the frame.
+narration: Just inside it, the snow that blows in under the door has been swept into a neat pile by the frame. You've never swept it.
+paranoia: Rule one. Leave the back door unlocked at night. Something uses this door.
+appraisal | if=appraisal>=1: Somebody with a broom and a key. Olstad has a key.
+
+=== look_furnace
+narration | time=+5: The furnace. Squat, black iron, its belly glowing through the grate. The heat of it on your face from three steps away.
+narration: It's lit. It's always lit. You've never once fed it. The coal scuttle beside it is full to the brim, and the ash pan's been emptied.
+paranoia: Somebody comes in and feeds it. While you sleep. While you stand at the counter.
+appraisal: Somebody with a key could do it on their rounds. A furnace this old wants feeding twice a day.
+warmth | if=warmth>=1: Somebody doesn't want you cold.
+
+=== look_crates
+narration | time=+5: Crates, stacked in the corner, stencilled with the names of towns. PALMER. WASILLA. KNIK. The lids are nailed down.
+narration: Unsorted stock. Whatever's in them is the shop's too, and isn't in the ledger yet.
+narration: One lid has been opened and nailed shut again. The new nails are bright.
+narration: A crowbar leans against the stack.
+paranoia: Not tonight. Whatever's in that one can wait.

@@ -75,6 +75,11 @@ Positions on the maps are rough; what's next to what matters more than exact siz
 - The **freezer**. Its compressor is the hum you hear everywhere in the shop.
 - The **back door**. Rule 1 says to leave it unlocked, so checking it every night means
   walking past the freezer.
+- From left to right as you come in (shop_art.gd "backroom"): the walk-in
+  **freezer**, padlocked; the owner's **taxidermy bench** under a pegboard of
+  tools; the **back door** at the far end; the **furnace**; **crates** of
+  unsorted stock in the front corner. Walkable after closing from day two
+  (`docs/shop.md`, "The back room").
 
 ---
 

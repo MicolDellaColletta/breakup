@@ -3,7 +3,8 @@ extends Control
 
 # Placeholder art for the shop on the first night, drawn in code until there
 # are paintings: the shop floor (from just inside the front door), the
-# counter, the hallway and the office. Where things are drawn matches the
+# counter, the hallway and the office; and, after closing from day two, the
+# back room behind the steel door. Where things are drawn matches the
 # "shop_night" hotspots in spots.cfg. See docs/layout.md for the plan.
 
 const DARK: Color = Color(0.018, 0.02, 0.028)
@@ -18,7 +19,8 @@ const OFFICE_WALL: Color = Color(0.2, 0.17, 0.12)
 const PAPER: Color = Color(0.85, 0.82, 0.74)
 const METAL: Color = Color(0.16, 0.17, 0.19)
 
-# Which room is on screen: "floor", "counter", "hallway" or "office".
+# Which room is on screen: "floor", "counter", "hallway", "office" or
+# "backroom".
 @export var view: String = "floor":
 	set(value):
 		view = value
@@ -74,6 +76,7 @@ func _draw() -> void:
 		"counter": _draw_counter()
 		"hallway": _draw_hallway()
 		"office": _draw_office()
+		"backroom": _draw_backroom()
 	if _flash > 0.0:
 		draw_rect(Rect2(Vector2.ZERO, size), Color(1, 0.95, 0.85, _flash * 0.7))
 
@@ -244,3 +247,51 @@ func _draw_office() -> void:
 		_poly([Vector2(0.45, 0.635), Vector2(0.55, 0.63), Vector2(0.56, 0.665), Vector2(0.44, 0.67)], PAPER)
 	# The door back out, dark, on the left.
 	_rect(0.0, 0.18, 0.12, 0.5, Color(0.02, 0.02, 0.025))
+
+func _draw_backroom() -> void:
+	# Concrete, one caged bulb. The walk-in freezer on the left, padlocked;
+	# Abraham's bench; the back door at the far end; the furnace on the right;
+	# crates in the front corner.
+	_poly([Vector2(0, 0), Vector2(1, 0), Vector2(1, 0.7), Vector2(0, 0.7)], Color(0.05, 0.05, 0.055))
+	_poly([Vector2(0, 0.7), Vector2(1, 0.7), Vector2(1, 1), Vector2(0, 1)], Color(0.045, 0.043, 0.045))
+	var bulb: Vector2 = _p(0.48, 0.1)
+	draw_line(_p(0.48, 0.0), bulb, Color(0.1, 0.1, 0.1), 2.0)
+	for i in range(4, 0, -1):
+		draw_circle(bulb, size.y * 0.05 * i, Color(BULB, 0.03))
+	draw_circle(bulb, 6, Color(BULB, 0.8))
+	draw_arc(bulb, 10, 0, TAU, 12, Color(0.2, 0.2, 0.2), 1.5)
+	# The freezer: a steel door as big as a closet, frost on the seal, the
+	# handle furred white, and a new padlock on the hasp.
+	_rect(0.04, 0.16, 0.27, 0.64, METAL)
+	_rect(0.06, 0.19, 0.23, 0.58, Color(0.13, 0.14, 0.16))
+	_rect(0.04, 0.16, 0.27, 0.64, Color(0.8, 0.85, 0.9, 0.35), false)
+	_rect(0.25, 0.42, 0.04, 0.1, Color(0.78, 0.8, 0.84))
+	_rect(0.235, 0.53, 0.035, 0.045, Color(0.75, 0.62, 0.3))
+	draw_arc(_p(0.2525, 0.53), 0.011 * size.x, PI, TAU, 10, Color(0.6, 0.6, 0.62), 3.0)
+	# The bench: tools on a pegboard, a half-finished mount, the jar of eyes.
+	_rect(0.34, 0.2, 0.26, 0.26, Color(0.12, 0.1, 0.07))
+	for k in 6:
+		draw_line(_p(0.37 + k * 0.04, 0.24), _p(0.37 + k * 0.04, 0.34 + (k % 3) * 0.03), Color(0.35, 0.35, 0.36), 2.0)
+	_poly([Vector2(0.33, 0.52), Vector2(0.61, 0.52), Vector2(0.62, 0.56), Vector2(0.32, 0.56)], WOOD)
+	_rect(0.34, 0.56, 0.02, 0.18, Color(0.07, 0.055, 0.04))
+	_rect(0.58, 0.56, 0.02, 0.18, Color(0.07, 0.055, 0.04))
+	_poly([Vector2(0.38, 0.52), Vector2(0.4, 0.47), Vector2(0.45, 0.46), Vector2(0.47, 0.49), Vector2(0.46, 0.52)], Color(0.45, 0.38, 0.3))
+	_rect(0.52, 0.46, 0.035, 0.06, Color(0.5, 0.55, 0.6, 0.35))
+	for k in 3:
+		draw_circle(_p(0.53 + k * 0.01, 0.5 - (k % 2) * 0.012), 2.5, Color(0.7, 0.6, 0.3))
+	# The back door, far end: a deadbolt, and snow swept by the frame.
+	_rect(0.65, 0.22, 0.1, 0.48, Color(0.07, 0.06, 0.05))
+	_rect(0.73, 0.44, 0.012, 0.03, Color(0.4, 0.4, 0.42))
+	_poly([Vector2(0.63, 0.7), Vector2(0.66, 0.68), Vector2(0.68, 0.7)], Color(0.7, 0.72, 0.76, 0.5))
+	# The furnace: squat, black, its mouth glowing through the grate.
+	var glow: float = 0.5 + 0.15 * sin(_time * 2.1)
+	_poly([Vector2(0.8, 0.32), Vector2(0.96, 0.3), Vector2(0.97, 0.8), Vector2(0.79, 0.8)], Color(0.03, 0.03, 0.032))
+	_rect(0.83, 0.52, 0.1, 0.12, Color(1.0, 0.45, 0.12, glow))
+	for k in 4:
+		_rect(0.835 + k * 0.025, 0.52, 0.006, 0.12, Color(0.03, 0.03, 0.032))
+	draw_line(_p(0.88, 0.31), _p(0.88, 0.0), Color(0.06, 0.06, 0.065), 8.0)
+	# Crates, stacked in the front corner, stencilled.
+	for c in [Vector2(0.6, 0.78), Vector2(0.69, 0.8), Vector2(0.64, 0.68)]:
+		_rect(c.x, c.y, 0.09, 0.12, Color(0.18, 0.14, 0.09))
+		_rect(c.x, c.y, 0.09, 0.12, Color(0.1, 0.08, 0.05), false)
+		_rect(c.x + 0.015, c.y + 0.05, 0.06, 0.012, Color(0.05, 0.04, 0.03, 0.8))

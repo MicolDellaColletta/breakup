@@ -399,7 +399,15 @@ to look at, like the counter's choices), art added later. Each place has
        front door; the back shelf. Arrows at the edges and buttons turn you.
        "Next customer" lets the next visit in; after the last, "Close up for
        the day". Customers no longer come in on their own.
-2. [ ] The back room as a room (bench, crates, furnace, back door, freezer).
+2. [x] The back room as a room (bench, crates, furnace, back door, freezer).
+       Built: after closing, from day two, the steel door opens on it
+       (shop_art.gd "backroom", spots.cfg, shop_looks.txt). The freezer is
+       padlocked (listen at it, or don't); the bench (one empty outline on
+       the pegboard, the stoat left mid-stitch, October 4 circled); the jar
+       of eyes (one human pair); the back door (snow swept by someone); the
+       furnace (always lit, never by you); the crates (one opened and
+       nailed shut again). Nothing is taken yet: tools, crates and feeding
+       the furnace wait for steps 6 and 8.
 3. [ ] Object properties in `stock.cfg`; Abraham's catalogue; the loupe.
 4. [ ] Examine reveals properties and fills the catalogue; object puzzles.
 5. [ ] Requests as needs (folk / plain / wrong answers).

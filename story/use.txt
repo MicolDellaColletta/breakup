@@ -100,6 +100,18 @@ unknown: Go on. Ask it what's in there.
 narration | sound=keys: The red tag says BACK. Not this door. The back door's past this one, past the freezer.
 paranoia: You'll have to walk past it to use that key. Every night.
 
+=== use_compass_freezer
+narration: You hold the compass flat in front of the freezer door. Close up, the needle doesn't point. It turns, slowly, all the way round, and round again, the way they say a compass does at the pole.
+paranoia: Steel. A steel box full of motor. That's all.
+unknown: It's never sure, this close. Neither are you.
+
+=== use_back_key_freezer
+narration | sound=keys: The red-tagged key won't go anywhere near the padlock. Wrong size, wrong make. It isn't the key.
+paranoia: Somebody has the key.
+
+=== use_back_key_back_room_door
+narration | sound=keys: The red tag. It fits. You don't turn it. The rule's for the night, and it's the night that wants the door open.
+
 # --- The nights ---
 
 === use_compass_painting
