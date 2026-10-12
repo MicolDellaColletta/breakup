@@ -81,6 +81,21 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 - **The town's eye:** strangeness, seen by watchers (Ezra, Olstad, the bar, the
   radio); Daniel multiplies it from December.
 
+**The romances** (`forks.md`, "The romances, door by door")
+
+- **None is simply good; all are deeply problematic.** Sam is complete madness
+  (conspiracy, folie à deux); Daniel is wanting to be broken and rebuilt (the
+  darkest); Ruth is complicity and desperate attachment.
+- Ruth drove the 1989 Keeper to the highway herself; this winter she keeps MC's
+  car keys. Her cellar holds a second Polaroid of every Keeper, for the church.
+- Sam's list of the dead is started in October; his conspiracy wall; MC catches
+  him moving the clock's hands (faked, or "kept honest": never said).
+- Daniel's one lie, the only one in the game: *"I knew"* why he let MC go. Face
+  to face he's a polite stranger from November; he never calls MC or speaks of
+  the John night until New Year's Eve.
+- "The truth" (Sam) is now folie à deux, not the rational answer.
+- One kept-faith moment each for Walt, the Hollises, Ezra, Ruth, Sam, Olstad.
+
 **Day three** (`day_three.md`)
 
 - Ruth asks what they called MC before; Sam asks for the true name later.

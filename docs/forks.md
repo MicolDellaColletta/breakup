@@ -40,6 +40,83 @@ choice costs something somewhere else (themes.md: "no clean options").
   promise broken in front of them) can close a person for good: no more kept
   faith with them, no more doors.
 
+### The romances, door by door (decided Oct 12)
+
+None of them is simply good. Each door is a scene, important and particular to
+that person, and each pulls MC further in.
+
+**Ruth: complicity, desperate attachment.** Being seen is being catalogued;
+loving her is loving someone who hands Keepers to the town, and won't let go.
+
+1. **A true thing told** (day three): *"What did they call you, before?"* MC
+   gives something real. She writes it on the back of his Polaroid, under
+   "John". Filed.
+2. **Her secret** (November, after hours): drunk (the drinking is the first
+   secret), she takes MC to the Gleaner's cellar: a second copy of every
+   Keeper's Polaroid since 1989. One for the wall; one for the church, every
+   year. *"Somebody has to give them their Keeper. I make sure they know the
+   face."*
+3. **Her lie, forgiven** (February): she said the 1989 Keeper ran. **She drove
+   him to the highway herself,** thirty and in love with him, and her mother
+   died that night in the empty shop. Every Keeper she keeps in town is
+   penance. **And this winter she has MC's car keys,** taken "for safekeeping"
+   on a drunk night in November and never given back. She'd rather MC die here
+   than lose another one. Forgiving her is accepting the cage.
+
+**Sam: complete madness, folie à deux.** Being believed by the one rational
+man in town, and following him all the way down.
+
+1. **A true thing told** (day four or later): he asks for MC's real name, *"so
+   the right one's written down."* MC sees his own line already started
+   (*October 5, 1999. "John". ___*): *"I start them in October. It saves time
+   in May."* Instead of running, MC starts helping him fill in the others.
+2. **His secret** (December): six envelopes addressed to him by name, one every
+   September since 1993, all unopened (he said no in 1993, and that winter's
+   Keeper died in his place: *"You're sitting in my chair."*). Behind them, the
+   wall: string, pins, a decade of clippings, Keepers, hymn numbers, the
+   clock's minute, the church's collection totals. MC adds the first pin of his
+   own.
+3. **His lie, forgiven** (March): MC catches him at the tripod at night, moving
+   the clock's hands. He said he never touches it. He's faking the miracle, or
+   *"setting it back to the true minute. It drifts. I have to keep it
+   honest."* Forgiving him is accepting his reality. The game never says which.
+
+**Daniel: wanting to be broken and rebuilt.** The only person who knows MC
+completely is the man paid to end him; being his exception feels like love.
+The darkest of the three.
+
+1. **A true thing told** (late November, the sixth bullet): he plays the polite
+   stranger (*"What will you give me for this?"*); MC can break the pretence:
+   *"It came out of you."* *"There you are."* MC's first true word in Kettle
+   Lake, to the man who wants him dead.
+2. **His secret** (Christmas Eve, the confession booth, roles reversed): first
+   he breaks MC down, calmly laying out every lie MC has told as John until
+   nothing of the costume is left. Then he rebuilds: his own confession, the
+   count (*"Thirty-one. Thirty-two with John. You'd have been thirty-three."*),
+   and his father's kitchen table, the night he stopped believing at twelve.
+3. **His one lie, forgiven** (March): the only lie he tells in the whole game.
+   *"I said I didn't know why I let you go. I knew."* The reason depends on the
+   background (draft: *"Because you didn't beg. You looked at me like you'd been
+   waiting."*). His ending, where he says MC's real name, completes the
+   rebuilding: he gives MC back to himself, as his.
+
+**About Daniel's silence:** face to face he's a polite stranger from late
+November. What he never does until New Year's Eve is call MC, or speak of the
+night John died. MC can be the one to break that.
+
+### Keeping faith, person by person (decided Oct 12)
+
+One moment each. Keeping faith always costs MC something.
+
+| Person | The moment | Keeping faith | Breaking it |
+|---|---|---|---|
+| **Walt** | Day two, the name (built). Later in winter he comes back for the ticket stub, grieving, confused. | Refuse the name kindly; or, if MC took it, give it back when he asks, so the town can say "Ida" again. | Refuse him hard; or keep the name when he comes for it. |
+| **The Hollises** | Day three's warm jacket: R. HOLLIS in the collar. | Buy it (rule 2 broken) and give it to Mrs. Hollis for nothing. | Leave it, or sell it on; Cody sees it on someone else in town. |
+| **Ezra** | February, after Daniel breaks his hand: he can't load his .22, and Thursday is the only routine he has left. | Load the shells for him and keep his Thursday line in the ledger. A kindness to the man who called MC the goat. | Turn him away. The Thursday line stops. |
+| **Ruth** | Her father. MC knows he's in the freezer; she believes he's "away". | Tell her, and take her to the freezer. The cruellest kind thing in the game. | Let her find out from someone else. Daniel would tell her: he never lies. |
+| **Sam** | February: the town wants the madman with the lights on the ice, and Daniel asks MC in confession where those lights come from. | Don't give him up; hide his notebooks if they come for the cabin. | Tell Daniel. The congregation goes to the cabin. |
+| **Olstad** | February, after Daniel's threat: she asks MC for the truth about the John night, to build a case. | Tell her, at the risk of MC's freedom. It's also the confession Thaw needs. | Lie to her. She'll know. |
+
 ### The town's eye (decided Oct 12)
 
 - **What raises it: strangeness.** The town seeing MC break a rule or a custom:
@@ -145,8 +222,8 @@ are read.
 | **Run** | A late escape that works (only from April, when the road and the plate allow it). The town walks whoever MC left holding the keys to the shore; MC chooses, from the people he kept faith with. Their spring is the epilogue. |
 | **Daniel** | Fork 5 alone (or the Daniel strand), fork 6 confess and don't pay, enough closeness with Daniel. At the shore, he doesn't let go (`daniel.md`, 10b, outcome 3). |
 | ↳ *Into the ice together* (variant) | The Daniel ending with ??? the strongest voice: he doesn't stop at the shore (`daniel.md`, 10b, outcome 4). |
-| **Break the cycle** (Ruth) | Fork 5 with Ruth, fork 6 pay, enough closeness, and Ruth turns on the town. MC is still there after the ice goes out; it costs her father's legacy. |
-| **The truth** (Sam) | Fork 5 with Sam, fork 6 pay, enough closeness, Sam's notebook. The rational answer, shared: it was always the town. |
+| **Break the cycle** (Ruth) | Fork 5 with Ruth, fork 6 pay, all three of her doors. MC stays past breakup because she couldn't let go, and the town lets them be, at a price (her father's legacy, the town's protection). Love as a cage, on both sides. |
+| **The truth** (Sam) | Fork 5 with Sam, fork 6 pay, all three of his doors. Folie à deux: at breakup MC and Sam are on the ice at the minute, doing what they've worked out together, and both survive. Did they beat the pattern, or go mad together? Different from *The ice*: that's madness alone with ???; this is madness shared. |
 | **Thaw** | No romance locked, fork 6 pay, enough people kept faith with, not frayed at breakup, and MC confesses his background to someone. They walk him to the shore, watch the ice go out, and walk him back. He gives his own name. |
 
 Order of reading at breakup: Run (if MC is gone) → a locked romance whose
@@ -202,5 +279,8 @@ conditions hold → Thaw → The season ends (or The ice).
 - [x] What feeds the town's eye: strangeness, through the watchers; Daniel
       multiplies it from December.
 - [x] Why Olstad kept quiet: a trap, and fear.
-- [ ] Each love interest's three doors, scene by scene.
-- [ ] Which moment, for each of the six, counts as kept faith (or broken).
+- [x] Each love interest's three doors (above).
+- [x] The kept-faith moment for each of the six (above).
+- [ ] Daniel's reason for letting MC go, per background.
+- [ ] Ruth's ending: does "Break the cycle" still fit the cage, or does it need a
+      new name?

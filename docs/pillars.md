@@ -64,13 +64,15 @@ one can be read as MC losing his mind completely.
 
 ## The romances: one per strand
 
-The dark romance is getting close to a threat. Each strand has one.
+The dark romance is getting close to a threat. Each strand has one. **None of
+them is simply good; all of them are deeply problematic.** Each is a way of
+falling. (Their doors: `forks.md`, "The romances, door by door".)
 
 | Strand | The threat | The romance | What loving them means |
 |---|---|---|---|
-| Crime thriller | Daniel | **Daniel** | Falling for what you ran from |
-| Folk horror | The congregation | **Ruth**, who has helped them every winter | Loving someone complicit |
-| Psychological | MC's own mind | **Sam**, as paranoid as MC | Being believed, or sharing a delusion |
+| Crime thriller | Daniel | **Daniel** | **Wanting to be broken and rebuilt** by the man you ran from |
+| Folk horror | The congregation | **Ruth**, who has helped them every winter | **Complicity, and desperate attachment:** love as a cage |
+| Psychological | MC's own mind | **Sam**, as paranoid as MC | **Complete madness:** conspiracy, a folie à deux |
 
 The real name runs through all three: Ruth asks what they called him before;
 Sam asks for a true name; Daniel knows it and never says it.
@@ -139,8 +141,8 @@ hard forks and soft totals that lead to each are in `forks.md`.
 | **The season ends** (default) | Folk horror | The town gets its Keeper. |
 | **Run** | Crime thriller | MC drives away; the town walks whoever holds the keys to the shore. |
 | **Daniel** | Crime thriller, romance | At the shore, he doesn't let go. |
-| **Break the cycle** (Ruth) | Folk horror, romance | Her complicity undone, at a price. |
-| **The truth** (Sam) | Psychological, romance | The rational answer: it was always the town. |
+| **Break the cycle** (Ruth) | Folk horror, romance | MC stays past breakup because she couldn't let go, and the town lets them be, at a price. Love as a cage, on both sides. |
+| **The truth** (Sam) | Psychological, romance | Folie à deux. MC and Sam on the ice at the minute, doing what they've worked out together, and both survive. They beat the pattern, or went mad together. The title is ironic. |
 | ↳ *The ice* (variant of The season ends) | Psychological / cosmic | With ??? the strongest voice and MC frayed, the default ending is told from inside: MC walks out and meets what's under the ice. Supernatural, or MC completely gone. The game never says which. Daniel's "into the ice together" is the same variant inside his ending. |
 | **Thaw** | All three, no romance | The bright one. The people MC kept faith with walk him to the shore, watch the ice go out, and walk him back. He has to say what he ran from, and gives his own name. (`story.md`, "Thaw".) |
 
@@ -187,6 +189,5 @@ text):
 ## Open
 
 - [x] Management's envelopes: the congregation (`forks.md`).
-- [ ] How Sam's ending reads if "it was always the town": is that the truth,
-      or the most rational lie?
+- [x] How Sam's ending reads: folie à deux; the title is ironic.
 - [ ] Which days, exactly, make up each month's chapter.

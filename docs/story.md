@@ -556,7 +556,8 @@ By the end, the player finds out for certain, differently for each background.
 ## Romances
 
 Each one belongs to a strand (`pillars.md`, "The romances: one per strand")
-and locks its own ending.
+and locks its own ending. **None of them is simply good; all of them are
+deeply problematic.**
 
 To keep them from turning into clichés, every love interest:
 
@@ -566,8 +567,10 @@ To keep them from turning into clichés, every love interest:
 
 ### Daniel Hale (crime thriller)
 
-The dark option. Falling for what you ran from. Locks the **Daniel** ending;
-its secret version is a variant of **The ice** (`daniel.md`, 10b).
+The darkest option. **Wanting to be broken and rebuilt** by the man you ran
+from. Locks the **Daniel** ending; its secret version is a variant of **The
+ice** (`daniel.md`, 10b). Doors: `forks.md`. His one lie (*"I knew"*) is the
+only lie he tells in the game.
 
 ### Dr. Samuel "Sam" Wakeman, the Hermit (psychological)
 
@@ -606,10 +609,11 @@ crazy because he's the only one who says the pattern out loud.
 - **It has come every September since.** Six more envelopes, all unopened, in a
   drawer in the lab, in order. He knows what they say. Not opening them is the
   only rule he keeps that he didn't write himself.
-- **The romance:** two people who know too much in a town that pretends not to.
-  He's the one who believes MC, and the one MC learns to believe. Being believed,
-  or sharing a delusion. Rewards a strong **Appraisal**.
-- Locks **the truth** ending: the rational answer, that it was always the town.
+- **The romance: complete madness.** Two people who know too much in a town
+  that pretends not to, and a folie à deux: the conspiracy wall, the clock, the
+  list of the dead. He's the one who believes MC, and the one MC follows all the
+  way down. Rewards a strong **Appraisal**. Doors: `forks.md`.
+- Locks **the truth** ending: folie à deux on the ice. The title is ironic.
 
 ### Ruth, the pub owner (folk horror)
 
@@ -638,10 +642,12 @@ Suspicious of everyone, the new Keeper most of all.
 - **The truth:** she drinks, and he was a fanatic, paranoid and devout. The
   marriage was two people falling apart in opposite directions. Ruth's
   drinking is a secret she keeps well, behind her own bar.
-- **The romance:** guilt and complicity. Loving MC means betraying the town, her
-  family, and the person she's been.
-- Locks **break the cycle,** which now costs her father's legacy and the town's
-  protection.
+- **The romance: complicity, and desperate attachment.** She drove the 1989
+  Keeper to the highway herself, and her mother died for it; she keeps every
+  Keeper since in town as penance, and this winter she keeps MC's car keys.
+  Love as a cage. Doors: `forks.md`.
+- Locks **break the cycle:** MC stays because she couldn't let go, and the town
+  lets them be, at the cost of her father's legacy and the town's protection.
 
 ## Endings (draft)
 
