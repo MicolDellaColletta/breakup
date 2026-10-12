@@ -17,7 +17,9 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
   Monday (the rental company calls, Ezra asks for a tooth, the town line),
   Tuesday (the John night: John's revolver; the gun choice **leans** the
   background, it doesn't force it; the first flash).
-- Ruth's shoebox: letters she wrote to the 1989 Keeper, never sent.
+- Ruth's shoebox: letters she wrote to the 1989 Keeper, never sent. **His
+  name was "David"** (the name he came with; day five, as built).
+- Sundays have no counter: a new kind of day you walk (`visit.tscn`).
 
 ## October 12 — the town underneath (`underneath.md`)
 

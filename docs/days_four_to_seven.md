@@ -330,6 +330,44 @@ day, long night.
   and a match struck at the other end; silent a second night if MC spoke
   first on night two; fed, the dog comes up on its knees.
 
+## Day five, as built (Oct 12)
+
+`story/day_five.txt`, `night_five.txt`, Sunday in `town.txt`; tested in
+`tests/test_day_five.gd`. **A new kind of day:** `scenes/visit.tscn`
+(`scripts/visit.gd`) walks you between rooms by day with no counter. Lines
+with `show=church` change the picture; spots in `spots.cfg` (scene `visit`)
+are what you can click when the story stops; `end=map` ends the day.
+`GameState.DAY_SCENES` says which days use it (day 5). New placeholder art for
+the church, the vestry and Mrs. Hollis's kitchen (`scripts/place_art.gd`).
+
+- **Morning:** the bowl licked clean with a gray hair laid across the rim, or
+  gone. The bulletin; the owner's Sunday sign ("Ring if it's the Lord").
+- **Church:** your bowl upside down on the steps (if unfed); the front pew,
+  alone; your Polaroid on the prayer board, JOHN. 1999; the congregation and
+  their wrists. The sermon (Hebrews 13:2), then the whole town lays hands.
+  **Bear it** (`prayed_for`): the vestry, the scale (`weighed`, or refuse:
+  they guess), the doorframe (`measured`; it happens anyway on the way out),
+  the book (weights rise to Christmas, then fall; the last line each winter
+  is a date in April or May). The Reverend: *"I told you to be busy."*
+  **Walk out** (`walked_out`): they part; Ezra marks the frame as you pass;
+  *"The Keeper wouldn't be prayed for."*
+- **Stay in the shop:** the bowl on the front step (if unfed); the
+  congregation prays at the window. Watch (Ezra writes, if MC promised), go
+  upstairs (the road trampled in rows), or go out to them (they part; Mrs.
+  Hollis holds your hand).
+- **Mrs. Hollis's kitchen** (every route): Ray's boots; two scrubbed patches by
+  his chair; a clean dog's bowl on the drying rack and no dog, bronze
+  hairpins; Cody's door (she talks to it, or he won't come out). Lunch, the
+  dish returned, `fray=-1`: *"Same time next week."*
+- **Evening:** the Gleaner and the church are shut. **Ruth's house** (if her
+  door is open or she went upstairs on day two): she falls asleep; the
+  shoebox holds letters to **"David"** (the 1989 Keeper), stamped, no address,
+  never sent: *"I hope you got where you were going."* Sam on his porch with
+  binoculars, timing the service. A wreath on the poles, tied with red wool.
+- **Night five:** real hymns, nothing in them; the phone rings even if MC
+  spoke first (the sentence is served), and at the other end a radio plays
+  the same hymn a second behind; fed, something on the stairs hums it.
+
 ## What has to be built
 
 - **Day five has no counter:** a new day shape. Probably the map and a few

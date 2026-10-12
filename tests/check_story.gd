@@ -19,6 +19,8 @@ const STORY_SCENES: Dictionary = {
 	"res://story/night_three.txt": "res://scenes/night.tscn",
 	"res://story/day_four.txt": "res://scenes/counter.tscn",
 	"res://story/night_four.txt": "res://scenes/night.tscn",
+	"res://story/day_five.txt": "res://scenes/visit.tscn",
+	"res://story/night_five.txt": "res://scenes/night.tscn",
 	"res://story/use.txt": "res://scenes/counter.tscn",
 	"res://story/examine.txt": "res://scenes/counter.tscn",
 }
@@ -29,7 +31,8 @@ const SPOT_STORIES: Dictionary = {
 	"shop_night": ["res://story/shop.txt"],
 	"apartment_first": ["res://story/apartment.txt"],
 	"shop": ["res://story/shop_looks.txt"],
-	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt"],
+	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt"],
+	"visit": ["res://story/day_five.txt"],
 	"examine": ["res://story/examine.txt"],
 }
 

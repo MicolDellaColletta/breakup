@@ -1,0 +1,161 @@
+# THE FIFTH NIGHT: Sunday (after day five)
+# Same format as the other nights. The night: the Sunday hymn hour, real
+# hymns with nothing in them; the phone at eleven, every time now (the
+# punishment for speaking first is over), with a radio playing at the other
+# end, a second behind yours. Going down to it is the same walk as night two.
+# Design: docs/days_four_to_seven.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. Sunday night. The town so quiet you can hear the lake ice talking to itself, a long way off, like someone moving furniture.
+narration | stop=stairs: The apartment. Everything where you left it.
+narration | if=flag:weighed: You catch yourself in the bathroom mirror, and for a second you're reading it like a number.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Sunday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The Sunday hymn hour. Real hymns, played all the way through, one after another. No numbers. No weather. Nothing in them for you at all.
+narration: You find that's harder. You keep listening for the part that's meant for you, and it never comes.
+paranoia: He's said what he had to say this morning. In person. To your face.
+
+=== radio_off
+narration: You leave it off. The ice talks instead, out on the lake. A long groan, and a crack like a rifle, and then nothing.
+
+=== kitchen
+narration | time=+10: The stove.
+-> kitchen_no_bowl | if=!flag:fed_four
+-> kitchen_bowl
+
+=== kitchen_bowl
+narration: The bowl, on its line.
+paranoia: Rule five.
+> Fill the bowl -> kitchen_fed | set=fed_dog | flag=fed_five
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_no_bowl
+narration: Where the bowl was, the scuff on the floor, and nothing on it.
+narration: Your bowl turned up this morning, upside down in the snow, and you left it there.
+paranoia: Rule five. Feed the dog. There's nothing to feed it in.
+> Fill a saucer from the cupboard and put it on the line -> kitchen_fed | set=fed_dog | flag=fed_five
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. You set it on the line.
+narration: In Mrs. Hollis's kitchen this afternoon, a clean dog's bowl on the drying rack. You don't let yourself put the two together. You put the two together.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+paranoia: Somebody old is going to climb those stairs on their knees tonight and find nothing. Go to bed.
+
+=== windows
+narration | time=+10: The front windows. The road outside is still trampled in rows, where they stood this morning.
+narration: Or where they stood outside the church. You can't see the church from here. You can see the rows.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched. Both.
+
+=== windows_open
+narration: The cold comes in. With it, faint, from the hill, someone singing. One voice. A woman's. The hymn from this morning.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser. Your church shirt, folded on top. It smells of other people's hands.
+paranoia: Wash it. Or burn it. Or wear it again next Sunday, the way they want.
+
+=== painting
+narration | time=+5: The painting over the armchair. The figure on the breaking ice.
+narration: For the first time you notice there are marks on the ice around it. Small. Dark. Like footprints. Like a lot of people stood around it, once, and then left.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked. Ruth's room, when she was eleven.
+narration | if=flag:door_ruth_1: She sat at the front of the church, she said. Before.
+paranoia: Before what. Don't ask her. Don't ask anyone.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. Anyone can come in. Everyone, this morning, looked like they might.
+
+=== back_door_locked
+narration | sound=latch: The key turns. A hundred people put their hands on you today. Tonight, one lock.
+
+# --- Bed, and the phone. ---
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. You can still feel the hands, if you let yourself. On your shoulders. The back of your neck.
+narration: Eleven.
+narration | sound=ring: Downstairs, the shop phone rings.
+narration | if=flag:spoke_first: Three nights of silence, and now this. As if your sentence were served.
+paranoia: Rule four.
+> Go down to it -> phone_go_down | lean=animal
+> Let it ring -> phone_ignored | lean=paranoia
+
+=== phone_ignored
+narration | show=bedroom: It rings. You let it. You lie there and feel each ring land on the back of your neck, where her hand was.
+narration | stop=ring: It stops.
+-> night_dog
+
+=== phone_go_down
+narration | sound=stairs: Down the stairs, in your socks. Toward the ringing.
+narration | stop=stairs: The hallway. The steel door. The phone, past the counter.
+
+=== phone_steel_door
+narration: You stop at the steel door. Cold around your feet.
+narration: Behind it, under the hum, something you've never heard there: a radio. Very faint. A hymn.
+paranoia: A freezer doesn't have a radio. Somebody in the back room has a radio. No. The sound carries. The sound carries.
+
+=== phone_turn_back
+narration | sound=stairs: You go back up. It rings behind you.
+-> phone_ignored
+
+=== phone_down
+narration: Behind the counter. The phone.
+narration | stop=ring | sound=pickup | break=phone: You lift the receiver. You don't speak.
+narration: The open line. The room. The clock.
+narration: And, faint, behind the breathing, a radio. A hymn. The Sunday hour.
+narration | if=flag:radio_on: The same hymn your radio is playing upstairs. A second behind. Like an echo with a long way to come.
+narration | if=!flag:radio_on: The hymn hour, from the church. He's listening to the same station as the whole town.
+unknown | if=frayed: He's listening to you listen, sweetheart.
+paranoia: He's close enough to get the station. He's in range. He's somewhere you could drive to.
+> Wait -> phone_wait
+> Hang up first -> phone_hang_up | lean=animal
+
+=== phone_wait
+narration: You wait. The hymn ends, on his end, a second after it ends on yours.
+narration | sound=hangup: A soft click. The dial tone.
+-> night_dog
+
+=== phone_hang_up
+narration | sound=hangup: You hang up. Upstairs, the hymn goes on without him.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_five
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Back in bed, facing the door.
+narration | sound=stairs: The stairs. One and then the other. A rest.
+narration | stop=stairs: The kitchen. Then, very soft, something you've never heard before: humming. A few notes. This morning's hymn.
+narration: Then it stops, as if whoever it was remembered where they were.
+paranoia: You didn't hear that. You're remembering the radio. You're remembering the church.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Back in bed, facing the door.
+narration: Nothing comes up. Near three, from the bottom of the stairs, a long breath out. The kind you let go when you've been holding something heavy, and put it down.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Monday. Snow in the night, a lot of it. The window's gone white.
+narration: (End of day five. Day six is still being written. Thank you for playing.)

@@ -12,7 +12,6 @@ extends Control
 # the title screen if that day isn't written yet.
 
 const TITLE_SCENE: String = "res://scenes/title.tscn"
-const COUNTER_SCENE: String = "res://scenes/counter.tscn"
 const SCENE_ID: String = "night"
 const USE_PATH: String = "res://story/use.txt"
 const VIEW_FADE: float = 0.25
@@ -173,5 +172,7 @@ func _end_of_day() -> void:
 	tween.tween_property(wind, "volume_db", -80.0, 3.0)
 	GameState.end_night()
 	GameState.day += 1
-	var next: String = COUNTER_SCENE if GameState.DAY_STORIES.has(GameState.day) else TITLE_SCENE
+	var next: String = GameState.day_scene(GameState.day)
+	if next == "":
+		next = TITLE_SCENE
 	Transition.go_to(next, 3.0, 1.0)

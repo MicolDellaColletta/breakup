@@ -1,0 +1,107 @@
+@tool
+extends Control
+
+# Placeholder art for places in town you walk around in by day, drawn in code
+# until there are paintings: the church (the nave, from the back), the vestry
+# behind it, and Mrs. Hollis's kitchen. Where things are drawn matches their
+# hotspots in spots.cfg (scene "visit"). Daylight, for once: pale and flat.
+
+const WALL: Color = Color(0.62, 0.6, 0.55)
+const WALL_DARK: Color = Color(0.45, 0.43, 0.4)
+const FLOOR: Color = Color(0.32, 0.25, 0.18)
+const WOOD: Color = Color(0.36, 0.24, 0.14)
+const WOOD_DARK: Color = Color(0.22, 0.14, 0.08)
+const GLASS: Color = Color(0.82, 0.86, 0.9)
+const IRON: Color = Color(0.2, 0.2, 0.22)
+const PENCIL: Color = Color(0.25, 0.24, 0.24)
+const CLOTH: Color = Color(0.55, 0.18, 0.16)
+
+# Which place is on screen: "church", "vestry" or "hollis_kitchen".
+@export var view: String = "church":
+	set(value):
+		view = value
+		queue_redraw()
+
+func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+func _p(x: float, y: float) -> Vector2:
+	return Vector2(x * size.x, y * size.y)
+
+func _rect(x: float, y: float, w: float, h: float, color: Color, filled: bool = true) -> void:
+	draw_rect(Rect2(_p(x, y), _p(w, h)), color, filled, -1.0 if filled else 1.5)
+
+func _poly(points: Array, color: Color) -> void:
+	var packed: PackedVector2Array = PackedVector2Array()
+	for point in points:
+		packed.append(_p(point.x, point.y))
+	draw_colored_polygon(packed, color)
+
+func _draw() -> void:
+	draw_rect(Rect2(Vector2.ZERO, size), WALL)
+	match view:
+		"church": _draw_church()
+		"vestry": _draw_vestry()
+		"hollis_kitchen": _draw_kitchen()
+
+func _draw_church() -> void:
+	# White walls, tall plain windows on both sides, pews running to the altar.
+	_poly([Vector2(0, 0.62), Vector2(1, 0.62), Vector2(1, 1), Vector2(0, 1)], FLOOR)
+	for side in [0.04, 0.84]:
+		for k in 2:
+			_rect(side + k * 0.06, 0.12, 0.04, 0.36, GLASS)
+	# The altar, the cross above it.
+	_rect(0.42, 0.42, 0.16, 0.14, WOOD_DARK)
+	_rect(0.42, 0.42, 0.16, 0.025, Color(0.9, 0.88, 0.82))
+	_rect(0.495, 0.14, 0.01, 0.22, WOOD_DARK)
+	_rect(0.465, 0.19, 0.07, 0.012, WOOD_DARK)
+	# Pews, nearer and wider toward the bottom; the front one empty.
+	for row in 5:
+		var y: float = 0.6 + row * 0.07
+		var spread: float = 0.08 + row * 0.04
+		_rect(0.14 - spread * 0.5, y, 0.3 + spread * 0.3, 0.035, WOOD)
+		_rect(0.56, y, 0.3 + spread * 0.3, 0.035, WOOD)
+	# The vestry door, at the back on the right.
+	_rect(0.7, 0.3, 0.07, 0.28, WOOD_DARK)
+
+func _draw_vestry() -> void:
+	_poly([Vector2(0, 0.66), Vector2(1, 0.66), Vector2(1, 1), Vector2(0, 1)], FLOOR)
+	_rect(0.06, 0.16, 0.14, 0.2, GLASS)
+	# The grain scale: a platform, a post, a beam, a weight.
+	_rect(0.3, 0.7, 0.2, 0.05, IRON)
+	_rect(0.39, 0.3, 0.02, 0.42, IRON)
+	_rect(0.3, 0.3, 0.2, 0.015, IRON)
+	draw_circle(_p(0.47, 0.34), size.y * 0.02, IRON)
+	# The doorframe, white, its edge covered in pencil lines.
+	_rect(0.64, 0.16, 0.2, 0.52, WALL_DARK)
+	_rect(0.62, 0.16, 0.02, 0.52, Color(0.92, 0.91, 0.88))
+	for k in 11:
+		var y: float = 0.24 + k * 0.022 + (k % 3) * 0.004
+		draw_line(_p(0.62, y), _p(0.66, y), PENCIL, 1.5)
+	# The book of weights, on a lectern.
+	_rect(0.86, 0.46, 0.08, 0.22, WOOD_DARK)
+	_rect(0.85, 0.44, 0.1, 0.03, Color(0.85, 0.82, 0.74))
+
+func _draw_kitchen() -> void:
+	_poly([Vector2(0, 0.64), Vector2(1, 0.64), Vector2(1, 1), Vector2(0, 1)], Color(0.5, 0.46, 0.4))
+	_rect(0.4, 0.14, 0.2, 0.22, GLASS)
+	# The stove, the table, Ray's chair, the two bare patches by it.
+	_rect(0.06, 0.42, 0.16, 0.24, IRON)
+	_rect(0.34, 0.56, 0.3, 0.04, WOOD)
+	_rect(0.36, 0.6, 0.02, 0.14, WOOD)
+	_rect(0.6, 0.6, 0.02, 0.14, WOOD)
+	_rect(0.7, 0.5, 0.08, 0.04, WOOD_DARK)
+	_rect(0.7, 0.54, 0.015, 0.2, WOOD_DARK)
+	_rect(0.765, 0.54, 0.015, 0.2, WOOD_DARK)
+	draw_circle(_p(0.72, 0.84), size.y * 0.025, Color(0.62, 0.58, 0.5))
+	draw_circle(_p(0.77, 0.84), size.y * 0.025, Color(0.62, 0.58, 0.5))
+	# The drying rack by the sink, a bowl upside down on it.
+	_rect(0.82, 0.44, 0.12, 0.02, WOOD)
+	_poly([Vector2(0.85, 0.44), Vector2(0.91, 0.44), Vector2(0.9, 0.41), Vector2(0.86, 0.41)], Color(0.6, 0.62, 0.66))
+	# Ray's boots by the back door; a shut door down the hall.
+	_rect(0.24, 0.3, 0.08, 0.36, WOOD_DARK)
+	_rect(0.25, 0.62, 0.025, 0.04, Color(0.18, 0.13, 0.09))
+	_rect(0.285, 0.62, 0.025, 0.04, Color(0.18, 0.13, 0.09))
+	_rect(0.9, 0.26, 0.07, 0.4, WOOD_DARK)
+	# A tablecloth, red, folded at the corner.
+	_rect(0.34, 0.545, 0.3, 0.015, CLOTH)

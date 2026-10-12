@@ -164,4 +164,4 @@ narration: Near dawn, very faint, from the bottom of them, something that might 
 
 === morning_after
 narration | time=07:30: Sunday. Church bells, from the hill. Not for anyone in particular. For everyone, and you.
-narration: (End of day four. Day five, Sunday, is still being written. Thank you for playing.)
+

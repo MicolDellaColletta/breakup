@@ -37,12 +37,20 @@ const DAY_STORIES: Dictionary = {
 	2: "res://story/day_two.txt",
 	3: "res://story/day_three.txt",
 	4: "res://story/day_four.txt",
+	5: "res://story/day_five.txt",
 }
+# Days that aren't spent at the counter, and the scene they are (Sunday: the
+# shop is closed; you walk to church and around town by day).
+const DAY_SCENES: Dictionary = {
+	5: "res://scenes/visit.tscn",
+}
+const COUNTER_SCENE: String = "res://scenes/counter.tscn"
 const NIGHT_STORIES: Dictionary = {
 	1: "res://story/night_one.txt",
 	2: "res://story/night_two.txt",
 	3: "res://story/night_three.txt",
 	4: "res://story/night_four.txt",
+	5: "res://story/night_five.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on
@@ -313,6 +321,13 @@ func add_cash(amount: int) -> void:
 	cash += amount
 
 # A sale: the money goes in the till and the ledger writes it down.
+# Where a day starts: the counter, or another scene (DAY_SCENES); "" when
+# that day isn't written yet.
+func day_scene(which_day: int) -> String:
+	if not DAY_STORIES.has(which_day):
+		return ""
+	return DAY_SCENES.get(which_day, COUNTER_SCENE)
+
 func record_sale(item_name: String, item_id: String, price: int, buyer: String) -> void:
 	sold.append(item_id)
 	take_off_shelves(item_id)
