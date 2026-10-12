@@ -24,6 +24,7 @@ func _log(column: Node) -> String:
 
 # Plays on until a choice or the end; returns the route it took.
 func _route(column: Node, times: int = 40) -> Array:
+	ring_bell()
 	var route: Array = [column._section]
 	for i in times:
 		column._on_advance_pressed()

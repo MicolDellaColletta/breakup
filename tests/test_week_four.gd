@@ -28,6 +28,7 @@ func _log(column: Node) -> String:
 	return text
 
 func _route(column: Node, times: int = 80) -> Array:
+	ring_bell()
 	var route: Array = [column._section]
 	for i in times:
 		column._on_advance_pressed()
