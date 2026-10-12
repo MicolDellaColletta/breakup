@@ -27,6 +27,7 @@ func _log(column: Node) -> String:
 	return text
 
 func _route(column: Node, times: int = 80) -> Array:
+	ring_bell()
 	var route: Array = [column._section]
 	for i in times:
 		column._on_advance_pressed()
@@ -90,6 +91,7 @@ func _saturday_cody() -> void:
 	await pick(column, "I'll be there")
 	advance(column)
 	await wait(1.8)
+	ring_bell()
 	check(column._section == "closing" and gs.clock_text() == "6:20 PM", "closing at 6:20 PM")
 	advance(column)
 	await process_frame

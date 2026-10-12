@@ -23,6 +23,7 @@ func _log(column: Node) -> String:
 	return text
 
 func _route(column: Node, times: int = 80) -> Array:
+	ring_bell()
 	var route: Array = [column._section]
 	for i in times:
 		column._on_advance_pressed()
@@ -87,6 +88,7 @@ func _cody_hanna_priced_sam_true() -> void:
 	check(_log(column).contains("Three. Ruth has something true too."), "Ruth and Sam both hold something true, and neither knows")
 	await _next(column)
 	check(gs.flags.has("daylight_call"), "the phone, once, in daylight")
+	ring_bell()
 	check(column._section == "closing" and gs.clock_text() == "7:02 PM", "then closing at sunset, 7:02 PM")
 
 func _widow_jacket_hanna_refused_sam_crossed() -> void:

@@ -189,7 +189,7 @@ var pawn_tags: Array[String] = []
 # floor shelves (for sale), the back shelf (held), and the front window (three
 # spots, seen from the road: for sale too). Empty until the counter first
 # fills them from stock.cfg; the player rearranges them from there.
-const SHELF_SPOTS: Dictionary = {"floor": 12, "back": 12, "window": 3}
+const SHELF_SPOTS: Dictionary = {"floor": 16, "back": 12, "window": 3}
 var shelf_floor: Array[String] = []
 var shelf_back: Array[String] = []
 var shelf_window: Array[String] = []

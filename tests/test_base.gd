@@ -53,10 +53,24 @@ func open_scene(path: String, fade: float = 2.2) -> Node:
 	await wait(fade)
 	return current_scene
 
-# Clicks Continue (or presses Space) as often as asked.
+# Clicks Continue (or presses Space) as often as asked. At the counter, if
+# the shop is waiting for the bell when it starts, it rings first, with no
+# wait at the door: a player who lets the next customer in and reads on
+# (test_shop tests the waiting).
 func advance(column: Node, times: int = 60) -> void:
+	var scene: Node = column.get_parent()
+	if scene.has_method("waiting_for_bell") and scene.waiting_for_bell():
+		scene.customer_gap = 0.0
+		scene.ring_bell()
 	for i in times:
 		column._on_advance_pressed()
+
+# At the counter: rings the bell if the shop is waiting for it (after the
+# last customer, that's closing up).
+func ring_bell() -> void:
+	if current_scene.has_method("waiting_for_bell") and current_scene.waiting_for_bell():
+		current_scene.customer_gap = 0.0
+		current_scene.ring_bell()
 
 # The choices on screen, without their "1. " numbers.
 func choices(column: Node) -> Array:

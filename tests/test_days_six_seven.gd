@@ -28,6 +28,7 @@ func _log(column: Node) -> String:
 	return text
 
 func _route(column: Node, times: int = 80) -> Array:
+	ring_bell()
 	var route: Array = [column._section]
 	for i in times:
 		column._on_advance_pressed()
@@ -82,6 +83,7 @@ func _monday_date_tooth_shirt() -> void:
 	advance(column)
 	check(gs.flags.has("lent_shirt"), "you lend her a Keeper's shirt, for the boy who plays the Keeper")
 	await wait(1.8)
+	ring_bell()
 	check(column._section == "closing" and gs.clock_text() == "6:56 PM", "closing at sunset, 6:56 PM")
 
 func _monday_wrong_number_refusals() -> void:
@@ -184,6 +186,7 @@ func _tuesday(broke_name: bool) -> void:
 		await pick(column, "Tell me about her")
 	advance(column)
 	await wait(1.8)
+	ring_bell()
 	check(column._section == "closing", "then closing")
 	advance(column)
 	check(gs.clock_text() == "6:53 PM", "closing at 6:53 PM")

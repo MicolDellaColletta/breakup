@@ -24,6 +24,7 @@ func _log(column: Node) -> String:
 
 # Plays on until a choice or the end; returns the route it took.
 func _route(column: Node, times: int = 40) -> Array:
+	ring_bell()
 	var route: Array = [column._section]
 	for i in times:
 		column._on_advance_pressed()
@@ -123,6 +124,7 @@ func _widow_june_jacket_set_aside() -> void:
 	advance(column)
 	check(gs.flags.has("faith_hollis"), "setting it aside for Mrs. Hollis keeps faith with the Hollises")
 	await wait(1.8)
+	ring_bell()
 	check(column._section == "closing" and gs.clock_text() == "7:05 PM", "closing at sunset, 7:05 PM")
 
 func _boy_teague_jacket_refused() -> void:

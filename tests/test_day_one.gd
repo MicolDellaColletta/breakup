@@ -62,11 +62,11 @@ func _widow_kind() -> void:
 	check(gs.voices["warmth"] == 1 and gs.voices["john"] == 1, "kindness feeds Warmth, answering to John feeds John")
 	await pick(column, "Let me look")
 	await process_frame
-	check(counter.get_node("%ViewTitle").text == "The shop floor", "looking opens the shop floor")
+	check(counter.get_node("%ViewTitle").text == "Behind the counter", "looking stays behind the counter: the window and its shelves")
 	counter._select("duck_call")
 	counter._on_offer_pressed()
 	advance(column)
-	counter._show_view("floor")
+	counter._show_view("left")
 	await process_frame
 	check(not gs.shelf_floor.has("duck_call") and gs.shelf_floor.has("decoy"), "the duck call is sold and leaves the shelf")
 	check(gs.till == 15 and gs.till_by_ledger == 15, "her $15 goes in the till")
@@ -158,6 +158,7 @@ func _trooper(answer: String) -> void:
 	await _reverend(counter, column, answer)
 	await wait(1.8)
 	advance(column)
+	ring_bell()
 	check(column._section == "closing_invited", "then closing time, remembering the invitation")
 	advance(column)
 	await process_frame

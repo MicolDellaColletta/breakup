@@ -29,6 +29,7 @@ func _log(column: Node) -> String:
 	return text
 
 func _route(column: Node, times: int = 80) -> Array:
+	ring_bell()
 	var route: Array = [column._section]
 	for i in times:
 		column._on_advance_pressed()
@@ -177,6 +178,7 @@ func _arrival(choice: String, flag: String) -> void:
 	check(gs.flags.has("daniel_in_town"), "a room above the Gleaner; the Thursday watch")
 	if flag != "door_daniel_1":
 		return
+	ring_bell()
 	check(column._section == "closing", "closing")
 	await pick(column, "Olstad")
 	advance(column)

@@ -1,10 +1,12 @@
 extends Control
 
 # The shop's home screen: behind the counter, the shop on the left, the
-# dialogue column on the right. Customers come in one at a time and stand
-# across the counter (PersonArt). The shelves are drawn (ShelfView): pick a
-# thing up, put it down somewhere else, put it in the front window, or hand
-# it over to whoever's waiting.
+# dialogue column on the right. The shelves are drawn (ShelfView): facing the
+# front window with a shelf either side, or turned to the left wall, the right
+# wall, the back shelf. Pick a thing up, put it down somewhere else, put it in
+# the front window, or hand it over to whoever's waiting. Nobody comes in on
+# their own: between visits the shop is yours, and the bell (NextButton) lets
+# the next person in. They stand across the counter (PersonArt).
 
 const LOOKS_PATH: String = "res://story/shop_looks.txt"
 const USE_PATH: String = "res://story/use.txt"
@@ -66,20 +68,28 @@ const VISITS: Dictionary = {
 	# light, the man in the good coat.
 	15: ["widow", "daniel"],
 }
-const CUSTOMER_GAP: float = 1.5
+# From the bell to the door opening.
+const CUSTOMER_GAP: float = 0.8
+
+# The ways you can face from behind the counter, turning right.
+const FACINGS: Array[String] = ["counter", "right", "back", "left"]
 
 # Placeholder text until there's art for each view.
 const VIEWS: Dictionary = {
 	"counter": {
 		"title": "Behind the counter",
-		"text": "Glass under your hands. Past the shop floor, the front window: three spots on the ledge, seen from the road.",
+		"text": "Glass under your hands. The front window, three spots on the ledge, seen from the road; a shelf either side. Click a thing to pick it up, a spot to put it down. Right-click puts it back.",
 	},
-	"floor": {
-		"title": "The shop floor",
-		"text": "Everything out here is for sale. Click a thing to pick it up, and a spot to put it down. Right-click puts it back.",
+	"left": {
+		"title": "The left wall",
+		"text": "Shelves to the ceiling, for sale. Dust on the tops of things nobody's reached for in years.",
+	},
+	"right": {
+		"title": "The right wall",
+		"text": "More shelves, for sale, and at the end of them the front door, with its bell.",
 	},
 	"back": {
-		"title": "The back shelves",
+		"title": "The back shelf",
 		"text": "Things people left as a promise to come back. Each one has a pawn tag. None of them are yours to sell.",
 	},
 	"ledger": {
@@ -98,9 +108,10 @@ const TAKE_AMOUNT: int = 20
 @onready var column: DialogueColumn = %DialogueColumn
 @onready var view_title: Label = %ViewTitle
 @onready var view_text: Label = %ViewText
-@onready var counter_button: Button = %CounterButton
-@onready var floor_button: Button = %FloorButton
-@onready var back_button: Button = %BackButton
+@onready var left_button: Button = %TurnLeftButton
+@onready var around_button: Button = %TurnAroundButton
+@onready var right_button: Button = %TurnRightButton
+@onready var next_button: Button = %NextButton
 @onready var ledger_button: Button = %LedgerButton
 @onready var register_button: Button = %RegisterButton
 @onready var shelf_panel: Control = %ShelfPanel
@@ -142,6 +153,13 @@ var _browsing: bool = false
 # (> Let me look -> @browse_back), for someone come to take one back.
 var _browsing_back: bool = false
 var _view: String = ""
+# The way you're facing (one of FACINGS), under the ledger or register if
+# one of those is open.
+var _facing: String = "counter"
+# Nobody's in: the shop waits for the bell.
+var _waiting: bool = false
+# The wait from the bell to the door (tests ring with none).
+var customer_gap: float = CUSTOMER_GAP
 # The thing in your hand, picked up off a shelf ("" for nothing). It's also
 # what the details under the shelves describe.
 var _selected: String = ""
@@ -161,11 +179,13 @@ func _ready() -> void:
 	if _ledger_history.load(LEDGER_PATH) != OK:
 		push_error("Could not load the ledger's older pages: " + LEDGER_PATH)
 	_visits = VISITS.get(GameState.day, VISITS[1])
-	counter_button.pressed.connect(_show_view.bind("counter"))
-	floor_button.pressed.connect(_show_view.bind("floor"))
-	back_button.pressed.connect(_show_view.bind("back"))
-	ledger_button.pressed.connect(_show_view.bind("ledger"))
-	register_button.pressed.connect(_show_view.bind("register"))
+	left_button.pressed.connect(turn.bind("left"))
+	around_button.pressed.connect(turn.bind("around"))
+	right_button.pressed.connect(turn.bind("right"))
+	ledger_button.pressed.connect(_toggle_panel.bind("ledger"))
+	register_button.pressed.connect(_toggle_panel.bind("register"))
+	next_button.pressed.connect(ring_bell)
+	next_button.visible = false
 	take_button.pressed.connect(_on_take_pressed)
 	offer_button.pressed.connect(_on_offer_pressed)
 	examine_button.pressed.connect(_on_examine_pressed)
@@ -173,6 +193,7 @@ func _ready() -> void:
 	shelf_view.spot_clicked.connect(_on_spot_clicked)
 	shelf_view.counter_clicked.connect(_on_counter_clicked)
 	shelf_view.put_back.connect(_put_down)
+	shelf_view.turned.connect(turn)
 	examine_spots.spot_clicked.connect(_on_detail_clicked)
 	examine_spots.aside.connect(_on_detail_aside)
 	%PutDownButton.pressed.connect(close_examine)
@@ -198,7 +219,8 @@ func _ready() -> void:
 
 # --- The day ---
 
-# The story has nowhere left to go: the next customer comes in.
+# The story has nowhere left to go: whoever was in goes out, and the shop is
+# yours until you ring the bell. Once closing's been said, straight on.
 func _on_section_finished(_section: String) -> void:
 	if _examining:
 		examine_spots.interactive = true
@@ -208,9 +230,35 @@ func _on_section_finished(_section: String) -> void:
 	if _exploring:
 		_fill_spots()
 		return
-	# They go out while the next one is still on the way (CUSTOMER_GAP).
 	if shelf_view.person != "":
 		_person_leaves()
+	if _customer_index >= _visits.size():
+		_next_customer()
+	else:
+		_wait_for_bell()
+
+func _wait_for_bell() -> void:
+	_waiting = true
+	next_button.text = "Next customer" if _visits_left() else "Close up for the day"
+	next_button.visible = true
+
+func waiting_for_bell() -> bool:
+	return _waiting
+
+# Anyone still to come today (as things stand now: who comes is decided when
+# the bell goes).
+func _visits_left() -> bool:
+	for i in range(_customer_index + 1, _visits.size()):
+		if _visit_happens(_visits[i]):
+			return true
+	return false
+
+# The bell: the next person comes in, or, with nobody left, closing time.
+func ring_bell() -> void:
+	if not _waiting:
+		return
+	_waiting = false
+	next_button.visible = false
 	_next_customer()
 
 func _next_customer() -> void:
@@ -227,7 +275,8 @@ func _next_customer() -> void:
 		column.start_conversation("closing")
 		return
 	_customer = _visits[_customer_index].get_slice("|", 0).strip_edges()
-	await get_tree().create_timer(CUSTOMER_GAP).timeout
+	if customer_gap > 0.0:
+		await get_tree().create_timer(customer_gap).timeout
 	_person_comes_in(_customer)
 	column.start_conversation(_customer + "_enters")
 
@@ -240,8 +289,10 @@ func _on_choice_made(choice: Dictionary) -> void:
 		_browsing = true
 		_browsing_back = choice["target"] == "@browse_back"
 		nothing_button.visible = true
-		if _view != "floor" and _view != "back":
-			_show_view("floor")
+		if _browsing_back:
+			_show_view("back")
+		elif not FACINGS.has(_view):
+			_show_view(_facing)
 		_refresh_offer()
 
 func _on_offer_pressed() -> void:
@@ -293,9 +344,11 @@ func _on_line_shown(line: Dictionary) -> void:
 
 func _show_view(view: String) -> void:
 	_view = view
+	if FACINGS.has(view):
+		_facing = view
 	view_title.text = VIEWS[view]["title"]
 	view_text.text = VIEWS[view]["text"]
-	shelf_panel.visible = view == "floor" or view == "back" or view == "counter"
+	shelf_panel.visible = FACINGS.has(view)
 	ledger_panel.visible = view == "ledger"
 	register_panel.visible = view == "register"
 	if view == "ledger":
@@ -305,6 +358,17 @@ func _show_view(view: String) -> void:
 	if shelf_panel.visible:
 		shelf_view.mode = view
 	_show_details()
+
+# Turns "left", "right" or "around" from the way you're facing (closing the
+# ledger or register if one's open).
+func turn(direction: String) -> void:
+	var steps: int = {"right": 1, "around": 2, "left": 3}[direction]
+	_show_view(FACINGS[(FACINGS.find(_facing) + steps) % FACINGS.size()])
+
+# The ledger and the register open over the shelves; the same button again
+# shuts them.
+func _toggle_panel(view: String) -> void:
+	_show_view(_facing if _view == view else view)
 
 # Picks a thing up off its shelf (tests use it to choose what to offer).
 func _select(item_id: String) -> void:

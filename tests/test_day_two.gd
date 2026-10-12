@@ -97,6 +97,7 @@ func _cody_ezra_found_walt_accepts_ruth_upstairs() -> void:
 	var ruth_route: Array = _morning(column)
 	check(gs.flags.has("ruth_upstairs") and ruth_route.has("ruth_bowl_fed"), "upstairs, she sees the bowl you've been filling")
 	await wait(1.8)
+	ring_bell()
 	check(column._section == "closing" and gs.clock_text() == "7:08 PM", "closing at sunset, 7:08 PM")
 	advance(column)
 	await process_frame
