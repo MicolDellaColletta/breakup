@@ -18,11 +18,43 @@ own; together they decide which endings are open at breakup.
 | **Fray** | Rules broken (+1), unsettling things (+1), small comforts (-1) | Frayed at breakup or not; The ice | Yes (`GameState.fray`) |
 | **Rules broken** | The eight rules | Fray; how the town sees MC | Yes (`GameState.rules_broken`) |
 | **Kept faith with**, per person | A kindness kept, a promise kept, a truth told: Walt, the Hollises, Ezra, Ruth, Sam, Olstad | Who comes to the shore (Thaw); who MC trusts with the keys (Run) | No: flags today (`flag=`), a count later |
-| **Closeness**, per romance (Ruth, Sam, Daniel) | Time spent, true things told, choices that let them in | Which romance can lock at fork 5 | No |
-| **The town's eye** | Church attendance, the window display, what MC says on air, who MC is seen with, rules seen broken | How hard the frenzy turns on MC in February and March | No |
+| **Closeness**, per romance (Ruth, Sam, Daniel) | Three doors per person (below) | Which romance can lock at fork 5 | No |
+| **The town's eye** | The town seeing MC break a rule or a custom, through the people who watch (below) | How hard the frenzy turns on MC in February and March | No |
 
 Rule of thumb: a soft fork never asks the player to pick "the good option". Each
 choice costs something somewhere else (themes.md: "no clean options").
+
+### Thresholds (decided Oct 12)
+
+- **Closeness: three doors.** Each romance has three scenes, and each is a door
+  the player chooses to open:
+  1. **A true thing told**: MC tells them something real.
+  2. **Their secret, shared**: they tell MC theirs (`story.md`, "Romances").
+  3. **Their lie, forgiven**: every love interest lies to MC once; MC finds out
+     and forgives it.
+  Two doors open by New Year's Eve make that person available at fork 5. All
+  three, and the fork, lock the ending.
+- **Kept faith with: a count.** Six people (Walt, the Hollises, Ezra, Ruth, Sam,
+  Olstad), each kept or not, one moment at a time. **Thaw needs four of six.**
+- **Broken faith closes doors.** An open betrayal (selling someone out, a
+  promise broken in front of them) can close a person for good: no more kept
+  faith with them, no more doors.
+
+### The town's eye (decided Oct 12)
+
+- **What raises it: strangeness.** The town seeing MC break a rule or a custom:
+  lights on after midnight, a window open after dark, skipping church, saying a
+  pawned name, something odd in the shop window, being seen with Sam (the town's
+  madman) or Olstad (the law). Keeping the customs lowers it, slowly.
+- **How it spreads: the watchers.** It only rises when someone who carries it
+  sees: Ezra (the church), Olstad (the law), the Gleaner's regulars (the bar),
+  the night radio (everyone). Something strange seen by nobody doesn't count.
+- **From December, Daniel can multiply it.** From the pulpit and the radio he
+  can turn the frenzy toward MC or away from him. It's leverage: he holds the
+  town's eye over MC, and the player feels it.
+- **What it does, February and March:** notes under the door; the church
+  turning MC away; processions stopping outside the shop; customers who stop
+  coming; needing Olstad's protection. High enough, and the town comes early.
 
 ---
 
@@ -140,8 +172,20 @@ conditions hold → Thaw → The season ends (or The ice).
 - **Abraham walked into the freezer himself,** on October 3, when John didn't
   come, because he believed the unkept shop would take whoever held the keys.
   Belief killed him. **Olstad found him** on October 4, closed the door, told
-  nobody, and lets Ruth believe he's "away". Why she kept quiet is open
-  (waiting to see the season play out? protecting Ruth?).
+  nobody, and lets Ruth believe he's "away".
+- **Why Olstad kept quiet (decided Oct 12): a trap, and fear.**
+  - **On the surface, a trap.** The carbon on Abraham's desk said "John". If
+    nobody knows the old man is dead, the new Keeper doesn't know she knows
+    anything, and she can watch who shows up as John. That's why she watches
+    MC so closely from day one, and calls him "John" to time the answer.
+  - **Underneath, fear more than belief.** She doesn't believe in the ice. She
+    believes in what the congregation does to people who get in the way of the
+    season. She's watched it for years, and let Keepers go to the shore rather
+    than be the one who stopped it. Closing the freezer door was her keeping
+    her head down one more time. December proves her right: the Reverend.
+  - **The payoff:** the player can catch the trap (thriller strand); on the
+    shore, she says out loud what she was afraid of (folk strand). Standing
+    there at all is her fear, faced.
 - **Keys matter less than rule 1:** the back door is always unlocked, by rule,
   so anyone in Kettle Lake can walk in at night. That's the human answer under
   every footstep, the bowl, the boot prints and the ledger line. The keys
@@ -151,8 +195,12 @@ conditions hold → Thaw → The season ends (or The ice).
 
 ## Open
 
-- [ ] `breakup_decisions.md` (referenced by `daniel.md`): still not in the
-      repo. Paste it, or drop the reference.
-- [ ] The thresholds: how much closeness, how many people kept faith with.
-- [ ] Which soft forks feed "the town's eye", day by day.
-- [ ] Why Olstad kept Abraham's death quiet.
+- [x] `breakup_decisions.md`: replaced by `decisions.md`, a dated log of every
+      decision.
+- [x] The thresholds: three doors per romance (two by New Year's Eve); Thaw
+      needs four of six kept faith with.
+- [x] What feeds the town's eye: strangeness, through the watchers; Daniel
+      multiplies it from December.
+- [x] Why Olstad kept quiet: a trap, and fear.
+- [ ] Each love interest's three doors, scene by scene.
+- [ ] Which moment, for each of the six, counts as kept faith (or broken).

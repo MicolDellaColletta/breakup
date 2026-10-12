@@ -182,8 +182,7 @@ text):
 - [x] **Game text:** names as a custom, things that fade, MC's gender never
       stated, a click instead of your own voice, "sweetheart" only where the
       prologue has it.
-- [ ] **`breakup_decisions.md`:** referenced by `daniel.md`, not in the repo
-      yet.
+- [x] **`breakup_decisions.md`:** replaced by `decisions.md`, a dated log.
 
 ## Open
 

@@ -468,8 +468,11 @@ in Kettle Lake who isn't Daniel.
   opened the freezer is open.
 - **She told the town the name.** By the morning of day one, everyone in Kettle
   Lake knows the new Keeper is "John". That came from her.
-- **She lets Ruth believe her father is "away".** If she opened the freezer, she
-  knows he isn't. That's a lie the player can catch much later.
+- **She found Abraham in the freezer on October 4, closed the door, and told
+  nobody.** She lets Ruth believe he's "away". On the surface it's a trap: if
+  nobody knows he's dead, she can watch who shows up as "John". Underneath it's
+  fear: she's seen what the congregation does to people who get in the way of
+  the season (`forks.md`). A lie the player can catch much later.
 - **First visit: day one,** between customers. Not a customer.
 - **Calls MC "John"** and watches how long it takes them to answer. She's
   checking a name she already read off a page.
@@ -791,9 +794,9 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [ ] What soaked the rental agreement, per background.
 - [ ] What the town does at the shore, exactly.
 - [ ] Ray Hollis: just the widow's husband, or connected?
-- [ ] Sgt. Olstad: how much she knows about the Keepers, and about John's tin box.
-      (Decided: she was in the shop on Oct 4 and told the town the name. Still
-      open: did she open the freezer?)
+- [x] Sgt. Olstad: she was in the shop on Oct 4, found Abraham in the freezer,
+      kept quiet (a trap, and fear), and told the town the name. (Open: how much
+      she knows about John's tin box.)
 - [x] How Abraham died: he walked into the freezer himself; Olstad found him on
       October 4 and kept quiet. (Open: why she kept quiet.)
 - [x] Who has keys: it matters less than rule 1, since the back door is always

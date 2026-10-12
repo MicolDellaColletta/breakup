@@ -1,10 +1,10 @@
 # Breakup — Daniel Hale, the whole arc (draft v6)
 
-Designed in the Project chat, Oct 9. Builds on story.md ("Daniel Hale", "The preacher", "Backgrounds") and breakup_decisions.md. ✅ = decided in chat. Everything else is a proposal.
+Designed in the Project chat, Oct 9. Builds on story.md ("Daniel Hale", "The preacher", "Backgrounds"). Decisions are logged in `decisions.md`. ✅ = decided in chat. Everything else is a proposal.
 
 **v6 (Oct 12): in line with `pillars.md`.** His voice reaches the town through the night radio before he does (a caller, then a guest, then the host). He arrives in November, still wounded, and the con starts then, not in January. The Reverend falls in December. **Olstad lives.** His secret ending is now a variant of "The ice". Where this doc and `pillars.md` disagree, `pillars.md` wins.
 
-**v5: Daniel is the flying bullet.** No shop backstory. He is the thriller dropped into the folk horror: the most real threat in the game. (The 1989 Keeper, the stolen tickets and the pawned names now belong to the town, not to him. See breakup_decisions.md.)
+**v5: Daniel is the flying bullet.** No shop backstory. He is the thriller dropped into the folk horror: the most real threat in the game. (The 1989 Keeper, the stolen tickets and the pawned names now belong to the town, not to him. See `decisions.md`.)
 
 ---
 
