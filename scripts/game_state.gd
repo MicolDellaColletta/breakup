@@ -36,11 +36,13 @@ const DAY_STORIES: Dictionary = {
 	1: "res://story/day_one.txt",
 	2: "res://story/day_two.txt",
 	3: "res://story/day_three.txt",
+	4: "res://story/day_four.txt",
 }
 const NIGHT_STORIES: Dictionary = {
 	1: "res://story/night_one.txt",
 	2: "res://story/night_two.txt",
 	3: "res://story/night_three.txt",
+	4: "res://story/night_four.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on

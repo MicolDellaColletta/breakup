@@ -1,7 +1,7 @@
 # Breakup: Days four to seven (the end of week one)
 
-**Saturday October 9 to Tuesday October 12, 1999.** A draft for discussion,
-like `day_three.md` was. Nothing here is in the game yet. Change anything.
+**Saturday October 9 to Tuesday October 12, 1999.** Agreed on October 12
+(the open questions at the end are decided). Day four is being built first.
 Checked against `pillars.md`, `forks.md`, `daniel.md`, `underneath.md`.
 
 Sunset keeps the built pace, three minutes earlier a day: Sat 19:02, Sun
@@ -301,6 +301,35 @@ day, long night.
 
 ---
 
+## Day four, as built (Oct 12)
+
+`story/day_four.txt`, `night_four.txt`, Saturday in `town.txt`; tested in
+`tests/test_day_four.gd`. Differences from the plan above:
+
+- **The jacket:** Cody comes if it's tagged on the back shelf and he's alive;
+  otherwise Mrs. Hollis. Given back (`redeemed=`) keeps faith; held for ten
+  dollars sets `broke_faith_hollis` (sold to Mrs. Hollis, or Cody walks out).
+  If MC refused the stranger, she talks about a man on the north shore who
+  waved at her, and she waved back.
+- **Hanna's braid** (new stock, `braid`, back shelf): price it ($2, keeps rule
+  3), leave it blank, or refuse (she writes it in herself; both break rule 3).
+  She knocks twice on the frame; Abraham priced "Mary Kay's" at a dollar the
+  year before last.
+- **Sam** comes for D batteries and opens the notebook: real name
+  (`door_sam_1`), "John." (left blank), or cross out "John" (`sam_crossed`).
+  He's the only one all week who doesn't knock on the frame.
+- **The daylight call:** the last "visit" is the phone ringing once in the
+  afternoon (`flag:daylight_call`; the counter now has a ring sound).
+- **Evening:** Ruth's napkin (if her door is open); Olstad, off duty: *"Wear
+  something clean. They like a clean Keeper."*; Sam reads MC the ten names
+  (if his door is open); the church being scrubbed for Sunday, the scale and
+  the doorframe glimpsed through the vestry door; kids on the lake ice playing
+  the rhyme.
+- **Night four:** the request hour plays hymn three "for the Keeper, who's
+  settling in"; the phone at eleven (the same walk down as night two), longer,
+  and a match struck at the other end; silent a second night if MC spoke
+  first on night two; fed, the dog comes up on its knees.
+
 ## What has to be built
 
 - **Day five has no counter:** a new day shape. Probably the map and a few
@@ -318,23 +347,19 @@ day, long night.
 
 ## Open questions
 
-- [ ] **Sam's door on day four, or later?** It's right after Ruth's. Two doors
-      in two days might be too fast, or it might be the point: two people now
-      hold something true about MC.
-- [ ] **Church: whole town lays hands, or just the elders?** The whole town is
-      more *Horses*; the elders is more restrained.
-- [ ] **The weighing and the doorframe on day five,** or save the doorframe for
-      Thanksgiving?
-- [ ] **What's in Ruth's shoebox,** 1989 to 1998? (Letters from the 1989 Keeper,
-      who she drove to the highway? He never wrote. She wrote to him.)
+- [x] **Sam's door on day four** (decided): two people now hold something true
+      about MC, and neither knows about the other.
+- [x] **Church: the whole town lays hands** (decided).
+- [x] **The weighing and the doorframe on day five** (decided).
+- [x] **Ruth's shoebox** (decided): letters she wrote to the 1989 Keeper, the one
+      she drove to the highway. Never sent. He never wrote.
 - [ ] **The empty envelope with JOHN crossed out:** whose idea? (Ezra testing
       whether MC answers to it. Or the congregation's way of saying the week's
       first name is spent.)
-- [ ] **The five gun choices:** do they force the background (a hard settle),
-      or only lean it (the voices still decide)? I'd lean, not force: the week
-      decides, the gun is one last push.
-- [ ] Monday's surname on the phone: do we ever hear it? I'd have the line
-      crackle on it. Every time.
+- [x] **The gun choices lean, they don't force** (decided): the week decides,
+      the gun is one last push.
+- [ ] Monday's surname on the phone: do we ever hear it? (Lean: the line
+      crackles on it, every time.)
 
 ## Fix elsewhere
 

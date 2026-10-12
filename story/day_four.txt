@@ -1,0 +1,268 @@
+# DAY FOUR: Saturday, October 9, 1999
+# Same format as the other days. Design: docs/days_four_to_seven.md.
+# Who comes in, in order: the jacket comes home (Cody, if it's tagged on the
+# back shelf and he's alive; otherwise Mrs. Hollis); Hanna Lund with a braid;
+# Sam, for the first time; the phone, in daylight (see VISITS in
+# scripts/counter.gd).
+
+=== morning
+narration | time=07:30: Saturday. The town sleeps in. No trucks on the road, no smoke yet from the chimneys along the shore.
+-> morning_mirror
+
+# --- Night three comes back: the mirror. ---
+
+=== morning_mirror
+-> morning_mirror_late | if=broke:wave
+-> morning_mirror_still
+
+=== morning_mirror_late
+narration: In the bathroom you lift a hand to rub your face awake.
+narration: The face in the mirror lifts its hand a moment after. Not much. Half a second. The time it takes to decide.
+narration: You do it again. It keeps up, this time. Exactly.
+paranoia: Your eyes. You're tired, and the light's bad, and your eyes are tired.
+-> morning_bowl
+
+=== morning_mirror_still
+narration: In the bathroom you check the mirror. Then you check it again. It does what you do, when you do it.
+paranoia: Good. Twice is enough. Twice is plenty.
+-> morning_bowl
+
+# --- The bowl. ---
+
+=== morning_bowl
+-> morning_bowl_line | if=flag:fed_three
+-> morning_knees
+
+=== morning_bowl_line
+narration: The bowl by the stove is licked clean.
+narration: Last night you set it an inch off the line, on purpose. It's back on the line. Exactly on it, square with the scuff, the way you always leave it.
+paranoia: So somebody watches you closely enough to know. Or you got up in the night and fixed it, and don't remember.
+narration | if=flag:met_sam: Sam's test. It answered nothing. You stand there a long time, and that feels like an answer too.
+-> morning_bell
+
+=== morning_knees
+narration: On the bottom stair, in the dust on the tread, two round marks side by side, a hand's width apart.
+narration: You crouch beside them. You put your own knee down next to one. Not the same size. Smaller.
+paranoia: Smudges. Old dust. Stand up.
+-> morning_bell
+
+=== morning_bell
+-> morning_tape | if=flag:stayed_in_bed
+-> opening
+
+=== morning_tape
+narration: Downstairs, the bell over the front door. Somebody has wound a strip of tape round its clapper, neat and tight, so it won't ring.
+narration: You didn't do that. You peel it off. The bell says something small and offended.
+paranoia: Somebody wanted to come in without the bell. You heard it anyway. Didn't you. Twice.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Saturday. Nobody's in a hurry to be anywhere, and the road stays empty a long time.
+narration | if=!window:empty: Whatever you put in the window yesterday is still there. The neon lays red over it.
+
+# --- The jacket comes home. Cody, if it's on the back shelf with a tag. ---
+
+=== nephew_enters
+narration | sound=bell | time=+40: The bell. Cody Hollis, in a borrowed coat. He came for nothing. He stands at the counter like he's forgotten what counters are for.
+nephew: I don't know why I came in. I drive past and I think, the picks are in there.
+narration: Then he's looking past you. At the back shelf.
+nephew: That's Uncle Ray's.
+narration: R. HOLLIS, facing out, in red thread. You tagged it that way.
+nephew: Where'd you get that? Who brought that in?
+> "A stranger. Yesterday. He said he found it on the north shore." -> nephew_truth | lean=appraisal
+> "It came in. I don't know who." -> nephew_vague | lean=paranoia
+
+=== nephew_truth
+nephew: Found it.
+narration: He says it the way you'd turn over a stone and look at the underside.
+-> nephew_wants
+
+=== nephew_vague
+nephew: Somebody brought my uncle's jacket in here and you don't know who.
+nephew: Okay. Sure.
+-> nephew_wants
+
+=== nephew_wants
+nephew: How much.
+narration: He's already counting, in his pocket, without taking his hand out. You can see it isn't enough.
+warmth | if=warmth>=1: Give it to him. Look at him.
+paranoia: Ten dollars out of the drawer. Somebody has to pay for it. It's a shop.
+> Give it to him -> nephew_given | flag=faith_hollis | lean=warmth
+> "Ten dollars. It's held till then." -> nephew_held | flag=broke_faith_hollis | lean=appraisal
+
+=== nephew_given
+narration | redeemed=hollis_jacket: You take it off the shelf and fold it and put it in his arms.
+nephew: I can't pay you for it.
+narration: You tell him you know.
+narration: He holds it a while. Then he puts it on, over the borrowed coat, and it's too big in the shoulders, and he doesn't take it off.
+nephew: She'll want to see it. My aunt.
+narration | sound=bell: The bell. He walks home the long way, along the shore, his uncle's name on the back of his neck.
+
+=== nephew_held
+nephew: Ten dollars.
+narration: He nods, as if you'd confirmed something he already thought about you, about the shop, about the town.
+nephew: Sure. It's a shop.
+narration | sound=bell: He doesn't slam the door. That's worse.
+paranoia: He'll tell her. She'll come in and see it on the shelf, with a price on it.
+
+# --- The jacket comes home. Mrs. Hollis. ---
+
+=== widow_enters
+narration | sound=bell | time=+40: The bell. Mrs. Hollis, in Ray's parka. She comes in for nothing in particular, the way people do on a Saturday.
+widow: I was passing.
+-> widow_jacket | if=flag:faith_hollis
+-> widow_sees_it | if=flag:jacket_shelved
+-> widow_shore
+
+=== widow_jacket
+narration: You reach under the back shelf, where you put it last night, collar to the wall. You lay it on the glass between you.
+narration: She doesn't ask where it came from. She looks at the red thread a long time. Then she picks it up and holds it against her face.
+widow: It's warm.
+narration | redeemed=hollis_jacket: It isn't. It's been on a shelf all night, in a cold shop. You don't say so.
+widow: Thank you.
+narration: She folds it over her arm. She doesn't offer to pay and you don't ask. Neither of you could bear it.
+warmth | if=warmth>=1: You kept it for her. Nobody asked you to.
+-> widow_goes
+
+=== widow_sees_it
+narration: She's halfway through telling you about the weather when she stops.
+narration: She's looking at the back shelf. At the jacket, with its tag. R. HOLLIS, facing out.
+widow: That's Ray's.
+narration: She doesn't come behind the counter. She stands where she is and looks at it the way you'd look at someone across a room at a funeral.
+> Give it to her -> widow_given | flag=faith_hollis | lean=warmth
+> "It's held, Mrs. Hollis. Ten dollars." -> widow_held | flag=broke_faith_hollis | lean=appraisal
+
+=== widow_given
+narration | redeemed=hollis_jacket: You take it down and fold it and put it in her hands.
+narration: She holds it against her face.
+widow: It's warm.
+narration: It isn't. You don't say so.
+-> widow_goes
+
+=== widow_held
+widow: Ten dollars.
+narration: She opens her purse and counts it out in ones, smoothed flat, every bill turned the same way up, the way she paid for the duck call.
+narration | sold=hollis_jacket: You take it. She takes the jacket. Neither of you looks at the other.
+paranoia: It's a shop. You run a shop.
+-> widow_goes
+
+=== widow_shore
+widow: There was a man on the north shore this morning. At first light. No gloves.
+widow: He waved at me. Across the reeds. I didn't know him.
+narration: She looks at you as though you might.
+widow: I waved back. You do, out here. It's polite.
+paranoia | if=broke:wave: Polite. That's what you told yourself, at the window.
+-> widow_goes
+
+=== widow_goes
+narration | sound=bell: She goes. On the step outside she stops and looks up, at the apartment windows over the shop, for a moment longer than anyone looks at windows.
+
+# --- Hanna Lund. Something for the church. ---
+
+=== hanna_enters
+narration | sound=bell | time=+60: The bell. A girl, sixteen maybe, in a parka with the hood down. Fair hair cut short, badly, up past her ears, as if done in a hurry with kitchen scissors.
+narration: Her neck is bare and red with the cold. She touches it, and then remembers not to.
+hanna: Hi. I'm Hanna. Hanna Lund. Grandpa said to bring it here.
+narration: She puts a bread bag on the glass. Inside, a braid of fair hair as long as your forearm, tied at both ends with red wool.
+hanna: I cut it this morning. For Sunday.
+hanna: It goes in the book, and you hold it. For the church, when asked. Grandpa says you'll know how.
+narration: She isn't upset. She's proud. She's the proudest person you've seen in this town.
+paranoia: Grandpa. Ezra Lund. The usual.
+appraisal | if=appraisal>=1: For the church, when asked. The same words as the jar of milk teeth on the back shelf. The same hand wrote them.
+paranoia: Rule three. Every item gets a price.
+> Price it. Write two dollars. -> hanna_price | write=Braid of hair, Hanna Lund. Held for the church. $2 | flag=hanna_priced | lean=appraisal
+> Write it in. Leave the price blank. -> hanna_blank | break=price | flag=hanna_blank | lean=warmth
+> "I can't take a child's hair." -> hanna_refused | break=price | flag=hanna_refused | lean=animal
+
+=== hanna_price
+narration | pawned=braid | loan=0: You write it. Two dollars. You don't let yourself think about what the number is the price of.
+hanna: Two dollars.
+narration: She tries it out, pleased, as if it were a grade.
+hanna: Grandpa said Abraham wrote a dollar for Mary Kay's, the year before last. So that's good, I think.
+-> hanna_goes
+
+=== hanna_blank
+narration | pawned=braid | loan=0: You write it in. Where the price goes, nothing.
+narration: She leans over to read it upside down, the way everyone in this town reads the book.
+hanna: No price. Is that allowed?
+narration: You don't answer. She decides it's a compliment.
+-> hanna_goes
+
+=== hanna_refused
+narration: She looks at you as though you'd said something in another language.
+hanna: It's not for you. It's for the church. You just hold it.
+narration | pawned=braid | loan=0: She takes the pen out of the cup on the counter, turns the book around, and writes it in herself, in a round careful hand. Braid of hair. Hanna Lund. Then she writes the ticket, and tears it off, and gives you the stub.
+hanna: There. Now you're holding it.
+-> hanna_goes
+
+=== hanna_goes
+hanna: You'll be there tomorrow? Everybody'll be there.
+narration | sound=bell: At the door she knocks twice on the frame without looking at it, the way her grandfather does. The bell. She runs to a truck idling in the lot. The man at the wheel doesn't look at the shop.
+paranoia: For Sunday. She cut it for Sunday. What happens on Sunday.
+
+# --- Sam. The first time he comes into the shop. ---
+
+=== sam_enters
+narration | sound=bell | time=+90 | flag=met_sam: The bell. Sam Wakeman, in the duct-taped parka. He stamps his boots exactly three times on the mat.
+narration: He doesn't look at the bear, or the fox, or you. He looks at the corners of the ceiling, one after another, as if counting exits.
+sam: Batteries. D cells. Eight, if you have them.
+narration: You have six, in a box under the counter that's been there since the Carter administration. He buys all six. He checks the date on every one.
+narration: Then he doesn't leave.
+narration: He takes the notebook out of his parka and puts it on the glass, open, turned so you can read it.
+narration: Columns. Names. Dates. The last line on the page: October 5, 1999. "John". And after it, a blank.
+sam: I start them in October. It saves time in May.
+paranoia: That's you. That's you, in pencil, with a space left at the end.
+sam: Everyone in this book came here with a name that wasn't theirs. And then in May, that's the name I had to write. Ten times now. I'd like, once, for the right one to be written down.
+sam: Your real name. So the right one's written down. That's all.
+narration | if=flag:door_ruth_1: Last night you told Ruth something true. Now this.
+warmth | if=warmth>=1: He's asking because nobody else will remember it. Somebody should.
+paranoia: Don't. A name in pencil in a madman's book. That's evidence.
+john | if=john>=1: John. It's on the page already. Leave it.
+> Tell him your real name -> sam_true | flag=door_sam_1 | lean=warmth
+> "John." -> sam_john | lean=john
+> Take his pencil and cross out "John" -> sam_cross | flag=sam_crossed | lean=animal
+
+=== sam_true
+narration: You tell him.
+narration: It's the first time you've said it in this town. It sounds very small in the shop, and very loud.
+narration: He doesn't repeat it. He writes it in pencil, small and neat, after the quotation marks, and doesn't look up until he's done.
+sam: Thank you.
+sam: Now there are two of us who know it. Me, and the book.
+paranoia | if=flag:door_ruth_1: Three. Ruth has something true too. Neither of them knows about the other. Keep it that way.
+sam: Will you help me with the others? The ten. I have the names they came with. I want the names they had.
+narration: He closes the notebook. He holds onto it a moment with both hands, as if it might be taken from him.
+-> sam_goes
+
+=== sam_john
+sam: John.
+narration: He looks at you over his glasses for a long moment. He doesn't write anything.
+sam: Then I'll leave it blank. Until May. I'm used to that.
+-> sam_goes
+
+=== sam_cross
+narration: You take the pencil out of his hand. You draw a line through "John", once, hard enough to dent the page.
+narration: You don't write anything after it.
+narration: He looks at the line. Then at you, as if for the first time. As if you'd been standing behind someone else until now.
+sam: All right. Not John. That's a start. That's data.
+-> sam_goes
+
+=== sam_goes
+narration | sound=bell: He goes. He's the only one all week who doesn't knock on the frame on the way out.
+paranoia: You noticed that. When did you start noticing that.
+
+# --- Nobody. The phone, in daylight. ---
+
+=== phone_enters
+narration | time=+120: The afternoon goes. Saturday. The road stays empty.
+narration | sound=ring | flag=daylight_call: Then the shop phone rings. In daylight.
+narration | stop=ring: Once. Just once, and stops.
+narration: You stand looking at it. It's never rung in the day.
+paranoia: Rule four is after dark. It's the middle of the afternoon. There's no rule for this.
+paranoia: That's the point. He's finding where the rules aren't.
+
+# --- Closing time. ---
+
+=== closing
+narration | time=19:02: Two minutes past seven, and the light goes. Saturday night. Down the road, the Gleaner, and every truck in town outside it.
+narration: You turn the sign. CLOSED. The neon stays on.
+narration | if=flag:hanna_priced or flag:hanna_blank or flag:hanna_refused: On the back shelf, a braid of fair hair, with a tag. You don't look at it on your way past. You look at it on your way past.

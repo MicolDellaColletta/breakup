@@ -255,4 +255,4 @@ func _night(wave: bool) -> void:
 	check(gs.rules_broken.has("wave") == wave, "waving back breaks rule eight" if wave else "not waving keeps rule eight")
 	check(route.has("night_dog_fed") and route[-1] == "morning_after", "fed, the stairs in the night; then Saturday morning")
 	await wait(5.2)
-	check(current_scene.name == "Title" and gs.day == 4, "day four isn't written yet: back to the title screen")
+	check(current_scene.name == "Counter" and gs.day == 4, "Saturday morning: day four, at the counter")

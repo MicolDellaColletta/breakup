@@ -8,6 +8,7 @@
 === map_first
 -> map_day_one | if=day==1
 -> map_day_three | if=day==3
+-> map_day_four | if=day==4
 -> map_day_two
 
 === map_day_one
@@ -19,6 +20,7 @@ paranoia: Go if you have to. Come back before it's late.
 === pub
 -> pub_first | if=day==1
 -> pub_three | if=day==3
+-> pub_four | if=day==4
 -> pub_two
 
 === pub_first
@@ -77,6 +79,7 @@ narration: The cold outside is almost a relief.
 === lake
 -> lake_first | if=day==1
 -> lake_three | if=day==3
+-> lake_four | if=day==4
 -> lake_two
 
 === lake_first
@@ -140,6 +143,7 @@ narration: You leave money on the bar and go before the room can decide to be fr
 
 === church
 -> church_three | if=day==3
+-> church_four | if=day==4
 -> church_two
 
 === church_two
@@ -200,6 +204,7 @@ narration: Ezra comes back. The hymn ends. The bulb comes back on. The Reverend 
 narration | time=+120: You stay until the coffee's gone. Nobody asks you to leave. Nobody asks you to stay.
 
 === cabin
+-> cabin_four | if=day==4 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -376,6 +381,71 @@ narration | time=+20: The shore. The ice has crept out further, and gone from gr
 narration: North, along the shore, the reeds where a jacket could get caught. They're bent flat in one place, as if someone had knelt there.
 narration: The poles under their tarp. The tarp's been pulled back, and put back, not as neatly.
 paranoia: People come down here. Everyone comes down here. It's the lake. Go home.
+
+# --- Day four: Saturday ---
+
+=== map_day_four
+narration: Saturday night. The Gleaner's lot is full, trucks parked two deep along the road.
+narration: Up on the hill, the church has a light on in the vestry, and figures moving behind the glass. Getting ready for tomorrow.
+paranoia: For Sunday. Everybody keeps saying it. Tomorrow. Sunday.
+
+=== pub_four
+narration | time=+60: The Gleaner on a Saturday. Pool, and the jukebox, and a fight that starts and then doesn't, two men standing chest to chest until one of them laughs.
+narration: Olstad at the end of the bar, off duty, in a sweater, drinking milk. She watches the room the way she watches a road.
+narration: Ruth is too busy to talk. She doesn't try.
+-> pub_four_napkin | if=flag:door_ruth_1
+-> pub_four_plain
+
+=== pub_four_napkin
+narration: Halfway through the night, a beer slides down the bar and stops in front of you. Nobody near the tap. Ruth, at the other end, isn't looking.
+narration: Under the glass, a napkin. On it, in pencil, one word. The word you told her last night. What somebody called you once.
+narration: Nobody else could read it from where they're sitting. You fold it into your pocket before anyone tries.
+warmth | if=warmth>=1: She kept it. She wanted you to know she kept it.
+paranoia: She wrote it down. She said she wouldn't, and she wrote it down. Now it's on paper.
+-> pub_four_leave
+
+=== pub_four_plain
+narration: Your glass doesn't go empty. You never see her fill it.
+-> pub_four_leave
+
+=== pub_four_leave
+narration | if=flag:hanna_priced or flag:hanna_blank or flag:hanna_refused: At a table by the window, a girl with her hair cut short is laughing with her friends. Hanna. Her friends keep touching the back of her neck, the bare place, gently, the way you'd touch a new tattoo.
+narration: On your way out, Olstad catches your sleeve, light, two fingers.
+trooper: Big day tomorrow, hon. Wear something clean. They like a clean Keeper.
+narration: You leave before the fight decides to happen.
+
+=== cabin_four
+narration | time=+10: The cabin. Six new batteries are already in the lamp on the porch rail. He's out on the ice with it, a long way out.
+-> cabin_four_notebook | if=flag:door_sam_1
+-> cabin_four_ice
+
+=== cabin_four_notebook
+narration: He sees your headlights and comes in. He doesn't say hello. He unlocks the three locks, and lets you into the lean-to, and puts the notebook on the table, open at the first page.
+sam: The ten.
+narration: Ten names in quotation marks. "Thomas." "Paul." "Dale." "Annie." Each with a date in October, and a date in May, and a blank between them where the right name should be.
+sam: I don't want you to do anything. I want you to read them. Out loud, if you can stand it. Somebody should say them who isn't me.
+narration: You read them out. Ten names that weren't anybody's.
+narration: When you finish, he's looking at the page, not at you.
+sam: Thank you. Now you know what you're in.
+paranoia: Eleven. You're the eleventh line. And now it has a real name in it.
+
+=== cabin_four_ice
+narration: You wait on the bank. The lamp stops, far out. Stays there. It doesn't come in.
+paranoia: He's measuring. Or he's watching you wait. Go home.
+
+=== lake_four
+narration | time=+20: The shore. Close in, the ice is white and thick enough now that kids are out on it, sliding in their boots, shrieking.
+narration: They're playing something, in a ring. One in the middle with a scarf over her eyes. The others go round her, chanting, and you catch the end: "...and nine's the Keeper, in he goes."
+narration: A woman on the bank calls them in. Sharply, in the middle of the game. They come, all at once, without arguing.
+narration: The one with the scarf is last. She takes it off and looks straight at you, standing by your car, and waves.
+paranoia | if=broke:wave: Don't.
+
+=== church_four
+narration | time=+20: The church on a Saturday night. The doors propped open, the smell of floor polish and hot coffee. Women on their knees scrubbing the aisle, a radio on low, hymns.
+narration: Nobody stops you coming in. Nobody says anything at all. One of them moves her bucket so you can pass.
+narration: At the back, the vestry door is open a hand's width. Through it: a big iron scale, the old kind for sacks of grain, polished bright. And the doorframe beside it, the white paint covered in pencil lines, one above another, each with a word written beside it.
+narration: A woman gets up off her knees, dries her hands, and closes the vestry door. She smiles at you while she does it.
+paranoia: Tomorrow. You'll see it tomorrow. They want you to see it tomorrow.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

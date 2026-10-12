@@ -397,7 +397,7 @@ stranger: Somebody'll want it.
 narration | sound=bell: The bell. He goes out into the dusk and turns, not toward the road, but toward the lake.
 narration: The jacket on the glass. Still warm. A little less than it was.
 > Set it aside, behind the counter, for Mrs. Hollis -> stranger_aside | flag=faith_hollis | lean=warmth
-> Put it on the back shelf, with a tag -> stranger_shelf | lean=appraisal
+> Put it on the back shelf, with a tag -> stranger_shelf | flag=jacket_shelved | lean=appraisal
 
 === stranger_aside
 narration: You fold it, the way he must have folded it, and put it at the end of the back shelf, collar to the wall, so the name doesn't show.
