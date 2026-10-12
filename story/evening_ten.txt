@@ -1,0 +1,91 @@
+# THE EVENING OF KEY DAY 10: Saturday, October 23. The first-ice party.
+# A walked evening (scenes/visit.tscn; GameState.EVENINGS): the shore, by the
+# bonfire, and out past the lanterns. Spots in spots.cfg (scene "visit",
+# rooms shore and far_ice). It starts at "evening"; end=night ends it.
+# Design: docs/week_three.md, "Under the ice".
+
+=== evening
+narration | show=shore | time=19:30: The lake, at night. You walk out onto it from the bank. It doesn't move. It doesn't even creak. It's a floor.
+narration: The bonfire by the poles, high as a man, throwing sparks at the stars. Lanterns on the ice in a long loose ring around it. A fiddle, somewhere, sawing at a reel.
+narration: And the whole town, skating. Old men with their hands clasped behind their backs, gliding like they're thinking. Children shrieking, falling, getting up. The church ladies on folding chairs with thermoses, in a row, like a jury.
+narration: It's lovely. It's the happiest you've seen Kettle Lake. It's the happiest you've seen anyone in a long time.
+paranoia: Enjoy it. Go on. Everybody else is.
+
+=== shore_fire
+narration: The fire. You hold your hands out to it. Somebody puts a paper cup in them: cocoa, too hot, too sweet. Mrs. Hollis.
+widow: There. You'll want that. It gets cold, further out.
+narration | if=flag:broke_faith_ruth: Ruth, across the fire, in a man's coat. She sees you. She looks at the flames instead, and stays on her side of them.
+narration | if=!flag:broke_faith_ruth: Ruth, across the fire, in a man's coat, a flask in her mitten. She comes round to your side and stands next to you without saying anything, close enough that your shoulders touch.
+narration: Olstad, on a folding chair, her hands on her belly, watching the skaters the way she watches a road.
+narration | if=flag:showed_olstad_ticket: She catches your eye, and doesn't look away.
+
+=== shore_people
+narration: The skaters. Round and round, in the lantern light, with the fire on their faces.
+narration: The children have made a ring, further out, at the edge of the light. Holding hands, going round, chanting. You know the words before you hear them.
+narration: "...seven, the radio, eight, the glass, and nine's the Keeper, in he goes."
+narration: They're skating it right on the ice. Round and round, over the same spot, out where the lanterns run thin.
+narration: Further still, past the last lantern, alone, a small light pointed straight down. Somebody kneeling.
+paranoia: Sam. It's Sam. What's he looking at.
+
+=== shore_poles
+narration: The poles, on the bank, the tarp thrown back. Four spruce trunks, lashed at the middle with wire. In the firelight you can see the lashing has been redone. New wire, bright.
+narration: Somebody has hung a lantern from the top of them. It swings a little in no wind at all.
+
+# --- Out past the lanterns. ---
+
+=== far_shape
+narration: Out past the lanterns, the ice is black. New ice, clear as a window, and under it the lake, black, and depth.
+narration: The fire's small behind you. The fiddle's thin. The children's ring is just over there, still going round.
+narration: And under the ice, a yard down, face up: a shape.
+narration: Long. Dark. Arms at its sides. Wearing something heavy that spreads around it in the water, slowly, like a skirt. A long coat. Brown, in the flashlight. Brass at the front.
+narration | if=flag:met_sam: Sam, on his knees beside it, his flashlight pointed down. He doesn't look up.
+narration: The face, you can't see. The ice is cloudy there, just there, as if on purpose.
+paranoia: A tarp. A log. Weed. Your eyes. The fire behind you, the black ice, a week of brown coats. Your mind giving you what it's been shown.
+paranoia: Or Thomas. "Coat not returned."
+narration: Behind you, the children skate their ring right over it, chanting, laughing. Nobody looks down. Nobody in Kettle Lake looks down.
+> Join them. Skate over it like everyone. -> far_skate | flag=skated_over | lean=john
+> Go and get Olstad -> far_olstad | flag=showed_olstad_ice | lean=appraisal
+> Kneel down next to Sam -> far_kneel | if=flag:met_sam | flag=knelt_with_sam | lean=unknown
+> Walk away. Off the ice. -> far_walk | flag=walked_from_ice | lean=animal
+
+=== far_skate
+narration | flag=saw_shape: Someone takes your arm. A child's hand, in a mitten. Then another. They pull you into the ring.
+narration: Round you go, all of you, over it, round and round. You keep your eyes up. You keep your eyes on the fire. You sing, because they're singing. You know the words.
+narration: "...and nine's the Keeper, in he goes."
+narration: When you finally look down, you're over clear black ice, and there's nothing under it at all. Or you've drifted. Or you can't tell any more where it was.
+paranoia: You sang it. You held their hands and sang it.
+narration | end=night | time=22:30: Later, walking home up the bank, you realize you never once fell. As if the ice were holding you up on purpose.
+
+=== far_olstad
+narration | flag=saw_shape: You go back to the fire, and bend to her ear. She gets up off the folding chair with a grunt, and walks out with you, slow, her hand on her belly.
+narration: She stands over it a long time with her flashlight. Longer than anyone needs to, to see a log.
+trooper: Log.
+narration: Then, quiet, not looking at you, looking at the ice:
+trooper: Don't you say that word to anybody else. Not tonight. Not with all of them out here.
+narration: She clicks the flashlight off. She walks back to the fire, and sits down on her folding chair, and doesn't look at the ice again all night.
+paranoia: She knows. She knows what it is, and she's frightened of them. Of a party. Of the church ladies with their thermoses.
+narration | end=night | time=22:30: Later, walking home, you look back from the bank. Olstad's still by the fire, the last one there, watching the place out past the lanterns.
+
+=== far_kneel
+narration | flag=saw_shape: You kneel on the ice next to him. It's so cold your knees burn through your jeans.
+narration: He doesn't look up. He has the notebook open on the ice, and he's writing in it with a pencil, his glove off, his fingers white.
+sam: October twenty-third. Four hundred meters off the point. Face up. A yard down.
+sam: That's Thomas. I have his date. I have his name. The real one; I found it. I'll write it here, next to this, and then it'll be done right, once.
+narration: The two of you, on your knees, side by side, while the town skates in its ring around you and the children sing.
+narration: Nobody stops. Nobody asks what you're looking at. A few of them smile at you, kneeling, the way you'd smile at someone praying.
+unknown: There. Now there's two of you. Now you can't both be wrong.
+narration | end=night | time=22:30: Later, he walks you to the bank. He doesn't say goodnight. He says, "Write it down," and goes back out.
+
+=== far_walk
+narration | flag=saw_shape: You turn around. You walk back past the lanterns, past the fire, past Mrs. Hollis holding out a second cocoa, past the poles, up the bank.
+narration: Behind you, the fiddle. The rhyme. The whole town on the ice, under the stars, skating.
+narration: You stand at the top of the bank, alone, and watch them. You're the only person in Kettle Lake who isn't out there.
+paranoia: They saw you go. All of them. The Keeper walked off the ice.
+narration | end=night | time=22:00: You walk home. Behind you, very faint, the children start the rhyme again from one.
+
+=== shore_home
+narration: You finish the cocoa. You put the cup in the bag by the fire, the way everybody does. You walk up the bank.
+narration: Nobody stops you. Halfway up, you look back. The children's ring, out at the edge of the light, going round and round the same spot.
+paranoia: You didn't go out past the lanterns. Good. Cody said not to. Olstad said keep your eyes on the fire.
+paranoia: You'll never know what was out there. Good. Good.
+narration | end=night | time=21:30: You walk home with the fiddle behind you.

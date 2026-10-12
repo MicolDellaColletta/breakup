@@ -1,6 +1,7 @@
 extends Control
 
-# A day with no counter (Sunday): first person, walking between places by day.
+# A day with no counter (Sunday), or a walked evening (GameState.EVENINGS:
+# the first-ice party): first person, walking between places.
 # The day's story (GameState.DAY_STORIES) moves you: a line with show=church
 # changes the picture to that room; spots in story/spots.cfg (scene "visit")
 # are what you can click there, or walk to (go=). A line with end=map ends the
@@ -10,6 +11,7 @@ extends Control
 
 const USE_PATH: String = "res://story/use.txt"
 const MAP_SCENE: String = "res://scenes/map.tscn"
+const NIGHT_SCENE: String = "res://scenes/night.tscn"
 const SCENE_ID: String = "visit"
 const VIEW_FADE: float = 0.25
 # Each room, and which picture shows it: [picture, view].
@@ -19,6 +21,8 @@ const ROOMS: Dictionary = {
 	"church": ["place", "church"],
 	"vestry": ["place", "vestry"],
 	"hollis_kitchen": ["place", "hollis_kitchen"],
+	"shore": ["place", "shore"],
+	"far_ice": ["place", "far_ice"],
 }
 
 @onready var narrator: DialogueColumn = %Narrator
@@ -38,6 +42,7 @@ var _room: String = "apartment"
 var _busy: bool = true
 var _ending: bool = false
 var _leaving: bool = false
+var _leaving_to: String = MAP_SCENE
 # Everything clicked today that stays done, in any room.
 var _used: Array[String] = []
 
@@ -46,16 +51,21 @@ func _ready() -> void:
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.line_shown.connect(_on_line_shown)
 	GameState.start_day()
-	narrator.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[5]))
+	if GameState.is_walked_evening():
+		narrator.load_story(GameState.EVENINGS[GameState.day])
+	else:
+		narrator.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[5]))
 	narrator.add_story(USE_PATH)
 	hotspots.spot_clicked.connect(click)
 	hotspots.aside.connect(play_aside)
 	hotspots.interactive = false
+	if GameState.is_walked_evening():
+		_room = "shore"
 	_show_room(_room)
 	narrator.set_input_enabled(false)
 	await Transition.fade_in(1.5)
 	narrator.set_input_enabled(true)
-	narrator.play("morning")
+	narrator.play("evening" if GameState.is_walked_evening() else "morning")
 
 # --- Public: what tests can use ---
 
@@ -127,10 +137,11 @@ func _ready_to_move() -> void:
 	hotspots.interactive = true
 
 # show=church: the picture changes, with no walking. end=map: when this
-# section is over, so is the day.
+# section is over, so is the day (end=night: so is a walked evening).
 func _on_line_shown(line: Dictionary) -> void:
-	if line.get("end", "") == "map":
+	if line.get("end", "") in ["map", "night"]:
 		_leaving = true
+		_leaving_to = MAP_SCENE if line["end"] == "map" else NIGHT_SCENE
 	var room: String = line.get("show", "")
 	if room != "" and room != _room:
 		_fade_to(room)
@@ -140,6 +151,6 @@ func _on_section_finished(_section: String) -> void:
 		_ending = true
 		hotspots.interactive = false
 		narrator.set_input_enabled(false)
-		Transition.go_to(MAP_SCENE, 1.5, 0.5)
+		Transition.go_to(_leaving_to, 1.5, 0.5)
 		return
 	_ready_to_move()

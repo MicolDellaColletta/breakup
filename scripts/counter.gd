@@ -48,6 +48,10 @@ const VISITS: Dictionary = {
 	# Hollis's dish; Cody for the picks (alive, and they're held); June.
 	8: ["ezra", "widow", "nephew | if=sold:ice_picks", "june"],
 	# Key day 9 is the second Sunday: no counter (GameState.DAY_SCENES).
+	# Key day 10, Saturday October 23 (week three): Olstad, stuck in town by
+	# the road; Cody with the button (if he had the picks) or Mrs. Hollis;
+	# Hanna, with the invitation. The evening is walked (GameState.EVENINGS).
+	10: ["trooper", "nephew | if=flag:gave_picks_back", "widow | if=!flag:gave_picks_back", "hanna"],
 }
 const CUSTOMER_GAP: float = 1.5
 
@@ -543,7 +547,7 @@ func _fill_spots() -> void:
 func _leave_for_the_evening() -> void:
 	explore_spots.interactive = false
 	create_tween().tween_property($ShopHum, "volume_db", -80.0, 1.5)
-	Transition.go_to(MAP_SCENE, 1.5, 0.5)
+	Transition.go_to(GameState.evening_scene(), 1.5, 0.5)
 
 # The ticket number: the one written this season, or the owner's.
 func _tag(item_id: String) -> String:

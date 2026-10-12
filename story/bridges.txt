@@ -41,4 +41,25 @@ narration | if=!flag:weighed and !flag:weighed_again: "And our Keeper, friends, 
 narration | card=Tuesday.: The calendar by the stove. You've started crossing off the days. Nobody told you to.
 narration: You look at the crosses a long time. The same pen. The same angle. The same little hook at the end of each stroke as Abraham's, all through September, up to the third.
 paranoia: You copied him. Without looking. Your hand learned it from the wall.
-narration: (The end of week two. Week three is still being written. Thank you for playing.)
+narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope, under the door before dawn. A hundred and fifty, faced.
+narration: And with the money, folded in, a strip of brown wool. Two inches long. Cut clean, as if snipped off a hem. No note.
+paranoia: A swatch. They're showing you the cloth. The way a tailor would.
+narration | card=Thursday. The Circle sews.: Ezra, the usual.
+narration | if=flag:refused_tooth or flag:refused_tooth_public: He pays without a word, and looks at the jar the whole time.
+narration: The Lunds' windows lit all evening. From the shop, if you stand still, you can just hear the sewing machine.
+narration: The call, at eleven. The room, the clock. And footsteps, now. Slow. And something tapping the floor with them. A stick, or a cane. He's up.
+narration | card=Friday. The road closes.: Snow all day, thick and soft and sideways.
+narration: At four, the radio: the pass is drifted in. The road's closed till Sunday. Kettle Lake is an island.
+narration | flag=road_closed: You stand at the window and watch the snow fill in the road, and understand that for two days there's no out. Not even the bad one.
+
+# --- Before key day 11 (Saturday, October 30): Sunday the 24th to Friday. ---
+
+=== bridge_sunday
+narration | card=Sunday. The Keeper is asked.: The bell. The pew. The hands.
+narration | if=flag:refused_tooth_public: On the steps after, Ezra again, in front of everyone: "H.L. Eighty-nine. It's asked." Every Sunday, until.
+narration | if=flag:gave_tooth: On the steps after, nothing. Ezra nods to you. Hanna waves.
+narration: Lunch. The roast. Your place.
+narration | if=flag:saw_shape: You don't eat much. Mrs. Hollis notices, and puts more on your plate.
+narration | card=Monday. The road opens.: The plow, at dawn. The road out, a white trench between banks taller than the car. You could leave.
+narration: You drive to the end of town and back, to see if you still can. You can. You come back anyway.
+narration: (The end of week three. Week four is still being written. Thank you for playing.)

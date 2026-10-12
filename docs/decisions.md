@@ -9,6 +9,16 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 
 ---
 
+## October 12 — week three (`week_three.md`)
+
+- **Under the ice: Thomas, in the coat.** The first clear week of new ice,
+  out past the lanterns at the first-ice party, face up, a yard down. The
+  town skates over it. Olstad knows, and says "log" because of the crowd.
+- The first-ice party is a **walked evening** (`GameState.EVENINGS`).
+- Cody chips a brass coat button out of the ice the same day.
+- The caller is in range of a railroad (Wasilla): the first clue to where.
+- The rental is due **Saturday October 30**, the night the clocks fall back.
+
 ## October 12 — week two (`week_two.md`)
 
 - **The coat:** the congregation sews the Keeper a long wool coat every

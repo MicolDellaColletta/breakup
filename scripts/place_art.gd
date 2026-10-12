@@ -16,7 +16,8 @@ const IRON: Color = Color(0.2, 0.2, 0.22)
 const PENCIL: Color = Color(0.25, 0.24, 0.24)
 const CLOTH: Color = Color(0.55, 0.18, 0.16)
 
-# Which place is on screen: "church", "vestry" or "hollis_kitchen".
+# Which place is on screen: "church", "vestry", "hollis_kitchen", or at night
+# on the frozen lake, "shore" (the bonfire) and "far_ice" (past the lanterns).
 @export var view: String = "church":
 	set(value):
 		view = value
@@ -43,6 +44,8 @@ func _draw() -> void:
 		"church": _draw_church()
 		"vestry": _draw_vestry()
 		"hollis_kitchen": _draw_kitchen()
+		"shore": _draw_shore()
+		"far_ice": _draw_far_ice()
 
 func _draw_church() -> void:
 	# White walls, tall plain windows on both sides, pews running to the altar.
@@ -105,3 +108,36 @@ func _draw_kitchen() -> void:
 	_rect(0.9, 0.26, 0.07, 0.4, WOOD_DARK)
 	# A tablecloth, red, folded at the corner.
 	_rect(0.34, 0.545, 0.3, 0.015, CLOTH)
+
+func _draw_shore() -> void:
+	# Night on the ice: black sky, the white lake, the bonfire by the poles,
+	# lanterns, and the town skating, small and dark against the glow.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.02, 0.025, 0.05))
+	_poly([Vector2(0, 0.52), Vector2(1, 0.48), Vector2(1, 1), Vector2(0, 1)], Color(0.18, 0.2, 0.24))
+	draw_circle(_p(0.22, 0.62), size.y * 0.16, Color(0.95, 0.5, 0.15, 0.18))
+	_poly([Vector2(0.19, 0.66), Vector2(0.25, 0.66), Vector2(0.22, 0.52)], Color(0.98, 0.6, 0.2))
+	_poly([Vector2(0.2, 0.66), Vector2(0.24, 0.66), Vector2(0.22, 0.57)], Color(1.0, 0.85, 0.4))
+	# The four poles, lashed, under their tarp on the bank.
+	for k in 4:
+		draw_line(_p(0.06 + k * 0.012, 0.6), _p(0.1 + k * 0.006, 0.44), Color(0.3, 0.24, 0.18), 3.0)
+	for k in 7:
+		var x: float = 0.34 + k * 0.09
+		draw_circle(_p(x, 0.56 + (k % 2) * 0.03), size.y * 0.008, Color(1.0, 0.8, 0.45))
+	for k in 12:
+		var x: float = 0.3 + (k * 37 % 60) / 100.0
+		var y: float = 0.62 + (k * 13 % 20) / 100.0
+		_rect(x, y, 0.012, 0.05, Color(0.04, 0.04, 0.05))
+
+func _draw_far_ice() -> void:
+	# Out past the lanterns: black, clear ice, the fire small behind, and under
+	# the ice, a long dark shape.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.015, 0.018, 0.03))
+	_poly([Vector2(0, 0.4), Vector2(1, 0.4), Vector2(1, 1), Vector2(0, 1)], Color(0.04, 0.05, 0.07))
+	draw_circle(_p(0.12, 0.38), size.y * 0.01, Color(0.98, 0.6, 0.2))
+	for k in 5:
+		draw_line(_p(0.1 + k * 0.18, 0.5 + k * 0.06), _p(0.3 + k * 0.15, 0.55 + k * 0.07), Color(0.12, 0.14, 0.18), 1.0)
+	_poly([Vector2(0.4, 0.66), Vector2(0.62, 0.62), Vector2(0.64, 0.68), Vector2(0.42, 0.74)], Color(0.09, 0.07, 0.05))
+	draw_circle(_p(0.39, 0.7), size.y * 0.025, Color(0.1, 0.09, 0.08))
+	# Sam, kneeling, with his flashlight pointed down.
+	_rect(0.72, 0.6, 0.03, 0.06, Color(0.08, 0.08, 0.07))
+	_poly([Vector2(0.735, 0.66), Vector2(0.7, 0.74), Vector2(0.76, 0.74)], Color(0.9, 0.9, 0.7, 0.25))

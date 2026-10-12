@@ -124,6 +124,10 @@ love. It's the best coat in Kettle Lake. **Built:** June's drawings, the brown
 thread, the Lunds' window, the coat under a sheet in the vestry
 (`week_two.md`).
 
+**Under the ice** (week three): the first clear week of new ice shows what the
+coat is for. Out past the lanterns at the first-ice party, Thomas, last
+winter's Keeper, face up in his coat, a yard down. The town skates over him.
+
 ## The church's own wall
 
 - Ruth's cellar has a second Polaroid of every Keeper (`forks.md`). At the

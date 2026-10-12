@@ -42,7 +42,16 @@ const DAY_STORIES: Dictionary = {
 	7: "res://story/day_seven.txt",
 	8: "res://story/day_eight.txt",
 	9: "res://story/day_nine.txt",
+	10: "res://story/day_ten.txt",
 }
+# Evenings that are walked instead of picked from the town map (key day 10:
+# the first-ice party on the lake). The story starts at "evening" and ends
+# with end=night.
+const EVENINGS: Dictionary = {
+	10: "res://story/evening_ten.txt",
+}
+const MAP_SCENE: String = "res://scenes/map.tscn"
+const VISIT_SCENE: String = "res://scenes/visit.tscn"
 # Days that aren't spent at the counter, and the scene they are (Sunday: the
 # shop is closed; you walk to church and around town by day).
 const DAY_SCENES: Dictionary = {
@@ -56,6 +65,7 @@ const DAY_DATES: Dictionary = {
 	8: 9,
 	9: 12,
 	10: 18,
+	11: 25,
 }
 # A bridge before a key day covers the days skipped: a title card and a few
 # lines (story/bridges.txt, the section named here), then the day itself.
@@ -63,6 +73,7 @@ const BRIDGES: Dictionary = {
 	8: "bridge_wednesday",
 	9: "bridge_weekend",
 	10: "bridge_monday",
+	11: "bridge_sunday",
 }
 const BRIDGE_SCENE: String = "res://scenes/bridge.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
@@ -76,6 +87,7 @@ const NIGHT_STORIES: Dictionary = {
 	7: "res://story/night_seven.txt",
 	8: "res://story/night_eight.txt",
 	9: "res://story/night_nine.txt",
+	10: "res://story/night_ten.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on
@@ -379,6 +391,14 @@ func start_day() -> void:
 	if minutes < morning:
 		minutes = morning
 		time_changed.emit()
+
+# Where the day leads after closing: the town map, or a walked evening.
+func evening_scene() -> String:
+	return VISIT_SCENE if EVENINGS.has(day) else MAP_SCENE
+
+# True when today's walk-around scene is the evening, not the day.
+func is_walked_evening() -> bool:
+	return EVENINGS.has(day) and not DAY_SCENES.has(day)
 
 # Where the night leads in the morning: a bridge first if the days between
 # need one, then the day itself; "" when nothing more is written.
