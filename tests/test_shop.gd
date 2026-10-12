@@ -127,6 +127,10 @@ func _customer_and_examine() -> void:
 	check(view.person == "widow" and view.mode == "counter", "Mrs. Hollis stands across the counter as she comes in")
 	advance(column, 10)
 	await process_frame
+	var first: Button = column.get_node("%ChoiceBox").get_child(0)
+	check(first.disabled and first.modulate.a < 0.5, "her question's choices fade in, and can't be clicked yet")
+	await wait(0.8)
+	check(not first.disabled and is_equal_approx(first.modulate.a, 1.0), "then they can")
 	await pick(column, "That's right")
 	advance(column)
 	await pick(column, "sorry")

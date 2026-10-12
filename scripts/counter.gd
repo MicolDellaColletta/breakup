@@ -78,7 +78,7 @@ const FACINGS: Array[String] = ["counter", "right", "back", "left"]
 const VIEWS: Dictionary = {
 	"counter": {
 		"title": "Behind the counter",
-		"text": "Glass under your hands. The front window, three spots on the ledge, seen from the road; a shelf either side. Click a thing to pick it up, a spot to put it down. Right-click puts it back.",
+		"text": "The front window, three spots seen from the road; a shelf either side. Click a thing to pick it up, a spot to put it down. Right-click puts it back.",
 	},
 	"left": {
 		"title": "The left wall",

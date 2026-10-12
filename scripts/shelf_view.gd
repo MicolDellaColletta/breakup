@@ -136,12 +136,13 @@ func counter_rect() -> Rect2:
 	return Rect2(Vector2(size.x * 0.3, size.y * 0.8), Vector2(size.x * 0.4, size.y * 0.17))
 
 func _window_rect() -> Rect2:
-	return Rect2(Vector2(size.x * 0.29, size.y * 0.06), Vector2(size.x * 0.42, size.y * 0.42))
+	return Rect2(Vector2(size.x * 0.26, size.y * 0.04), Vector2(size.x * 0.48, size.y * 0.58))
 
 # The shelf left (0) or right (1) of the window, above the counter.
 func _side_shelf_rect(side: int) -> Rect2:
-	var x: float = ARROW_WIDTH + 8 if side == 0 else size.x * 0.73
-	return Rect2(Vector2(x, size.y * 0.04), Vector2(size.x * 0.27 - ARROW_WIDTH - 8, size.y * 0.7))
+	var w: float = size.x * 0.24 - ARROW_WIDTH - 10
+	var x: float = ARROW_WIDTH + 6 if side == 0 else size.x * 0.76 + 4
+	return Rect2(Vector2(x, size.y * 0.04), Vector2(w, size.y * 0.7))
 
 # The picture between the two arrows.
 func _inner_rect() -> Rect2:
