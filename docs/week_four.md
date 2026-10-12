@@ -1,7 +1,6 @@
 # Breakup: Week four (October 25 to 31)
 
-A draft for discussion, like `week_three.md` was. Nothing here is in the game
-yet. Change anything. Checked against `pillars.md`, `forks.md` (hard fork 2),
+Agreed on October 12: every lean below is decided. Being built. Checked against `pillars.md`, `forks.md` (hard fork 2),
 `daniel.md` (6a, the double hour), `underneath.md`, `week_three.md`.
 
 ---
@@ -172,15 +171,15 @@ A walk-around day, like the Sundays, ending in the dark an hour early.
 
 ## Open questions
 
-- [ ] **The tin in the double hour** (Saturday night), or on Halloween night?
-      (Lean: the double hour.)
-- [ ] **Olstad's "Who's John?"**: is this the moment she lets MC see she knows
-      about the carbon, or does she keep it for February? (Lean: she asks the
+- [x] **The tin in the double hour** (Saturday night), or on Halloween night?
+      (Decided: the double hour.)
+- [x] **Olstad's "Who's John?"**: is this the moment she lets MC see she knows
+      about the carbon, or does she keep it for February? (Decided: she asks the
       question, and doesn't say why. The player who remembers day one knows.)
-- [ ] **The locker:** a bus depot in Anchorage (three hours), or a safe-deposit
-      box? (Lean: the bus depot: a key anyone can use, no signature, no
+- [x] **The locker:** a bus depot in Anchorage (three hours), or a safe-deposit
+      box? (Decided: the bus depot: a key anyone can use, no signature, no
       trail. It's why Daniel wants the tin.)
-- [ ] **The children as Keepers:** every child, or most? (Lean: every one. The
+- [x] **The children as Keepers:** every child, or most? (Decided: every one. The
       parents made the costumes from last year's scraps of brown wool.)
-- [ ] **Mrs. Hollis measuring MC's shoulders at the counter:** too much, a week
-      after the Lunds'? Or exactly right: the town's love, getting closer.
+- [x] **Mrs. Hollis measuring MC's shoulders at the counter:** too much, a week
+      after the Lunds'? Or exactly right: the town's love, getting closer. (Decided: exactly right.)
