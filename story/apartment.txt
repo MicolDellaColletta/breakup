@@ -8,17 +8,17 @@ narration | sound=stairs | time=+5: The stairs start at the back of the hallway,
 narration | stop=stairs: At the top, a small landing, and then the room opens up in front of you.
 narration: A kitchen corner with a stove and a little table. An armchair facing an old TV. A radio. Two windows at the front, and the neon from below painting the ceiling red.
 narration: A coat hangs on a hook by the landing. A short hall leads off toward the back.
-unknown: Make yourself at home. You live here now.
+narration: Somebody lived here. A mug upside down on the drainboard. One chair at the table, pulled out. Only one.
 -> echo_answered | if=answered_phone
 -> echo_ignored
 
 === echo_answered
 paranoia: You picked up the phone in a dead shop, and someone was on the other end. Breathing.
-unknown: And you didn't say a word. You're learning.
+paranoia: Now they have your breathing too. That's all they get.
 
 === echo_ignored
-paranoia: Downstairs, the phone sits quiet. Waiting.
-unknown: It'll ring again. And next time, you'll answer.
+paranoia: Downstairs, the phone sits quiet.
+paranoia: Nobody knows you're here. Nobody could. Keep telling yourself that.
 
 === window
 narration | time=+10: The windows look down over the neon sign. The empty lot, your car going white under the snow, the road. Snow falling through the red light, slow, as if it had nowhere else to be.
@@ -34,8 +34,8 @@ narration: For a second, in the glass, you think someone is standing behind you.
 
 === window_open
 narration | sound=chimes | flag=window_open: You leave it. The cold comes in slowly, the way water fills a footprint.
-narration: Down in the lot, in the red of the neon, there are footprints in the fresh snow. They come out of the trees and lead to the shop door. None lead away.
-paranoia: Those weren't there a minute ago.
+narration: Down in the lot, in the red of the neon, there are footprints in the fresh snow. They come out of the trees, cross the lot, and go along the wall toward the back of the building. None come back.
+paranoia: They weren't there when you parked. Were they?
 
 === radio
 narration | time=+10: An old radio on a side table by the armchair, the kind with a dial that glows amber. It's unplugged, the cord wrapped neatly around it, as if someone wanted it found that way.
@@ -47,6 +47,7 @@ paranoia: Rule seven. Keep the radio on at night. The silence is worse.
 narration | sound=click | flag=radio_on: You plug it in. Amber light, a hum, then static, then a voice in the middle of a sentence. Calm, unhurried. The voice that came through the static on the road.
 narration: "...and to our new arrival over at the pawn shop: welcome to Kettle Lake. Keep the radio on, friend. It's a long winter."
 paranoia: He knows you're here. Everyone knows you're here.
+narration: Friend. You turn it up a little. Then down again, in case anyone hears you listening.
 
 === radio_off
 narration: You leave it wrapped. The silence settles over the room like snow.
@@ -55,28 +56,29 @@ unknown: Hear that? That's the house getting used to you.
 
 === calendar
 narration | time=+10: Above the kitchen table, a feed store calendar from Anchorage, still on October. Days crossed out in pencil, one by one, by someone before you.
-narration: The crosses stop two days ago.
+narration: The crosses stop on the third. Two days ago.
+paranoia: Whoever kept this stopped keeping it.
 narration: Far ahead, at the end of April, a single date is circled in red. No note. Just the circle, gone over so many times the pencil tore the paper.
 
 === mirror
 narration | time=+10: In the bathroom, a small mirror above the sink, the silver going black at the edges.
-narration: Your face. Tired. Older than you remember.
+narration: Your face. Tired. Thinner than the last time you really looked at it.
 narration: You turn your head. Your reflection turns too, half a second late.
 paranoia: You're exhausted. That's all. That's all it is.
 unknown: There you are, sweetheart. I'd know that face anywhere.
 
 === coat
 narration | time=+10: The coat by the landing. Heavy canvas, lined with wool. It fits you as if it was bought for you.
-narration: In the inside pocket, a Polaroid. The shop at night, taken from the trees across the road. Your car is parked outside.
+narration: In the inside pocket, a Polaroid. The shop at night, taken from the trees across the road. Out front, a dark sedan, parked where yours is parked now.
 narration | take=polaroid: On the white strip at the bottom, in neat pencil, a date. Last week.
-paranoia: You were still in the city last week. So was your car.
-appraisal | if=appraisal>=1: Pencil. Anyone can write a date.
-unknown: Somebody's been expecting you for a long time.
+paranoia: You were still in the city last week. So was the car.
+appraisal | if=appraisal>=1: Pencil. Anyone can write a date. And half the cars up here are dark sedans.
+paranoia: Somebody stood out there in the trees, in the cold, long enough to take it.
 
 === tv
 narration | sound=tv | time=+10 | flag=tv_on: You turn the knob. The screen blooms white, then settles into snow.
 narration: Under the hiss, for a moment, a picture. A small room. An armchair facing a TV.
-narration: The chair is empty. The picture is taken from right where you're standing.
+narration: An empty chair. It could be any room. It could be this one, seen from about where you're standing.
 narration: Then only snow again.
 paranoia: Bad reception. Out here, everything's bad reception.
 paranoia: And you've been awake for two days. Turn it off.
@@ -106,7 +108,8 @@ paranoia: Someone was here. Recently.
 
 === locked_door_first
 narration | time=+5: At the very end of the hall, one more door. You try the handle. Locked.
-narration: Cold air comes through the keyhole, steady, like a slow breath out. It smells of the freezer downstairs.
+narration: Cold air comes through the keyhole, steady, like a slow breath out. A room nobody has heated in a long time.
+narration: It smells of the freezer downstairs.
 paranoia: Leave it. It's locked for a reason.
 
 === bed_not_yet
@@ -121,7 +124,7 @@ narration: You lie awake and count the sounds of the building. The compressor, r
 -> sleep_end
 
 === scratching
-narration | break=dog: And something else. Claws on wood, slow and patient, somewhere in the building.
+narration | break=dog: And something else. A scratching, slow and patient, somewhere below you. Claws on wood. Or nails.
 narration: You hold your breath. It stops. You let it out. It starts again.
 paranoia: Rule five.
 -> sleep_end

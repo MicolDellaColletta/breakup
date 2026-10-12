@@ -20,6 +20,7 @@ narration: That calm voice again, the one from the road.
 narration: "...and a reminder for our friends out at the edge of town, on a cold night like this one. A back door is for coming in. Not for keeping out."
 narration: Then a hymn, very far away, and the static closes over it.
 paranoia: He's talking to you. He can't be talking to you.
+narration: You leave it on, low, and stand near it longer than you need to.
 
 === radio_off
 narration: You leave it. The quiet settles over the room like snow.
@@ -36,7 +37,8 @@ narration: The kibble rattles into the steel. You set the bowl back exactly wher
 
 === kitchen_unfed
 narration: You roll the sack shut. The bowl stays empty.
-paranoia: You know what happened last time. Or you don't, and that's worse.
+paranoia: Something emptied it last night. Something will be hungry again.
+paranoia: Or someone. The back door's open. That's the rule.
 
 === windows
 narration | time=+10: The two front windows, the neon below painting the frost on the glass red.
@@ -83,6 +85,7 @@ paranoia: Rule one. The other half of it.
 
 === back_door_unlocked
 narration: You leave it. Every part of you that has ever lived in a city wants to lock it.
+paranoia: Anyone in Kettle Lake can walk in now. The old man let them. Now you do.
 narration: You walk back past the freezer without looking at it. It's harder than it should be.
 
 === back_door_locked
@@ -108,6 +111,7 @@ narration | sound=stairs: Down the stairs in your socks. You don't turn on a lig
 narration | stop=stairs: You go to the front first, toward the bell: along the hallway, behind the counter, out across the floor.
 narration: The front door is shut. Locked. The bell hangs still.
 narration: The neon is still on. In the dark glass of the window, there you are. A shape against the red.
+narration: The light is behind the glass and the dark is in front of it. It's hard to say what's on this side and what's out in the lot.
 narration: You stop. The shape stops.
 narration: Then your reflection raises one hand, slowly, as if to say hello.
 paranoia: Rule eight. Don't wave.
@@ -144,8 +148,8 @@ paranoia: Somebody knows the old man never locked it.
 === back_room_open
 narration: The back door stands open an inch. Snow has blown in across the floor in a pale tongue.
 narration: In the snow, footprints. Boots, big ones. They come in from outside.
-narration: They go to the freezer door.
-narration: They don't come back out.
+narration: Past the snow they go on as wet prints on the boards, fading as you look, to the freezer door.
+narration: None come back. None that you can see.
 paranoia: Close the door. Go upstairs. Don't open the freezer.
 paranoia: Don't open the freezer.
 -> morning_after
