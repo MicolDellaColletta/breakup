@@ -52,6 +52,12 @@ const VISITS: Dictionary = {
 	# the road; Cody with the button (if he had the picks) or Mrs. Hollis;
 	# Hanna, with the invitation. The evening is walked (GameState.EVENINGS).
 	10: ["trooper", "nephew | if=flag:gave_picks_back", "widow | if=!flag:gave_picks_back", "hanna"],
+	# Key day 11, Saturday October 30 (week four): the rental's due. Olstad;
+	# Mrs. Hollis with a tape measure; Sam, who's worked out the trains; Ruth,
+	# with candy for tomorrow (if faith with her holds).
+	11: ["trooper", "widow", "sam | if=flag:knelt_with_sam or flag:door_sam_1",
+		"ruth | if=flag:door_ruth_1 and !flag:broke_faith_ruth"],
+	# Key day 12 is Halloween, a Sunday: no counter (GameState.DAY_SCENES).
 }
 const CUSTOMER_GAP: float = 1.5
 

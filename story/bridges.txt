@@ -62,4 +62,22 @@ narration: Lunch. The roast. Your place.
 narration | if=flag:saw_shape: You don't eat much. Mrs. Hollis notices, and puts more on your plate.
 narration | card=Monday. The road opens.: The plow, at dawn. The road out, a white trench between banks taller than the car. You could leave.
 narration: You drive to the end of town and back, to see if you still can. You can. You come back anyway.
-narration: (The end of week three. Week four is still being written. Thank you for playing.)
+narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope. A hundred and fifty, faced.
+narration: And the bulletin, with the pageant on it: "Thanksgiving, at the school. All welcome. And the Keeper's fitting, after the service, Nov. 21."
+paranoia: The fitting. On the calendar. In print. They've given you an appointment.
+narration | card=Thursday. The Circle sews.: The Lunds' windows. The sewing machine, if you stand still.
+narration: The call, at eleven: pages turning, for a long time. Newsprint, by the sound. A pencil, writing. He's reading something. Reading, and taking notes.
+narration | card=Friday. The Keeper is due.: The rental agreement, in the dresser, under the shirts.
+narration | if=flag:gave_return_date: RETURN DATE. In your own hand, from the day you told the woman on the phone: 10/30. Tomorrow.
+narration | if=!flag:gave_return_date: RETURN DATE: blank. Four weeks paid, from the second. Tomorrow, either way.
+paranoia: Tomorrow it's stolen. Tomorrow you're driving a stolen car, under a dead man's name, in a town that weighs you.
+
+# --- Before key day 13 (November): the morning after Halloween. ---
+
+=== bridge_november
+narration | card=November. The Keeper stays. | time=08:00: Monday, the first. Sunset at eight minutes to five.
+narration | if=flag:tin_opened: The locker key, where you put it. Anchorage is three hours away. You check it's there before you check anything else.
+narration | if=flag:tin_shut: The tin on the back shelf, its tag to the wall. You don't turn it round.
+narration | if=flag:tried_to_run: Olstad's cruiser at the end of the road again, at dawn, engine running. Then it goes.
+narration: The Reverend, on the radio, the morning service repeated: "Sixty-one days, friends."
+narration: (The end of October, and of the first act. November is still being written. Thank you for playing.)

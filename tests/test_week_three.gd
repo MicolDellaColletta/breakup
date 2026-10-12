@@ -186,6 +186,6 @@ func _night_ten() -> void:
 	await wait(2.0)
 	var bridge: Node = current_scene
 	_route(bridge.get_node("%Narrator"))
-	check(bridge.card_text() == "Monday. The road opens.", "Sunday, then Monday: the road opens")
+	check(bridge.card_text() == "Friday. The Keeper is due.", "Sunday to Friday: the Keeper is due")
 	await wait(3.5)
-	check(current_scene.name == "Title", "week four isn't written yet: back to the title screen")
+	check(current_scene.name == "Counter" and gs.day == 11, "then key day 11, in week four")

@@ -9,6 +9,18 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 
 ---
 
+## October 12 — week four (`week_four.md`)
+
+- **Hard fork 2, the tin, happens in the double hour** (Saturday Oct 30, the
+  clocks falling back): between the two calls at 1:40, in the hour that
+  happens twice. Open it, leave it shut, or run.
+- **Inside the tin:** a numbered key and a slip for a locker at the
+  Anchorage bus depot (no signature, no trail).
+- Olstad asks **"Who's John?"** and doesn't say why.
+- Halloween: the rental reported stolen (Olstad's the only one who's read
+  it); **every child** comes to the door dressed as the Keeper.
+- Mrs. Hollis measures MC's shoulders at the counter, for the coat.
+
 ## October 12 — week three (`week_three.md`)
 
 - **Under the ice: Thomas, in the coat.** The first clear week of new ice,

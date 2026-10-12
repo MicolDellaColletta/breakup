@@ -1,0 +1,153 @@
+# KEY DAY 11: Saturday, October 30, 1999. The rental is due.
+# Same format as the other counter days. Who comes in: Olstad ("Who's
+# John?"); Mrs. Hollis, with a tape measure; Sam, who's worked out the
+# trains (if MC knelt with him on the ice, or his door is open); Ruth, with
+# candy for tomorrow (if faith with her holds). That night the clocks fall
+# back, and the tin (night_eleven.txt). Design: docs/week_four.md.
+
+=== morning
+narration | time=07:30: Saturday. The car in the lot, under a foot of snow. The Northern Lights sticker on the bumper is the only thing showing, a little blue square.
+narration: Today's the day. Four weeks, prepaid, from the second. Today it stops being a rental.
+-> morning_flash_guilt | if=background:guilt
+-> morning_flash_witness | if=background:witness
+-> morning_flash_debt | if=background:debt
+-> morning_flash_insanity
+
+=== morning_flash_guilt
+narration: Brushing the snow off the windshield, you remember the rental agreement on the seat that night. The thermos tipping over in the fight. Coffee soaking through it, the name running. You were holding his gun. You remember the coffee more clearly than the gun.
+-> morning_brush
+
+=== morning_flash_witness
+narration: Brushing the snow off the windshield, you remember the rental agreement on the seat that night, wet. The rain came in when you opened the door to run. The name ran. You watched it run, under the sodium light, instead of looking back.
+-> morning_brush
+
+=== morning_flash_debt
+narration: Brushing the snow off the windshield, you remember the rental agreement on the seat that night, wet from the rain. John had left it there for you. His name, running. Your name, on the buzzer, across the street.
+-> morning_brush
+
+=== morning_flash_insanity
+narration: Brushing the snow off the windshield, you try to remember why the rental agreement was wet. You can't. You've never been able to. Your hand stops on the glass and you stand there a long time.
+-> morning_brush
+
+=== morning_brush
+paranoia: Brush it off. Or don't. It's a car. It's a stolen car as of tomorrow. Leave it under the snow where nobody can read the plate.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Saturday, October thirtieth.
+
+# --- Olstad. ---
+
+=== trooper_enters
+narration | sound=bell | time=+30: The bell. Olstad, in uniform again; the road's open. Snow on her hat. She doesn't take it off.
+trooper: Today's the day, Johnny.
+narration: She doesn't say which day. She doesn't need to.
+trooper: Northern Lights opens Monday. I'd say they file Monday afternoon. Or they get bored and call it in Sunday. They're like that, in Anchorage.
+narration: She picks up the compass. Sets it down. Looks at you.
+trooper: Who's John?
+narration: Not who are you. Who's John. As if John were a third person in the room, standing just behind you.
+paranoia: She knows something. What does she know. What could she know.
+appraisal | if=appraisal>=2: The back door key. "Old man gave me this a few winters back." She's had a key to this building the whole time. She could have been in here any night. Any night at all.
+> "I'm John." -> trooper_john | lean=john
+> "Somebody who rented a car." -> trooper_half | lean=appraisal
+> Say nothing -> trooper_nothing | lean=paranoia
+
+=== trooper_john
+trooper: Ya. That's what the town says too.
+narration: She nods, slowly, as if she'd written something down and was reading it back.
+-> trooper_goes
+
+=== trooper_half
+trooper: Somebody who rented a car.
+narration: Something in her face, there and gone. Not satisfaction. Closer to pity.
+trooper: Ya. Somebody did.
+-> trooper_goes
+
+=== trooper_nothing
+narration: The silence stretches. She lets it. She's better at it than you.
+trooper: Okay. Keep it, then. For now.
+-> trooper_goes
+
+=== trooper_goes
+trooper: Roads close in November, Johnny. Lot can happen in a town with the roads closed.
+narration | sound=bell: At the door, her hand comes up to the frame, and stops. The bell.
+
+# --- Mrs. Hollis, with a tape measure. ---
+
+=== widow_enters
+narration | sound=bell | time=+60: The bell. Mrs. Hollis. No dish. In her hand, a yellow tailor's tape measure, coiled.
+widow: Turn round, dear. For the shoulders. They're nearly done.
+narration: She doesn't wait. She comes behind the counter, where nobody's supposed to come, and turns you by the elbows, gently, the way you'd turn a child to button their coat.
+narration: The tape across your back, shoulder to shoulder. Her hands warm through your shirt. She holds it there a long time.
+widow: Thomas was broader. You'll fill out.
+narration: She writes the number on the back of her hand, in ballpoint, next to two others that have half washed off.
+paranoia: She's measuring you for it. In your own shop. Behind your own counter.
+warmth | if=warmth>=1: Her hands are so gentle. That's the worst of it. They mean it.
+> Let her finish -> widow_finish | lean=warmth
+> Step away -> widow_step | lean=animal
+
+=== widow_finish
+narration: You let her. Shoulders. Then, without asking, the length of your arm, wrist to shoulder, again, as if checking the Lunds' number.
+widow: There. Good.
+narration: She pats your back, once, the way you'd pat a horse you were pleased with.
+-> widow_goes
+
+=== widow_step
+narration: You step away. The tape slides off your shoulders and drops between you.
+narration: She picks it up, and coils it, and doesn't seem hurt. She's measured people who stepped away before.
+widow: That's all right. I have Sunday's.
+-> widow_goes
+
+=== widow_goes
+widow: Tomorrow's Halloween. The children come round to the shop. They always come to the Keeper. Have something for them.
+narration | sound=bell: She knocks twice on the frame. The bell.
+
+# --- Sam, who's worked out the trains. ---
+
+=== sam_enters
+narration | sound=bell | time=+60: The bell. Sam, with the notebook already open, as if he'd been reading it all the way down the road.
+sam: Your caller. The one at eleven. You've heard a train behind him.
+narration: You haven't told him that. You're almost sure you haven't told him that.
+sam: Two trains, opposite ways, twelve minutes apart, both blowing for a crossing. That's the siding at Wasilla. There's a motel right on it. Cheap. Weekly rates.
+sam: He's an hour from here. Less, on a good road.
+narration: He says it with a kind of joy. The joy of a column of figures that adds up.
+paranoia: He's right. He can't be right. How is he right.
+unknown | if=frayed: Two of you now. Two of you can't be wrong.
+> "How do you know about the calls?" -> sam_how | lean=paranoia
+> "Show me." -> sam_show | flag=sam_map | lean=unknown
+
+=== sam_how
+sam: You told me. On the ice. You said it while we were kneeling. You don't remember?
+narration: You don't remember.
+sam: Write it down next time. That's what it's for.
+-> sam_goes
+
+=== sam_show
+narration: He opens the notebook to a page you haven't seen. A map, drawn in pencil, very fine. The valley. The railroad, a line of little crosses. Kettle Lake. And at Wasilla, a circle, and in it, small: "him".
+sam: I'll keep it up to date. You tell me what you hear. I'll put it on the map.
+narration: Your two heads bent over his notebook on the glass, as if you were planning a trip together.
+-> sam_goes
+
+=== sam_goes
+narration | sound=bell: He goes. He doesn't knock on the frame. He never has.
+
+# --- Ruth, with candy for tomorrow. ---
+
+=== ruth_enters
+narration | sound=bell | time=+90: The bell. Ruth, with a paper sack from the gas station, the top rolled down.
+ruth: Candy. For tomorrow. Dad always ran out by six and the kids would stand there knocking.
+narration | flag=ruth_candy: She puts it on the glass. Then she looks out the window, at your car in the lot, under the snow. A long moment.
+ruth: That's the rental, huh. Northern Lights.
+ruth: You should let me keep the keys sometime. Somebody should, in winter. People do stupid things in winter, in cars.
+narration: She says it lightly. She doesn't look away from the car while she says it.
+paranoia: She wants the keys. Why does she want the keys.
+warmth | if=warmth>=1: She's worried about you. Somebody's worried about you.
+narration | sound=bell: She goes. At the door she knocks twice on the frame, then looks at her hand as if it had done it without her.
+
+# --- Closing. ---
+
+=== closing
+narration | time=17:58: Two minutes to six, and the light goes. The last time it'll go this late. Tomorrow it goes an hour early, all at once.
+narration: You turn the sign. CLOSED.
+narration: The car in the lot. Tomorrow it's late. By Monday it's stolen.
+paranoia: Tonight the clocks go back. Tonight there's an hour nobody counts.

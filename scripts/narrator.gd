@@ -388,7 +388,7 @@ static func is_speaker(speaker_id: String) -> bool:
 
 # Options that change the world, on a line when it's shown or on a choice
 # when it's picked: stop=, sound=, time=, take=, lose=, break=, set=, flag=,
-# lean=, cash=, write=, fray=, settle=
+# lean=, cash=, write=, fray=, settle=, rewind=
 func _apply_effects(entry: Dictionary) -> void:
 	if entry.has("stop"):
 		stop_sound(entry["stop"])
@@ -403,6 +403,9 @@ func _apply_effects(entry: Dictionary) -> void:
 			GameState.pass_time(time.to_int())
 		else:
 			GameState.set_clock(time)
+	# After time=: "time=02:00 | rewind=60" is two o'clock, then one again.
+	if entry.has("rewind"):
+		GameState.rewind(entry["rewind"].to_int())
 	if entry.has("take"):
 		GameState.add_item(entry["take"])
 	if entry.has("lose"):
