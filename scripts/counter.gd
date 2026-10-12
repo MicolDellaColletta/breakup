@@ -158,6 +158,8 @@ var _view: String = ""
 var _facing: String = "counter"
 # Nobody's in: the shop waits for the bell.
 var _waiting: bool = false
+# The wait from the bell to the door (tests ring with none).
+var customer_gap: float = CUSTOMER_GAP
 # The thing in your hand, picked up off a shelf ("" for nothing). It's also
 # what the details under the shelves describe.
 var _selected: String = ""
@@ -273,7 +275,8 @@ func _next_customer() -> void:
 		column.start_conversation("closing")
 		return
 	_customer = _visits[_customer_index].get_slice("|", 0).strip_edges()
-	await get_tree().create_timer(CUSTOMER_GAP).timeout
+	if customer_gap > 0.0:
+		await get_tree().create_timer(customer_gap).timeout
 	_person_comes_in(_customer)
 	column.start_conversation(_customer + "_enters")
 

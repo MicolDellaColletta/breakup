@@ -103,6 +103,7 @@ func _thursday_picks_drawing() -> void:
 	advance(column)
 	check(gs.flags.has("drawing_in_window"), "a drawing in the window")
 	await wait(1.8)
+	ring_bell()
 	check(column._section == "closing" and gs.clock_text() == "6:47 PM", "closing at 6:47 PM")
 
 func _thursday_cold() -> void:

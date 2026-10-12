@@ -120,6 +120,7 @@ func _customer_and_examine() -> void:
 	var column: Node = counter.get_node("%DialogueColumn")
 	var view: Node = counter.get_node("%ShelfView")
 	advance(column)
+	counter.ring_bell()
 	await wait(1.8)
 	check(view.person == "widow" and view.mode == "counter", "Mrs. Hollis stands across the counter as she comes in")
 	advance(column, 10)

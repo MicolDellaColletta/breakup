@@ -76,6 +76,7 @@ func _saturday() -> void:
 	check(gs.flags.has("sam_map"), "his map, with a circle at Wasilla: \"him\"")
 	await _next(column)
 	check(gs.flags.has("ruth_candy"), "Ruth, with candy for tomorrow, looking at the car")
+	ring_bell()
 	check(column._section == "closing" and gs.clock_text() == "5:58 PM", "closing at 5:58 PM, the last late sunset")
 
 func _saturday_evening() -> void:
