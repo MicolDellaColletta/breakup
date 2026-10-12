@@ -14,6 +14,7 @@
 -> map_day_seven | if=day==7
 -> map_day_eight | if=day==8
 -> map_day_nine | if=day==9
+-> map_day_eleven | if=day==11
 -> map_day_two
 
 === map_day_one
@@ -28,6 +29,7 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_four | if=day==4
 -> pub_six | if=day==6
 -> pub_eight | if=day==8
+-> pub_eleven | if=day==11
 -> pub_two
 
 === pub_first
@@ -91,6 +93,7 @@ narration: The cold outside is almost a relief.
 -> lake_six | if=day==6
 -> lake_eight | if=day==8
 -> lake_nine | if=day==9
+-> lake_eleven | if=day==11
 -> lake_two
 
 === lake_first
@@ -157,6 +160,7 @@ narration: You leave money on the bar and go before the room can decide to be fr
 -> church_four | if=day==4
 -> church_six | if=day==6
 -> church_eight | if=day==8
+-> church_eleven | if=day==11
 -> church_two
 
 === church_two
@@ -222,6 +226,7 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 -> cabin_six | if=day==6 and flag:met_sam
 -> cabin_eight | if=day==8 and flag:met_sam
 -> cabin_nine | if=day==9 and flag:met_sam
+-> cabin_eleven | if=day==11 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -708,6 +713,32 @@ narration: He walks you to the door. Three locks. He checks the first one twice,
 narration | time=+20: The shore on a Sunday evening. Nobody out. The poles under their tarp, the wreath on top gone brown.
 narration | if=flag:gave_picks_back: On the ice, close in, a pair of boot prints going out, and the long marks of something dragged, coming back. Somebody went out, and found something, and brought it in.
 narration | if=!flag:gave_picks_back: On the ice, close in, a pair of boot prints going out. None coming back. Then you see they go along the shore, the long way, and come up the bank further on. You let yourself breathe.
+
+# --- Key day 11: Saturday, October 30 ---
+
+=== map_day_eleven
+narration: Saturday night, the thirtieth. Jack-o'-lanterns on a few porches, already freezing, their faces sagging in.
+narration: The Gleaner's lit up orange. Somebody's hung paper skeletons in the window.
+paranoia: Tonight the clocks go back. Don't forget. Everybody here will remember.
+
+=== pub_eleven
+narration | time=+60: The Gleaner's Halloween-eve party. Costumes: a man in a bedsheet, two witches, a moose with a beer through its mouth-hole. Somebody's dressed as a State Trooper, big belly and all, and the room roars every time he walks past.
+narration: Olstad isn't here. Nobody says so.
+narration | if=!flag:broke_faith_ruth: Ruth, in cat ears, pours you one, and leans on the bar, and watches your car through the window with you without saying anything.
+narration | if=flag:broke_faith_ruth: Ruth, in cat ears, serves you without looking. Your Polaroid on the wall has a paper witch's hat taped over it. You don't know who did that. Neither does she, she says.
+narration: At the far end of the bar, a man in a long brown blanket, belted, with a paper bag over his head. People laugh, uneasily, and stop. He takes the bag off. It's Teague, red-faced. "It's a costume," he says. "It's the Keeper." Nobody laughs again.
+
+=== church_eleven
+narration | time=+20: The church, dark. On the steps, jack-o'-lanterns carved by the Sunday school. A row of them. Every face the same: two eyes, a straight mouth, and above them, carved small, four short lines, crossed.
+
+=== cabin_eleven
+narration | time=+10: The cabin. Sam on the porch, setting his watch by a radio, a little transistor held to his ear.
+sam: Two a.m. tonight it'll be one again. Write down what happens in the hour. Write down which hour it happened in. It matters which.
+narration | if=flag:sam_map: He's added to the map since this morning. Another circle, smaller, on the road between Wasilla and here. "Him?" in pencil, with the question mark.
+
+=== lake_eleven
+narration | time=+20: The lake, white and wide. The poles on the bank, under their tarp. Somebody's carved a jack-o'-lantern and set it on top of them, lit. It grins out at the ice.
+narration | if=flag:saw_shape: You don't walk out. You stay on the bank. You don't look for the place.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

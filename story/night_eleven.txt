@@ -1,0 +1,183 @@
+# THE ELEVENTH NIGHT: Saturday, October 30, into Sunday. The double hour.
+# Hard fork 2 (docs/forks.md, docs/week_four.md). The clocks fall back at
+# 2 a.m. (rewind=60), and 1:00 to 2:00 happens twice. The call comes at 1:40,
+# and again at 1:40. Between them, in the hour that doesn't count: the tin.
+# Open it, leave it shut, or run. The calls are answered at the counter
+# without the walk (there's no time for the walk tonight).
+
+=== arrival
+narration | sound=stairs: Up the stairs. Saturday night, the thirtieth. From the Gleaner, music, and a cheer, and the music again.
+narration | stop=stairs: The apartment. The clock on the stove: a quarter past eleven.
+paranoia: The rules. Then stay awake. Something's going to happen in the hour that doesn't count.
+
+=== radio
+narration | time=+10: The radio. Saturday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The request hour, nearly over. The calm voice.
+narration: "...and don't forget, friends, the clocks go back tonight. The Lord gives us an hour. Use it well. Use it kindly."
+narration: "Number nine, for the Keeper. And goodnight."
+
+=== radio_off
+narration: You leave it off. Down the road, the Gleaner counts something down, ten, nine, eight, and cheers at nothing.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_eleven
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. Your car in the lot, a white hump of snow.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold, and the party, and a woman laughing, and then, closer, someone walking past the shop, slowly, under the window, and stopping, and walking on.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser. The rental agreement, under the shirts.
+narration | if=flag:gave_return_date: 10/30. In your hand. Today.
+narration | if=!flag:gave_return_date: Blank. As if you'd never meant to give it back.
+
+=== painting
+narration | time=+5: The painting. The figure in the long coat, far out on the ice.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+# --- The hour that happens twice. ---
+
+=== sleep
+narration | time=01:30 | show=bedroom: You don't sleep. You lie in the dark and watch the clock on the stove through the bedroom door. 1:30.
+narration | time=01:40 | sound=ring: 1:40. Downstairs, the shop phone.
+paranoia: Rule four.
+> Go down to it -> call_one_answer | lean=animal
+> Let it ring -> call_one_ignored | lean=paranoia
+
+=== call_one_answer
+narration | sound=stairs: Down the stairs in the dark, fast, before you can think.
+narration | stop=ring | sound=pickup | break=phone: The counter. You lift the receiver. You don't speak.
+narration: The room. The clock. The breathing, easy now. Healed, almost. And the clock, ticking toward two.
+narration | sound=hangup: He hangs up first, tonight. Gently. As if he had somewhere to be.
+-> the_hour
+
+=== call_one_ignored
+narration: It rings. You let it.
+narration | stop=ring: It stops. 1:44.
+-> the_hour
+
+=== the_hour
+narration | time=01:59: 1:59. You watch the clock on the stove. It's an old electric one. Somebody, every October, has to get up on a chair and set it back.
+narration | time=02:00 | rewind=60: 2:00. And then it isn't. You get up on the chair and turn the hand back, and it's 1:00 again.
+narration: An hour you've already lived, starting over. Nobody will count it. Nobody will remember what anyone did in it. It isn't there.
+paranoia: The tin. You've been thinking about the tin since Halloween was a word on a calendar. It's down there on the back shelf, with its little padlock, and you have the ticket.
+unknown: Go on. Nobody's counting.
+narration: You go down. The back shelf, in the neon from the window. The tin box. Tag 0527. A padlock no bigger than your thumbnail.
+narration | if=has:pawn_ticket: The ticket in your wallet. 0527. You're its holder. You could redeem it, from yourself, to yourself.
+> Write it out of the ledger, properly, and open it -> tin_redeem | lean=appraisal
+> Get the hammer from under the counter, and open it -> tin_hammer | lean=animal
+> Put it back. Turn the tag to the wall. -> tin_shut | flag=tin_shut | lean=paranoia
+> Run. Now, in the hour nobody counts. -> tin_run | flag=tried_to_run | lean=animal
+
+=== tin_redeem
+narration | write=Tin box, redeemed. Ticket 0527. No loan, no price.: You open the ledger, and find the line, the one with the name scratched out so hard the pen went through. Under your last entry, in your own hand, you write: Tin box, redeemed. Ticket 0527.
+narration | lose=pawn_ticket: You put the ticket in the drawer, the way you would for anybody. It's done properly. It's yours now. It was always going to be yours.
+narration: The padlock is still locked. There's no key. You get the hammer from under the counter anyway.
+-> tin_open
+
+=== tin_hammer
+narration: You get the hammer from under the counter. You don't write anything in the book. You don't think about the book.
+-> tin_open
+
+=== tin_open
+narration | sound=drawer: One blow with the claw, and the little padlock gives. It wasn't made to keep anybody out. It was made to say someone wanted it kept.
+narration | flag=tin_opened | take=locker_key: Inside, on a fold of paper towel: a small steel key on a ring, stamped 114. And a slip of paper, typed. ANCHORAGE GREYHOUND. LOCKER 114. PAID THRU 12/31/99.
+narration: That's all. A key, and a place. Not the thing itself. Where the thing is.
+paranoia: The books. John's books. Whatever he stole is in a locker in Anchorage, and you're holding the key, and it's paid through New Year's Eve.
+appraisal | if=appraisal>=1: Paid through the thirty-first of December. Somebody planned to be back for it before then.
+-> call_two
+
+=== tin_shut
+narration: You pick it up. It's light. It rattles, very slightly, something small and metal inside.
+narration: You put it back exactly where it was. You turn the tag to the wall, so 0527 faces nobody.
+narration: Whatever's in it, it can stay John's. It can stay nobody's.
+paranoia: Good. Good. Whoever's paying the interest can come and get it. Let it be their tin.
+-> call_two
+
+=== tin_run
+narration | sound=door_shut: The keys. Your coat. Out the back, through the snow, to the car. You brush the windshield with your sleeve. The engine catches on the third try.
+narration: The road out, in the hour nobody counts. Your one good headlight on the snow. The spruce going by, black.
+narration: At the town line, the sign. And in the turnout, the cruiser, headlights on, pointing back at town. At you.
+narration: She doesn't turn on the roof lights. She doesn't get out. She just sits there with her headlights on you.
+narration: Past her, past the sign, the road goes into the pass, and the pass is a white wall. Snow, coming down sideways, filling the road as you watch. Nobody's getting through that tonight. Not you. Not anybody.
+narration: You turn around in the road. Three points. Her headlights on you the whole time.
+paranoia: She saw you run. She'll never forget she saw you run.
+narration | sound=door_shut: You're back in bed before the hour's over. It's still 1:00-something. It's still the hour that doesn't count. You lie there knowing it counted.
+-> call_two
+
+# --- 1:40, again. ---
+
+=== call_two
+narration | time=01:40 | sound=ring: 1:40. Again. The shop phone.
+narration: The same time, a second time. As if the night had skipped back to let him call again.
+> Go down to it -> call_two_answer | lean=animal
+> Let it ring -> call_two_ignored | lean=paranoia
+
+=== call_two_answer
+narration | sound=stairs: Down the stairs.
+narration | stop=ring | sound=pickup | break=phone: The counter. You lift the receiver. You don't speak.
+narration: The room. The clock. And then his clock chimes. Once, twice, one o'clock. His fell back too. He's in the same hour you are. The same zone. The same night.
+narration | if=flag:tin_opened: And then, very quietly, he laughs. Once. Low. The moment after you think of the key in your pocket.
+narration | if=!flag:tin_opened: And then, very quietly, he laughs. Once. Low. Like a man enjoying something only he can see.
+paranoia: He can't know. He can't know. He can't.
+narration | sound=hangup: A soft click.
+-> night_dog
+
+=== call_two_ignored
+narration: It rings. You let it.
+narration: Even from up here, through the floor, between rings, you think you hear it: a clock chiming one, at the other end. You can't. You can't hear that through a floor.
+narration | stop=ring: It stops.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_eleven
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Back in bed. Facing the door.
+narration | sound=stairs: Three o'clock. The new three o'clock. The stairs, one and then the other.
+narration | stop=stairs: The kitchen. Then down. It came at the same time it always comes. It knew the clocks had changed.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Back in bed. Facing the door. Nothing comes up.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Sunday, the thirty-first. Halloween.

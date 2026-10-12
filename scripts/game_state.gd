@@ -43,6 +43,8 @@ const DAY_STORIES: Dictionary = {
 	8: "res://story/day_eight.txt",
 	9: "res://story/day_nine.txt",
 	10: "res://story/day_ten.txt",
+	11: "res://story/day_eleven.txt",
+	12: "res://story/day_twelve.txt",
 }
 # Evenings that are walked instead of picked from the town map (key day 10:
 # the first-ice party on the lake). The story starts at "evening" and ends
@@ -57,6 +59,7 @@ const VISIT_SCENE: String = "res://scenes/visit.tscn"
 const DAY_SCENES: Dictionary = {
 	5: "res://scenes/visit.tscn",
 	9: "res://scenes/visit.tscn",
+	12: "res://scenes/visit.tscn",
 }
 # After week one, the story days are key days, with days skipped between them.
 # Which calendar day (counted from October 5, the drive) each one is. Days
@@ -66,6 +69,8 @@ const DAY_DATES: Dictionary = {
 	9: 12,
 	10: 18,
 	11: 25,
+	12: 26,
+	13: 27,
 }
 # A bridge before a key day covers the days skipped: a title card and a few
 # lines (story/bridges.txt, the section named here), then the day itself.
@@ -74,6 +79,7 @@ const BRIDGES: Dictionary = {
 	9: "bridge_weekend",
 	10: "bridge_monday",
 	11: "bridge_sunday",
+	13: "bridge_november",
 }
 const BRIDGE_SCENE: String = "res://scenes/bridge.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
@@ -88,6 +94,8 @@ const NIGHT_STORIES: Dictionary = {
 	8: "res://story/night_eight.txt",
 	9: "res://story/night_nine.txt",
 	10: "res://story/night_ten.txt",
+	11: "res://story/night_eleven.txt",
+	12: "res://story/night_twelve.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on
@@ -338,6 +346,12 @@ func lean(voice: String, amount: int = 1) -> void:
 		fray += amount
 
 # --- Time ---
+
+# rewind=60 in a story file: the clocks fall back (October 31, 2 a.m.: the
+# one time in the game the clock moves backward, and an hour happens twice).
+func rewind(amount: int) -> void:
+	minutes -= amount
+	time_changed.emit()
 
 func pass_time(amount: int) -> void:
 	minutes += amount

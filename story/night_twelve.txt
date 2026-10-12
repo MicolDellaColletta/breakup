@@ -1,0 +1,98 @@
+# THE TWELFTH NIGHT: Halloween, Sunday October 31 (after key day 12)
+# Same format as the other nights. The night: Olstad's cruiser at the end of
+# the road, headlights on the shop, all night; no call (he's had his two);
+# the key, if the tin's open; the dog. The end of October.
+# Design: docs/week_four.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. Halloween night. It's been dark for hours and it's barely seven.
+narration | stop=stairs: The apartment. Through the front window, at the end of the road: two headlights, pointed at the shop. Engine running. They don't move.
+paranoia: Olstad. All night, if she wants. She's the law. She can sit where she likes.
+
+=== radio
+narration | time=+10: The radio. Sunday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The Sunday hymns. And between two of them, the Reverend, tired: "A blessed All Hallows' Eve, friends. Tomorrow, All Saints. Remember them. All of them. Every name."
+paranoia: Every name. The ones on the wall. The one under the ice.
+
+=== radio_off
+narration: You leave it off. The cruiser's engine, idling, at the end of the road. You can hear it from up here, when everything else is quiet.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twelve
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. The headlights at the end of the road, fixed on the shop like a stare.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched. The headlights don't blink.
+
+=== windows_open
+narration: Cold. The idling engine. Somewhere, a child still out, laughing, and a door shutting on the laugh.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser.
+narration | if=flag:tin_opened: The locker key. You put it under the shirts, then in your pocket, then under the mattress, then back in your pocket. Anchorage is three hours away. The road's open. And she's at the end of it.
+narration | if=!flag:tin_opened: The flannel shirts. One fewer, if you lent it. A child wore it tonight, somewhere, in a brown coat over it.
+
+=== painting
+narration | time=+5: The painting. The figure in its long coat, far out on the ice. Small. Child-sized, tonight.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked. Dark.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. She has a key anyway. She's always had a key.
+
+=== back_door_locked
+narration | sound=latch: The key turns. She has another. She always has another.
+
+# --- Bed. No call. ---
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Through the bedroom wall, from the front of the building, the headlights paint the ceiling of the hall, a pale gray, unmoving.
+narration: Eleven. No call. He's had his two.
+narration: Midnight. October's over.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_twelve
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other. Slow.
+narration | stop=stairs: The kitchen. The bowl. Then down, and the back door, and the snow.
+narration: Out at the end of the road, the headlights. Whoever came up your stairs walked right through them, going home.
+paranoia: She'd have seen. She'd have seen who it was. She sat there all night and watched who comes and goes.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+narration: At the end of the road, the headlights, all night. At dawn, they go.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: November.

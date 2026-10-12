@@ -1,0 +1,59 @@
+# KEY DAY 12: Sunday, October 31, 1999. Halloween.
+# A walk-around day (scenes/visit.tscn; spots in spots.cfg, scene "visit",
+# if=day==12): church in a card, Olstad at the door with the plate, and at
+# dark, an hour early, the children at the shop door, every one of them
+# dressed as the Keeper. Ends at the door: end=night. Design:
+# docs/week_four.md.
+
+=== morning
+narration | time=08:00: Sunday. Halloween. The clock on the stove says eight, and your body says nine, and neither of them is sure.
+narration | if=flag:tin_opened: The locker key, where you put it last night. You check before you check anything else. 114.
+narration | if=flag:tin_shut: You go down to the back shelf before you've had coffee. The tin, its tag to the wall. Exactly as you left it. You don't touch it.
+narration | if=flag:tried_to_run: Your car in the lot, the snow on it disturbed, tire tracks going out and coming back. Anyone looking would know.
+narration | time=10:00: The bell on the hill. Church.
+narration: The pew. The hands. Shorter, today; everyone wants to get home and carve. Mrs. Hollis's thumb along your hairline.
+narration | if=flag:refused_tooth_public: On the steps, Ezra: "H.L. Eighty-nine. It's asked." You've stopped hearing it as a question.
+narration: Lunch. The roast. Your place.
+narration | show=shop | time=14:30: Back in the shop, in the afternoon, the sign turned to CLOSED. Outside, the light already going amber, too early.
+narration: A car pulls into the lot and doesn't turn its engine off. A State Trooper cruiser.
+narration: Olstad gets out, and doesn't come in. She knocks on the glass of the front door, with one knuckle, and waits for you to open it.
+trooper: Northern Lights called it in this morning. Didn't wait for Monday.
+trooper: Stolen vehicle. Ninety-one sedan, blue. Dim headlight.
+narration: She looks past you, at the car in the lot.
+trooper: I'm the only one who's read it. For now.
+trooper | if=flag:tried_to_run: You'd have hit the wall at the pass last night anyway. I was saving you the trip.
+narration: She doesn't ask for the keys. She doesn't ask you anything. She stands in the doorway, letting the cold in, watching your face the way she watched it the first day.
+paranoia: She's not arresting you. Why isn't she arresting you.
+appraisal | if=appraisal>=1: Because she doesn't want the car. She wants to see what you do now. She wants John.
+narration: Then she goes back to the cruiser, and gets in, and drives off. Not far. To the end of the road. You can see her parking lights from the window.
+narration | time=16:55: At five to five, the dark comes. All at once. An hour earlier than yesterday, like a lid.
+narration: The streetlight by the lot buzzes on. Down the road, porch lights, one by one.
+narration: And then, through the dark, coming up the road toward the shop: small figures. A dozen. More. With pillowcases. With flashlights.
+narration: They come into the light of the neon, and you see what they're wearing.
+narration: Brown. All of them. Brown blankets, belted with string. Brown coats, old ones, cut down to fit, dragging in the snow. Paper bags over their heads with eyes cut out. Long brown coats to their ankles.
+narration: Every one of them is dressed as the Keeper.
+paranoia: Every one. Every child in Kettle Lake. They made the costumes from scraps. From the scraps.
+narration | if=flag:drawing_in_window: In the window, June's drawing, the Keeper in the long brown coat. Outside it, twelve more, real, waiting.
+
+=== halloween_open
+narration | sound=bell: You open the door. The bell.
+narration: They look up at you. Twelve paper bags, twelve pairs of eye-holes.
+narration: Then, all together, each one reaches out and knocks twice on the door frame. Then they say it, together, instead of trick or treat:
+narration: "One, the window. Two, the warm. Three, the price..."
+narration: All of it. All the way to the end. "...eight, the glass, and nine's the Keeper, in he goes."
+narration: Then they hold out their pillowcases, and wait.
+narration | if=flag:ruth_candy: You have Ruth's bag of candy. You go down the line, one into each pillowcase. Each one says "Thank you," very politely, and goes on to the next house, coats dragging.
+narration | if=!flag:ruth_candy: You have nothing. You find a box of matches, some pennies from the drawer, a roll of tape. They take what you give them. "Thank you." Very politely. They go on to the next house.
+narration: The smallest one stays last. A boy, maybe five, in a coat that's really a grown-up's sweater, dyed. He looks up at you through the eye-holes.
+narration: "Are you the real one?"
+paranoia: Say something. Say anything.
+narration | end=night | time=18:30: Before you can, his mother calls him from the road, and he runs. You stand in the doorway until the last brown coat is gone into the dark, and the cold has filled the shop, and the parking lights at the end of the road haven't moved.
+
+=== halloween_hide
+narration: You stay behind the counter. In the dark, with the neon on.
+narration: They come to the door. You see them through the glass, a dozen small brown shapes. They knock twice on the frame, all of them, one after another, a long patter of twos.
+narration: Then they say it, together, through the glass: "...and nine's the Keeper, in he goes."
+narration: You don't move. They wait. They knock again, twice each. They wait.
+narration: They don't go. They stand there in the snow, in their coats, holding their pillowcases, patient, looking in at you through the glass and the neon. Ten minutes. Twenty.
+narration: Then a parent's voice from the road, sharp, and they turn and go, all at once, without a word, the way they came.
+narration | end=night | time=18:30: In the morning, on the step, you'll find it: a little paper coat, cut out of a grocery bag and crayoned brown, with a safety pin through the shoulders, as if for someone to wear.
