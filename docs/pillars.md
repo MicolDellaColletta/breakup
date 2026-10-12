@@ -56,8 +56,8 @@ magic, it gets rewritten.
 | Sam's clock stopping at the same minute | His data could be wrong. He could be wrong. |
 | The reflection that waves first | Exhaustion, dark glass, a mind under strain. |
 | **A pawned name** (Ida) | **A custom.** The town refuses to say a pawned name. Walt can't find it because he's eighty and grieving. People, not magic. |
-| **The unkept shop "takes" someone** (Abraham's wife in 1989, Abraham on October 3) | Two deaths, alone, in winter. The causes are open (heart, cold, their own hand, someone with a key). The town's custom does the rest. |
-| **Management's envelopes** | *Open:* who delivers them, and how. It needs a human answer. |
+| **The unkept shop "takes" someone** (Abraham's wife in 1989, Abraham on October 3) | Two deaths, alone, in winter. Abraham walked into the freezer himself, believing it; Olstad found him and kept quiet. His wife's death stays open. And rule 1 keeps the back door unlocked: anyone can come in. |
+| **Management's envelopes** | The congregation pays its Keeper; Ezra pushes the envelope under the door every Tuesday (`forks.md`). |
 
 **One ending is allowed to lean supernatural** (see "Endings"), and even that
 one can be read as MC losing his mind completely.
@@ -131,7 +131,8 @@ nobody, the player included, can tell who's mad.
 
 ## Endings
 
-One per strand, plus the default, the way out, and the brighter one.
+Six: one per strand, plus the default, the way out, and the brighter one. The
+hard forks and soft totals that lead to each are in `forks.md`.
 
 | Ending | Strand | In short |
 |---|---|---|
@@ -140,7 +141,7 @@ One per strand, plus the default, the way out, and the brighter one.
 | **Daniel** | Crime thriller, romance | At the shore, he doesn't let go. |
 | **Break the cycle** (Ruth) | Folk horror, romance | Her complicity undone, at a price. |
 | **The truth** (Sam) | Psychological, romance | The rational answer: it was always the town. |
-| **The ice** (???) | Psychological / cosmic | MC walks out and meets what's under it. Supernatural, or MC completely gone. The game never says which. Daniel's "into the ice together" is a variant of this one. |
+| ↳ *The ice* (variant of The season ends) | Psychological / cosmic | With ??? the strongest voice and MC frayed, the default ending is told from inside: MC walks out and meets what's under the ice. Supernatural, or MC completely gone. The game never says which. Daniel's "into the ice together" is the same variant inside his ending. |
 | **Thaw** | All three, no romance | The bright one. The people MC kept faith with walk him to the shore, watch the ice go out, and walk him back. He has to say what he ran from, and gives his own name. (`story.md`, "Thaw".) |
 
 Daniel's four shore outcomes (`daniel.md`, 10b) are how his strand closes
@@ -186,7 +187,7 @@ text):
 
 ## Open
 
-- [ ] Management's envelopes: who delivers them, and how.
+- [x] Management's envelopes: the congregation (`forks.md`).
 - [ ] How Sam's ending reads if "it was always the town": is that the truth,
       or the most rational lie?
 - [ ] Which days, exactly, make up each month's chapter.

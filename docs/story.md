@@ -115,9 +115,10 @@ Dead in the freezer when MC arrives. The person who knew the most.
   a Keeper in it, every night, until breakup. The town believes breakup takes
   the Keeper, and that if there's no Keeper it takes whoever is holding the keys.
   On the night of **October 3**, John's arrival date, the shop was empty except
-  for Abraham, and Abraham died. He's in the freezer. How he got there (his
-  heart, the cold, his own hand, or someone with a key) is a question the game
-  can answer late, or never.
+  for Abraham. **He walked into the freezer himself** and sat down, because he
+  believed the unkept shop would take whoever held the keys. Belief killed him.
+  **Olstad found him** on October 4, closed the door, told nobody, and lets
+  Ruth believe he's "away" (decided, `forks.md`).
 - **The calendar upstairs** is his: his crosses stop on October 3.
 - **He wrote rule five for himself.** He filled his wife's bowl every night
   after 1989, from grief or from belief. "Feed the dog" is a frightened old man
@@ -171,8 +172,8 @@ which is true.
   waiting to be mounted is ordinary; that's why nobody looks twice. Abraham is
   in it, dead (see "The owner"). The boot prints that come in through the back
   door and go into the freezer and don't come out (night one) have human
-  answers: Olstad came in through that door on October 4 with her key; others
-  have keys (who, exactly, is open).
+  answers: the back door is always unlocked, by rule 1, so anyone in Kettle
+  Lake can walk in at night. Olstad came in that way on October 4.
 - Opening the freezer is never forbidden by the letter. Paranoia forbids it.
   When MC finally opens it is a set piece (not before December).
 
@@ -183,7 +184,8 @@ which is true.
   up at night, and they're hungry. Fed, they're quiet. Unfed, they look for you.
   In spring 1989 it was Abraham's wife; the bowl is hers, the dent in it from
   1989. Since October 3, the town would say, it's Abraham.
-- **The human side:** someone with a key comes up at night. Or MC, sleepwalking:
+- **The human side:** anyone can come in through the back door at night (rule
+  1). Or MC, sleepwalking:
   the late clue, the bowl licked clean and **set back exactly where MC left it**,
   the way MC always does it, points both ways.
 - Clues, in order of how late they come: the bowl licked clean and moved; long
@@ -245,9 +247,12 @@ The Keeper's wages. The owner is dead, but they keep coming.
   promised. Addressed to the Keeper, never to a name.
 - **Sometimes there's something else in it:** a note, or an object. Sometimes
   nothing but the money.
-- **Who sends them** now that the owner is dead is open, and **needs a human
-  answer.** Candidates: a standing order Abraham left with the bank or the post
-  office; the congregation paying its Keeper (feeding the lamb); Ruth; Ezra.
+- **Who sends them: the congregation** (decided, `forks.md`). Ezra, as church
+  treasurer, pushes the envelope under the door before dawn every Tuesday. The
+  Keeper's wages come out of the collection plate: the town literally pays its
+  Keeper. The "something else" is theirs: a prayer card, a hymn number.
+  Abraham signed the job offers "Management" for the church's money. One
+  Tuesday MC wakes early and watches Ezra's boots on the step.
 - In the game, the envelope is where money comes from, and a weekly beat:
   the player learns to dread or look forward to what's inside.
 
@@ -637,8 +642,9 @@ Suspicious of everyone, the new Keeper most of all.
 
 ## Endings (draft)
 
-From `pillars.md`: one per strand, plus the default, the way out, and the
-brighter one.
+From `pillars.md`: six endings, one per strand plus the default, the way out
+and the brighter one. What each needs, and the six hard forks that lead there,
+are in `forks.md`.
 
 | Ending | Strand | How you get it |
 |---|---|---|
@@ -647,7 +653,7 @@ brighter one.
 | **Daniel** | Crime thriller, romance | At the shore, he doesn't let go (`daniel.md`, 10b). |
 | **Break the cycle** | Folk horror, romance | Ruth. MC is still there after the ice goes out; her complicity undone, at a price. |
 | **The truth** | Psychological, romance | Sam. The rational answer, shared: it was always the town. |
-| **The ice** | Psychological / cosmic | ??? all the way. MC walks out onto the ice and meets what's under it. Supernatural, or MC completely gone; the game never says. Daniel's "into the ice together" is a variant. |
+| ↳ *The ice* (variant of The season ends) | Psychological / cosmic | ??? all the way, and frayed. MC walks out onto the ice and meets what's under it. Supernatural, or MC completely gone; the game never says. Daniel's "into the ice together" is the same variant inside his ending. |
 | **Thaw** | All three, no romance | The bright one. MC rebuilds through the people he kept faith with. See "Thaw" below. |
 
 Cut: "The new owner" (Daniel and Management no longer lead there) and "Daniel,
@@ -788,15 +794,16 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [ ] Sgt. Olstad: how much she knows about the Keepers, and about John's tin box.
       (Decided: she was in the shop on Oct 4 and told the town the name. Still
       open: did she open the freezer?)
-- [ ] How Abraham died, and how he ended up in the freezer (a human answer).
-- [ ] Who has keys to the shop: Olstad, Ruth, Ezra, anyone else? (The boot
-      prints, the dog, the ledger line.)
+- [x] How Abraham died: he walked into the freezer himself; Olstad found him on
+      October 4 and kept quiet. (Open: why she kept quiet.)
+- [x] Who has keys: it matters less than rule 1, since the back door is always
+      unlocked (`forks.md`, "Settled with this page").
 - [ ] Who owned the shop before Abraham? (He's in the bear. Needs a name.)
 - [x] What happens if MC drives away (see "If MC drives away").
 - [ ] Who painted the 1989 breakup painting?
 - [ ] Ray's rifle: is tag 0431 his? (Draft: yes.)
-- [ ] Management's envelopes: who delivers them, and what comes besides cash
-      (and when). Needs a human answer.
+- [x] Management's envelopes: the congregation, delivered by Ezra every
+      Tuesday (`forks.md`).
 - [ ] How Olstad's homophobia shows on the page, scene by scene, so it stays
       subtle but clear.
 - [x] The recurring customer from day one: the Reverend Elias (draft; see "The church and the radio").
