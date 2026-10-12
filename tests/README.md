@@ -20,7 +20,7 @@ Checks that run Godot without a window and play through the game.
 | `test_night.gd` | The first night as Keeper: radio, back door with and without the key, the reflection after three, staying in bed. |
 | `test_voices.gd` | The voices' own rules: Paranoia talking over the others, fraying and coming back, ??? when frayed, the background. |
 | `test_menu.gd` | The title screen, pause menu, saving, loading and settings. Uses its own save folder, never your saves. |
-| `test_shop.gd` | The drawn shelves: picking up and putting down, the front window (and saving it), the person across the counter, examining a thing in close-up and handing it over. |
+| `test_shop.gd` | The drawn shelves: picking up and putting down, the front window (and saving it), turning to the walls and the back shelf, the bell (nobody comes in until you ring; then "Close up for the day"), the person across the counter, examining a thing in close-up and handing it over. Elsewhere, `advance()` rings the bell whenever the shop is waiting. |
 | `test_base.gd` | Shared helpers the tests use. Not a test itself. |
 
 ## Running them

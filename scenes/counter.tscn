@@ -65,20 +65,20 @@ autowrap_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="CounterButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1811000917]
+[node name="TurnLeftButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1811000917]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Counter"
+text = "◀ Turn left"
 
-[node name="FloorButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1911101927]
+[node name="TurnAroundButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1911101927]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Shop floor"
+text = "Turn around"
 
-[node name="BackButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=2011202937]
+[node name="TurnRightButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=2011202937]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Back shelves"
+text = "Turn right ▶"
 
 [node name="LedgerButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1021324354]
 unique_name_in_owner = true
@@ -145,6 +145,12 @@ text = "Examine"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Hand it over"
+
+[node name="NextButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1522919927]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Next customer"
 
 [node name="LedgerPanel" type="ScrollContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1221524656]
 unique_name_in_owner = true

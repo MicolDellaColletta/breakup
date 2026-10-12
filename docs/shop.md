@@ -392,8 +392,13 @@ to look at, like the counter's choices), art added later. Each place has
 
 ## To do (the whole shop pass, in order)
 
-1. [ ] The main view: window in the middle, shelves around it; turn left /
-       right / around; the bell (a button that rings it).
+1. [x] The main view: window in the middle, shelves around it; turn left /
+       right / around; the bell (a button that rings it). Built: facing the
+       front, the window's three spots with a shelf either side (floor spots
+       0 to 3); the left wall (4 to 9); the right wall (10 to 15) with the
+       front door; the back shelf. Arrows at the edges and buttons turn you.
+       "Next customer" lets the next visit in; after the last, "Close up for
+       the day". Customers no longer come in on their own.
 2. [ ] The back room as a room (bench, crates, furnace, back door, freezer).
 3. [ ] Object properties in `stock.cfg`; Abraham's catalogue; the loupe.
 4. [ ] Examine reveals properties and fills the catalogue; object puzzles.

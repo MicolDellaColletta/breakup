@@ -62,7 +62,7 @@ func _widow_kind() -> void:
 	check(gs.voices["warmth"] == 1 and gs.voices["john"] == 1, "kindness feeds Warmth, answering to John feeds John")
 	await pick(column, "Let me look")
 	await process_frame
-	check(counter.get_node("%ViewTitle").text == "The shop floor", "looking opens the shop floor")
+	check(counter.get_node("%ViewTitle").text == "Behind the counter", "looking stays behind the counter: the window and its shelves")
 	counter._select("duck_call")
 	counter._on_offer_pressed()
 	advance(column)
