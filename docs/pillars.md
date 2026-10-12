@@ -64,7 +64,7 @@ magic, it gets rewritten.
 | The reflection that waves first | Exhaustion, dark glass, a mind under strain. |
 | **A pawned name** (Ida) | **A custom.** The town refuses to say a pawned name. Walt can't find it because he's eighty and grieving. People, not magic. |
 | **The unkept shop "takes" someone** (Abraham's wife in 1989, Abraham on October 3) | Two deaths, alone, in winter. Abraham walked into the freezer himself, believing it; Olstad found him and kept quiet. His wife's death stays open. And rule 1 keeps the back door unlocked: anyone can come in. |
-| **Management's envelopes** | The congregation pays its Keeper; Ezra pushes the envelope under the door every Tuesday (`forks.md`). |
+| **Management's envelopes** | The congregation pays its Keeper; Ezra pushes the envelope under the door before dawn every Wednesday (`forks.md`). |
 
 **One ending is allowed to lean supernatural** (see "Endings"), and even that
 one can be read as MC losing his mind completely.

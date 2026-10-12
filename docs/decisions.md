@@ -57,7 +57,7 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 - **Abraham walked into the freezer himself** on October 3, believing the unkept
   shop would take whoever held the keys.
 - **Management's envelopes are the congregation's:** the collection plate pays
-  the Keeper; Ezra delivers them every Tuesday.
+  the Keeper; Ezra delivers them before dawn every Wednesday (the first, the morning after MC arrives).
 - **Rule 1 means anyone can come in at night.** Keys matter less than the open
   back door.
 - **The tin under 0527 (proposal):** a key and a slip of paper, leading to the

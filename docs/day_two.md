@@ -18,7 +18,7 @@ is clearest tonight.
 | Time | Part | What happens |
 |---|---|---|
 | ~7:30 | Morning, apartment | Consequences of night one (below). |
-| 9:00 | Open the shop | No envelope (it's weekly; next one Tuesday). |
+| 9:00 | Open the shop | No envelope (it's weekly; the next one is Wednesday the 13th). |
 | 9:00 to sunset | Shop hours | 4 customers. Branches on day one. |
 | ~19:08 | Close | Closing follows the real sunset. |
 | Evening | Map | New: the church (Thursday watch) and Sam's cabin. |
