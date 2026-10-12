@@ -13,11 +13,9 @@ narration: No sound. Just a low mechanical hum, somewhere deeper in the dark. St
 narration: The air smells of cold metal, gun oil and old fur.
 narration: Shapes in the dark. A glass counter. Antlers on the wall. Something standing very still in the corner.
 narration: It's only a bear. It's only a stuffed bear.
-paranoia: Why are you here, again?
-paranoia: This place looks like it fell out of a cheap horror movie. And the longer you look at it, the less it looks like a movie.
 paranoia: Don't make a sound.
 paranoia: Not that it matters. There's no one here. Right?
-unknown: Right. All alone.
+unknown: Right. Just us.
 
 # --- The counter. The first time you get there, the phone rings. ---
 
@@ -81,7 +79,7 @@ narration | time=+5 | flag=office_open: You push the door. It swings inward with
 narration | light=office: The light hurts your eyes. A bare bulb, far too bright, hanging from a cord.
 narration: A small room. A wooden desk. An office chair, pushed back, as if someone just stood up.
 narration: Above the desk, a ram's head, mounted, its horns curling back on themselves. Nothing else on the walls. Nothing else at all.
-narration: And a smell. Sweet and heavy, underneath the dust. You can't name it. You don't want to.
+narration: And a smell, sweet and chemical under the dust. Something they use on hides, you tell yourself.
 paranoia: Breathe through your mouth.
 narration: On the desk, squared neatly in the middle, an envelope. Propped up and waiting, as if it was put there for you to find.
 
@@ -89,7 +87,7 @@ narration: On the desk, squared neatly in the middle, an envelope. Propped up an
 === envelope_held
 narration: It's heavier than a letter should be. The paper is soft, as if it's been handled many times.
 narration: Three words on the front: FOR THE KEEPER. The handwriting presses so hard you can feel it through the other side.
-paranoia: Whoever wrote this was very sure you'd come.
+paranoia: Not John. The Keeper. Whoever turned up.
 narration: Under the bulb, the ink is sharp and black. You won't have any trouble reading it.
 > Open it -> @open_letter
 
@@ -106,8 +104,8 @@ narration: Out in the dark, the hum goes on. Now you can place it: behind a heav
 
 === after_letter_ignored
 paranoia: Rule four. You didn't answer.
-paranoia: Not knowing saved you. It won't, next time.
-unknown: They'll call again. They always call again.
+paranoia: You got lucky. Luck isn't a rule.
+unknown: It'll ring again. Whoever it is can wait longer than you can.
 narration: Out in the dark, the hum goes on. Now you can place it: behind a heavy steel door at the very back of the shop. A compressor. A freezer, maybe.
 -> upstairs
 
@@ -149,14 +147,15 @@ paranoia: And go where? You haven't got anywhere. That's why you're here.
 
 === look_phone_night
 narration: The phone. Quiet now. You don't touch it.
-paranoia: It'll ring again. Don't wait for it.
+paranoia: Don't stand by it. Start listening for it and you'll never stop.
 
 === look_register_night
 narration: The register drawer hangs open. Not a coin in it. Not even a paper clip.
 paranoia: Whoever cleaned it out took their time.
 
 === look_shelves_night
-narration: Shelves behind the counter. Things with paper tags on strings: a rifle, a box, a clock that's stopped. Held, not for sale. Left here as a promise to come back.
+narration: Shelves behind the counter. Things with paper tags on strings: a rifle, a box, a clock that's stopped. Held, not for sale. Each one left here by somebody who meant to come back for it.
+paranoia: Some of them did.
 
 === stairs_not_yet
 narration: The stairs climb into the dark along the wall. The offer said there'd be a room up there.
@@ -187,3 +186,4 @@ paranoia: Somebody put real care into this one.
 === look_chair_night
 narration: The chair, pushed back from the desk at an angle, as if someone stood up in a hurry.
 narration: You put your hand on the seat. It's cold. Of course it's cold.
+paranoia: Whoever left the light on for you didn't stay to say so.

@@ -34,18 +34,17 @@ narration | time=22:40: The wipers drag across the glass, squealing on every ret
 narration: Snow rushes the headlights and vanishes. Rushes and vanishes.
 narration: The heater smells of burning dust. Your fingers are still cold.
 narration: The radio drifts between stations. A voice, static, half a hymn, static.
-narration: No taillights ahead. None behind. It has been just you for miles.
+narration: No taillights ahead. None behind. Not for a long time.
 paranoia: Good. Keep it that way.
 paranoia: Where are you going?
 paranoia: You don't know, do you.
 narration: A white cross at the side of the road, plastic flowers frozen to it. A mile on, another. Then two together. A road this empty shouldn't need so many.
 narration: The paper in your coat pocket. A typed letter, and folded inside it, directions in handwriting you don't recognize. You've touched it so often the folds have gone soft.
 paranoia: Don't take it out. You know what it says.
-narration: At the last gas station you signed for the fuel without thinking. Halfway through, you had to stop and start again.
+narration: At the last gas station you signed for the fuel without thinking. The first letter came out wrong. You had to turn it into a different one.
 narration: The road ends where the headlights end. Past that, nothing. Not dark. Nothing.
 narration: A hand-painted sign leans out of a snowbank, half buried: PREPARE TO MEET THY G... The rest is under the snow.
 unknown: Where are you going, sweetheart?
-unknown: And what will you do when you get there?
 narration | static=silent: The radio clears for a single moment. A man's voice, calm and unhurried, like someone sitting up with a sick friend: "...so tell me, caller. What is it you're carrying that you can't put down?"
 narration: "And to anyone still out on the road tonight: wherever you're going, keep your windows shut when you get there."
 narration | static=loud: Static.
@@ -54,6 +53,7 @@ narration | static=loud: Static.
 narration | static=loud | time=+5 | sound=click: You turn the dial. Static, a preacher, static, a man selling snow tires, static.
 narration: Then a caller, mid-sentence: "...Hank, out past Mile 30. Saw an old sedan go by, northbound, one headlight dimmer than the other..."
 paranoia | static=normal: One headlight dimmer than the other. Check yours. No. Don't.
+narration: You leave the dial where it is, low, on the hiss between stations. Now and then a word comes through. It's enough to drive by.
 
 === glovebox
 narration | time=+5 | sound=latch: The latch sticks, then gives. The lid drops open, and the little bulb inside comes on, yellow and weak.
@@ -73,7 +73,6 @@ paranoia: Good. Exactly where it was.
 narration | time=+5: A pawn ticket, number 0527. The shop's name is stamped across the top. You know it. You've read it a hundred times, on the letterhead in your pocket.
 narration: On the back, in pencil, the address. Somebody wrote it down twice, in two different places, so they couldn't lose it.
 narration | take=pawn_ticket: You slip the ticket into your pocket. You couldn't say why.
-unknown: Two copies. Somebody really wanted you to arrive.
 
 === glovebox_papers
 narration: Under everything, folded in three, a sheet of paper gone soft at the creases.
@@ -95,7 +94,7 @@ unknown: Or there was never anyone. Which would be worse, sweetheart?
 
 === mirror_eyes
 narration: Along the bottom of the glass, a strip of your own face. Just the eyes.
-narration: Red-rimmed. Older than you remember them. You hold your own gaze, and it's like being looked at by a stranger who knows something about you.
+narration: Red-rimmed. Older than you remember them. You hold your own gaze until it feels like a stranger's, one who knows something about you and hasn't decided what to do with it.
 paranoia: John's eyes now. Get used to them.
 
 === passenger
@@ -136,7 +135,6 @@ narration: You say it, quietly, to the windshield. It doesn't sound right.
 
 === wheel
 narration: You put both hands on the wheel. Ten and two, the way someone taught you once.
+narration: You don't let yourself think about who.
 paranoia: Just drive.
-unknown: You're almost there.
-unknown: Maybe.
 narration | time=23:20 | show=exterior: The sign comes out of the snow all at once. PAWN, GUNS, FURS, TAXIDERMY. One letter dead in the neon.

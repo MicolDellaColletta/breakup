@@ -248,11 +248,11 @@ The Keeper's wages. The owner is dead, but they keep coming.
 - **Sometimes there's something else in it:** a note, or an object. Sometimes
   nothing but the money.
 - **Who sends them: the congregation** (decided, `forks.md`). Ezra, as church
-  treasurer, pushes the envelope under the door before dawn every Tuesday. The
+  treasurer, pushes the envelope under the door before dawn every Wednesday. The
   Keeper's wages come out of the collection plate: the town literally pays its
   Keeper. The "something else" is theirs: a prayer card, a hymn number.
   Abraham signed the job offers "Management" for the church's money. One
-  Tuesday MC wakes early and watches Ezra's boots on the step.
+  Wednesday MC wakes early and watches Ezra's boots on the step.
 - In the game, the envelope is where money comes from, and a weekly beat:
   the player learns to dread or look forward to what's inside.
 
@@ -813,7 +813,7 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 - [ ] Who painted the 1989 breakup painting?
 - [ ] Ray's rifle: is tag 0431 his? (Draft: yes.)
 - [x] Management's envelopes: the congregation, delivered by Ezra every
-      Tuesday (`forks.md`).
+      Wednesday (`forks.md`).
 - [ ] How Olstad's homophobia shows on the page, scene by scene, so it stays
       subtle but clear.
 - [x] The recurring customer from day one: the Reverend Elias (draft; see "The church and the radio").

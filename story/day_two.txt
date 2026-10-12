@@ -34,7 +34,8 @@ paranoia: You didn't feed it. Again.
 === morning_door_locked
 narration: In the kitchen, on the table, the key on the red tag. You left it in the back door. You're sure you left it in the back door.
 narration: Downstairs, past the freezer, the back door is unlocked again.
-paranoia: Rule one. The other half of it. Somebody minds it, even if you don't.
+paranoia: Somebody came up the stairs while you slept. Set it down by the bowl. Went back down and opened the door.
+paranoia: Or you did. You don't remember the stairs. You don't remember falling asleep, either.
 -> morning_window
 
 === morning_door_open
@@ -58,7 +59,7 @@ paranoia: Nothing. That's worse.
 
 === opening
 narration: The mat inside the front door is bare this morning. No envelope.
-paranoia: Weekly, the letter said. Don't count on it. Count it.
+paranoia: Weekly, the offer said. Somewhere out there, somebody keeps a calendar with you on it.
 narration | time=09:00: You turn the sign. OPEN. The neon buzzes on against a sky the color of dishwater.
 
 # --- Cody Hollis, if you sold him the ice picks yesterday. ---
@@ -170,9 +171,10 @@ narration: You slide the counter drawer open without looking down, the way you'd
 narration | sold=shells: At the back, a single box of .22 shells. A slip of paper under the rubber band, in the owner's hand: THURS.
 narration: You set it on the glass.
 ezra | flag=ezra_satisfied: Abraham kept them in the drawer too.
-narration: Something in his shoulders lets go a fraction of an inch. He puts six dollars on the counter, a five and a one, folded together.
-ezra: Three Thursdays I came by. Locked. I thought he'd gone early this year.
-ezra: I take the watch tonight. On the radio. Somebody has to sit with it.
+narration: Something in his shoulders lets go a fraction of an inch. He puts six dollars on the counter, a five and a one, folded together, both turned the same way up.
+appraisal | if=appraisal>=2: Faced, like a teller does it. Like the money in the envelope.
+ezra: Two Thursdays I came by. Locked. I thought he'd gone early this year, without saying.
+ezra: I take the watch tonight. On the radio. Somebody has to sit with it, so nobody out there sits alone.
 narration: He tucks the box into his coat. At the door he stops, and for the first time he looks straight at you.
 ezra: You'll come up to the church on Sunday. We pray for the Keeper.
 > "I'll be busy." -> ezra_busy | lean=paranoia
@@ -273,13 +275,14 @@ unknown: There. Was that so hard?
 === ruth_enters
 narration | sound=bell | time=+90: The bell. Then nothing. Whoever opened the door is standing in it, letting the cold in, not coming further.
 narration: Ruth. She's looking at the shop the way you'd look at a grave you haven't visited in a long time.
-narration: Then she comes in, all at once, and drops a bundle of mail on the counter.
+narration: Then she comes in, all at once, and drops a bundle of mail on the counter. She smells of the cold, and of peppermint. A lot of peppermint.
 ruth: Post office was holding these. Dad never picks up in September. Bills, mostly. Seed catalogs. God knows.
 ruth: This one's yours, I guess.
 narration: A window envelope. NORTHERN LIGHTS AUTO RENTAL, ANCHORAGE. In the window, typed: J. and then a pale ghost of letters where the ribbon ran dry. c/o Kettle Lake Pawn.
 narration | take=rental_letter: You put it in your pocket before she can see your face.
 paranoia: John gave this address. John's still getting mail.
 ruth: You look like somebody who doesn't like mail.
+narration | if=visited:pub: She looks at you a second too long, the way she did last night from behind the camera.
 narration: She doesn't wait for an answer. She's looking past you, at the hallway, at the foot of the stairs.
 ruth: Can I go up? I left something up there. A long time ago.
 narration: Her keys are already in her hand. On the ring, among the truck key and the bar keys, a small brass one with a pink plastic tag. A child's tag.
@@ -320,12 +323,13 @@ ruth: Sure. This winter.
 
 === ruth_goes
 ruth: If he calls. Dad. Tell him the mail's here.
+ruth | if=flag:ruth_upstairs and visited:pub: Your stool's still down at the end. Nobody's going to take it. I'm just saying it's there.
 narration | sound=bell: The bell. Through the window you watch her stand by her truck a while before she gets in, her hand on the door, not opening it.
 
 # --- Closing time. When this ends, the shop is yours to look around (story/shop_looks.txt). ---
 
 === closing
-narration | time=19:08: Eight minutes past seven, and the light goes. Three minutes earlier than yesterday. It will be six minutes tomorrow, then more.
+narration | time=19:08: Eight minutes past seven, and the light goes. Three minutes earlier than yesterday. Tomorrow it will go earlier again, and the day after that.
 narration: You turn the sign. CLOSED. The neon stays on.
 paranoia: Up the hill, the church has its lights on. Thursday.
 paranoia: Somebody sits with the radio on Thursdays. You heard.

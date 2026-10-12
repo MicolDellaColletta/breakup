@@ -18,7 +18,7 @@ is clearest tonight.
 | Time | Part | What happens |
 |---|---|---|
 | ~7:30 | Morning, apartment | Consequences of night one (below). |
-| 9:00 | Open the shop | No envelope (it's weekly; next one Tuesday). |
+| 9:00 | Open the shop | No envelope (it's weekly; the next one is Wednesday the 13th). |
 | 9:00 to sunset | Shop hours | 4 customers. Branches on day one. |
 | ~19:08 | Close | Closing follows the real sunset. |
 | Evening | Map | New: the church (Thursday watch) and Sam's cabin. |
@@ -195,7 +195,7 @@ Choices made while writing it (change freely):
   The Reverend, off the air during a hymn: "Go home before eleven... listen to
   the numbers, not the words."
 - The Thursday broadcast's hymn numbers are rules: one, five, four.
-- Night two's phone: speaking first gets your own "Hello?" back, in your voice.
+- Night two's phone: speaking first gets a long breath and a click (was: your own "Hello?" back). Per `daniel.md`, he hangs up, and the next night there's no call.
 
 ## Open questions
 

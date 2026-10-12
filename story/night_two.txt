@@ -17,11 +17,13 @@ paranoia: Rule seven.
 === radio_on
 narration | sound=click: Static. Then the static thins, and thins, and is gone.
 narration: The calm voice, clear as if he were in the room. Not a few seconds this time. A whole minute.
+narration | if=flag:at_church: You can see him now. The shirtsleeves, the foam on the walls, his eyes on the door.
 narration: "...the Thursday watch, friends, keeping you company through the dark. Tonight's hymns, for those following along at home."
 narration: "Number one. Number five. And number four."
 narration: "One. Five. Four."
 narration | if=flag:at_church: "And thank you to our visitor this evening. It was good of you to come up."
 narration: Then a hymn, very far away, and the static comes back over it like water over ice.
+narration: You don't turn it down. It's the only other voice in the building.
 appraisal | if=appraisal>=1: One, five, four. Windows and the back door. The dog. The phone.
 paranoia: He's reading you the rules. Out loud. To the whole town.
 paranoia: Which means the whole town knows them.
@@ -32,7 +34,8 @@ narration: In the quiet, the freezer. Then, under it, the tapping again. Slower 
 
 === kitchen
 narration | time=+10: The bowl by the stove.
-narration | if=broke:dog: It's back where it belongs this morning. Somebody put it back. You didn't put it back.
+narration | if=broke:dog: It's back by the stove. This morning it was at the foot of the stairs, upside down. You don't remember picking it up.
+paranoia | if=broke:dog: You must have. On the way up. You must have.
 paranoia: Rule five.
 > Fill the bowl -> kitchen_fed | set=fed_dog
 > Leave it -> kitchen_unfed | break=dog
@@ -154,14 +157,15 @@ narration: "About... his wife. You know. I've known her fifty years. I've known 
 narration: Nothing. Just her breathing, faster now.
 narration: "No. If he's given it up, I won't be the one to say it. Not on this phone. Not to you."
 narration | sound=hangup: She hangs up crying.
-unknown: You did that.
-paranoia: You wrote it in the book. You did that.
+paranoia: You wrote it in the book. Now nobody in town will say it.
+unknown: Except you. You could say it. Any time you like.
 -> night_dog
 
 === phone_open_line
 narration: An open line again. A room on the other end, and a clock ticking in it.
 narration: Someone breathing, slow and even. Nothing else.
 narration: You both wait. Neither of you speaks.
+narration: After a while you find you don't want to be the one who hangs up.
 narration | sound=deadline: Then a soft click, and the dial tone, and nothing.
 narration | stop=deadline | sound=hangup: You set the receiver down.
 paranoia: The same as the first night. Whoever it is, he's patient.
@@ -177,6 +181,7 @@ narration | sound=stairs: Somewhere after midnight, the stairs.
 narration: One step. A rest. Another step. A rest. Slow, the way an old man climbs, with a hand on the rail.
 narration | stop=stairs: It reaches the top. The kitchen. A scrape of steel on the floor, small and patient. Then quiet, for a long time.
 narration | sound=stairs: Then the stairs again, going down, one step and a rest.
+narration: You never hear the back door. You wouldn't, over the freezer.
 paranoia: You fed it. It's quiet when you feed it. That's all you need to know.
 paranoia: That's all you need to know.
 -> morning_after

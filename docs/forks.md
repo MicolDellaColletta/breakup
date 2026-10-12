@@ -269,11 +269,11 @@ conditions hold → The fire → The season ends (or The ice).
 ## Settled with this page
 
 - **Management's envelopes are the congregation's.** Ezra, as church
-  treasurer, pushes the envelope under the door before dawn every Tuesday. The
+  treasurer, pushes the envelope under the door before dawn every Wednesday. The
   Keeper's wages come out of the collection plate: the town literally pays its
   Keeper. The "something else" is the congregation's: a prayer card, a hymn
   number. Abraham signed the job offers "Management" for the church's money.
-  The reveal is a scene: one Tuesday MC wakes early and watches Ezra's boots on
+  The reveal is a scene: one Wednesday MC wakes early and watches Ezra's boots on
   the step.
 - **Abraham walked into the freezer himself,** on October 3, when John didn't
   come, because he believed the unkept shop would take whoever held the keys.
