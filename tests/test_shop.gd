@@ -10,6 +10,7 @@ func run() -> void:
 	await _turning()
 	await _bell()
 	await _customer_and_examine()
+	await _back_room()
 
 func _open(day: int) -> Node:
 	gs.reset()
@@ -146,6 +147,44 @@ func _customer_and_examine() -> void:
 	advance(column)
 	await wait(0.8)
 	check(view.person_alpha < 0.5, "and she goes")
+
+func _back_room() -> void:
+	section("After closing: the back room, behind the steel door")
+	var counter: Node = await _open(1)
+	var spots: Node = counter.get_node("%ExploreSpots")
+	counter._start_exploring()
+	counter.walk("hallway")
+	await wait(0.7)
+	check(spots.spot_ids().has("steel_door") and not spots.spot_ids().has("steel_door_open"), "day one: the steel door is only looked at")
+	counter = await _open(2)
+	spots = counter.get_node("%ExploreSpots")
+	var column: Node = counter.get_node("%DialogueColumn")
+	counter._start_exploring()
+	counter.walk("hallway")
+	await wait(0.7)
+	check(spots.spot_ids().has("steel_door_open"), "from day two it opens")
+	counter.click("steel_door_open")
+	await wait(0.7)
+	check(counter.current_room() == "backroom" and spots.spot_ids() == ["freezer", "bench", "glass_eyes", "back_room_door", "furnace", "crates", "closed_backroom_hall"], "the back room: the freezer, the bench, a jar, the back door, the furnace, the crates")
+	counter.click("freezer")
+	advance(column)
+	check(_log(column).contains("A padlock on the hasp") and choices(column).size() == 2, "the freezer is padlocked; listen, or don't")
+	await pick(column, "ear")
+	advance(column)
+	await process_frame
+	check(gs.flags.has("listened_freezer") and spots.interactive, "listening; then the room again")
+	counter.click("glass_eyes")
+	advance(column)
+	await process_frame
+	check(gs.flags.has("seen_human_eyes"), "one pair of eyes in the jar isn't an animal's")
+	root.get_node("Hud").hold("back_door_key")
+	spots._on_clicked("freezer")
+	check(column._section == "use_back_key_freezer", "the back door key isn't the freezer's")
+	advance(column)
+	await process_frame
+	counter.click("closed_backroom_hall")
+	await wait(0.7)
+	check(counter.current_room() == "hallway", "and back to the hallway")
 
 func _log(column: Node) -> String:
 	var text: String = ""
