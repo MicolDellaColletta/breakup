@@ -40,12 +40,31 @@ const DAY_STORIES: Dictionary = {
 	5: "res://story/day_five.txt",
 	6: "res://story/day_six.txt",
 	7: "res://story/day_seven.txt",
+	8: "res://story/day_eight.txt",
+	9: "res://story/day_nine.txt",
 }
 # Days that aren't spent at the counter, and the scene they are (Sunday: the
 # shop is closed; you walk to church and around town by day).
 const DAY_SCENES: Dictionary = {
 	5: "res://scenes/visit.tscn",
+	9: "res://scenes/visit.tscn",
 }
+# After week one, the story days are key days, with days skipped between them.
+# Which calendar day (counted from October 5, the drive) each one is. Days
+# not listed fall on the day after the last (week one: day 3 is October 8).
+const DAY_DATES: Dictionary = {
+	8: 9,
+	9: 12,
+	10: 18,
+}
+# A bridge before a key day covers the days skipped: a title card and a few
+# lines (story/bridges.txt, the section named here), then the day itself.
+const BRIDGES: Dictionary = {
+	8: "bridge_wednesday",
+	9: "bridge_weekend",
+	10: "bridge_monday",
+}
+const BRIDGE_SCENE: String = "res://scenes/bridge.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
 const NIGHT_STORIES: Dictionary = {
 	1: "res://story/night_one.txt",
@@ -55,6 +74,8 @@ const NIGHT_STORIES: Dictionary = {
 	5: "res://story/night_five.txt",
 	6: "res://story/night_six.txt",
 	7: "res://story/night_seven.txt",
+	8: "res://story/night_eight.txt",
+	9: "res://story/night_nine.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on
@@ -347,6 +368,25 @@ func add_cash(amount: int) -> void:
 	cash += amount
 
 # A sale: the money goes in the till and the ledger writes it down.
+# The calendar day (counted from October 5) a story day falls on.
+func date_of(which_day: int) -> int:
+	return DAY_DATES.get(which_day, which_day)
+
+# A key day starts on its own date: the clock jumps ahead to that morning
+# (never backwards). Each day's scene calls this as it opens.
+func start_day() -> void:
+	var morning: int = date_of(day) * MINUTES_PER_DAY + 6 * 60
+	if minutes < morning:
+		minutes = morning
+		time_changed.emit()
+
+# Where the night leads in the morning: a bridge first if the days between
+# need one, then the day itself; "" when nothing more is written.
+func next_scene() -> String:
+	if BRIDGES.has(day):
+		return BRIDGE_SCENE
+	return day_scene(day)
+
 # Where a day starts: the counter, or another scene (DAY_SCENES); "" when
 # that day isn't written yet.
 func day_scene(which_day: int) -> String:

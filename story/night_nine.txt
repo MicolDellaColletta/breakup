@@ -1,0 +1,133 @@
+# THE NINTH NIGHT: Sunday, October 17 (after key day 9)
+# Same format as the other nights. The night: the Sunday hymns; the call (he's
+# still hurt, and tonight he hums along with the hymn, a little, until it
+# hurts); the dog. Going down to the phone is the same walk as night two.
+# Design: docs/week_two.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. Sunday night. Full of roast, and somebody's hands still on the back of your neck.
+narration | stop=stairs: The apartment.
+narration | if=flag:touched_coat: Your palm remembers the wool. Warm. Thick. You wash your hands. It doesn't wash off, the warmth.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Sunday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The Sunday hymn hour. Real hymns, nothing in them. You listen anyway, the way you'd listen to someone breathing in the next room.
+
+=== radio_off
+narration: You leave it off. The lake ice, far off, groaning like furniture being moved.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_nine
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. On the line. Beside it, still, the brown thread from Thursday. You haven't moved it. You can't.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows.
+narration | if=flag:drawing_in_window: From inside, the back of June's drawing, taped to the glass. The coat, in reverse, walking the other way.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold. Nothing. The town asleep, full of roast.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser. The flannel shirts.
+narration | if=has:notebook: The notebook. You open it, and there's a second line under the first, in your hand: "The coat is warm." You don't remember. You close it.
+
+=== painting
+narration | time=+5: The painting. The figure in its long brown coat, far out on the ice. Walking away.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked. Quiet.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+# --- Bed, and the call. ---
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven.
+narration | sound=ring: The shop phone.
+paranoia: Rule four.
+> Go down to it -> phone_go_down | lean=animal
+> Let it ring -> phone_ignored | lean=paranoia
+
+=== phone_ignored
+narration | show=bedroom: It rings. You let it. It rings longer than it's ever rung.
+narration | stop=ring: It stops.
+-> night_dog
+
+=== phone_go_down
+narration | sound=stairs: Down the stairs, toward the ringing.
+narration | stop=stairs: The hallway. The steel door. The phone.
+
+=== phone_steel_door
+narration: The steel door. The cold. The hum. Nothing else tonight.
+
+=== phone_turn_back
+narration | sound=stairs: You go back up.
+-> phone_ignored
+
+=== phone_down
+narration: Behind the counter.
+narration | stop=ring | sound=pickup | break=phone: You lift the receiver. You don't speak.
+narration: The room. The clock. Behind it, a radio: the Sunday hour, the same hymn as yours, a second behind.
+narration: And then, very low, under the hymn: humming. Him. Humming along, a few notes, the tune exactly right.
+narration: Then the breath catches, sharp, and the humming stops, as if it had hurt to do it.
+paranoia: He knows the hymns. He knows the hymns like someone who was made to learn them.
+> Wait -> phone_wait
+> Hang up first -> phone_hang_up | lean=animal
+
+=== phone_wait
+narration: You wait. The hymn ends on his end a second after yours.
+narration | sound=hangup: A soft click.
+-> night_dog
+
+=== phone_hang_up
+narration | sound=hangup: You put it down. Upstairs, the hymn goes on, without him.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_nine
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Back in bed. Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other. Slower than last week.
+narration | stop=stairs: The kitchen. The bowl. A long time. Then down.
+paranoia: Slower. Knees get tired. Sunday knees. Church knees.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Back in bed. Facing the door.
+narration: Nothing comes up. Near dawn, something at the bottom of the stairs, patient, then gone.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Monday.

@@ -25,6 +25,11 @@ const STORY_SCENES: Dictionary = {
 	"res://story/night_six.txt": "res://scenes/night.tscn",
 	"res://story/day_seven.txt": "res://scenes/counter.tscn",
 	"res://story/night_seven.txt": "res://scenes/night.tscn",
+	"res://story/bridges.txt": "res://scenes/bridge.tscn",
+	"res://story/day_eight.txt": "res://scenes/counter.tscn",
+	"res://story/night_eight.txt": "res://scenes/night.tscn",
+	"res://story/day_nine.txt": "res://scenes/visit.tscn",
+	"res://story/night_nine.txt": "res://scenes/night.tscn",
 	"res://story/use.txt": "res://scenes/counter.tscn",
 	"res://story/examine.txt": "res://scenes/counter.tscn",
 }
@@ -35,8 +40,8 @@ const SPOT_STORIES: Dictionary = {
 	"shop_night": ["res://story/shop.txt"],
 	"apartment_first": ["res://story/apartment.txt"],
 	"shop": ["res://story/shop_looks.txt"],
-	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt", "res://story/night_six.txt", "res://story/night_seven.txt"],
-	"visit": ["res://story/day_five.txt"],
+	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt", "res://story/night_six.txt", "res://story/night_seven.txt", "res://story/night_eight.txt", "res://story/night_nine.txt"],
+	"visit": ["res://story/day_five.txt", "res://story/day_nine.txt"],
 	"examine": ["res://story/examine.txt"],
 }
 

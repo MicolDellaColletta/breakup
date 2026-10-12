@@ -45,6 +45,7 @@ func _ready() -> void:
 	narrator.use_sounds(sounds)
 	narrator.section_finished.connect(_on_section_finished)
 	narrator.line_shown.connect(_on_line_shown)
+	GameState.start_day()
 	narrator.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[5]))
 	narrator.add_story(USE_PATH)
 	hotspots.spot_clicked.connect(click)

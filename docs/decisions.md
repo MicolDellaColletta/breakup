@@ -9,6 +9,17 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 
 ---
 
+## October 12 — week two (`week_two.md`)
+
+- **The coat:** the congregation sews the Keeper a long wool coat every
+  winter (the Ladies' Circle, Thursdays at the Lunds'). The weighing and the
+  doorframe are its fitting; its lining holds the town's braids, teeth and
+  widows' hairpins. The Keeper wears it onto the ice at breakup. Leviticus 16,
+  made warm.
+- **Bridges** between key days open on a **title card** in the town's voice,
+  white on black (*"WEDNESDAY. THE KEEPER IS PAID."*).
+- After week one: key days and bridges. Week two: Thursday 14 and Sunday 17.
+
 ## October 12 — days four to seven (`days_four_to_seven.md`)
 
 - The end of week one as one arc: Saturday (the jacket comes home, Hanna Lund's

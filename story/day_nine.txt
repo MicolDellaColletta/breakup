@@ -1,0 +1,155 @@
+# KEY DAY 9: Sunday, October 17, 1999. The second Sunday.
+# A walk-around day, like day five (scenes/visit.tscn; spots in spots.cfg,
+# scene "visit"). Shorter: the shape is familiar, and the familiarity is the
+# horror. Design: docs/week_two.md.
+
+=== morning
+narration | time=08:00: Sunday. The bell, on the hill. You were awake before it started. You were waiting for it.
+narration: Your church shirt, washed, on the chair. You don't remember deciding to wash it.
+paranoia: Same time next week. She said it. You're already dressed for it.
+> Go up to church -> church_walk | lean=john
+> Stay in the shop -> stay_home | lean=paranoia
+
+# --- Church. ---
+
+=== church_walk
+narration | time=09:50: Up the hill. People fall in behind you again, and this time some of them nod, and one says "Morning," as if you were anybody.
+narration | show=church: The front pew. Empty. Yours. Nobody walks you to it this time. You walk yourself.
+paranoia: Your pew. A week, and it's yours.
+
+=== church_board
+narration: The prayer board. Your Polaroid, still pinned there. JOHN. 1999.
+narration: Beside it, new, a child's drawing in crayon. A long brown coat, walking onto blue ice.
+
+=== church_people
+narration: You turn. The faces turned toward you, pleasantly. Hanna, shining. Ezra, not looking at you.
+narration: Mrs. Hollis at the end of her pew, already kneeling. On the hem of her skirt, a brown thread.
+narration: Up in the choir loft, the women from Thursday, in a row. They watch you the way you'd watch a cake through an oven door.
+
+=== church_service
+narration | time=10:00: The bell stops. The Reverend, in the pulpit. He doesn't find you this time; he knows where you are.
+reverend: Seventy-five days, friends. Seventy-five days until the year turns.
+reverend: Some of you have been stocking your cellars. Some of you have been praying. I'd say: do both, and be kind to each other while you do it.
+narration: Then, again: "We pray for the Keeper." The church stands. The hands come.
+narration: Fewer this time. Not everyone comes forward. The ones who come stay longer.
+narration: Mrs. Hollis's hand, on the back of your neck again. Her thumb moves, once, slowly, along your hairline. Measuring something. Or comforting. Or both.
+> Bear it -> church_bear | flag=prayed_again | lean=paranoia
+> Stand up and walk out -> church_walk_out | flag=walked_out_again | lean=animal
+
+=== church_bear
+narration: You bear it. It's easier this time. That's the worst thing that's happened to you all week.
+narration: After, Ezra at your elbow. "The vestry."
+narration | show=vestry: The vestry. The scale. The doorframe. The book.
+
+=== church_walk_out
+narration: You stand. The hands fall away. They make an aisle again.
+narration: Nobody's surprised this time. That's the difference. Somebody at the back says, quite gently, "Oh, there goes the Keeper," the way you'd say it about a cat.
+-> church_door_tooth
+
+=== vestry_scale
+narration: The scale. Ezra slides the weight.
+> Step on the scale -> vestry_weighed | flag=weighed_again | lean=john
+> "No." -> vestry_refused | lean=animal
+
+=== vestry_weighed
+narration: You step up. The beam floats. He reads the number, quietly, and this time one of the women from Thursday writes it on the back of her hand, in pen, not in the book.
+ezra: Up a pound.
+narration: The women look at each other, pleased.
+paranoia: For the cut. Up a pound. They'll let it out.
+
+=== vestry_refused
+narration: Ezra lets the weight slide back to zero.
+ezra: She'll guess, then.
+narration: The woman from Thursday looks you up and down, and writes a number on the back of her hand.
+
+=== vestry_frame
+narration: The doorframe. Your line, from last week. Nobody adds a new one. They don't need to; you're not going to grow.
+narration: Behind the vestry door, on a hanger, under a white sheet: something long. Below the sheet, the hem shows. Brown wool. Thick. Almost to the floor.
+paranoia: They brought it to church. It's in the room with you. Don't lift the sheet.
+> Lift the sheet -> vestry_sheet | flag=touched_coat | lean=animal
+> Leave it -> vestry_leave_sheet | lean=paranoia
+
+=== vestry_sheet
+narration: You lift the corner. The coat. Long, heavy, brown, a deep collar. Not finished: one sleeve's only tacked on, with white thread.
+narration: You put your hand on it before you can stop yourself. It's warm. It's been near the stove all morning. It's the warmest thing in the room.
+narration: Behind you, very softly, one of the women: "Not yet, dear. Bad luck."
+narration: You let the sheet fall.
+
+=== vestry_leave_sheet
+narration: You leave it. You stand with your back to it, all through the weighing, feeling it there the way you'd feel someone standing too close in a line.
+
+=== vestry_book
+narration: The book. This winter's page. Two lines now. Oct. 10. Oct. 17.
+narration: On last winter's page, the lines go on, Sunday after Sunday, to a date in April. Then nothing. Then, at the bottom, in different ink: "Coat returned." Crossed out. "Coat not returned."
+
+=== church_door
+narration: Out through the church. The Reverend at the door, shaking hands. When it's you, he doesn't say anything at all this time. He just holds on a moment, and lets go.
+-> church_door_tooth
+
+=== church_door_tooth
+-> church_tooth_asked | if=flag:refused_tooth
+-> church_lunch
+
+=== church_tooth_asked
+narration: On the steps, the whole congregation coming out behind you. Ezra stops in front of you. He doesn't lower his voice.
+ezra: H.L. Eighty-nine. It's asked.
+narration: Behind him, Hanna, red to the ears, looking at her shoes. Behind her, everybody. Nobody moves. Nobody pretends not to listen.
+paranoia: In front of all of them. He waited till all of them were here.
+> "I'll bring it tomorrow." -> church_tooth_yes | flag=gave_tooth | lean=john
+> "No." -> church_tooth_no | flag=refused_tooth_public | lean=animal
+
+=== church_tooth_yes
+ezra: Tomorrow.
+narration: He nods. Behind him, the whole church lets out a breath you didn't know it was holding, and starts talking again, all at once, about the weather.
+-> church_lunch
+
+=== church_tooth_no
+narration: The silence goes on. Somebody coughs.
+ezra: Then you'll be asked again. Every Sunday. Until.
+narration: He doesn't say until what. He steps aside to let you down the steps. They all do.
+paranoia: The Keeper refused the church, on the church steps. That's what they'll say. That's all they'll say about you, now.
+-> church_lunch
+
+=== church_lunch
+narration: Mrs. Hollis at the bottom of the steps, waiting, as if nothing had happened. Nothing has, to her.
+widow: Roast. Same as last week.
+narration | show=hollis_kitchen | time=12:30: Her kitchen. Your place is set. It's been your place for a week.
+
+# --- Staying in the shop. ---
+
+=== stay_home
+narration | show=shop | time=10:00: You stay in the shop with the door locked. The bell stops.
+narration: They don't come down the hill this time. You wait for them, and they don't come, and that's worse.
+narration | time=12:00: At noon, a knock. Not the bell. Ezra, alone, in his overcoat, and behind him on the step, Mrs. Hollis, with a dish.
+narration | if=flag:refused_tooth: Ezra: "H.L. Eighty-nine. It's asked. Every Sunday, it'll be asked." He doesn't wait for an answer. He goes back up the hill.
+narration | if=!flag:refused_tooth: Ezra: "We missed you." He means it as a fact, not a feeling. He goes back up the hill.
+narration: Mrs. Hollis stays.
+widow: Roast. You'll come.
+narration | show=hollis_kitchen | time=12:30: Her kitchen. Your place is set. It's been your place for a week.
+
+# --- Mrs. Hollis's kitchen. ---
+
+=== kitchen_boots
+narration: Ray's boots by the back door, laced, set together. Snow-wet again.
+narration | if=flag:faith_hollis: His jacket on the peg above them.
+
+=== kitchen_chair
+narration: Ray's chair. The two bare patches on the floor beside it, paler than last week. Scrubbed again. Knelt on again.
+
+=== kitchen_rack
+narration: The drying rack. The dog's bowl, upside down at the end, clean. And beside the sink, in a saucer, the hairpins. Fewer than last week.
+paranoia: Fewer. She's been using them. Or sewing them into something.
+
+=== kitchen_door
+narration: Cody's door, shut.
+narration | if=flag:gave_picks_back: Behind it, nothing. No music. His boots aren't by the back door. She sees you notice. "He's out," she says. "On the ice. He's always out now."
+narration | if=!flag:gave_picks_back and sold:ice_picks: Behind it, music, low. He's in. He doesn't come out.
+narration | if=!sold:ice_picks: A hockey poster on it. She talks to it, passing, the way she did last week.
+
+=== kitchen_eat
+narration: The roast. The potatoes. The carrots cut the same way. The same chair, the same plate. Your plate, now.
+narration | fray=-1: You eat. She watches. It's very good. It's always very good.
+warmth: Same time next week. You like it here. You like being somebody's Sunday.
+paranoia: You like it. That's how they do it. That's how they've always done it.
+widow: Thomas liked the roast too. He had seconds every week. Every week till April.
+narration | end=map | time=16:30: When you leave, she watches from the door until you reach the corner. Same as last week. Same as next week.

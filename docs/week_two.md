@@ -1,7 +1,7 @@
 # Breakup: Week two (October 13 to 19)
 
-A draft for discussion, like `days_four_to_seven.md` was. Nothing here is in
-the game yet. Change anything. Checked against `pillars.md`, `forks.md`,
+Agreed on October 12: the coat and the title cards are decided; the rest
+follows the leans below. Being built. Checked against `pillars.md`, `forks.md`,
 `daniel.md`, `underneath.md`.
 
 ---
@@ -205,15 +205,56 @@ Sunday in 1999: church, then the tin.
   fitting scene).
 - **Week two's stories:** two key days, two nights, three bridges.
 
+## As built (Oct 12)
+
+`story/bridges.txt`, `day_eight.txt`, `night_eight.txt`, `day_nine.txt`,
+`night_nine.txt`, Thursday and Sunday in `town.txt`; tested in
+`tests/test_week_two.gd`.
+
+- **Engine:** `GameState.DAY_DATES` (key day 8 is October 14, 9 is the 17th,
+  10 is the 23rd) and `start_day()` (the clock jumps ahead as a day's scene
+  opens); `GameState.BRIDGES` and `next_scene()` (a bridge before a key day);
+  `scenes/bridge.tscn`: black, a title card (`card=` on a line) and the lines
+  under it. Key day 9 uses the walk-around scene, like day five.
+- **Bridges:** Wednesday (*"Wednesday. The Keeper is paid."*: the envelope,
+  hymn numbers 1, 5, 9 circled, "Seventy-nine days, friends"); Friday and
+  Saturday (the window, June's drawing; Ruth's mood after the camera);
+  Monday and Tuesday (the Keeper's weight on the notices; MC crossing off
+  days in Abraham's hand), which ends week two.
+- **Key day 8:** a new detail of the John night per background; a line in
+  the notebook MC doesn't remember writing (*"3:00. On the stairs. It says
+  there."*). Ezra's Thursday completes itself (or he stares at the jar, if MC
+  refused the tooth). Mrs. Hollis's Thursday dish, a brown wool thread on her
+  sleeve. Cody, for the picks (`gave_picks_back` or `kept_picks`). June's
+  drawings: the Keeper in a long brown coat (`drawing_in_window`).
+- **Thursday evening:** **the Lunds'** (new place): the Ladies' Circle sewing
+  the coat; watch and they all wave, or knock and they measure your arm
+  (`saw_coat`; Hanna: *"Mine's in the hem. So you'll walk on it."*). **The
+  camera**: Sam slips MC one at the Gleaner; Ruth catches MC at the wall:
+  the truth (`broke_faith_ruth`; she pulls the film), a lie (`lied_to_ruth`,
+  `broke_faith_sam`: seven exposures), or hide it. The Thursday watch reads
+  "nine".
+- **Night eight:** the call has changed: a kettle, a pill bottle, a breath
+  that catches. A brown thread by the bowl, or on the step.
+- **Key day 9:** MC's pew; the hands, fewer and longer; weighed again (`up a
+  pound`); **the coat under a sheet behind the vestry door** (lift it:
+  `touched_coat`, warm, one sleeve tacked); the book's last winter: "Coat
+  returned." crossed out. If MC refused the tooth, Ezra asks on the steps in
+  front of everyone (`gave_tooth` or `refused_tooth_public`). Lunch: your
+  place, set; *"Thomas had seconds every week. Every week till April."*
+- **Sunday evening:** Ruth's house only if faith with her holds; Sam warm or
+  cold depending on the camera.
+- **Night nine:** he hums the hymn on the line, until it hurts.
+
 ## Open questions
 
-- [ ] **The coat:** yes? It answers the weighing, the doorframe, the braid and
-      the teeth at once, and it's Leviticus 16 made into something warm.
-- [ ] **Title cards for bridges** (white on black, the town's voice), or plain
-      narration?
-- [ ] **The Ruth/Sam collision** this early, or save it for November?
-- [ ] **Cody going back out on the ice:** does he come back? (If he had the
-      picks: yes, with something. If not: open.)
+- [x] **The coat** (decided): it answers the weighing, the doorframe, the braid
+      and the teeth at once; Leviticus 16 made into something warm.
+- [x] **Title cards for bridges** (decided): white on black, the town's voice.
+- [ ] **The Ruth/Sam collision** this early, or save it for November? (Lean:
+      this week, as planned; built that way.)
+- [ ] **Cody going back out on the ice:** does he come back? (Lean: if he had
+      the picks, yes, with something, in week three. If not: open.)
 - [ ] **Key day 10 (Oct 23):** the freeze and the shadow under the ice, or
       something else?
 - [ ] Halloween is a Sunday in 1999. Church and the tin on the same day, or

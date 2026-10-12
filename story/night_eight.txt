@@ -1,0 +1,146 @@
+# THE EIGHTH NIGHT: Thursday, October 14 (after key day 8)
+# Same format as the other nights. The night: the Thursday broadcast, with a
+# hymn number there's no rule for (nine); the call, and it's changed (a
+# kettle, a pill bottle, a breath that catches: he's hurt); and by the bowl,
+# a thread of brown wool. Going down to the phone is the same walk as night
+# two. Design: docs/week_two.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. Thursday. The second one.
+narration | stop=stairs: The apartment. You check everything's where you left it.
+narration | if=flag:saw_coat: Your own coat on its hook by the door. Thin. Cheap. You stand and look at it a while, as if it might be jealous.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Thursday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The static thins, and clears. The Thursday watch. The calm voice.
+narration: "...keeping you company through the dark, friends. Tonight's hymns, for those following along at home."
+narration: "Number one. Number five. And number nine."
+narration: A pause. As if he'd read it wrong, and decided not to say so.
+narration: "Nine."
+appraisal | if=appraisal>=1: One, the window. Five, the dog. Nine. There are eight rules. Nine's the Keeper. In he goes.
+paranoia: That's not him. Somebody gave him that number. He read what he was given.
+
+=== radio_off
+narration: You leave it off. Up the hill, faint, through the wall, you can hear it anyway: somebody's radio, turned up, and the word nine.
+
+=== kitchen
+narration | time=+10: The stove. The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_eight
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. You set it on the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. Up the hill, the Lunds' windows still lit. Then, one by one, not.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold. Somewhere up the hill, a sewing machine, very faint. Then it stops, mid-seam, as if someone had heard the window open.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser.
+narration | if=has:notebook: Sam's notebook. "3:00. On the stairs. It says there." In your handwriting. You add nothing tonight. You're afraid of what your hand would add.
+narration | if=!has:notebook: The flannel shirts. You count them. You keep counting things.
+
+=== painting
+narration | time=+5: The painting. The figure far out on the breaking ice.
+narration: Tonight you see it's wearing a long coat. You're sure it wasn't, before. It's a smudge of brown paint, the length of the figure, down to the ice.
+paranoia: It always was. You didn't know what you were looking at. Now you do.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked. Dark.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+# --- Bed, and the call. ---
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven.
+narration | sound=ring: The shop phone.
+paranoia: Rule four.
+> Go down to it -> phone_go_down | lean=animal
+> Let it ring -> phone_ignored | lean=paranoia
+
+=== phone_ignored
+narration | show=bedroom: It rings. You let it.
+narration | stop=ring: It stops.
+-> night_dog
+
+=== phone_go_down
+narration | sound=stairs: Down the stairs, toward the ringing.
+narration | stop=stairs: The hallway. The steel door. The phone.
+
+=== phone_steel_door
+narration: The steel door. The cold under it.
+narration: On the floor, along the bottom of the door, a single brown thread, caught in the gap.
+paranoia: Wool. From a sleeve. Somebody stood here. Somebody stood here close.
+
+=== phone_turn_back
+narration | sound=stairs: You go back up.
+-> phone_ignored
+
+=== phone_down
+narration: Behind the counter. The phone.
+narration | stop=ring | sound=pickup | break=phone: You lift the receiver. You don't speak.
+narration: The room at the other end. But it's changed.
+narration: A kettle, coming to the boil. Somebody lets it scream a long time before they take it off.
+narration: Then a pill bottle. Shaken. The lid. Two, by the sound. Water.
+narration: And the breathing. It catches, once, sharp, when he moves. As if moving hurt.
+paranoia: He's hurt. Whoever he is. Something in him hurts when he moves.
+unknown | if=frayed: Ask him where it hurts, sweetheart. You know where.
+> Wait -> phone_wait
+> Hang up first -> phone_hang_up | lean=animal
+
+=== phone_wait
+narration: You wait. You listen to him drink the water. You listen to him breathe around the hurt.
+narration | sound=hangup: A soft click.
+-> night_dog
+
+=== phone_hang_up
+narration | sound=hangup: You put it down. Your hand stays on it, as if to keep it down.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_eight
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Back in bed. Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. The bowl. Then down again.
+narration: In the morning, beside the bowl, on the line, a single brown thread. Wool. Laid straight, as if put there.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Back in bed. Facing the door.
+narration: Nothing comes up. In the morning, at the bottom of the stairs, a single brown thread, caught on the edge of the bottom step.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Friday.
