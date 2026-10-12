@@ -157,6 +157,7 @@ paranoia: Put it back. Or leave it, and let her see you didn't notice.
 === widow_enters
 narration | sound=bell | time=+60: The bell. Mrs. Hollis, holding a covered dish in both hands, a dish towel folded over the lid.
 widow: You don't have to look like that. It's only hotdish.
+narration: The knees of her good slacks are worn shiny, both of them, like a gardener's. It isn't gardening weather.
 narration | flag=widow_dish: She sets it on the glass. Warm comes up through the towel. You can smell onions, and cream of mushroom, and something you haven't smelled since you were small.
 widow: Ray's mother's recipe. You were kind about the call. Nobody's been kind about anything in a while.
 paranoia: Rule two. Don't buy anything that's still warm.
@@ -172,6 +173,8 @@ narration: She finds you a fork in the counter drawer before you can. She knew w
 narration: You eat standing up, behind the counter, out of the dish. It's too hot and you eat it anyway.
 narration: For a minute, nothing is wrong. The shop is only a shop. The hum is only a freezer. A woman is watching you eat, and there's something like warm in your chest.
 widow: There. That's better.
+widow: You're thinner than Thomas was. He liked my hotdish. He filled out by Christmas.
+paranoia: Filled out. Like it was a goal.
 narration: She watches until you've had enough, the way you'd watch a dog eat to be sure it does.
 -> widow_goes
 
@@ -182,6 +185,7 @@ narration: She folds the towel tighter over the lid, as if to keep the warm in f
 
 === widow_goes
 widow: Bring the dish back Sunday. I'll be at church.
+narration: On her way out her eyes go past you, to the hallway, to the foot of the stairs, and stay there a moment too long. As if checking something was where she'd left it.
 narration | sound=bell: The bell. She stops in the lot to look at the window, a long time, and then walks home the long way, along the shore.
 
 # --- The gift. Walt, if you turned him away kindly on day two. ---
@@ -237,6 +241,7 @@ narration: He watches you chew, very serious, as if there were going to be a tes
 boy: Is it true you're not allowed to leave?
 narration | sound=bell: He doesn't wait for the answer. The bell, and the door, and he's gone, running.
 narration: You eat the rest of it behind the counter, slowly. For a minute it's warm in here.
+narration: Outside, at the bus stop, he's already skipping rope with the others, counting. You catch the end of it through the glass: Eight, the glass, and nine's the Keeper, in he goes.
 
 === boy_refused
 boy: She'll say I didn't try.
@@ -358,6 +363,8 @@ narration | time=+60: The bell doesn't ring. The freezer hums. You become very a
 narration | if=window:empty: The window looks out at the road, and the road looks in at nothing.
 paranoia: This is what it's like. This is what it's like the whole winter, if you let it be.
 narration | time=+60: You read the ledger. You read it again. You count the drawer. You go to the back shelf and pick up the tin and put it down.
+narration: School lets out. Across the road, children waiting for the bus skip rope in the snow, counting. One, the window. Two, the warm. Three, the price. You lose it in the wind, and then it comes back for the end: Eight, the glass, and nine's the Keeper, in he goes.
+narration: They don't look at the shop. They don't need to.
 narration: At three the light starts to go. You don't know who you'd talk to if someone came in. You'd talk to anyone.
 
 # --- The warm jacket. A stranger, near closing. Rule two. ---

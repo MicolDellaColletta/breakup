@@ -4,7 +4,7 @@ extends RefCounted
 # Placeholder pictures of the things in the shop, drawn in code until there
 # are paintings: one simple shape per kind of object (shape= in stock.cfg):
 # call, decoy, knife, snowshoes, picks, compass, fox, rifle, tin, coins, box,
-# name, jacket, musicbox, mirror, watch.
+# name, jacket, musicbox, mirror, watch, jar.
 # Each fits the box it's given, so the same drawing works small on a shelf and
 # big in a close-up. A shape this doesn't know is drawn as a wrapped bundle.
 
@@ -78,6 +78,12 @@ static func draw(ci: CanvasItem, shape: String, r: Rect2, faded: bool = false) -
 			for k in 6:
 				ci.draw_circle(c + Vector2((k % 3 - 1) * u * 0.42, (k / 3) * u * 0.38 - u * 0.1), u * 0.22, Color(0.75, 0.76, 0.78, a))
 				ci.draw_arc(c + Vector2((k % 3 - 1) * u * 0.42, (k / 3) * u * 0.38 - u * 0.1), u * 0.17, 0, TAU, 16, Color(0.5, 0.52, 0.55, a), 1.0)
+		"jar":
+			# A small glass jar, full of little twists of paper.
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.32, -u * 0.62), Vector2(u * 0.64, u * 0.14)), Color(METAL, a))
+			_poly(ci, [c + Vector2(-u * 0.4, -u * 0.48), c + Vector2(u * 0.4, -u * 0.48), c + Vector2(u * 0.42, u * 0.6), c + Vector2(-u * 0.42, u * 0.6)], Color(0.7, 0.78, 0.8, 0.35), a)
+			for k in 7:
+				ci.draw_circle(c + Vector2(((k * 37) % 7 - 3) * u * 0.1, u * 0.45 - (k / 2) * u * 0.16), u * 0.09, Color(0.92, 0.9, 0.84, a))
 		"box":
 			_poly(ci, [c + Vector2(-u * 0.55, -u * 0.35), c + Vector2(u * 0.55, -u * 0.35), c + Vector2(u * 0.55, u * 0.4), c + Vector2(-u * 0.55, u * 0.4)], Color(0.6, 0.25, 0.15), a)
 			ci.draw_rect(Rect2(c + Vector2(-u * 0.4, -u * 0.1), Vector2(u * 0.8, u * 0.25)), Color(0.9, 0.85, 0.7, a))

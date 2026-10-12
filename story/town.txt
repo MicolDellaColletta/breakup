@@ -293,7 +293,8 @@ narration: Ruth puts a beer in front of you without a word. Later, another. She 
 
 === pub_three_late
 narration | time=+120: Last call. The room empties the way a sink empties, slow and then all at once. Olstad's glass of milk, left half full on the bar. Chairs going up on tables.
-narration: Then it's only you, and Ruth, and the Polaroids.
+narration: At the far end of the bar, a glass Ruth poured at last call. Nobody's touched it. Nobody's sat in front of it.
+narration: Then it's only you, and Ruth, and the Polaroids, and the glass.
 narration: She pours two. She doesn't put the bottle away. She sits on the bar side of the bar, on an upturned crate, so her head is lower than yours.
 ruth: Can I ask you something nobody here asks?
 narration: She doesn't wait for you to say yes.

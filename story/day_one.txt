@@ -51,6 +51,7 @@ widow: Quiet one. That's all right. Ray was quiet.
 === widow_ask
 widow: I need something. For my husband. Ray. Ray Hollis.
 widow: He went out to his blind three weeks ago, in the canoe, before it was light. The canoe came back to shore by itself. They haven't found him.
+narration | flag=seen_mark: She pushes a sleeve back to rub her eyes. On the inside of her wrist, a small old burn, gone shiny. Four short lines, crossed.
 > Tell her you're sorry to hear it. -> widow_kind | lean=warmth
 > Ask what it's worth to her. -> widow_price | lean=appraisal
 > [John] "Ray mentioned you. Said you'd come in." -> widow_lie | needs=john | lean=john
