@@ -1,0 +1,415 @@
+# DAY THREE: Friday, October 8, 1999
+# Same format as day_one.txt and day_two.txt. Design: docs/day_three.md.
+# Also understood here:
+#   | redeemed=music_box     a held thing given back without its ticket
+#   | misplace=tin_box       somebody put it back in the wrong spot
+#   | if=window:empty        nothing at all in the front window
+#   > Let me look -> @browse_back   held things on the back shelf can be
+#                                   handed over too (June)
+# Who comes in, in order: Olstad; the gift (Mrs. Hollis, Walt, or a boy);
+# the afternoon caller, decided by the window (Teague, June, or nobody); the
+# stranger with the warm jacket (see VISITS in scripts/counter.gd).
+
+=== morning
+narration | time=07:30: Friday. You wake with your hand already reaching for something on the nightstand. There's nothing on the nightstand.
+-> morning_phone
+
+# --- Night two comes back: the phone. ---
+
+=== morning_phone
+-> morning_off_hook | if=flag:spoke_first
+-> morning_message | if=flag:phone_ignored
+-> morning_dog
+
+=== morning_off_hook
+narration: Downstairs, on the counter, the receiver is off the hook. Lying on its side next to the phone, howling the thin howl a phone makes when it's been left too long.
+narration: You put it back. You hung it up last night. You remember the weight of it going down.
+paranoia: Do you? Or do you remember meaning to?
+-> morning_dog
+
+=== morning_message
+narration: Under the front door, a strip of paper, torn from a message pad. Pink. WHILE YOU WERE OUT.
+narration: Caller: a dash. Message: a dash. The time is filled in. 11:00 PM.
+paranoia: Nobody here takes messages. Nobody here works for you.
+appraisal | if=appraisal>=1: Somebody had the pad. Somebody wanted you to know they knew you didn't answer.
+-> morning_dog
+
+# --- The bowl. ---
+
+=== morning_dog
+-> morning_fed | if=flag:fed_two
+-> morning_unfed
+
+=== morning_fed
+narration: The bowl by the stove is licked clean. It's been set back down exactly where you left it, lined up with the scuff on the floor.
+narration: Exactly. The way you line it up. Nobody else knew you line it up.
+paranoia: You did that. This morning, half awake. You must have.
+-> morning_bulletin
+
+=== morning_unfed
+narration: On the bottom step of the stairs, a little drift of gray hair. Long, fine, straight. Swept together, the way you'd sweep crumbs into a hand.
+paranoia: Not a dog's. You knew that yesterday.
+-> morning_bulletin
+
+=== morning_bulletin
+-> morning_bulletin_out | if=has:church_bulletin
+-> window_day
+
+=== morning_bulletin_out
+narration: On the kitchen table, the church bulletin. Unfolded, smoothed flat, the purple ink up, the way you'd leave something for someone to read.
+narration: You put it in your pocket last night. You remember it in your pocket on the stairs. You remember the shape of it against your leg.
+narration: You fold it up again and put it back in your pocket. You don't remember taking it out.
+paranoia: You're tired. That's all this is. That's all any of this is.
+-> window_day
+
+# --- Before opening: Friday is window day. ---
+
+=== window_day
+narration | time=08:40: On the calendar by the stove, every Friday has the same mark in the owner's hand. A W, circled.
+narration | sound=drawer: Downstairs, in the counter drawer, under the shells, an index card gone soft at the corners.
+narration: "FRIDAYS: dress the window. They look in on the way to the Gleaner."
+narration: The front window has three spots on its ledge, seen from the road. Things for sale go there. Whatever you put out, the town will see on its way past.
+paranoia: Everybody who drives by will see what you chose. Choose like nobody's looking.
+appraisal | if=appraisal>=1: People come in for what they see. Show them something worth stopping for. Or show them nothing, and nobody stops.
+narration: (Pick things up off the shop floor and put them in the window. Open up when it's dressed.)
+> Open up -> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. The neon buzzes on.
+narration | if=window:empty: The window is bare. The road looks in at an empty ledge.
+narration | if=!window:empty: You go out in the cold to look at the window from the road, the way they'll see it. The neon lays red over everything you chose.
+-> opening_walt | if=flag:heard_neighbour
+-> opening_mat
+
+=== opening_walt
+narration: Walt Pruitt is standing in the lot, by the sign, as if he'd been waiting for it to light.
+narration: He doesn't come in. He talks to you through the door, with it open a hand's width, letting the cold in between you.
+seller: Somebody called the house last night. Late. For me.
+seller: Edna says. Next door. She says she called here, after, looking for me. She says she couldn't say who she was calling about.
+seller: Couldn't say it. Fifty years she's known her.
+narration: He looks at you as if you might know who. As if you might say it for him.
+paranoia: Don't. That's the rule now. You wrote it.
+seller: That's how it's done. I asked for it.
+narration: He nods to himself, and goes, and leaves the door for you to close.
+-> opening_mat
+
+=== opening_mat
+narration: No envelope on the mat. Not till next Wednesday. You've started counting days by it.
+
+# --- Sgt. Olstad: the mail, the money order, the tin. ---
+
+=== trooper_enters
+narration | sound=bell | time=+15: The bell. Sergeant Olstad, parka open over the uniform, the badge sitting on the curve of her belly.
+narration: She drops a bundle of envelopes on the glass, bound with a rubber band.
+trooper: Post office asked me to drop this off, hon. Saves them the drive. Ruth already got the bills, so this is what's left.
+narration: Circulars. A seed catalog. A card from the propane company. And a money order, folded once.
+narration | take=money_order: United States Postal Service. Eleven dollars and twenty-seven cents. Pay to: KETTLE LAKE PAWN. Memo, in neat block capitals: INTEREST, TICKET 0527.
+narration: No sender. Postmarked Anchorage, October 4.
+narration: She reads it over your shoulder, like she has every right.
+trooper: Huh. Eleven twenty-seven. Somebody's real exact.
+paranoia: October 4. The day before you came. The day after he died. Somebody knew there'd be someone here to cash it.
+appraisal | if=appraisal>=1: Interest keeps a pawn from forfeiting. Somebody wants that tin to stay right where it is.
+narration: She's already behind the counter again, at the back shelf, where she has no reason to be. The tin box, tag 0527. She shakes it. Listens.
+trooper: Somebody's paying interest on a cough-drop tin. You still don't know what's in it, Johnny?
+> "I don't know." -> trooper_dont_know
+> "Something somebody pawned." -> trooper_somebody | lean=john
+> Show her the ticket -> trooper_ticket | if=has:pawn_ticket | flag=showed_olstad_ticket | lean=animal
+
+=== trooper_dont_know
+narration: It's true. It's the truest thing you've said to anybody in this town.
+trooper: Ya. Nobody ever does, with this shop.
+narration: She says it like a woman crossing something off a list, and not the item she meant to.
+-> trooper_window
+
+=== trooper_somebody
+trooper: Ohh, ya. Somebody.
+trooper: Lot of somebodies in this town all of a sudden.
+-> trooper_window
+
+=== trooper_ticket
+narration: You take the ticket out of your wallet and lay it on the glass. 0527.
+narration: She doesn't pick it up. She bends over it, reading, her hands in her parka pockets, as if it might be evidence.
+trooper: Where'd you get this?
+narration: You don't answer. She doesn't make you.
+trooper: Hang onto that, hon. Don't lose it. Don't give it to anybody.
+trooper: Anybody, Johnny.
+paranoia: She'll remember. She's the kind that writes it down later, in the truck.
+-> trooper_window
+
+=== trooper_window
+narration | misplace=tin_box: She sets the tin back down. Not where it was. A spot over, as if she'd forgotten. She doesn't forget things.
+narration: On her way to the door she stops at the window and looks at it from the inside, the wrong way round, the way nobody else will.
+trooper | if=window:empty: Nothing in the window. Abraham always had something in the window. Even in March, he had something.
+trooper | if=window:fox: The fox. With the eyes. Well. Folks'll stop for it, I'll say that.
+trooper | if=window:snowshoes: Snowshoes. Practical. Somebody in this town'll be glad of them by Thanksgiving.
+trooper | if=window:ice_picks: Ice picks in the window. Two days after Cody Hollis. Huh.
+trooper | if=window:skinning_knife: A knife in the window, Johnny. Real welcoming.
+trooper | if=window:compass: A compass. For folks who know where they're going, I guess. Hardly anybody here does.
+trooper | if=window:decoy: The old decoy. Ray Hollis used to say that one was his granddad's.
+trooper | if=window:duck_call: A duck call. Ray had one just like it.
+paranoia: She read the window like a report. Like you'd written something in it.
+trooper: I'll be by. I'm always by.
+narration | sound=bell: The bell. When she's gone you go back to the back shelf. The tin sits one spot over from where it lived.
+paranoia: Put it back. Or leave it, and let her see you didn't notice.
+
+# --- The gift. Mrs. Hollis, if you gave her the duck call on day one. ---
+
+=== widow_enters
+narration | sound=bell | time=+60: The bell. Mrs. Hollis, holding a covered dish in both hands, a dish towel folded over the lid.
+widow: You don't have to look like that. It's only hotdish.
+narration | flag=widow_dish: She sets it on the glass. Warm comes up through the towel. You can smell onions, and cream of mushroom, and something you haven't smelled since you were small.
+widow: Ray's mother's recipe. You were kind about the call. Nobody's been kind about anything in a while.
+paranoia: Rule two. Don't buy anything that's still warm.
+paranoia: You're not buying it. It's not for sale. That isn't the same thing. Is it the same thing?
+widow: Abraham ate alone. Every winter, every Keeper eats alone. I always thought that was a shame. So.
+warmth | if=warmth>=1: She's being kind. Let her.
+unknown | if=frayed: They feed the lamb too.
+> Eat some, now, while she's here -> widow_eat | fray=-1 | lean=warmth
+> "Thank you. I'll have it later." -> widow_later
+
+=== widow_eat
+narration: She finds you a fork in the counter drawer before you can. She knew where they were.
+narration: You eat standing up, behind the counter, out of the dish. It's too hot and you eat it anyway.
+narration: For a minute, nothing is wrong. The shop is only a shop. The hum is only a freezer. A woman is watching you eat, and there's something like warm in your chest.
+widow: There. That's better.
+narration: She watches until you've had enough, the way you'd watch a dog eat to be sure it does.
+-> widow_goes
+
+=== widow_later
+widow: Later's fine. It keeps.
+narration: She folds the towel tighter over the lid, as if to keep the warm in for you.
+-> widow_goes
+
+=== widow_goes
+widow: Bring the dish back Sunday. I'll be at church.
+narration | sound=bell: The bell. She stops in the lot to look at the window, a long time, and then walks home the long way, along the shore.
+
+# --- The gift. Walt, if you turned him away kindly on day two. ---
+
+=== seller_enters
+narration | sound=bell | time=+60: The bell, and the door held open by a boot. Walt Pruitt, his arms full of split birch, a thermos wedged under one elbow.
+seller: Where do you want it.
+narration: He doesn't wait to be told. He takes it through to the foot of the stairs and stacks it there, bark side up, the way it should be stacked.
+seller: For the stove upstairs. Abraham never had enough. Never asked, either.
+narration: He sets the thermos on the counter. Coffee. Black, and still hot enough to burn.
+seller: You were decent about it yesterday. About her. I lay awake and I thought, well. Somebody was decent.
+paranoia: Rule two. Still warm.
+paranoia: It's coffee. You're allowed coffee.
+warmth | if=warmth>=1: He came all this way with an armful of wood. Take it.
+unknown | if=frayed: They feed the lamb too.
+> Drink a cup with him -> seller_drink | fray=-1 | lean=warmth
+> "You didn't have to." -> seller_didnt
+
+=== seller_drink
+narration: There's one cup, the thermos lid. He pours it for you and won't take a turn.
+narration: You drink it standing behind the counter. It's terrible coffee. For a minute it's the best thing you've ever tasted.
+narration: Neither of you says anything. Neither of you has to. The stove upstairs will be warm tonight.
+seller: That's it, then.
+-> seller_goes
+
+=== seller_didnt
+seller: No. I know.
+narration: He pats the thermos twice, as if it were a dog that would stay.
+-> seller_goes
+
+=== seller_goes
+narration | sound=bell: The bell. You watch him through the window, walking home with his empty arms held a little out from his sides, as if he'd forgotten how to carry nothing.
+
+# --- The gift. A boy, if neither. ---
+
+=== boy_enters
+narration | sound=bell | time=+60: The bell rings, and then rings again, because whoever opened the door let it swing shut and had to open it again.
+narration: A boy, ten or so, in a parka a size too big. He holds out a paper bag at arm's length, the way you'd feed a horse you weren't sure of.
+boy: Mom says.
+narration: He stops, and starts again, the way he practised.
+boy: Mom says the Keeper eats alone, and it isn't Christian.
+narration: Fry bread. Still warm. Grease coming through the paper in dark spots.
+paranoia: Rule two. Still warm.
+paranoia: It's bread. A child brought you bread. Get a hold of yourself.
+unknown | if=frayed: They feed the lamb too.
+> Take it, and thank him -> boy_thanks | fray=-1 | lean=warmth
+> "Tell your mom thank you. I'm all right." -> boy_refused
+
+=== boy_thanks
+narration: You take the bag. He lets go of it fast.
+narration: You tear a piece off while he's still standing there, and eat it, and it's so good you have to look at the counter for a second.
+narration: He watches you chew, very serious, as if there were going to be a test later.
+boy: Is it true you're not allowed to leave?
+narration | sound=bell: He doesn't wait for the answer. The bell, and the door, and he's gone, running.
+narration: You eat the rest of it behind the counter, slowly. For a minute it's warm in here.
+
+=== boy_refused
+boy: She'll say I didn't try.
+narration | sound=bell: He puts the bag down on the floor by the door, not on the counter, and runs. It sits there all morning, going cold. Nobody comes for it.
+paranoia: It's only bread. You could have just taken it.
+
+# --- The afternoon caller. Teague, if the fox is in the window. ---
+
+=== teague_enters
+narration | sound=bell | time=+180 | flag=teague_came: The bell. A big man in a fur hat, stooping under the door frame though he doesn't have to. Woodsmoke and cold come in with him, and something under them, rank and animal.
+narration: He doesn't look at you. He goes straight to the fox, in the window, and squats down to look it in the face.
+teague: Who did this.
+narration: Not a question, quite. More like a man reading a name off a headstone he doesn't think much of.
+teague: That's bad work. Eyes set too deep. Skin's shrunk off the lip, see. He never thinned it right.
+teague: Abraham's? No. He did the ram at the Gleaner. That's Abraham's. This isn't.
+> "Abraham's, the ledger says." -> teague_ledger | lean=appraisal
+> "Does it matter who?" -> teague_matters
+
+=== teague_ledger
+teague: Ledger says a lot of things, I bet.
+-> teague_bear
+
+=== teague_matters
+teague: To the fox it did.
+-> teague_bear
+
+=== teague_bear
+narration: He stands, his knees cracking like river ice, and looks past you, at the corner. At the bear.
+teague: That one, though.
+narration: He crosses the shop to it. He puts a hand flat on its chest, the way you'd feel a horse for fever.
+teague: Been mounted twice, that one. Opened up and done again. You can feel the second seam, here, under the first. Somebody took it apart and put it back, years after.
+teague: You don't do that for a bear. You do it to get at something.
+paranoia: Don't look at it. You've been not looking at it for three days. Keep going.
+appraisal | if=appraisal>=2: Years after. The ledger has the bear down as 1959. Who opened it up, and when?
+teague: Anyhow. How much for the fox.
+> "Sixty dollars." -> teague_buys | lean=appraisal
+> "It's not for sale. It's for the window." -> teague_window
+
+=== teague_buys
+narration | sold=fox: He counts out three twenties from a fold of bills held with a binder clip.
+teague: I'll fix the lip. Can't fix the eyes. Some things you're born with.
+narration | sound=bell: He carries it out under one arm like a cat. Through the window you watch him set it on the seat of his truck and buckle it in.
+-> teague_goes
+
+=== teague_window
+teague: For the window.
+narration: He looks at you for the first time. A long look, the kind he gave the fox.
+teague: Somebody wanted it seen. Fair enough.
+narration | sound=bell: The bell.
+-> teague_goes
+
+=== teague_goes
+paranoia: Twice. Somebody took the bear apart and put it back. You live upstairs from it.
+
+# --- The afternoon caller. June Merrill, for the snowshoes or the ice picks. ---
+
+=== june_enters
+narration | sound=bell | time=+180: The bell. A woman in a good wool coat, glasses misted from the cold. She takes them off and wipes them on her scarf and puts them back before she says anything.
+june | if=window:snowshoes: I'm sorry. I saw the snowshoes. In the window. My mother had snowshoes like those. I didn't come about the snowshoes.
+june | if=!window:snowshoes: I'm sorry. I saw the ice picks, in the window. After Cody. I thought, somebody in there is paying attention.
+narration: She looks at the window, and away from it, fast.
+june: June Merrill. I teach at the school. Fourth and fifth.
+june: My mother pawned something here. In ninety-three. The winter she...
+narration: She looks for a word that won't be the wrong one.
+june: The winter she went strange. She brought something in, and she never had a ticket, and she never came back for it. And then she was gone.
+june: I don't know what it was. I've never known. I just remember two things she said about it.
+june: She said it sang. And she said it had her name in it.
+paranoia: A pawn shop doesn't give things back without a ticket. Not a rule. Just a shop.
+> Let me look -> @browse_back
+
+=== june_given_music_box
+narration: You set it on the glass. She doesn't touch it.
+narration: Then she does. She lifts the lid, very carefully, and the box sings. A thin hymn. In the Bleak Midwinter. It runs down halfway through a line.
+narration: She reads the name scratched inside the lid, and closes it, and puts both hands over it.
+june: Marta. That's her. That's her name.
+june: I don't have a ticket. I don't have anything. There's nothing written down that says it's mine.
+appraisal | if=appraisal>=1: The ledger says she'd be back for it in the spring. Six springs ago.
+warmth | if=warmth>=1: Give it to her. Look at her hands.
+> Give it to her -> june_given_back | flag=gave_music_box | lean=warmth
+> "Without the ticket, I have to keep it. I'm sorry." -> june_kept | lean=paranoia
+
+=== june_given_back
+narration | redeemed=music_box: You push it an inch toward her. That's all. She understands.
+june: Thank you. I. Thank you.
+june: She used to wind it at night when she couldn't sleep. That last winter she wound it every night. All night, sometimes. My father took the key away once and she cried till he gave it back.
+june: Then one day it was just gone. And then she was.
+narration: She holds the box against her coat with both arms.
+june: Dr. Wakeman came to see her. That winter. Did you know that? Nobody else would. He sat in our kitchen and asked her questions and wrote everything down.
+june: Then he stopped coming. I never knew why.
+paranoia: Ninety-three. The winter Sam said no. Don't. Don't start drawing lines.
+narration | sound=bell: The bell. You can hear the box through the door, faintly, as she winds it in the lot.
+
+=== june_kept
+june: No. Of course. I understand.
+narration: She doesn't. She looks at the box for a long time, the way you'd look at someone through a window.
+june: Could I. Could you just open it. Once.
+narration: You lift the lid. The hymn plays, and runs down, and stops.
+june: Thank you.
+narration | sound=bell: She goes before you can close it.
+paranoia: You kept something that belonged to a dead woman, because there was no paper. That's how this town does it too.
+
+=== june_given_other
+narration: She looks at it a long time, turning it in her hands, wanting it to be.
+june: No. It isn't this. I'd know. I think I'd know.
+narration: She gives it back to you, gently, as if it were somebody else's too.
+> Look again -> @browse_back
+> "I'm sorry. I can't find it." -> june_nothing
+
+=== june_nothing
+june: It's all right. It's been six years. It can be seven.
+narration | sound=bell: She goes. At the window she stops and looks in at the shelves, past you, at the back of the shop, the way you'd look for a face in a crowd.
+
+# --- The afternoon caller. Nobody, if the window has nothing that draws anyone. ---
+
+=== quiet_enters
+narration | time=+60: The afternoon comes and nobody comes with it.
+narration | time=+60: Cars go by on the road. Two. Then nothing for a long time. Then one more, slowing at the window, then speeding up again.
+narration | time=+60: The bell doesn't ring. The freezer hums. You become very aware of it. You start to hear the hum change pitch, slightly, every few minutes, like breathing.
+narration | if=window:empty: The window looks out at the road, and the road looks in at nothing.
+paranoia: This is what it's like. This is what it's like the whole winter, if you let it be.
+narration | time=+60: You read the ledger. You read it again. You count the drawer. You go to the back shelf and pick up the tin and put it down.
+narration: At three the light starts to go. You don't know who you'd talk to if someone came in. You'd talk to anyone.
+
+# --- The warm jacket. A stranger, near closing. Rule two. ---
+
+=== stranger_enters
+narration | sound=bell | time=+90: The bell. A man you've never seen. A thin canvas coat, a cap, no gloves. His hands are blue to the knuckle.
+narration: He opens his coat. Folded against his chest, inside it, a hunting jacket. Waxed canvas, the color of dead grass.
+stranger: Found this on the north shore. In the reeds. Thought somebody'd want to buy it back.
+narration: He lays it on the glass. Inside the collar, in red thread: R. HOLLIS.
+paranoia: Cody. Day two. "It had his jacket."
+narration: You put your hand on it before you mean to. It's warm.
+stranger: Carried it inside my coat the whole way. Didn't want it to freeze stiff. It's nine degrees out.
+narration: His bare hands, on the counter, beside it. Blue. Shaking.
+paranoia: Rule two. Don't buy anything that's still warm.
+appraisal | if=appraisal>=1: Two ways to read it. A man who found a jacket. Or a man who took it off somebody.
+-> stranger_dish | if=flag:widow_dish
+-> stranger_offer
+
+=== stranger_dish
+narration: Mrs. Hollis's dish is still on the counter, under its towel. Her husband's jacket beside it. Both of them warm.
+-> stranger_offer
+
+=== stranger_offer
+> Buy it. Ten dollars. -> stranger_buy | break=warm | lean=warmth
+> "I don't buy anything warm. Sorry." -> stranger_refuse | lean=paranoia
+
+=== stranger_buy
+narration | pawned=hollis_jacket | loan=10: You count ten dollars out of the drawer. He folds it into his coat without looking at it.
+stranger: Somebody'll want it.
+narration | sound=bell: The bell. He goes out into the dusk and turns, not toward the road, but toward the lake.
+narration: The jacket on the glass. Still warm. A little less than it was.
+> Set it aside, behind the counter, for Mrs. Hollis -> stranger_aside | flag=faith_hollis | lean=warmth
+> Put it on the back shelf, with a tag -> stranger_shelf | lean=appraisal
+
+=== stranger_aside
+narration: You fold it, the way he must have folded it, and put it at the end of the back shelf, collar to the wall, so the name doesn't show.
+narration: You don't write a price on the tag. It's hers. You'll give it to her. You don't know yet how you'll tell her where it came from.
+paranoia: You broke a rule for a dead man's wife. Write that down somewhere. See what it buys you.
+
+=== stranger_shelf
+narration: You tag it and hang it on the back shelf. New. R. HOLLIS faces out.
+paranoia: She'll see it there one day. Everybody does, in the end.
+
+=== stranger_refuse
+stranger: Suit yourself.
+narration: He folds the jacket back inside his coat, against his chest, carefully, the way you'd carry something asleep.
+narration | sound=bell: The bell. Through the window you watch him walk into the dusk, not toward the road. Toward the lake.
+paranoia: Whose was it to sell? Whose was it to buy? Neither. That's the rule. That's the whole rule.
+
+# --- Closing time. ---
+
+=== closing
+narration | time=19:05: Five past seven. The light goes three minutes earlier than yesterday.
+narration: You turn the sign. CLOSED. The neon stays on, red, over whatever's in the window.
+paranoia: Friday. They'll all be at the Gleaner tonight. They'll look in on the way.

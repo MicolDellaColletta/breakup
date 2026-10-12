@@ -35,10 +35,12 @@ const BACKGROUNDS: Dictionary = {
 const DAY_STORIES: Dictionary = {
 	1: "res://story/day_one.txt",
 	2: "res://story/day_two.txt",
+	3: "res://story/day_three.txt",
 }
 const NIGHT_STORIES: Dictionary = {
 	1: "res://story/night_one.txt",
 	2: "res://story/night_two.txt",
+	3: "res://story/night_three.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on
@@ -316,6 +318,14 @@ func record_sale(item_name: String, item_id: String, price: int, buyer: String) 
 	till_by_ledger += price
 	var to: String = (" to " + buyer) if buyer != "" else ""
 	ledger_lines.append("%s. %s, sold%s. $%d" % [date_text(), item_name, to, price])
+
+# A held thing given back without its ticket (redeemed= in a story file): it
+# leaves the shop, and the ledger says so. No money changes hands.
+func record_release(item_name: String, item_id: String, to: String) -> void:
+	sold.append(item_id)
+	take_off_shelves(item_id)
+	var who: String = (" to " + to) if to != "" else ""
+	ledger_lines.append("%s. %s, given back%s. No ticket." % [date_text(), item_name, who])
 
 # Someone pawns an item: the loan comes out of the till, and out of your own
 # pocket when the till runs short. The ledger writes down the whole loan; its

@@ -18,6 +18,18 @@ const MAP_SCENE: String = "res://scenes/map.tscn"
 const VISITS: Dictionary = {
 	1: ["widow", "nephew", "trooper", "seller", "reverend"],
 	2: ["nephew | if=sold:ice_picks", "widow | if=!sold:ice_picks", "ezra", "seller", "ruth"],
+	# Day three: Olstad; the gift (whoever MC was kind to); the afternoon caller,
+	# decided by what's in the front window; the warm jacket.
+	3: ["trooper",
+		"widow | if=sold:duck_call",
+		"seller | if=!sold:duck_call and !broke:name",
+		"boy | if=!sold:duck_call and broke:name",
+		# (Visits are decided as they come: once Teague has bought the fox out
+		# of the window, it's too late for June or the quiet afternoon.)
+		"teague | if=window:fox",
+		"june | if=!flag:teague_came and !window:fox and window:snowshoes or !flag:teague_came and !window:fox and window:ice_picks",
+		"quiet | if=!flag:teague_came and !window:fox and !window:snowshoes and !window:ice_picks",
+		"stranger"],
 }
 const CUSTOMER_GAP: float = 1.5
 
@@ -88,6 +100,9 @@ var _visits: Array = []
 var _customer_index: int = -1
 var _customer: String = ""
 var _browsing: bool = false
+# Browsing that lets a held thing off the back shelf be handed over
+# (> Let me look -> @browse_back), for someone come to take one back.
+var _browsing_back: bool = false
 var _view: String = ""
 # The thing in your hand, picked up off a shelf ("" for nothing). It's also
 # what the details under the shelves describe.
@@ -182,8 +197,9 @@ func _visit_happens(visit: String) -> bool:
 	return parts.size() < 2 or column._condition_met(parts[1])
 
 func _on_choice_made(choice: Dictionary) -> void:
-	if choice["target"] == "@browse":
+	if choice["target"] == "@browse" or choice["target"] == "@browse_back":
 		_browsing = true
+		_browsing_back = choice["target"] == "@browse_back"
 		nothing_button.visible = true
 		if _view != "floor" and _view != "back":
 			_show_view("floor")
@@ -206,6 +222,7 @@ func _stop_browsing() -> void:
 	if _examining:
 		close_examine()
 	_browsing = false
+	_browsing_back = false
 	nothing_button.visible = false
 	_refresh_offer()
 
@@ -217,6 +234,15 @@ func _on_line_shown(line: Dictionary) -> void:
 		if _selected == item_id:
 			_put_down()
 		_show_view(_view)
+	if line.has("redeemed"):
+		var given: String = line["redeemed"]
+		GameState.record_release(_stock.get_value(given, "name"), given, Narrator.speaker_info(_customer)["name"])
+		if _selected == given:
+			_put_down()
+		_fill_shelves()
+	# misplace=tin_box: somebody put it back in the wrong spot.
+	if line.has("misplace"):
+		_misplace(line["misplace"])
 	if line.has("pawned"):
 		var pawned: String = line["pawned"]
 		GameState.record_pawn(_stock.get_value(pawned, "name"), pawned, int(line.get("loan", "0")),
@@ -286,6 +312,19 @@ func _wont_fit(item_id: String, shelf: String) -> String:
 func _on_counter_clicked() -> void:
 	if offer_button.visible:
 		_on_offer_pressed()
+
+# Moves a thing to another empty spot on its own shelf (the last one free).
+func _misplace(item_id: String) -> void:
+	var where: Array = GameState.shelf_spot_of(item_id)
+	if where[1] == -1:
+		return
+	var spots: Array[String] = GameState.shelf(where[0])
+	for spot in range(spots.size() - 1, -1, -1):
+		if spots[spot] == "" and spot != where[1]:
+			spots[where[1]] = ""
+			spots[spot] = item_id
+			break
+	shelf_view.queue_redraw()
 
 # Every thing in the shop has a spot: anything new (just pawned, or never
 # arranged) goes in the first empty spot on its shelf; anything gone (sold,
@@ -547,7 +586,8 @@ func _on_take_pressed() -> void:
 
 # Only floor items can be offered, and only while a customer is waiting.
 func _refresh_offer() -> void:
-	offer_button.visible = _browsing and _selected != "" and _stock.get_value(_selected, "shelf", "") == "floor"
+	var kind: String = _stock.get_value(_selected, "shelf", "")
+	offer_button.visible = _browsing and _selected != "" and (kind == "floor" or (_browsing_back and kind == "back"))
 	shelf_view.can_hand_over = offer_button.visible
 	# Examining while someone waits: the close-up plays in the column, so only
 	# once they've asked and you're looking.

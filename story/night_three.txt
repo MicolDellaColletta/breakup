@@ -1,0 +1,186 @@
+# THE THIRD NIGHT: Friday (after day three)
+# Same format as night_one.txt and night_two.txt. Every spot in
+# story/spots.cfg needs its section in one of the night files. The night: the
+# Friday static, no call (and missing it), ??? in a cadence MC knows, and
+# after midnight the window you dressed (rule 8). Design: docs/day_three.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. Friday night. Down the road, the Gleaner is loud enough to hear through the walls, and then it isn't.
+narration | stop=stairs: The apartment. Everything where you left it. You check.
+narration | if=!sold:duck_call and !broke:name: The stove's been laid with Walt's birch, the way he stacked it, bark side up. You don't remember laying it.
+paranoia: The rules. Same as every night. Same as the rest of your life.
+
+=== radio
+narration | time=+10: The radio. Friday. Not the Thursday watch tonight.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Static. You leave it there, between stations, and it fills the room like snow fills a road.
+narration: You listen to it a long time. You're waiting for something. You don't know what.
+narration: Then, once, the static thins. The calm voice, very far away, in the middle of a sentence.
+narration: "...the windows, friends. Mind the windows."
+narration: And it's gone, and the static closes over it.
+paranoia: Rule eight. He knows what night it is. He knows what you did with the window today.
+appraisal | if=appraisal>=1: Or it's a Friday, and an old man reminds a cold town to keep its windows latched.
+
+=== radio_off
+narration: You leave it off.
+narration: In the quiet, the freezer. Under it, nothing. Not even the tapping. You find you miss the tapping.
+
+=== kitchen
+narration | time=+10: The bowl by the stove.
+narration | if=flag:fed_two: This morning it was back where you'd left it, lined up with the scuff. Exactly.
+paranoia: Rule five.
+> Fill the bowl -> kitchen_fed | set=fed_dog | flag=fed_three
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles into the steel. You set it down and line it up with the scuff. Then you move it an inch off, on purpose.
+narration | if=flag:met_sam: Sam's idea. An inch. You check it twice.
+paranoia: Now you'll know. If it's back on the line in the morning, you'll know it wasn't you.
+paranoia: You'll know something.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+narration | if=broke:dog: Not the first time. The bowl sits there, empty, accusing you of something in a language you're starting to learn.
+
+=== windows
+narration | time=+10: The front windows, red with neon, white with frost. Down there, across the road, the two spruce, and the dark between them.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched. Both. Twice.
+narration: Below, people walking home from the Gleaner, in twos and threes. Every one of them slows at the shop window. Every one of them looks up.
+
+=== windows_open
+narration: Cold pours in, and the sound of the road with it. Voices, walking home from the Gleaner.
+narration: One of them laughs. One of them says the word Keeper, and the others hush it.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser. The flannel shirts. You've started wearing them.
+narration: They fit. They fit the way a dead man's clothes fit, which is almost.
+paranoia: John's size. Somebody's size. Not yours.
+
+=== painting
+narration | time=+5: The painting over the armchair. The lake breaking into white plates. The small figure, far out, with its back to you.
+narration: Tonight you're sure it's a little nearer the shore. You stand there trying to remember where it was.
+paranoia: It hasn't moved. Paint doesn't move. You're tired, and it's Friday, and you've been alone all day.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked.
+narration: You put your ear to it, not your eye. The freezer's hum, and under the hum, very faint, something like a music box running down.
+narration | if=flag:gave_music_box: You gave the music box away this afternoon. You heard it go out the door.
+paranoia: Pipes. A radio in another building. Anything.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, along the hallway, through the steel door. The back room, the freezer, the crates.
+narration: The back door. The deadbolt.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. Anyone can come in. That's the rule. You're starting to understand that's the point of the rule.
+
+=== back_door_locked
+narration | sound=latch: The key turns. You stand with your hand on the bolt and count to a hundred. Nothing turns it back.
+
+# --- Bed. No phone. ---
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down in your clothes. The sheets are cold, and then they aren't.
+narration: Eleven comes. You know it without looking. You're lying very still, listening.
+narration: The phone doesn't ring.
+narration | if=flag:spoke_first: Last night you spoke first. Tonight there's nothing to speak to.
+narration: You lie there and you listen to it not ring. You didn't know a silence could be so specific.
+paranoia: Good. Good. That's what you wanted. Isn't it? That's what you wanted.
+warmth | if=warmth>=1: You were waiting for it. You were waiting for somebody to call.
+narration: You turn over. You face the wall. Somewhere between awake and not, a voice. Not out loud.
+unknown: Missing him already, sweetheart?
+narration: Slow. Courteous. Each word set down like a glass on a table, so it won't make a sound.
+narration: You know that voice. Not the words. The way it waits before the last one. You heard someone talk like that, once, in Anchorage, the night John died.
+paranoia: That's not him. That's you. That's you doing him. You've been doing him in your head for a week.
+paranoia: That's worse. Isn't that worse?
+narration | time=00:40: You sleep, or something like it. You wake at twenty to one with your mouth dry as paper.
+narration: In the kitchen, the tap coughs and gives nothing. The pipes have frozen. Downstairs, behind the counter, there's the sink in the washroom, on the warm side of the building.
+> Go down for water -> water_go_down | lean=animal
+> Stay in bed. Wait for morning. -> water_stay | lean=paranoia
+
+=== water_stay
+narration: You lie there with your tongue stuck to your teeth and you wait for morning.
+narration: Morning takes a long time. Twice, you're sure you hear the bell over the shop door, very softly, as if someone were holding it still with their hand while they came in.
+-> night_dog
+
+# Going down is walking: the hallway, then the counter and the window
+# (spots.cfg, rooms shop_hall and shop_counter, if day==3).
+
+=== water_go_down
+narration | sound=stairs: Down the stairs in your socks, in the dark. The ones that complain, complain.
+narration | stop=stairs: The hallway. The steel door, and the hum. At the end, past the counter, the shop, and the red of the neon through the front window. The window you dressed.
+
+=== water_steel_door
+narration: You stop at the steel door. The hum doesn't change.
+narration: On the floor, along the bottom of the door, a line of frost, as fine as salt. As if the cold behind it had pressed against the gap all night, trying.
+paranoia: Freezers do that. Go and get your water.
+
+=== water_turn_back
+narration | sound=stairs: You turn around on the bottom step and go back up without your water.
+narration | stop=stairs: You don't look toward the front of the shop. You don't need to. You can feel the window, the way you can feel someone standing behind you in a line.
+-> water_stay
+
+=== night_window
+narration: The washroom tap runs. You drink from your hands. Then, wiping your mouth, you turn around.
+narration: The front window. Red neon on the glass, and through it, the snow, the lot, the two spruce across the road.
+narration | if=window:empty: Nothing on the ledge. Nothing between you and the glass.
+narration | if=window:fox: The fox on the ledge, with its back to the road. Its glass eyes have caught the neon. Both of them are looking in.
+narration | if=window:snowshoes: The snowshoes stand up on the ledge, the height of a person, the shape of a person, if you don't look straight at them.
+narration | if=window:ice_picks: The ice picks on the ledge, hanging from their cord, turning very slightly, though there's no draft.
+narration | if=window:compass: The compass on the ledge. You can't see the needle from here. You know which way it points.
+narration: And laid over all of it, faint on the dark glass, you. Your reflection, standing by the counter in a dead man's flannel shirt.
+narration: It raises its hand.
+narration: Before you do.
+paranoia: Rule eight. Don't wave at your reflection after midnight.
+paranoia: It's glass. It's dark. You're tired. You moved and didn't feel it. You moved. You must have moved.
+unknown | if=frayed: Go on. Be polite. It waved first.
+> Don't wave -> window_still | lean=paranoia
+> Wave back -> window_waved | break=wave | lean=unknown
+
+=== window_still
+narration: You keep your hands at your sides. You make them stay there.
+narration: The reflection keeps its hand up. Patient. Polite. Like someone across a street who isn't sure you've seen them.
+narration: You look at the floor. You count to thirty. When you look up, there's only the glass, and the snow, and your own face, slack and gray, its hands at its sides like yours.
+narration: You go back up the stairs backward, the whole way, watching the dark at the bottom.
+-> night_dog
+
+=== window_waved
+narration: You raise your hand. It's only polite. It's only glass.
+narration: For a moment, the two of you, hands up, like people saying goodbye across a platform.
+narration: Then it lowers its hand. You're still holding yours up.
+narration: You look at your hand. You look at the glass. Only your face, gray in the neon, its hand at its side.
+narration: Your arm is still up. You put it down.
+paranoia: A half-second. Your eyes. The dark. Nobody saw. Nobody was out there to see.
+appraisal | if=appraisal>=1: Two spruce across the road, and the dark between them. Anybody standing there would have seen someone in a lit window, waving.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_three
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Back in bed, you lie facing the door.
+narration | sound=stairs: Somewhere near three, the stairs. One step, a rest. Another. The kitchen. A scrape of steel on the floor, small and careful. Then quiet.
+narration | stop=stairs: You don't get up. You don't want to know if it's moved the bowl back onto the line. You want to know more than you've wanted anything in a week.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Back in bed, you lie facing the door.
+narration: Nothing comes up the stairs. All night, from the bottom of them, the feeling of something standing very still, the way the reflection stood.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Saturday. Gray at the window, and the bowl in the kitchen, and your own face in the bathroom mirror, which you don't look at for very long.
+narration: (End of day three. Day four is still being written. Thank you for playing.)

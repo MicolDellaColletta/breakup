@@ -113,6 +113,15 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 - "The truth" (Sam) is now folie à deux, not the rational answer.
 - One kept-faith moment each for Walt, the Hollises, Ezra, Ruth, Sam, Olstad.
 
+**Day three, as built** (`day_three.md`, "As built")
+
+- Ruth's question has three answers: something true (her first door), "John.",
+  or "Nobody", which she remembers.
+- The jacket set aside for Mrs. Hollis is the Hollises' kept-faith moment.
+- June Merrill's mother was Marta Sundqvist; Sam visited her in 1993, then
+  stopped. (Open: why.)
+- ??? on night three: *"Missing him already, sweetheart?"*
+
 **Day three** (`day_three.md`)
 
 - Ruth asks what they called MC before; Sam asks for the true name later.

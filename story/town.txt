@@ -7,6 +7,7 @@
 
 === map_first
 -> map_day_one | if=day==1
+-> map_day_three | if=day==3
 -> map_day_two
 
 === map_day_one
@@ -17,6 +18,7 @@ paranoia: Go if you have to. Come back before it's late.
 
 === pub
 -> pub_first | if=day==1
+-> pub_three | if=day==3
 -> pub_two
 
 === pub_first
@@ -74,6 +76,7 @@ narration: The cold outside is almost a relief.
 
 === lake
 -> lake_first | if=day==1
+-> lake_three | if=day==3
 -> lake_two
 
 === lake_first
@@ -136,6 +139,10 @@ paranoia: She's decided something about you. You were there when she decided it.
 narration: You leave money on the bar and go before the room can decide to be friendly.
 
 === church
+-> church_three | if=day==3
+-> church_two
+
+=== church_two
 narration | time=+20: The church at the top of the hill. White clapboard, a squat steeple, every window lit. Inside, the pews are empty.
 narration: By the door, a corkboard: the prayer list, in a dozen hands. A hip. A son in Fairbanks. Rain for somebody's well. At the bottom, in block capitals: OUR KEEPER.
 narration: Behind the vestry, a room no bigger than a closet: egg-carton foam on the walls, a desk, a microphone on a stand, a red bulb over the door. ON AIR, the bulb says, glowing.
@@ -193,6 +200,10 @@ narration: Ezra comes back. The hymn ends. The bulb comes back on. The Reverend 
 narration | time=+120: You stay until the coffee's gone. Nobody asks you to leave. Nobody asks you to stay.
 
 === cabin
+-> cabin_three | if=flag:met_sam
+-> cabin_first
+
+=== cabin_first
 narration | time=+10: The shack on the shore, the one with the lit window. Up close it's bigger than it looked: a cabin, with a lean-to built on the side, and a stovepipe, and a second pipe that isn't for a stove.
 narration: Three locks on the door. A thermometer by the frame, and a pencilled column of figures on the wood beside it, one for every day.
 narration: Nobody answers your knock. Out on the ice, a lamp moves.
@@ -231,7 +242,7 @@ narration: He looks at you over his glasses, as if checking a figure.
 -> cabin_talk
 
 === cabin_talk
-sam: People will tell you I'm crazy. That's fine. It saves time.
+sam | flag=met_sam: People will tell you I'm crazy. That's fine. It saves time.
 sam: I'm the only person in Kettle Lake who writes things down and then reads them back. That's the whole of my madness.
 appraisal | if=appraisal>=1: The chest freezer. Ice cores, the labels say. Dates going back years. He's been keeping the lake, a piece at a time.
 sam: They gave you a list. Eight rules. I don't know if they're true. Neither does anyone who'll tell you they are.
@@ -254,6 +265,116 @@ narration | if=sold:ice_picks: Off the point to the north, a dark ragged hole in
 narration: The poles are still under their tarp on the bank. Someone has brushed the snow off it.
 narration: Further along the shore, the cabin's window is lit. Out on the ice, the lamp is moving again.
 paranoia: Go home. Or knock. Pick one.
+
+# --- Day three: Friday ---
+
+=== map_day_three
+narration: Friday. Every porch light in Kettle Lake is on, and every car in it is parked outside the Gleaner.
+narration: Up on the hill the church is dark. Down on the shore, one lit window.
+paranoia: They looked in your window on the way. All of them. Now they're all in one room together.
+
+=== pub_three
+narration | time=+60: The Gleaner on a Friday. Every stool taken but one. The jukebox fed for once, the same three songs, over and over.
+narration: The talk doesn't stop when you come in, this time. It drops, the way a radio drops when someone walks past it with a magnet, and comes back up.
+narration | if=window:fox: Someone at a table says the word fox, and someone else laughs, and doesn't look at you.
+narration | if=window:empty: Someone at a table says, not quietly, "Nothing in the window. Abraham always had something in the window."
+narration | if=flag:gave_music_box: Down the bar, June Merrill lifts her glass an inch toward you, and then looks away, as if she'd been caught at something.
+narration: Your stool at the end. Nobody's in it. Nobody's been in it all night; there's a coat on the next one over, keeping it from being next to anybody.
+-> pub_three_warm | if=flag:ruth_upstairs
+-> pub_three_cold
+
+=== pub_three_warm
+narration: Ruth puts a beer in front of you and squeezes your wrist as she does it, once, quick, as if checking you were real.
+-> pub_three_late
+
+=== pub_three_cold
+narration: Ruth puts a beer in front of you without a word. Later, another. She doesn't let your glass go empty. She doesn't let her eyes stay on you either.
+-> pub_three_late
+
+=== pub_three_late
+narration | time=+120: Last call. The room empties the way a sink empties, slow and then all at once. Olstad's glass of milk, left half full on the bar. Chairs going up on tables.
+narration: Then it's only you, and Ruth, and the Polaroids.
+narration: She pours two. She doesn't put the bottle away. She sits on the bar side of the bar, on an upturned crate, so her head is lower than yours.
+ruth: Can I ask you something nobody here asks?
+narration: She doesn't wait for you to say yes.
+ruth: What did they call you? Before. Not your name. I don't want your name. What did people call you?
+narration: Behind her, ten faces and yours, all of them on your stool.
+paranoia: Don't. That's how it starts. She remembers every face. She'll remember this.
+warmth | if=warmth>=1: She's asking. Nobody's asked anything about you in a week. Nobody's asked anything about you in a year.
+john | if=john>=2: John. It's easy. You've been saying it all week.
+> Tell her something true. Not the name. What someone used to call you. -> pub_three_true | flag=door_ruth_1 | lean=warmth
+> "John." -> pub_three_john | lean=john
+> "Nobody called me anything." -> pub_three_nobody | lean=paranoia
+
+=== pub_three_true
+narration: You tell her. A small word. What somebody called you once, a long time ago, when you were small and it was safe to be.
+narration: You haven't said it out loud in years. It sounds strange in this room, under the moose head. It sounds like someone else's.
+narration: Ruth doesn't repeat it. She doesn't write it down. She just nods, slowly, as if putting it somewhere safe, somewhere only she goes.
+ruth: There. Now somebody here knows.
+narration: She touches her glass to yours. You feel lighter, and you feel like you've handed someone a key and watched them put it on their ring.
+paranoia: She has all of them. Every face up there. Now she has this too.
+warmth | if=warmth>=1: She'll keep it. That's what she does. She keeps things.
+-> pub_three_leave
+
+=== pub_three_john
+narration: She looks at you for a long time. Then she looks over her shoulder, at the wall of Polaroids.
+ruth: That's what they all say.
+narration: She finishes her drink. She finishes yours.
+ruth: It's fine. I asked. It's fine.
+-> pub_three_leave
+
+=== pub_three_nobody
+ruth: Everybody gets called something.
+narration: She lets it sit. Then she nods, as if you'd told her something after all, and maybe you have.
+ruth: Okay. Nobody, then. I'll remember Nobody.
+-> pub_three_leave
+
+=== pub_three_leave
+narration: When you get up, she stays where she is, on her crate, with the bottle.
+ruth: Drive careful. Road's bad by the lake.
+narration: Through the window, as you go, she's taking your Polaroid down off the wall. She looks at it under the light a long time, and puts it back up. Straighter.
+
+=== church_three
+narration | time=+20: The church at the top of the hill, dark. Friday. No watch.
+narration: The door is unlocked. Inside, cold pews, and the smell of candle wax and floor polish. The little studio behind the vestry is locked; through its window, the ON AIR bulb, dead.
+narration: On the corkboard by the door, the prayer list. At the bottom, in block capitals: OUR KEEPER.
+narration: Under it, since last night, in a different hand: AND FOR THE HOLLIS BOYS. And under that, smaller, in pencil: AND FOR THE WINDOW.
+paranoia: The window. Your window. Somebody prays for your window.
+appraisal | if=appraisal>=1: Or Mrs. Hollis's window, or the school's, or a window somebody broke. A prayer list is full of things you can't see the start of.
+narration | time=+30: You sit in a back pew for a while, in the dark, because it's quiet and because nobody's watching. You think nobody's watching.
+
+=== cabin_three
+narration | time=+10: The cabin on the shore. The three locks. The thermometer, and the column of figures on the wood. Today's is filled in.
+narration: He opens the door before you knock. Like he heard your car stop. Like he's been listening for it.
+sam: Friday. Everyone's at the Gleaner. You're not. Good. Or bad. Write it down either way.
+narration: He doesn't let you in tonight. He stands in the door with the warm behind him and talks to you across the threshold.
+sam | if=!window:empty: You dressed the window. I drove past. Everybody drove past. It's the only television in town.
+sam | if=window:empty: You left the window empty. People noticed. People here notice an empty thing faster than a full one.
+sam | if=flag:gave_music_box: June Merrill came by this afternoon. She was holding a music box. She stood out on the road and played it at my cabin and walked away. I'd rather not talk about that.
+sam: Something happened last night. To you. I can tell. You're standing like it's still happening.
+> Tell him about the bowl -> cabin_three_tell | lean=appraisal
+> "Nothing happened." -> cabin_three_nothing | lean=paranoia
+
+=== cabin_three_tell
+narration | if=flag:fed_two: You tell him. The bowl by the stove, licked clean, and set back down exactly on the line of the scuff. Exactly where you put it. The way you put it.
+narration | if=!flag:fed_two: You tell him. The bowl you didn't fill. Gray hair on the bottom step, long and fine, swept into a little pile.
+narration: He listens without blinking. Then he takes a pencil from behind his ear and writes on the door frame, under today's temperature. He doesn't let you see what.
+sam: Either somebody's watching you very closely, or you're getting up in the night and not remembering. Both of those can be checked.
+sam: Tonight, put it down an inch off the line. On purpose. See where it is in the morning.
+sam: Then you'll know which. Or you'll know you can't know. That's data too.
+paranoia: He said it like it was nothing. Like either answer would be fine.
+
+=== cabin_three_nothing
+sam: All right.
+narration: He looks at you over his glasses, the way he'd look at a column of figures that doesn't add up.
+sam: When it does, write down the time.
+narration: He shuts the door. One lock. Two. Three. He checks the first one again; you hear it.
+
+=== lake_three
+narration | time=+20: The shore. The ice has crept out further, and gone from gray to white. Close in, by the reeds, you could probably stand on it.
+narration: North, along the shore, the reeds where a jacket could get caught. They're bent flat in one place, as if someone had knelt there.
+narration: The poles under their tarp. The tarp's been pulled back, and put back, not as neatly.
+paranoia: People come down here. Everyone comes down here. It's the lake. Go home.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.
