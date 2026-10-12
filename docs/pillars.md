@@ -17,6 +17,13 @@ fixed. Decided together on October 12; change it on purpose, not by drift.
 
 Kettle Lake, Alaska. October 1999 to breakup, April 2000.
 
+**Under it all: a loneliness that can't be escaped.** Every route (every
+romance, the rules, the voices) is an attempt to escape it, and each one fails
+in its own way. The closer MC gets to someone, the less real everything
+becomes, until reality, lies, paranoia and delusion merge and stop mattering.
+The only true good ending is the town burning, and MC driving away from the
+nightmare, unsure whether any of it was real.
+
 ## The question
 
 **Is it real?** Every strand gives a different answer to the same events, and
@@ -64,13 +71,15 @@ one can be read as MC losing his mind completely.
 
 ## The romances: one per strand
 
-The dark romance is getting close to a threat. Each strand has one.
+The dark romance is getting close to a threat. Each strand has one. **None of
+them is simply good; all of them are deeply problematic.** Each is a way of
+falling. (Their doors: `forks.md`, "The romances, door by door".)
 
 | Strand | The threat | The romance | What loving them means |
 |---|---|---|---|
-| Crime thriller | Daniel | **Daniel** | Falling for what you ran from |
-| Folk horror | The congregation | **Ruth**, who has helped them every winter | Loving someone complicit |
-| Psychological | MC's own mind | **Sam**, as paranoid as MC | Being believed, or sharing a delusion |
+| Crime thriller | Daniel | **Daniel** | **Wanting to be broken and rebuilt** by the man you ran from |
+| Folk horror | The congregation | **Ruth**, who has helped them every winter | **Complicity, and desperate attachment:** love as a cage |
+| Psychological | MC's own mind | **Sam**, as paranoid as MC | **Complete madness:** conspiracy, a folie à deux |
 
 The real name runs through all three: Ruth asks what they called him before;
 Sam asks for a true name; Daniel knows it and never says it.
@@ -131,7 +140,7 @@ nobody, the player included, can tell who's mad.
 
 ## Endings
 
-Six: one per strand, plus the default, the way out, and the brighter one. The
+Six: one per strand, plus the default, the way out, and the true good one. The
 hard forks and soft totals that lead to each are in `forks.md`.
 
 | Ending | Strand | In short |
@@ -139,10 +148,10 @@ hard forks and soft totals that lead to each are in `forks.md`.
 | **The season ends** (default) | Folk horror | The town gets its Keeper. |
 | **Run** | Crime thriller | MC drives away; the town walks whoever holds the keys to the shore. |
 | **Daniel** | Crime thriller, romance | At the shore, he doesn't let go. |
-| **Break the cycle** (Ruth) | Folk horror, romance | Her complicity undone, at a price. |
-| **The truth** (Sam) | Psychological, romance | The rational answer: it was always the town. |
+| **Break the cycle** (Ruth) | Folk horror, romance | MC stays past breakup because she couldn't let go, and the town lets them be, at a price. Love as a cage, on both sides. |
+| **The truth** (Sam) | Psychological, romance | Folie à deux. MC and Sam on the ice at the minute, doing what they've worked out together, and both survive. They beat the pattern, or went mad together. The title is ironic. |
 | ↳ *The ice* (variant of The season ends) | Psychological / cosmic | With ??? the strongest voice and MC frayed, the default ending is told from inside: MC walks out and meets what's under the ice. Supernatural, or MC completely gone. The game never says which. Daniel's "into the ice together" is the same variant inside his ending. |
-| **Thaw** | All three, no romance | The bright one. The people MC kept faith with walk him to the shore, watch the ice go out, and walk him back. He has to say what he ran from, and gives his own name. (`story.md`, "Thaw".) |
+| **The fire** | All three, no romance | **The true good ending.** MC sets the shop on fire the night before breakup; the town's frenzy does the rest, or he only imagines it. Morning, the highway south. He doesn't know if any of it was real, and it doesn't matter. Alone, and free. (Replaces Thaw.) |
 
 Daniel's four shore outcomes (`daniel.md`, 10b) are how his strand closes
 inside these endings, not separate endings.
@@ -182,12 +191,10 @@ text):
 - [x] **Game text:** names as a custom, things that fade, MC's gender never
       stated, a click instead of your own voice, "sweetheart" only where the
       prologue has it.
-- [ ] **`breakup_decisions.md`:** referenced by `daniel.md`, not in the repo
-      yet.
+- [x] **`breakup_decisions.md`:** replaced by `decisions.md`, a dated log.
 
 ## Open
 
 - [x] Management's envelopes: the congregation (`forks.md`).
-- [ ] How Sam's ending reads if "it was always the town": is that the truth,
-      or the most rational lie?
+- [x] How Sam's ending reads: folie à deux; the title is ironic.
 - [ ] Which days, exactly, make up each month's chapter.
