@@ -20,7 +20,8 @@ Inspiration: Disco Elysium's skills, without the numbers and dice.
 
 **John** is the voice of the identity MC is wearing. The more MC lies well, the
 louder it gets. At its strongest it could start saying things MC never knew,
-which feeds the question of what ??? is.
+which feeds the question of what ??? is. (The human route, always open: things
+MC read in John's papers, or heard once and forgot.)
 
 ## When they speak
 

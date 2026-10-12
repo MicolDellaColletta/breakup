@@ -4,7 +4,7 @@
 light than yesterday). Draft for discussion, same as `day_one.md` was.
 
 Day one taught the counter. Day two is where **day one's choices come back**,
-and where the shop starts showing what it is: the dog, the back door, and the
+and where the shop starts seeming to show what it is: the dog, the back door, and the
 first name brought in to pawn.
 
 Thursday matters: the church bulletin asks for volunteers for **the Thursday
@@ -54,7 +54,7 @@ the picks.
 - He wants to **pawn the picks**: *"I don't want them in the house."* A small
   loan, the next pawn tag. Takes them off the floor, onto the back shelf.
 - Refusing to take them: he leaves them on the counter anyway.
-- Layer 2 seed: the lake gives back the dead in May. Cody will be waiting.
+- Folk seed: bodies surface when the ice goes out in May. Cody will be waiting.
 
 **If MC didn't sell him the picks:** Mrs. Hollis comes in instead.
 
@@ -78,7 +78,7 @@ From the earlier ideas list: **someone who knew the old keeper.**
   Leans John. Then: *"You'll come up Sunday. We pray for the Keeper."*
   (The Reverend told MC to be busy. Choice.)
 - **Didn't:** *"Abraham would have known."* He leaves, and this is the first
-  person who'll tell Daniel, in January, that the Keeper didn't know the shop.
+  person who'll tell Daniel, when he comes in November, that the Keeper didn't know the shop.
 - Ezra is who the congregation sounds like before Daniel gives it a voice.
 
 ### 3. Walt Pruitt: pawning a name (rule 6)
@@ -95,10 +95,12 @@ Walt comes back. Slower. He doesn't look at the shelves.
 |---|---|---|
 | Refuse, kindly | Rule 6 kept. Walt nods: *"She'd have said the same."* He says "Ida" once more at the door, like trying it. | Warmth |
 | Refuse, hard | Rule 6 broken ("be polite"). *"Then I'll carry it."* | Animal |
-| Accept | **break=name.** The next pawn tag: *"One name."* MC writes it. Walt stops in the doorway and can't remember why he came in. From now on **nobody in Kettle Lake can say "Ida"**. | ??? |
+| Accept | **break=name.** The next pawn tag: *"One name."* MC writes it. In the doorway Walt asks MC never to say it back to him: *"Nobody says it now. That's how it's done here."* From now on, **by the town's custom, nobody in Kettle Lake will say "Ida"**. | ??? |
 
-After accepting, the ledger line reads *"One name. ___."* The ink is there; MC
-can't read it either. A strong Appraisal can: *"Ida. You wrote Ida."*
+After accepting, the ledger reads *"One name."* and the name itself, plainly, in
+MC's hand. MC finds they don't want to read it, even silently. A strong
+Appraisal: *"Nobody in this town will say it again. Watch them not say it."*
+(Custom, not magic: `pillars.md`, "The rule of two explanations".)
 
 ### 4. Ruth (not a customer)
 
@@ -153,7 +155,8 @@ visit costs the whole evening (it's past the lake).
   lifting the receiver breaks the rule. If MC answers and doesn't speak first:
   - If MC accepted Ida's name: an old woman's voice, a neighbour, asking for
     Walt: *"Is he there? He's not home. I'm calling about his wife, about...
-    about..."* She can't find the name. She hangs up crying.
+    about..."* She won't say it: *"If he's given it up, I won't be the one to
+    say it."* She hangs up crying.
   - If not: the open line again, a clock ticking in the room. (Daniel. He says
     nothing until New Year's Eve.)
 

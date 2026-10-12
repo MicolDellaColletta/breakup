@@ -38,9 +38,9 @@ Colder, more northern picks to balance the Southern sound, plus a few for Daniel
 | [Far from Any Road](https://open.spotify.com/track/5tWPG0AU9LVjONRofHcLD0), The Handsome Family | Kettle Lake: lonely, beautiful, wrong |
 | [Blood Bank](https://open.spotify.com/track/15WbjBy1bzH1UsUldBwwlW), Bon Iver | Snow, a car, a secret. The Hermit's cabin. |
 | [What's He Building?](https://open.spotify.com/track/2SkY1MBAolcLSpWDWCP7Kd), Tom Waits | Paranoia, and the town watching the new Keeper |
-| [Black Soul Choir](https://open.spotify.com/track/0eiGCQxJnsJSj11lRyH2zO), 16 Horsepower | The folklore layer at full volume |
+| [Black Soul Choir](https://open.spotify.com/track/0eiGCQxJnsJSj11lRyH2zO), 16 Horsepower | The folk horror strand at full volume |
 | [Run from Me](https://open.spotify.com/track/3NdVWBkaljzAC64sppmpv5), Timber Timbre | Late-night dread, the radio after midnight |
-| [If I Had a Heart](https://open.spotify.com/track/3on9znKmGp0TaYcWPhqdVE), Fever Ray | Layer 3: what's under the ice |
+| [If I Had a Heart](https://open.spotify.com/track/3on9znKmGp0TaYcWPhqdVE), Fever Ray | The ice ending: what may be under it |
 
 ## Visual references
 

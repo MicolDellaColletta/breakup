@@ -5,6 +5,11 @@
 The story bible: what really happened before the game starts, who is who, and
 where it's going. The player learns most of this slowly, or never.
 
+**`pillars.md` wins every conflict with this doc.** Above all its rule of two
+explanations: every uncanny thing here has a human or psychological
+explanation, and where this doc says what "the shop" or "the lake" does, read it
+as what the town believes. Daniel's whole arc is in `daniel.md`.
+
 Status: brainstorm, mostly agreed. Open questions at the end.
 
 ---
@@ -25,19 +30,21 @@ Keeper has ever seen the summer.
   makes passing as John plausible.
 - His real name is never given (or only at the very end).
 
-## Three layers
+## Three strands (was: three layers)
 
-The player moves down through them. Layer 1 explains the fear. Layer 2 explains
-the rules. Layer 3 explains nothing: it just gets bigger.
+The game asks **"is it real?"** and three strands answer it differently
+(`pillars.md`, "The question"):
 
-| Layer | Kind of horror | What it is |
+| Strand | Its answer | What it is |
 |---|---|---|
-| **1. Mundane** | Thriller. People. | John's theft, Daniel coming north, what MC did, a small town watching a stranger. |
-| **2. Folklore** | Rural legend. | The shop, the rules, the Keeper. A bargain the town has lived with for generations. |
-| **3. Cosmic** | Dread. | What the ice holds. What breakup really is. Who Management is. |
+| **Crime thriller** | *It's men.* | John's theft, Daniel, the crew, a trooper who suspects the Keeper. |
+| **Folk and religious horror** | *It's the town.* | The shop, the rules, the Keeper, the congregation. A custom the town has kept for generations. |
+| **Psychological horror** | *It's you.* | What MC did, saw, owes or can't remember. The voices. A mind under strain. |
 
-Keep layer 1 grounded: thriller, not fantasy. When something can have a human
-explanation, it does, at least at first.
+What the ice holds isn't a strand: it lives in the gap between the three, and is
+never confirmed. Only one ending ("The ice") leans that way, and it can be read
+as MC losing his mind. Older notes below that say "layer 1, 2, 3" mean these
+strands, in that order, with layer 3 as the gap.
 
 ---
 
@@ -52,8 +59,9 @@ explanation, it does, at least at first.
   and wrote **ticket 0527**. The item is still on the back shelf, held, not for
   sale. Its ledger entry has the name scratched out.
 - **He took the keeper job** to sit on top of it all winter, until breakup,
-  when the roads open and he could leave with it. He was running too: the notice
-  only ever reaches people who want to disappear.
+  when the roads open and he could leave with it. He was running too: Abraham
+  placed the notice where runaways look (Anchorage classifieds, halfway-house
+  boards, the back pages of the church papers).
 - **He rented the car** in Anchorage on October 2, 1999: cash, four weeks in
   advance, return date blank. No damage at pick-up.
 - **He called the shop** when he picked up the car, as agreed. He was supposed
@@ -79,9 +87,11 @@ Dead in the freezer when MC arrives. The person who knew the most.
   had the rest. Ruth's room was the one at the end of the hall, above the
   freezer: the door that's locked now.
 - **1989.** In the winter of 1988–89 the Keeper ran, in February. The shop was
-  unkept for one night, and it took the one holding the keys: **Abraham's wife**,
-  alone in the shop while he was in town. Nobody in Kettle Lake says it that
-  way; they say she went through the ice. That spring someone painted the lake
+  unkept for one night, and **Abraham's wife** died, alone in the shop while he
+  was in town. How is open (the town says she went through the ice; Abraham
+  believed the shop took her, for the keys she was holding; it could have been
+  her heart, the cold, or someone who came in through the back door). That
+  spring someone painted the lake
   breaking up, with a small figure standing on a floe (the painting over the
   armchair; who painted it is open). This is where the rule "never unkept"
   comes from, and where every "ten" in the game starts:
@@ -93,26 +103,28 @@ Dead in the freezer when MC arrives. The person who knew the most.
   and was gone until after breakup. He never said where (Ruth: "Doesn't tell me
   where, never has"). He locked Ruth's old room behind him.
 - **This year he stayed,** because John was late. "You're later than I hoped."
-  Staying is what killed him.
-- **He signed the job offers "Management",** but Management isn't him. It's
-  what he made the deal with (layer 3).
+  He believed staying would kill him.
+- **He signed the job offers "Management",** but Management isn't only him.
+  Who Management is now that he's dead is open, and needs a human answer (see
+  "Management's envelopes").
 - **He knew John.** He wrote ticket 0527.
 - **This winter, John was late.** No second call. Then the phone rang, and it
   was a man with a pleasant voice asking for John (Daniel). The owner understood.
-- **The shop is never unkept.** This is the half of the bargain nobody says out
-  loud. From the first week of October the shop must have a Keeper in it, every
-  night, until breakup. Breakup takes the Keeper; but if there's no Keeper, it
-  takes whoever is holding the keys. On the night of **October 3**, John's
-  arrival date, the shop was empty except for Abraham. It took him. He walked
-  into the freezer himself, and he waits there (see "The shop's own rules").
+- **The shop is never unkept.** This is the town's rule, the half of the
+  custom nobody says out loud. From the first week of October the shop must have
+  a Keeper in it, every night, until breakup. The town believes breakup takes
+  the Keeper, and that if there's no Keeper it takes whoever is holding the keys.
+  On the night of **October 3**, John's arrival date, the shop was empty except
+  for Abraham, and Abraham died. He's in the freezer. How he got there (his
+  heart, the cold, his own hand, or someone with a key) is a question the game
+  can answer late, or never.
 - **The calendar upstairs** is his: his crosses stop on October 3.
-- **He wrote rule five for himself.** He knew what the shop does with the ones
-  it takes off-season, because he fed his wife from that bowl in the spring of
-  1989. "Feed the dog" is a dying man asking a stranger to feed him.
+- **He wrote rule five for himself.** He filled his wife's bowl every night
+  after 1989, from grief or from belief. "Feed the dog" is a frightened old man
+  asking a stranger to keep up a custom he couldn't stop.
 - **He wrote the letter anyway,** not knowing if anyone would come. That's why
   it's addressed "FOR THE KEEPER" and not to John.
 - **Now nobody is hiring.** The dead phone still rings in the dead shop.
-  Management is looking for a new owner.
 
 ## The Keeper
 
@@ -123,54 +135,60 @@ Dead in the freezer when MC arrives. The person who knew the most.
 - **The town knows,** the way small towns know things they don't say. Everyone
   calls the Keeper by whatever name they arrived with. The old-timers have met
   forty. "Welcome to Kettle Lake, friend" on the radio is a ritual.
-- **The rules** in the letter are how a Keeper lasts until breakup.
+- **The rules** in the letter are how a Keeper lasts until breakup, the town
+  believes. (Abraham believed it too. He wrote them.)
 - **The shop must never be unkept** (see "The owner"). A Keeper who runs leaves
-  the shop empty, and something has to be taken: whoever holds the keys.
+  the shop empty, and the town needs someone at the shore: whoever holds the
+  keys.
 
 ### If MC drives away
 
-- **Early on, ordinary things stop him.** Layer 1 does the work: the rental is
+- **Early on, ordinary things stop him.** The thriller strand does the work: the rental is
   overdue from ~October 30 and reported stolen; Olstad knows the plate and sits
   at the town line; from December the road can close for days. Each attempt is
   a scene, never a game over, and each one costs something (time, suspicion,
   Olstad's patience).
 - **Later, he really can leave.** And it's an ending: **Run.** The shop is
-  unkept, and it takes whoever holds the keys.
+  unkept, and the town walks whoever holds the keys to the shore.
 - **MC chooses who that is.** Whoever he leaves holding a key: Olstad (the back
-  door), Ruth (her old room), someone he hands the front-door key to on his way
-  out, or nobody, in which case it takes what the keys were left with. The
-  epilogue is that person's spring.
+  door), Ruth (her old room), or someone he hands the front-door key to on his
+  way out. The epilogue is that person's spring.
 - The previous Keeper who ran (February 1989) is the precedent. Sam and Ruth
   both know the story, from opposite sides.
 
-## The shop's own rules
+## What the town believes the shop does
 
-What the shop actually does, under the eight rules. None of this is ever said
-outright; the player pieces it together.
+Under the eight rules, the town's legend. None of it is ever said outright; the
+player pieces it together. **Every entry has its human explanation beside it**
+(`pillars.md`, "The rule of two explanations"), and the game never settles
+which is true.
 
 ### The freezer: where the taken wait
 
-- Layer 1: it's a taxidermy shop. A walk-in freezer full of carcasses waiting
-  to be mounted is ordinary. That's why nobody looks twice.
-- Layer 2: **whoever the shop takes off-season waits in the freezer until
-  breakup,** then goes to the lake with the Keeper. Abraham walked in on the
-  night of October 3 and closed the door behind him.
-- **The taken walk at night.** The boot prints that come in through the back
-  door and go into the freezer and don't come out (night one) are Abraham coming
-  home. Where he goes, before he comes back, is open.
+- **The legend:** whoever the shop takes off-season waits in the freezer until
+  breakup, then goes to the lake with the Keeper. The taken walk at night.
+- **The human side:** it's a taxidermy shop. A walk-in freezer full of carcasses
+  waiting to be mounted is ordinary; that's why nobody looks twice. Abraham is
+  in it, dead (see "The owner"). The boot prints that come in through the back
+  door and go into the freezer and don't come out (night one) have human
+  answers: Olstad came in through that door on October 4 with her key; others
+  have keys (who, exactly, is open).
 - Opening the freezer is never forbidden by the letter. Paranoia forbids it.
   When MC finally opens it is a set piece (not before December).
 
-### The dog: the last one taken
+### The dog
 
-- **"The dog" is whoever the shop took last,** while they wait. They come up at
-  night, and they're hungry. Fed, they're quiet. Unfed, they look for you.
-- In spring 1989 it was Abraham's wife. The bowl is hers: the dent in it is
-  from 1989. Since October 3, it's Abraham.
+- **The legend** (Ruth's childhood story, told to every Keeper's kid by the
+  last one): "the dog" is whoever the shop took last, while they wait. They come
+  up at night, and they're hungry. Fed, they're quiet. Unfed, they look for you.
+  In spring 1989 it was Abraham's wife; the bowl is hers, the dent in it from
+  1989. Since October 3, the town would say, it's Abraham.
+- **The human side:** someone with a key comes up at night. Or MC, sleepwalking:
+  the late clue, the bowl licked clean and **set back exactly where MC left it**,
+  the way MC always does it, points both ways.
 - Clues, in order of how late they come: the bowl licked clean and moved; long
   gray hairs in it; the scratches on the hallway side of the steel door; the
-  stairs creaking, slowly, while MC lies in bed; one night the bowl is licked
-  clean and **set back exactly where MC left it**, the way MC always does it.
+  stairs creaking, slowly, while MC lies in bed; the bowl set back exactly.
 - Ruth would recognise the bowl. That's a scene.
 
 ### The back door: for them
@@ -184,15 +202,19 @@ outright; the player pieces it together.
   reads as reassurance the first time and a confession the second.
 - Locking it doesn't stop them. It makes them knock. (Night one: the handle
   turning from outside.)
+- From February the open door also lets Daniel in (`daniel.md`, "The stalker
+  the rules let in").
 
 ### The bear: the owner before Abraham
 
 - **NOT FOR SALE. NEVER.** Unpriced, unledgered: rule 3 can't price a man.
 - In 1959 Abraham, that winter's Keeper, found the owner's way out and turned it
-  on him: **he gave the owner to breakup in his own place.** The ram caught in
-  the thicket, with Abraham as both Abraham and the knife.
+  on him: **he walked the owner onto the ice himself, at breakup, in his own
+  place.** The ram caught in the thicket, with Abraham as both Abraham and the
+  knife. Entirely human, and the town let him.
 - **The lake gives back what it took** when the ice goes out ("the sea gave up
-  the dead which were in it"). In May 1959 it gave the old owner back to the
+  the dead which were in it"). Real, and physical: drowned bodies surface when
+  the water warms after ice-out. In May 1959 the old owner washed up on the
   shore. Abraham, who was learning taxidermy, put what was left inside the bear
   he'd shot that winter, and stood it in the corner where he'd see it every day.
 - So "Every Keeper is the ram" (see "Names") has a first ram, and he's in the
@@ -203,12 +225,17 @@ outright; the player pieces it together.
 ### Pawning a name (rule 6)
 
 - "If someone asks to pawn a name, say no. Be polite about it."
-- **The shop can take a name.** Accepted, it goes in the ledger, held, with a
-  ticket number, and from that day **nobody in Kettle Lake can say it.** They
-  reach for it and it isn't there. Redeem the ticket and it comes back.
+- **A town custom, not magic.** Accepted, a name goes in the ledger, held, with
+  a ticket number, and from that day **nobody in Kettle Lake will say it.** They
+  keep to it fiercely, the way old towns keep to things. Redeem the ticket, and
+  people are allowed to say it again.
+- Walt can't find the name afterwards because he's eighty and grieving, and
+  because he asked never to hear it. His neighbour won't say it on the phone.
+  The horror is that it's people.
 - It feeds ??? and breaks rule 6. Refusing rudely breaks it too ("Be polite").
 - First one: **Walt Pruitt, day two, his wife's name: Ida** (see `day_two.md`).
-- Later hook: an old ledger line, held, with a name MC knows. His own.
+- Later hook: an old ledger line, held, with a name MC knows. His own. Someone
+  who knows it wrote it there (Daniel is the obvious candidate; open).
 
 ## Management's envelopes
 
@@ -218,15 +245,18 @@ The Keeper's wages. The owner is dead, but they keep coming.
   promised. Addressed to the Keeper, never to a name.
 - **Sometimes there's something else in it:** a note, or an object. Sometimes
   nothing but the money.
-- **Who sends them** now that the owner is in the freezer is part of the
-  question of what Management is (layer 3).
+- **Who sends them** now that the owner is dead is open, and **needs a human
+  answer.** Candidates: a standing order Abraham left with the bank or the post
+  office; the congregation paying its Keeper (feeding the lamb); Ruth; Ezra.
 - In the game, the envelope is where money comes from, and a weekly beat:
   the player learns to dread or look forward to what's inside.
 
 ## Breakup
 
-When the ice goes out on the lake, something below is let out, or fed, or wakes
-up. The Keeper is part of how the town survives it. Kept vague for a long time.
+The town believes that when the ice goes out on the lake, something below is let
+out, or fed, or wakes up, and that the Keeper is part of how the town survives
+it. Whether anything is down there is never confirmed (only "The ice" ending
+leans that way).
 
 Real detail to use: towns in Alaska run **betting pools on the exact minute
 the ice breaks.** From late winter, once the ice is thick, a tripod stands out on it with a line to a clock on
@@ -261,32 +291,35 @@ faith,** a small local congregation with its own reading, not a real church.
   rules. Only when the radio is clear, never when it flickers. Is it real, or is
   MC making it up? The game never says.
 - **Who the voice is:** the Reverend, quietly helping the Keeper against his own
-  congregation's belief. Which may be why he disappears around Christmas.
+  congregation's belief. In December Daniel tells Ezra one true thing about it,
+  and the congregation turns on the Reverend (`daniel.md`, section 7).
 - **In the shop:** a recurring customer from day one. He buys the brass compass and
   gives it to MC ("Don't ever go out on the ice without knowing where north
   is"), and suggests MC be busy on Sunday if anyone wants to pray for him. His
   voice is the one from the radio, for players who notice.
-- **After he's gone, the voice still comes through,** once or twice, on the
-  clearest nights. A recording? MC's own mind? Something else? Then, from
-  January, the station is Daniel's.
-- The drive's radio line, "How much is the truth worth to you?", belongs to the
-  helper. When Daniel takes over the station, **he says it too.** Where did he
-  learn it?
+- **Daniel's voice reaches the station before he does:** a caller from the
+  road in early November, a guest on the Thursday watch after he arrives, and
+  from December, the host.
+- **After the Reverend is gone, his voice still comes through,** once or twice,
+  on the clearest nights. Old tapes from the station's shelf? MC's own mind?
+- The drive's radio line, "What is it you're carrying that you can't put
+  down?", belongs to the helper. When Daniel takes over the station, **he says
+  it too.** He's been listening to the Reverend's tapes.
 
 ### Symbols
 
 - **The Keeper is the scapegoat.** In Leviticus, once a year a goat carries the
   people's sins into the wilderness. Breakup is the town's Day of Atonement.
 - **"The sea gave up the dead which were in it"** (Revelation). When the ice goes
-  out, the lake gives back what it took.
+  out, the lake gives back what it took: drowned bodies surface in the thaw.
 - **The mark of Cain.** A murderer sent off to wander, marked so nobody would kill
   him. Daniel letting MC go is that mark: nobody else gets to have him.
 - **"Of that day and hour knoweth no man."** The town bets on the exact minute
   anyway. The unbeliever, Samuel, keeps the clock.
 - **Omens with ordinary explanations:** red snow (real: algae), a blood-coloured
   aurora, birds flying the wrong way, animals leaving the woods. The town reads
-  signs; Sam explains every one. Except the clock that stops at the same minute
-  every spring.
+  signs; Sam explains every one. Except the clock, which by his own log stops
+  at the same minute every spring. His data could be wrong. He could be.
 - **Ticket 0527 is chapter and verse:** Daniel 5:27, *"Thou art weighed in the
   balances, and art found wanting."* Nobody says so. Pawn tickets are numbered
   in order, and the ledger's numbers around it stop in the 0430s; this one
@@ -351,71 +384,57 @@ Each one has an ordinary explanation. Most players won't notice most of them.
 
 ## Daniel Hale
 
-The man John's employers sent after him. Someone to be afraid of from the first
-time you hear his voice.
+**His whole arc is in `daniel.md`** (draft v6, in line with `pillars.md`). In
+short:
 
-Inspirations: Hannibal Lecter (cultured, intimate, knows you better than you do),
-Hans Landa (polite, patient, already knows the answer and wants to watch you
-decide whether to lie), Anton Chigurh (a principle instead of a motive; the coin
-toss).
-
-- **Courtesy that's worse than threats.** Never in a hurry. Makes you talk.
-- **He thinks in prices.** Things have a price and the price gets paid. In a
-  pawn shop, that's everywhere. His name carries it: the biblical Daniel read the
-  writing on the wall, *"weighed in the balances, and found wanting."*
-- **He calls MC "sweetheart."**
-- **He met MC the night John died, and let them go, with the ticket.** That's
-  the point. A pawn shop releases an item only to whoever holds the ticket, and
-  the Keeper is the one person who can open the tin without anyone asking why.
-  MC is his courier and doesn't know it. (There's also something else in it
-  that even Daniel can't name; he'd never admit that.)
-- **He was shot that night.** The sixth bullet from John's revolver is in him
-  (who fired it depends on the background; see "Backgrounds"). He spends
-  October to December healing, which is why he waits until January. He has
-  thought about MC every day of it.
-- **He knows where MC went.** He phoned the shop asking for John. He was never
-  following the car; he already knew where it was going.
-- **He wants what's under ticket 0527.** And he wants to see what MC has become.
+- **A hired hand.** A man paid to kill, with no loyalties and no employer for
+  longer than one job. The crew John robbed paid him to bring back the books. He
+  isn't tied to the shop. He's tied to the town, because he feeds on what it
+  believes.
+- **Landa's courtesy, Chigurh's principle.** A loner, well spoken, scarily
+  polite, armed. He always pays (exact change), never lies, has no loyalties.
+  He thinks in prices: *"What did that cost you?"* His name carries it: the
+  biblical Daniel read the writing on the wall, *"weighed in the balances, and
+  found wanting."*
+- **He calls MC "sweetheart",** and so does ???. Who learned it from whom stays
+  a question: about MC's mind, not about the ice.
+- **He met MC the night John died, and let him go,** with the ticket. Layer 1
+  reason: MC is his courier, since only the ticket holder can redeem 0527
+  without questions. The real reason: he doesn't know, and it's become an
+  obsession.
+- **The sixth bullet** from John's revolver is in him (who fired it depends on
+  the background). He arrives in Kettle Lake in **November**, still wounded.
+- **Before that, he's a silence on the phone** (he never speaks to MC until New
+  Year's Eve) and a **money order** each month: "Interest, ticket 0527," exact
+  to the cent.
 - **New Year's Eve:** MC comes back from the party at the pub and the phone is
-  ringing. "Happy New Year, sweetheart." He arrives a few days later. Halfway
-  through the season, everything changes.
+  ringing. "Happy New Year, sweetheart." He's already in town. The call is the
+  promise.
 
 ### The preacher
 
-Daniel is a **con artist.** He comes to Kettle Lake for MC and for ticket 0527,
-finds a frightened town that already believes the end is coming, and sees
-fertile ground. **He makes himself its preacher.**
+Daniel is a **con artist** as well as a killer. He finds a frightened town that
+already believes the end is coming, and sees fertile ground. **He makes himself
+its preacher.** Reference: *The Night of the Hunter* (1955).
 
-Reference: *The Night of the Hunter* (1955). Robert Mitchum's fake preacher,
-charming and murderous, hunting the money a dead man hid.
-
-- **Nobody appoints him.** Around Christmas, the Reverend (see "The town's faith")
-  disappears. Daniel arrives in early January, just passing through, and offers
-  to say a few words on Sunday. After one sermon, the town begs him to stay.
-- **He was never ordained,** but his scripture is perfect. He learned it the way a
-  con man learns any script. That's scarier than a preacher who gets the verses
-  wrong.
-- **He sells salvation.** He doesn't need to know if breakup is real. He only needs
-  the town to believe he can save them from it. In a game about a pawn shop,
-  that's people paying for their sins.
-- **The collar is his cover.** The town trusts him on sight, more than it will
-  ever trust the Keeper. He sits at every table in Kettle Lake.
-- **He learns what the Keeper is for,** and he can turn the whole congregation
-  against MC with one sermon. Before he arrives, MC's enemies are fear and the
-  cold. After, it's the town.
-- **He hears confessions.** Landa's interrogations, with a booth and a screen.
-  Everybody tells him everything, Ruth included. MC can confess to him too, and
-  what MC says there matters.
-- **He takes over the radio station.** From his first week in town, the voice on
-  the night broadcast is Daniel's. Rule seven, "Keep the radio on at night",
-  now means listening to him in your apartment, every night, until breakup.
-- **Did he make the Reverend disappear?** Layer 1 says yes, probably. The game
-  never quite proves it.
-
-**??? also calls MC "sweetheart."** In layer 1 Daniel is a man. By layer 3 the
-player shouldn't be sure whether what's under the ice learned that voice from
-him, or the other way round. A man that patient would make a perfect owner for
-the shop. Maybe Management thinks so too.
+- **His voice arrives first,** on the church's night radio: a caller from the
+  road in early November, a guest on the Thursday watch once he's in town, and
+  from December, the host. Rule seven ("Keep the radio on at night") now means
+  listening to him.
+- **A preacher's son** from northern Minnesota who stopped believing at twelve
+  and never stopped knowing the words. The pulpit is a homecoming he despises,
+  which is why he's so good at it.
+- **His wound helps the con:** a preacher with a wound in his side. He never
+  claims anything; the congregation decides what it means.
+- **He kills with the truth:** in December he tells Ezra what the Reverend has
+  been doing on the radio, helping the Keeper. The congregation does the rest.
+- **The millennium is his hinge** (`pillars.md`, "How the town falls"): when
+  midnight on December 31 passes and nothing happens, he gives the disappointed
+  a new date: breakup, and the offering.
+- **He hears confessions,** and keeps the seal perfectly. Everybody tells him
+  everything. MC can confess too.
+- **He learns what the Keeper is for,** and by February preaches the scapegoat
+  plainly. Before him, MC's enemies are fear and the cold. After, it's the town.
 
 ## The Trooper: Sgt. Marit Olstad
 
@@ -457,8 +476,25 @@ in Kettle Lake who isn't Daniel.
 - **Invites MC to the pub that night** to meet the residents. This is how the
   player first opens the map.
 
-Layer 1: a cop who is good at their job and suspicious of a stranger.
-Layer 2: they've met other Keepers, and know how every season ends.
+- **Good is not the same as nice** (`pillars.md`). She's unpleasant, and
+  **homophobic, subtly but clearly:** in what she says about other people (Sam,
+  "that one up the lake"; the Keepers who "came up here to be what they couldn't
+  be at home"), in who she assumes things about, later in how she watches Daniel
+  and MC. Never a joke, never excused, and never the thing that makes her right.
+- **She doesn't like MC. She still won't let a town drown a man,** because the
+  law is the only thing she believes in. She's the one person in Kettle Lake who
+  believes in neither the ice, nor God, nor Daniel.
+- **Her baby is born in January.** In February she's back on duty too soon,
+  because nobody else will watch the preacher.
+- **Her duel with Daniel** (January to February, `daniel.md` 8b): she sees the
+  preacher's son in him. He shows her he could kill her, and doesn't.
+- **She lives.** At breakup she's on the shore, against the town and against
+  Daniel. Protecting MC doesn't redeem her prejudice, and the game doesn't
+  pretend it does.
+
+The thriller strand: a cop who is good at her job and suspicious of a stranger.
+The folk strand: she's met other Keepers, knows how every season ends, and has
+let it happen. This winter, for her own reasons, she won't.
 
 ## The car, the gun, the ticket
 
@@ -470,10 +506,17 @@ Layer 2: they've met other Keepers, and know how every season ends.
 - **The gun:** John's. It was in the car when MC took it. MC knows what's in the
   towel on the passenger seat. Five rounds in six chambers. Counting them is a
   choice the player can make or avoid. **The sixth is in Daniel.** The player
-  finds that out in January, and it changes what "five" meant on the drive.
+  finds that out when he arrives in November and pawns it, and it changes what
+  "five" meant on the drive.
 - **Ticket 0527:** in the glovebox, with the shop's address on the back. John's
   reason for coming. MC doesn't know what it's for. (The number is Daniel 5:27;
   see "Symbols".)
+- **The tin under 0527 (proposal):** a cough-drop tin can't hold ledgers. It
+  holds **a key and a slip of paper**: a bus-depot locker in Anchorage, or a
+  safe-deposit box, where the crew's books are. Small enough to hide anywhere,
+  and a puzzle: opening the tin doesn't end anything, it only tells you where to
+  go. (The close-up's "paper, and something that isn't paper" fits.) Daniel
+  wants the tin because it's the only way to the books without a trail.
 
 ---
 
@@ -487,7 +530,7 @@ Backgrounds come from which voices MC listens to (see `voices.md`).
 | **Guilt** (Warmth) | MC killed him. A fight over the gun, or the car. Unclear for a long time whether it was on purpose. | Arrived after. Found MC instead, and was more interested in MC than in the money. | To vanish. Nobody looks for a dead man's replacement. |
 | **Witness** (Appraisal) | Daniel killed him. MC saw. | Saw MC see it. "Go on, sweetheart." | MC needed to disappear, and John's job was a door that had just opened. |
 | **Debt** (John) | The people MC owed killed John, thinking he was MC. | Knows the truth and lets them believe it. Now MC owes *Daniel*. | As long as "MC" is dead, the debt is paid. |
-| **Insanity** (??? and frayed) | MC doesn't remember. They woke up in his car with his things. | A voice from the missing hours. Nothing else. | They don't know. Something wanted them here. |
+| **Insanity** (??? and frayed) | MC doesn't remember. They woke up in his car with his things. | A voice from the missing hours. Nothing else. | They don't know. They believe something wanted them here. |
 
 By the end, the player finds out for certain, differently for each background.
 
@@ -504,7 +547,8 @@ By the end, the player finds out for certain, differently for each background.
 
 ## Romances
 
-Each one belongs to a layer and locks its own ending.
+Each one belongs to a strand (`pillars.md`, "The romances: one per strand")
+and locks its own ending.
 
 To keep them from turning into clichés, every love interest:
 
@@ -512,12 +556,12 @@ To keep them from turning into clichés, every love interest:
 2. **Has a secret** that changes how you read everything they said before.
 3. **Lies to MC at least once.**
 
-### Daniel Hale (layer 1, rising into 3)
+### Daniel Hale (crime thriller)
 
-The dark option. Falling for what you ran from. Locks the **dark ending** and a
-**secret darker ending.**
+The dark option. Falling for what you ran from. Locks the **Daniel** ending;
+its secret version is a variant of **The ice** (`daniel.md`, 10b).
 
-### Dr. Samuel "Sam" Wakeman, the Hermit (layer 3)
+### Dr. Samuel "Sam" Wakeman, the Hermit (psychological)
 
 Not a mystic: **the most rational person in Kettle Lake.** The town calls him
 crazy because he's the only one who says the pattern out loud.
@@ -535,17 +579,18 @@ crazy because he's the only one who says the pattern out loud.
   books everywhere, and his own notebooks plus the ones he inherited from
   whoever kept the pool before him.
 - **He goes out at night.** Lights moving on the ice, footprints in the snow
-  around the shop. In layer 1 that makes him the obvious suspect, for the town
-  and for MC. He's measuring things.
+  around the shop. That makes him the obvious suspect, for the town and for MC.
+  He's measuring things.
 - **He keeps logs:** ice thickness, temperatures, the minute the clock stops
   every spring. **And every Keeper,** each name and date. "Ten Keepers since
   I came here. None of them saw May."
 - **Extremely literate and articulate.** Well read, precise, a little formal,
   dryly funny. He says exactly what he means, with numbers and dates when he has
   them. Never riddles: the horror is that he's so clear.
-- **Layer 3 is in his data:** every spring the clock on the tripod stops at the
-  same minute. That shouldn't be possible. It's a dry line in a notebook, not a
-  prophecy.
+- **The strangest thing in the game is in his data:** by his log, every spring
+  the clock on the tripod stops at the same minute. That shouldn't be possible,
+  if his data is right. It's a dry line in a notebook, not a prophecy. He's as
+  paranoid as MC: is he proof that MC is right, or proof of how far it can go?
 - **What he wants:** to be proved right. And, once, to see what's under the ice.
 - **His secret:** in September 1993 the funding had died and he wanted to
   disappear from his own failure. The notice came to his cabin. He said no.
@@ -554,11 +599,11 @@ crazy because he's the only one who says the pattern out loud.
   drawer in the lab, in order. He knows what they say. Not opening them is the
   only rule he keeps that he didn't write himself.
 - **The romance:** two people who know too much in a town that pretends not to.
-  He's the one who believes MC, and the one MC learns to believe. Rewards a
-  strong **Appraisal**.
-- Locks **the truth** ending.
+  He's the one who believes MC, and the one MC learns to believe. Being believed,
+  or sharing a delusion. Rewards a strong **Appraisal**.
+- Locks **the truth** ending: the rational answer, that it was always the town.
 
-### Ruth, the pub owner (layer 2)
+### Ruth, the pub owner (folk horror)
 
 **The owner's daughter.** Divorced.
 Suspicious of everyone, the new Keeper most of all.
@@ -568,8 +613,9 @@ Suspicious of everyone, the new Keeper most of all.
   every spring they were gone. She knows her father survived by sending
   someone else into every breakup, and she has lived off it. The pub was paid
   for with Keepers.
-- **Her mother is the one the shop took in 1989.** Ruth bought the Gleaner that
-  summer and started the wall. She has the key to her old room, the locked one.
+- **Her mother died in the shop in 1989,** the night it was unkept. The town
+  says she went through the ice. Ruth bought the Gleaner that summer and started
+  the wall. She has the key to her old room, the locked one.
 - **The locked room is hers.** What's in it now is still open (see
   `layout.md`, "The locked door").
 - **She doesn't know he's dead.** He's been "away" since September. She comes to
@@ -591,16 +637,21 @@ Suspicious of everyone, the new Keeper most of all.
 
 ## Endings (draft)
 
-| Ending | How you get it |
-|---|---|
-| **The season ends** | Default. MC dies or disappears at breakup, like every Keeper. |
-| **Run** | MC drives away once he finally can. The shop takes whoever he left holding the keys. Their spring is the epilogue. |
-| **The new owner** | MC takes the owner's deal. Last scene: typing next winter's job offer. |
-| **Break the cycle** | Pub owner romance. MC is still there after the ice goes out; it costs something. |
-| **The truth** | Hermit romance. MC learns what's under the ice and chooses it, with them. |
-| **Daniel** | MC goes with him at breakup. |
-| **Daniel, secret** | Hidden (??? choices, a high ??? track, ticket 0527). Daniel becomes the owner, and MC becomes the Keeper who never dies. Kept. |
-| **Thaw** | The bright one. MC rebuilds without a romance, through the people he kept faith with. See "Thaw" below. |
+From `pillars.md`: one per strand, plus the default, the way out, and the
+brighter one.
+
+| Ending | Strand | How you get it |
+|---|---|---|
+| **The season ends** | Folk horror | Default. The town gets its Keeper: MC dies or disappears at breakup, like every Keeper. |
+| **Run** | Crime thriller | MC drives away once he finally can. The town walks whoever he left holding the keys to the shore. Their spring is the epilogue. |
+| **Daniel** | Crime thriller, romance | At the shore, he doesn't let go (`daniel.md`, 10b). |
+| **Break the cycle** | Folk horror, romance | Ruth. MC is still there after the ice goes out; her complicity undone, at a price. |
+| **The truth** | Psychological, romance | Sam. The rational answer, shared: it was always the town. |
+| **The ice** | Psychological / cosmic | ??? all the way. MC walks out onto the ice and meets what's under it. Supernatural, or MC completely gone; the game never says. Daniel's "into the ice together" is a variant. |
+| **Thaw** | All three, no romance | The bright one. MC rebuilds through the people he kept faith with. See "Thaw" below. |
+
+Cut: "The new owner" (Daniel and Management no longer lead there) and "Daniel,
+secret" (now a variant of The ice).
 
 ### Thaw (draft)
 
@@ -620,8 +671,12 @@ The one brighter ending. Earned, not given, and it still costs.
   Olstad, which may mean he doesn't stay free.
 - **Last image:** the tripod falls and the clock on the shore stops. Someone asks
   his name, and for the first time he gives his own.
-- Open: what happens with Daniel in this ending, and whether the shop needs a
-  Keeper next winter (and whether MC chooses to be one, of his own will).
+- **Daniel in this ending:** MC paid him off in March (the books, `daniel.md`
+  10b outcome 2), so he isn't on the shore. You can only face the town once
+  you've paid off the man.
+- **Olstad** is on the shore too, as in every ending where she lives.
+- Open: whether the shop needs a Keeper next winter (and whether MC chooses to
+  be one, of his own will).
 
 ---
 
@@ -629,9 +684,10 @@ The one brighter ending. Earned, not given, and it still costs.
 
 | Date | |
 |---|---|
-| Winter 1958–59 | Abraham is the Keeper. He survives breakup by taking the deal, and becomes the one who hires. |
+| Winter 1958–59 | Abraham is the Keeper. He survives breakup by walking the old owner onto the ice in his place, and becomes the one who hires. |
+| May 1959 | The old owner's body surfaces in the thaw. Abraham puts what's left inside the bear. |
 | 1959 | Ruth is born. She grows up above the shop, with a Keeper down the hall every winter. |
-| February 1989 | The Keeper runs. The shop is unkept; it takes Abraham's wife. "She went through the ice." |
+| February 1989 | The Keeper runs. The shop is unkept for a night, and Abraham's wife dies in it. "She went through the ice," the town says. |
 | Spring–autumn 1989 | Someone paints the breakup. Ruth buys the Gleaner and starts the wall. Abraham starts keeping carbons, and starts leaving every September. Sam arrives. |
 | September 1993 | Sam gets the notice and refuses. That winter's Keeper doesn't see May. It comes to him every September after. |
 | May 1999 | John hides what he stole at the shop. Ticket 0527. |
@@ -639,19 +695,27 @@ The one brighter ending. Earned, not given, and it still costs.
 | Mid-September | Duck season. Ray Hollis goes out to his blind by canoe. The canoe comes back without him. Draft: he pawned his rifle (tag 0431) that week. |
 | October 2 | John rents the car in Anchorage and calls the shop. |
 | October 2–3 | John dies; the sixth bullet goes into Daniel. Daniel lets MC go, with the ticket. Daniel phones the shop. |
-| October 3, night | John's arrival date. The shop is unkept. It takes Abraham. His calendar crosses stop here. |
+| October 3, night | John's arrival date. The shop is unkept, and Abraham dies alone in it. How he ends up in the freezer is open. His calendar crosses stop here. |
 | October 4, night | Olstad lets herself in the back door. Finds the carbon with "John" on it. Uses the bathroom upstairs. |
 | October 5, night | The drive. MC arrives at 23:25. (The prologue.) Sunset was 19:14. |
-| October 6 (day one) | The town already knows the name "John". The first customers. Olstad visits and invites MC to the pub. Sunrise 8:16, sunset 19:11. |
+| October 6–12 (week one) | Played day by day. The town already knows the name "John". |
+| October 8 (day three) | The first money order: "Interest, ticket 0527," postmarked Anchorage. |
 | Every week | Management's envelope: the pay, and sometimes something else. |
 | ~October 30 | The car's four prepaid weeks run out. Northern Lights reports it. Olstad already read the sticker. |
 | October 31 | Halloween, and the clocks fall back: sunset jumps from 17:58 to 16:55 overnight. The dark arrives an hour early, all at once. |
-| October to December | Daniel heals. |
-| Around Christmas | The Reverend disappears. The radio goes quiet. Shortest day, Dec 21: light from 10:15 to 15:33. |
-| December 31 | The party at the pub. "Happy New Year, sweetheart." |
-| Early January | Daniel arrives, "passing through". One sermon, and the town begs him to stay. From then on, the night radio is his. |
+| Early November | A travelling minister calls the night radio from the road. Money order, postmarked Wasilla. |
+| Late November | Daniel arrives, wounded, "passing through". He pawns the sixth bullet. A guest on the Thursday watch. Thanksgiving (Nov 25). |
+| December | Daniel tells Ezra one true thing; the congregation turns on the Reverend, who is gone before Christmas. Daniel takes the microphone. Money orders now postmarked Kettle Lake. Shortest day, Dec 21: light from 10:15 to 15:33. |
+| December 31 | The party at the pub. Midnight, and nothing happens. Home, and the phone: "Happy New Year, sweetheart." |
+| January | The Disappointment, then the new date: breakup. Daniel preaches and hears confessions. Olstad's baby is born. |
+| February | Sermons on the scapegoat. Ezra's hand. Daniel's duel with Olstad; he shows her he could. The open back door. |
+| March | Frenzy. Daniel names his price: the books. |
 | April 2 | Clocks spring forward. Sunset at 20:46. The light is coming back, and that's the worst news in the game. |
 | End of April | Breakup. The date circled on the calendar upstairs. Sunset after 22:00. |
+
+**What's played:** week one day by day, then four or five key days a month
+(about 30 in all), with short bridges between them (`pillars.md`, "The
+calendar").
 
 ### The light
 
@@ -683,9 +747,14 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 
 - [x] **Drive, the passenger seat:** MC knows it's John's gun. Replace "You don't
       remember putting it there."
-- [x] **Drive, the radio:** the clear moment ("How much is the truth worth to
-      you?") is the helper, the church's night host. Make it the same calm voice
-      that gives hints later.
+- [x] **Drive, the radio:** the clear moment ("What is it you're carrying that
+      you can't put down?", was "How much is the truth worth to you?") is the
+      helper, the church's night host. Make it the same calm voice that gives
+      hints later.
+- [x] **Two explanations, everywhere** (Oct 12): pawned names as a custom; the
+      warm coins and the fog fade; speaking first on night two gets a click;
+      MC's gender never stated; the compass finds nails behind the painting;
+      ??? says "sweetheart" only in the prologue's four places.
 - [x] **Rental agreement:** "Note at pick-up: no damage." (Currently "one headlight
       dim".)
 - [x] **Office letter:** written not knowing if anyone would come. John isn't coming;
@@ -707,20 +776,27 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
 ## Open questions
 
 - [ ] Ruth's ex: where is he now? Still in town, in the congregation?
-- [ ] What really happened to the Reverend Elias.
+- [x] What happened to the Reverend Elias: the congregation turned on him in
+      December, after Daniel told Ezra the truth. (Still open: what exactly they
+      did.)
 - [ ] How often the radio helper speaks, and what rules it follows.
-- [ ] What's under ticket 0527: the money, the books, or something else?
+- [ ] What's under ticket 0527. (Proposal: a key and a slip of paper to the
+      books. See "The car, the gun, the ticket".)
 - [ ] What soaked the rental agreement, per background.
-- [ ] What exactly happens to Keepers at breakup.
+- [ ] What the town does at the shore, exactly.
 - [ ] Ray Hollis: just the widow's husband, or connected?
 - [ ] Sgt. Olstad: how much she knows about the Keepers, and about John's tin box.
       (Decided: she was in the shop on Oct 4 and told the town the name. Still
       open: did she open the freezer?)
-- [x] The freezer: he walked in himself; the taken wait there (see "The shop's own rules").
-- [ ] Where does Abraham walk at night, before he comes back to the freezer?
-- [ ] Who owned the shop before Abraham? (Now: he's in the bear. Needs a name.)
+- [ ] How Abraham died, and how he ended up in the freezer (a human answer).
+- [ ] Who has keys to the shop: Olstad, Ruth, Ezra, anyone else? (The boot
+      prints, the dog, the ledger line.)
+- [ ] Who owned the shop before Abraham? (He's in the bear. Needs a name.)
 - [x] What happens if MC drives away (see "If MC drives away").
 - [ ] Who painted the 1989 breakup painting?
 - [ ] Ray's rifle: is tag 0431 his? (Draft: yes.)
-- [ ] Management's envelopes: who delivers them, and what comes besides cash (and when).
+- [ ] Management's envelopes: who delivers them, and what comes besides cash
+      (and when). Needs a human answer.
+- [ ] How Olstad's homophobia shows on the page, scene by scene, so it stays
+      subtle but clear.
 - [x] The recurring customer from day one: the Reverend Elias (draft; see "The church and the radio").

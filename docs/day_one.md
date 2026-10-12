@@ -104,7 +104,7 @@ Some items have properties beyond their price:
 - **Connected to the past.** Handling them triggers a short memory with a choice
   inside it. That choice shapes the background (see below).
 - **Unsettling.** Handling them frays MC. Being frayed makes the voices louder
-  (more Paranoia, more ???) and makes strange things more likely.
+  (more Paranoia, more ???) and makes MC notice, or imagine, more strange things.
 
 "Frayed" is a separate thing from the insanity background: it's a state MC can
 be in, and insanity is one way of reading it.
