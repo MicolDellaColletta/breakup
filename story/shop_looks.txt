@@ -27,7 +27,8 @@ appraisal | if=day>=2 and appraisal>=1: A balance doesn't drift from one side to
 narration | time=+5: The bear in the corner. Up close it's bigger than you thought, reared up, mouth open on a roar nobody heard.
 narration: A cardboard tag hangs from one claw, in the owner's small hand: NOT FOR SALE. NEVER.
 appraisal | if=appraisal>=1: It isn't in the ledger, either. Every item gets a price, the letter said. Even the ones you'd never sell.
-warmth | if=warmth>=1: Somebody loved this ugly thing.
+warmth | if=warmth>=1: Somebody stood this where they'd have to look at it every day. Not love. Something owed.
+appraisal | if=appraisal>=2: The seams along the belly were sewn twice. Years apart. The newer thread is a different color.
 narration | if=day>=2: Its head is turned a little further toward the counter than you remember. Toward where you stand all day.
 paranoia | if=day>=2: You remember wrong. You've been here two days. You don't remember anything yet.
 
@@ -59,8 +60,8 @@ paranoia: Read them later. Or don't.
 === look_fuse_box
 narration | time=+5 | sound=latch: In the hallway, a gray fuse box. Most of the switches are up. Three are held down with yellowed tape.
 narration: Under them, a label in the owner's hand: SHOP LIGHTS. DON'T.
-paranoia: That's why it's always dark in here. He wanted it that way.
-paranoia: Or something did.
+paranoia: That's why it's always dark in here. He wanted it that way. Forty winters, sitting down here in the dark.
+paranoia: You will too. You already are.
 
 === look_steel_door
 narration | time=+5: The heavy steel door at the end of the hallway. Behind it, the hum.

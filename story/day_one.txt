@@ -8,13 +8,14 @@
 # When a section ends with nowhere to go, the next customer comes in.
 
 === morning
-narration | time=07:40: Morning comes late this far north. At twenty to eight it's still dark outside. The sun won't clear the trees for another half hour.
+narration | time=07:40: Twenty to eight, and still dark. The sun won't clear the trees for another half hour. Morning comes late this far north, and it doesn't stay.
 -> morning_fed | if=fed_dog
 -> morning_unfed
 
 === morning_fed
 narration: The bowl by the stove is empty. Licked clean, and pushed a few inches from where you left it.
-paranoia: Mice. Big mice.
+paranoia: Mice.
+paranoia: Or the back door. Unlocked all night, the way the letter wants it. Anybody's door.
 -> opening
 
 === morning_unfed
@@ -27,8 +28,9 @@ paranoia: There is no it.
 === opening
 narration: You go down into the dark shop. Something pale lies on the mat inside the front door.
 narration: An envelope, pushed through the gap underneath. FOR THE KEEPER, typed on a label, like the job offer.
-narration | cash=+150: Inside, three fifties, folded once. Nothing else.
-paranoia: Somebody knows you're here. Somebody's paying you to stay.
+narration | cash=+150: Inside, a hundred and fifty dollars. Tens, fives, a thick fold of ones, every bill turned the same way up. Soft, the way money goes when it's been through a lot of hands. Nothing else.
+narration: Through the glass, on the step, one set of boot prints. Coming and going. The snow is already filling them in.
+paranoia: Somebody knows you're here. Somebody got up in the dark to pay you to stay.
 narration: You turn the sign in the window. OPEN. Outside, the neon buzzes on, pale and pointless against a low gray sky.
 narration | time=09:00: Behind the counter, everything is where you left it. The phone. The register, still open, still empty. The shelves.
 paranoia: Just act like you know what you're doing.
@@ -116,7 +118,7 @@ widow: No. No, I suppose not.
 
 === widow_leaves_empty
 widow: Maybe they should have hired somebody who knew the shop.
-narration | sound=bell: She goes out the way she came, into the dark, and doesn't close the door all the way. The cold comes all the way to the counter.
+narration | sound=bell: She goes out the way she came and doesn't pull the door shut behind her. The cold walks all the way to the counter.
 paranoia: She'll tell people. Everybody knew Ray.
 
 # --- Cody Hollis, Ray's nephew. Buying. One or two visits. ---
@@ -302,6 +304,11 @@ paranoia: Stop talking. Every word is a mile of rope.
 narration: She wanders while she talks. Picks up the brass compass, weighs it, sets it down a little to the left of where it was.
 narration: She stops at the fox and leans in until she's nose to nose with it.
 trooper: Eyes are wrong. Old man always got the eyes wrong.
+appraisal | if=appraisal>=2: Got. Not gets.
+trooper: Last one in your chair was a Thomas. Had a friend come up from Seattle at Thanksgiving. A man friend. Three weeks, the two of them up over the shop.
+trooper: Town didn't care for it. Can't say I did. Some of them come all the way up here to be what they couldn't be at home.
+narration: She says it pleasantly. She watches your face while she says it, the way she watched it for the name.
+paranoia: Whatever she's looking for, don't give it to her.
 narration: Then she's behind the counter, where she has no reason to be, at the back shelves. Her fingers find the tin box with tag 0527 and stay there.
 trooper: What's in the tin, Johnny?
 > "I don't know. It was here when I came." -> trooper_tin_truth | lean=warmth
@@ -325,7 +332,7 @@ trooper: Figured you'd want it.
 trooper: Don't lock it, though. He never did.
 narration | sound=bell: The bell, and the cold, and she's gone.
 paranoia: Why do the police have a key to this place?
-unknown: She likes you. You can tell.
+unknown: Somebody kept a key for you. When did anyone last do that?
 
 # --- Closing time. When this ends, the town map opens. ---
 
