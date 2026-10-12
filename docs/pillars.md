@@ -57,7 +57,7 @@ magic, it gets rewritten.
 
 | Thing | The human explanation |
 |---|---|
-| The dog, the bowl, the stairs at night | Someone with a key. Or MC, sleepwalking. |
+| The dog, the bowl, the stairs at night | Mrs. Hollis, the Keeper's dog: a penitent the congregation sends up the back stairs every winter (`underneath.md`). Or MC, sleepwalking. |
 | The ledger line in the dead owner's hand | Anyone with a key, watching the new Keeper. |
 | The bear with the old owner inside | Abraham did it, with his own hands, in 1959. |
 | Sam's clock stopping at the same minute | His data could be wrong. He could be wrong. |

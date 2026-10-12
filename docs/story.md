@@ -184,8 +184,11 @@ which is true.
   up at night, and they're hungry. Fed, they're quiet. Unfed, they look for you.
   In spring 1989 it was Abraham's wife; the bowl is hers, the dent in it from
   1989. Since October 3, the town would say, it's Abraham.
-- **The human side:** anyone can come in through the back door at night (rule
-  1). Or MC, sleepwalking:
+- **The human side** (`underneath.md`): the congregation made the legend
+  flesh. Every winter since 1989 a penitent is chosen at church to be **the
+  Keeper's dog**, and comes up the back stairs on hands and knees after
+  midnight to eat from the bowl. Abraham fed them for ten years. **This winter
+  it's Mrs. Hollis.** Never fully confirmed. Or MC, sleepwalking:
   the late clue, the bowl licked clean and **set back exactly where MC left it**,
   the way MC always does it, points both ways.
 - Clues, in order of how late they come: the bowl licked clean and moved; long

@@ -172,6 +172,9 @@ narration | sold=shells: At the back, a single box of .22 shells. A slip of pape
 narration: You set it on the glass.
 ezra | flag=ezra_satisfied: Abraham kept them in the drawer too.
 narration: Something in his shoulders lets go a fraction of an inch. He puts six dollars on the counter, a five and a one, folded together, both turned the same way up.
+narration: His cuff rides up as he does it. On the inside of his wrist, an old burn scar, four short lines crossed, the skin gone shiny.
+appraisal | if=appraisal>=1 and flag:seen_mark: The same mark as Mrs. Hollis. The same place.
+appraisal | if=appraisal>=1 and visited:lake: Four lines, lashed at the middle. Like the poles under the tarp on the shore.
 appraisal | if=appraisal>=2: Faced, like a teller does it. Like the money in the envelope.
 ezra: Two Thursdays I came by. Locked. I thought he'd gone early this year, without saying.
 ezra: I take the watch tonight. On the radio. Somebody has to sit with it, so nobody out there sits alone.
@@ -198,7 +201,7 @@ narration: He waits. You don't fill the silence. After a while he nods, as if yo
 -> ezra_leaves
 
 === ezra_leaves
-narration | sound=bell: The bell, and he's gone, walking uphill toward the church without looking back.
+narration | sound=bell: At the door he knocks twice on the frame, without looking at it, the way you'd touch wood. The bell, and he's gone, walking uphill toward the church without looking back.
 
 === ezra_given_other
 ezra: No.

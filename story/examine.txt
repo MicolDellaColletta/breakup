@@ -90,3 +90,14 @@ paranoia: It doesn't sing. It counts.
 narration: Inside the collar, in red thread, in a wife's careful stitching: R. HOLLIS.
 narration: The canvas is still warm. Not much. Less than it was.
 paranoia: Somebody wore this today. Or carried it close. Pick one and stop thinking about it.
+
+=== examine_jar_papers
+narration: You unscrew the lid and tip one out. A tooth, small as a grain of rice, in a twist of paper. On the paper, in pencil: C.H. '86.
+narration: Another. E.L. '32. Another, and another. Initials and years. Dozens of them. The oldest is '19. The newest is '98.
+appraisal | if=appraisal>=1: C.H. Cody Hollis would have lost his first tooth about '86.
+paranoia: Put them back. Put them back in the right order. You don't know the right order.
+appraisal | if=appraisal>=2: E.L. Ezra Lund would have been six in '32. Every child in this town, for eighty years.
+
+=== examine_jar_lid
+narration: Scratched into the lid, small: four short lines, crossed.
+paranoia: The ledger says for the church, when asked. Asked for what.

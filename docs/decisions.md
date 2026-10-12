@@ -9,6 +9,21 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 
 ---
 
+## October 12 — the town underneath (`underneath.md`)
+
+- References: **_Horses_** (the disturbing as routine) and **_The Devil in
+  Ohio_** (a sect inside an ordinary town, a mark, kind adults all in it).
+  Nothing supernatural; about one detail a day; never called a cult on screen.
+- **The Keeper's dog is a person:** a penitent chosen at church every winter
+  since 1989. **This winter, Mrs. Hollis.** Never fully confirmed; MC
+  sleepwalking stays the second explanation.
+- **The mark:** four short lines crossed, burned inside the wrist (the poles on
+  the shore). Mrs. Hollis and Ezra have it; Olstad and the Reverend don't.
+- The children's skipping rhyme; fattening the lamb ("thinner than Thomas");
+  things the town leaves with the shop (the jar of milk teeth); the church's
+  wall of Keepers with height marks; small habits (knocking twice on the frame,
+  the undrunk glass).
+
 ## October 12 — the review
 
 **Structure** (`pillars.md`)
