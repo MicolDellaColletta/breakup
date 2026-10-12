@@ -261,11 +261,11 @@ narration: Then the name itself. Your pen moves. You watch it move.
 seller: Thank you.
 narration: He takes the stub and puts it in his coat. He turns to go.
 narration: In the doorway he stops. He looks out at the road, then back at the shop, at you, at the counter.
-seller: I'm sorry. I came in for something.
-seller: I can't think what.
+seller: Don't say it back to me. Nobody says it now. That's how it's done here.
+seller: Abraham knew. He never said one out loud, once it was in the book.
 narration | sound=bell: He stands there a moment longer. Then the bell, and he's gone, walking a little straighter than when he came.
-narration: In the ledger, in your own hand: One name. And after it, a word. The ink is dark and fresh. You can't read it.
-appraisal | if=appraisal>=2: Ida. You wrote Ida. You can still see it, if you don't look straight at it.
+narration: In the ledger, in your own hand: One name. And after it, the name itself, plain as anything. You find you don't want to read it, even to yourself.
+appraisal | if=appraisal>=2: Nobody in this town will say it again. Watch them not say it.
 unknown: There. Was that so hard?
 
 # --- Ruth. Not a customer. ---
@@ -279,7 +279,7 @@ ruth: This one's yours, I guess.
 narration: A window envelope. NORTHERN LIGHTS AUTO RENTAL, ANCHORAGE. In the window, typed: J. and then a pale ghost of letters where the ribbon ran dry. c/o Kettle Lake Pawn.
 narration | take=rental_letter: You put it in your pocket before she can see your face.
 paranoia: John gave this address. John's still getting mail.
-ruth: You look like a man who doesn't like mail.
+ruth: You look like somebody who doesn't like mail.
 narration: She doesn't wait for an answer. She's looking past you, at the hallway, at the foot of the stairs.
 ruth: Can I go up? I left something up there. A long time ago.
 narration: Her keys are already in her hand. On the ring, among the truck key and the bar keys, a small brass one with a pink plastic tag. A child's tag.

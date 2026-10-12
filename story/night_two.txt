@@ -136,9 +136,8 @@ unknown | if=frayed: Say hello. Be polite. It's rude, keeping someone waiting.
 === phone_spoke
 narration: "Hello?"
 narration: Your voice, small in the dark shop.
-narration: On the other end, a breath. Then, very quietly, in your own voice, the word comes back to you.
-narration: "Hello?"
-narration | sound=hangup: You put it down so hard the bell on the register jumps.
+narration: On the other end, a breath. A long one, as if someone were deciding something.
+narration | sound=hangup: Then a soft click, and he's gone. You stand there holding the dial tone.
 paranoia: Don't speak first. It was half the rule. It was the half that mattered.
 -> night_dog
 
@@ -153,7 +152,7 @@ narration: "I'm calling about his wife. About..."
 narration: A long pause. You can hear her reaching for it.
 narration: "About... his wife. You know. I've known her fifty years. I've known her since we were girls. Her name is..."
 narration: Nothing. Just her breathing, faster now.
-narration: "Why can't I..."
+narration: "No. If he's given it up, I won't be the one to say it. Not on this phone. Not to you."
 narration | sound=hangup: She hangs up crying.
 unknown: You did that.
 paranoia: You wrote it in the book. You did that.

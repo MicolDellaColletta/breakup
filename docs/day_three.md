@@ -2,7 +2,8 @@
 
 **Friday, October 8, 1999.** Sunrise 8:20, sunset 19:05 (three minutes less
 light again). A draft for discussion, the same as `day_two.md` was. Nothing
-here is written into the game yet. Change anything.
+here is written into the game yet. Change anything. **Updated Oct 12** to match
+`pillars.md` and `daniel.md` v6: two explanations for everything.
 
 Day one taught the counter. Day two brought day one back and showed what the
 shop is. **Day three is the first day that's a little bit yours:** you dress
@@ -13,8 +14,12 @@ What `themes.md` asked day three for:
 
 - **A first small comfort** (`fray=-1`). Rebuilding needs a scene where MC
   feels it.
-- **Desire:** wanting to be seen. Ruth or Sam (see the open questions). Not
+- **Desire:** wanting to be seen. **Ruth** asks what they called MC before
+  (decided; Sam asks for the true name later, on day four or after). Not
   romance yet.
+- **Daniel, without Daniel:** the first money order, "Interest, ticket 0527",
+  postmarked Anchorage. And that night, ??? says "sweetheart" in a cadence MC
+  knows. He never speaks to MC until New Year's Eve (`daniel.md`, section 6).
 - **Rule 2** ("Don't buy anything that's still warm") came up once, with Walt's
   silver on day one. Today it's harder: the warm thing belongs to a dead man
   the player knows.
@@ -65,13 +70,19 @@ look in on the way to the Gleaner."*
 
 Order: Olstad → the gift → the afternoon caller → the warm jacket.
 
-### 1. Sgt. Olstad: "What's in the tin, Johnny?"
+### 1. Sgt. Olstad: the money order, and the tin
 
-Her second visit. The bible says she handles things that aren't hers. Today
-she does it on purpose, behind the counter.
+Her second visit. She already touched the tin on day one, at the back shelf.
+Today she has a reason to come back to it.
 
-- She goes straight to the back shelf, picks up **the tin box (tag 0527)**,
-  shakes it, listens. *"What's in the tin, Johnny?"*
+- **She brings the shop's mail:** *"Post office asked me to drop this off,
+  hon. Saves them the drive."* Among the circulars, a postal money order. No
+  name. *Interest, ticket 0527.* Exact to the cent. Postmarked Anchorage.
+  (Daniel keeps the tin from forfeiting; `daniel.md` 6b. MC doesn't know who.)
+- She reads it over MC's shoulder, like she had every right. Then she goes
+  behind the counter to the back shelf, picks up **the tin box (tag 0527)**,
+  shakes it, listens. *"Somebody's paying interest on a cough-drop tin. What's
+  in the tin, Johnny?"*
   - Say you don't know (true). Leans nothing; she believes it least of all.
   - *"Something somebody pawned."* (John.) *"Ohh, ya. Somebody."*
   - Show her the ticket. **Dangerous.** She reads the number, hands it back.
@@ -124,9 +135,10 @@ Late, near closing. A stranger, or Teague if he came earlier. He has a
 **R. HOLLIS.**
 
 - *"Found it on the north shore. Thought somebody'd want to buy it back."*
-- **It's warm.** Not from him: from inside, the way a coat is warm when
-  someone just took it off. It's nine degrees out. (Cody, day two: *"it had his
-  jacket."*)
+- **It's warm.** He says he carried it inside his own coat the whole way,
+  against the cold. His hands are bare and blue. It's nine degrees out. (Cody,
+  day two: *"it had his jacket."* Two explanations: a stranger who found it, or
+  a stranger who took it off someone.)
 - Buy it: **breaks rule 2.** The jacket goes on the back shelf. What it does
   later is open (Mrs. Hollis will see it there).
 - Refuse: he shrugs and leaves with it. Through the window you watch him walk
@@ -157,13 +169,25 @@ Keeper's stool. Ruth works the bar alone.
 - **The radio** (rule 7): Friday isn't the Thursday watch. Static all night,
   and once, in the static, the calm voice: *"...the windows, friends. Mind the
   windows."*
+- **No phone call tonight.** MC notices they're listening for it. The silence
+  feels like something missing (`daniel.md`: "the silence should feel like
+  loss"). If MC spoke first on night two, this is the punishment: he hangs up,
+  and the next night there's no call.
+- **??? says "sweetheart"**, once, as MC lies awake, slow and courteous, in a
+  cadence MC knows from the night John died. Who learned it from whom is a
+  question about MC's mind (`daniel.md` 6c).
 - **After midnight** you wake up thirsty. The apartment's water is off (cold
   pipes). Downstairs, the shop. The neon through the window you dressed.
 - **In the window,** among the things you chose, your reflection. Faint, laid
   over the snow. It raises its hand. Before you do.
   - Don't wave: rule 8 kept. It keeps its hand up until you look away.
-  - Wave back: **breaks rule 8.** What that costs is the cosmic layer's first
-    real move. (Open question.)
+  - Wave back: **breaks rule 8.** The cost is social and psychological, never
+    proven (`pillars.md`): a few days later someone in town thanks MC for
+    waving from the shop window on a night MC was upstairs asleep (mistaken,
+    lying, or something wearing your face). And now and then, the bathroom
+    mirror upstairs is half a second late. Later, Daniel waves at his own
+    reflection and nothing follows, and the player remembers what followed
+    theirs.
 - What's in the window changes the scene a little: the fox's glass eyes catch
   the neon; the snowshoes stand up like a person; an empty window has nothing
   between you and it.
@@ -224,17 +248,12 @@ shelves, and day three's story itself.
 
 ## Open questions
 
-- [ ] **Desire: Ruth or Sam?** Ruth at the Gleaner (above), or Sam on the ice
-      at night, asking MC for a true name to write in his notebook *"so the
-      right one's written down"*. Or Ruth today and Sam on day four.
-- [ ] **Daniel's first "sweetheart".** `themes.md` wants it now, felt as
-      wanting as much as fear. But `story.md` says Daniel says nothing until
-      New Year's Eve. Options: (a) only ??? says it, in a man's voice, on the
-      radio static; (b) a letter, no return address, one word; (c) keep it for
-      New Year's Eve.
-- [ ] **Waving at the reflection:** what does it cost? A proposal: from then on,
-      your reflection is a half-second late in every mirror in the game, and
-      sometimes it isn't (the apartment mirror, the car mirror in February).
+- [x] **Desire: Ruth or Sam?** Ruth today; Sam asks for the true name later.
+- [x] **Daniel's first "sweetheart":** ??? says it, in Daniel's cadence, on night
+      three. The money order is his first act. He never speaks to MC until New
+      Year's Eve.
+- [x] **Waving at the reflection:** someone in town saw you wave on a night you
+      didn't, and the bathroom mirror is sometimes late. Never proven.
 - [ ] **June Merrill's mother:** who was she, and is the music box tied to 1993
       (the winter Sam said no)?
 - [ ] **The warm jacket, bought:** what happens when Mrs. Hollis sees it on the

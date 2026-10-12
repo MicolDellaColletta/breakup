@@ -56,6 +56,7 @@ magic, it gets rewritten.
 | Sam's clock stopping at the same minute | His data could be wrong. He could be wrong. |
 | The reflection that waves first | Exhaustion, dark glass, a mind under strain. |
 | **A pawned name** (Ida) | **A custom.** The town refuses to say a pawned name. Walt can't find it because he's eighty and grieving. People, not magic. |
+| **The unkept shop "takes" someone** (Abraham's wife in 1989, Abraham on October 3) | Two deaths, alone, in winter. The causes are open (heart, cold, their own hand, someone with a key). The town's custom does the rest. |
 | **Management's envelopes** | *Open:* who delivers them, and how. It needs a human answer. |
 
 **One ending is allowed to lean supernatural** (see "Endings"), and even that
@@ -130,16 +131,17 @@ nobody, the player included, can tell who's mad.
 
 ## Endings
 
-One per strand, plus the default and the way out.
+One per strand, plus the default, the way out, and the brighter one.
 
 | Ending | Strand | In short |
 |---|---|---|
 | **The season ends** (default) | Folk horror | The town gets its Keeper. |
-| **Run** | Crime thriller | MC drives away; the shop takes whoever holds the keys. |
+| **Run** | Crime thriller | MC drives away; the town walks whoever holds the keys to the shore. |
 | **Daniel** | Crime thriller, romance | At the shore, he doesn't let go. |
 | **Break the cycle** (Ruth) | Folk horror, romance | Her complicity undone, at a price. |
 | **The truth** (Sam) | Psychological, romance | The rational answer: it was always the town. |
 | **The ice** (???) | Psychological / cosmic | MC walks out and meets what's under it. Supernatural, or MC completely gone. The game never says which. Daniel's "into the ice together" is a variant of this one. |
+| **Thaw** | All three, no romance | The bright one. The people MC kept faith with walk him to the shore, watch the ice go out, and walk him back. He has to say what he ran from, and gives his own name. (`story.md`, "Thaw".) |
 
 Daniel's four shore outcomes (`daniel.md`, 10b) are how his strand closes
 inside these endings, not separate endings.
@@ -161,24 +163,24 @@ Every day of a seven-month winter is too much for one person to make.
 
 ## Bringing the other docs in line
 
-To do next, in this order:
+Done on October 12 (`daniel.md` v6, `story.md`, `themes.md`, `voices.md`,
+`layout.md`, `mood.md`, `day_one.md`, `day_two.md`, `day_three.md`, and the game
+text):
 
-- [ ] **`daniel.md`:** the preacher sooner, through the radio (caller,
-      guest, host); arrival in November; Olstad **doesn't** die (remove 8b's
-      killing; keep their duel, and one threat to show he could); the radio
-      takeover stays; the Reverend's fall moves to December.
-- [ ] **`story.md`:** Daniel as a hired hand, not "John's employers' man";
-      drop "a perfect owner for the shop" and "The new owner" ending; endings
-      table from this page; the money orders in the timeline; Olstad's
-      homophobia and her ending; pawned names as a custom; the calendar.
-- [ ] **The tin under 0527:** a cough-drop tin can't hold ledgers. Proposal:
-      a key and a slip of paper that lead to the books (a bus-depot locker in
-      Anchorage, or a safe-deposit box).
-- [ ] **`day_three.md`:** the money order arrives through Olstad (she already
-      touched the tin on day one, so she comes back to it); Ruth asks what
-      they called MC before; ??? says "sweetheart" in Daniel's cadence that
-      night; waving at the reflection comes back as someone in town saying
-      they saw you wave.
+- [x] **`daniel.md`:** the preacher sooner, through the radio; arrival in
+      November; Olstad lives (he shows her he could, instead); the Reverend
+      falls in December.
+- [x] **`story.md`:** strands instead of layers; the shop's rules told as the
+      town's legend, each with its human side; pawned names as a custom; Daniel
+      as a hired hand; Olstad's homophobia and her ending; the endings and the
+      timeline from this page; "The new owner" cut.
+- [x] **The tin under 0527:** proposal written into `story.md` (a key and a
+      slip of paper to the books).
+- [x] **`day_three.md`:** the money order through Olstad; Ruth's question;
+      ??? in Daniel's cadence; the cost of waving.
+- [x] **Game text:** names as a custom, things that fade, MC's gender never
+      stated, a click instead of your own voice, "sweetheart" only where the
+      prologue has it.
 - [ ] **`breakup_decisions.md`:** referenced by `daniel.md`, not in the repo
       yet.
 

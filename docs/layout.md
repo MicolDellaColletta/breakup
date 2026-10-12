@@ -152,10 +152,12 @@ at a **landing at the front of the stairwell** that opens straight into the main
 
 - **What's in the locked room now?** (It was Ruth's childhood room; Ruth has the key.)
   Kept as she left it in 1989? Her mother's things? A second staircase or a hatch down
-  to the back room? Something that should only be opened at breakup?
+  to the back room?
 - **How does MC get in?** Ruth gives him the key, he takes it from her, or he finds
   another way.
 - **What does the TV show?** Only static and the one local channel? The same voice as the radio?
 - **Is there a way down from the apartment besides the stairs?** The locked room sits right
   above the back room, so a hatch in its floor down to the freezer would fit. That matters
-  for the "wake standing at the bottom of the stairs" ending.
+  for the "wake standing at the bottom of the stairs" ending, and it's a human route
+  for the dog and the boot prints: someone with a key to that room can reach the back
+  room without passing MC's door.

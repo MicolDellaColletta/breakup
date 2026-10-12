@@ -39,7 +39,7 @@ narration: You run the ticket along the shelves, matching numbers by the light o
 narration: 0527. A tin box, the kind cough drops come in, shut with a padlock no bigger than your thumbnail.
 narration: The name on its tag has been scratched out.
 paranoia: You have the ticket for it. Somebody made sure you'd have the ticket for it.
-unknown: Not yet, sweetheart. Not tonight.
+unknown: Not yet. Not tonight.
 
 === use_key_steel_night
 narration | sound=keys: The brass key doesn't even go in. The keyhole is the wrong shape, an older shape.
@@ -70,7 +70,7 @@ paranoia: That's how it starts. Checking things that can't have changed.
 
 === use_job_offer_mirror
 narration: You unfold the job offer and hold it up beside your face. "Dear John."
-narration: The man in the glass reads it with you. He doesn't argue.
+narration: The face in the glass reads it with you. It doesn't argue.
 paranoia: Good. Neither do you.
 
 # --- The shop after closing ---
@@ -87,6 +87,7 @@ narration: You hold the Polaroid up to the shop window and line it up with the n
 narration: Across the road, the two spruce, the gap between them. In the picture, your car, parked where it's parked now. The same snow on the roof.
 narration: Dated last week. Last week you hadn't left yet.
 paranoia: Then somebody knew which car. And where it would be.
+appraisal | if=appraisal>=1: The date's in pencil. Anyone can write a date. The snow on that roof is this week's.
 
 === use_compass_steel_door
 narration: You hold the compass flat on your palm. The needle settles on north, slowly, the way it does.
@@ -104,8 +105,8 @@ paranoia: You'll have to walk past it to use that key. Every night.
 === use_compass_painting
 narration: You hold the compass up to the painting, not knowing why.
 narration: The needle swings off north and settles, trembling, on the small figure far out on the breaking ice.
-paranoia: Put it down.
-narration: You put it in your pocket. Through the cloth, you can feel the needle still turning.
+narration: You lift the frame away from the wall. Behind the canvas, right behind the figure, two nails, driven in close together. Iron.
+paranoia: Somebody hung it so the needle would do that. Somebody wanted it to be found doing that.
 
 === use_bulletin_radio
 narration: You hold the bulletin under the radio's amber light. "The night radio needs volunteers for the Thursday watch. See the Reverend."

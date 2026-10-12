@@ -24,14 +24,14 @@ The themes shouldn't be said. They should be in the things the player does.
 |---|---|---|
 | **Emptiness** | The dark shop at night. The empty register. The shelves of things people gave up. An empty bowl licked clean. A ledger line with no item (Cody). | Silence as a presence. Rooms that are too big. Things that should be there and aren't. |
 | **Loneliness** | Nobody in the world knows where MC is. The thirteenth stool. Ten Polaroids. The radio as the only company. Ruth waiting for a call. Sam counting alone. | Every character is lonely in their own way. Company is always partial: through a radio, a counter, a phone. |
-| **Mental illness** | The voices. Paranoia. Being frayed. The missing hours (insanity). The dog that is someone. | See "Writing it with care" below. |
+| **Mental illness** | The voices. Paranoia. Being frayed. The missing hours (insanity). The dog nobody sees. A town whose madness grows until MC's paranoia looks like sense (`pillars.md`). | See "Writing it with care" below. |
 | **Guilt** | Warmth. The guilt background. Walt's silver and Ida's name. Cody and the ice picks (you sold them, or you didn't). Ruth living off the Keepers. Abraham and the ram. | Choices whose cost lands on someone else. No clean options. |
 | **Fear** | Paranoia, the main voice. The phone. The back door. Daniel. | Fear that protects and fear that destroys are the same voice. Paranoia keeps MC alive, and it's also what keeps him alone. |
 | **Desire** | The romances. Daniel's "sweetheart". ??? wanting things for MC. Wanting to be John, to be anyone else. Walt wanting to stop saying a name. | **The weakest so far.** Day one and two have almost none. Desire should show up early and small: wanting to stay, wanting to be seen, wanting to be wanted, wanting the wrong thing. |
-| **Not being able to communicate** | Rule four: don't speak first. The name nobody can say. The ink you can't read. The open line where nobody speaks. Voices only MC hears. The live microphone. Ruth saying "away". | Conversations where the important thing isn't said. Characters talking past each other. Every way of speaking has a cost. |
-| **Meaninglessness and meaning** | Layer 3: the lake doesn't care. Sam's numbers. The town's faith, which is folly and is also how they survive. "Every item gets a price." | Meaning is never handed over. People make it, and some of what they make is cruel (the town) and some is tender (Sam's notebook of names). |
+| **Not being able to communicate** | Rule four: don't speak first. The name nobody will say. The open line where nobody speaks. A preacher who talks to the whole town every night, and never to MC. Voices only MC hears. The live microphone. Ruth saying "away". | Conversations where the important thing isn't said. Characters talking past each other. Every way of speaking has a cost. |
+| **Meaninglessness and meaning** | The lake doesn't care. Sam's numbers. Daniel, who believes nothing and uses everyone's belief. The town's faith, which is folly and is also how they survive. "Every item gets a price." | Meaning is never handed over. People make it, and some of what they make is cruel (the town) and some is tender (Sam's notebook of names). |
 | **Self-destruction** | Breaking the rules. Ruth's drinking. Cody going out on the ice. The Run ending. The ??? track. Daniel. | It's always available and always tempting, and it's never just punishment: it's a choice the player understands. |
-| **Rebuilding, through suffering** | Keeping the rules as routine. Coming back from frayed one clean day at a time. The lake giving back the dead in May. Spring. | See below: this needs the most work. |
+| **Rebuilding, through suffering** | Keeping the rules as routine. Coming back from frayed one clean day at a time. The bodies the thaw brings up. Spring. | See below: this needs the most work. |
 
 ## Rebuilding and rebirth
 
@@ -59,15 +59,14 @@ rebuild, and the rebuilding has to cost something.
 |---|---|
 | The season ends | Self-destruction. The emptiness wins. |
 | Run | Escape without rebuilding. The guilt goes to whoever is left holding the keys. |
-| The new owner | Meaning made by using other people. Abraham's answer. |
 | Break the cycle | Rebuilding through suffering, with someone else. It costs. |
-| The truth | Meaning found by facing the meaningless, with someone else. |
+| The truth | Meaning found by facing the meaningless, with someone else: the rational answer, shared. |
 | Daniel | Desire as self-destruction. |
-| Daniel, secret | Emptiness kept forever. |
+| The ice | Self-destruction, or transcendence; the game never says which. MC goes all the way into what the voices promised. |
 | **Thaw** | Rebuilding through suffering, without a romance: through small kept promises and the people MC kept faith with. The brighter possibility. MC gets his own name back. |
 
 Thaw is decided (see `story.md`, "Thaw"): the game needs one brighter ending
-that doesn't depend on a romance.
+that doesn't depend on a romance. The full list is in `pillars.md`, "Endings".
 
 ## Writing it with care
 

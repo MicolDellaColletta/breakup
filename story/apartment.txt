@@ -70,6 +70,7 @@ narration | time=+10: The coat by the landing. Heavy canvas, lined with wool. It
 narration: In the inside pocket, a Polaroid. The shop at night, taken from the trees across the road. Your car is parked outside.
 narration | take=polaroid: On the white strip at the bottom, in neat pencil, a date. Last week.
 paranoia: You were still in the city last week. So was your car.
+appraisal | if=appraisal>=1: Pencil. Anyone can write a date.
 unknown: Somebody's been expecting you for a long time.
 
 === tv
@@ -78,6 +79,7 @@ narration: Under the hiss, for a moment, a picture. A small room. An armchair fa
 narration: The chair is empty. The picture is taken from right where you're standing.
 narration: Then only snow again.
 paranoia: Bad reception. Out here, everything's bad reception.
+paranoia: And you've been awake for two days. Turn it off.
 
 === kitchen
 narration | time=+10: The kitchen corner. A two-ring stove, a kettle, a sink with a slow drip.

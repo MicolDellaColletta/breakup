@@ -124,7 +124,7 @@ paranoia: She'll tell people. Everybody knew Ray.
 === nephew_enters
 narration | sound=bell | time=+40: The bell. A young man in a canvas work jacket, twenty at most, snow on his shoulders he hasn't bothered to brush off.
 narration: He looks like someone you've already met today. Something around the eyes.
-nephew: You the new guy? Cody. Cody Hollis. My aunt was in here. I saw her truck.
+nephew: You the new one? Cody. Cody Hollis. My aunt was in here. I saw her truck.
 nephew: Look, I need something to get out on the lake. The point on the north shore, where his blind is. Where they found the canoe.
 nephew: It's been icing over since Sunday. Thin. Everybody says it won't hold yet. Everybody said Uncle Ray knew the lake better than anybody, too.
 nephew: I'm not waiting till spring to find him under it. I need something so that if I go through, I come back up. You got anything like that?
@@ -178,6 +178,7 @@ narration: He doesn't look at the shelves. He comes straight to the counter and 
 seller: Walt Pruitt. I'd like to pawn these. Thirty silver dollars. Morgans, every one.
 narration: You pick up the roll.
 narration: It's warm. Not pocket-warm. Warm the way a cup is warm a minute after someone has set it down.
+narration: He must have held it in his bare hands the whole way here. You tell yourself that.
 paranoia: Rule two.
 seller: They were my wife's. She collected them. She won't be needing them now.
 appraisal | if=appraisal>=1: Thirty Morgan dollars. Worth a great deal more than thirty, to the right buyer.
@@ -198,13 +199,13 @@ seller: Thirty. That's fair. That's what she'd have called fair.
 
 === seller_high
 narration | pawned=silver_dollars | loan=45: Forty-five. He looks at the money, then at you, for a long, steady moment.
-seller: That's more than they're worth to you, son. I won't ask why.
+seller: That's more than they're worth to you, Keeper. I won't ask why.
 -> seller_ticket
 
 === seller_ticket
 narration: You write him a ticket. Number 0432. He tucks it into his coat without reading it.
 narration | sound=bell: The bell, and he's gone, slow and careful, into the snow.
-narration: On the glass where the roll lay, there's a small round patch of fog. It doesn't fade.
+narration: On the glass where the roll lay, there's a small round patch of fog. It takes a long time to fade. You don't wait to see it go.
 paranoia: Rule two. You knew, and you did it anyway.
 
 === seller_refuse
