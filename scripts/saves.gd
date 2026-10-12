@@ -14,6 +14,7 @@ const PARTS: Dictionary = {
 	"res://scenes/shop.tscn": "The shop",
 	"res://scenes/apartment.tscn": "The first night",
 	"res://scenes/counter.tscn": "The counter",
+	"res://scenes/visit.tscn": "Sunday",
 	"res://scenes/map.tscn": "The evening",
 	"res://scenes/night.tscn": "The night",
 }

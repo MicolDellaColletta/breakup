@@ -1,0 +1,92 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/visit.gd" id="1_visit"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_column.tscn" id="2_column"]
+[ext_resource type="AudioStream" uid="uid://taqq4f8e7x83" path="res://audio/freesound_community-2-wood-staircase-old-creaking-footsteps-25941.mp3" id="3_stairs"]
+[ext_resource type="AudioStream" uid="uid://cj2muj1x5nnsb" path="res://audio/soundsgoodmusic-creaking-stairs-306029.mp3" id="4_floor"]
+[ext_resource type="AudioStream" uid="uid://b4gelg4sv5fd1" path="res://audio/soundreality-closed-door-411628.mp3" id="5_door"]
+[ext_resource type="AudioStream" uid="uid://d2vpsu42pay10" path="res://audio/cartoon_music-shop-bell-ring-543931.mp3" id="6_bell"]
+[ext_resource type="Script" path="res://scripts/apartment_art.gd" id="7_apartment"]
+[ext_resource type="Script" path="res://scripts/shop_art.gd" id="8_shop"]
+[ext_resource type="Script" path="res://scripts/place_art.gd" id="9_place"]
+[ext_resource type="Script" path="res://scripts/hotspot_layer.gd" id="10_spots"]
+
+[node name="Visit" type="Control" unique_id=1501010101]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_visit")
+
+[node name="ApartmentArt" type="Control" parent="." unique_id=1502020202]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_apartment")
+
+[node name="ShopArt" type="Control" parent="." unique_id=1503030303]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_shop")
+view = "counter"
+
+[node name="PlaceArt" type="Control" parent="." unique_id=1504040404]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_place")
+
+[node name="Hotspots" type="Control" parent="." unique_id=1505050505]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("10_spots")
+
+[node name="Narrator" parent="." unique_id=1506060606 instance=ExtResource("2_column")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Stairs" type="AudioStreamPlayer" parent="." unique_id=1507070707]
+unique_name_in_owner = true
+stream = ExtResource("3_stairs")
+volume_db = -6.0
+
+[node name="Floorboards" type="AudioStreamPlayer" parent="." unique_id=1508080808]
+unique_name_in_owner = true
+stream = ExtResource("4_floor")
+volume_db = -8.0
+
+[node name="DoorShut" type="AudioStreamPlayer" parent="." unique_id=1509090909]
+unique_name_in_owner = true
+stream = ExtResource("5_door")
+volume_db = -6.0
+
+[node name="Bell" type="AudioStreamPlayer" parent="." unique_id=1510101010]
+unique_name_in_owner = true
+stream = ExtResource("6_bell")
+volume_db = -16.0

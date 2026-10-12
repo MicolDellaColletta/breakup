@@ -1,0 +1,144 @@
+extends Control
+
+# A day with no counter (Sunday): first person, walking between places by day.
+# The day's story (GameState.DAY_STORIES) moves you: a line with show=church
+# changes the picture to that room; spots in story/spots.cfg (scene "visit")
+# are what you can click there, or walk to (go=). A line with end=map ends the
+# day when its section finishes, and the evening starts on the town map.
+# Rooms come from three placeholder pictures: the apartment upstairs, the shop
+# downstairs, and places in town (place_art.gd).
+
+const USE_PATH: String = "res://story/use.txt"
+const MAP_SCENE: String = "res://scenes/map.tscn"
+const SCENE_ID: String = "visit"
+const VIEW_FADE: float = 0.25
+# Each room, and which picture shows it: [picture, view].
+const ROOMS: Dictionary = {
+	"apartment": ["apartment", "main"],
+	"shop": ["shop", "counter"],
+	"church": ["place", "church"],
+	"vestry": ["place", "vestry"],
+	"hollis_kitchen": ["place", "hollis_kitchen"],
+}
+
+@onready var narrator: DialogueColumn = %Narrator
+@onready var apartment_art: Control = %ApartmentArt
+@onready var shop_art: Control = %ShopArt
+@onready var place_art: Control = %PlaceArt
+@onready var hotspots: HotspotLayer = %Hotspots
+
+@onready var sounds: Dictionary = {
+	"stairs": %Stairs,
+	"floorboards": %Floorboards,
+	"bell": %Bell,
+	"door_shut": %DoorShut,
+}
+
+var _room: String = "apartment"
+var _busy: bool = true
+var _ending: bool = false
+var _leaving: bool = false
+# Everything clicked today that stays done, in any room.
+var _used: Array[String] = []
+
+func _ready() -> void:
+	narrator.use_sounds(sounds)
+	narrator.section_finished.connect(_on_section_finished)
+	narrator.line_shown.connect(_on_line_shown)
+	narrator.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[5]))
+	narrator.add_story(USE_PATH)
+	hotspots.spot_clicked.connect(click)
+	hotspots.aside.connect(play_aside)
+	hotspots.interactive = false
+	_show_room(_room)
+	narrator.set_input_enabled(false)
+	await Transition.fade_in(1.5)
+	narrator.set_input_enabled(true)
+	narrator.play("morning")
+
+# --- Public: what tests can use ---
+
+func current_room() -> String:
+	return _room
+
+func click(spot_id: String) -> void:
+	if _busy or _ending:
+		return
+	var room: String = Spots.go(spot_id)
+	if room != "":
+		walk(room)
+		return
+	var sound: String = Spots.sound(spot_id)
+	if sound != "":
+		narrator.play_sound(sound)
+	if not Spots.again(spot_id):
+		_used.append(spot_id)
+		hotspots.mark_used(spot_id)
+	_busy = true
+	hotspots.interactive = false
+	narrator.start_conversation(Spots.section(spot_id))
+
+# A short scene that changes nothing (story/use.txt).
+func play_aside(section: String) -> void:
+	if _busy or _ending:
+		return
+	_busy = true
+	hotspots.interactive = false
+	narrator.start_conversation(section)
+
+func walk(room: String) -> void:
+	_busy = true
+	hotspots.interactive = false
+	narrator.play_sound("floorboards")
+	await _fade_to(room)
+	_ready_to_move()
+
+# --- Private: the machinery ---
+
+func _fade_to(room: String) -> void:
+	var fade: Tween = create_tween()
+	fade.tween_property(self, "modulate", Color(0.15, 0.15, 0.15), VIEW_FADE)
+	await fade.finished
+	_show_room(room)
+	fade = create_tween()
+	fade.tween_property(self, "modulate", Color.WHITE, VIEW_FADE)
+
+func _show_room(room: String) -> void:
+	if not ROOMS.has(room):
+		push_error("No room called: " + room)
+		return
+	_room = room
+	var picture: String = ROOMS[room][0]
+	apartment_art.visible = picture == "apartment"
+	shop_art.visible = picture == "shop"
+	place_art.visible = picture == "place"
+	match picture:
+		"apartment": apartment_art.view = ROOMS[room][1]
+		"shop": shop_art.view = ROOMS[room][1]
+		"place": place_art.view = ROOMS[room][1]
+	hotspots.fill(SCENE_ID, "", narrator)
+
+func _ready_to_move() -> void:
+	hotspots.fill(SCENE_ID, _room, narrator)
+	for spot_id in _used:
+		hotspots.mark_used(spot_id)
+	_busy = false
+	hotspots.interactive = true
+
+# show=church: the picture changes, with no walking. end=map: when this
+# section is over, so is the day.
+func _on_line_shown(line: Dictionary) -> void:
+	if line.get("end", "") == "map":
+		_leaving = true
+	var room: String = line.get("show", "")
+	if room != "" and room != _room:
+		_fade_to(room)
+
+func _on_section_finished(_section: String) -> void:
+	if _leaving:
+		_ending = true
+		hotspots.interactive = false
+		narrator.set_input_enabled(false)
+		Transition.go_to(MAP_SCENE, 1.5, 0.5)
+		return
+	_ready_to_move()

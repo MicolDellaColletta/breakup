@@ -9,6 +9,7 @@
 -> map_day_one | if=day==1
 -> map_day_three | if=day==3
 -> map_day_four | if=day==4
+-> map_day_five | if=day==5
 -> map_day_two
 
 === map_day_one
@@ -80,6 +81,7 @@ narration: The cold outside is almost a relief.
 -> lake_first | if=day==1
 -> lake_three | if=day==3
 -> lake_four | if=day==4
+-> lake_five | if=day==5
 -> lake_two
 
 === lake_first
@@ -205,6 +207,7 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 
 === cabin
 -> cabin_four | if=day==4 and flag:met_sam
+-> cabin_five | if=day==5 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -446,6 +449,52 @@ narration: Nobody stops you coming in. Nobody says anything at all. One of them 
 narration: At the back, the vestry door is open a hand's width. Through it: a big iron scale, the old kind for sacks of grain, polished bright. And the doorframe beside it, the white paint covered in pencil lines, one above another, each with a word written beside it.
 narration: A woman gets up off her knees, dries her hands, and closes the vestry door. She smiles at you while she does it.
 paranoia: Tomorrow. You'll see it tomorrow. They want you to see it tomorrow.
+
+# --- Day five: Sunday ---
+
+=== map_day_five
+narration: Sunday evening. The Gleaner dark, for once. The church dark. Every house lit, every curtain drawn.
+narration: The town's been to church. Now it's at home, digesting.
+paranoia | if=flag:weighed: They know what you weigh. Somebody's writing it in a book right now. No. It's already written.
+
+=== ruth_house
+narration | time=+10: Ruth's house, behind the bar. A porch light, and the blue of a television through the curtains.
+narration: You knock. A long time. Then she opens the door in a sweater and socks, with a glass in her hand she doesn't hide.
+ruth: Sunday. Bar's shut. So this is where I drink.
+narration: She doesn't ask you in. Then she does, as if she'd decided something on the way down the hall.
+narration: The TV on with the sound off. A ball game, the score from somewhere warm. She sits in the armchair and you sit on the couch, and for a long time nobody says anything, and it's the easiest hour you've had in Kettle Lake.
+ruth | if=flag:prayed_for: I saw them put their hands on you. I was at the back. I always go to the back.
+ruth | if=flag:walked_out: You walked out. Nobody walks out. I almost clapped.
+ruth: I used to sit up front. When I was a kid. Before.
+narration: She doesn't say before what. She refills her glass. Then she's asleep, in the chair, the glass tipped safe against her knee.
+narration: On the shelf by the TV, a shoebox. On its lid, in her handwriting, years: 1989, 1990, 1991, all the way to 1998.
+> Lift the lid -> ruth_box_open | lean=appraisal
+> Leave it. Cover her with the blanket and go. -> ruth_box_left | lean=warmth
+
+=== ruth_box_open
+narration: Letters. Dozens. All in her hand, all to the same name, in quotation marks, the way Sam writes them: "David."
+narration: Every one stamped. Not one of them sent. No address, only the name. The newest is dated last month.
+narration: You read the first line of the top one before you can stop yourself. "I hope you got where you were going. I hope it was warm."
+narration: You put the lid back. Exactly. You line it up with the dust.
+paranoia: You know how to put things back so nobody knows. When did you learn that.
+
+=== ruth_box_left
+narration: You take the blanket off the back of the couch and put it over her. She doesn't wake.
+narration: You leave the porch light on. You leave the box where it is, with its years on the lid.
+warmth | if=warmth>=1: Whatever's in it, it's hers.
+
+=== cabin_five
+narration | time=+10: The cabin. Sam on the porch in the cold, in a chair, watching the church on the hill through binoculars.
+sam: They lit every lamp in that building this morning. I measured the smoke. You were in there an hour and forty minutes.
+narration | if=flag:walked_out: He lowers the binoculars. "Fifty-one minutes. You came out early. Good."
+sam | if=flag:weighed: They weighed you. They weighed all ten. I've seen the book once. I'd give a great deal to see it again.
+sam: Write down what they did. Every part. The order. Somebody should have it in order.
+paranoia: He's asking you to be his data. You already are.
+
+=== lake_five
+narration | time=+20: The shore on a Sunday evening. Nobody on the ice. The kids are home, being kept in.
+narration: The poles under their tarp. Somebody has laid a wreath on the tarp, the kind you'd lay on a grave. Spruce, and red wool.
+narration: The same red wool Hanna's braid was tied with.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

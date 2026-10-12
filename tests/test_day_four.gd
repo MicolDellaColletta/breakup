@@ -193,7 +193,7 @@ func _night(spoke_first: bool) -> void:
 		check(route.has("sleep_silent") and not night.sounds["ring"].playing, "two nights of silence")
 		check(route.has("night_dog_fed") and route[-1] == "morning_after", "the dog, then Sunday morning")
 		await wait(5.2)
-		check(current_scene.name == "Title" and gs.day == 5, "day five isn't written yet: back to the title screen")
+		check(current_scene.name == "Visit" and gs.day == 5, "Sunday morning: day five, no counter")
 		return
 	check(night.sounds["ring"].playing, "at eleven, the phone rings again")
 	await pick(column, "Go down to it")

@@ -1,0 +1,227 @@
+# DAY FIVE: Sunday, October 10, 1999
+# The shop is closed. No counter: you walk (scenes/visit.tscn). A line with
+# show=church changes the picture; spots in story/spots.cfg (scene "visit")
+# are what you can click when the story stops; end=map ends the day, and the
+# evening starts on the town map. Design: docs/days_four_to_seven.md.
+# Rooms: apartment, shop, church, vestry, hollis_kitchen.
+
+=== morning
+narration | time=08:00: Sunday. The bells start on the hill at eight and don't stop. Not a tune. Just the one bell, over and over, the way you'd knock on a door until someone came.
+-> morning_bowl_fed | if=flag:fed_four
+-> morning_bowl_gone
+
+=== morning_bowl_fed
+narration: The bowl by the stove, licked clean, on its line. A long gray hair laid across the rim, straight, as if put there.
+paranoia: As if put there. Listen to yourself.
+-> morning_bulletin
+
+=== morning_bowl_gone
+narration: The bowl isn't by the stove. It isn't at the foot of the stairs. It isn't anywhere.
+paranoia: Somebody took it. Somebody came up those stairs, found it empty, and took it away.
+-> morning_bulletin
+
+=== morning_bulletin
+narration: Under the shop door, today's bulletin. Folded once. Somebody walked it down the hill before the bells.
+narration: At the bottom, the prayer list, typed: Our Keeper. The Hollis boys. The window.
+narration: On the shop door, the owner's sign, turned out: CLOSED FOR THE LORD'S DAY. RING IF IT'S THE LORD.
+paranoia | if=flag:promised_sunday: You told Ezra you'd be there. Ten o'clock. At the front.
+paranoia | if=!flag:promised_sunday: Ten o'clock. Nobody's asked you. Nobody's needed to.
+warmth | if=warmth>=1: It's a church. People sing. You could just go and sit at the back.
+paranoia: There is no back. Not for you.
+> Go up to church -> church_walk | lean=john
+> Stay in the shop. Keep the door locked. -> stay_home | lean=paranoia
+
+# --- Church. ---
+
+=== church_walk
+narration | time=09:50: You walk up the hill in your cleanest shirt. Every house you pass has its door open, and the people coming out of them fall in behind you without a word.
+narration | if=!flag:fed_four: On the church steps, upside down in the snow, your bowl. The dent in its rim. Somebody has set it there for you to see, or for God to.
+narration | if=!flag:fed_four: Nobody looks at it. Everybody steps around it.
+narration | show=church: Inside, the whole town. Every pew full but one. The front one.
+narration: An usher takes your elbow, gently, and walks you down the aisle to it, and leaves you there. Alone, at the front, with the whole of Kettle Lake behind you.
+narration: Across the road, through the tall windows, Olstad's cruiser, parked, engine running. She doesn't come in.
+paranoia: Sit. Look at the cross. Don't turn around.
+
+=== church_board
+narration: By the door, the corkboard. The prayer list in a dozen hands. At the bottom, in block capitals: OUR KEEPER.
+narration: Next to it, pinned with care, a Polaroid. You, on the stool at the Gleaner, the first night. The face you were making.
+narration: Somebody has written under it, in pencil: JOHN. 1999.
+paranoia: Ruth's camera. Ruth's wall. And now the church's.
+
+=== church_people
+narration: You turn, just once. Every face is turned toward you, pleasantly, the way you'd look at a bride.
+narration: Ezra in the second row. Next to him, Hanna, her bare neck pink above her collar, so proud she's shining.
+narration: Mrs. Hollis at the end of a pew, kneeling already, though nobody else is. Kneeling lower than anyone would need to.
+narration: Hands folded on the pew backs. Cuffs riding up. Four short lines, crossed. On that wrist, and that one, and that one.
+appraisal | if=appraisal>=1: Not everyone. Most. Count the ones without it. You'll want to know who they are.
+
+=== church_service
+narration | time=10:00: You sit. The bell stops. In the quiet you can hear the whole town breathing behind you.
+narration: The Reverend climbs to the pulpit. He finds you at once, in the empty pew, and something crosses his face, and goes.
+reverend: Hebrews, thirteen, two. "Be not forgetful to entertain strangers: for thereby some have entertained angels unawares."
+reverend: We are a town that keeps its strangers, friends. We feed them. We pray for them. We do not forget them.
+narration: He says it gently, looking at you. It sounds like a welcome. It sounds like a warning wearing a welcome's coat.
+narration: A hymn. You don't know the words. Behind you, everyone does.
+reverend: And now, as every Sunday in the season, we pray for the Keeper.
+narration: Behind you, the whole church stands. You hear it: a hundred people getting up at once, the pews creaking, coats rustling.
+narration: Then they come forward. All of them. Down the aisle, row by row, and they put their hands on you.
+narration: On your shoulders. Your back. Your head. Your arms. Warm hands and cold hands, rough hands, a child's hand on your knee. Nobody speaks. The Reverend says the words, and nobody else makes a sound.
+narration: It goes on. It goes on too long. More hands arrive than there is of you, and they rest on the hands already there.
+narration: Someone's palm on the back of your neck. Rough at the knuckles. It smells of onions and dish soap. Mrs. Hollis.
+paranoia: Count the hands. Count the marks. Don't move. Don't move. Don't.
+animal | if=animal>=1: Stand up. Now. Throw them off and walk.
+> Bear it -> church_bear | flag=prayed_for | lean=paranoia
+> Stand up and walk out -> church_walk_out | flag=walked_out | lean=animal
+
+=== church_bear
+narration: You bear it. You sit with your hands on your knees and your eyes on the cross and you let a hundred people hold you down by praying.
+narration: When it's over, they go back to their pews the way they came, row by row, and the warmth goes off you slowly, like a coat taken away.
+reverend: Amen.
+narration: Amen, says the church. You find your own mouth has said it too.
+narration: After, as the pews empty, Ezra is at your elbow, and two women from the scrubbing last night.
+ezra: The vestry. For the records. It won't take a minute.
+narration | show=vestry: The vestry. The iron scale, polished. The white doorframe. The book.
+paranoia: They want you to see it now. They wanted you to see it yesterday. Now you're in it.
+
+=== church_walk_out
+narration: You stand. The hands fall away like leaves.
+narration: Nobody stops you. Nobody grabs. They step back, all of them, and make an aisle, and you walk up it, past every face.
+narration: Nobody's angry. That's the worst of it. They look at you the way you'd look at a dog that's slipped its lead: sorry for it, a little, and sure it'll be back.
+narration: At the back, by the vestry door, Ezra, with a pencil. As you pass, he reaches out and makes a mark on the white doorframe, quick, level with the top of your head.
+ezra: There.
+narration: You don't stop. Outside, the cold is like a slap, and you're grateful for it.
+narration | if=flag:promised_sunday: Behind you, through the open door, you hear Ezra say, to nobody in particular: "The Keeper wouldn't be prayed for."
+narration: On the steps, a hand on your sleeve. Mrs. Hollis, who followed you out.
+widow: Come to lunch. You haven't eaten. I can tell.
+narration: It isn't a question. You go.
+narration | show=hollis_kitchen | time=12:30: Her kitchen. Warm, and small, and too clean.
+
+=== vestry_scale
+narration: The iron scale, the kind for sacks of grain. Ezra slides the weight along the beam, waiting.
+ezra: Step up. For the records.
+> Step on the scale -> vestry_weighed | flag=weighed | lean=john
+> "No." -> vestry_refused | lean=animal
+
+=== vestry_weighed
+narration: You step up. The platform takes you with a small iron sigh. Ezra nudges the weight, and nudges it, and the beam floats level.
+narration: He reads the number aloud. One of the women writes it in the book. Nobody says whether it's good.
+ezra: Thomas was heavier. By Christmas.
+paranoia: By Christmas. Everyone keeps saying by Christmas.
+
+=== vestry_refused
+narration: Ezra looks at the scale, and at you, and lets the weight slide back to zero.
+ezra: Next Sunday, then. There's a lot of Sundays.
+narration: One of the women writes something in the book anyway. A guess. You watch her look you up and down to make it.
+
+=== vestry_frame
+narration: The doorframe. The white paint covered in pencil lines, one above another, the way a family marks a child growing.
+narration: Beside each line, a name, and a year. "Thomas" 1998. "Paul" 1997. "Annie" 1996. Ten of them, eleven, going back past where the paint was touched up.
+narration: The other woman takes your shoulders, kindly, and turns you, and stands you with your back to the frame. A pencil, flat on the top of your head. A scratch.
+narration | flag=measured: When you step away, there's a new line, a little higher than Thomas's. JOHN. 1999.
+paranoia: A height. They want your height. What do you need a height for.
+appraisal | if=appraisal>=2: For a box. For a hole in the ice. For a coat. Pick one and stop.
+
+=== vestry_book
+narration: The book on the lectern. Heavy, cloth-bound, a page for every winter.
+narration: Names and weights, in the same three hands, every Sunday from October. The weights go up, week by week, till Christmas. Then they go down.
+narration: The last line on each page is a date in April or May. Just the date. No weight.
+narration: This winter's page is new. One line, so far, in pencil: Oct. 10.
+
+=== church_door
+narration | if=!flag:measured: On your way to the door, the woman with the pencil catches your shoulders, kindly, and stands you against the white frame. A scratch on the top of your head. JOHN. 1999. You didn't even see her take the pencil out.
+narration: Out through the church. The pews are empty now, the hymnals stacked square.
+narration: The Reverend at the door, shaking hands with the last of them. When it's your turn he holds on a moment longer, and leans in, and his voice goes low.
+reverend: I told you to be busy.
+reverend: Well. You've been weighed now. They won't forget you. Try not to give them reasons to remember you.
+narration: Then he lets go, and he's smiling at the next person, as if he'd said nothing at all.
+narration: On the steps, Mrs. Hollis, waiting for you.
+widow: Come to lunch. You haven't eaten. I can tell.
+narration: It isn't a question. You go.
+narration | show=hollis_kitchen | time=12:30: Her kitchen. Warm, and small, and too clean.
+
+# --- Staying in the shop. ---
+
+=== stay_home
+narration | show=shop | time=10:00: You stay downstairs, behind the counter, with the sign turned out and the door locked. The bell on the hill stops.
+narration: An hour. The freezer hums. You almost let yourself think it's over.
+narration | if=!flag:fed_four: Through the glass, on the front step, your bowl. Upside down, in the snow, with the dent in its rim toward you. You didn't hear anyone come.
+narration | time=11:30: Then, through the front window, the congregation, coming down the hill.
+narration: All of it. Everybody. They walk down the road in their church clothes, and they stop outside the shop, and they turn to face the window.
+narration: Ezra at the front. The Reverend nowhere. Forty people, more, standing in the snow with their hands folded, looking in.
+narration: They pray. You can see their lips. You can't hear a word.
+paranoia: They came to you. You didn't go to them, so they came to you.
+
+=== sunday_watch
+narration: You stay where you are, behind the counter, and watch them pray at you.
+narration: Five minutes on the clock. You count every one. It feels like the whole morning.
+narration: Then they're done. They unfold their hands, and turn, and go home in twos and threes, chatting, as if after any service.
+narration | if=flag:promised_sunday: Ezra stays last. He takes a small book out of his coat and writes in it, standing in the road, and looks at the window while he does it.
+-> sunday_lunch
+
+=== sunday_upstairs
+narration | show=apartment | sound=stairs: You go upstairs, and you pull the curtain across the front window, and you sit on the bed with your back to it.
+narration: It doesn't help. You can feel them through the wall, the way you feel the sun through a closed eye.
+narration: When you look again, ten minutes later, they've gone. The snow in the road is trampled flat in rows, the way a field is after something lies down in it.
+narration | if=flag:promised_sunday: One set of footprints goes right up to the shop door and stops, and comes back. Ezra's boots. You'd know them anywhere now.
+-> sunday_lunch
+
+=== sunday_go_out
+narration: You unlock the door. The bell. You step out into the cold in your shirtsleeves.
+narration: They part for you. A path opens down the middle of them, like a door being held.
+narration: You don't know what you meant to say. You don't say anything. Nobody does.
+narration: Mrs. Hollis steps out of the crowd and takes your hand in both of hers. Warm. She holds it, and holds it, and lets go.
+narration: Then they go home.
+-> sunday_lunch
+
+=== sunday_lunch
+narration | time=13:00: At one o'clock, a knock at the shop door. Not the bell. Somebody who knows how to knock so the bell won't ring.
+narration: Mrs. Hollis, alone, in Ray's parka.
+widow: Come to lunch. You haven't eaten. I can tell.
+narration: It isn't a question. You go.
+narration | show=hollis_kitchen: Her kitchen. Warm, and small, and too clean.
+
+# --- Mrs. Hollis's kitchen. ---
+
+=== kitchen_boots
+narration: By the back door, a pair of men's boots, laced, set together. Snow-wet, though nobody's worn them in a month.
+narration | if=flag:faith_hollis: Ray's jacket hangs on the peg above them. Back where it lives.
+widow: I put them out every morning. I don't know why. You do things.
+
+=== kitchen_chair
+narration: Ray's chair, at the end of the table. Nobody sits in it. A cushion on it, plumped.
+narration: On the floor beside it, the linoleum is scrubbed bare in two round patches, a hand's width apart. Paler than the rest. As if someone knelt there, every day, for years.
+narration: Or for a week.
+paranoia: People pray. Widows pray. She kneels by his chair. That's all. That's all it is.
+
+=== kitchen_rack
+narration: The drying rack by the sink. Plates, a pot, two cups.
+narration: And upside down at the end, a dog's bowl. Steel. Clean. There's no dog. There's no dog bed, no leash on the hook, no hair on the furniture.
+narration: Beside it, on the windowsill, in a saucer, hairpins. The old bronze kind.
+narration | if=flag:fed_four: The same kind as the hair across your bowl this morning. The same gray.
+paranoia: Lots of women use hairpins. Lots of people keep a bowl. You're in her kitchen. Stop looking.
+
+=== kitchen_door
+narration: Down the little hall, a door, shut.
+-> kitchen_door_empty | if=!sold:ice_picks
+-> kitchen_door_cody
+
+=== kitchen_door_empty
+narration: Cody's. A hockey poster on it, curling at the corners.
+narration: She goes past it with a plate in her hand, and stops, and says through it, "Lunch is ready, honey," as if he might come.
+narration: Then she goes on, and doesn't look back at you, and you don't look at her.
+
+=== kitchen_door_cody
+narration: Cody's. Behind it, music, turned low. He doesn't come out. She doesn't ask him to.
+widow: He doesn't eat with me since. He eats at night. I leave it on the stove.
+
+=== kitchen_eat
+narration: She sets a plate in front of you. Pot roast, potatoes, carrots cut the way your grandmother cut them.
+narration | if=flag:widow_dish: You give her back her dish. She takes it, and washes it, and puts it away, and the cupboard door clicks shut like a thing finished.
+narration: You eat. She watches you eat. She doesn't eat.
+narration: It's the best meal you've had in a year. For as long as the plate lasts, you're somebody's guest in a warm kitchen on a Sunday, and that's all.
+widow: There. You've got a little color.
+narration | fray=-1: She fills your plate again without asking. You let her.
+widow | if=flag:prayed_for: You sat very still this morning. That's good. Ray could never sit still.
+widow | if=flag:walked_out: You'll come next Sunday. You'll sit better next time. Everybody does.
+widow: Same time next week. I'll do the roast again.
+narration | end=map | time=16:30: When you leave, she stands in the door and watches you all the way to the road. When you look back from the corner, she's still there, very small, in Ray's parka, one hand on the frame.
