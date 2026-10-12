@@ -62,8 +62,9 @@ a new way.
 loving her is loving someone who hands Keepers to the town, and won't let go.
 
 1. **A true thing told** (day three): *"What did they call you, before?"* MC
-   gives something real. She writes it on the back of his Polaroid, under
-   "John". Filed.
+   gives something real. She doesn't write it down (as built); she keeps it.
+   The first time she writes it is for MC alone, on a napkin under a beer
+   (`days_four_to_seven.md`). Filed.
 2. **Her secret** (November, after hours): drunk (the drinking is the first
    secret), she takes MC to the Gleaner's cellar: a second copy of every
    Keeper's Polaroid since 1989. One for the wall; one for the church, every
