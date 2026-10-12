@@ -62,7 +62,7 @@ rebuild, and the rebuilding has to cost something.
 | Break the cycle | Rebuilding through suffering, with someone else. It costs. |
 | The truth | Meaning found by facing the meaningless, with someone else: the rational answer, shared. |
 | Daniel | Desire as self-destruction. |
-| The ice | Self-destruction, or transcendence; the game never says which. MC goes all the way into what the voices promised. |
+| The ice (variant of The season ends) | Self-destruction, or transcendence; the game never says which. MC goes all the way into what the voices promised. |
 | **Thaw** | Rebuilding through suffering, without a romance: through small kept promises and the people MC kept faith with. The brighter possibility. MC gets his own name back. |
 
 Thaw is decided (see `story.md`, "Thaw"): the game needs one brighter ending
