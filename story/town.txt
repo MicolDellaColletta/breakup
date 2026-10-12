@@ -15,6 +15,8 @@
 -> map_day_eight | if=day==8
 -> map_day_nine | if=day==9
 -> map_day_eleven | if=day==11
+-> map_day_thirteen | if=day==13
+-> map_day_fifteen | if=day==15
 -> map_day_two
 
 === map_day_one
@@ -30,6 +32,8 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_six | if=day==6
 -> pub_eight | if=day==8
 -> pub_eleven | if=day==11
+-> pub_thirteen | if=day==13
+-> pub_fifteen | if=day==15
 -> pub_two
 
 === pub_first
@@ -94,6 +98,8 @@ narration: The cold outside is almost a relief.
 -> lake_eight | if=day==8
 -> lake_nine | if=day==9
 -> lake_eleven | if=day==11
+-> lake_thirteen | if=day==13
+-> lake_fifteen | if=day==15
 -> lake_two
 
 === lake_first
@@ -161,6 +167,8 @@ narration: You leave money on the bar and go before the room can decide to be fr
 -> church_six | if=day==6
 -> church_eight | if=day==8
 -> church_eleven | if=day==11
+-> church_thirteen | if=day==13
+-> church_fifteen | if=day==15
 -> church_two
 
 === church_two
@@ -227,6 +235,8 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 -> cabin_eight | if=day==8 and flag:met_sam
 -> cabin_nine | if=day==9 and flag:met_sam
 -> cabin_eleven | if=day==11 and flag:met_sam
+-> cabin_thirteen | if=day==13 and flag:met_sam
+-> cabin_fifteen | if=day==15 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -739,6 +749,105 @@ narration | if=flag:sam_map: He's added to the map since this morning. Another c
 === lake_eleven
 narration | time=+20: The lake, white and wide. The poles on the bank, under their tarp. Somebody's carved a jack-o'-lantern and set it on top of them, lit. It grins out at the ice.
 narration | if=flag:saw_shape: You don't walk out. You stay on the bank. You don't look for the place.
+
+# --- Key day 13: Friday, November 5 ---
+
+=== map_day_thirteen
+narration: Friday night, November. The dark came at half past four, and it's been night for hours already.
+narration: The Gleaner, lit. The church, dark. The cabin on the shore, one window.
+
+=== pub_thirteen
+narration | time=+60: The Gleaner on a Friday in November. Fuller than it's been. People don't go home early when it's dark at four.
+-> pub_thirteen_cellar | if=flag:door_ruth_1 and !flag:broke_faith_ruth
+-> pub_thirteen_plain
+
+=== pub_thirteen_plain
+narration: Ruth serves you. The wall of faces. Yours at the end, a little faded already, the way Polaroids go.
+narration | if=flag:broke_faith_ruth: She takes your money without touching your hand.
+narration: At closing you walk home. Behind you, through the window, Ruth alone at the bar with a bottle, the chairs up, not drinking from a glass.
+
+=== pub_thirteen_cellar
+narration: Last call. The room empties. Ruth locks the door behind the last of them and doesn't turn the sign.
+narration: She's drunk. You realize it all at once; she's been drunk all night, carefully, the way she does everything. The bottle under the bar, the coffee mug.
+ruth: Come downstairs. I want to show you something. I've never shown anybody.
+narration: The cellar. Kegs, a furnace, a single bulb. And on the wall, floor to ceiling: Polaroids. Not ten. Dozens.
+narration: Every Keeper, twice. One copy in a neat row, labelled. And a second copy of each, in an envelope pinned under it, sealed, with the church's name on the front.
+ruth: One for my wall. One for the church. Every year since eighty-nine. They need the face, after. For the book. For the pageant. For the prayers.
+ruth: Somebody has to give them their Keeper. I make sure they know the face.
+narration: Your face is there. Twice. The first night, on the stool. One on the wall. One in an envelope, sealed, waiting.
+paranoia: She gives you to them. She's been giving you to them since the first night.
+warmth | if=warmth>=1: She's showing you. She's never shown anyone. She's trusting you with the worst thing she does.
+> "Why are you showing me this?" -> cellar_why | flag=door_ruth_2 | lean=warmth
+> Take your envelope off the wall -> cellar_take | flag=took_envelope | lean=animal
+> Go back upstairs -> cellar_leave | lean=paranoia
+
+=== cellar_why
+ruth: Because you'd find out. They all find out. I wanted you to find out from me.
+narration: She sits down on a keg, hard. She's crying, and angry at it, the way she was the day she came down the stairs.
+ruth: I liked you. I like you. That's never helped any of them.
+narration: Later, upstairs, at the bar, she holds out her hand.
+ruth: Give me your car keys. You're not driving tonight. Nobody drives in November after this much. I'll keep them for you.
+narration | flag=ruth_has_keys: You give them to her. You don't decide to. She puts them in the pocket of her apron, and pats the pocket, and smiles at you, wet-eyed, as if you'd given her something much bigger.
+paranoia: You'll ask for them back tomorrow. You'll ask, and she'll say of course, and she'll forget. She'll forget every day until May.
+-> cellar_home
+
+=== cellar_take
+narration: You reach up and unpin your envelope. Sealed. The church's name on it. Your face inside.
+narration: She watches you do it. She doesn't stop you.
+ruth: They'll want another. I'll have to take another. You understand? I'll have to take another one.
+narration: You put it in your coat. She doesn't ask for your keys. She doesn't ask you for anything, for the rest of the night.
+-> cellar_home
+
+=== cellar_leave
+narration: You go back up the stairs. She stays down there with them, under the one bulb, a long time.
+narration: When she comes up, she pours you a drink, and doesn't mention the cellar, and never will again.
+-> cellar_home
+
+=== cellar_home
+narration | time=+60: You walk home in the dark. The cold is very clean.
+
+=== church_thirteen
+narration | time=+20: The church on a Friday night, dark. On the corkboard by the door, lit by the streetlight through the glass, a new notice: PRAY FOR TRAVELLERS ON THE ROADS. And under it, in pencil: "and for the man on the radio".
+
+=== cabin_thirteen
+narration | time=+10: The cabin. Sam has the radio on, a scanner, a notebook, three pencils.
+sam: Friday night. The show takes calls on Fridays now. Since last week. Did you know that? Nobody announced it.
+sam: Somebody wanted the phone lines open.
+
+=== lake_thirteen
+narration | time=+20: The lake. The poles, on the bank, the tarp tied down tight. Snow on it, smooth, untouched. Nobody's been near them since Halloween.
+
+# --- Key day 15: Tuesday, November 23. He's here. ---
+
+=== map_day_fifteen
+narration: Tuesday night. Every window in the church is lit. Cars parked up the hill, on a weeknight, the way they park on Sundays.
+narration: Above the Gleaner, in the room nobody rents, a light.
+paranoia: He's up there. Or he's up the hill. Either way, he's here, and he knows where you sleep.
+
+=== pub_fifteen
+narration | time=+60: The Gleaner, half empty. Everyone's at the church.
+narration: Ruth behind the bar. She looks up at the ceiling when a floorboard creaks above it.
+ruth: He's taken Dad's old room upstairs. Paid two weeks in advance. Cash. Exact.
+ruth: He's very polite. He asked my name, and then he said it back to me, like it was a thing worth having.
+narration | if=!flag:broke_faith_ruth: She pours you one. Her hand isn't steady.
+ruth: I don't like him. I don't know why. Everybody likes him.
+
+=== church_fifteen
+narration | time=+20: The church, every window lit. Through the tall windows, from the road: the pews full, on a Tuesday.
+narration: At the front, not in the pulpit, standing below it: the man in the good coat, his head bowed, while the Reverend says something with his hand on the man's shoulder.
+narration: Mrs. Hollis in the front pew. Ezra beside the man, close, the way you'd stand beside someone you'd decided to keep.
+narration: The man lifts his head. From the road, through the glass, in the dark, he couldn't possibly see you.
+narration: He looks straight at the window you're standing at.
+paranoia: Walk. Walk now.
+
+=== cabin_fifteen
+narration | time=+10: The cabin. Sam on the porch with the binoculars, pointed at the church.
+sam: He's been in there three hours. They keep bringing him things. Pie. Coffee. A blanket.
+sam: The Reverend hasn't smiled once. I've been counting.
+
+=== lake_fifteen
+narration | time=+20: The lake. The poles under their tarp. Black ice, gray ice, the bonfire's scorch mark still on the snow by the bank.
+narration: You stand on the shore a long time. Behind you, up the hill, the church bell rings once. Nobody rings it on Tuesdays.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

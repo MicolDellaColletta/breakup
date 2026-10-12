@@ -1,0 +1,58 @@
+# KEY DAY 14: Sunday, November 21, 1999. The fitting.
+# A walk-around day (scenes/visit.tscn): church in a few lines, then the
+# vestry, where the coat is finished but for the hem. The spot "The coat"
+# (spots.cfg, if=day==14) is the fitting. Ends with end=night.
+# Design: docs/november.md, docs/underneath.md ("The coat").
+
+=== morning
+narration | time=08:00: Sunday, the twenty-first. The fitting, the bulletin said. After the service.
+narration: Light at half past nine. Dark at four. The day is a crack under a door.
+narration | if=flag:ruth_has_keys: You haven't driven anywhere in two weeks. You walk up the hill.
+narration | time=10:00: The bell. The pew. Yours.
+narration: The Reverend preaches on patience. He looks tired. Twice, in the middle of a sentence, he stops and looks at the back of the church, at the door, as if someone might come through it.
+narration: Then the hands. Everyone, again, like the first Sunday. Warmer hands than then. They know you now.
+narration | if=flag:refused_tooth_public: On the steps, Ezra doesn't ask for the tooth. He looks at you and says, "After." That's all.
+narration | show=vestry | time=11:40: The vestry. The scale pushed back against the wall. The book closed. Six women, and Ezra by the door.
+narration: And on a dressmaker's form in the middle of the room, under the window: the coat.
+narration: Finished. Long, brown, heavy, to the floor. A deep collar. Brass buttons down the front, big ones. The same as the button by your bowl, the one from the ice.
+paranoia: Brass. The same buttons. They reuse the buttons.
+appraisal | if=appraisal>=1: Thomas's buttons. Cut off one coat and sewn onto the next.
+
+=== fitting_coat
+narration: Mrs. Lund lifts it off the form. Two women hold it open behind you, by the shoulders, the way you'd hold a coat for someone at a door.
+narration: Mrs. Hollis, in front of you, waiting, with pins in her mouth.
+narration: Nobody says put it on. Nobody needs to.
+paranoia: Don't. Don't put your arms in it. Once your arms are in it, it's yours.
+warmth | if=warmth>=1: They made it for you. Every one of them. Look at their faces.
+> Put your arms in the sleeves -> fitting_wear | flag=wore_coat | lean=warmth
+> "Not today." -> fitting_refuse | flag=refused_fitting | lean=animal
+
+=== fitting_wear
+narration: You put your arms back. The sleeves take them. The weight comes down on your shoulders, all at once, like hands.
+narration: It's warm. Not stove-warm. Body-warm, as if someone had just taken it off.
+narration: It smells of all of them. Lanolin, and woodsmoke, and lavender from somebody's drawer, and Mrs. Hollis's kitchen, and under it, very faint, something older. The lake.
+narration: They button it for you. All the brass buttons, top to bottom, six pairs of hands. Mrs. Hollis kneels to pin the hem. Her knees on the vestry floor, and the sound they make.
+narration: At the hem, under her hands, a braid of fair hair, sewn flat into the lining. You're standing on it. Hanna said you would.
+narration: In the pockets of the lining, small hard shapes, each one stitched in. You feel them against your ribs when you breathe.
+widow: There.
+narration: She stands, slowly, using your arm. She looks at you in it for a long time.
+widow: There. Now you look like him.
+narration: She doesn't say who. Thomas. Ray. The figure in the painting. The children's drawings. All of them.
+narration: They take it off you, gently, button by button, and put it back on the form. It keeps your shape a moment, in the shoulders, then lets it go.
+narration: Ezra, by the door, writes something in the book.
+-> fitting_after
+
+=== fitting_refuse
+narration: You step away from the open coat. The two women holding it don't move. They stand there with it open between them, patient, as if your arms might change their minds.
+narration: Mrs. Hollis takes the pins out of her mouth.
+widow: That's all right, dear. We have your measurements.
+narration: They put it back on the form. It stands there, your height, your shoulders, empty, buttoned, facing you.
+narration: Ezra, by the door, writes something in the book.
+paranoia: It doesn't need you to try it on. It already fits.
+-> fitting_after
+
+=== fitting_after
+narration | time=13:00: Lunch at Mrs. Hollis's. The roast. Your place.
+narration: She talks about the pageant, and the man on the radio, the minister. "Such a voice. He said he'd come for Thanksgiving. Imagine. A real minister, at the pageant."
+narration | if=flag:wore_coat: Your shoulders still feel the weight. All through lunch you keep reaching up to take off a coat you aren't wearing.
+narration | end=night | time=16:00: You walk home in the dark at four in the afternoon. On the hill behind you, the vestry window, lit, and a shape in it, standing very straight, that isn't anybody.

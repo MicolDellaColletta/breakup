@@ -7,6 +7,8 @@ const ITEMS_PATH: String = "res://story/items.cfg"
 const MINUTES_PER_DAY: int = 24 * 60
 # Day of October 1999 on the prologue night (see docs/story.md, Timeline).
 const FIRST_NIGHT_DATE: int = 5
+# The season, October 1999 to breakup: each month and its length.
+const MONTHS: Array = [["Oct", 31], ["Nov", 30], ["Dec", 31], ["Jan", 31], ["Feb", 29], ["Mar", 31], ["Apr", 30]]
 
 # A colored choice (needs=john) shows once its voice has this many points.
 const COLORED_CHOICE_AT: int = 3
@@ -45,6 +47,9 @@ const DAY_STORIES: Dictionary = {
 	10: "res://story/day_ten.txt",
 	11: "res://story/day_eleven.txt",
 	12: "res://story/day_twelve.txt",
+	13: "res://story/day_thirteen.txt",
+	14: "res://story/day_fourteen.txt",
+	15: "res://story/day_fifteen.txt",
 }
 # Evenings that are walked instead of picked from the town map (key day 10:
 # the first-ice party on the lake). The story starts at "evening" and ends
@@ -60,6 +65,7 @@ const DAY_SCENES: Dictionary = {
 	5: "res://scenes/visit.tscn",
 	9: "res://scenes/visit.tscn",
 	12: "res://scenes/visit.tscn",
+	14: "res://scenes/visit.tscn",
 }
 # After week one, the story days are key days, with days skipped between them.
 # Which calendar day (counted from October 5, the drive) each one is. Days
@@ -70,7 +76,10 @@ const DAY_DATES: Dictionary = {
 	10: 18,
 	11: 25,
 	12: 26,
-	13: 27,
+	13: 31,
+	14: 47,
+	15: 49,
+	16: 50,
 }
 # A bridge before a key day covers the days skipped: a title card and a few
 # lines (story/bridges.txt, the section named here), then the day itself.
@@ -80,6 +89,9 @@ const BRIDGES: Dictionary = {
 	10: "bridge_monday",
 	11: "bridge_sunday",
 	13: "bridge_november",
+	14: "bridge_mid_november",
+	15: "bridge_thanksgiving_week",
+	16: "bridge_to_be_continued",
 }
 const BRIDGE_SCENE: String = "res://scenes/bridge.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
@@ -96,6 +108,9 @@ const NIGHT_STORIES: Dictionary = {
 	10: "res://story/night_ten.txt",
 	11: "res://story/night_eleven.txt",
 	12: "res://story/night_twelve.txt",
+	13: "res://story/night_thirteen.txt",
+	14: "res://story/night_fourteen.txt",
+	15: "res://story/night_fifteen.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on
@@ -372,7 +387,12 @@ func set_clock(clock: String) -> void:
 
 # The prologue night is October 5, 1999. The date turns over at midnight.
 func date_text() -> String:
-	return "Oct %d" % (FIRST_NIGHT_DATE + floori(float(minutes) / MINUTES_PER_DAY))
+	var day_of: int = FIRST_NIGHT_DATE + floori(float(minutes) / MINUTES_PER_DAY)
+	for month in MONTHS:
+		if day_of <= month[1]:
+			return "%s %d" % [month[0], day_of]
+		day_of -= month[1]
+	return "May %d" % day_of
 
 # "Thu Oct 7", for the clock on screen.
 func weekday_text() -> String:

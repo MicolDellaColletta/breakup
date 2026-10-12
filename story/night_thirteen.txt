@@ -1,0 +1,109 @@
+# THE THIRTEENTH NIGHT: Friday, November 5 (after key day 13)
+# Same format as the other nights. The night: the night radio takes calls on
+# Fridays now, and at eleven, when the shop phone should ring, a caller rings
+# the radio instead: a travelling minister, from a payphone on the road. A
+# beautiful voice, scripture by heart. The shop phone doesn't ring.
+# (daniel.md 7: the caller, then the guest, then the host.) Design:
+# docs/november.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. Friday night, November.
+narration | stop=stairs: The apartment. It's been dark for six hours. It'll be dark for fifteen more.
+narration | if=flag:ruth_has_keys: Your pocket's lighter. Your car keys are in Ruth's apron.
+paranoia: The rules. Then the radio. Something's going to be on the radio.
+
+=== radio
+narration | time=+10: The radio. Friday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The Reverend. "Friday nights, friends, the lines are open. If you're out there and you can't sleep, call in. Somebody's listening."
+narration: A woman from up the shore, about her husband's back. A boy who wants a song for his girl. The Reverend kind to each of them, tired.
+narration | time=23:00: Eleven. You find yourself looking at the stairs. At the shop phone, downstairs, which isn't ringing.
+narration: On the radio, a click. A new caller.
+narration: "Good evening, Reverend. Forgive me. I'm calling from a payphone on the highway. I saw your church's name on a bulletin in a diner, and I've been listening since the valley."
+narration: A man's voice. Low. Unhurried. Every word set down carefully, like a glass on a table so it won't make a sound.
+narration: "I travel. I preach, where I'm asked. I'm not asked often anymore. But I heard you read the prayer list, and I wanted to say: I'll pray for your Keeper too. Whoever he is. It's a long winter for a stranger."
+narration: Then scripture, by heart, without a breath: "For I was a stranger, and ye took me in." And a little more. And "God keep you, friends," and the click of a payphone.
+narration: On the air, the Reverend is silent for too long. Then: "Thank you, friend. Safe travels."
+narration: He doesn't sound grateful. He sounds like a man who heard a step on the stair.
+paranoia: That voice. You know that voice. No. You know the way it waits before the last word. You know the waiting.
+unknown: Isn't he lovely, sweetheart? The whole town thinks so already.
+appraisal | if=appraisal>=1: A payphone on the highway. Trucks behind him, going by. No train. He's moved.
+
+=== radio_off
+narration: You leave it off. At eleven you lie there waiting for the shop phone, and it doesn't ring.
+narration: Through the wall, up the road, somebody's radio, turned up, and a man's voice, low and beautiful, and then a woman laughing with pleasure, the way you'd laugh at good news.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_thirteen
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. Snow, the neon, the dark.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold. Up the road, a radio. The voice.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser.
+narration | if=has:notebook: The notebook. You write: "Nov 5. 11:00. The radio, not the phone." Then, after a long time: "The voice." You don't know which column.
+narration | if=!has:notebook: The flannel shirts.
+
+=== painting
+narration | time=+5: The painting. The figure far out on the ice, its back to you. Waiting for someone to come across the ice to it.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down.
+narration: The shop phone doesn't ring. Not at eleven. Not at all.
+narration: For the first time in a month, it's the silence that keeps you awake.
+paranoia: He called them instead. He called everybody but you.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_thirteen
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. And then, very low, humming. Not the hymn. Something you don't know. "For I was a stranger." No. It's just humming.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Saturday.

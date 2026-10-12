@@ -1,0 +1,121 @@
+# THE FIFTEENTH NIGHT: Tuesday, November 23. He's here.
+# Same format as the other nights. The night: the call comes from a payphone
+# across the street; through the open line, wind, and the church bell, which
+# MC also hears through the shop window half a second later (daniel.md 6a,
+# late November). The dog. Then the bridge that ends what's written.
+# Design: docs/november.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment. You check everything is where you left it. You check the window. You check the window again.
+narration | if=flag:took_bullet: Downstairs, on the back shelf, a flattened bullet with a tag, next to a tin. You can feel it there, the way you'd feel a stove left on.
+narration | if=flag:door_daniel_1: "There you are." You keep hearing it. Gently. Almost tenderly.
+paranoia: The rules. Tonight more than any night.
+
+=== radio
+narration | time=+10: The radio. Tuesday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The Reverend, late, unscheduled. His voice thin.
+narration: "Friends. We have a guest with us this week, as most of you know. He'll speak on Thursday's watch. I'm told it's an honor."
+narration: "I'd ask you to keep your doors the way you keep them. That's all. That's all I'll say."
+narration: Static. Then nothing.
+paranoia: That's all he'll say. That's all he can say, with them listening.
+
+=== radio_off
+narration: You leave it off. Up the hill, the church, still lit at eleven.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_fifteen
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. Across the road, by the gas station, the payphone, in its little hood, lit.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched. Twice. Three times.
+
+=== windows_open
+narration: Cold. Across the road, the payphone's light buzzing. Nobody at it. Yet.
+
+=== dresser
+narration | time=+5 | sound=drawer: The dresser.
+narration | if=has:revolver: John's revolver, wrapped in the flannel. Five rounds. The empty chamber. You know now where the sixth went.
+narration | if=!has:revolver: The flannel shirts. Somewhere under the snow by the back door, the revolver. You think about it more tonight than you have in a month.
+
+=== painting
+narration | time=+5: The painting. The figure far out on the ice. And, for the first time, at the very edge of the canvas, on the shore, a second small figure, standing, watching. You've never seen it. It's been there all along.
+
+=== locked_door
+narration | time=+5: The door at the end of the hall. Locked.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+paranoia: Tonight. With him a hundred yards away. The rule says leave it open.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. Your hand on the bolt a long, long time. You leave it. Anyone can come in. That's the rule.
+
+=== back_door_locked
+narration | sound=latch: The key turns. You test the handle. You test it again. You know it doesn't matter. Olstad has a key. Someone always has a key.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven.
+narration | sound=ring: The shop phone.
+paranoia: Rule four. Don't answer. If you do, don't speak first.
+> Go down to it -> call_answer | lean=animal
+> Let it ring -> call_ignored | lean=paranoia
+
+=== call_answer
+narration | sound=stairs: Down the stairs, in the dark.
+narration | stop=ring | sound=pickup | break=phone: The counter. You lift the receiver. You don't speak.
+narration: Not a room. Not a car. Wind. Close, and loud, across the mouthpiece. Outside.
+narration: And then, on the line, a church bell. Once.
+narration: And half a second later, through the shop window behind you, the same bell. Once.
+narration: You turn around. Across the road, the payphone, in its little lit hood. A man in it, in a good coat, with his back to you, the receiver at his ear.
+narration: He doesn't turn around. He doesn't speak. He stands in the wind, and you stand in the dark, and between you the road, and the line.
+narration | if=flag:door_daniel_1: Then, very quietly, on the line, a breath out. Like a man who's been told something he already knew.
+narration | sound=hangup: A soft click. He hangs up the receiver, and walks away up the hill, not hurrying.
+paranoia: Across the street. He called you from across the street.
+-> night_dog
+
+=== call_ignored
+narration: It rings. You let it. You go to the front window instead.
+narration: Across the road, the payphone, lit. A man in it, in a good coat, the receiver at his ear, his back to you. The phone downstairs ringing, and ringing, in time with his patience.
+narration | stop=ring: Then he hangs up, and walks away up the hill. The phone stops. The silence is enormous.
+-> night_dog
+
+=== night_dog
+-> night_dog_fed | if=flag:fed_fifteen
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. The bowl. Then down, and the back door, and the snow.
+narration: Tonight, for the first time, you're glad of it. Something on your stairs that you know.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up. All night, nothing. You'd give anything for the sound of the stairs.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Wednesday. Thanksgiving week.

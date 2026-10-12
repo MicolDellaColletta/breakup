@@ -37,6 +37,12 @@ const STORY_SCENES: Dictionary = {
 	"res://story/night_eleven.txt": "res://scenes/night.tscn",
 	"res://story/day_twelve.txt": "res://scenes/visit.tscn",
 	"res://story/night_twelve.txt": "res://scenes/night.tscn",
+	"res://story/day_thirteen.txt": "res://scenes/counter.tscn",
+	"res://story/night_thirteen.txt": "res://scenes/night.tscn",
+	"res://story/day_fourteen.txt": "res://scenes/visit.tscn",
+	"res://story/night_fourteen.txt": "res://scenes/night.tscn",
+	"res://story/day_fifteen.txt": "res://scenes/counter.tscn",
+	"res://story/night_fifteen.txt": "res://scenes/night.tscn",
 	"res://story/use.txt": "res://scenes/counter.tscn",
 	"res://story/examine.txt": "res://scenes/counter.tscn",
 }
@@ -47,8 +53,8 @@ const SPOT_STORIES: Dictionary = {
 	"shop_night": ["res://story/shop.txt"],
 	"apartment_first": ["res://story/apartment.txt"],
 	"shop": ["res://story/shop_looks.txt"],
-	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt", "res://story/night_six.txt", "res://story/night_seven.txt", "res://story/night_eight.txt", "res://story/night_nine.txt", "res://story/night_ten.txt", "res://story/night_eleven.txt", "res://story/night_twelve.txt"],
-	"visit": ["res://story/day_five.txt", "res://story/day_nine.txt", "res://story/evening_ten.txt", "res://story/day_twelve.txt"],
+	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt", "res://story/night_six.txt", "res://story/night_seven.txt", "res://story/night_eight.txt", "res://story/night_nine.txt", "res://story/night_ten.txt", "res://story/night_eleven.txt", "res://story/night_twelve.txt", "res://story/night_thirteen.txt", "res://story/night_fourteen.txt", "res://story/night_fifteen.txt"],
+	"visit": ["res://story/day_five.txt", "res://story/day_nine.txt", "res://story/evening_ten.txt", "res://story/day_twelve.txt", "res://story/day_fourteen.txt"],
 	"examine": ["res://story/examine.txt"],
 }
 
