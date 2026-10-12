@@ -275,6 +275,9 @@ func _single_condition_met(condition: String) -> bool:
 		result = GameState.visited.has(text.trim_prefix("visited:"))
 	elif text.begins_with("flag:"):
 		result = GameState.flags.has(text.trim_prefix("flag:"))
+	elif text.begins_with("knows:"):
+		var known: String = text.trim_prefix("knows:")
+		result = GameState.knows_prop(known.get_slice("/", 0), known.get_slice("/", 1))
 	elif text.begins_with("background:"):
 		result = GameState.background() == text.trim_prefix("background:")
 	else:
@@ -424,6 +427,9 @@ func _apply_effects(entry: Dictionary) -> void:
 		GameState.write_ledger(entry["write"])
 	if entry.has("fray"):
 		GameState.add_fray(entry["fray"].to_int())
+	# learn=compass/folk: a property of something in the shop (scripts/props.gd).
+	if entry.has("learn"):
+		GameState.learn_prop(entry["learn"].get_slice("/", 0), entry["learn"].get_slice("/", 1))
 	if entry.has("settle") and entry["settle"] == "background":
 		GameState.settle_background()
 

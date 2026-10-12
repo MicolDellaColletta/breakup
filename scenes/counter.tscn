@@ -90,6 +90,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Register"
 
+[node name="CatalogueButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1131434566]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Catalogue"
+
 [node name="ShelfPanel" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
 unique_name_in_owner = true
 layout_mode = 2
@@ -127,6 +132,17 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.79, 0.71, 0.35, 0.9)
 theme_override_font_sizes/font_size = 16
 
+[node name="PropsText" type="RichTextLabel" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1717171718]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.78, 0.76, 0.7, 1)
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+theme_override_font_sizes/italics_font_size = 15
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
 [node name="VoiceNotes" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1717171717]
 unique_name_in_owner = true
 layout_mode = 2
@@ -135,6 +151,18 @@ theme_override_constants/separation = 6
 [node name="ItemButtons" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1532939937]
 layout_mode = 2
 theme_override_constants/separation = 12
+
+[node name="LoupeButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1552959957]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Loupe"
+
+[node name="HandleButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1562969967]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Turn it over in your hands"
 
 [node name="ExamineButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1542949947]
 unique_name_in_owner = true

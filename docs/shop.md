@@ -408,7 +408,18 @@ to look at, like the counter's choices), art added later. Each place has
        furnace (always lit, never by you); the crates (one opened and
        nailed shut again). Nothing is taken yet: tools, crates and feeding
        the furnace wait for steps 6 and 8.
-3. [ ] Object properties in `stock.cfg`; Abraham's catalogue; the loupe.
+3. [x] Object properties in `stock.cfg`; Abraham's catalogue; the loupe.
+       Built: every object has hidden properties (prop_marks, _material,
+       _warmth, _sound, _smell, _mechanism, _story, _folk, _plain) and the
+       ones Abraham knew have his note (catalogue=). Holding a thing: "Loupe"
+       finds marks and material; "Turn it over in your hands" finds warmth,
+       sound and smell. What you've found shows under it, with how much is
+       left. The catalogue (a button by the ledger) lists his notes, what
+       you've found, and blanks. Stories teach the rest with
+       learn=item/kind, and can ask with if=knows:item/kind (step 4 wires
+       examining and people to it). Decided while building: the loupe hangs
+       by the register from day one, not in the drawer; later tools (candle,
+       magnet, radio dial, seam ripper) are the ones you unlock.
 4. [ ] Examine reveals properties and fills the catalogue; object puzzles.
 5. [ ] Requests as needs (folk / plain / wrong answers).
 6. [ ] Getting stock: given, found, buying trips; shelf space; money.

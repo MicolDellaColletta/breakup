@@ -189,6 +189,10 @@ var pawn_tags: Array[String] = []
 # floor shelves (for sale), the back shelf (held), and the front window (three
 # spots, seen from the road: for sale too). Empty until the counter first
 # fills them from stock.cfg; the player rearranges them from there.
+# Properties of things in the shop you've found out, as "item_id/kind"
+# (duck_call/marks): scripts/props.gd.
+var known_props: Array[String] = []
+
 const SHELF_SPOTS: Dictionary = {"floor": 16, "back": 12, "window": 3}
 var shelf_floor: Array[String] = []
 var shelf_back: Array[String] = []
@@ -237,6 +241,7 @@ func reset() -> void:
 	shelf_floor.clear()
 	shelf_back.clear()
 	shelf_window.clear()
+	known_props.clear()
 	time_changed.emit()
 
 # --- Saving ---
@@ -248,7 +253,7 @@ const SAVED: Array[String] = [
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
 	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags",
 	"fray", "broke_today", "background_settled", "last_lean",
-	"shelf_floor", "shelf_back", "shelf_window",
+	"shelf_floor", "shelf_back", "shelf_window", "known_props",
 ]
 
 func to_dict() -> Dictionary:
@@ -480,6 +485,19 @@ func record_pawn(item_name: String, item_id: String, loan: int, tag: String, sel
 	var by: String = (" by " + seller) if seller != "" else ""
 	var money: String = ("$%d loan" % loan) if loan > 0 else "No loan"
 	ledger_lines.append("%s. %s, pawned%s, tag %s. %s" % [date_text(), item_name, by, tag, money])
+
+# --- What you know about things ---
+
+# Learns one property of an item; true if it wasn't known yet.
+func learn_prop(item_id: String, kind: String) -> bool:
+	var key: String = item_id + "/" + kind
+	if known_props.has(key):
+		return false
+	known_props.append(key)
+	return true
+
+func knows_prop(item_id: String, kind: String) -> bool:
+	return known_props.has(item_id + "/" + kind)
 
 # --- The shelves ---
 
