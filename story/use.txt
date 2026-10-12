@@ -39,7 +39,7 @@ narration: You run the ticket along the shelves, matching numbers by the light o
 narration: 0527. A tin box, the kind cough drops come in, shut with a padlock no bigger than your thumbnail.
 narration: The name on its tag has been scratched out.
 paranoia: You have the ticket for it. Somebody made sure you'd have the ticket for it.
-unknown: Not yet. Not tonight.
+paranoia: Put it back. Whatever's in there is still his.
 
 === use_key_steel_night
 narration | sound=keys: The brass key doesn't even go in. The keyhole is the wrong shape, an older shape.
@@ -49,8 +49,8 @@ paranoia: The front door key opens the front door. Nothing else here is yours.
 
 === use_polaroid_window
 narration: You hold the Polaroid up against the glass.
-narration: The same tree line, across the road. The same angle, the same leaning spruce. The sign, the lot, your car.
-narration: Whoever took it stood right there, between those two trees, last week. Before you came.
+narration: The same tree line, across the road. The same angle, the same leaning spruce. The sign, the lot, a dark car where yours is.
+narration: Whoever took it stood right there, between those two trees. Last week, the pencil says. Before you came.
 paranoia: Step back from the window.
 narration: You step back from the window.
 
@@ -60,7 +60,7 @@ narration: You step back from the window.
 
 === use_key_locked_first
 narration | sound=keys: The front door key. It won't fit. You try it anyway.
-narration: It goes in halfway and stops, as if something on the other side were pressing a thumb against the end of it.
+narration: It goes in halfway and stops against something. Another key, maybe, left in from the other side. Or just an old lock, and the wrong key.
 paranoia: Take it out. Slowly.
 narration | flag=tried_locked_door: You take it out. The brass is cold. Colder than the hall.
 
@@ -80,14 +80,14 @@ narration: You lay the ticket on the open ledger and run your finger down the ta
 narration: Tin box. May '99. Held. No loan, no price.
 narration: The name is scratched out so hard the pen went through the page. You turn the page over. On the back, the hole is the only thing written.
 appraisal | if=appraisal>=1: No loan means nobody was paid. Nobody pawned it. Somebody just left it here, and wrote you a ticket.
-paranoia: A ticket for a box nobody pawned. In a glovebox. In a car you rented to get here.
+paranoia: A ticket for a box nobody pawned. In a glovebox. In a car somebody else rented to get here.
 
 === use_polaroid_front_window
 narration: You hold the Polaroid up to the shop window and line it up with the night outside.
-narration: Across the road, the two spruce, the gap between them. In the picture, your car, parked where it's parked now. The same snow on the roof.
+narration: Across the road, the two spruce, the gap between them. In the picture, a dark sedan, parked where yours is parked now. Snow on its roof.
 narration: Dated last week. Last week you hadn't left yet.
 paranoia: Then somebody knew which car. And where it would be.
-appraisal | if=appraisal>=1: The date's in pencil. Anyone can write a date. The snow on that roof is this week's.
+appraisal | if=appraisal>=1: The date's in pencil. Anyone can write a date. And up here, snow on a roof looks the same every week of the winter.
 
 === use_compass_steel_door
 narration: You hold the compass flat on your palm. The needle settles on north, slowly, the way it does.
