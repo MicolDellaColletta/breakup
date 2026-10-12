@@ -1,7 +1,7 @@
 # Breakup: Week two (October 13 to 19)
 
-A draft for discussion, like `days_four_to_seven.md` was. Nothing here is in
-the game yet. Change anything. Checked against `pillars.md`, `forks.md`,
+Agreed on October 12: the coat and the title cards are decided; the rest
+follows the leans below. Being built. Checked against `pillars.md`, `forks.md`,
 `daniel.md`, `underneath.md`.
 
 ---
@@ -207,13 +207,13 @@ Sunday in 1999: church, then the tin.
 
 ## Open questions
 
-- [ ] **The coat:** yes? It answers the weighing, the doorframe, the braid and
-      the teeth at once, and it's Leviticus 16 made into something warm.
-- [ ] **Title cards for bridges** (white on black, the town's voice), or plain
-      narration?
-- [ ] **The Ruth/Sam collision** this early, or save it for November?
-- [ ] **Cody going back out on the ice:** does he come back? (If he had the
-      picks: yes, with something. If not: open.)
+- [x] **The coat** (decided): it answers the weighing, the doorframe, the braid
+      and the teeth at once; Leviticus 16 made into something warm.
+- [x] **Title cards for bridges** (decided): white on black, the town's voice.
+- [ ] **The Ruth/Sam collision** this early, or save it for November? (Lean:
+      this week, as planned; built that way.)
+- [ ] **Cody going back out on the ice:** does he come back? (Lean: if he had
+      the picks, yes, with something, in week three. If not: open.)
 - [ ] **Key day 10 (Oct 23):** the freeze and the shadow under the ice, or
       something else?
 - [ ] Halloween is a Sunday in 1999. Church and the tin on the same day, or
