@@ -1,0 +1,44 @@
+# BRIDGES: the days between key days (from week two on)
+# Same format as the other story files. Each section is the bridge before a
+# key day (GameState.BRIDGES). A line with card=... puts a title card up, in
+# the town's voice, white on black like a silent film; the line's own text
+# plays under it. When the section ends, the key day starts.
+# Design: docs/week_two.md.
+
+# --- Before key day 8 (Thursday, October 14): Wednesday the 13th. ---
+
+=== bridge_wednesday
+narration | card=Wednesday. The Keeper is paid. | cash=+150 | time=07:30: The envelope, under the door before dawn. A hundred and fifty dollars, every bill turned the same way up.
+narration: Folded in with the money, this week's bulletin. Three hymn numbers circled, in pencil. One. Five. Nine.
+paranoia: Nine. There's no rule nine. There's a rhyme with a nine in it.
+narration | if=has:revolver: The revolver, where you left it. You check that it's where you left it. You check twice.
+narration | if=!has:revolver: The snowbank by the back door, smooth and white. You don't look at it. You look at it.
+narration | if=flag:hanna_priced or flag:hanna_blank or flag:hanna_refused: On the back shelf, the braid, still. Nobody's asked for it. Yet.
+narration | time=22:00: At night, through the wall, the radio. Not the watch. The Reverend, preaching, a sermon he must have recorded on Sunday.
+narration: "Seventy-nine days, friends. Seventy-nine days until the year turns over, and some say the world with it. I don't say that. I say: keep your stoves fed. Keep your doors the way you keep them. Keep each other."
+narration: You lie awake counting. Seventy-nine. He's right. You don't know why you checked.
+
+# --- Before key day 9 (Sunday, October 17): Friday and Saturday. ---
+
+=== bridge_weekend
+narration | card=Friday. The Keeper dresses the window. | time=08:40: The W on the calendar. The index card in the drawer, soft at the corners. You don't need to read it now.
+narration | if=flag:drawing_in_window: June's drawing, taped inside the glass: the Keeper in the long brown coat, walking out onto blue ice. Everybody stopped. Everybody. Some of them twice.
+narration | if=!flag:drawing_in_window and window:empty: The window, empty. Two people stop to look at the nothing in it. One of them crosses herself.
+narration | if=!flag:drawing_in_window and !window:empty: The window keeps what you left in it. People slow, and look, and drive on to the Gleaner.
+narration | card=Saturday. The Keeper is seen.: The Gleaner on a Saturday. Your stool.
+narration | if=flag:broke_faith_ruth: Ruth serves you without looking at you, all night. Your glass never goes empty. Her eyes never come near it.
+narration | if=flag:broke_faith_sam: Sam isn't in his corner. Sam is never in his corner. You notice anyway.
+narration | if=!flag:broke_faith_ruth: Ruth leaves the bottle where you can reach it, which from her is a kind of speech.
+narration: Both nights, after three: the stairs. One and then the other.
+paranoia: Two nights you didn't play. Two nights you lived anyway. You don't remember them as well as you should.
+
+# --- Before key day 10 (Saturday, October 23): Monday to Friday. ---
+
+=== bridge_monday
+narration | card=Monday. The Keeper is in good health. | time=22:00: The radio notices, Monday. The plow. A lost glove. The Ladies' Circle, Thursday at the Lunds'.
+narration | if=flag:weighed or flag:weighed_again: "And our Keeper, friends, is in good health, and a little heavier, praise God."
+narration | if=!flag:weighed and !flag:weighed_again: "And our Keeper, friends, is in our prayers. And in our thoughts on Thursdays."
+narration | card=Tuesday.: The calendar by the stove. You've started crossing off the days. Nobody told you to.
+narration: You look at the crosses a long time. The same pen. The same angle. The same little hook at the end of each stroke as Abraham's, all through September, up to the third.
+paranoia: You copied him. Without looking. Your hand learned it from the wall.
+narration: (The end of week two. Week three is still being written. Thank you for playing.)

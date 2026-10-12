@@ -237,4 +237,4 @@ func _john_night(leaning: String, gun: String, background: String, flash_words: 
 	check(_log(column).contains("It stops outside the bedroom door."), "the dog stops outside the bedroom door")
 	check(route[-1] == "morning_after", "then Wednesday, and the second week")
 	await wait(5.2)
-	check(current_scene.name == "Title" and gs.day == 8, "week two isn't written yet: back to the title screen")
+	check(current_scene.name == "Bridge" and gs.day == 8, "then the bridge into week two")

@@ -44,6 +44,10 @@ const VISITS: Dictionary = {
 	6: ["trooper", "ezra", "june"],
 	# Day seven, Tuesday: one small, warm visit. Then the John night.
 	7: ["seller | if=!broke:name", "boy | if=broke:name"],
+	# Key day 8, Thursday October 14 (week two): Ezra, the usual; Mrs.
+	# Hollis's dish; Cody for the picks (alive, and they're held); June.
+	8: ["ezra", "widow", "nephew | if=sold:ice_picks", "june"],
+	# Key day 9 is the second Sunday: no counter (GameState.DAY_SCENES).
 }
 const CUSTOMER_GAP: float = 1.5
 
@@ -164,6 +168,7 @@ func _ready() -> void:
 	explore_spots.spot_clicked.connect(click)
 	explore_spots.aside.connect(play_aside)
 	document_viewer.closed.connect(_on_page_closed)
+	GameState.start_day()
 	column.load_story(GameState.DAY_STORIES.get(GameState.day, GameState.DAY_STORIES[1]))
 	column.add_story(LOOKS_PATH)
 	column.add_story(USE_PATH)

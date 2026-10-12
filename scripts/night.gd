@@ -172,7 +172,7 @@ func _end_of_day() -> void:
 	tween.tween_property(wind, "volume_db", -80.0, 3.0)
 	GameState.end_night()
 	GameState.day += 1
-	var next: String = GameState.day_scene(GameState.day)
+	var next: String = GameState.next_scene()
 	if next == "":
 		next = TITLE_SCENE
 	Transition.go_to(next, 3.0, 1.0)

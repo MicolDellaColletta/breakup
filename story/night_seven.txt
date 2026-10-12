@@ -189,4 +189,3 @@ paranoia: Or you were standing outside your own door. Breathing. Looking in.
 === morning_after
 narration | time=07:30: Wednesday. On the mat inside the door, an envelope. A hundred and fifty dollars, every bill the same way up.
 narration: The second week.
-narration: (End of week one. The story continues in the second week, which is still being written. Thank you for playing.)

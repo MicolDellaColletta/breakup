@@ -110,6 +110,20 @@ unbearable to Paranoia.
   with a ticket pinned to it; a Bible with one verse cut out of every page
   (Leviticus 16 is the last one left whole).
 
+## The coat (decided, week two)
+
+The answer to the weighing, the doorframe, the braid and the teeth: **the
+congregation sews the Keeper a coat** every winter. Long, brown wool, to the
+ankles, made by the Ladies' Circle on Thursdays at the Lunds'. Height for the
+length, weight for the cut ("He filled out by Christmas": they let it out).
+The lining holds the town: braids sewn in at the hem, children's first teeth
+in little pockets stitched shut, widows' hairpins in the cuffs. The Keeper
+wears it onto the ice at breakup and carries the town's children, their sins
+and their bad luck, out with them. Leviticus 16, made warm. It's sewn with
+love. It's the best coat in Kettle Lake. **Built:** June's drawings, the brown
+thread, the Lunds' window, the coat under a sheet in the vestry
+(`week_two.md`).
+
 ## The church's own wall
 
 - Ruth's cellar has a second Polaroid of every Keeper (`forks.md`). At the

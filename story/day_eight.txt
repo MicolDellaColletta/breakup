@@ -1,0 +1,153 @@
+# KEY DAY 8: Thursday, October 14, 1999. The second Thursday.
+# Same format as the other counter days. Design: docs/week_two.md.
+# Who comes in, in order: Ezra, the usual; Mrs. Hollis, with this week's
+# dish; Cody, for the ice picks (if he's alive, and they're held); June, with
+# the children's drawings (see VISITS in scripts/counter.gd).
+
+=== morning
+narration | time=07:30: Thursday. The second one. You know what Thursday is now, before you're properly awake.
+-> morning_flash_guilt | if=background:guilt
+-> morning_flash_witness | if=background:witness
+-> morning_flash_debt | if=background:debt
+-> morning_flash_insanity
+
+=== morning_flash_guilt
+narration: You wake knowing one more thing about the motel room. The rain was coming in under the door. Your shoes were wet. You'd been outside, before. Walking. Deciding.
+paranoia: You don't know that. You dreamed that. You're filling in the gaps with the worst thing.
+-> morning_notebook
+
+=== morning_flash_witness
+narration: You wake knowing one more thing about the parking lot. The man's coat was gray. Good wool. And when he looked at your car, he didn't hurry. He took his time, as if he had all the time in the world, and had decided to give you some of it.
+paranoia: You don't know that. You're inventing him. Stop giving him a coat.
+-> morning_notebook
+
+=== morning_flash_debt
+narration: You wake knowing one more thing about your apartment. Your name was on the buzzer. Your real one. John pressed it, coming in. You heard it from the street, through the glass, your own name, ringing.
+paranoia: You can't have heard a buzzer from across the street. You're remembering it the way you'd film it.
+-> morning_notebook
+
+=== morning_flash_insanity
+narration: You wake knowing one more thing about the car. The radio was on. A hymn. The same one they played on Sunday.
+paranoia: No. You're mixing them. You're putting the church in the car. You're putting everything in the car.
+-> morning_notebook
+
+=== morning_notebook
+-> morning_notebook_line | if=has:notebook
+-> opening
+
+=== morning_notebook_line
+narration: Sam's notebook, on the dresser. You wrote Monday's date on the first page, and nothing under it.
+narration: Under it now, in your handwriting, small, a line you don't remember writing: "3:00. On the stairs. It says there."
+paranoia: You wrote that. Half asleep. You must have. It's your hand. Look, it's your hand.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Thursday.
+
+# --- Ezra, the usual. The second Thursday. ---
+
+=== ezra_enters
+narration | sound=bell | time=+30: The bell. Ezra Lund, in the Sunday overcoat. He doesn't say anything this time. He doesn't have to.
+-> ezra_cold | if=flag:refused_tooth
+-> ezra_usual
+
+=== ezra_usual
+narration | sound=drawer | sold=shells: You open the drawer without looking down and put the shells on the glass. You know where they are now. Your hand knows.
+narration: His shoulders let go. Six dollars, a five and a one, folded together, faced.
+ezra: Thursday.
+narration: That's all he says. It's enough. Something in your own shoulders lets go too, and you hate that it does.
+paranoia: You did it the way Abraham did it. Without thinking. That's how it starts. That's how it started for him.
+narration | sound=bell: He knocks twice on the frame on his way out.
+
+=== ezra_cold
+narration | sound=drawer | sold=shells: You put the shells on the glass. He pays. Six dollars, faced.
+narration: He doesn't look at you once. He looks at the back shelf, at the jar of milk teeth, the whole time, as if it might move.
+ezra: Sunday.
+narration | sound=bell: He knocks twice on the frame on his way out.
+
+# --- Mrs. Hollis, with this week's dish. ---
+
+=== widow_enters
+narration | sound=bell | time=+60: The bell. Mrs. Hollis, with a dish under a towel. Thursday's dish, now. It's become a thing she does.
+widow: Scalloped potatoes. Ham in it. You need the fat, this time of year.
+narration: There's a brown thread on her sleeve. Wool, thick, the color of dead bracken. Another, caught in her hair.
+widow: You've lost weight since Sunday.
+narration: She hasn't weighed you. She looks at you the way you'd look at a loaf to see if it's risen.
+paranoia: Since Sunday. They know your weight from Sunday. She's checking it against you.
+> Eat some, now -> widow_eat | fray=-1 | lean=warmth
+> "I'll have it tonight." -> widow_later
+
+=== widow_eat
+narration: She finds the fork in the drawer before you can. You eat. It's very good. It's always very good.
+widow: That's better. We'll have you right by Christmas.
+narration: By Christmas. You've heard that three times now, from three people.
+-> widow_goes
+
+=== widow_later
+widow: Tonight. All of it, mind.
+-> widow_goes
+
+=== widow_goes
+narration: At the door she picks the brown thread off her sleeve, and rolls it between finger and thumb, and puts it in her pocket instead of dropping it, as if it were worth something.
+narration | sound=bell: She knocks twice on the frame. The bell.
+
+# --- Cody, for the ice picks. ---
+
+=== nephew_enters
+narration | sound=bell | time=+60: The bell. Cody Hollis. His eyes look like he hasn't closed them since the lake.
+narration | if=flag:faith_hollis: Ray's jacket, too big in the shoulders. He hasn't taken it off since you gave it back.
+nephew: The picks. I want them back.
+nephew: I know. I said not till spring. I know what I said.
+nephew: I keep seeing it. What was under there. I have to know if it's still there. If it's him.
+narration: He doesn't have the ticket money. He hasn't asked about the money. He doesn't care about the money.
+paranoia: He'll go out on two inches of ice with them. With or without them, he'll go.
+warmth | if=warmth>=1: If he's going anyway, let him go with something to pull himself out.
+> Give them back -> nephew_given | flag=gave_picks_back | lean=warmth
+> "Not till it's thick, Cody. I'll hold them." -> nephew_held | flag=kept_picks | lean=paranoia
+
+=== nephew_given
+narration | redeemed=ice_picks_held: You take them off the back shelf and put them in his hands. The bent spike. The cord.
+nephew: Thanks. I mean it.
+narration: He hangs them round his neck, the way he did that first morning, and they knock together on his chest like a bell with no clapper.
+narration | sound=bell: He goes. He doesn't knock on the frame. He's past all that.
+paranoia: You gave a boy the means to walk out on thin ice. You'll find out what that was. Not today.
+
+=== nephew_held
+nephew: Not till it's thick.
+narration: He laughs. It isn't one.
+nephew: It's never going to be thick enough. You know that, right? That's the whole thing about here.
+narration | sound=bell: He goes. Through the window you watch him walk, not home, but down toward the lake road, with his hands in his pockets.
+paranoia: He'll go without them. And you'll have the picks on a shelf.
+
+# --- June, with the drawings. ---
+
+=== june_enters
+narration | sound=bell | time=+90: The bell. June Merrill, with a cardboard folder held flat against her coat, the way you carry something that might crease.
+june: The pageant drawings. The children did them in art. I thought, the Keeper should see.
+narration: She lays them on the glass, one by one. Crayon. The same picture, twenty times, by twenty children.
+narration: A figure in a long brown coat, walking out onto blue ice. On the shore, the town, small, waving. In most of them the sun is out. In one, the figure is waving back.
+june: The coat's their favorite part. They always do the coat. They love the coat.
+paranoia: The coat. What coat. Nobody's said anything about a coat.
+appraisal | if=appraisal>=1: Brown. Long. To the ankles. The color of the thread on Mrs. Hollis's sleeve.
+june: Would you put one in the window? The children would be so proud. They'd make their parents drive past.
+> Tape the best one inside the window -> june_window | flag=drawing_in_window | lean=warmth
+> "I'd rather not. I'm sorry." -> june_no | lean=paranoia
+
+=== june_window
+narration: You choose one. The one where the figure is waving back. You don't know why that one.
+narration: You tape it inside the glass, facing the road. From outside, in the neon, the brown coat will look red.
+june: Oh, they'll be thrilled.
+narration | sound=bell: She knocks twice on the frame on her way out.
+
+=== june_no
+june: Of course. It's your window.
+narration: She gathers them up, carefully, edges squared.
+june: They'll draw you anyway. They draw you every year.
+narration | sound=bell: She knocks twice on the frame on her way out.
+
+# --- Closing. ---
+
+=== closing
+narration | time=18:47: Thirteen minutes to seven, and the light goes. You turn the sign. CLOSED.
+narration: Up the road, at the Lunds', every window is lit. Thursday. You can see women's shapes moving behind the glass, sitting, standing, passing something long and heavy from hand to hand.
+paranoia: The Ladies' Circle. Thursday at the Lunds'. The radio said.

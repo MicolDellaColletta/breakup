@@ -12,6 +12,8 @@
 -> map_day_five | if=day==5
 -> map_day_six | if=day==6
 -> map_day_seven | if=day==7
+-> map_day_eight | if=day==8
+-> map_day_nine | if=day==9
 -> map_day_two
 
 === map_day_one
@@ -25,6 +27,7 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_three | if=day==3
 -> pub_four | if=day==4
 -> pub_six | if=day==6
+-> pub_eight | if=day==8
 -> pub_two
 
 === pub_first
@@ -86,6 +89,8 @@ narration: The cold outside is almost a relief.
 -> lake_four | if=day==4
 -> lake_five | if=day==5
 -> lake_six | if=day==6
+-> lake_eight | if=day==8
+-> lake_nine | if=day==9
 -> lake_two
 
 === lake_first
@@ -151,6 +156,7 @@ narration: You leave money on the bar and go before the room can decide to be fr
 -> church_three | if=day==3
 -> church_four | if=day==4
 -> church_six | if=day==6
+-> church_eight | if=day==8
 -> church_two
 
 === church_two
@@ -214,6 +220,8 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 -> cabin_four | if=day==4 and flag:met_sam
 -> cabin_five | if=day==5 and flag:met_sam
 -> cabin_six | if=day==6 and flag:met_sam
+-> cabin_eight | if=day==8 and flag:met_sam
+-> cabin_nine | if=day==9 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -464,6 +472,10 @@ narration: The town's been to church. Now it's at home, digesting.
 paranoia | if=flag:weighed: They know what you weigh. Somebody's writing it in a book right now. No. It's already written.
 
 === ruth_house
+-> ruth_house_nine | if=day==9
+-> ruth_house_five
+
+=== ruth_house_five
 narration | time=+10: Ruth's house, behind the bar. A porch light, and the blue of a television through the curtains.
 narration: You knock. A long time. Then she opens the door in a sweater and socks, with a glass in her hand she doesn't hide.
 ruth: Sunday. Bar's shut. So this is where I drink.
@@ -561,6 +573,141 @@ narration: Then he looks at you, and his hand goes to his wrist, the inside, and
 narration: Tuesday night. You stand at the map a long time.
 narration: You don't want to go anywhere. You don't want to see anyone. You want to be in the apartment with the door shut.
 paranoia: Go home. Something's waiting for you at home. You've known all day.
+
+# --- Key day 8: Thursday, October 14 ---
+
+=== map_day_eight
+narration: Thursday. The church on the hill, lit for the watch. And halfway up the hill, the Lunds' house, every window lit too.
+paranoia: Thursday at the Lunds'. The Ladies' Circle. Whatever they're passing from hand to hand up there, it's long, and it's heavy, and it's brown.
+
+=== lunds
+narration | time=+10: The Lunds' house. You stop in the road, below the front window. The curtains aren't drawn. They're never drawn here.
+narration: Inside, a long table, and eight women around it, sewing. One enormous piece of brown wool running the length of the table, from hand to hand to hand, like a river.
+narration: A coat. A long coat, to the ankles, collar and cuffs, thick as a blanket. They're putting in the lining.
+narration: Hanna, at the end of the table, her short hair pinned back, stitching something fair and braided into the lining at the hem. Concentrating, the tip of her tongue between her teeth.
+narration: Mrs. Hollis at a cuff, sewing a hairpin into the seam. Bronze.
+narration: Little pockets all down the lining, a row of them, each stitched shut over something small.
+paranoia: The teeth. The pockets. Every child's first tooth, stitched shut in a pocket.
+paranoia: The scale. The doorframe. Height for the length. Weight for the cut. They weren't counting you. They were measuring you.
+appraisal | if=appraisal>=1: Long enough for someone a little taller than Thomas. A little wider than the doorframe said, because you'll fill out. By Christmas.
+> Watch from the road -> lunds_watch | lean=paranoia
+> Knock -> lunds_knock | flag=saw_coat_close | lean=warmth
+
+=== lunds_watch
+narration | flag=saw_coat: You stand in the road and watch them sew. Nobody draws the curtain.
+narration: Then one of them looks up, and sees you, and smiles, and waves. Then they all do. Eight women, waving, with their needles in their hands.
+narration: You wave back. You don't decide to. Your hand goes up.
+paranoia: They're making you a coat. They're making you a coat to walk out onto the ice in. And you waved.
+
+=== lunds_knock
+narration | flag=saw_coat: The door opens before your knuckles have finished. Warmth, and coffee, and the smell of wet wool and lanolin.
+narration: They're delighted. They sit you by the stove. Someone puts a cup in your hands. Nobody hides the coat. Why would they.
+narration: Mrs. Lund, Ezra's wife, holds it up by the shoulders, against you, the way you'd hold up a coat for a child. It reaches your ankles.
+narration: "Not yet," she says, and takes it back. "Not till it's done. It's bad luck to wear it before."
+narration: Before you can say anything, a tape measure, round your arm, wrist to shoulder. Someone writes the number down.
+narration: Hanna, from the end of the table, beaming: "Mine's in the hem. So you'll walk on it."
+warmth | if=warmth>=1: They love you. That's what this is. They love you the way you love something you're going to give away.
+paranoia: Smile. Drink the coffee. Get out.
+
+=== pub_eight
+narration | time=+60: The Gleaner on a Thursday. Half empty. Half the women in town are at the Lunds'.
+-> pub_eight_sam | if=flag:door_sam_1
+-> pub_eight_plain
+
+=== pub_eight_plain
+narration: Ruth pours. You drink. Behind her the wall of faces, yours at the end.
+narration | if=flag:saw_coat: You look at the faces differently tonight. Ten of them. Ten coats.
+
+=== pub_eight_sam
+narration: In the corner, at a table nobody uses: Sam Wakeman. In the Gleaner. People keep looking at him the way you'd look at a moose in a church.
+narration: He catches your eye and nods you over. Under the table, he puts something in your hand. A disposable camera, the cardboard kind, from the gas station.
+sam: The wall. I have the names they came with, and the dates. I don't have their faces. Nobody will let me near it. She won't.
+sam: Twelve exposures. Ten faces. It'll take you a minute, when she's in the back.
+narration: He leaves before you can answer. He doesn't finish his drink.
+narration: Later, Ruth goes down to the cellar for a keg. You're alone with the wall.
+narration: You've taken four when you hear her on the cellar stairs. You've taken seven when she's in the doorway, watching.
+ruth: What are you doing.
+> "Sam asked me to. For his notebook." -> pub_eight_truth | flag=broke_faith_ruth | lean=warmth
+> "I wanted my own copy. Of them. Of me." -> pub_eight_lie | flag=lied_to_ruth | lean=john
+> Put the camera away. Say nothing. -> pub_eight_hide | lean=paranoia
+
+=== pub_eight_truth
+narration: Her face closes. Not slams. Closes, carefully, the way you'd close a door on someone sleeping.
+ruth: Sam.
+ruth: He wants their faces for his wall. Pins through them. String.
+narration: She holds out her hand. You give her the camera. She opens the back of it, and pulls the film out into the light, all of it, in one long ribbon, and drops it in the bin.
+ruth: They're mine. I keep them. Nobody pins them to anything.
+narration: She pours you another. She doesn't look at you again tonight.
+paranoia: You told the truth. You'll keep telling yourself that was the good choice.
+
+=== pub_eight_lie
+narration: She looks at you a long time. Then at the camera. Then at the wall.
+ruth: Your own copy.
+narration: Something in her face that might be belief, or might be choosing to.
+ruth: Okay. Take yours. Not the others. They're mine.
+narration: You take one more. Your own face, on the stool, the first night. You don't take the rest. When you give Sam the camera, there'll be seven, and he'll count them.
+paranoia | flag=broke_faith_sam: He'll know you stopped. He'll know who stopped you. He'll know you let her.
+
+=== pub_eight_hide
+narration: You put the camera in your pocket. You say nothing. She looks at you, and at your pocket, and at the wall.
+narration: Then she goes back behind the bar, and the evening goes on, and neither of you mentions it. Seven faces in your pocket, and nothing gained, and nothing lost, and both of you knowing.
+
+=== church_eight
+narration | time=+20: The church, the Thursday watch. The red bulb lit. Ezra at the hot plate.
+narration | if=flag:ezra_satisfied: He pours a second cup without being asked, and holds it out to you, as if you'd always come on Thursdays.
+narration: The Reverend at the microphone, reading the hymn numbers. "One. Five. And nine."
+narration: Nine. He looks up at you when he says it, and for a second he looks frightened.
+reverend: Numbers, friends. Only numbers. Look them up at home.
+
+=== cabin_eight
+narration | time=+10: The cabin. Sam on the porch in the dark, listening to the hill.
+sam: You can hear the sewing machine from here, on a still night. Thursdays. Every Thursday since October, every year. I wrote it down the first winter I came.
+narration | if=flag:saw_coat: You tell him what you saw. He doesn't write it down. He already has it.
+sam | if=flag:saw_coat: The coat. Yes. I've never seen one. Nobody's ever seen one twice. They don't come back.
+
+=== lake_eight
+narration | time=+20: The shore. The ice gray, and wider than Monday, and out on it, a long way out, a lantern.
+narration | if=flag:gave_picks_back: Cody. It's Cody. You know the way he moves, now. Hunched, careful, the picks round his neck.
+narration | if=!flag:gave_picks_back: Somebody. Out where nobody should be. Moving slowly, bent over, looking down.
+paranoia: Looking down. Looking for something under the ice.
+
+# --- Key day 9: Sunday, October 17 (the evening; the day is day_nine.txt) ---
+
+=== map_day_nine
+narration: Sunday evening again. A week since the last one, and it feels like the same evening, worn smoother.
+paranoia: Same time next week. She said it. She meant it.
+
+=== ruth_house_nine
+narration | time=+10: Ruth's house. The porch light. She opens the door before you knock, a glass already in her hand, a second one in the other.
+ruth: I heard your car. Nobody else comes on Sundays.
+narration: The TV with the sound off. The armchair. The shoebox on the shelf, where it was.
+narration | if=flag:lied_to_ruth: She doesn't mention the camera. She puts your Polaroid on the coffee table, face up, between the glasses, and leaves it there all evening.
+ruth: They had you on the scale again. I watched from the back.
+ruth: Thomas used to come here on Sundays too. After. He'd sit right there.
+narration: She doesn't say after what. She doesn't need to anymore.
+
+=== cabin_nine
+narration | time=+10: The cabin. Sam lets you in, and locks the locks.
+-> cabin_nine_cold | if=flag:broke_faith_sam
+-> cabin_nine_warm
+
+=== cabin_nine_warm
+narration | if=flag:broke_faith_ruth: He doesn't ask about the camera. Ruth told half the town by Friday. He knows you told her the truth, and that it cost you, and he looks at you as if it was a payment made for him.
+narration | if=!flag:broke_faith_ruth: He doesn't ask about the camera. He's patient.
+sam: The coat. Did you see it today? They had it at the church. In the vestry, on a hanger, behind the door. You'd have walked past it.
+paranoia: You walked past it. You walked past it twice.
+
+=== cabin_nine_cold
+narration: He takes the camera. He counts the exposures on the little dial. Seven.
+sam: Seven.
+narration: He doesn't say anything else. He puts it on the shelf, unopened, with the batteries you sold him.
+sam: You stopped. Somebody stopped you, and you let them.
+narration: He walks you to the door. Three locks. He checks the first one twice, the way he does, but tonight it feels like he's checking it against you.
+
+=== lake_nine
+narration | time=+20: The shore on a Sunday evening. Nobody out. The poles under their tarp, the wreath on top gone brown.
+narration | if=flag:gave_picks_back: On the ice, close in, a pair of boot prints going out, and the long marks of something dragged, coming back. Somebody went out, and found something, and brought it in.
+narration | if=!flag:gave_picks_back: On the ice, close in, a pair of boot prints going out. None coming back. Then you see they go along the shore, the long way, and come up the bank further on. You let yourself breathe.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.
