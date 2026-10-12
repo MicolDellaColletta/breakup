@@ -6,12 +6,14 @@ extends Control
 #   "counter" the front: the window in the middle with its three spots (seen
 #             from the road), a shelf either side of it (floor spots 0 to 3),
 #             whoever is standing across the counter (PersonArt), and the
-#             counter top, where things are handed over
+#             counter top: the register, the ledger, the bell, and the space
+#             in the middle where things are handed over
 #   "left"    the left wall: shelves for sale (floor spots 4 to 9)
 #   "right"   the right wall: shelves for sale (floor spots 10 to 15), and the
 #             front door at the end of it, with its bell
 #   "back"    turned around: the back shelf, held things with their pawn tags
-# Arrows at the edges turn you left and right. It only draws and reports
+# Arrows at the edges turn you left and right; the tab at the top turns you
+# around. It only draws and reports
 # clicks; the counter scene decides what they do. The arrangement lives in
 # GameState (shelf_floor, shelf_back, shelf_window).
 
@@ -20,8 +22,13 @@ signal spot_clicked(shelf: String, spot: int)
 signal counter_clicked
 # A right-click: put back whatever you're holding.
 signal put_back
-# An arrow at the edge: "left" or "right".
+# An arrow at the edge ("left", "right") or the tab at the top ("around").
 signal turned(direction: String)
+# Something on the counter: "register", "ledger" or "bell".
+signal object_clicked(object: String)
+
+# What's on the counter, and what it says when you point at it.
+const COUNTER_OBJECTS: Array[String] = ["register", "ledger", "bell"]
 
 # Which floor spots each wall shows, and how they're laid out (rows, columns).
 const WALL_SPOTS: Dictionary = {"left": [4, 2, 3], "right": [10, 2, 3]}
@@ -57,6 +64,13 @@ var person_alpha: float = 1.0:
 	set(value):
 		person_alpha = value
 		queue_redraw()
+# Nobody's in, and the bell would bring the next one (it shines).
+var bell_ready: bool = false:
+	set(value):
+		bell_ready = value
+		queue_redraw()
+# Nobody's left today: the bell closes up.
+var bell_closes: bool = false
 # Highlight the counter top (something can be handed over).
 var can_hand_over: bool = false:
 	set(value):
@@ -69,6 +83,7 @@ var _tag_of: Callable
 var _hovered: int = -1
 var _hovering_counter: bool = false
 var _hovering_arrow: String = ""
+var _hovering_object: String = ""
 var _mouse: Vector2 = Vector2.ZERO
 
 func setup(stock: ConfigFile, tag_of: Callable) -> void:
@@ -76,12 +91,17 @@ func setup(stock: ConfigFile, tag_of: Callable) -> void:
 	_tag_of = tag_of
 	queue_redraw()
 
+func _process(_delta: float) -> void:
+	if bell_ready and mode == "counter":
+		queue_redraw()
+
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	mouse_exited.connect(func() -> void:
 		_hovered = -1
 		_hovering_counter = false
 		_hovering_arrow = ""
+		_hovering_object = ""
 		queue_redraw())
 
 # --- Where things are ---
@@ -133,7 +153,38 @@ func _cell(area: Rect2, rows: int, columns: int, row: int, col: int) -> Rect2:
 	return Rect2(area.position + Vector2(col * cell.x + cell.x * 0.1, row * cell.y + cell.y * 0.12), Vector2(cell.x * 0.8, cell.y * 0.72))
 
 func counter_rect() -> Rect2:
-	return Rect2(Vector2(size.x * 0.3, size.y * 0.87), Vector2(size.x * 0.4, size.y * 0.11))
+	return Rect2(Vector2(size.x * 0.32, size.y * 0.85), Vector2(size.x * 0.36, size.y * 0.13))
+
+# Where each thing on the counter is. Sized by the picture's height, so they
+# keep their shape however wide the shop is.
+func object_rect(object: String) -> Rect2:
+	match object:
+		"register":
+			var h: float = size.y * 0.22
+			return Rect2(Vector2(ARROW_WIDTH + 12, size.y * 0.76), Vector2(h * 1.2, h))
+		"ledger":
+			var h: float = size.y * 0.13
+			return Rect2(Vector2(ARROW_WIDTH + 24 + size.y * 0.264, size.y * 0.84), Vector2(h * 1.6, h))
+		_:
+			var h: float = size.y * 0.15
+			return Rect2(Vector2(size.x - ARROW_WIDTH - 24 - h, size.y * 0.82), Vector2(h, h))
+
+func _object_at(at: Vector2) -> String:
+	if mode != "counter":
+		return ""
+	for object in COUNTER_OBJECTS:
+		if object_rect(object).has_point(at):
+			return object
+	return ""
+
+func object_label(object: String) -> String:
+	match object:
+		"register": return "The register"
+		"ledger": return "The ledger"
+		_:
+			if not bell_ready:
+				return "The bell"
+			return "Close up for the day" if bell_closes else "Ring: next customer"
 
 func _window_rect() -> Rect2:
 	return Rect2(Vector2(size.x * 0.26, size.y * 0.04), Vector2(size.x * 0.48, size.y * 0.64))
@@ -142,7 +193,7 @@ func _window_rect() -> Rect2:
 func _side_shelf_rect(side: int) -> Rect2:
 	var w: float = size.x * 0.24 - ARROW_WIDTH - 10
 	var x: float = ARROW_WIDTH + 6 if side == 0 else size.x * 0.76 + 4
-	return Rect2(Vector2(x, size.y * 0.04), Vector2(w, size.y * 0.78))
+	return Rect2(Vector2(x, size.y * 0.04), Vector2(w, size.y * 0.7))
 
 # The picture between the two arrows.
 func _inner_rect() -> Rect2:
@@ -160,11 +211,13 @@ func _door_rect() -> Rect2:
 	return Rect2(Vector2(area.position.x + area.size.x * 0.76, size.y * 0.08), Vector2(area.size.x * 0.2, size.y * 0.84))
 
 func arrow_rect(direction: String) -> Rect2:
+	if direction == "around":
+		return Rect2(Vector2(size.x * 0.5 - 40, 0), Vector2(80, 18))
 	var x: float = 0.0 if direction == "left" else size.x - ARROW_WIDTH
 	return Rect2(Vector2(x, size.y * 0.5 - 32), Vector2(ARROW_WIDTH, 64))
 
 func _arrow_at(at: Vector2) -> String:
-	for direction in ["left", "right"]:
+	for direction in ["left", "right", "around"]:
 		if arrow_rect(direction).has_point(at):
 			return direction
 	return ""
@@ -184,7 +237,8 @@ func _gui_input(event: InputEvent) -> void:
 		_hovered = _spot_at(_mouse)
 		_hovering_counter = mode == "counter" and counter_rect().has_point(_mouse)
 		_hovering_arrow = _arrow_at(_mouse)
-		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND if _hovered != -1 or _hovering_counter or _hovering_arrow != "" else Control.CURSOR_ARROW
+		_hovering_object = _object_at(_mouse)
+		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND if _hovered != -1 or _hovering_counter or _hovering_arrow != "" or _hovering_object != "" else Control.CURSOR_ARROW
 		queue_redraw()
 	elif event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
@@ -194,8 +248,11 @@ func _gui_input(event: InputEvent) -> void:
 			accept_event()
 			var at: int = _spot_at(event.position)
 			var arrow: String = _arrow_at(event.position)
+			var object: String = _object_at(event.position)
 			if arrow != "":
 				turned.emit(arrow)
+			elif object != "":
+				object_clicked.emit(object)
 			elif at != -1:
 				var s: Dictionary = spots()[at]
 				spot_clicked.emit(s["shelf"], s["spot"])
@@ -264,8 +321,9 @@ func _draw_counter() -> void:
 	if person != "":
 		PersonArt.draw(self, person, Rect2(Vector2(size.x * 0.25, size.y * 0.12), Vector2(size.x * 0.5, size.y * 0.72)), person_alpha)
 	# The counter top, close, under your hands.
-	draw_rect(Rect2(Vector2(0, size.y * 0.85), Vector2(size.x, size.y * 0.15)), Color(0.06, 0.065, 0.075))
-	draw_rect(Rect2(Vector2(0, size.y * 0.85), Vector2(size.x, 5)), Color(0.4, 0.45, 0.5, 0.35))
+	draw_rect(Rect2(Vector2(0, size.y * 0.82), Vector2(size.x, size.y * 0.18)), Color(0.06, 0.065, 0.075))
+	draw_rect(Rect2(Vector2(0, size.y * 0.82), Vector2(size.x, 5)), Color(0.4, 0.45, 0.5, 0.35))
+	_draw_counter_objects()
 	var top: Rect2 = counter_rect()
 	if can_hand_over:
 		draw_rect(top, Color(HOVER, 0.12 if not _hovering_counter else 0.25))
@@ -300,6 +358,36 @@ func _item_in(s: Dictionary) -> String:
 	var on: Array[String] = GameState.shelf(s["shelf"])
 	return on[s["spot"]] if s["spot"] < on.size() else ""
 
+# The register, the ledger and the bell, on the counter top.
+func _draw_counter_objects() -> void:
+	var reg: Rect2 = object_rect("register")
+	draw_rect(Rect2(reg.position + Vector2(0, reg.size.y * 0.35), Vector2(reg.size.x, reg.size.y * 0.65)), Color(0.42, 0.33, 0.16))
+	draw_rect(Rect2(reg.position + Vector2(reg.size.x * 0.1, 0), Vector2(reg.size.x * 0.8, reg.size.y * 0.4)), Color(0.5, 0.4, 0.2))
+	for k in 4:
+		draw_circle(reg.position + Vector2(reg.size.x * (0.2 + k * 0.2), reg.size.y * 0.55), reg.size.x * 0.05, Color(0.85, 0.8, 0.65))
+	draw_rect(Rect2(reg.position + Vector2(reg.size.x * 0.15, reg.size.y * 0.1), Vector2(reg.size.x * 0.7, reg.size.y * 0.15)), Color(0.1, 0.09, 0.07))
+	var book: Rect2 = object_rect("ledger")
+	draw_rect(book, Color(0.3, 0.1, 0.07))
+	draw_rect(book.grow(-3), Color(0.72, 0.68, 0.58))
+	draw_line(Vector2(book.get_center().x, book.position.y + 3), Vector2(book.get_center().x, book.end.y - 3), Color(0.3, 0.1, 0.07), 2.0)
+	for k in 4:
+		var y: float = book.position.y + book.size.y * (0.25 + k * 0.17)
+		draw_line(Vector2(book.position.x + 6, y), Vector2(book.get_center().x - 4, y), Color(0.3, 0.25, 0.2, 0.6), 1.0)
+		draw_line(Vector2(book.get_center().x + 4, y), Vector2(book.end.x - 6, y), Color(0.3, 0.25, 0.2, 0.6), 1.0)
+	var bell: Rect2 = object_rect("bell")
+	var c: Vector2 = Vector2(bell.get_center().x, bell.end.y - bell.size.y * 0.2)
+	var radius: float = bell.size.y * 0.38
+	if bell_ready:
+		draw_circle(c - Vector2(0, radius * 0.5), radius * 1.6, Color(0.95, 0.8, 0.45, 0.16 + 0.06 * sin(Time.get_ticks_msec() / 300.0)))
+	draw_rect(Rect2(Vector2(bell.position.x, c.y), Vector2(bell.size.x, bell.size.y * 0.12)), Color(0.25, 0.2, 0.12))
+	draw_arc(c, radius, PI, TAU, 16, Color(0.78, 0.62, 0.3), radius * 0.8)
+	draw_circle(c - Vector2(0, radius * 1.45), 3, Color(0.85, 0.7, 0.35))
+	for object in COUNTER_OBJECTS:
+		var r: Rect2 = object_rect(object)
+		if object == _hovering_object:
+			draw_rect(r.grow(3), HOVER, false, 1.5)
+			_draw_label(object_label(object), r.get_center() - Vector2(0, r.size.y * 0.5 + 6))
+
 # The arrows at the edges: turn left, turn right.
 func _draw_arrows() -> void:
 	for direction in ["left", "right"]:
@@ -310,6 +398,13 @@ func _draw_arrows() -> void:
 		var base: float = r.position.x + (r.size.x - 6.0 if direction == "left" else 6.0)
 		var mid: float = r.get_center().y
 		draw_colored_polygon(PackedVector2Array([Vector2(tip, mid), Vector2(base, mid - 12), Vector2(base, mid + 12)]), Color(LABEL_COLOR, 1.0 if lit else 0.6))
+	# The tab at the top: turn around.
+	var tab: Rect2 = arrow_rect("around")
+	var lit_tab: bool = _hovering_arrow == "around"
+	draw_rect(tab, Color(LABEL_BACK, 0.9 if lit_tab else 0.6))
+	draw_arc(tab.get_center() + Vector2(0, 2), 6, PI * 0.15, PI * 1.85, 12, Color(LABEL_COLOR, 1.0 if lit_tab else 0.6), 2.0)
+	if lit_tab:
+		_draw_label("Turn around", tab.get_center() + Vector2(0, tab.size.y + 26))
 
 func _draw_tag(r: Rect2, tag: String) -> void:
 	var tag_rect: Rect2 = Rect2(r.position + Vector2(r.size.x - 44, r.size.y - 18), Vector2(42, 16))
