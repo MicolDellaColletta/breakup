@@ -1,6 +1,8 @@
-# Breakup — Daniel Hale, the whole arc (draft v5)
+# Breakup — Daniel Hale, the whole arc (draft v6)
 
 Designed in the Project chat, Oct 9. Builds on story.md ("Daniel Hale", "The preacher", "Backgrounds") and breakup_decisions.md. ✅ = decided in chat. Everything else is a proposal.
+
+**v6 (Oct 12): in line with `pillars.md`.** His voice reaches the town through the night radio before he does (a caller, then a guest, then the host). He arrives in November, still wounded, and the con starts then, not in January. The Reverend falls in December. **Olstad lives.** His secret ending is now a variant of "The ice". Where this doc and `pillars.md` disagree, `pillars.md` wins.
 
 **v5: Daniel is the flying bullet.** No shop backstory. He is the thriller dropped into the folk horror: the most real threat in the game. (The 1989 Keeper, the stolen tickets and the pawned names now belong to the town, not to him. See breakup_decisions.md.)
 
@@ -22,13 +24,13 @@ Patient, courteous, never in a hurry. Obsessive. He thinks in prices. He has a h
 | Rules | Eight, obeyed for generations | None. He ignores all of them |
 | Explanation | Never fully given | Always human |
 
-The game's tension is MC caught between them. Before January, fear and the cold. After, the town *and* a man who can walk into it as its saviour.
+The game's tension is MC caught between them. In October, fear and the cold. From November, a voice on the radio the town falls in love with. From December, the town *and* a man who has walked into it as its saviour.
 
 ## 2b. ✅ Where he comes from: a preacher's son
 
 - **Proposal:** a Lutheran pastor's son from a small, devout town in northern Minnesota. He learned scripture the way other boys learned to fight: by heart, under pressure, at a kitchen table. He stopped believing at twelve and never stopped knowing the words.
 - So the pulpit in Kettle Lake isn't only a con. **It's a homecoming he despises.** That's why he's so good at it, and why it frightens the player more than a fake would.
-- November on the phone line is still research (hot reading on the town). The scripture he never needed to learn.
+- Early November on the phone line is still research (hot reading on the town). The scripture he never needed to learn.
 - **The link to Olstad:** her family came to the Matanuska Valley from Minnesota in 1935. She grew up with the same hymnal. She hears it in him. (See section 8b.)
 
 ## 3. His creed
@@ -55,7 +57,9 @@ The night John died (per background, story.md), Daniel had MC in front of him, a
 - **The real reason:** he doesn't know. Something in that moment stopped him: the way MC looked at him, or shot him, or didn't. He's spent three months healing and thinking about it. **That's the obsession, and it's where the romance starts.**
 - He knows MC's real name (from that night, per background). He never says it.
 
-## 6. ✅ How he's present before he arrives (Oct–Dec)
+## 6. ✅ How he's present before he speaks to MC (Oct–Dec)
+
+He talks to the whole town every night from November, on the radio. **He never speaks to MC until New Year's Eve.**
 
 ### a. The silent calls, told in sound
 
@@ -66,10 +70,12 @@ Rule 4: MC must never speak first. Daniel never speaks (yet). Every call is two 
 | Early Oct (built) | A room. A clock. Slow breathing. | Someone patient. |
 | Mid Oct | A kettle. A pill bottle. A breath that catches when he moves. | He's hurt. |
 | Double hour, Oct 30–31 | The call comes twice at 1:40. In the second, his clock chimes: it fell back too. Once, very quietly, he laughs. | He's on Alaska time. He's enjoying this. |
-| November | Pages turning, for a long time. Newsprint. A pencil, taking notes. | He's researching. (See "hot reading" below.) |
-| Thanksgiving week | No call. Not one night. | Dread. |
-| December | A car interior, wipers, rain (the prologue's own sound). | He's on the road MC drove. |
-| Christmas | A payphone. Wind. A church bell, which MC also hears through the shop window, half a second later. | He's here. |
+| Early November | Pages turning, for a long time. Newsprint. A pencil, taking notes. | He's researching. (See "hot reading" below.) |
+| Early November, the same week | **On the night radio, a caller:** a travelling minister, phoning the show from the road. A beautiful voice, scripture by heart. The town talks about him for days. | MC knows the breathing. Does he know the voice? |
+| Mid November | A car interior, wipers, sleet (the prologue's own sound). | He's on the road MC drove. |
+| Late November, after he arrives | A payphone. Wind. A church bell, which MC also hears through the shop window, half a second later. | He's here. Across the street. |
+| Thanksgiving week | No call. Not one night. He's on the radio instead, as a guest on the Thursday watch. | He's talking to everyone but MC. |
+| December | One night the shop phone rings **while he's speaking live on the radio** upstairs. Silence on the line. (Two explanations: the broadcast is a tape; or someone else has started calling.) | Dread. |
 | New Year's Eve | He speaks first. | He breaks rule 4 without a thought. |
 
 **If MC speaks first:** he hangs up, and the next night there's no call. The silence should feel like loss.
@@ -78,7 +84,7 @@ Rule 4: MC must never speak first. Daniel never speaks (yet). Every call is two 
 
 ### b. ✅ The money orders (interest on ticket 0527)
 
-Every month, a postal money order: *"Interest, ticket 0527."* No name. Exact to the cent. He keeps the tin from forfeiting. Postmarks: Anchorage (Oct), Wasilla (Nov), Palmer (early Dec), Kettle Lake (late Dec).
+Every month, a postal money order: *"Interest, ticket 0527."* No name. Exact to the cent. He keeps the tin from forfeiting. Postmarks: Anchorage (Oct, arrives day three), Wasilla (early Nov), then Kettle Lake (Dec on): he walks it to the post office himself.
 
 ### c. ??? borrowed his word
 
@@ -92,11 +98,19 @@ Pieces of the night John died, per background. Daniel in every one, never his fa
 
 Five rounds in six chambers.
 
-## 7. ✅ Act 2's end
+## 7. ✅ Act 2: the voice, then the man (Nov–Dec)
 
-### He kills with the truth (Christmas)
+### The caller, the guest, the host
 
-He's in town by Christmas. He tells Ezra one true thing: what the Reverend has been doing on the night radio, helping the Keeper against his own congregation. The congregation does the rest. On the Reverend's desk, an envelope with exact change. Olstad understands. Paranoia's day-two line about Ezra, *"He'll tell the right person, one day,"* becomes a prophecy.
+- **Early November:** a caller on the night show, from the road. The town falls for the voice before it has a face.
+- **Late November:** he arrives in person (see "The arrival", below), "passing through", still hurt. The Reverend, who is kind, invites him to be a guest on the Thursday watch.
+- **His wound helps the con.** A preacher with a wound in his side. He never claims anything; the congregation decides what it means.
+
+### He kills with the truth (December)
+
+He tells Ezra one true thing: what the Reverend has been doing on the night radio, helping the Keeper against his own congregation. The congregation does the rest; the Reverend is gone before Christmas. On the Reverend's desk, an envelope with exact change. Olstad understands. Paranoia's day-two line about Ezra, *"He'll tell the right person, one day,"* becomes a prophecy.
+
+- **The town asks the new man to take the microphone.** From December the night radio is his: rule 7 now means listening to him every night. MC loses his helper.
 
 ### Y2K
 
@@ -106,21 +120,21 @@ December 31, 1999. The town counts down at the Gleaner. Midnight. Nothing happen
 
 MC walks home. The phone is ringing. *"Happy New Year, sweetheart."* Then Daniel tells him, gently and exactly, what he's going to do. He has never lied. The rest of the game is a promise counting down.
 
-## 8. ✅ Act 3: Daniel in Kettle Lake (Jan–Feb)
+## 8. ✅ Act 3: Daniel in Kettle Lake (Nov–Feb)
 
-### The arrival: he pawns the sixth bullet
+### The arrival (late November): he pawns the sixth bullet
 
 A good coat, snow on his shoulders. He looks at everything. He doesn't look at the tin. On the counter, an envelope: **a bullet, flattened, cleaned.** *"What will you give me for this?"* It's warm (rule 2). Accept: it gets a ticket. Refuse: he buys matches. *"Keep the change. I'd hate to owe you."*
 
 ### The preacher: a con, not a gift
 
-A town that just lost its Reverend and its apocalypse. A con man finds fertile ground.
+A town waiting for the end of the world, then losing its Reverend, then losing its apocalypse (midnight, December 31: nothing). A con man finds fertile ground, and gives the disappointed a new date: breakup.
 
 - **Hot reading** (real con technique): research the marks before you meet them. All November he read the Kettle Lake paper, the obituaries, the church bulletins, the Gleaner's notices. By January he knows who lost a husband to the lake, whose son drinks, who skipped church after 1993.
 - In the pulpit and the confession booth he knows things before people say them. The town believes he's touched by God. It's homework.
 - **He never claims a gift.** He just knows, and lets them decide what it means.
 - **Why a hand plays preacher (proposal):** it's the job, done well. A town that loves him will hand him the Keeper and the tin, and nobody will ask questions. And because he enjoys it.
-- He takes a room above the Gleaner. The night radio is his: rule 7 now means listening to him every night. The last name on the prayer list is always "John."
+- He takes a room above the Gleaner in November. From December the night radio is his. The last name on the prayer list is always "John."
 
 ### Confession
 
@@ -148,16 +162,15 @@ Three quiet months, then once, at the counter: ✅ **Ezra Lund** calls MC "the g
 - It's the bible's mark of Cain: nobody else gets to have MC.
 - **He preaches the scapegoat to the town and destroys anyone who touches the goat.** The town doesn't see the contradiction. MC does.
 
-### ✅ 8b. He kills Olstad (February)
+### ✅ 8b. His duel with Olstad (Jan–Feb). She lives.
 
-The only person in Kettle Lake investigating a hitman is a pregnant trooper who already suspects the Keeper. All of January is their duel, with MC between them.
+The only person in Kettle Lake investigating a hitman is a trooper who already suspects the Keeper. January and February are their duel, with MC between them. (Her character: `pillars.md`, "The people who hold the line": good, not nice; subtly but clearly homophobic; she lives.)
 
 - **She sees through him, and not the way he expects.** She doesn't think he's a fake preacher. She thinks he's a real one who stopped believing: *"You were raised in it. Nobody learns it like that after."* Same hymnal, same Minnesota kitchen tables. She's the only person in the game who sees where he comes from.
-- **That's why she dies.** Not because she's close to the books, or MC. Because she saw him.
-- **Off-screen.** Her cruiser at the end of the road, the engine running, the headlights on the shop, the way they were on Halloween. It's been there all night. On the dashboard, an envelope with exact change.
-- It's the darkest beat in the game, and it should be written with restraint: the player finds the car, not the body.
-- **Consequences (layer 1):** troopers from Anchorage arrive. Questions about a dead colleague, a stolen rental, a Keeper with a dead man's name. Daniel, as the town's preacher, is the one who comforts them. MC is the one they look at.
-- ✅ **Her baby is born in January.** When she dies in February she's a new mother, back on duty too soon because nobody else will watch the preacher. The child lives. (Open: who raises it. A Kettle Lake orphan born the winter of the Keeper.)
+- **Her prejudice gets in her way.** She's right about Daniel, and she's ugly about the reason anyone might be drawn to him. She watches the two men and assumes things, and some of what she assumes is cruel. The player has to take help from someone who despises part of who MC might be.
+- **He shows her he could.** February: her cruiser at the end of the road one morning, engine running, headlights on the shop, the way they were on Halloween. She's asleep in the driver's seat, unharmed, her service weapon unloaded on the passenger seat, its rounds in a neat row on the dashboard beside an envelope with exact change. A threat in his own language: everything has a price, and he just paid for her life instead of taking it.
+- **She doesn't back down.** That's what makes her the one on the shore at breakup, against the town and against him.
+- ✅ **Her baby is born in January.** In February she's a new mother, back on duty too soon because nobody else will watch the preacher. It's what the threat is aimed at, and what makes her refusing to back down cost something.
 
 ## 9. Act 4: what he wants (Mar–Apr)
 
@@ -174,7 +187,7 @@ Obsession, power, enemies-to-lovers.
 - The thing he can't price is why he let MC go. The romance is him finding out.
 - **The Daniel ending:** at breakup, he says MC's real name. MC goes with him.
 - **Thaw is its mirror:** MC says his own name. Given, or claimed.
-- **The secret Daniel ending:** to revisit now that he's not tied to the shop. (Draft was: Daniel becomes owner, MC the Keeper who never dies.)
+- **The secret Daniel ending:** a variant of "The ice" (`pillars.md`, "Endings"): outcome 4 below.
 - **Some endings can turn on what MC offers him** (he can be bought). Not all. To design.
 
 ## 10b. ✅ The endings: the shore
@@ -193,7 +206,7 @@ Everything converges on one moment: **the shore at breakup, Daniel holding MC's 
 Notes:
 
 - Outcome 3 means the romance ending costs someone the player loves, and the player didn't choose who. That's the price of choosing Daniel.
-- Outcome 2 is the only way to remove him. It costs the books, which also means the crew gets away with everything (Olstad's death included).
+- Outcome 2 is the only way to remove him. It costs the books, which also means the crew gets away with everything.
 - Money (the envelopes) is never enough: it's the crew's laundered cash. *"You'd pay me with my employer's money."*
 
 ## 11. Sample lines
@@ -212,6 +225,7 @@ Notes:
 - [ ] How much does Daniel learn about the Keeper, and does he care?
 - [ ] The "whoever MC grew closest to" tracker for outcome 3: how it's measured.
 - [ ] What the town's collection plate is, exactly (money? a vote? the congregation's names?).
-- [ ] Who raises Olstad's child.
+- [ ] How the caller first gets on the night radio, and whether the Reverend recognises anything in him.
+- [ ] The December call that rings while he's live on air: keep, and which explanation is true?
 - [ ] The double-hour laugh: keep?
 - [ ] How explicit the romance gets, and how early the player can feel it.
