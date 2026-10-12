@@ -36,5 +36,31 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
    order matters, a cost for skipping, consequences that show up days later.
    Plan it in a doc first, then build.
 
+5. **The story past November 23.** Thanksgiving week (Daniel on the
+   Thursday watch, the pageant), Sam's wall, Olstad's duel. The review (1)
+   checks what they need first; plan in a doc, as with every week.
+
+6. **What's left from the last honest review.**
+   - Faith, closeness and the town's eye as real counts that change things,
+     not just flags.
+   - Flags that are set and never paid off.
+   - Too much text in places.
+   - The romances thin out between the visits at the door.
+
+7. **Your notes from playing.** Anything that felt off, confusing or slow
+   while playing goes here, and gets fixed or decided.
+
+8. **A list of the art to make.** Every placeholder drawn in code (rooms,
+   people, objects, the back room, the counter top), as a checklist to paint
+   from.
+
+9. **Maybe: the shop's wide/narrow jump.** If switching between the wide
+   shop and the narrow one (when someone talks) feels jarring in play, keep
+   the shop always wide with a fixed column for the text instead.
+
+10. **Maybe: faster tests.** The full run takes over ten minutes because the
+    tests share one save folder and can't run side by side. A folder each
+    would let them run in parallel (about three minutes).
+
 After those: the shop's step 4 (examine reveals properties; object puzzles),
 then on down the list in `shop.md`.
