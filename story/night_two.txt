@@ -37,7 +37,7 @@ narration | time=+10: The bowl by the stove.
 narration | if=broke:dog: It's back by the stove. This morning it was at the foot of the stairs, upside down. You don't remember picking it up.
 paranoia | if=broke:dog: You must have. On the way up. You must have.
 paranoia: Rule five.
-> Fill the bowl -> kitchen_fed | set=fed_dog
+> Fill the bowl -> kitchen_fed | set=fed_dog | flag=fed_two
 > Leave it -> kitchen_unfed | break=dog
 
 === kitchen_fed
@@ -106,7 +106,7 @@ john | if=john>=2 and frayed: Answer it like John would. John has nothing to hid
 > Let it ring -> phone_ignored | lean=paranoia
 
 === phone_ignored
-narration | show=bedroom: It rings. You count. Twelve. Twenty. You stop counting.
+narration | show=bedroom | flag=phone_ignored: It rings. You count. Twelve. Twenty. You stop counting.
 narration | stop=ring: It stops in the middle of a ring, the way it did the first night.
 narration: The quiet afterwards is the loudest thing in the building.
 -> night_dog
@@ -133,7 +133,7 @@ narration: Behind the counter. The phone, shaking very slightly with every ring.
 narration | stop=ring | sound=pickup | break=phone: You lift the receiver and hold it to your ear.
 narration: You don't say anything.
 unknown | if=frayed: Say hello. Be polite. It's rude, keeping someone waiting.
-> Say "Hello?" -> phone_spoke | lean=unknown
+> Say "Hello?" -> phone_spoke | flag=spoke_first | lean=unknown
 > Wait. Say nothing. -> phone_wait
 
 === phone_spoke
@@ -149,7 +149,7 @@ paranoia: Don't speak first. It was half the rule. It was the half that mattered
 -> phone_open_line
 
 === phone_neighbour
-narration: An old woman's voice, thin with cold or crying.
+narration | flag=heard_neighbour: An old woman's voice, thin with cold or crying.
 narration: "Walt? Is that... no. I'm sorry. I'm calling for Walt Pruitt. He's not home. His porch light's off and he never turns it off."
 narration: "I'm calling about his wife. About..."
 narration: A long pause. You can hear her reaching for it.
@@ -194,4 +194,3 @@ narration: But all night, from the bottom of them, you can feel something waitin
 
 === morning_after
 narration | time=07:30: Morning, in the end. Gray at the window. Friday.
-narration: (End of day two. Day three is still being written. Thank you for playing.)

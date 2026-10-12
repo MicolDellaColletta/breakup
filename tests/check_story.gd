@@ -15,6 +15,8 @@ const STORY_SCENES: Dictionary = {
 	"res://story/town.txt": "res://scenes/map.tscn",
 	"res://story/night_one.txt": "res://scenes/night.tscn",
 	"res://story/night_two.txt": "res://scenes/night.tscn",
+	"res://story/day_three.txt": "res://scenes/counter.tscn",
+	"res://story/night_three.txt": "res://scenes/night.tscn",
 	"res://story/use.txt": "res://scenes/counter.tscn",
 	"res://story/examine.txt": "res://scenes/counter.tscn",
 }
@@ -25,7 +27,7 @@ const SPOT_STORIES: Dictionary = {
 	"shop_night": ["res://story/shop.txt"],
 	"apartment_first": ["res://story/apartment.txt"],
 	"shop": ["res://story/shop_looks.txt"],
-	"night": ["res://story/night_one.txt", "res://story/night_two.txt"],
+	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt"],
 	"examine": ["res://story/examine.txt"],
 }
 
@@ -53,6 +55,11 @@ func run() -> void:
 			var part: Dictionary = column._story[name]
 			for entry in part["lines"] + part["choices"] + part["next"]:
 				_check_entry(entry, name, sounds, items, stock, column, problems)
+			# The shop only hears about sales and pawns on lines, not choices.
+			for entry in part["choices"]:
+				for key in ["sold", "pawned", "redeemed", "misplace"]:
+					if entry.has(key):
+						problems.append("%s= on a choice does nothing; put it on a line  (section %s)" % [key, name])
 		for problem in problems:
 			print("  FAIL  ", problem)
 		check(problems.is_empty(), "%d sections, everything they name exists" % column._story.size())
@@ -145,8 +152,9 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 	for key in ["lean", "needs"]:
 		if entry.has(key) and not gs.voices.has(entry[key]):
 			problems.append("%s: no voice '%s'  %s" % [key, entry[key], where])
-	if entry.has("sold") and not stock.has_section(entry["sold"]):
-		problems.append("sold: no item '%s' in stock.cfg  %s" % [entry["sold"], where])
+	for key in ["sold", "redeemed", "misplace"]:
+		if entry.has(key) and not stock.has_section(entry[key]):
+			problems.append("%s: no item '%s' in stock.cfg  %s" % [key, entry[key], where])
 	if entry.has("pawned"):
 		if not stock.has_section(entry["pawned"]):
 			problems.append("pawned: no item '%s' in stock.cfg  %s" % [entry["pawned"], where])
@@ -180,7 +188,7 @@ func _condition_problems(text: String, items: ConfigFile, stock: ConfigFile) -> 
 					problems.append("no stock item '%s'" % condition)
 			elif condition.begins_with("window:"):
 				var in_window: String = condition.trim_prefix("window:")
-				if not stock.has_section(in_window) or stock.get_value(in_window, "shelf", "") != "floor":
+				if in_window != "empty" and (not stock.has_section(in_window) or stock.get_value(in_window, "shelf", "") != "floor"):
 					problems.append("'%s': only floor items go in the window" % condition)
 			elif condition.begins_with("visited:"):
 				if not places.has_section(condition.trim_prefix("visited:")):

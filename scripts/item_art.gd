@@ -2,7 +2,9 @@ class_name ItemArt
 extends RefCounted
 
 # Placeholder pictures of the things in the shop, drawn in code until there
-# are paintings: one simple shape per kind of object (shape= in stock.cfg).
+# are paintings: one simple shape per kind of object (shape= in stock.cfg):
+# call, decoy, knife, snowshoes, picks, compass, fox, rifle, tin, coins, box,
+# name, jacket, musicbox, mirror, watch.
 # Each fits the box it's given, so the same drawing works small on a shelf and
 # big in a close-up. A shape this doesn't know is drawn as a wrapped bundle.
 
@@ -84,6 +86,23 @@ static func draw(ci: CanvasItem, shape: String, r: Rect2, faded: bool = false) -
 			_poly(ci, [c + Vector2(-u * 0.7, -u * 0.3), c + Vector2(u * 0.7, -u * 0.36), c + Vector2(u * 0.72, u * 0.3), c + Vector2(-u * 0.68, u * 0.34)], PAPER, a)
 			for k in 2:
 				ci.draw_line(c + Vector2(-u * 0.5, -u * 0.08 + k * u * 0.2), c + Vector2(u * (0.4 - k * 0.3), -u * 0.1 + k * u * 0.2), Color(0.25, 0.2, 0.2, a * 0.35), 1.5)
+		"musicbox":
+			_poly(ci, [c + Vector2(-u * 0.7, -u * 0.25), c + Vector2(u * 0.7, -u * 0.25), c + Vector2(u * 0.7, u * 0.4), c + Vector2(-u * 0.7, u * 0.4)], WOOD, a)
+			_poly(ci, [c + Vector2(-u * 0.74, -u * 0.38), c + Vector2(u * 0.74, -u * 0.38), c + Vector2(u * 0.7, -u * 0.25), c + Vector2(-u * 0.7, -u * 0.25)], WOOD_DARK, a)
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.08, -u * 0.22), Vector2(u * 0.16, u * 0.1)), Color(BRASS, a))
+			ci.draw_line(c + Vector2(u * 0.7, 0), c + Vector2(u * 0.88, 0), Color(BRASS, a), maxf(2.0, u * 0.05))
+			ci.draw_circle(c + Vector2(u * 0.9, 0), u * 0.07, Color(BRASS, a))
+		"mirror":
+			ci.draw_colored_polygon(_ellipse(c + Vector2(0, -u * 0.25), Vector2(u * 0.42, u * 0.5)), Color(0.75, 0.76, 0.78, a))
+			ci.draw_colored_polygon(_ellipse(c + Vector2(0, -u * 0.25), Vector2(u * 0.34, u * 0.42)), Color(0.42, 0.45, 0.48, a))
+			_poly(ci, [c + Vector2(-u * 0.07, u * 0.22), c + Vector2(u * 0.07, u * 0.22), c + Vector2(u * 0.09, u * 0.85), c + Vector2(-u * 0.09, u * 0.85)], Color(0.7, 0.71, 0.73), a)
+		"watch":
+			ci.draw_circle(c, u * 0.55, Color(0.78, 0.66, 0.34, a))
+			ci.draw_circle(c, u * 0.45, Color(0.9, 0.88, 0.8, a))
+			ci.draw_line(c, c + Vector2(0, -u * 0.32), Color(DARK, a), 2.0)
+			ci.draw_line(c, c + Vector2(u * 0.2, u * 0.1), Color(DARK, a), 2.0)
+			ci.draw_circle(c + Vector2(0, -u * 0.62), u * 0.08, Color(0.78, 0.66, 0.34, a))
+			ci.draw_arc(c + Vector2(0, -u * 0.75), u * 0.1, 0, TAU, 12, Color(0.78, 0.66, 0.34, a), 2.0)
 		"jacket":
 			_poly(ci, [c + Vector2(-u * 0.35, -u * 0.8), c + Vector2(u * 0.35, -u * 0.8), c + Vector2(u * 0.85, -u * 0.4), c + Vector2(u * 0.65, u * 0.85), c + Vector2(-u * 0.65, u * 0.85), c + Vector2(-u * 0.85, -u * 0.4)], Color(0.4, 0.36, 0.2), a)
 			ci.draw_line(c + Vector2(0, -u * 0.8), c + Vector2(0, u * 0.85), Color(0.25, 0.22, 0.12, a), 2.0)

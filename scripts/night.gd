@@ -121,8 +121,9 @@ func walk(room: String) -> void:
 func _on_section_finished(section: String) -> void:
 	if section == "morning_after":
 		_end_of_day()
-	elif section == "phone_go_down":
-		# Down the stairs, toward the ringing.
+	elif section.ends_with("_go_down"):
+		# Down the stairs into the dark shop (the phone on night two, a glass of
+		# water on night three).
 		walk("shop_hall")
 	else:
 		_show_spots()

@@ -59,3 +59,34 @@ narration: Burned into the ash frame, small, with a hot nail: A.K. 98.
 narration: Under it, scratched in later and fainter, one word: KEEPER.
 paranoia: Last winter's. From the Keeper's things, after breakup, the ledger said.
 paranoia: Things. Not the Keeper. The Keeper's things.
+
+=== examine_box_lid
+narration: You lift the lid. Inside, on blue velvet gone bald, a little brass cylinder turns, slow and uneven, and the box sings.
+narration: A thin, careful tune. You know it before you know you know it: In the Bleak Midwinter. A hymn. It runs down halfway through a line and stops.
+narration: Inside the lid, scratched into the wood with something sharp, a name. Marta.
+appraisal | if=appraisal>=1: Pawned with a first name scratched in where only the owner would look. That's a thing you keep for a child.
+
+=== examine_box_key
+narration: You turn the key. It catches, and holds, and pushes back against your fingers, wanting to go.
+paranoia: Don't let it play in here. Not with nobody to hear it.
+
+=== examine_mirror_glass
+narration: The glass has gone gray at the edges, like a window with frost coming in. In the middle, you. Thinner than you remember.
+paranoia: Put it down. You don't need to see that.
+
+=== examine_mirror_back
+narration: You turn it over. Engraved in the silver, worn almost flat: J.M.
+appraisal | if=appraisal>=1: Somebody's initials, not a name. And it's never made a sound in its life.
+
+=== examine_watch_case
+narration: The case opens with a thumbnail. Inside the lid, the maker's name, engraved in a looping hand: SUNDQVIST & SONS, ANCHORAGE.
+appraisal | if=appraisal>=1: A name in it, yes. The man who made it, not the woman who owned it.
+
+=== examine_watch_crown
+narration: You wind it. Nothing. Then a tick, and another, and it runs, a dry, small sound, like something counting.
+paranoia: It doesn't sing. It counts.
+
+=== examine_jacket_collar
+narration: Inside the collar, in red thread, in a wife's careful stitching: R. HOLLIS.
+narration: The canvas is still warm. Not much. Less than it was.
+paranoia: Somebody wore this today. Or carried it close. Pick one and stop thinking about it.

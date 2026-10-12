@@ -213,7 +213,7 @@ func _night(answer: String, ida: bool, expected: String) -> void:
 	await wait(0.7)
 	check(night.current_room() == "bedroom" and not night.get_node("%ShopArt").visible, "back in bed: the picture is the bedroom again")
 	await wait(4.5)
-	check(current_scene.name == "Title" and gs.day == 3, "day three isn't written yet: back to the title screen")
+	check(current_scene.name == "Counter" and gs.day == 3, "Friday morning: day three, at the counter")
 
 func _night_turn_back() -> void:
 	section("The second night: down to the phone, then back up")

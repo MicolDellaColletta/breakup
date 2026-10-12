@@ -1,8 +1,9 @@
 # Breakup: Day three
 
 **Friday, October 8, 1999.** Sunrise 8:20, sunset 19:05 (three minutes less
-light again). A draft for discussion, the same as `day_two.md` was. Nothing
-here is written into the game yet. Change anything. **Updated Oct 12** to match
+light again). **Built, Oct 12:** `story/day_three.txt`, `night_three.txt`, the
+Friday parts of `town.txt`, tested in `tests/test_day_three.gd`. What changed
+on the way in is listed under "As built" at the end. Change anything. **Updated Oct 12** to match
 `pillars.md` and `daniel.md` v6: two explanations for everything.
 
 Day one taught the counter. Day two brought day one back and showed what the
@@ -261,3 +262,44 @@ shelves, and day three's story itself.
 - [ ] **The empty-window afternoon:** is a lonely afternoon enough of a cost,
       or should someone notice the empty window (Ezra: *"Abraham always..."*)?
 - [ ] Is the bowl set back exactly where MC leaves it too early for day three?
+      (Kept for now; Sam turns it into a test: set it an inch off the line.)
+
+---
+
+## As built (Oct 12)
+
+- **Morning** follows the table above, except the open-line night leaves
+  nothing behind, and the bulletin on the table is a lapse of memory (MC
+  pockets it again), not a duplicate.
+- **Window day** ends on a single choice, *Open up*; the shelves can be
+  arranged until then. `if=window:empty` is new.
+- **Olstad** brings the money order (`take=money_order`), asks about the tin
+  again ("You still don't know what's in it, Johnny?"), and puts it back one
+  spot over (`misplace=tin_box`). Showing her the ticket sets
+  `flag:showed_olstad_ticket`. One window line per floor item, or the empty
+  window.
+- **The gift** is a choice: take it now (`fray=-1`, the first comfort) or
+  later. ??? only if frayed: *"They feed the lamb too."*
+- **The caller:** Teague (fox; can buy it for $60; the bear mounted twice),
+  June (snowshoes or ice picks; `> Let me look -> @browse_back` lets a held
+  thing be handed over; the music box is hers: give it back without a ticket,
+  `redeemed=music_box`, or keep it), or the quiet afternoon (anything else).
+  June says Sam visited her mother in 1993 and stopped coming.
+- **The jacket:** buying breaks rule 2 (`pawned=hollis_jacket`, $10); then set
+  it aside for Mrs. Hollis (`flag:faith_hollis`, a kept-faith moment) or tag
+  it for the shelf. Refused, he walks toward the lake.
+- **Friday evening:** the Gleaner (Ruth after last call: something true opens
+  `door_ruth_1`; "John." gets "That's what they all say."; "Nobody" gets
+  remembered as Nobody). The church is dark, and the prayer list now says AND
+  FOR THE WINDOW. Sam, on a second visit, talks across the threshold and
+  suggests setting the bowl off the line. The lake: reeds bent where someone
+  knelt.
+- **Night three:** the Friday static and "Mind the windows"; no call (worse if
+  MC spoke first); ??? says *"Missing him already, sweetheart?"* in the
+  cadence from the night John died; frozen pipes send MC down for water; the
+  reflection in the dressed window raises its hand first. Waving back breaks
+  rule 8. Staying in bed: the bell, held still, twice.
+- **Engine:** `redeemed=`, `misplace=`, `@browse_back`, `window:empty`;
+  night spots downstairs gated by `if=day==2` / `day==3`; check_story refuses
+  `sold=`/`pawned=`/`redeemed=`/`misplace=` on a choice (they only work on
+  lines).
