@@ -9,6 +9,7 @@ Checks that run Godot without a window and play through the game.
 | `test_day_one.gd` | The morning, Mrs. Hollis three ways, the voices, the colored choice rules, number keys. |
 | `test_day_two.gd` | Day two two ways (the morning after night one, Cody or Mrs. Hollis, Ezra, Walt's name, Ruth), the church and Sam's cabin, and the second night's phone three ways. |
 | `test_day_three.gd` | Day three three ways (the morning after night two, window day, Olstad's money order and the tin, the gift, Teague / June / a quiet afternoon by what's in the window, the warm jacket), the Friday evening (Ruth's question, Sam, the dark church), and the third night (no call, the window, waving or not). |
+| `test_day_four.gd` | Day four three ways (the morning after night three, the jacket coming home to Cody or Mrs. Hollis, Hanna Lund's braid, Sam's first door, the phone in daylight), the Saturday evening (Ruth's napkin, Sam's ten names, the church, the lake), and the fourth night (the phone again, or silence; the dog on its knees). |
 | `test_evening.gd` | The town map: which places show, travel time, the pub, the lake, going home. |
 | `test_night.gd` | The first night as Keeper: radio, back door with and without the key, the reflection after three, staying in bed. |
 | `test_voices.gd` | The voices' own rules: Paranoia talking over the others, fraying and coming back, ??? when frayed, the background. |

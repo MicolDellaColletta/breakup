@@ -108,7 +108,7 @@ paranoia: That's worse. Isn't that worse?
 narration | time=00:40: You sleep, or something like it. You wake at twenty to one with your mouth dry as paper.
 narration: In the kitchen, the tap coughs and gives nothing. The pipes have frozen. Downstairs, behind the counter, there's the sink in the washroom, on the warm side of the building.
 > Go down for water -> water_go_down | lean=animal
-> Stay in bed. Wait for morning. -> water_stay | lean=paranoia
+> Stay in bed. Wait for morning. -> water_stay | flag=stayed_in_bed | lean=paranoia
 
 === water_stay
 narration: You lie there with your tongue stuck to your teeth and you wait for morning.
@@ -183,4 +183,3 @@ narration: Nothing comes up the stairs. All night, from the bottom of them, the 
 
 === morning_after
 narration | time=07:30: Saturday. Gray at the window, and the bowl in the kitchen, and your own face in the bathroom mirror, which you don't look at for very long.
-narration: (End of day three. Day four is still being written. Thank you for playing.)

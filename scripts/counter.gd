@@ -30,6 +30,14 @@ const VISITS: Dictionary = {
 		"june | if=!flag:teague_came and !window:fox and window:snowshoes or !flag:teague_came and !window:fox and window:ice_picks",
 		"quiet | if=!flag:teague_came and !window:fox and !window:snowshoes and !window:ice_picks",
 		"stranger"],
+	# Day four, Saturday: the jacket comes home (Cody sees it on the shelf, or
+	# Mrs. Hollis comes); Hanna Lund's braid; Sam's first door; the phone, in
+	# daylight.
+	4: ["nephew | if=flag:jacket_shelved and sold:ice_picks",
+		"widow | if=!flag:jacket_shelved or !sold:ice_picks",
+		"hanna",
+		"sam",
+		"phone"],
 }
 const CUSTOMER_GAP: float = 1.5
 
@@ -92,6 +100,7 @@ const TAKE_AMOUNT: int = 20
 @onready var sounds: Dictionary = {
 	"bell": %Bell,
 	"floorboards": %Floorboards,
+	"ring": %PhoneRing,
 }
 
 var _stock: ConfigFile = ConfigFile.new()

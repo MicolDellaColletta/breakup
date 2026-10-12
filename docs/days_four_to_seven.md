@@ -301,6 +301,35 @@ day, long night.
 
 ---
 
+## Day four, as built (Oct 12)
+
+`story/day_four.txt`, `night_four.txt`, Saturday in `town.txt`; tested in
+`tests/test_day_four.gd`. Differences from the plan above:
+
+- **The jacket:** Cody comes if it's tagged on the back shelf and he's alive;
+  otherwise Mrs. Hollis. Given back (`redeemed=`) keeps faith; held for ten
+  dollars sets `broke_faith_hollis` (sold to Mrs. Hollis, or Cody walks out).
+  If MC refused the stranger, she talks about a man on the north shore who
+  waved at her, and she waved back.
+- **Hanna's braid** (new stock, `braid`, back shelf): price it ($2, keeps rule
+  3), leave it blank, or refuse (she writes it in herself; both break rule 3).
+  She knocks twice on the frame; Abraham priced "Mary Kay's" at a dollar the
+  year before last.
+- **Sam** comes for D batteries and opens the notebook: real name
+  (`door_sam_1`), "John." (left blank), or cross out "John" (`sam_crossed`).
+  He's the only one all week who doesn't knock on the frame.
+- **The daylight call:** the last "visit" is the phone ringing once in the
+  afternoon (`flag:daylight_call`; the counter now has a ring sound).
+- **Evening:** Ruth's napkin (if her door is open); Olstad, off duty: *"Wear
+  something clean. They like a clean Keeper."*; Sam reads MC the ten names
+  (if his door is open); the church being scrubbed for Sunday, the scale and
+  the doorframe glimpsed through the vestry door; kids on the lake ice playing
+  the rhyme.
+- **Night four:** the request hour plays hymn three "for the Keeper, who's
+  settling in"; the phone at eleven (the same walk down as night two), longer,
+  and a match struck at the other end; silent a second night if MC spoke
+  first on night two; fed, the dog comes up on its knees.
+
 ## What has to be built
 
 - **Day five has no counter:** a new day shape. Probably the map and a few

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://tyul2dy2d37i" path="res://scenes/document_viewer.tscn" id="23_viewer"]
 [ext_resource type="Script" path="res://scripts/shelf_view.gd" id="24_shelves"]
 [ext_resource type="Script" path="res://scripts/examine_view.gd" id="25_examine"]
+[ext_resource type="AudioStream" uid="uid://cvrknc547f8sh" path="res://audio/freesound_community-rotary-phone-ring-medium-103869.mp3" id="26_ring"]
 
 [node name="Counter" type="Control" unique_id=1110293847]
 layout_mode = 3
@@ -265,6 +266,12 @@ layout_mode = 1
 [node name="Bell" type="AudioStreamPlayer" parent="." unique_id=1813212937]
 unique_name_in_owner = true
 stream = ExtResource("3_bell")
+
+[node name="PhoneRing" type="AudioStreamPlayer" parent="." unique_id=1590757555]
+unique_name_in_owner = true
+stream = ExtResource("26_ring")
+volume_db = -10.0
+parameters/looping = true
 
 [node name="ShopHum" type="AudioStreamPlayer" parent="." unique_id=1913313947]
 stream = ExtResource("4_hum")
