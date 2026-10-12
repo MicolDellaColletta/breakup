@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://scripts/shelf_view.gd" id="24_shelves"]
 [ext_resource type="Script" path="res://scripts/examine_view.gd" id="25_examine"]
 [ext_resource type="AudioStream" uid="uid://cvrknc547f8sh" path="res://audio/freesound_community-rotary-phone-ring-medium-103869.mp3" id="26_ring"]
+[ext_resource type="AudioStream" uid="uid://buttnji3lpwvj" path="res://audio/freesound_community-phone-pick-up-46796.mp3" id="27_pickup"]
+[ext_resource type="AudioStream" uid="uid://l26hxl6mp4k7" path="res://audio/freesound_community-phone-hang-up-46793.mp3" id="28_hangup"]
 
 [node name="Counter" type="Control" unique_id=1110293847]
 layout_mode = 3
@@ -272,6 +274,14 @@ unique_name_in_owner = true
 stream = ExtResource("26_ring")
 volume_db = -10.0
 parameters/looping = true
+
+[node name="PhonePickup" type="AudioStreamPlayer" parent="." unique_id=1591757556]
+unique_name_in_owner = true
+stream = ExtResource("27_pickup")
+
+[node name="PhoneHangup" type="AudioStreamPlayer" parent="." unique_id=1592757557]
+unique_name_in_owner = true
+stream = ExtResource("28_hangup")
 
 [node name="ShopHum" type="AudioStreamPlayer" parent="." unique_id=1913313947]
 stream = ExtResource("4_hum")

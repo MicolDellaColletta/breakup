@@ -1,0 +1,147 @@
+# DAY SIX: Monday, October 11, 1999
+# Same format as the other counter days. Design: docs/days_four_to_seven.md.
+# Who comes in, in order: Olstad (and, while she's there, the rental company
+# on the phone); Ezra, for one tooth from the jar; June Merrill, for a
+# flannel shirt (see VISITS in scripts/counter.gd).
+
+=== morning
+narration | time=07:30: Monday. Snow in the night, a foot of it, soft and blue. The whole town has gone quiet under it, the way a room goes quiet when someone important comes in.
+narration: Out the back, from the back door to the tree line across the road: one set of footprints in the new snow. Going out. None coming back.
+narration | if=flag:fed_five: The bowl by the stove, licked clean, on its line.
+paranoia: Going out. Whoever came in last night left by the back, a long way round, the way you'd go if you didn't want to be seen from the road.
+paranoia: Or you went out. In your sleep. In your socks. Check your socks.
+narration: The walk out front is buried. The shovel's by the back door, where it always was.
+> Shovel the walk -> morning_shovel | fray=-1 | lean=animal
+> Leave it. Nobody's coming anyway. -> morning_leave | lean=paranoia
+
+=== morning_shovel
+narration: You shovel. Twenty minutes of breath and snow and the scrape of the blade, and for twenty minutes there's nothing in your head at all.
+narration: When you stop, your back aches and your face is burning and you're almost happy. You stand there in the cleared walk and let yourself have it.
+-> opening
+
+=== morning_leave
+narration: You leave it. From the window you watch a man from down the road clear it for you, without being asked, and go home without looking at the shop.
+paranoia: Somebody always keeps the Keeper's walk clear. Of course they do. How else would they get in.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Monday.
+
+# --- Olstad, and the phone. ---
+
+=== trooper_enters
+narration | sound=bell | time=+30: The bell. Olstad, snow on her shoulders, stamping her boots. She doesn't come to the counter. She goes straight to the corner, to the bear.
+trooper | if=flag:teague_came: Teague says it was opened twice. This fella. He says somebody took it apart and put it back.
+trooper | if=!flag:teague_came: Abraham ever tell you about the bear? No. He wouldn't have. He didn't tell anybody much.
+narration: She puts a hand on its chest, where the seam is, and leaves it there, as if feeling for a heartbeat.
+trooper: Nineteen fifty-nine, the book says. Before my time. Before most people's.
+narration: She turns around. She's smiling, the way she smiles.
+trooper: Who're you renting that car from, Johnny?
+paranoia: She knows. She read the sticker the first day. She wants to hear you say it.
+narration | sound=ring | flag=rental_call: The shop phone rings. In daylight. She looks at it, and then at you, and doesn't move.
+narration | stop=ring | sound=pickup: You pick it up, because she's watching you not pick it up.
+narration: A woman's voice, bored, far away. "Northern Lights Auto Rental, Anchorage. I'm trying to reach Mister John..."
+narration: The line crackles on the surname. Just on the surname. Then it's clear again.
+narration: "...just confirming the vehicle's return date, sir. It's blank on our copy."
+narration: Olstad has picked up the brass compass and is turning it in her fingers. Not looking at you. Listening with her whole body.
+john | if=john>=1: You're John. John rented a car. Give the woman a date.
+> "End of the month. The thirtieth." -> trooper_date | flag=gave_return_date | lean=john
+> "Wrong number." -> trooper_wrong | lean=paranoia
+> Hang up -> trooper_hung_up | lean=animal
+
+=== trooper_date
+narration: "The thirtieth. Thank you, Mister..." The crackle again. "...have a good day."
+narration | sound=hangup: You put the receiver down.
+trooper: The thirtieth.
+narration: She sets the compass down, a little to the left of where it was.
+trooper: That's three weeks, hon. Lot can happen in three weeks. Roads close.
+-> trooper_thomas
+
+=== trooper_wrong
+narration: "I'm sorry, sir, this is the number we have for..." You put it down.
+narration | sound=ring: It rings again. At once. You let it ring. Olstad watches you let it ring.
+narration | stop=ring: It stops.
+trooper: Popular, aren't you.
+-> trooper_thomas
+
+=== trooper_hung_up
+narration | sound=hangup: You put it down without a word.
+trooper: Rude.
+narration: She says it almost fondly.
+-> trooper_thomas
+
+=== trooper_thomas
+trooper: Last one in your chair, Thomas. I told you about him.
+trooper: After he went, I did the apartment. Somebody had to. Found a cookie tin of pictures under the bed. Him and his friend. Up here, at the lake. Holding hands, one of them. In the snow, in front of God and everybody.
+trooper: I burned them. In the stove up there. Figured nobody'd want those turning up in a pawn shop, with his name on the back.
+narration: She says it pleasantly. As if she'd done him a favor. She watches your face while she says it.
+paranoia: Don't give her anything. Not a muscle. Whatever she's looking for in your face, don't let her find it.
+warmth | if=warmth>=1: Somebody kept those pictures under a bed for a reason. And she burned them like trash.
+trooper: Anyway. Roads close in November. You'll want to think about that, Johnny, before the thirtieth.
+narration: At the door her hand comes up toward the frame, the way everyone's does. She stops it. Lowers it.
+narration | sound=bell: The bell, and she's gone.
+appraisal | if=appraisal>=1: She almost did it. Everybody in this town does it. She caught herself.
+
+# --- Ezra, asking. ---
+
+=== ezra_enters
+narration | sound=bell | time=+60: The bell. Ezra Lund, in the Sunday overcoat on a Monday. He doesn't say "the usual". He stands at the counter with his hat in his hands.
+ezra: The jar. On the back shelf. I need one.
+ezra: H.L. Eighty-nine.
+narration: Hanna. Six years old in 1989.
+ezra: For the church. When asked. It's asked.
+paranoia: When asked. Now you'll find out what for. No. You won't. He'll take it and you won't.
+appraisal | if=appraisal>=1: The ledger says held. Not his to take. Not anybody's to take, without a ticket. There isn't a ticket. There's never been a ticket.
+> Get it for him -> ezra_given | flag=gave_tooth | lean=john
+> "It's held, Mr. Lund. The ledger says held." -> ezra_refused | flag=refused_tooth | lean=appraisal
+
+=== ezra_given
+narration: You take the jar down and unscrew the lid and find it, a twist of paper with H.L. '89 in pencil, and drop it into his palm.
+narration: He closes his hand on it. He doesn't look at it. He puts it in his breast pocket, over his heart, and buttons the pocket.
+ezra: Abraham never made me ask twice.
+narration: From him, that's warm. It's the warmest thing he's said.
+narration | sound=bell: He knocks twice on the door frame on his way out.
+
+=== ezra_refused
+narration: He looks at you. Then at the back shelf, at the jar. Then at you.
+ezra: Held.
+ezra: Abraham would have known what it was held for.
+narration: He doesn't argue. He doesn't need to. He puts his hat on.
+ezra: It'll be asked again. On Sunday. By more of us.
+narration | sound=bell: He knocks twice on the door frame on his way out.
+paranoia: He'll tell them. The Keeper wouldn't give back a child's tooth. Write that down somewhere.
+
+# --- June Merrill, for the pageant. ---
+
+=== june_enters
+narration | sound=bell | time=+90: The bell. June Merrill, with a canvas bag of exercise books and a list.
+narration | if=flag:gave_music_box: She smiles at you as if you'd shared something, and you have.
+june: The Thanksgiving pageant. At the school. I do it every year. I'm sorry, it's a strange thing to ask.
+june: I need a flannel shirt. A man's. Red, if you have it, or green. For the boy who plays the Keeper.
+narration: She says it the way you'd say the boy who plays the turkey.
+june: Abraham always lent one. From upstairs. There's a drawer of them. I think it's always the same few shirts, every year. The children like that.
+narration: The dresser upstairs. The flannel shirts, folded with somebody else's care. You've been wearing them.
+paranoia: The Keeper's shirts. They dress a child as the Keeper, every November, in the Keeper's own shirt.
+warmth | if=warmth>=1: She's kind. She doesn't know what she's asking. She does. She doesn't.
+> Fetch one from the dresser -> june_lent | flag=lent_shirt | lean=warmth
+> "I'm wearing them. I'm sorry." -> june_refused | lean=paranoia
+
+=== june_lent
+narration | sound=floorboards: You go up and come down with one. Red, faded at the elbows. It smells of the drawer, and a little of you.
+june: Oh, that's the one. That's the one every year. The children will be so pleased.
+narration: She folds it into her bag, on top of the exercise books, carefully, as if it were a flag.
+june: We do a little song. The children. You'd hear it, if you came. Everybody comes.
+narration | sound=bell: At the door she knocks twice on the frame without looking. Then she goes.
+
+=== june_refused
+june: Oh. Of course. I didn't think. You're wearing them.
+narration: She looks at the shirt you've got on, and something crosses her face, and goes.
+june: It's all right. We'll find something. We always find something.
+narration | sound=bell: At the door she knocks twice on the frame without looking. Then she goes.
+
+# --- Closing. ---
+
+=== closing
+narration | time=18:56: Four minutes to seven, and the light goes. You turn the sign. CLOSED.
+narration: Everyone today knocked twice on the frame on the way out. You noticed it on the third one. Now you can't stop. You catch yourself, at the door, with your hand raised.
+paranoia: Don't. Don't you dare.

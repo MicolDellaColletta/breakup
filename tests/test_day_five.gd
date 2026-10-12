@@ -191,4 +191,4 @@ func _night() -> void:
 	check(route.has("night_dog_fed") and _log(column).contains("humming"), "fed: something on the stairs, humming the hymn")
 	check(route[-1] == "morning_after", "then Monday")
 	await wait(5.2)
-	check(current_scene.name == "Title" and gs.day == 6, "day six isn't written yet: back to the title screen")
+	check(current_scene.name == "Counter" and gs.day == 6, "Monday morning: day six, at the counter")

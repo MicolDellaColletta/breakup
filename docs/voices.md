@@ -128,8 +128,9 @@ strongest of the four, if one leads outright (being frayed adds 2 to
 insanity). A story moment can **settle** it with `settle=background`; after
 that it stays. Story files ask with `| if=background:guilt` (or debt,
 witness, insanity). **It settles at the end of the first week,** before
-anything reveals what happened to John (decided; not written yet, since the
-first week isn't).
+anything reveals what happened to John. **Built:** the John night (night
+seven, October 12) settles it; a tie goes to the voice the last choice leaned
+(`GameState.last_lean`).
 
 ## In the story files
 

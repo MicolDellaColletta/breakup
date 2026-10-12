@@ -1,0 +1,80 @@
+# DAY SEVEN: Tuesday, October 12, 1999. One week.
+# Same format as the other counter days. A short day: one small, warm visit
+# (Walt, if MC didn't break rule six; otherwise the boy), an envelope that
+# comes a day early, and then the John night (night_seven.txt).
+# Design: docs/days_four_to_seven.md.
+
+=== morning
+narration | time=07:30: Tuesday. October twelfth. A week ago tonight you drove in under a sky like wet slate, with somebody else's name in your coat.
+narration: One week. It feels like a year. It feels like an hour.
+narration | if=flag:fed_six: The bowl, licked clean, on its line. You don't look at it for long.
+narration | if=!flag:fed_six: At the back door, the snow dug away in a neat half-circle. Whoever it was dug to the door and stopped, and went home.
+paranoia: Open the shop. Do the day. It's a day like the others. It's just a day.
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. The light comes up gray, and stays gray, and that's the day.
+
+# --- Walt Pruitt, if MC kept rule six. ---
+
+=== seller_enters
+narration | sound=bell | time=+180: The bell, at noon. Walt Pruitt, with snow on his cap. He doesn't want anything. He says so, before you can ask.
+seller: Don't want anything. Just walking. I walk at noon now. Get out of the house.
+narration: He stands at the counter, looking at nothing in particular, the way old men stand at a fence.
+seller: I said it this morning. Her name. Out loud, in the kitchen, to the coffee pot.
+seller: Ida.
+narration: He says it gently, the way you'd set down something that might break.
+seller: You were right. To make me keep it. I'd have been sorry. Everybody here'd stop saying it, and then I'd be the only one, and then I'd stop too.
+warmth | if=warmth>=1: You did one good thing this week. Look at him. You did one.
+> "Tell me about her." -> seller_ida | lean=warmth
+> "I'm glad, Mr. Pruitt." -> seller_glad | lean=john
+
+=== seller_ida
+narration: He tells you. Not much. That she couldn't sing and sang anyway. That she hated the winters and stayed forty-one of them. That she called him Walter when she was angry, and Walt otherwise, and once, only once, something else, that he won't tell you, that he's keeping.
+narration: It takes ten minutes. It's the best ten minutes of the day.
+-> seller_goes
+
+=== seller_glad
+seller: Glad. Well. Somebody ought to be.
+narration: He almost smiles. It's a good try.
+-> seller_goes
+
+=== seller_goes
+narration | sound=bell: He goes. At the door he doesn't knock on the frame. He looks at it, and at you, and goes out without.
+paranoia: He doesn't knock. Walt doesn't knock. Write that down. Who doesn't.
+
+# --- The boy, if MC broke rule six. ---
+
+=== boy_enters
+narration | sound=bell | time=+180: The bell, at noon. The boy with the paper bag, in the parka a size too big. Fry bread again. He puts it on the counter, and doesn't run, this time.
+boy: Mom says you'll be gone in May.
+boy: Are you scared?
+paranoia: Children ask. Children know. Children are told.
+> "Yes." -> boy_yes | lean=warmth
+> "No. Why would I be?" -> boy_no | lean=john
+
+=== boy_yes
+narration: He nods, very seriously, as if you'd confirmed something about the weather.
+boy: I'd be scared.
+narration: He pushes the bag an inch closer to you. Then he goes.
+-> boy_goes
+
+=== boy_no
+boy: Okay.
+narration: He doesn't believe you. He's ten and he doesn't believe you, and he's polite enough not to say so.
+-> boy_goes
+
+=== boy_goes
+narration | sound=bell: At the door he knocks twice on the frame, the way the grown-ups do, very carefully, getting it right. Then he runs.
+narration: The fry bread's still warm. You eat it anyway, standing up, and it's still good, and you hate that it's still good.
+
+# --- Closing. An envelope, a day early. ---
+
+=== closing
+narration | time=18:53: Seven minutes to seven, and the light goes. You turn the sign. CLOSED.
+narration: On the mat inside the door, an envelope. You didn't hear it come. It's Tuesday; they come on Wednesdays.
+narration: A church envelope, plain brown, the flap tucked, not sealed. Empty.
+narration: On the front, in pencil: JOHN. And a line through it. Ruled, neat, as if with the edge of a hymnal.
+narration: Nothing written instead.
+paranoia: Crossed out. A week, and they've crossed it out. Whose idea was that. Whose name goes there now.
+appraisal | if=appraisal>=1: The ledger. Look in the ledger.
+narration: Under your last line in the book, in the owner's small, careful hand, a new one. Oct 12. One week.

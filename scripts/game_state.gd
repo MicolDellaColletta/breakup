@@ -38,6 +38,8 @@ const DAY_STORIES: Dictionary = {
 	3: "res://story/day_three.txt",
 	4: "res://story/day_four.txt",
 	5: "res://story/day_five.txt",
+	6: "res://story/day_six.txt",
+	7: "res://story/day_seven.txt",
 }
 # Days that aren't spent at the counter, and the scene they are (Sunday: the
 # shop is closed; you walk to church and around town by day).
@@ -51,6 +53,8 @@ const NIGHT_STORIES: Dictionary = {
 	3: "res://story/night_three.txt",
 	4: "res://story/night_four.txt",
 	5: "res://story/night_five.txt",
+	6: "res://story/night_six.txt",
+	7: "res://story/night_seven.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on
@@ -99,6 +103,9 @@ var frayed: bool:
 var broke_today: bool
 # Empty until a story moment settles it (settle=background).
 var background_settled: String
+# The last voice a choice leaned toward: it breaks a tie when the background
+# settles (the John night's last choice).
+var last_lean: String
 
 var inventory: Array[String] = []
 var _items: ConfigFile = ConfigFile.new()
@@ -151,6 +158,7 @@ func reset() -> void:
 	fray = 0
 	broke_today = false
 	background_settled = ""
+	last_lean = ""
 	# Paranoia starts high: in the prologue fear drowns everything else out.
 	# The others wake up on day one.
 	voices = {
@@ -183,7 +191,7 @@ const SAVED: Array[String] = [
 	"day", "answered_phone", "fed_dog", "invited_to_pub", "locked_back_door", "rules_broken",
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
 	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags",
-	"fray", "broke_today", "background_settled",
+	"fray", "broke_today", "background_settled", "last_lean",
 	"shelf_floor", "shelf_back", "shelf_window",
 ]
 
@@ -261,9 +269,26 @@ func background() -> String:
 			tied = true
 	return "" if tied else best
 
-# settle=background: from now on the background stays what it is.
+# settle=background: from now on the background stays what it is. A tie (or
+# no lead at all) goes to the last voice leaned toward, if it's one of the
+# tied ones; otherwise the first of them.
 func settle_background() -> void:
-	background_settled = background()
+	var settled: String = background()
+	if settled == "":
+		var top: int = -1
+		var tied: Array[String] = []
+		for name in BACKGROUNDS:
+			var score: int = voices.get(BACKGROUNDS[name], 0) + (2 if name == "insanity" and frayed else 0)
+			if score > top:
+				top = score
+				tied = [name]
+			elif score == top:
+				tied.append(name)
+		settled = tied[0]
+		for name in tied:
+			if BACKGROUNDS[name] == last_lean:
+				settled = name
+	background_settled = settled
 
 func set_flag(flag: String) -> void:
 	if not flags.has(flag):
@@ -274,6 +299,7 @@ func lean(voice: String, amount: int = 1) -> void:
 		push_warning("Unknown voice: " + voice)
 		return
 	voices[voice] += amount
+	last_lean = voice
 	# Following ??? is MC slipping.
 	if voice == "unknown" and day >= 1:
 		fray += amount

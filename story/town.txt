@@ -10,6 +10,8 @@
 -> map_day_three | if=day==3
 -> map_day_four | if=day==4
 -> map_day_five | if=day==5
+-> map_day_six | if=day==6
+-> map_day_seven | if=day==7
 -> map_day_two
 
 === map_day_one
@@ -22,6 +24,7 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_first | if=day==1
 -> pub_three | if=day==3
 -> pub_four | if=day==4
+-> pub_six | if=day==6
 -> pub_two
 
 === pub_first
@@ -82,6 +85,7 @@ narration: The cold outside is almost a relief.
 -> lake_three | if=day==3
 -> lake_four | if=day==4
 -> lake_five | if=day==5
+-> lake_six | if=day==6
 -> lake_two
 
 === lake_first
@@ -146,6 +150,7 @@ narration: You leave money on the bar and go before the room can decide to be fr
 === church
 -> church_three | if=day==3
 -> church_four | if=day==4
+-> church_six | if=day==6
 -> church_two
 
 === church_two
@@ -208,6 +213,7 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 === cabin
 -> cabin_four | if=day==4 and flag:met_sam
 -> cabin_five | if=day==5 and flag:met_sam
+-> cabin_six | if=day==6 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -495,6 +501,66 @@ paranoia: He's asking you to be his data. You already are.
 narration | time=+20: The shore on a Sunday evening. Nobody on the ice. The kids are home, being kept in.
 narration: The poles under their tarp. Somebody has laid a wreath on the tarp, the kind you'd lay on a grave. Spruce, and red wool.
 narration: The same red wool Hanna's braid was tied with.
+
+# --- Day six: Monday ---
+
+=== map_day_six
+narration: Monday night. The plow's been through; the road's a white trench between banks taller than the car.
+narration: At the edge of the map, where the road leaves town, the town line. You haven't been out that way since you came in.
+paranoia: You could just drive. You could. People do.
+
+=== town_line
+narration | time=+10: The road out. Past the last house, past the gravel pit, through the spruce, and there it is: the sign. KETTLE LAKE. And on the back of it, for people going the other way, nothing at all.
+narration: In the turnout beside it, a State Trooper cruiser. Engine running. Lights off.
+narration: As you come level, a hand lifts off the wheel inside. Two fingers. Hello.
+paranoia: She's been sitting here. In the dark, with the engine running. Waiting to see if you'd come.
+> Turn around -> town_line_turn | lean=paranoia
+> Keep driving -> town_line_drive | flag=tried_town_line | lean=animal
+
+=== town_line_turn
+narration: You slow, and turn in the road, three points, in the snow, while she watches.
+narration: In the mirror, the two fingers again. Goodbye.
+narration: You drive home. Your hands don't stop shaking till the shop's neon is in front of you.
+
+=== town_line_drive
+narration: You keep going. Past the sign. A hundred yards. Two hundred.
+narration: Headlights behind you. Then the lights on the roof, red and blue, no siren. You pull over. Of course you pull over.
+narration: She walks up slow, and bends to your window, and smiles.
+trooper: Evening, Johnny. Just checking your taillight. It's fine.
+trooper: Rental's not due till the thirtieth, is it? So there's no hurry. You'll want to be home. It's late. Roads are bad.
+narration: She waits until you turn around. She follows you all the way back to the shop, and sits in the lot with her engine running until your light goes on upstairs.
+paranoia: Not a game over. Just a woman with a car, and a road with one end.
+
+=== pub_six
+narration | time=+60: The Gleaner on a Monday. Four people, and the jukebox off. Ruth reading a paperback behind the bar, a mug at her elbow.
+ruth: Monday. Nobody's here on Mondays. That's why I like Mondays.
+narration: She pours you one and goes back to her book. It's restful. It's the most restful thing in town.
+narration | if=flag:walked_out: Without looking up: "They're still talking about you walking out. Good."
+narration | if=flag:prayed_for: Without looking up: "You held still yesterday. They liked that. Don't let them like you too much."
+
+=== church_six
+narration | time=+20: The church on a Monday night. Locked. Dark, except one light in the vestry, behind frosted glass.
+narration: A shape moves across the light, and stops, and stands there, as if looking out at you through the glass it can't see through.
+paranoia: The book's in there. Your page. Somebody's writing on your page.
+
+=== cabin_six
+narration | time=+10: The cabin. He lets you in. On the table, a new notebook, still in its cellophane.
+sam: For you. Write it down. Everything. The time, the place, what you saw, what you think you saw. Separate columns.
+narration | take=notebook: He pushes it across the table. A cheap school notebook, wide ruled. On the cover, in his precise hand: KEEPER. 1999.
+sam: When it stops making sense, read it back. If it still doesn't make sense written down, it's not you. That's the only test I know.
+paranoia: KEEPER, on the cover. He labelled it before he gave it to you. He had it ready.
+
+=== lake_six
+narration | time=+20: The shore. Lanterns. Four men around the poles, the tarp thrown back, checking the lashings with their bare hands in the cold.
+narration: One of them sees your headlights. He straightens. He says, to the others, "Not yet. December, if it holds cold." As if you'd asked.
+narration: Then he looks at you, and his hand goes to his wrist, the inside, and rubs it, without his meaning to.
+
+# --- Day seven: Tuesday ---
+
+=== map_day_seven
+narration: Tuesday night. You stand at the map a long time.
+narration: You don't want to go anywhere. You don't want to see anyone. You want to be in the apartment with the door shut.
+paranoia: Go home. Something's waiting for you at home. You've known all day.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

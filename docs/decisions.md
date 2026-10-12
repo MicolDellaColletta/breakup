@@ -20,6 +20,11 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 - Ruth's shoebox: letters she wrote to the 1989 Keeper, never sent. **His
   name was "David"** (the name he came with; day five, as built).
 - Sundays have no counter: a new kind of day you walk (`visit.tscn`).
+- **Week one is playable end to end.** The John night settles the background;
+  a tie goes to the voice the last choice leaned (the gun). The first flashes
+  are written per background (`days_four_to_seven.md`, "Days six and seven,
+  as built").
+- Olstad burned Thomas's photographs (him and his friend) after he went.
 
 ## October 12 — the town underneath (`underneath.md`)
 

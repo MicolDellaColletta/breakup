@@ -38,6 +38,12 @@ const VISITS: Dictionary = {
 		"hanna",
 		"sam",
 		"phone"],
+	# Day five is Sunday: no counter (GameState.DAY_SCENES).
+	# Day six, Monday: Olstad (and the rental company, on the phone, while
+	# she's there); Ezra, for a tooth; June, for a flannel shirt.
+	6: ["trooper", "ezra", "june"],
+	# Day seven, Tuesday: one small, warm visit. Then the John night.
+	7: ["seller | if=!broke:name", "boy | if=broke:name"],
 }
 const CUSTOMER_GAP: float = 1.5
 
@@ -101,6 +107,8 @@ const TAKE_AMOUNT: int = 20
 	"bell": %Bell,
 	"floorboards": %Floorboards,
 	"ring": %PhoneRing,
+	"pickup": %PhonePickup,
+	"hangup": %PhoneHangup,
 }
 
 var _stock: ConfigFile = ConfigFile.new()
@@ -578,6 +586,8 @@ func _ledger_bbcode() -> String:
 	# From day two, a line you didn't write, in the owner's small, careful hand.
 	if GameState.day >= 2:
 		text += "\n[i]Oct 6. Keeper settling in.[/i]"
+	if GameState.day >= 7:
+		text += "\n[i]Oct 12. One week.[/i]"
 	text += "\n\n[b]THE DRAWER, BY THE BOOK[/b]\n\n$%d" % GameState.till_by_ledger
 	return text
 
