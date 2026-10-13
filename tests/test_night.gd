@@ -9,6 +9,7 @@ func run() -> void:
 	await _three_am(true, "Wave back", "back_room_locked")
 	await _three_am(false, "Don't wave", "back_room_open")
 	await _stay_in_bed()
+	await _skipping()
 
 func _open_night(has_key: bool) -> Node:
 	gs.reset()
@@ -114,3 +115,20 @@ func _log(column: Node) -> String:
 	for entry in column.get_node("%Log").get_children():
 		text += entry.get_parsed_text() + "\n"
 	return text
+
+func _skipping() -> void:
+	section("Going to bed without checking: skipping a rule breaks it")
+	var night: Node = await _open_night(true)
+	var column: Node = night.get_node("%Narrator")
+	night.look("radio")
+	advance(column)
+	await pick(column, "Turn it on")
+	advance(column)
+	await process_frame
+	night.look("bed")
+	check(column._section == "skipped_rules", "straight to bed, the radio on but the bowl and the windows never checked")
+	check(gs.rules_broken.has("dog") and gs.rules_broken.has("window") and not gs.rules_broken.has("radio"), "the bowl and the windows count as broken; the radio doesn't")
+	check(gs.flags.has("skipped_kitchen") and not gs.flags.has("skipped_radio"), "and the night says which")
+	advance(column)
+	await process_frame
+	check(column._section.begins_with("sleep") or column._section.begins_with("call") or column._section.begins_with("night"), "then the night's own sleep")

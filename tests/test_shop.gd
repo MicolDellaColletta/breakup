@@ -12,6 +12,7 @@ func run() -> void:
 	await _customer_and_examine()
 	await _back_room()
 	await _properties_and_catalogue()
+	await _quick_visitors()
 
 func _open(day: int) -> Node:
 	gs.reset()
@@ -149,6 +150,7 @@ func _customer_and_examine() -> void:
 	counter._on_detail_clicked("ex_call_letters")
 	advance(column)
 	check(_log(column).contains("R.H.") and spots.interactive and spots.get_spot("ex_call_letters").used, "the letters: R.H.; then back to the close-up")
+	check(_log(column).contains("John, they said"), "and what she said is still there in the column")
 	check(counter._browsing and column._section == "examine_call_letters", "she's still waiting")
 	counter.close_examine()
 	view.counter_clicked.emit()
@@ -228,6 +230,17 @@ func _properties_and_catalogue() -> void:
 	gs.reset()
 	gs.from_dict(saved)
 	check(gs.knows_prop("compass", "folk"), "what you know is saved")
+
+func _quick_visitors() -> void:
+	section("One customer straight after another")
+	var counter: Node = await _open(1)
+	var view: Node = counter.get_node("%ShelfView")
+	counter._person_comes_in("widow")
+	await wait(0.6)
+	counter._person_leaves()
+	counter._person_comes_in("nephew")
+	await wait(0.8)
+	check(view.person == "nephew" and view.person_alpha > 0.9, "the one going out doesn't take the one coming in with her")
 
 func _log(column: Node) -> String:
 	var text: String = ""

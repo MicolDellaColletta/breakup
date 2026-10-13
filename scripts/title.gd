@@ -11,6 +11,8 @@ const FIRST_SCENE: String = "res://scenes/drive.tscn"
 @onready var quit_button: Button = %QuitButton
 @onready var wind: AudioStreamPlayer = %Wind
 
+var _confirming: bool = false
+
 func _ready() -> void:
 	Hud.visible = false
 	continue_button.pressed.connect(_continue)
@@ -20,8 +22,14 @@ func _ready() -> void:
 	quit_button.pressed.connect(get_tree().quit)
 	var has_saves: bool = Saves.latest_slot() != -1
 	continue_button.visible = has_saves
+	# The latest save is the last card of what's written: nothing to continue.
+	var can_continue: bool = has_saves
+	if has_saves and at_the_end(Saves.slot_info(Saves.latest_slot())):
+		continue_button.text = "To be continued"
+		continue_button.disabled = true
+		can_continue = false
 	load_button.disabled = not has_saves
-	(continue_button if has_saves else new_game_button).grab_focus()
+	(continue_button if can_continue else new_game_button).grab_focus()
 	await Transition.fade_in(1.5)
 
 func _exit_tree() -> void:
@@ -32,7 +40,19 @@ func _continue() -> void:
 	_leave()
 	Saves.load_slot(Saves.latest_slot())
 
+# A save that stands at the end of what's written (the last bridge, with no
+# day after it).
+static func at_the_end(save: Dictionary) -> bool:
+	if save.is_empty() or save["scene"] != GameState.BRIDGE_SCENE:
+		return false
+	return GameState.day_scene(int(save["state"].get("day", 0))) == ""
+
+# A new game replaces the autosave: with saves already there, it asks first.
 func _new_game() -> void:
+	if Saves.latest_slot() != -1 and not _confirming:
+		_confirming = true
+		new_game_button.text = "Start over? The autosave will be replaced."
+		return
 	_leave()
 	GameState.reset()
 	Transition.go_to(FIRST_SCENE, 1.5, 0.5)

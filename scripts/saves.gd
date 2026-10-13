@@ -31,6 +31,10 @@ var _checkpoint: Dictionary = {}
 func mark_checkpoint(scene_path: String) -> void:
 	if not PARTS.has(scene_path):
 		return
+	# A day's first scene moves the clock to that morning when it starts;
+	# do it now, so the save says the right date.
+	if scene_path == GameState.day_scene(GameState.day):
+		GameState.start_day()
 	_checkpoint = {
 		"version": VERSION,
 		"scene": scene_path,

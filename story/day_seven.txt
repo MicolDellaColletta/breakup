@@ -10,6 +10,7 @@ narration: One week. It feels like a year. It feels like an hour.
 narration | if=flag:fed_six: The bowl, licked clean, on its line. You don't look at it for long.
 narration | if=!flag:fed_six: At the back door, the snow dug away in a neat half-circle. Whoever it was dug to the door and stopped, and went home.
 paranoia: Open the shop. Do the day. It's a day like the others. It's just a day.
+-> opening
 
 === opening
 narration | time=09:00: You turn the sign. OPEN. The light comes up gray, and stays gray, and that's the day.

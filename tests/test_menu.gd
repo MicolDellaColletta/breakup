@@ -13,6 +13,8 @@ func run() -> void:
 	await _pause_save_load()
 	await _settings()
 	await _back_to_title()
+	await _mid_fade()
+	await _title_with_saves()
 
 func _press_escape() -> void:
 	var event: InputEventAction = InputEventAction.new()
@@ -103,3 +105,28 @@ func _back_to_title() -> void:
 	await wait(1.6)
 	check(current_scene.get_node("%ContinueButton").visible, "now there are saves, Continue shows")
 	check(saves.latest_slot() == 0, "Continue picks the most recent save: the autosave from loading slot 1")
+
+func _mid_fade() -> void:
+	section("No menu in the middle of a scene change; the save's date")
+	gs.reset()
+	gs.day = 10
+	gs.set_clock("20:00")
+	var transition: Node = root.get_node("Transition")
+	transition.go_to("res://scenes/counter.tscn", 0.4, 1.0)
+	await wait(0.7)
+	await _press_escape()
+	check(transition.busy and not menu.is_open(), "Escape during the fade and the hold: no menu")
+	await wait(1.2)
+	await process_frame
+	check(not transition.busy and current_scene.name == "Counter", "then the next scene, and the menu works again")
+	check(saves.slot_info(0).get("label", "").contains("Oct 23"), "a key day's autosave has that day's date (Oct 23), not the night before's")
+
+func _title_with_saves() -> void:
+	section("The title screen with saves: New Game asks first; the end of what's written")
+	var title: Node = await open_scene("res://scenes/title.tscn", 1.7)
+	title._new_game()
+	await wait(0.3)
+	check(current_scene.name == "Title" and title.get_node("%NewGameButton").text.begins_with("Start over?"), "with a save there, New Game asks before replacing it")
+	var script: GDScript = load("res://scripts/title.gd")
+	check(script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": 16}}), "a save on the last card is the end: no Continue")
+	check(not script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": 15}}) and not script.at_the_end({"scene": "res://scenes/night.tscn", "state": {"day": 15}}), "any other save can be continued")

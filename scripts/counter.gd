@@ -456,6 +456,9 @@ func _on_spot_clicked(shelf: String, spot: int) -> void:
 		_show_details()
 		return
 	GameState.place_on_shelf(_selected, shelf, spot)
+	# Who comes next can depend on the window: the bell says so as it changes.
+	if _waiting:
+		shelf_view.bell_closes = not _visits_left()
 	_put_down()
 
 # Floor things (for sale) go on the floor shelves or in the window; held
@@ -609,29 +612,39 @@ func _on_detail_clicked(spot_id: String) -> void:
 	_details_seen.append(_selected + "/" + spot_id)
 	examine_spots.mark_used(spot_id)
 	examine_spots.interactive = false
-	column.start_conversation(Spots.section(spot_id))
+	# play, not start_conversation: the customer's words stay in the column.
+	column.play(Spots.section(spot_id))
 
 func _on_detail_aside(section: String) -> void:
 	examine_spots.interactive = false
-	column.start_conversation(section)
+	column.play(section)
 
 # --- Who's across the counter ---
 
 const PERSON_FADE: float = 0.5
+var _person_fade: Tween
 
 func _person_comes_in(person_id: String) -> void:
 	if not PersonArt.has(person_id):
 		return
 	_show_view("counter")
+	if _person_fade:
+		_person_fade.kill()
 	shelf_view.person = person_id
 	shelf_view.person_alpha = 0.0
-	create_tween().tween_property(shelf_view, "person_alpha", 1.0, PERSON_FADE)
+	_person_fade = create_tween()
+	_person_fade.tween_property(shelf_view, "person_alpha", 1.0, PERSON_FADE)
 
+# They fade out. If someone else has come in meanwhile, they stay.
 func _person_leaves() -> void:
-	var fade: Tween = create_tween()
-	fade.tween_property(shelf_view, "person_alpha", 0.0, PERSON_FADE)
-	await fade.finished
-	shelf_view.person = ""
+	var leaving: String = shelf_view.person
+	if _person_fade:
+		_person_fade.kill()
+	_person_fade = create_tween()
+	_person_fade.tween_property(shelf_view, "person_alpha", 0.0, PERSON_FADE)
+	await _person_fade.finished
+	if shelf_view.person == leaving:
+		shelf_view.person = ""
 
 # appraisal="..." with appraisal_at=1 in stock.cfg: that voice comments on
 # the item once it's strong enough. A weak voice stays quiet.

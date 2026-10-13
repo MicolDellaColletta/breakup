@@ -7,6 +7,9 @@ const DRAW_ON_TOP: int = 100
 
 var _curtain: ColorRect
 var _tween: Tween
+# A scene change is under way: the menu stays shut until it's done, so a load
+# can't land in the middle of one.
+var busy: bool = false
 
 func _ready() -> void:
 	layer = DRAW_ON_TOP
@@ -25,14 +28,16 @@ func fade_out(duration: float) -> void:
 	await _fade_to(1.0, duration)
 
 func go_to(scene_path: String, fade_duration: float, hold: float = 0.0) -> void:
+	busy = true
 	await fade_out(fade_duration)
 	if hold > 0.0:
-		await get_tree().create_timer(hold).timeout
+		await get_tree().create_timer(hold, false).timeout
 	# A new part of the game starts here: the autosave remembers it.
 	var saves: Node = get_node_or_null("/root/Saves")
 	if saves:
 		saves.mark_checkpoint(scene_path)
 	get_tree().change_scene_to_file(scene_path)
+	busy = false
 
 # --- Private: the machinery ---
 

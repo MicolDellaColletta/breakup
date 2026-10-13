@@ -73,6 +73,19 @@ narration: His eyes on yours. Polite. Interested. A man at a shop counter, waiti
 > Write him a ticket for it -> daniel_take | break=warm | flag=took_bullet | lean=appraisal
 > "I don't buy things like that." -> daniel_refuse | flag=refused_bullet | lean=paranoia
 > "It came out of you." -> daniel_door | flag=door_daniel_1 | lean=unknown
+> [Appraisal] Weigh it on the brass balance before you say anything. -> daniel_weigh | needs=appraisal | lean=appraisal
+
+=== daniel_weigh
+narration: You set the bullet in the left pan. The beam doesn't move. You drop a penny in the other pan, to see the thing still works. The penny goes down.
+appraisal: Then it weighs less than nothing. Or the balance is out of true, the way it's always been, on the side it prefers this week.
+narration: He watches you do it. For the first time, he looks a little delighted.
+daniel: A careful man.
+-> daniel_offer_again
+
+=== daniel_offer_again
+> Write him a ticket for it -> daniel_take | break=warm | flag=took_bullet | lean=appraisal
+> "I don't buy things like that." -> daniel_refuse | flag=refused_bullet | lean=paranoia
+> "It came out of you." -> daniel_door | flag=door_daniel_1 | lean=unknown
 
 === daniel_take
 narration: You open the ledger. Your hand is perfectly steady. You watch it be steady.

@@ -8,6 +8,7 @@ func run() -> void:
 	_fraying()
 	await _frayed_choices()
 	_backgrounds()
+	await _colored_in_the_game()
 
 # A small story file, played in a bare dialogue column.
 func _column(story: String) -> Node:
@@ -113,3 +114,31 @@ func _backgrounds() -> void:
 	root.add_child(column)
 	check(column._condition_met("background:insanity") and not column._condition_met("background:witness"), "story files can ask: if=background:insanity")
 	column.queue_free()
+
+# The colored choices written into the game show at strengths a player can
+# really have by then (each needs 3 points; ??? needs 1 while frayed).
+func _colored_in_the_game() -> void:
+	section("Colored choices in the game, reachable")
+	var cases: Array = [
+		["res://story/day_ten.txt", "trooper_enters", {"animal": 3}, false, "[Animal]"],
+		["res://story/day_eleven.txt", "trooper_enters", {"john": 3}, false, "[John]"],
+		["res://story/day_eleven.txt", "widow_enters", {"unknown": 1}, true, "[???]"],
+		["res://story/day_fifteen.txt", "daniel_offer", {"appraisal": 3}, false, "[Appraisal]"],
+		["res://story/night_eleven.txt", "the_hour", {"unknown": 1}, true, "[???]"],
+	]
+	for case in cases:
+		gs.reset()
+		for voice in case[2]:
+			gs.voices[voice] = case[2][voice]
+		if case[3]:
+			gs.fray = gs.FRAYED_AT
+		var column: Node = load("res://scenes/dialogue_column.tscn").instantiate()
+		root.add_child(column)
+		column.load_story(case[0])
+		column._section = case[1]
+		var labels: Array = column._visible_choices().map(func(c: Dictionary) -> String: return c["label"])
+		check(labels.any(func(l: String) -> bool: return l.begins_with(case[4])), "%s, %s: %s shows" % [case[0].get_file(), case[1], case[4]])
+		gs.reset()
+		labels = column._visible_choices().map(func(c: Dictionary) -> String: return c["label"])
+		check(not labels.any(func(l: String) -> bool: return l.begins_with("[")), "and not without the voice")
+		column.queue_free()

@@ -15,7 +15,26 @@ explains far too much.
 
 ---
 
-## 1. Bugs (fix first)
+## 1. Bugs (fixed Oct 13)
+
+All thirteen fixed, with tests. How: (1) going to bed with a rule
+unchecked breaks it, and the night says which (`use.txt` skipped_rules);
+(2) five colored choices added where the voice can be strong enough:
+[Animal] Olstad on day 10, [John] "Who's John?" on day 11, [???] Mrs.
+Hollis's tape measure on day 11, [Appraisal] weighing the bullet on day 15,
+[???] asking the tin in the double hour; (3) the menu won't open during a
+scene change, and the hold pauses with the game; (4) a day's autosave moves
+the clock to that morning first; (5) `check_story` fails a customer who lets
+you look without `_given_other` and `_nothing`; (6) close-up details play
+into the conversation instead of clearing it; (7) the bell's label updates
+when the window changes; (8) a customer leaving no longer clears the next
+one's picture; (9) New Game asks before replacing the autosave; (10) loans
+never take cash below zero, and the jacket line no longer says "drawer";
+(11) map places move with the window; (12) day seven's sign plays; (13) on
+the last card of what's written, the title shows "To be continued" instead
+of Continue (Load still works).
+
+(The original list, for the record:)
 
 1. **Skipping a nightly rule is free; refusing it is punished.** The bed is
    always clickable, so never clicking the radio or the bowl breaks nothing,
