@@ -5,6 +5,11 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
 
 ## Pick up here (Oct 13)
 
+**Start with `docs/questions.md`.** It lists every decision I need from you,
+with a lean on each, and the order to merge the branches. The full review
+(item 2) is done (`review_full.md`, on the `full-review` branch). The red light
+(item 5) is built (`red-light`). March is planned (`march.md`).
+
 **Open branches:** `night-walks` and `february` are pushed. All of their tests
 pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
 
