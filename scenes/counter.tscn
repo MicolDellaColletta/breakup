@@ -39,7 +39,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 28
-theme_override_constants/margin_top = 24
+theme_override_constants/margin_top = 56
 theme_override_constants/margin_right = 28
 theme_override_constants/margin_bottom = 20
 
@@ -49,6 +49,7 @@ theme_override_constants/separation = 10
 
 [node name="ViewTitle" type="Label" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1510697887]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 0.85)
 theme_override_font_sizes/font_size = 24
@@ -56,12 +57,14 @@ text = "Behind the counter"
 
 [node name="ViewText" type="Label" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1610798897]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.62, 0.62, 0.6, 1)
 theme_override_font_sizes/font_size = 15
 autowrap_mode = 2
 
 [node name="ViewButtons" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1710899907]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 12
 
@@ -95,9 +98,10 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Catalogue"
 
-[node name="ShelfPanel" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
+[node name="ShelfPanel" type="BoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
 unique_name_in_owner = true
 layout_mode = 2
+vertical = true
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
@@ -105,6 +109,7 @@ theme_override_constants/separation = 10
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 script = ExtResource("24_shelves")
@@ -191,6 +196,22 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 6
+
+[node name="PanelBar" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1201424656]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CloseButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/PanelBar" unique_id=1201424657]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back to the shelves"
+
+[node name="FlipButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/PanelBar" unique_id=1201424658]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Turn the book over: his notes"
 
 [node name="LedgerPanel" type="ScrollContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1221524656]
 unique_name_in_owner = true

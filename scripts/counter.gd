@@ -1,12 +1,14 @@
 extends Control
 
 # The shop's home screen: behind the counter, the shop on the left, the
-# dialogue column on the right. The shelves are drawn (ShelfView): facing the
-# front window with a shelf either side, or turned to the left wall, the right
-# wall, the back shelf. Pick a thing up, put it down somewhere else, put it in
-# the front window, or hand it over to whoever's waiting. Nobody comes in on
-# their own: between visits the shop is yours, and the bell (NextButton) lets
-# the next person in. They stand across the counter (PersonArt).
+# dialogue column on the right (and the shop the whole width while the column
+# is away). The shelves are drawn (ShelfView): facing the front window with a
+# shelf either side, or turned to the left wall, the right wall, the back
+# shelf. Pick a thing up, put it down somewhere else, put it in the front
+# window, or hand it over to whoever's waiting. On the counter: the register,
+# the ledger (and the owner's catalogue in the back of it), and the bell.
+# Nobody comes in on their own: between visits the shop is yours, and the
+# bell lets the next person in. They stand across the counter (PersonArt).
 
 const LOOKS_PATH: String = "res://story/shop_looks.txt"
 const USE_PATH: String = "res://story/use.txt"
@@ -122,7 +124,10 @@ const TAKE_AMOUNT: int = 20
 @onready var loupe_button: Button = %LoupeButton
 @onready var handle_button: Button = %HandleButton
 @onready var props_text: RichTextLabel = %PropsText
-@onready var shelf_panel: Control = %ShelfPanel
+@onready var panel_bar: HBoxContainer = %PanelBar
+@onready var flip_button: Button = %FlipButton
+@onready var scene_margins: MarginContainer = $SceneArea/SceneMargins
+@onready var shelf_panel: BoxContainer = %ShelfPanel
 @onready var ledger_panel: ScrollContainer = %LedgerPanel
 @onready var ledger_text: RichTextLabel = %LedgerText
 @onready var register_panel: Control = %RegisterPanel
@@ -199,6 +204,8 @@ func _ready() -> void:
 	handle_button.pressed.connect(use_tool.bind("handle"))
 	next_button.pressed.connect(ring_bell)
 	next_button.visible = false
+	%CloseButton.pressed.connect(func() -> void: _show_view(_facing))
+	flip_button.pressed.connect(func() -> void: _show_view("catalogue" if _view == "ledger" else "ledger"))
 	take_button.pressed.connect(_on_take_pressed)
 	offer_button.pressed.connect(_on_offer_pressed)
 	examine_button.pressed.connect(_on_examine_pressed)
@@ -207,6 +214,7 @@ func _ready() -> void:
 	shelf_view.counter_clicked.connect(_on_counter_clicked)
 	shelf_view.put_back.connect(_put_down)
 	shelf_view.turned.connect(turn)
+	shelf_view.object_clicked.connect(_on_object_clicked)
 	examine_spots.spot_clicked.connect(_on_detail_clicked)
 	examine_spots.aside.connect(_on_detail_aside)
 	%PutDownButton.pressed.connect(close_examine)
@@ -216,6 +224,7 @@ func _ready() -> void:
 	column.line_shown.connect(_on_line_shown)
 	column.section_finished.connect(_on_section_finished)
 	column.choice_made.connect(_on_choice_made)
+	column.shown_changed.connect(_on_column_shown)
 	explore_spots.spot_clicked.connect(click)
 	explore_spots.aside.connect(play_aside)
 	document_viewer.closed.connect(_on_page_closed)
@@ -253,7 +262,8 @@ func _on_section_finished(_section: String) -> void:
 func _wait_for_bell() -> void:
 	_waiting = true
 	next_button.text = "Next customer" if _visits_left() else "Close up for the day"
-	next_button.visible = true
+	shelf_view.bell_closes = not _visits_left()
+	shelf_view.bell_ready = true
 
 func waiting_for_bell() -> bool:
 	return _waiting
@@ -271,7 +281,7 @@ func ring_bell() -> void:
 	if not _waiting:
 		return
 	_waiting = false
-	next_button.visible = false
+	shelf_view.bell_ready = false
 	_next_customer()
 
 func _next_customer() -> void:
@@ -362,6 +372,9 @@ func _show_view(view: String) -> void:
 	view_title.text = VIEWS[view]["title"]
 	view_text.text = VIEWS[view]["text"]
 	shelf_panel.visible = FACINGS.has(view)
+	panel_bar.visible = not FACINGS.has(view)
+	flip_button.visible = view == "ledger" or view == "catalogue"
+	flip_button.text = "Turn the book over: his notes" if view == "ledger" else "Turn it back: the ledger"
 	ledger_panel.visible = view == "ledger" or view == "catalogue"
 	register_panel.visible = view == "register"
 	if view == "ledger":
@@ -379,6 +392,34 @@ func _show_view(view: String) -> void:
 func turn(direction: String) -> void:
 	var steps: int = {"right": 1, "around": 2, "left": 3}[direction]
 	_show_view(FACINGS[(FACINGS.find(_facing) + steps) % FACINGS.size()])
+
+# The register, the ledger and the bell on the counter.
+func _on_object_clicked(object: String) -> void:
+	if object == "bell":
+		ring_bell()
+	else:
+		_show_view(object)
+
+# --- The shop takes the whole width while the column's away ---
+
+const WIDE_TIME: float = 0.25
+const NARROW_RIGHT: float = 0.62
+# How much of the panel the shelves get, next to the details' 1.
+const SHELF_SHARE_NARROW: float = 1.2
+const SHELF_SHARE_WIDE: float = 1.7
+var _width_tween: Tween
+
+func _on_column_shown(shown: bool) -> void:
+	if _width_tween:
+		_width_tween.kill()
+	_width_tween = create_tween().set_parallel()
+	var right: float = NARROW_RIGHT if shown else 1.0
+	_width_tween.tween_property(scene_margins, "anchor_right", right, WIDE_TIME)
+	_width_tween.tween_property(examine_view, "anchor_right", right, WIDE_TIME)
+	# Narrow: the details under the shelves. Wide: beside them, so the
+	# shelves get the whole height.
+	shelf_panel.vertical = shown
+	shelf_view.size_flags_stretch_ratio = SHELF_SHARE_NARROW if shown else SHELF_SHARE_WIDE
 
 # The ledger and the register open over the shelves; the same button again
 # shuts them.
@@ -411,7 +452,8 @@ func _on_spot_clicked(shelf: String, spot: int) -> void:
 		_put_down()
 		return
 	if not _fits(_selected, shelf) or (there != "" and not _fits(there, GameState.shelf_spot_of(_selected)[0])):
-		view_text.text = _wont_fit(_selected, shelf)
+		_tool_note = _wont_fit(_selected, shelf)
+		_show_details()
 		return
 	GameState.place_on_shelf(_selected, shelf, spot)
 	_put_down()
@@ -427,7 +469,7 @@ func _fits(item_id: String, shelf: String) -> bool:
 func _wont_fit(item_id: String, shelf: String) -> String:
 	if _stock.get_value(item_id, "shelf", "") == "back":
 		return "That's held against a ticket. It stays on the back shelf."
-	return "Things for sale go out front, or in the window." if shelf == "back" else VIEWS[_view]["text"]
+	return "Things for sale go out front, or in the window."
 
 func _on_counter_clicked() -> void:
 	if offer_button.visible:

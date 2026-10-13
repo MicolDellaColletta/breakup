@@ -15,6 +15,9 @@ const SLIDE_DISTANCE: float = 48.0
 const SLIDE_TIME: float = 0.25
 const UNKNOWN_TYPE_TIME: float = 2.5
 
+# The column slid in (true) or out (false): the scene can use the room.
+signal shown_changed(shown: bool)
+
 @onready var scroll: ScrollContainer = %Scroll
 @onready var log_box: VBoxContainer = %Log
 
@@ -62,12 +65,14 @@ func show_column() -> void:
 		return
 	_shown = true
 	visible = true
+	shown_changed.emit(true)
 	_slide(0.0, 1.0)
 
 func hide_column() -> void:
 	if not _shown:
 		return
 	_shown = false
+	shown_changed.emit(false)
 	await _slide(SLIDE_DISTANCE, 0.0)
 	if not _shown:
 		visible = false

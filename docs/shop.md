@@ -399,6 +399,13 @@ to look at, like the counter's choices), art added later. Each place has
        front door; the back shelf. Arrows at the edges and buttons turn you.
        "Next customer" lets the next visit in; after the last, "Close up for
        the day". Customers no longer come in on their own.
+       Then (after playtesting): no title, text or button row over the shop.
+       The counter top holds the register, the ledger (the catalogue is its
+       back half: "Turn the book over") and the bell, which shines when
+       nobody's in and lets the next one in. A tab at the top turns you
+       around. While the dialogue column is away the shop takes the whole
+       width, the shelves full height with the details beside them; when
+       someone talks, it narrows and the details go back underneath.
 2. [x] The back room as a room (bench, crates, furnace, back door, freezer).
        Built: after closing, from day two, the steel door opens on it
        (shop_art.gd "backroom", spots.cfg, shop_looks.txt). The freezer is
