@@ -6,7 +6,7 @@
 === arrival
 narration | sound=stairs: Up the stairs. Forty below. The cold has got into the building; your breath shows in the stairwell.
 narration | if=flag:pin_bullet: Your card, in the middle of his wall, where the strings cross. You can feel it there, a mile down the shore, like a splinter.
-narration | if=flag:pin_ezra: Ezra's initials, on a card, on a dead man's wall. You put them there.
+narration | if=flag:pin_ezra: Ezra's initials, on a card, on Sam's wall. You put them there.
 narration | if=flag:pin_money_order: 0527, pinned to a wall a mile away. You keep checking your pocket for the money order. It's still there.
 paranoia: The rules. And then sleep. And then Sunday.
 

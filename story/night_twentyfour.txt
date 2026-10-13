@@ -51,8 +51,8 @@ narration: Below you, the freezer, silent. Thawing.
 === kitchen
 narration | time=+10: The bowl. In the dark, by feel.
 paranoia: Rule five.
-> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyone
-> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyone | flag=bowl_door
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyfour
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyfour | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
 
 === kitchen_door
@@ -95,7 +95,7 @@ narration | time=+20 | show=bedroom: You lie down in the dark, in your coat. Ele
 
 === night_dog
 -> night_dog_door | if=flag:bowl_door
--> night_dog_fed | if=flag:fed_twentyone
+-> night_dog_fed | if=flag:fed_twentyfour
 -> night_dog_unfed
 
 === night_dog_fed

@@ -139,7 +139,7 @@ daniel: Merry Christmas. Go home. Lock nothing.
 -> booth_home
 
 === booth_leave
-narration: You stand up. Your chair scrapes. He doesn't stop you. He doesn't move at all.
+narration | flag=booth_left: You stand up. Your chair scrapes. He doesn't stop you. He doesn't move at all.
 daniel: That's all right. It'll keep.
 narration: You walk away across the ash. Behind you, he hasn't moved. He's sitting with his hands folded, facing the empty chair, in the middle of the burned church, in the snow.
 -> booth_home

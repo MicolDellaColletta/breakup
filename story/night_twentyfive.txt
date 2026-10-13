@@ -28,8 +28,8 @@ narration: You leave it off. Up the hill, the last candles in the ruin, going ou
 === kitchen
 narration | time=+10: The bowl.
 paranoia: Rule five.
-> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentytwo
-> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentytwo | flag=bowl_door
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyfive
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyfive | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
 
 === kitchen_door
@@ -71,7 +71,7 @@ narration | time=+20 | show=bedroom: You lie down. Midnight. Christmas.
 
 === night_dog
 -> night_dog_door | if=flag:bowl_door
--> night_dog_fed | if=flag:fed_twentytwo
+-> night_dog_fed | if=flag:fed_twentyfive
 -> night_dog_unfed
 
 === night_dog_fed

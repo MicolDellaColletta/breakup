@@ -49,7 +49,7 @@ narration: She cries. Not prettily. The way people cry who haven't for eleven ye
 -> evening_forgiven
 
 === evening_keys_back
-narration | flag=keys_returned: She takes her hand off the keys. She pushes them the rest of the way across the table, into yours.
+narration | flag=keys_returned | unflag=ruth_has_keys: She takes her hand off the keys. She pushes them the rest of the way across the table, into yours.
 ruth: Take them. Take them before I change my mind. I always change my mind.
 -> evening_forgiven
 

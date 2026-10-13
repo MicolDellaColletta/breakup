@@ -6,7 +6,7 @@
 # See VISITS in scripts/counter.gd. Design: docs/february.md.
 
 === morning
-narration | time=07:30: Friday, the eleventh. Eight weeks. On the hall door up the road, a column of numbers painted in white, nine at the top, crossed out, then eight.
+narration | time=07:30: Friday, the eleventh. Ten weeks, tomorrow. On the hall door up the road, a column of numbers painted in white, eleven at the top, crossed out, then ten, painted a day early.
 narration: Friday. Nobody eats. No smoke from the bakery chimney. The Gleaner's sign off at noon.
 narration | if=flag:let_goat_in: On your step, a clump of white hair, caught on the boot scraper. The goat's been back in the night.
 -> opening
@@ -25,7 +25,7 @@ narration: At one o'clock the man in the good coat comes down the road and untie
 # --- Ruth's note. ---
 
 === note_enters
-narration | time=+240: Five o'clock. Dark. Under the door, a beer mat, the Gleaner's, written on in pencil on the back.
+narration | time=17:00: Five o'clock. The light going blue. Under the door, a beer mat, the Gleaner's, written on in pencil on the back.
 narration: "Come after. Back door. I'm closed. R."
 narration | if=faithless:ruth: You turn it over twice. She hasn't written to you since the freezer. She hasn't looked at you.
 paranoia: Fasting night. The whole town home in the dark, not eating. And Ruth, alone in a shut bar.
@@ -33,5 +33,5 @@ paranoia: Fasting night. The whole town home in the dark, not eating. And Ruth, 
 # --- Closing. ---
 
 === closing
-narration | time=17:40: Twenty to six, and the light only just going. You turn the sign. CLOSED.
+narration | time=17:40: Twenty to six, and the last of the light gone. You turn the sign. CLOSED.
 narration: Up the road, the Gleaner dark, all but the back. Not the red window. The kitchen, a yellow light, one bulb.

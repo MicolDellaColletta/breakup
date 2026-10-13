@@ -33,8 +33,8 @@ narration | if=flag:reverend_in_back_room: In the silence, through the floor, fr
 === kitchen
 narration | time=+10: The bowl.
 paranoia: Rule five.
-> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twenty
-> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twenty | flag=bowl_door
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyone
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyone | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
 
 === kitchen_door
@@ -81,7 +81,7 @@ narration | time=+20 | show=bedroom: You lie down. Eleven.
 
 === night_dog
 -> night_dog_door | if=flag:bowl_door
--> night_dog_fed | if=flag:fed_twenty
+-> night_dog_fed | if=flag:fed_twentyone
 -> night_dog_unfed
 
 === night_dog_fed

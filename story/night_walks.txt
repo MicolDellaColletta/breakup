@@ -160,6 +160,9 @@ narration | take=revolver | unflag=gun_furnace: Behind the furnace, on the ledge
 === take_gun_freezer
 narration | take=revolver | unflag=gun_freezer: Behind the freezer. Cold as the lid. Your fingers stick to it for a second.
 
+=== take_gun_dresser
+narration | take=revolver | unflag=gun_dresser: The bottom drawer. Behind the bulletin and the rental papers, the red-and-black flannel, folded the way you left it. The weight in it. You unwrap it on the bed.
+
 === take_gun_floorboard
 narration | take=revolver | unflag=gun_floorboard: The loose board. The towel. Still there. Of course it's still there. Nobody knows about the board.
 

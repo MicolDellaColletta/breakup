@@ -37,8 +37,8 @@ narration: You leave it off. The silence in the apartment is exactly the same as
 === kitchen
 narration | time=+10: The bowl.
 paranoia: Rule five.
-> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentysix
-> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentysix | flag=bowl_door
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_thirty
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_thirty | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
 
 === kitchen_door
@@ -80,7 +80,7 @@ narration | time=+20 | show=bedroom: You lie down. Midnight.
 
 === night_dog
 -> night_dog_door | if=flag:bowl_door
--> night_dog_fed | if=flag:fed_twentysix
+-> night_dog_fed | if=flag:fed_thirty
 -> night_dog_unfed
 
 === night_dog_fed

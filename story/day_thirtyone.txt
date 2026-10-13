@@ -5,7 +5,7 @@
 # the door. See VISITS in scripts/counter.gd. Design: docs/february.md.
 
 === morning
-narration | time=07:30: Saturday, the fifth of February. Light at nine. Dark after five. Nine weeks, the radio says, and says it again, as if you might not have heard.
+narration | time=07:30: Saturday, the fifth of February. Light at nine. Dark after five. Eleven weeks, the radio says, and says it again, as if you might not have heard.
 narration: Sunday's sermon, repeated: the second goat. "Who goes out into the wilderness carrying all of it, friends. All of it. And is never asked to come back."
 narration: Up on the hill, against the white sky, the pine thing on the tower stump is finished. A tall post. A crosspiece near the top. An iron ring, bolted through.
 paranoia: A bell frame. For a new bell. They'll hang a new bell.
@@ -61,7 +61,7 @@ narration | sound=bell: She knocks twice on the frame. The bell.
 # --- The goat. ---
 
 === goat_enters
-narration | time=+120: Three o'clock. The light going.
+narration | time=15:00: Three o'clock. The light going.
 narration: At the door, outside, on the step: the goat. White, the red rope round its neck, the end trailing in the snow. Nobody holding it.
 narration: It doesn't knock. It doesn't bleat. It stands with its face to the glass, its strange flat eyes on you, and waits.
 narration: Across the road, the children who lead it round the town every afternoon, in a row, holding hands, waiting too.

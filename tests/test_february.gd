@@ -205,7 +205,7 @@ func _lights(weigh: String, booth: String, hide: String) -> void:
 	await pick(column, weigh)
 	_route(column)
 	await wait(0.7)
-	check(gs.flags.has("weighed") == weigh.begins_with("Step"), "the scale: %s" % weigh)
+	check(gs.flags.has("weighed_hall") == weigh.begins_with("Step"), "the scale: %s" % weigh)
 	visit.click("hall_scale_book")
 	_route(column)
 	await wait(0.2)

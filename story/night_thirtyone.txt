@@ -17,7 +17,7 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. "Nine weeks, friends. Nine. The ice is two feet and a half off the point. Sam Wakeman's ice, they call it." A laugh in the room behind him. "And every week it's ready, it's a week closer to being ready to let go."
+narration | sound=click: Him. "Eleven weeks, friends. Eleven. The ice is two feet and a half off the point. Sam Wakeman's ice, they call it." A laugh in the room behind him. "And every week it's ready, it's a week closer to being ready to let go."
 
 === radio_off
 narration: You leave it off. Through the wall: nine. You hear the number through the wall. Just the number.
@@ -88,7 +88,7 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 
 === morning_after
 narration | time=07:30: Sunday.
-narration | if=flag:saw_coat_up: The coat, back as it was. Collar down. You stand in front of it a while.
+narration | if=flag:saw_coat_up and flag:coat_in_shop: The coat, back as it was. Collar down. You stand in front of it a while.
 
 # --- Something out of place (docs/nights.md). ---
 
