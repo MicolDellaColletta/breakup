@@ -128,5 +128,8 @@ func _title_with_saves() -> void:
 	await wait(0.3)
 	check(current_scene.name == "Title" and title.get_node("%NewGameButton").text.begins_with("Start over?"), "with a save there, New Game asks before replacing it")
 	var script: GDScript = load("res://scripts/title.gd")
-	check(script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": 16}}), "a save on the last card is the end: no Continue")
-	check(not script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": 15}}) and not script.at_the_end({"scene": "res://scenes/night.tscn", "state": {"day": 15}}), "any other save can be continued")
+	# The last bridge in the table is the end of what's written; the one before leads on.
+	var last: int = gs.BRIDGES.keys().max()
+	var earlier: int = gs.BRIDGES.keys().filter(func(d: int) -> bool: return d < last).max()
+	check(script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": last}}), "a save on the last card is the end: no Continue")
+	check(not script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": earlier}}) and not script.at_the_end({"scene": "res://scenes/night.tscn", "state": {"day": earlier}}), "any other save can be continued")
