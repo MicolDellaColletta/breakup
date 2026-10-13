@@ -17,6 +17,12 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
    from the start (and fullscreen as a setting), with the layout scaling to
    fill it. Check every scene at the new size: the drive, the apartment, the
    map, the counter (wide and narrow), the nights, the menus.
+   **Done (Oct 13):** the window opens 16:9 at 85% of the screen, centred
+   (1600x900 if the screen can't be read); turning fullscreen off returns
+   to that size. The layout stays 1152x648 and scales (`canvas_items`), so
+   it's sharp at any size. Checked every scene at 1920x1080 and 2560x1080:
+   fine; on ultrawide the drawn rooms stretch a little sideways (hotspots
+   stay aligned). Later, with real art: decide letterbox or wider paintings.
 
 3. **Unreliable narration.** The idea, for every narration line from here on
    (the full rewrite comes later, once everything's written, and the
