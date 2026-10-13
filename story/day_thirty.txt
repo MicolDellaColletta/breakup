@@ -1,0 +1,98 @@
+# KEY DAY 30: Sunday, January 23, 2000. The confession.
+# A walk-around day (scenes/visit.tscn): the church hall after the service
+# (the church is a ruin), a queue down the hall to a booth built of two doors
+# and a curtain. The town's eye shows on faces for the
+# first time (who nods to MC). Spots in spots.cfg (if=day==26): the people
+# in the queue, the booth (go in: a small true thing, the John night, or
+# nothing), or walk out. end=night. Design: docs/january.md.
+
+=== morning
+narration | time=09:30: Sunday, the twenty-third. Light at twenty past nine. Sunset after half past four. Every day a little longer, and every day the radio counts down instead of up.
+narration | time=10:00 | show=hall: The church hall, the part that didn't burn. Full. Benches in rows where the long tables were at Thanksgiving. A lectern made of crates, and above it, through the big window, the ruin on the hill and the new pine thing on top of the tower stump.
+narration: He reads the lesson from the lectern. Leviticus 16. Every Sunday now. The congregation says the last line with him, without being asked.
+narration: Then, after the blessing, nobody leaves. Not barred doors this time. A queue. It forms along the side of the hall, quietly, in coats, to the corner where they've built a booth out of two old doors and a curtain. He's going to hear confessions.
+narration: You walk up the aisle to find the end of it. Every head in the pews turns as you pass.
+-> faces_kind | if=eye<2
+-> faces_some | if=eye<4
+-> faces_none
+
+=== faces_kind
+narration: They nod. Almost all of them. The way you'd nod to someone who's been ill and is up again. Mr. Pruitt touches his hat. A child waves.
+-> queue_start
+
+=== faces_some
+narration: The old women nod. Mrs. Hollis nods. The men look at the hymn boards. A mother moves her child's hand off the end of the pew as you go by.
+-> queue_start
+
+=== faces_none
+narration: Nobody nods. Not one. They look at you the way you'd look at weather coming. Only Mrs. Hollis, at the very end, nods once, looking at the floor while she does it.
+-> queue_start
+
+=== queue_start
+narration: You stand at the end of the queue. It moves very slowly. Everyone in it is very quiet. You can hear, faintly, from the end of the passage, the murmur of one voice, and then the other.
+narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel: Somebody touches your sleeve. "Like the other night," they say, smiling, "walking home after the booth." Then they're gone up the line. You haven't been to the booth. It's tonight. It hasn't happened yet.
+
+# --- The queue. ---
+
+=== queue_widow
+narration: Mrs. Hollis, three ahead of you, in her best coat, the brooch.
+widow: I gave him Ray's teeth, did I tell you? For the jar. I've never felt so light.
+widow: I don't know what I'll confess. I've nothing left. That's the strange part. I've been carrying something forty years and I put it down at Christmas and I can't remember what it was.
+narration | if=flag:picks_for_place: Under her coat, two wooden handles knock together when she moves.
+
+=== queue_ezra
+narration: Ezra, at the front, at the booth door, his hand on it. Waiting for the one inside to come out.
+narration: His hand on the door is shaking. Ezra Lund, who barred the church on the Reverend without a tremor. You watch it shake.
+narration | if=flag:kept_teeth_jar: He sees you. "Every child," he says. "All but the shop's." He doesn't say it angrily. He says it like a sum that won't come out.
+narration | if=flag:lied_in_church: Behind him, Mrs. Lund. The woman who asked if the Reverend helped you. She looks at you the whole time you're in the queue, and doesn't look away when you look back.
+
+=== queue_ruth
+-> queue_ruth_closed | if=faithless:ruth
+-> queue_ruth_open
+
+=== queue_ruth_open
+narration: Ruth, in the queue, ahead of you, her coat buttoned to the throat.
+narration: She sees you. She stays in line a moment longer. Then she steps out of it, and walks back down the aisle, past everyone, and stands beside you instead, at the very end, as if that's where she'd been all along.
+ruth: I don't have anything to tell him he doesn't know.
+narration | if=flag:ruth_saw_father: Her father's scarf. She keeps one hand on it.
+
+=== queue_ruth_closed
+narration: Ruth, near the front. She goes into the booth before you're halfway. When she comes out, her face is washed, as if she'd been crying, or as if she hadn't, and had splashed water on it so nobody could tell either way. She walks past you without looking.
+
+# --- The booth, or not. ---
+
+=== booth_confession
+narration | show=booth: Your turn. The curtain. Inside, two chairs, scorched, knee to knee: the ones from the ruin. He's in one.
+daniel: Sit down. You don't have to say anything. Most of them don't, for the first minute.
+narration: You sit. He waits. He's very good at waiting.
+> Tell him a small true thing. -> confess_small | lean=warmth
+> Tell him about the John night. -> confess_john | flag=offered_john_night | lean=unknown
+> Say nothing. -> confess_nothing | lean=animal
+
+=== confess_small
+narration: You tell him something small. The candle you lit again when nobody was looking. The coat you touched, on its hook, when you thought you were alone. A lie you told as John that didn't matter to anyone.
+narration: He listens. When you're done, he says it back to you. Exactly. Word for word, in your rhythm. Then nothing else.
+daniel: Thank you. Go home.
+-> booth_after
+
+=== confess_john
+narration: You open your mouth to tell him. The motel, the parking lot, the doorway, whichever it was. The empty chamber.
+narration: He holds up one hand. Gently. Not to stop you. To ask you to wait.
+daniel: Not yet. That one I'll want in March.
+daniel: Keep it warm.
+-> booth_after
+
+=== confess_nothing
+narration: You say nothing. He says nothing. The booth is very quiet. Through the wall, the queue shuffles.
+narration: After a long time he nods, as if you'd said something he agreed with.
+daniel: Yes. That's most of it, isn't it.
+-> booth_after
+
+=== booth_after
+narration | end=night | time=16:40: You walk home in the dusk at twenty to five. Behind you, in the hall, the queue still running down the side wall, all the way out the door into the snow.
+
+=== walk_out
+narration: You step out of the queue. You walk back down the aisle, past them all, to the door.
+narration | eye=+1: Every head turns again. The second time is worse.
+narration: Through the gap in the booth's curtain, at the end of the hall, behind you, he sees. He doesn't mind. Through the glass you see his mouth make two words you know: "It'll keep."
+narration | end=night | time=12:30: Outside, the snow. The longest walk home you've ever had, a quarter of a mile.

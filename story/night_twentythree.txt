@@ -1,33 +1,30 @@
-# THE TWENTY-THIRD NIGHT: New Year's, after midnight. January 1, 2000.
-# Same format as the other nights, but short and late. The radio: him, with
-# the new date. Out of place: the calendar on the wall already turned to
-# January, every Saturday crossed out but one in April (odd_calendar).
-# Design: docs/december.md.
+# THE TWENTY-THIRD NIGHT: Friday, December 17. After the ruling.
+# Same format as the other nights. The radio back, from the Gleaner's back
+# room, on the transmitter Ezra carried out of the fire: him. Out of place: a
+# red thread tied on the bedroom door handle (odd_door).
+# Design: docs/december_revised.md.
 
 === arrival
-narration | sound=stairs: Up the stairs, after one in the morning.
-narration | stop=stairs: The apartment. 2000. It looks exactly the same. You don't know what you expected.
-narration | if=flag:new_year_ruth: Whisky on your mouth, and hers. "Stay." You came home anyway. You'll go back. You both know you'll go back.
-narration | if=flag:new_year_sam: Your initials in his notebook, by flashlight. Midnight, 1/1/00. A note, heard by two.
-narration | if=flag:new_year_daniel: The receiver's still off the hook downstairs. You left it. You can hear him, very faintly, through the floor, breathing, keeping you company.
-narration | if=flag:new_year_alone: The phone, silent, in its cradle downstairs. Four words, and you didn't answer them.
-paranoia: The rules. Even now. Especially now.
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment. The smell of smoke's gone out of it at last. You miss it, almost. It was honest.
+narration | if=flag:told_olstad_fire: You told her. Out loud. With him six feet away. Your heart's still going like you've been running.
+narration | if=flag:backed_doctor: "The stove. The doctor said." You hear it in your own voice, on the stairs, over and over.
+narration | if=flag:wears_thread: The thread on your wrist. Tight. You keep turning it with your other thumb.
+paranoia: The rules.
 
 === radio
-narration | time=+10: The radio. One in the morning.
+narration | time=+10: The radio. Friday.
 paranoia: Rule seven.
 > Turn it on -> radio_on | flag=radio_on
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. Not reading. Talking, the way you'd talk to someone in the same room.
-narration: "It didn't end, friends. I know. I know you're disappointed. I'm disappointed with you."
-narration: "But the Lord isn't late. The Lord is waiting. For the ice. For the spring. For the offering. And so will we."
-narration: "Breakup, friends. That's the day. When the ice goes out."
-paranoia: Breakup. April. He's given them a date. He's given them a date with your name on it.
+narration | sound=click: Not static. Him. Close to the microphone, the sound of a different room around him: a bar's back room, a jukebox through a wall.
+narration: "Friends. Ezra carried the transmitter out of the fire on Wednesday night, in his arms. He burned his hands doing it. So we can keep each other company still."
+narration: "Elias is with the Lord. The doctor has written it down. I'd ask you not to talk about the fire. Talking keeps a fire alive."
 
 === radio_off
-narration: You leave it off. Through the wall, the neighbor's radio, his voice, a long time, calm. You hear one word clearly, the way you'd hear your own name across a room. "Breakup."
+narration: You leave it off. Through the wall, the neighbour's radio, his voice. It's back. You don't know how you know that's worse.
 
 === kitchen
 narration | time=+10: The bowl.
@@ -46,7 +43,7 @@ narration: The kibble rattles. On the line.
 narration: You roll the sack shut.
 
 === windows
-narration | time=+10: The front windows. The candles out, all of them, all the way up the road. Somebody went along at midnight and pinched them.
+narration | time=+10: The front windows. Grey snow. Every window on the road lit.
 paranoia: Rule one.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
@@ -55,7 +52,7 @@ paranoia: Rule one.
 narration | sound=latch: Latched.
 
 === windows_open
-narration: Cold. Quiet. The first quiet of the year. Out on the lake, a light, low, moving, where the tripod is.
+narration: Cold. Up the road, at the Gleaner, the back window lit red, the way a darkroom is.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
@@ -70,7 +67,7 @@ narration: You leave it.
 narration | sound=latch: The key turns.
 
 === sleep
-narration | time=+20 | show=bedroom: You lie down. Two in the morning. The first night of the year.
+narration | time=+20 | show=bedroom: You lie down. Eleven.
 -> night_dog
 
 === night_dog
@@ -80,7 +77,7 @@ narration | time=+20 | show=bedroom: You lie down. Two in the morning. The first
 
 === night_dog_fed
 narration | show=bedroom: Facing the door.
-narration | sound=stairs: Three o'clock. The stairs. One and then the other. The same as last year.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
 narration | stop=stairs: The kitchen. Then down.
 -> morning_after
 
@@ -90,17 +87,18 @@ narration | show=bedroom: Facing the door. Nothing comes up.
 
 === night_dog_door
 narration | show=bedroom: Facing the door.
-narration: Three o'clock. The back door. In the morning, the bowl is clean.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
 -> morning_after
 
 === morning_after
-narration | time=08:00: January the first. Saturday.
-narration | if=flag:saw_calendar: The calendar on the wall. January, and the crosses, and the one Saturday in April with nothing on it.
+narration | time=07:30: Saturday.
+narration | if=flag:saw_door_thread: The thread on the door handle, gone in the morning. A little grey ash on the floor below it.
 
 # --- Something out of place (docs/nights.md). ---
 
-=== odd_calendar
-narration | time=+5: The calendar on the wall. You turned it to December on the first. It's on January now.
-narration | flag=saw_calendar: And somebody's been through it. Every Saturday, January to April, crossed out, neatly, in pencil. Every one but one. A Saturday in April, the twenty-second, left alone, with nothing written on it.
-paranoia: Breakup. That's the day. They've picked the day.
-narration: You didn't turn the page. You're almost sure you didn't. You turn it back to December. It falls open at January again.
+=== odd_door
+narration | time=+5: The bedroom door handle.
+narration | if=!flag:wears_thread | flag=saw_door_thread: A loop of red wool tied round it. Knotted twice, the way Ezra knots his.
+narration | if=flag:wears_thread | flag=saw_door_thread: A loop of red wool tied round it. Like yours. You check your wrist. Yours is there. This is another.
+paranoia: Mrs. Hollis was up here, with the bandages. She'd do that. She'd think it was kind.
+narration: She was never in the bedroom. You're almost sure.

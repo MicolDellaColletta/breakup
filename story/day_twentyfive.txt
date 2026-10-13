@@ -1,112 +1,149 @@
-# KEY DAY 25: Saturday, January 15, 2000. Walt comes back.
-# Same format as the other counter days: Walt, for his wife's name or her
-# silver dollars (kept faith, Walt); Cody, if he's alive, or Mrs. Hollis, for
-# the picks for his place, if he went through. Then a walked evening
-# (story/evening_twentyfive.txt): the Reverend moved, or taken, if he's
-# hidden. See VISITS in scripts/counter.gd. Design: docs/january.md.
+# KEY DAY 25: Friday, December 24, 1999. Christmas Eve. Midnight Mass.
+# A walk-around day (scenes/visit.tscn). The shop, shut, in the afternoon;
+# where MC spends the evening is a spot (spots.cfg, if=day==25): Mrs.
+# Hollis's table, the Gleaner, or the shop alone. From the first two, at
+# midnight, the whole town goes up to Midnight Mass in the ruins of the
+# church (communion: take it or not); after it, with Daniel's first door
+# open, two chairs left standing in the ash where the booth was: his second
+# door. Alone, the Mass comes over the radio. end=night.
+# Design: docs/december_revised.md.
 
 === morning
-narration | time=07:30: Saturday, the fifteenth. Light at a quarter to ten now. Forty minutes more than the shortest day. The radio counts it like money.
-narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel | write=One coat. Held.: The ledger, open on the counter. The last line in your handwriting: One coat. Held. You don't remember writing it. You don't remember a coat coming in.
-narration | if=flag:reverend_hidden: Ezra was at the back door again yesterday. Polite. He looked at the steel door a long time. He said, "It's cold for anyone to be out, this week."
--> opening
+narration | time=09:00: Christmas Eve. The fourth candle.
+narration | if=flag:ruth_saw_father: No envelope from the Gleaner this week, no glass, no Ruth. On the bar, they say, a scarf, folded, by the till. She serves with her coat on.
+narration | if=flag:power_sign: People nod to you in the road. More than nod. Mr. Pruitt shakes your hand. "Kept your light on," he says. "The longest night."
+narration | show=shop | time=14:00: The shop, shut for Christmas Eve, the sign turned. Four candles in the window. The light going at half past three.
+narration: Under the door, cards. One from every house on the road, it looks like. Unsigned, every one. A robin. A church in snow, whole. A man in a long brown coat, walking out onto a white field, and the inside blank.
+narration: And a printed sheet, the school machine's smudged type: MIDNIGHT MASS. AT THE CHURCH. BRING A CANDLE. As if there still were one.
+narration | if=doors:daniel>=1: And one that isn't a card. A plain sheet, folded once. A careful hand: "After the Mass, stay. Nobody else will. D."
+paranoia: Where do you go tonight. Where does a man like you go on Christmas Eve.
 
-=== opening
-narration | time=09:00: You turn the sign. OPEN.
+# --- Mrs. Hollis's table. ---
 
-# --- Walt. ---
+=== hollis_table
+narration | show=hollis_kitchen | time=18:00: Mrs. Hollis's kitchen. The table laid for three. Her, you, and Ray's chair.
+narration | if=flag:place_duck_call: On Ray's plate, the duck call, laid across it like a knife.
+narration | if=flag:place_jacket: Over Ray's chair, the hunting jacket, R. HOLLIS in the collar, the shoulders set.
+narration | if=flag:place_bare: Ray's plate, bare. A glass of water with a skin of ice on it. In her warm kitchen.
+narration: Ham. Potatoes. A pudding she set on fire with the lights off and the three of you watched it burn blue.
+narration: Behind the kitchen door, on a hanger, something long and brown. The coat. Finished. The hem done.
+widow | if=flag:wore_coat: It's ready. It'll be ready for you whenever you want it. It fits. You saw it fit.
+widow | if=flag:refused_fitting: It's ready. We had your measurements. It'll keep. Things keep, up here.
+widow | if=!flag:wore_coat and !flag:refused_fitting: It's ready. It's been ready a long time. It was always going to be ready.
+narration: She holds your hand across the table during grace. Her hand is dry and warm and very strong.
+widow: For the ones at table. And the ones not.
+narration: She doesn't say your name. She's never once said it. At half past eleven she puts on her coat and hands you a candle.
+widow: Come on. Everybody's going up.
+-> mass
 
-=== seller_enters
-narration | sound=bell | time=+90: The bell. An old man in a good coat, the coat too big for him now. Walt Pruitt. He stands just inside the door the way he did in October, as if no time had passed, and looks around for something he can't name.
--> walt_name | if=flag:ida_pawned
--> walt_dollars | if=held:silver_dollars
--> walt_thanks
+# --- The Gleaner. ---
 
-=== walt_name
-seller: I can't say her name.
-seller: I've been trying since October. In the kitchen. Out loud. It gets to my mouth and stops, like a bird at a window.
-seller: You've got it. On a ticket. I'd like it back. I don't have the money. I don't think there was any money.
-narration: The stub on the back shelf, standing on its empty patch. One name, in your handwriting, the ink gone brown.
-paranoia: Rule six said don't take it. You took it. Nothing in the letter says what you do now.
-> Tear up the ticket. Give it back. -> walt_name_back | keep=walt | flag=ida_returned | lean=warmth
-> "I can't. It's the rules." -> walt_name_kept | betray=walt | lean=paranoia
+=== gleaner
+narration | show=gleaner | time=20:00: The Gleaner. Full. The jukebox playing carols nobody chose. Tinsel on everything.
+narration: Tinsel on the wall of faces. The Keepers, all of them, ten years of Polaroids, each one with a strand of silver round its frame, like a little halo.
+-> gleaner_cold | if=faithless:ruth
+-> gleaner_warm
 
-=== walt_name_back
-narration | redeemed=name_ida: You take the stub off the shelf and tear it in half in front of him, and in half again, and put the pieces in his hand.
-narration: He holds them. He closes his hand on them.
-seller: Ida.
-narration: He says it to the shop, to the shelves, to the bear. The first time since October. His face does something you'll remember for the rest of your life.
-seller: Ida. Ida. Ida.
--> walt_after_name
+=== gleaner_warm
+narration: Ruth behind the bar in a paper crown somebody put on her. She pours you one without asking and pushes it across.
+narration | if=flag:ruth_saw_father: She has her father's scarf on. She doesn't say anything about it. She doesn't have to.
+narration | if=flag:took_envelope: When the bar thins out she reaches under the till and puts an envelope on the bar in front of you. Yours. The one you took off her wall in November. Empty.
+ruth | if=flag:took_envelope: I made another one. I always make another one. I just thought you should have the first.
+narration | if=!flag:took_envelope: On the wall, at the end of the row, your face, with tinsel round it. You don't remember the picture being taken.
+ruth: Merry Christmas. Stay till close. Stay after, if you like. Nobody'll say anything.
+narration: At half past eleven she turns the lights off with everybody still in the bar, and lights a candle off the last one on the counter, and hands it to you.
+ruth: Up the hill. Everybody. Him too, I suppose. Come on.
+-> mass
 
-=== walt_name_kept
-narration: He nods. He doesn't argue. He was never going to argue.
-seller: No. No, I suppose not.
-narration | sound=bell: He goes out without his hat. You don't call after him. It stays on the counter all day, and nobody comes back for it.
+=== gleaner_cold
+narration: Ruth behind the bar. She serves you. She doesn't look at you while she does it.
+narration: On the wall, at the end of the row, your face. With tinsel round it. Somebody's drawn the face in by hand, over the Polaroid, in pencil, very carefully. Your face, but the way they'd want it.
+narration: You leave your drink. At half past eleven the whole bar gets up as one, and takes candles from a box by the door, and goes out. Somebody puts one in your hand on the way.
+-> mass
 
-=== walt_after_name
--> walt_dollars | if=held:silver_dollars
--> walt_name_goes
+# --- The shop alone, with the radio. ---
 
-=== walt_name_goes
-narration | sound=bell: He goes out still saying it, quietly, all the way up the road.
+=== shop_alone
+narration | time=19:00: You stay in. You turn the radio on, low, and sit in the armchair facing the door.
+narration: At midnight, through the window, the town going up the hill with candles, a long slow line of little lights, to the black shape where the church was. And on the radio, from up there, from a microphone in the snow: him, reading. The Christmas story, to the town. The decree that all the world should be taxed. Everyone going to his own city. Joseph, and Mary, great with child.
+daniel: And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger. Because there was no room for them in the inn.
+narration: He stops there. A long pause. The sound of him breathing near the microphone.
+daniel: No room. Think of that, friends. Everybody had a room but the one who mattered.
+narration | end=night | time=01:00: Then the hymn. You sit in the dark, in the armchair, facing the door, through the whole of it. Nobody knocks.
 
-=== walt_dollars
-seller: And the coins. Her dollars. I'd like those too, if I could. I can't pay the loan. I spent it on the stove. I'm sorry.
-narration: The roll of silver dollars, on the back shelf. You pick it up.
-narration: It's warm. Still. Three months on a cold shelf, and it's as warm as the morning he brought it in.
-> Give them back. No charge. -> walt_dollars_back | keep=walt | lean=warmth
-> "The loan first, Walt. That's how it works." -> walt_dollars_kept | lean=appraisal
+# --- Midnight Mass, in the ruins. ---
 
-=== walt_dollars_back
-narration | redeemed=silver_dollars: You put the roll in his hands. He closes them around it.
-seller: Still warm. She always kept them in her apron pocket. They were always warm.
-narration | sound=bell: He goes out with the roll held against his chest like something alive.
+=== mass
+narration | show=ruins | time=23:50: The church. What's left of it. Black ribs of the roof against the stars. The tower a stump. The snow inside the walls trodden flat by a hundred people, and in it, a hundred candles, stuck in the snow, burning straight up. No wind. Not a breath.
+narration: Everyone. Every wrist with its red thread, in the candlelight, like a cut.
+narration: At the altar, the altar stone, black, cracked across, he stands in his shirtsleeves with a candle in each hand, and waits until it's exactly midnight. He doesn't look at a watch. He knows.
+daniel: Unto us a child is born. Unto us a son is given.
+daniel: And the people that walked in darkness have seen a great light. You saw it, friends. On Wednesday night. You all saw it.
+narration: Nobody moves. Then Mrs. Hollis says "Amen," very quietly, and then everybody does.
+narration | if=flag:wears_thread: Somebody takes your wrist in the dark and turns it to the light, to see the thread, and lets go, satisfied.
+narration: Communion. Bread, and a cup, passed down the rows hand to hand. It's coming to you. The wine black in the candlelight.
+narration | if=flag:sam_pie_note: Sam's note, a month ago, underlined twice. Don't eat.
+> Take it -> mass_take | flag=took_communion | eye=-1 | lean=warmth
+> Pass it on -> mass_pass | flag=refused_communion | eye=+1 | lean=paranoia
 
-=== walt_dollars_kept
-narration: He nods. He knew.
-seller: Of course. Of course. It's a shop.
-narration | sound=bell: He goes. On the shelf, the roll goes cold under your hand for the first time since October. As if it had stopped waiting.
+=== mass_take
+narration: You eat. You drink. It's sweet, and thick, and there's something under the sweetness, something like cloves.
+narration: The woman beside you squeezes your hand, hard, and lets go. Across the ruin, he's watching. He closes his eyes, like a man hearing a note he wanted.
+-> mass_after
 
-=== walt_thanks
-seller: I don't know why I came. I wanted to say thank you. For something in October. I can't remember what.
-narration: You know. You turned him away, with the coins and with her name. Gently.
-seller: She'd have liked you. Ida. That's her name. I can still say it. Some can't. Ezra's wife can't say her boy's.
-narration | sound=bell: He goes. You stand there with her name in the air of the shop, said out loud, the way it should be.
+=== mass_pass
+narration: You pass it on. The man next to you takes it from your hands without looking at you, and drinks, and passes it on.
+narration: But they saw. A hundred candles, and every face in the light of them, and every one of them saw.
+-> mass_after
 
-# --- Cody, or Cody's place. ---
+=== mass_after
+narration: The last hymn. Silent Night, slow. A hundred people singing it in the ruin of their church, with ash under their boots, happier than you've ever seen them.
+-> booth | if=doors:daniel>=1
+-> mass_home
 
-=== nephew_enters
-narration | sound=bell | time=+90: The bell. Cody Hollis, wind-burned, the picks round his neck, smelling of fish and the stove in his shanty.
-nephew: Ice is three foot. More. You could drive a truck to Fairbanks on it.
-narration: He sits on the stool by the stove without asking, holding his hands to it.
-nephew: Something knocked. Under the ice. Where I was fishing. Thursday.
-nephew: Three times. Like knuckles on a door. Then nothing. Then three more, further off. Like whoever it was had moved along to the next house.
-paranoia: A fish. A pressure crack. The ice talks. Everybody says the ice talks.
-nephew: I didn't open the hole again. I just sat there. I sat there a long time, being home.
-narration | sound=bell: He goes. On the stool, a wet ring from his coat, slowly drying.
+=== mass_home
+narration | end=night | time=01:00: The town goes down the hill with its candles. You go with them. At the bottom, one by one, they blow them out.
 
-=== widow_enters
-narration | sound=bell | time=+90: The bell. Mrs. Hollis. She doesn't bring a dish.
-widow: The picks. Cody's. Ray's. You kept them for him, in October.
-widow: I'd like them. For his place at the table. I set it every night. He'll want them now. He'll be cold, where he is.
-narration: The picks, on the shelf where you put them in October. R.H. on each handle.
-paranoia: Ray traded them. Cody never got them back. And now his place at the table, every night.
-> Give them to her. -> widow_picks_given | keep=hollis | flag=picks_for_place | lean=warmth
-> "They're spoken for." -> widow_picks_kept | lean=paranoia
+# --- After the Mass: two chairs in the ash. Daniel's second door. ---
 
-=== widow_picks_given
-narration | redeemed=ice_picks: You put them in her hands. She hangs them round her own neck, under her coat, the cord against her throat.
-widow: There. Now he'll find his way.
-narration | sound=bell: She goes. You hear them knock together under her coat as she walks, two wooden handles, like someone tapping to be let in.
+=== booth
+narration | time=01:30: The town goes down the hill with its candles. You stay. Nobody looks back at you. Nobody needs to.
+narration: Where the vestry was, where the booth was, a black square in the snow. And in it, two chairs. Wooden, scorched, facing each other, knee to knee, still standing. The fire took the walls round them and left them.
+narration: He's in one of them, in his shirtsleeves, the good coat folded on the ash beside him.
+daniel: Sit down. They were the only things in the building that didn't burn. I thought that was a sign. I'm sure it isn't. Sit down anyway.
+narration: You sit. Your knees nearly touch his.
+daniel: The town tells me things in here. I thought tonight I'd tell you some. Is that all right?
+narration: He doesn't wait for you to say.
+daniel: You told Mrs. Hollis your name was John. You signed his name in the ledger. You drove his car, rented to a letter, J., and let them call it yours.
+daniel | if=flag:lied_to_ruth: You lied to Ruth across her own bar, and she knew, and poured you another.
+daniel | if=flag:lied_in_church: You said "No" in church, with the doors barred, in front of me. To keep a man you'd met twice from taking you with him.
+daniel | if=flag:wore_coat: You put your arms in their coat. You let six women button you into it.
+daniel | if=flag:refused_bullet: You told me you don't buy things like that. You've been buying things like that since October.
+daniel | if=flag:took_bullet: You wrote me a ticket for a dollar. You've kept it warm. I know you have.
+daniel: None of that's a sin. I want to be clear. It's a costume. I'm only taking it off you, piece by piece, so we can see what's there.
+narration: And he does. Quietly, in order, every lie, until there's nothing left of John in the booth at all, only the chair, and you in it, and the cold.
+unknown: Let him. Let him. Nobody's ever looked this hard.
+paranoia: Get up. Get up and walk out. He's taking you apart to see how you go together.
+> Stay -> booth_stay | door=daniel | lean=unknown
+> Get up and walk out -> booth_leave | lean=paranoia
 
-=== widow_picks_kept
-narration: She doesn't argue. She looks at the shelf where they are, for a long time, the way you'd look at a grave you weren't allowed to tend.
-widow: Then I'll set his place without them.
-narration | sound=bell: She goes.
+=== booth_stay
+narration: You stay. He looks at you for a long time, as if he's finally seeing something he'd been told about.
+daniel: There you are. Again.
+narration: Then he leans back in his chair, and folds his hands, and it's his turn.
+daniel: Thirty-one. That's the number. I don't round it, and I don't forget any of them. Thirty-two, with John. You'd have been thirty-three.
+daniel: My father was a minister. Kitchen table, Thursday nights, him and the Bible and me, twelve years old. One night I asked him a question and he didn't have the answer, and I watched him decide to lie to me.
+daniel: I've never told one since. Not one. I'd rather do anything else.
+narration: Somewhere down the hill, a candle goes out, and then another, the whole town going to bed.
+daniel: Merry Christmas. Go home. Lock nothing.
+-> booth_home
 
-# --- Closing. ---
+=== booth_leave
+narration: You stand up. Your chair scrapes. He doesn't stop you. He doesn't move at all.
+daniel: That's all right. It'll keep.
+narration: You walk away across the ash. Behind you, he hasn't moved. He's sitting with his hands folded, facing the empty chair, in the middle of the burned church, in the snow.
+-> booth_home
 
-=== closing
-narration | time=16:21: Twenty-one minutes past four. Dark. You turn the sign. CLOSED.
-narration | if=flag:ida_returned: Up the road, through the Gleaner's window, Walt at the bar, and the whole bar raising their glasses to something, and you hear it through the glass: "Ida."
+=== booth_home
+narration | end=night | time=02:30: The walk home, alone, down the hill. Every window dark but yours.
+

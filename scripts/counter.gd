@@ -75,17 +75,25 @@ const VISITS: Dictionary = {
 	16: ["widow", "daniel", "trooper | if=flag:told_olstad_daniel",
 		"sam | if=flag:told_sam_daniel and !flag:told_olstad_daniel",
 		"june | if=!flag:told_olstad_daniel and !flag:told_sam_daniel"],
-	# December: Olstad and the car; the first candle; him at the window, not
-	# coming in. Then Ruth, with your glass, and June, for the window.
-	18: ["trooper", "widow", "window"],
+	# December: Olstad and the car; the first candle; him, for the oldest
+	# Bible. Then Ruth, with your glass, and June, for the window.
+	18: ["trooper", "widow", "daniel"],
 	19: ["ruth", "june"],
+	# The first miracle: the doctor's hands; the watch stopped at nine.
+	20: ["widow", "brekke", "daniel"],
+	# The ruling: the church's things; the doctor; Olstad, with him in the
+	# chair (hard fork 4); Sam, if his doors are open.
+	23: ["ezra", "brekke", "trooper", "sam | if=doors:sam>=1"],
 	# The shortest day: a note if the town's eye is on you; the third candle;
-	# Olstad and the freezer's key.
-	21: ["note | if=eye>=3", "widow", "trooper"],
+	# him, with the red thread; Olstad and the freezer's key.
+	24: ["note | if=eye>=3", "widow", "daniel", "trooper"],
 	# January: the coat; Ruth and the freezer; him, in the customer chair.
 	# Then Walt, and Cody or Mrs. Hollis for his picks.
-	24: ["widow", "ruth", "daniel"],
-	25: ["seller", "nephew | if=flag:gave_picks_back", "widow | if=flag:kept_picks"],
+	# The road still shut: Ezra for the spectacles; him with your groceries
+	# and the cut Bible; Olstad for the spectacles.
+	26: ["ezra", "daniel", "trooper"],
+	28: ["widow", "ruth", "daniel"],
+	29: ["seller", "nephew | if=flag:gave_picks_back", "widow | if=flag:kept_picks"],
 }
 # From the bell to the door opening.
 const CUSTOMER_GAP: float = 0.8

@@ -1,8 +1,7 @@
 # Breakup: December, revised (plan)
 
-A review of December as built (`december.md`), and a plan to rework it
-before building. **Leans** are my recommendations; "Your call" marks the
-decisions.
+A review of December as built (`december.md`), and the rework. **Decided
+Oct 13: all eight leans. Built** (see "As built" at the end).
 
 ## What's missing now
 
@@ -233,3 +232,33 @@ burning, the vestry side door). See above.
 7. **Daniel in every key day**, per the table. Lean: yes.
 8. **Hold the January PR** and build this on top of it, so January's
    follow-ups are fixed in the same pass. Lean: yes.
+
+## As built (Oct 13)
+
+- **Renumbered:** December is key days 18-27, January 28-30 (files renamed
+  to match); the bridge into February is before day 31.
+- **New key days:** 20 (`day_twenty.txt`, Dec 6: the doctor's hands, the
+  watch), 22 (`day_twentytwo.txt`, Dec 15: his question if the Reverend's
+  hidden, then the fire, a walked night: `church_fire` and `vestry_door`),
+  23 (`day_twentythree.txt`, Dec 17: Ezra's box, Brekke's ruling, Olstad
+  with him in the chair: `told_olstad_fire` / `silent_on_fire` /
+  `backed_doctor`, the thread on the step), 26 (`day_twentysix.txt`, Dec 29:
+  the spectacles to Ezra or Olstad, the cut Bible, food for the threaded).
+  Nights 20, 22, 23, 26 (the clock at nine, ash, the thread on the handle,
+  the peaches).
+- **Changed:** Dec 1 he comes in for the Bible; Dec 4 he passes on the shore
+  path; Dec 12 the storm closes the road and turns every escape back
+  (`road_turned_back`); Dec 21 the red thread (`wears_thread`,
+  `refused_thread`); Dec 24 Midnight Mass in the ruins (communion:
+  `took_communion` / `refused_communion`), Daniel's door 2 on the two chairs
+  in the ash; Dec 31 Anchorage waits for the road. Bridges rewritten (the
+  rhyme's tenth line, doors open, ash, the thread spreading, the hall
+  sleepers, the store empty).
+- **January:** the evening of day 29 is Olstad at the ruins with the bolt
+  (`will_testify` / `wont_promise`); day 30's confession is in the church
+  hall, in a booth of two doors and the two scorched chairs.
+- **New:** Dr. Brekke (`brekke`); stock: `father_watch`, `bible_cut`,
+  `spectacles`, `bell_clapper`, `microphone`; item `red_thread`; rooms
+  `church_fire`, `vestry_door`, `ruins`; map evenings for days 20, 23, 26.
+- **Tests:** `test_december.gd` (to the ruling), `test_december_late.gd`
+  (the shortest day to New Year's), `test_january.gd`.

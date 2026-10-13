@@ -1,0 +1,110 @@
+# KEY DAY 29: Saturday, January 15, 2000. Walt comes back.
+# Same format as the other counter days: Walt, for his wife's name or her
+# silver dollars (kept faith, Walt); Cody, if he's alive, or Mrs. Hollis, for
+# the picks for his place, if he went through. Then a walked evening
+# (story/evening_twentynine.txt): Olstad at the ruins, with the vestry bolt. See VISITS in scripts/counter.gd. Design: docs/january.md.
+
+=== morning
+narration | time=07:30: Saturday, the fifteenth. Light at a quarter to ten now. Forty minutes more than the shortest day. The radio counts it like money.
+narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel | write=One coat. Held.: The ledger, open on the counter. The last line in your handwriting: One coat. Held. You don't remember writing it. You don't remember a coat coming in.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN.
+
+# --- Walt. ---
+
+=== seller_enters
+narration | sound=bell | time=+90: The bell. An old man in a good coat, the coat too big for him now. Walt Pruitt. He stands just inside the door the way he did in October, as if no time had passed, and looks around for something he can't name.
+-> walt_name | if=flag:ida_pawned
+-> walt_dollars | if=held:silver_dollars
+-> walt_thanks
+
+=== walt_name
+seller: I can't say her name.
+seller: I've been trying since October. In the kitchen. Out loud. It gets to my mouth and stops, like a bird at a window.
+seller: You've got it. On a ticket. I'd like it back. I don't have the money. I don't think there was any money.
+narration: The stub on the back shelf, standing on its empty patch. One name, in your handwriting, the ink gone brown.
+paranoia: Rule six said don't take it. You took it. Nothing in the letter says what you do now.
+> Tear up the ticket. Give it back. -> walt_name_back | keep=walt | flag=ida_returned | lean=warmth
+> "I can't. It's the rules." -> walt_name_kept | betray=walt | lean=paranoia
+
+=== walt_name_back
+narration | redeemed=name_ida: You take the stub off the shelf and tear it in half in front of him, and in half again, and put the pieces in his hand.
+narration: He holds them. He closes his hand on them.
+seller: Ida.
+narration: He says it to the shop, to the shelves, to the bear. The first time since October. His face does something you'll remember for the rest of your life.
+seller: Ida. Ida. Ida.
+-> walt_after_name
+
+=== walt_name_kept
+narration: He nods. He doesn't argue. He was never going to argue.
+seller: No. No, I suppose not.
+narration | sound=bell: He goes out without his hat. You don't call after him. It stays on the counter all day, and nobody comes back for it.
+
+=== walt_after_name
+-> walt_dollars | if=held:silver_dollars
+-> walt_name_goes
+
+=== walt_name_goes
+narration | sound=bell: He goes out still saying it, quietly, all the way up the road.
+
+=== walt_dollars
+seller: And the coins. Her dollars. I'd like those too, if I could. I can't pay the loan. I spent it on the stove. I'm sorry.
+narration: The roll of silver dollars, on the back shelf. You pick it up.
+narration: It's warm. Still. Three months on a cold shelf, and it's as warm as the morning he brought it in.
+> Give them back. No charge. -> walt_dollars_back | keep=walt | lean=warmth
+> "The loan first, Walt. That's how it works." -> walt_dollars_kept | lean=appraisal
+
+=== walt_dollars_back
+narration | redeemed=silver_dollars: You put the roll in his hands. He closes them around it.
+seller: Still warm. She always kept them in her apron pocket. They were always warm.
+narration | sound=bell: He goes out with the roll held against his chest like something alive.
+
+=== walt_dollars_kept
+narration: He nods. He knew.
+seller: Of course. Of course. It's a shop.
+narration | sound=bell: He goes. On the shelf, the roll goes cold under your hand for the first time since October. As if it had stopped waiting.
+
+=== walt_thanks
+seller: I don't know why I came. I wanted to say thank you. For something in October. I can't remember what.
+narration: You know. You turned him away, with the coins and with her name. Gently.
+seller: She'd have liked you. Ida. That's her name. I can still say it. Some can't. Ezra's wife can't say her boy's.
+narration | sound=bell: He goes. You stand there with her name in the air of the shop, said out loud, the way it should be.
+
+# --- Cody, or Cody's place. ---
+
+=== nephew_enters
+narration | sound=bell | time=+90: The bell. Cody Hollis, wind-burned, the picks round his neck, smelling of fish and the stove in his shanty.
+nephew: Ice is three foot. More. You could drive a truck to Fairbanks on it.
+narration: He sits on the stool by the stove without asking, holding his hands to it.
+nephew: Something knocked. Under the ice. Where I was fishing. Thursday.
+nephew: Three times. Like knuckles on a door. Then nothing. Then three more, further off. Like whoever it was had moved along to the next house.
+paranoia: A fish. A pressure crack. The ice talks. Everybody says the ice talks.
+nephew: I didn't open the hole again. I just sat there. I sat there a long time, being home.
+narration | sound=bell: He goes. On the stool, a wet ring from his coat, slowly drying.
+
+=== widow_enters
+narration | sound=bell | time=+90: The bell. Mrs. Hollis. She doesn't bring a dish.
+widow: The picks. Cody's. Ray's. You kept them for him, in October.
+widow: I'd like them. For his place at the table. I set it every night. He'll want them now. He'll be cold, where he is.
+narration: The picks, on the shelf where you put them in October. R.H. on each handle.
+paranoia: Ray traded them. Cody never got them back. And now his place at the table, every night.
+> Give them to her. -> widow_picks_given | keep=hollis | flag=picks_for_place | lean=warmth
+> "They're spoken for." -> widow_picks_kept | lean=paranoia
+
+=== widow_picks_given
+narration | redeemed=ice_picks: You put them in her hands. She hangs them round her own neck, under her coat, the cord against her throat.
+widow: There. Now he'll find his way.
+narration | sound=bell: She goes. You hear them knock together under her coat as she walks, two wooden handles, like someone tapping to be let in.
+
+=== widow_picks_kept
+narration: She doesn't argue. She looks at the shelf where they are, for a long time, the way you'd look at a grave you weren't allowed to tend.
+widow: Then I'll set his place without them.
+narration | sound=bell: She goes.
+
+# --- Closing. ---
+
+=== closing
+narration | time=16:21: Twenty-one minutes past four. Dark. You turn the sign. CLOSED.
+narration | if=flag:ida_returned: Up the road, through the Gleaner's window, Walt at the bar, and the whole bar raising their glasses to something, and you hear it through the glass: "Ida."

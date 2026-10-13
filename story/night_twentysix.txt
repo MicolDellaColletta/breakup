@@ -1,38 +1,28 @@
-# THE TWENTY-SIXTH NIGHT: Sunday, January 23. After the confessions.
-# Same format as the other nights. The radio silent for an hour after
-# midnight, the first time since October; then him, saying goodnight to the
-# town by name, one by one. MC's name last, or not at all. Out of place: a
-# second toothbrush in the glass in the bathroom (odd_toothbrush).
-# Design: docs/january.md.
+# THE TWENTY-SIXTH NIGHT: Wednesday, December 29. The road still shut.
+# Same format as the other nights. The radio: him, the fed households, then a
+# hymn that goes on too long. Out of place: the tin of peaches from his box,
+# opened, on the kitchen table, a spoon in it (odd_peaches).
+# Design: docs/december_revised.md.
 
 === arrival
 narration | sound=stairs: Up the stairs.
 narration | stop=stairs: The apartment.
-narration | if=flag:offered_john_night: "Keep it warm." You carry it up the stairs like something in your coat.
-narration | if=!flag:offered_john_night: The queue, running down the vestry passage and out into the snow. Everyone in town with something to put down. You, still carrying yours.
-paranoia: The rules.
+narration | if=flag:spectacles_to_olstad: A paper bag inside a trooper's coat, going to Anchorage when the road opens. You keep thinking about the road opening.
+narration | if=flag:spectacles_to_church: His spectacles, in the ground with whatever else they buried. So he can see.
+paranoia: Two more nights in the year. The rules.
 
 === radio
-narration | time=+10: The radio. Sunday.
+narration | time=+10: The radio. Wednesday.
 paranoia: Rule seven.
 > Turn it on -> radio_on | flag=radio_on
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Silence. Not static: an open line, a quiet room, a microphone on. For an hour. You keep it on. The rule says on.
-narration: Then, after midnight, him. Very quietly. Saying goodnight. By name. One at a time. "Goodnight, Mrs. Hollis. Goodnight, Walt. Goodnight, Ruth. Goodnight, Ezra." The whole town, house by house, the way you'd turn off lights.
--> radio_name | if=doors:daniel>=2 or flag:new_year_daniel
--> radio_no_name
-
-=== radio_name
-narration: And last, after a long pause, your name. Your real one. On the radio, into every kitchen in Kettle Lake.
-narration: Nobody in town knows it. Nobody will know whose it is. Only you.
-
-=== radio_no_name
-narration: He goes through all of them. He doesn't say yours. Not John, not the other one. The list just ends, and the line stays open, and he breathes into it, waiting, as if you might say it yourself.
+narration | sound=click: Him, reading the households fed. Then a hymn. Then the hymn again. Then again. The same verse, over and over, for an hour, as if nobody were there to lift the needle.
+narration: At eleven it stops in the middle of a word. Then his voice, very close: "Sorry, friends. I was listening."
 
 === radio_off
-narration: You leave it off. The silence in the apartment is exactly the same as the silence on the radio would have been. You lie awake trying to tell them apart.
+narration: You leave it off. Through the wall, the same verse of a hymn, over and over, for an hour.
 
 === kitchen
 narration | time=+10: The bowl.
@@ -51,7 +41,7 @@ narration: The kibble rattles. On the line.
 narration: You roll the sack shut.
 
 === windows
-narration | time=+10: The front windows.
+narration | time=+10: The front windows. A red thread on almost every door handle on the road. You count the ones without. You can count them on one hand.
 paranoia: Rule one.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
@@ -60,7 +50,7 @@ paranoia: Rule one.
 narration | sound=latch: Latched.
 
 === windows_open
-narration: Cold. Up the hill, the church, and the side door open, and a light in the vestry passage. Still somebody in the queue. At midnight.
+narration: Cold. Up the road, somebody tying a thread on a door handle in the dark. You can't see who. You see the door.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
@@ -75,7 +65,7 @@ narration: You leave it.
 narration | sound=latch: The key turns.
 
 === sleep
-narration | time=+20 | show=bedroom: You lie down. Midnight.
+narration | time=+20 | show=bedroom: You lie down. Eleven.
 -> night_dog
 
 === night_dog
@@ -99,13 +89,13 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 -> morning_after
 
 === morning_after
-narration | time=07:30: Monday.
-narration | if=flag:saw_toothbrush: Two toothbrushes in the glass. You use yours. You don't touch the other. In the evening it's damp.
+narration | time=07:30: Thursday. One more day.
+narration | if=flag:saw_peaches: The tin of peaches, washed, upside down on the drainer. You don't remember washing it.
 
 # --- Something out of place (docs/nights.md). ---
 
-=== odd_toothbrush
-narration | time=+5: The bathroom. The glass on the sink. Your toothbrush.
-narration | flag=saw_toothbrush: And another one. Red. New. The bristles wet.
-paranoia: Mrs. Hollis. She brings things. She'd bring a toothbrush.
-narration: Mrs. Hollis has never been upstairs.
+=== odd_peaches
+narration | time=+5: The kitchen table. The tin of peaches from his box, open, the lid folded back. A spoon standing in it.
+narration | flag=saw_peaches: Half eaten. The syrup still cold. A chair pulled out a little, the way you'd leave it if you'd been called away in the middle.
+paranoia: You ate them. You were hungry. You ate half and forgot.
+narration: You hate peaches. You've always hated peaches.

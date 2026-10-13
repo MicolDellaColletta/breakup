@@ -1,0 +1,152 @@
+# KEY DAY 28: Monday, January 3, 2000. The Disappointment.
+# Same format as the other counter days: Mrs. Hollis brings the coat to hang
+# in the shop; Ruth, and the freezer come due (if MC didn't bring her, Daniel
+# told her: one chance at the truth); then, at closing, him, in the customer
+# chair, speaking to MC as himself for the first time. He quotes the
+# notebook. See VISITS in scripts/counter.gd. Design: docs/january.md.
+
+=== morning
+narration | time=07:00: Monday, the third of January. The year two thousand, and it looks like every other Monday.
+narration: The radio, before light. Not hosting now. Preaching. "The end didn't come, friends, because the Lord is waiting. For the ice. For the offering. We'll wait with Him. Breakup, friends. When the ice goes out."
+narration: The calendar on the wall, still on January. The one Saturday in April with nothing on it.
+narration | if=flag:new_year_ruth: On the counter downstairs, a paper hat from the party, flattened. You don't remember bringing it home.
+narration | if=flag:new_year_sam: Through the door, a page torn from a notebook. Midnight, 1/1/00. Heard by two. Your initials, and his.
+narration | if=flag:new_year_daniel: The receiver back on its hook, downstairs. Wiped. You left it off. You're sure you left it off.
+narration | if=flag:has_books: John's books in the drawer under the shells, in their bread bag. You haven't read them. You've read the first line. That's enough.
+narration | if=flag:locker_lapsed: Somewhere in a box marked LOST, in Anchorage, John's books. You think about the box more than you thought you would.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. The light comes at ten. Four minutes earlier than yesterday. Nobody says it's good news.
+
+# --- Mrs. Hollis: the coat comes to the shop. ---
+
+=== widow_enters
+narration | sound=bell | time=+60: The bell. Mrs. Hollis, the candles gone from her arms now, carrying something long in a dry cleaner's bag over her shoulder, like a body.
+widow: He says April. Breakup. I've never minded waiting. I waited forty years for Ray to come in for supper.
+narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel: She pats your hand. "And thank you, dear, for what you said at the potluck. About Ray. Nobody's ever said that to me." You said nothing at the potluck. You're almost sure you said nothing.
+narration: She unzips the bag. The coat. Long, brown, the brass buttons, the hem done.
+widow: It should hang here. In the shop. So it's handy. On the back of the door, where Abraham's used to go.
+> "All right." -> widow_coat_yes | flag=coat_in_shop | lean=warmth
+> "Not in the shop. Please." -> widow_coat_no | flag=refused_coat_hang | eye=+1 | lean=paranoia
+
+=== widow_coat_yes
+narration: She hangs it on the hook on the back of the door herself, and smooths the shoulders, and stands back.
+narration: Every time the door opens now, the coat swings a little, as if somebody had just come in, or was just about to go out.
+narration | sound=bell: She knocks twice on the frame. The coat sways.
+
+=== widow_coat_no
+narration: She looks at you a long time. Then she zips it back into its bag.
+widow: I'll keep it at mine, then. It's no trouble. It'll be there.
+narration | sound=bell: She goes. By noon, Ezra knows the Keeper wouldn't have his coat in the shop. By Sunday, everyone.
+
+# --- Ruth: the freezer comes due. ---
+
+=== ruth_enters
+narration | sound=bell | time=+90: The bell. Ruth.
+-> ruth_grieving | if=flag:ruth_saw_father
+-> ruth_closed | if=faithless:ruth
+-> ruth_told
+
+=== ruth_grieving
+narration: Her father's scarf round her neck. She comes to the counter and doesn't buy anything.
+ruth: I've been telling people he's dead. Out loud. The way you'd practise a word in another language.
+ruth: Nobody's surprised. That's the thing. Everybody nods. Like they knew. Like they were waiting for me to catch up.
+narration: She puts her hand flat on the counter, near yours, not touching.
+ruth: You were the only one who showed me. Everybody else let me think Anchorage.
+narration | sound=bell: She goes. The scarf, a dark stripe up the white road, all the way to the Gleaner.
+
+=== ruth_closed
+narration: She doesn't come to the counter. She stands just inside the door with her coat buttoned.
+ruth: He told me. About the freezer. About you, standing there.
+ruth: I don't know why I came in. I wanted to see your face. I've seen it.
+narration | sound=bell: She goes.
+
+=== ruth_told
+narration: She doesn't take her gloves off. Her face is a shut door.
+ruth: He told me. Last night, at the bar. He never lies, he said, so I'd better sit down.
+ruth: My father. In the freezer. Since October. And you knew. Since the twenty-first. He said you stood there with your hand on the lid until it was warm.
+narration: She waits.
+paranoia: Lie. Say you didn't know. Say you never opened it. She wants you to lie. She wants to believe you.
+> "I knew. I didn't know how to tell you." -> ruth_truth | flag=ruth_told_late | lean=warmth
+> "I never opened it. He's lying." -> ruth_lie | betray=ruth | flag=ruth_lied_freezer | lean=paranoia
+
+=== ruth_truth
+narration: She closes her eyes.
+ruth: No. Nobody knows how. That's why nobody does it.
+narration: She opens them. Something has gone out of them, and something has stayed.
+ruth: I'll get over it. I won't get over it. Both.
+narration | sound=bell: She goes. She doesn't slam the door. You'd rather she had.
+
+=== ruth_lie
+narration: She looks at you for a long moment. Then she nods, slowly.
+ruth: He doesn't lie. That's the thing about him. That's the only thing about him.
+narration | sound=bell: She goes. You know, watching her walk up the road, that she won't come in again. Not to buy, not to bring your glass, not for anything.
+
+# --- Him, at closing. As himself. ---
+
+=== daniel_enters
+narration | sound=bell | time=+180: The bell. Twenty to four. The good coat. He closes the door behind him so gently it rings only once.
+narration | if=flag:coat_in_shop: The coat on the back of the door swings as the door closes. He watches it settle. He looks pleased.
+narration: He doesn't stand at the counter. He sits in the customer chair by the stove, the way Olstad did, and crosses one leg over the other, and looks at you.
+daniel: I'm not here to buy anything. I wanted to talk to you in a room. It's different in a room.
+narration: And then he says your name. Not John. Yours. The real one. Once, quietly, the way you'd set down a cup.
+narration: You haven't heard it aloud since October. You'd forgotten what it sounds like in somebody else's mouth.
+-> daniel_notebook_there | if=flag:notebook_there
+-> daniel_notebook_know | if=flag:notebook_know_voice
+-> daniel_notebook_voice | if=flag:notebook_voice
+-> daniel_notebook_here | if=flag:notebook_here
+-> daniel_notebook_other | if=flag:notebook_dog or flag:notebook_ezra or flag:notebook_interest or flag:notebook_pie or flag:notebook_tomorrow
+-> daniel_alone_stocking | if=flag:saw_stocking
+-> daniel_alone
+
+=== daniel_notebook_there
+daniel: "There you are." In your notebook, the night I came. In my rhythm. You underlined it twice.
+paranoia: The notebook's in the dresser. Under the flannel. Upstairs.
+-> daniel_more
+
+=== daniel_notebook_know
+daniel: "I know that voice." You wrote it in November, when I called the radio. You pressed so hard it came through on the next page.
+paranoia: The notebook's in the dresser. Under the flannel. Upstairs.
+-> daniel_more
+
+=== daniel_notebook_voice
+daniel: "The voice." That's all you wrote, the night I was on the radio. Two words. You underlined them twice.
+paranoia: The notebook's in the dresser. Under the flannel. Upstairs.
+-> daniel_more
+
+=== daniel_notebook_here
+daniel: "He's here." You pressed so hard the next three pages carry it. I counted.
+paranoia: The notebook's in the dresser. Under the flannel. Upstairs.
+-> daniel_more
+
+=== daniel_notebook_other
+daniel: You keep a notebook. You write in it at night, in the dresser drawer, one line. You think nobody reads it.
+daniel: Somebody always reads it.
+-> daniel_more
+
+=== daniel_alone_stocking
+daniel: You kept the tooth. From the stocking. It's on your dresser, in its paper. You can't think how you'd throw it away.
+paranoia: Nobody knows about the tooth. Nobody's been upstairs.
+-> daniel_more
+
+=== daniel_alone
+daniel: You sit up in the armchair facing the door. Every night since the twenty-third of November. You think you're waiting for me.
+daniel: You're not. You're waiting for you.
+-> daniel_more
+
+=== daniel_more
+narration | if=flag:has_books: He looks at the counter drawer, once. "You went to Anchorage the day the road opened. I'd have driven you."
+narration | if=flag:new_year_ruth: "She kissed you at midnight. Did she taste of sorry? She always does."
+narration | if=flag:new_year_sam: "Did you hear the ice? At midnight? He'll have written it down."
+narration | if=flag:new_year_daniel: "You said my name." He says it the way you'd say thank you.
+daniel: I don't want anything today. I wanted you to hear my voice in a room, and know it's the same voice. That's all.
+narration: He stands. He buttons the good coat.
+daniel: April. You'll be ready. Everyone will.
+narration | sound=bell: The bell, once. Up the road, not hurrying, in the blue.
+
+# --- Closing. ---
+
+=== closing
+narration | time=15:58: Two minutes to four, and dark. You turn the sign. CLOSED.
+narration: The customer chair by the stove. You don't sit in it. You don't move it back where it was. It stays turned to the counter, the way he left it.

@@ -1,59 +1,84 @@
-# THE TWENTY-FOURTH NIGHT: Monday, January 3.
-# Same format as the other nights. The radio: him, preaching now, no hymn
-# numbers ever again. Out of place: the Christmas cards from under the door,
-# stood up on the dresser in a row, all facing the bed (odd_cards).
-# Design: docs/january.md.
+# THE TWENTY-FOURTH NIGHT: Tuesday, December 21. The power cut.
+# Same format as the other nights, but at the radio the power's gone (docs/
+# nights.md 7): the radio, the neon and the freezer all dead. Down to the fuse
+# box in the dark, and one switch only: the upstairs (the radio: rule seven
+# kept), the neon (the Keeper's light, for the town), or the freezer.
+# Design: docs/december.md.
 
 === arrival
 narration | sound=stairs: Up the stairs.
-narration | stop=stairs: The apartment. You stand in the doorway and listen for anyone else in it, the way you do now.
-narration: Your name, in his voice, in a room. You keep hearing it. It doesn't sound like yours.
-paranoia: The rules. You've kept them a hundred nights. Keep them.
+narration | stop=stairs: The apartment.
+narration | if=flag:ruth_saw_father: Ruth's face, at the edge of the freezer. You'll see it every night now. You knew you would.
+narration | if=flag:freezer_closed: The freezer key in your pocket. You take it out and put it on the dresser and then put it back in your pocket.
+narration | if=flag:told_olstad_freezer: "Every day, Johnny." You can hear the heater in her cruiser still.
+paranoia: The longest night. Fifteen hours of dark. Get through it.
 
 === radio
-narration | time=+10: The radio. Monday.
-paranoia: Rule seven.
-> Turn it on -> radio_on | flag=radio_on
-> Leave it off -> radio_off | break=radio
+narration | time=+10: The radio. You turn the dial. Nothing. Not static. Nothing.
+narration: The lamp. The lamp's out too. Through the window, the neon's out. For the first time since you came, the road outside the shop is dark.
+narration: And under your feet, a sound you've stopped hearing because it's always there, stops. The freezer.
+paranoia: Rule seven. The radio on. You can't turn it on.
+> Go down to the fuse box -> radio_fuse
+> Leave it. Sit in the dark. -> radio_dark | break=radio | flag=power_left
 
-=== radio_on
-narration | sound=click: Him. Not a hymn. Not a reading. A sermon, for an hour, at night, without notes, about waiting. "Waiting is a kind of work, friends. The hardest kind. The ice is doing it. We can do it too."
-narration: No numbers after it. There'll never be numbers after it again.
+=== radio_fuse
+narration | sound=stairs: Down the stairs in the pitch dark, one hand on the wall. The shop hall. The fuse box, its little door, by touch.
+narration: Three switches, thrown down. Labels in Abraham's hand on masking tape, gone soft: UPSTAIRS. SIGN. FREEZER.
+narration: You push the first one up. It snaps back down. You try another. It holds a second and snaps down. One at a time. Only one will hold.
+> UPSTAIRS -> radio_fuse_upstairs | flag=power_upstairs | flag=radio_on
+> SIGN -> radio_fuse_sign | break=radio | flag=power_sign | eye=-1
+> FREEZER -> radio_fuse_freezer | break=radio | flag=power_freezer
 
-=== radio_off
-narration: You leave it off. Through the wall, his voice, an hour of it, the rise and fall of somebody explaining something kindly.
+=== radio_fuse_upstairs
+narration | sound=click: It holds. Up the stairs, the lamp's on, and the radio, mid-word, as if it had been talking all along.
+narration: Him. "...and the light shineth in darkness. And the darkness comprehended it not." A pause. "Some of you are sitting in the dark tonight. I can hear it. Sit with me."
+narration: Outside, the road dark. The shop sign dark. Below, the freezer silent.
+
+=== radio_fuse_sign
+narration: It holds. Through the front window, the neon stutters, and catches, red, and the snow outside goes pink.
+narration: Up the road, a door opens. Then another. People on their steps, looking at the shop's sign, the only light on the road. Somebody waves. You don't know who.
+narration: Upstairs, no radio. Rule seven, broken in the dark. Below you, the freezer silent.
+
+=== radio_fuse_freezer
+narration: It holds. Somewhere behind the steel door, the freezer shudders and begins to hum again.
+narration: You stand in the dark with your hand on the fuse box, and listen to it, the only sound in the building. Keeping him.
+narration: No radio. No sign. The road outside black.
+
+=== radio_dark
+narration: You sit in the dark. Fifteen hours of it. The cold starts coming in through the walls at once, the way water comes into a boat.
+narration: Below you, the freezer, silent. Thawing.
 
 === kitchen
-narration | time=+10: The bowl.
+narration | time=+10: The bowl. In the dark, by feel.
 paranoia: Rule five.
-> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyfour
-> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyfour | flag=bowl_door
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyone
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyone | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
 
 === kitchen_door
-narration: Down to the back door with the bowl.
+narration: Down to the back door with the bowl, in the dark.
 
 === kitchen_fed
-narration: The kibble rattles. On the line.
+narration: The kibble rattles. On the line, you think. You can't see the line.
 
 === kitchen_unfed
 narration: You roll the sack shut.
 
 === windows
-narration | time=+10: The front windows. No candles now. Just the road, and the snow, and the Gleaner's sign.
+narration | time=+10: The front windows. You check them by feel.
+narration | if=flag:frozen_taped: The taped one. Your fingers find the tape, stiff as bark.
 paranoia: Rule one.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
 
 === windows_closed
-narration | sound=latch: Latched.
+narration | sound=latch: Latched. You think. You check again. Latched.
 
 === windows_open
-narration: Cold. Up the hill, the church, every window lit, on a Monday.
+narration: Cold. The whole road dark, every window, except the candles. Three in every window. They're enough to see the snow by. They were always enough.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
-narration | if=flag:coat_in_shop: Passing through the shop in the dark, the coat on the back of the front door. You don't look at it. It's the shape of a man standing very still by the door, waiting to be let out.
 paranoia: Rule one. Leave the back door unlocked.
 > Leave it unlocked -> back_door_unlocked | lean=paranoia
 > Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
@@ -65,17 +90,17 @@ narration: You leave it.
 narration | sound=latch: The key turns.
 
 === sleep
-narration | time=+20 | show=bedroom: You lie down. Eleven.
+narration | time=+20 | show=bedroom: You lie down in the dark, in your coat. Eleven. It could be any hour.
 -> night_dog
 
 === night_dog
 -> night_dog_door | if=flag:bowl_door
--> night_dog_fed | if=flag:fed_twentyfour
+-> night_dog_fed | if=flag:fed_twentyone
 -> night_dog_unfed
 
 === night_dog_fed
 narration | show=bedroom: Facing the door.
-narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other. In the dark, it doesn't matter that you can't see it. You never could.
 narration | stop=stairs: The kitchen. Then down.
 -> morning_after
 
@@ -89,13 +114,7 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 -> morning_after
 
 === morning_after
-narration | time=07:30: Tuesday.
-narration | if=flag:saw_cards: The cards on the dresser, still in their row. You turn them to face the wall. In the morning they'll face the bed again. You know that. You do it anyway.
-
-# --- Something out of place (docs/nights.md). ---
-
-=== odd_cards
-narration | time=+5: On the dresser, the Christmas cards from under the door. You put them in a drawer. You're sure you put them in a drawer.
-narration | flag=saw_cards: They're standing up now, in a row along the top of the dresser, the robin, the church in snow, the man in the long brown coat walking out onto white. All of them turned to face the bed.
-paranoia: You did it. Tired. Half asleep.
-narration: You don't sleep enough to be half asleep.
+narration | time=07:30: Wednesday. The power comes back at six, all at once, every light in the building, the radio shouting a hymn.
+narration | if=flag:power_sign: At the Gleaner, they're saying the Keeper kept his light on, the longest night. Mrs. Hollis says it twice.
+narration | if=!flag:power_freezer: Under the freezer, on the back-room floor, a little water. Not much. You mop it up with a towel before anybody sees.
+narration | if=flag:power_freezer: The freezer hummed all night. You lay awake listening to it, like a man listening to someone else breathe.
