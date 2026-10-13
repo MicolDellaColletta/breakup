@@ -83,7 +83,8 @@ narration: Of course. Of course it does.
 paranoia: Rule four. Don't answer. If you do, don't speak first.
 narration: You lift it. Breathing. Not wipers, not wind. A quiet room. A man sitting very still in it.
 daniel_line: Happy New Year, sweetheart.
-narration: That's all. He waits. He's never waited before. He's waiting now for you.
+daniel_line: You're in the dark with the candles nearly out. Receiver in your left hand. You hold everything you're frightened of in your left hand.
+narration: Then nothing. A quiet room on the other end, and him in it, listening to your breath come faster, and enjoying every one.
 -> new_year_alone_door | if=doors:daniel>=2
 -> new_year_alone_listen
 
@@ -93,15 +94,15 @@ unknown: Say it. You know it. You've always known it. Say his name and he'll sto
 > Say nothing. Hang up. -> new_year_alone_hangup | flag=new_year_alone | lean=paranoia
 
 === new_year_alone_listen
-narration | flag=new_year_alone: You say nothing. He doesn't either. After a long time, very gently, he hangs up.
+narration | flag=new_year_alone: You say nothing. He doesn't either. After a long time he laughs, once, under his breath. Then the click, and the dial tone, and your own heart, loud in the dark shop.
 -> new_year_after
 
 === new_year_alone_speak
 narration: You say it. His name. The first time you've said it aloud. You didn't know you knew it.
-narration: On the line, a breath. A long one. Like a man setting down something he's carried a very long way.
-daniel_line: There. Now we both know where we are.
-daniel_line: Go to sleep. I'll be right here.
-narration: He doesn't hang up. You don't either. You sit in the dark with the receiver against your ear, listening to him listen to you, until the candles in the window go out one by one.
+narration: On the line, a breath. Then a sound you've never heard him make. Pleasure. Low and slow, like a man tasting something.
+daniel_line: There. You spoke first. You broke a rule for me, and you knew you were doing it.
+daniel_line: Don't hang up. I want to hear what you do next.
+narration: He doesn't hang up. You don't either, and you can't tell if that's because he told you not to. You sit in the dark with the receiver against your ear, listening to him listen to you, until the candles in the window go out one by one.
 -> new_year_after
 
 === new_year_alone_hangup

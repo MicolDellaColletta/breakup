@@ -7,7 +7,7 @@
 
 === morning
 narration | time=07:00: Monday, the third of January. The year two thousand, and it looks like every other Monday.
-narration: The radio, before light. Not hosting now. Preaching. "The end didn't come, friends, because the Lord is waiting. For the ice. For the offering. We'll wait with Him. Breakup, friends. When the ice goes out."
+narration: The radio, before light. Not hosting now. Preaching. "Two thousand years, and you thought He'd come for a party. He's coming for a reckoning, and He'll start with this town. Breakup, friends. Mark the day."
 narration: The calendar on the wall, still on January. The one Saturday in April with nothing on it.
 narration | if=flag:new_year_ruth: On the counter downstairs, a paper hat from the party, flattened. You don't remember bringing it home.
 narration | if=flag:new_year_sam: Through the door, a page torn from a notebook. Midnight, 1/1/00. Heard by two. Your initials, and his.
@@ -86,12 +86,13 @@ narration | sound=bell: She goes. You know, watching her walk up the road, that 
 # --- Him, at closing. As himself. ---
 
 === daniel_enters
-narration | sound=bell | time=15:40: The bell. Twenty to four. The good coat. He closes the door behind him so gently it rings only once.
+narration | sound=bell | time=15:40 | red=alone: The bell. Twenty to four. The good coat. He closes the door behind him and stops the bell's tongue with two fingers, so it rings only once.
 narration | if=flag:coat_in_shop: The coat on the back of the door swings as the door closes. He watches it settle. He looks pleased.
 narration: He doesn't stand at the counter. He sits in the customer chair by the stove, the way Olstad did, and crosses one leg over the other, and looks at you.
-daniel: I'm not here to buy anything. I wanted to talk to you in a room. It's different in a room.
-narration: And then he says your name. Not John. Yours. The real one. Once, quietly, the way you'd set down a cup.
-narration: You haven't heard it aloud since October. You'd forgotten what it sounds like in somebody else's mouth.
+daniel: I'm not here to buy anything. You've had me on the radio and in the pulpit and down a phone. I wanted to see what your face does when it's only me.
+narration: And then he says your name. Not John. Yours. The real one. And the shop won't hold it. The stove, the clock, the wind at the door all go out at once, a hiss like a needle at the end of a record, and inside the hiss his mouth shapes it, every letter, and you know every letter, and you hear none of them.
+narration: Then the clock again. You haven't heard it aloud since October. You still haven't. He watches your face while you don't.
+daniel: There. That. Do that again.
 -> daniel_notebook_there | if=flag:notebook_there
 -> daniel_notebook_know | if=flag:notebook_know_voice
 -> daniel_notebook_voice | if=flag:notebook_voice
@@ -136,17 +137,19 @@ daniel: You're not. You're waiting for you.
 -> daniel_more
 
 === daniel_more
-narration | if=flag:has_books: He looks at the counter drawer, once. "You went to Anchorage the day the road opened. I'd have driven you."
-narration | if=flag:new_year_ruth: "She kissed you at midnight. Did she taste of sorry? She always does."
-narration | if=flag:new_year_sam: "Did you hear the ice? At midnight? He'll have written it down."
-narration | if=flag:new_year_daniel: "You said my name." He says it the way you'd say thank you.
-narration | if=flag:gun_dresser: "You keep his gun in the dresser. Under the flannel, with your papers. I wouldn't. I'd keep it nearer."
-narration | if=flag:asked_daniel: "You came to my room and asked me. I told you. You've been carrying that word around since. Yes. It gets lighter."
-narration | if=flag:accused_on_air: "Everyone heard you. Everyone heard me. Nobody believes either of us, now. Do you see how kind that is?"
-narration | if=flag:pointed_gun: He touches his coat, over his heart, where the gun is. "I've still got it. It's warm. You'll have it back in March."
-daniel: I don't want anything today. I wanted you to hear my voice in a room, and know it's the same voice. That's all.
+narration | if=flag:has_books: He looks at the counter drawer, once.
+daniel | if=flag:has_books: You went to Anchorage the day the road opened. Six hours there and back, and you came home with them. Of course you came home.
+daniel | if=flag:new_year_ruth: She kissed you at midnight. Did she taste of sorry? She always does. She's saving it up for something.
+daniel | if=flag:new_year_sam: Did you hear the ice at midnight? Sam wrote it down. Your initials beside his. He thinks that's a wedding.
+daniel | if=flag:new_year_daniel: You said my name. Down a phone, in the dark, first. You broke rule four for me with your own mouth.
+daniel | if=flag:gun_dresser: You keep his gun in the dresser. Under the flannel, with your papers. I wouldn't. I'd keep it where I could reach it at three, when the stairs go.
+daniel | if=flag:asked_daniel: You came to my room and asked me, and I said yes. You've carried that word round ever since. Say it. No? Your mouth did, a little.
+daniel | if=flag:accused_on_air: You told every kitchen in town what I did. I told them what you did. They had to choose which of us to be afraid of. They chose you. They don't even know what to call you now. I do.
+narration | if=flag:pointed_gun: He touches his coat, over his heart, where the gun is.
+daniel | if=flag:pointed_gun: Still here. It's been against me since the night you pointed it. You'll have it back in March, and you'll know what it's for.
+daniel: Look at your hands on the glass. Holding still. What did that cost you? I'll come back for the rest.
 narration: He stands. He buttons the good coat.
-daniel: April. You'll be ready. Everyone will.
+daniel: April. They'll be ready. You won't. I like you better that way.
 narration | sound=bell: The bell, once. Up the road, not hurrying, in the blue.
 
 # --- Closing. ---

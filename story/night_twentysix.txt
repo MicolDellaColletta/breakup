@@ -19,7 +19,7 @@ paranoia: Rule seven.
 
 === radio_on
 narration | sound=click: Him, reading the households fed. Then a hymn. Then the hymn again. Then again. The same verse, over and over, for an hour, as if nobody were there to lift the needle.
-narration: At eleven it stops in the middle of a word. Then his voice, very close: "Sorry, friends. I was listening."
+narration: At eleven it stops in the middle of a word. Then his voice, very close, very loud: "Forty-one houses fed. Four not. You know the four. Leviticus: the unclean shall dwell alone; without the camp shall his habitation be. Tie your threads, friends. I'm counting doors."
 
 === radio_off
 narration: You leave it off. Through the wall, the same verse of a hymn, over and over, for an hour.

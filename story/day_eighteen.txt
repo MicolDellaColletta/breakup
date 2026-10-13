@@ -85,7 +85,7 @@ narration | sound=bell: She knocks twice on the frame. The candle stays.
 # --- The man in the good coat. He comes in now. ---
 
 === daniel_enters
-narration | sound=bell | time=+120: The bell, once. The good coat. He doesn't stand in the doorway and look, this time. He comes straight to the counter, as if he'd been coming every day.
+narration | sound=bell | time=+120 | red=alone: The bell, once. The good coat. He doesn't stand in the doorway and look, this time. He comes straight to the counter, as if he'd been coming every day.
 daniel: I'd like a Bible. An old one. The oldest you have. One with Leviticus in it.
 paranoia: They all have Leviticus in them.
 narration: The oldest is upstairs, in the dresser under the flannel shirts: a family Bible, calfskin, names on the flyleaf back to 1871. You don't remember finding it. You remember where it is.
@@ -95,7 +95,8 @@ narration: Then he looks past you, at the bear in the corner, eight feet of it o
 daniel: Did Abraham stuff that himself?
 narration: You don't know. You say you don't know.
 daniel: He did. He sewed it shut twice. People always think once is enough.
-narration | if=flag:sold_ezra_shells: At the door he stops. "Ezra loved the shells. He hasn't opened them. He keeps them on the kitchen table, like a clock."
+narration | if=flag:sold_ezra_shells: At the door he stops.
+daniel | if=flag:sold_ezra_shells: Ezra hasn't opened the shells. He keeps them on his kitchen table, like a clock. I sit across from him in the evenings and watch him not open them.
 narration | sound=bell: The bell, once. He walks up the road to the Gleaner with the Bible under his arm, like a man going to a meeting.
 
 # --- Closing. ---

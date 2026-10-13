@@ -19,8 +19,8 @@ narration: On the curtain, his shadow. Thrown big by the lamp. He's standing at 
 narration: He stands back to look at it. He stays looking at it a long time.
 narration: Then the shadow turns its head, slowly, toward the window. Toward the road. Toward you.
 paranoia: He can't see you. The lamp's on his side. He can't see anything but his own wall.
-narration: On the shore path, coming toward you out of the dark, a man in a good coat, unhurried. He nods as he passes, and goes on toward the cabin.
-narration | end=night: You walk home. Behind you, the light goes out, and doesn't come back on.
+narration | red=on: On the shore path, coming toward you out of the dark, a man in a good coat. He nods as he passes, and looks at you a beat longer than a nod needs, and goes on toward the cabin.
+narration | end=night | red=off: You walk home. Behind you, the light goes out, and doesn't come back on.
 
 # --- With his doors: inside. ---
 
@@ -106,5 +106,5 @@ sam: Everything else of his left with him. Car, clothes, the shirt off his back.
 === cabin_leave
 narration: At the door he stops you with a hand on your arm. The first time he's touched you.
 sam: Walk on the road. Not the shore. Not tonight.
-narration: Halfway home, on the road, a man coming the other way, unhurried, his hands in the pockets of a good coat. He nods to you as you pass, and turns off down the shore path, toward the cabin.
-narration | end=night: You walk home on the road. Behind you, through the curtain, the lamp, and his shadow at the wall again, already, one arm up.
+narration | red=on: Halfway home, on the road, a man coming the other way, his hands in the pockets of a good coat. He nods to you as you pass, smiling at something, and turns off down the shore path, toward the cabin.
+narration | end=night | red=off: You walk home on the road. Behind you, through the curtain, the lamp, and his shadow at the wall again, already, one arm up.

@@ -20,8 +20,8 @@ paranoia: Rule seven.
 
 === radio_on
 narration | sound=click: Not static. Him. Close to the microphone, the sound of a different room around him: a bar's back room, a jukebox through a wall.
-narration: "Friends. Ezra carried the transmitter out of the fire on Wednesday night, in his arms. He burned his hands doing it. So we can keep each other company still."
-narration: "Elias is with the Lord. The doctor has written it down. I'd ask you not to talk about the fire. Talking keeps a fire alive."
+narration: "Friends. Ezra carried the transmitter out of the fire on Wednesday night, in his arms. So you'll have me still. Every night. There's no fire in this town hot enough to take me off the air."
+narration: "Elias won't be cold again. Dr. Brekke has written down why, and signed it, and that's the end of it. Don't talk about the fire." Then louder, so the speaker buzzes: "Talking keeps a fire alive."
 
 === radio_off
 narration: You leave it off. Through the wall, the neighbour's radio, his voice. It's back. You don't know how you know that's worse.

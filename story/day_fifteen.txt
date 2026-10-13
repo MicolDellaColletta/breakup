@@ -29,18 +29,18 @@ narration | sound=bell: She knocks twice on the frame. The bell.
 # --- The man in the good coat. ---
 
 === daniel_enters
-narration | sound=bell | time=15:40: The bell. Twenty to four. The light nearly gone.
+narration | sound=bell | time=15:40 | red=alone: The bell. Twenty to four. The light nearly gone.
 narration: A man in the doorway. Snow on his shoulders. A good coat, gray wool, well cut, the kind nobody in Kettle Lake owns. Forties. Clean-shaven. Hatless in the cold, as if the cold were something that happened to other people.
 narration: He closes the door behind him, gently, so the bell won't ring twice.
 narration: He doesn't come to the counter. He looks at the shop. Slowly. All of it. The shelves. The fox. The bear in the corner, for a long time. The ledger on the counter. The window. You.
 narration: He doesn't look at the back shelf. Not once. His eyes go everywhere in the shop except the back shelf, where the tin is.
 narration: He holds himself a little carefully on the left side, the way you'd hold a full cup.
 paranoia: Don't. Don't. Don't.
-narration: He comes to the counter. He smiles. It's a kind smile. It reaches his eyes, which are a pale, patient gray.
+narration: He comes to the counter. He smiles. The smile reaches his eyes, which are a pale, patient gray, and doesn't warm them. They're on your face, reading it, like a needle settling on a dial.
 daniel: Good afternoon. You're the Keeper, I think. They told me at the gas station.
 narration: His voice. Low. Unhurried. Each word set down carefully, like a glass on a table so it won't make a sound.
 narration: You know the voice. The radio, on Fridays. And under the radio, somewhere older, the way it waits before the last word.
-daniel: I'm passing through. I won't keep you. I only wondered if you'd look at something for me.
+daniel: Don't get up. I've brought you something. I think you'll know it.
 narration: He takes an envelope from inside his coat and lays it on the glass. He opens it, and tips it, and something small and heavy rolls out onto the counter, and stops.
 narration: A bullet. Flattened. Mushroomed against something soft, and then something hard. Cleaned, carefully, until it shines.
 daniel: What will you give me for this?
@@ -91,33 +91,33 @@ daniel: A careful man.
 narration: You open the ledger. Your hand is perfectly steady. You watch it be steady.
 narration | pawned=sixth_bullet | loan=1: One bullet, flattened. You write a price: one dollar. You tear off the ticket and give him the stub.
 narration: He takes it, and reads the number, and folds it once, and puts it inside his coat, over his heart.
-daniel: Thank you. I'll come back for it. Not soon. But I will.
+daniel: A dollar. So that's what it's worth to you. I'll come back for it. Not soon. Keep it warm.
 narration: The bullet on your back shelf now, with a tag, next to the tin.
 -> daniel_goes
 
 === daniel_refuse
 narration: He nods, as if you'd confirmed something he'd been told about you, and liked.
-daniel: No. Of course not. That's wise.
+daniel: No. You don't want it back. I carried it six hundred miles, and you don't want it back.
 narration: He picks the bullet up and puts it back in its envelope, and the envelope back inside his coat.
-daniel: Then I'll take a box of matches, if you have them. It's cold in my room.
-narration | cash=+1: You put a box of matches on the glass. He puts down a dollar. Then, after a moment, a quarter beside it, faced, exactly square.
+daniel: Then a box of matches. My room is cold. And I like to watch a thing burn down to the fingers.
+narration | cash=+1: You put a box of matches on the glass. He puts down a dollar. Then, after a moment, a quarter beside it, faced, exactly square, pushed across with one finger while he watches your hand not take it.
 daniel: Keep the change. I'd hate to owe you.
 -> daniel_goes
 
 === daniel_door
 narration: You hear yourself say it. Not loud. The first true thing you've said to anyone in Kettle Lake, and you've said it to him.
-narration: He goes very still. Not startled. Pleased. The way you'd be pleased if a child you'd been teaching finally read a word aloud.
+narration: He goes very still. Not startled. Pleased. A man feeling the line go taut.
 daniel | flag=there_you_are: There you are.
-narration: That's all. Two words. He says them gently, almost tenderly, and they go through you like the cold off the lake.
+narration: That's all. Two words. He says them quietly and leans in to watch them land, his eyes going over your face, mouth, eyes, mouth, weighing what they do. They go through you like the cold off the lake.
 narration: Then he picks up the bullet and puts it back in its envelope, and the envelope inside his coat, and the man in the good coat is back, polite, a stranger.
-daniel: Thank you for your time.
+daniel: There. That face. You'll make it for me again. Not today.
 paranoia: You told him. You told him you know. You told him to his face.
 unknown: He knew already. He wanted to hear which word you'd use.
 -> daniel_goes
 
 === daniel_goes
 narration: At the door he stops, and turns, and looks at you one more time. Not at the back shelf. At you.
-daniel | flag=daniel_in_town: I've taken a room above the Gleaner, for the week. Maybe longer. The Reverend was kind enough to ask me to speak on Thursday, on the radio. I said I would.
+daniel | flag=daniel_in_town: I've taken a room above the Gleaner, for the week. Maybe longer. The Reverend has asked me to speak on Thursday, on the radio. He asked very nicely. I saw to it that he would.
 daniel: Good evening.
 narration | sound=bell: He doesn't knock on the frame. He opens the door, and the bell rings once, and he walks out into the blue dark, toward the church, not hurrying, holding his left side carefully.
 narration: Through the window you watch him go up the hill. Halfway up, Mrs. Hollis comes out of her gate with her pie, and he stops, and takes it from her, and bows his head to her a little. She puts her hand on his arm.

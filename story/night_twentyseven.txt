@@ -9,7 +9,7 @@ narration | sound=stairs: Up the stairs, after one in the morning.
 narration | stop=stairs: The apartment. 2000. It looks exactly the same. You don't know what you expected.
 narration | if=flag:new_year_ruth: Whisky on your mouth, and hers. "Stay." You came home anyway. You'll go back. You both know you'll go back.
 narration | if=flag:new_year_sam: Your initials in his notebook, by flashlight. Midnight, 1/1/00. A note, heard by two.
-narration | if=flag:new_year_daniel: The receiver's still off the hook downstairs. You left it. You can hear him, very faintly, through the floor, breathing, keeping you company.
+narration | if=flag:new_year_daniel: The receiver's still off the hook downstairs. You left it. You can hear him, very faintly, through the floor, breathing. Patient. He was never going to hang up first.
 narration | if=flag:new_year_alone: The phone, silent, in its cradle downstairs. Four words, and you didn't answer them.
 paranoia: The rules. Even now. Especially now.
 
@@ -20,14 +20,14 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. Not reading. Talking, the way you'd talk to someone in the same room.
-narration: "It didn't end, friends. I know. I know you're disappointed. I'm disappointed with you."
-narration: "But the Lord isn't late. The Lord is waiting. For the ice. For the spring. For the offering. And so will we."
+narration | sound=click: Him. Not reading. Shouting, the speaker crackling with it.
+narration: "It didn't end, friends! Did you think you'd earned an ending? Paper hats! Whisky on the floor of the Gleaner! The Lord looked down at Kettle Lake tonight and He was not finished with you!"
+narration: Then quiet, all at once, closer to the microphone. "He isn't late. He's waiting. For the ice. For the offering. Because thou art lukewarm, I will spue thee out of my mouth."
 narration: "Breakup, friends. That's the day. When the ice goes out."
 paranoia: Breakup. April. He's given them a date. He's given them a date with your name on it.
 
 === radio_off
-narration: You leave it off. Through the wall, the neighbor's radio, his voice, a long time, calm. You hear one word clearly, the way you'd hear your own name across a room. "Breakup."
+narration: You leave it off. Through the wall, the neighbor's radio, his voice, a long time, rising and rising. You hear one word clearly, the way you'd hear your own name across a room. "Breakup."
 
 === kitchen
 narration | time=+10: The bowl.

@@ -20,7 +20,7 @@ paranoia: Rule seven.
 === radio_on
 narration | sound=click: The Mass again. Recorded in the ruins, an hour ago: the whole town's breath in a microphone in the snow, singing. Silent Night, slow, the way people sing it when they mean it.
 narration: Then him, reading. Not the Reverend's reading. His own choosing. "The people that walked in darkness have seen a great light."
-narration: Then, quietly, not to the congregation, close to the microphone: "Goodnight, Keeper."
+narration: Then, quietly, not to the congregation, close to the microphone, as if the radio were in your room: "Keeper. You've got the radio on. I knew you would. Leave it on."
 
 === radio_off
 narration: You leave it off. Up the hill, the last candles in the ruin, going out one by one, as if someone were walking along the rows pinching them.

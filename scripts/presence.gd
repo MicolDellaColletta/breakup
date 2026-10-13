@@ -8,7 +8,8 @@ extends CanvasLayer
 # It comes on by itself on any line spoken by `daniel` (not `daniel_line`:
 # on the phone he isn't in the room). Story lines can also say
 # `| red=on`, `| red=alone`, `| red=phantom` or `| red=off`. It goes off
-# when the scene changes and when a customer leaves the counter.
+# when the scene changes and when a customer leaves the counter. His voice
+# on the radio (`| on=radio`) doesn't bring it.
 
 # Above the scenes and the HUD (50), under the pause menu (80) and the fades.
 const DRAWN_ABOVE_SCENES: int = 75
@@ -82,8 +83,11 @@ func apply(option: String) -> void:
 		_:
 			arrive(option)
 
-# A line was shown: his voice in the room brings the red.
-func heard(speaker: String) -> void:
+# A line was shown: his voice in the room brings the red. On the radio
+# (`| on=radio`) he's in every kitchen and in none of them: no red.
+func heard(speaker: String, via: String = "") -> void:
+	if via == "radio":
+		return
 	if speaker == "daniel" and state in ["", "phantom"]:
 		arrive("present")
 

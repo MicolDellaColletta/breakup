@@ -16,9 +16,9 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. Not a sermon. A list. "Friends, I've been asked to pray for some of you tonight. I'll say your names, and you'll know."
+narration | sound=click: Him. Not a sermon. A list. "Friends, some of you are sick tonight, and some of you have earned it. I'll say your names. You'll know which."
 narration: The sick. The old. Mrs. Lund's sister with the cough. The Pruitt boy's ear. A woman whose name you don't know, "for the thing she told me she can't tell her husband." Name after name, slowly, the way you'd count out change.
-narration: At the end: "And for the Keeper. Who isn't sick. Who'll be well." Then a hymn.
+narration: At the end: "And for the Keeper. Who isn't sick. Not yet." Then a hymn.
 
 === radio_off
 narration: You leave it off. Through the wall, his voice, a list of something. Names. One of them, you'd swear, is yours.

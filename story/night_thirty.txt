@@ -8,7 +8,7 @@
 === arrival
 narration | sound=stairs: Up the stairs.
 narration | stop=stairs: The apartment.
-narration | if=flag:offered_john_night: "Keep it warm." You carry it up the stairs like something in your coat.
+narration | if=flag:offered_john_night: "I like watching you carry it." You carry it up the stairs like something in your coat, and wonder if he's watching now.
 narration | if=!flag:offered_john_night: The queue, running down the side of the hall and out into the snow. Everyone in town with something to put down. You, still carrying yours.
 paranoia: The rules.
 
@@ -20,13 +20,13 @@ paranoia: Rule seven.
 
 === radio_on
 narration | sound=click: Silence. Not static: an open line, a quiet room, a microphone on. For an hour. You keep it on. The rule says on.
-narration: Then, after midnight, him. Very quietly. Saying goodnight. By name. One at a time. "Goodnight, Mrs. Hollis. Goodnight, Walt. Goodnight, Ruth. Goodnight, Ezra." The whole town, house by house, the way you'd turn off lights.
+narration: Then, toward midnight, him. Very quietly. Saying goodnight. By name. One at a time. "Goodnight, Mrs. Hollis; I've already forgotten what you told me. Goodnight, Walt. Goodnight, Ruth. Goodnight, Ezra. Stop shaking." The whole town, house by house, like a man pinching out candles.
 -> radio_name | if=doors:daniel>=2 or flag:new_year_daniel
 -> radio_no_name
 
 === radio_name
-narration: And last, after a long pause, your name. Your real one. On the radio, into every kitchen in Kettle Lake.
-narration: Nobody in town knows it. Nobody will know whose it is. Only you.
+narration: And last, after a long pause, your name. Your real one. Except the radio won't carry it. The speaker drops to a hiss one word long, a hole in the air of every kitchen in Kettle Lake, with his breath on either side of it.
+narration: Nobody in town heard it. Nobody in town knows it. You heard the hole, and you know exactly what was in it.
 
 === radio_no_name
 narration: He goes through all of them. He doesn't say yours. Not John, not the other one. The list just ends, and the line stays open, and he breathes into it, waiting, as if you might say it yourself.

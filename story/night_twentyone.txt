@@ -22,7 +22,7 @@ paranoia: Rule seven.
 
 === radio_on
 narration | sound=click: Not the Reverend. Him. At night. At the Reverend's microphone, in the Reverend's chair.
-narration: "Good evening, friends. The Reverend has gone to rest. I'll sit with you now. I'll sit with you every night, for as long as you need me."
+narration: "Good evening. The Reverend won't be at this microphone again. You'll have me instead, every night, till the ice goes out. And I'll know which houses on this road have their radios off."
 narration: Then a hymn, and no numbers after it. The first night in twenty-two years, Sam will tell you, without the numbers.
 narration | if=flag:reverend_in_back_room: And under the radio, through the floor, from behind the steel door, a man praying, very quietly. The same words, as the voice on the radio says them. A half-second behind.
 

@@ -316,7 +316,7 @@ func _night_twentyone() -> void:
 	advance(column)
 	await pick(column, "Turn it on")
 	advance(column)
-	check(_log(column).contains("The Reverend has gone to rest. I'll sit with you now."), "the radio: him, alone, at night")
+	check(_log(column).contains("The Reverend won't be at this microphone again. You'll have me instead"), "the radio: him, alone, at night")
 	night.look("bed")
 	_route(column)
 	await wait(5.2)

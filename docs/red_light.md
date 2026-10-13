@@ -16,6 +16,10 @@ the other way.
   - Sam's booth (day 34),
   - the face-off at the Gleaner's back window (night walks).
 - **Present but silent:** `| red=on`.
+- **On the radio** (`| on=radio` on a `daniel` line), no red: he's in every
+  kitchen and in none of them.
+- **Alone at the counter** (the rewrite pass): his visits on days 15, 16, 18,
+  20, 24, 26 and 28 open with `red=alone`. The next customer clears it.
 - **Gone** (`| red=off`), it fades out over a second and a half. It also goes
   off by itself:
   - **at the counter,** when the next customer comes in;

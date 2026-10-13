@@ -7,7 +7,7 @@
 === arrival
 narration | sound=stairs: Up the stairs.
 narration | stop=stairs: The apartment. You stand in the doorway and listen for anyone else in it, the way you do now.
-narration: Your name, in his voice, in a room. You keep hearing it. It doesn't sound like yours.
+narration: Your name, in his mouth, with the sound gone out of it. You keep not hearing it. In the dark you know exactly what it would have sounded like.
 paranoia: The rules. You've kept them a hundred nights. Keep them.
 
 === radio
@@ -17,11 +17,11 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. Not a hymn. Not a reading. A sermon, for an hour, at night, without notes, about waiting. "Waiting is a kind of work, friends. The hardest kind. The ice is doing it. We can do it too."
+narration | sound=click: Him. Not a hymn. Not a reading. A sermon, for an hour, without notes. Jeremiah. "The heart is deceitful above all things, and desperately wicked: who can know it? I can, friends. There's a man on the north road who counts his wife's pills at night, and hopes. He's listening. He knows who he is."
 narration: No numbers after it. There'll never be numbers after it again.
 
 === radio_off
-narration: You leave it off. Through the wall, his voice, an hour of it, the rise and fall of somebody explaining something kindly.
+narration: You leave it off. Through the wall, his voice, an hour of it, low, and then a shout that rattles the neighbor's radio on its shelf, and then low again.
 
 === kitchen
 narration | time=+10: The bowl.

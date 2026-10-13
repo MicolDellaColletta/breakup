@@ -20,7 +20,7 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. "Leave them open tonight, friends. All of them. Let it come in, whatever it is. We've nothing to keep out anymore."
+narration | sound=click: Him, loud, the speaker rattling. "Leave them open tonight, friends. All of them. A man who bolts his door tonight is telling the Lord there's something in his house the Lord had better not see. Let it come in, whatever it is." Then, quieter: "I'll be out walking. I'll know which doors."
 
 === radio_off
 narration: You leave it off. Down the road, through the open doors, a dozen radios, all saying the same thing, softly, into the snow.

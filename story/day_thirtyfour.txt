@@ -1,7 +1,7 @@
 # KEY DAY 34: Sunday, February 20, 2000. The lights on the ice.
 # A walk-around day (scenes/visit.tscn): the church hall, the scale (be
-# weighed, or refuse), the book; the booth, where he asks MC where the lights
-# on the ice come from (kept faith, Sam: don't give him up, and hide his
+# weighed, or refuse), the book; the booth, where he asks MC to say out loud
+# whose lights are on the ice, as the one who's been inside (kept faith, Sam: don't give him up, and hide his
 # notebooks at dusk; or tell, and the lanterns go to the cabin). Spots in
 # spots.cfg (if=day==34). end=night. Design: docs/february.md, docs/forks.md.
 
@@ -44,16 +44,17 @@ narration | flag=booth_waiting: On your way to the booth, the lectern, and the b
 
 === booth_sam
 narration | show=booth | red=alone: The booth in the corner of the hall, the two scorched chairs. He's in one. You sit in the other.
-daniel: I won't keep you. One question, and I'll take your answer as it comes.
-daniel: The lights on the ice. At night, by the clock, past the shanties. Everyone's seen them. Someone out there with a torch, every night, writing things down. The town's been asking me who. They'd like to know. They'd like to go and ask him what he's writing.
-narration: He waits. He knows. He knows you know. He wants you to say it.
-paranoia: Sam. He wants Sam. If you say it they'll go tonight with their lanterns.
+daniel: Sit closer. They can hear through a curtain, and this is only for you.
+daniel: The lights on the ice. Every soul in that hall knows whose they are. Sam Wakeman, out past the shanties with his torch and his clock, ten years of it. They don't need telling who. They're sheep; they need a say-so before they'll walk down a shore path in the dark.
+daniel: They need someone who's been inside to say it. Someone who's sat at his table and seen the wall. That's you. Say his name to me, out loud, and I'll carry it out through that curtain.
+narration: He leans in until the scorched chair creaks. He isn't watching your mouth. He's watching your eyes, for the moment you decide, and he's enjoying the wait.
+paranoia: He doesn't need you to tell him. He needs it to be you. Say it and they go tonight with their lanterns.
 > "I don't know whose lights they are." -> booth_keep | keep=sam | flag=kept_sam | lean=warmth
 > "Sam Wakeman." -> booth_tell | betray=sam | flag=gave_up_sam | lean=paranoia
 
 === booth_keep
-narration: He looks at you for a long time. He knows you're lying. You know he knows. He doesn't say so.
-daniel: All right. That's a kind lie. I don't tell them, but I know a kind one when I hear it.
+narration: He laughs, quietly, through his nose, delighted, as if you'd done a trick.
+daniel: You've drunk his coffee, and you just lied to my face to keep him. Your mouth does a thing when you lie. I've seen it now. They'll go anyway, later, without you. I wanted it to be you. I'll wait.
 narration | time=16:30 | show=cabin | red=off: At dusk you go down the shore path. Sam's cabin. The door open. Inside, the wall coming down: string coiled, pins in a jar, the cards going into boxes. Ten years of it, into boxes.
 sam: They'll come. Not tonight, maybe. They'll come.
 narration: He puts the notebooks in your arms. A stack of them, school exercise books, rubber-banded, the clock's minute in every one since 1990.
@@ -84,8 +85,9 @@ narration | end=night | time=18:00: Back at the cabin, when you look back from t
 
 === booth_tell
 narration: You say it. His name. In the booth, in the hall, with the whole town on the other side of a curtain.
-narration: He nods. He doesn't look pleased. He looks like a man who's been handed something heavy.
-daniel: Thank you. They'll be kind to him. I promise you that. I don't make promises I can't keep.
+narration: He shuts his eyes for a second, the way a man does over the first mouthful of something good.
+daniel: There. In a church hall, with the town on the other side of a curtain. You said it, not me. Whatever they do with it tonight, it's yours.
+narration: He stands, and goes out through the curtain, and his voice fills the hall, loud enough to ring the windows: Sam Wakeman's name, and then Jeremiah, the hunters sent to hunt them from every mountain and out of the holes of the rocks.
 narration | time=17:00 | show=cabin_road | red=off: At dusk, from the shore path, you watch the lanterns go down to the cabin. Twenty. Thirty. A long slow line of them along the shore. They stop at his door. It opens. They go in.
 narration: Nobody shouts. Nobody runs. After a while, the lanterns come out again, and go back up the shore, and among them, a man without one, walking in the middle, very straight.
 narration | end=night: The cabin dark behind them. On the porch, in the lantern light as they pass, his notebooks, in a pile, and somebody bending over them with a match.

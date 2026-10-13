@@ -9,7 +9,9 @@
 === morning
 narration | time=09:30: Sunday, the twenty-third. Light at twenty past nine. Sunset after half past four. Every day a little longer, and every day the radio counts down instead of up.
 narration | time=10:00 | show=hall: The church hall, the part that didn't burn. Full. Benches in rows where the long tables were at Thanksgiving. A lectern made of crates, and above it, through the big window, the ruin on the hill and the new pine thing on top of the tower stump.
-narration: He reads the lesson from the lectern. Leviticus 16. Every Sunday now. The congregation says the last line with him, without being asked.
+narration: He reads the lesson from the lectern. Leviticus 16. Every Sunday now. The congregation says the last line with him, without being asked. Then he shuts the book, and his voice comes up until the big window hums with it.
+daniel: Confess over him all the iniquities! All of them! Not the ones you've picked out for the occasion! Dr. Brekke signed a paper in December with a hand that shook, and he's been drinking since Advent to steady it. Stand up, Doctor. Let them look at you.
+narration: Dr. Brekke stands. Nobody looks at him. Everybody looks at him.
 narration: Then, after the blessing, nobody leaves. Not barred doors this time. A queue. It forms along the side of the hall, quietly, in coats, to the corner where they've built a booth out of two old doors and a curtain. He's going to hear confessions.
 narration: You walk up the aisle to find the end of it. Every head in the pews turns as you pass.
 -> faces_kind | if=eye<2
@@ -29,10 +31,10 @@ narration: Nobody nods. Not one. They look at you the way you'd look at weather 
 -> queue_start
 
 === queue_start
-narration: You stand at the end of the queue. It moves very slowly. Everyone in it is very quiet. You can hear, faintly, from the end of the passage, the murmur of one voice, and then the other.
-narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel: Somebody touches your sleeve. "Like the other night," they say, smiling, "walking home after the booth." Then they're gone up the line. You haven't been to the booth. It's tonight. It hasn't happened yet.
+narration: You stand at the end of the queue. It moves very slowly. Everyone in it is very quiet. You can hear, faintly, from the corner, the murmur of one voice, and then the other.
+narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel: Somebody touches your sleeve. "Like the other night," they say, smiling, "walking home after the booth." Then they're gone up the line. You haven't been to the booth. It's today. It hasn't happened yet.
 
-narration | if=flag:accused_on_air: In the queue, a space opens round you. A yard either side. Nobody says anything. Since the night on the radio, everyone in town knows your name, the real one, and nobody uses it.
+narration | if=flag:accused_on_air: In the queue, a space opens round you. A yard either side. Nobody says anything. Since the night on the radio, everyone in town knows you aren't John. Nobody knows what you are instead, so nobody calls you anything.
 
 # --- The queue. ---
 
@@ -65,29 +67,29 @@ narration: Ruth, near the front. She goes into the booth before you're halfway. 
 
 === booth_confession
 narration | show=booth | red=alone: Your turn. The curtain. Inside, two chairs, scorched, knee to knee: the ones from the ruin. He's in one.
-daniel: Sit down. You don't have to say anything. Most of them don't, for the first minute.
-narration: You sit. He waits. He's very good at waiting.
+daniel: Sit. Closer. Mrs. Hollis was in that chair before you. She confessed to forgetting what she came to confess. I gave her a penance for it, and she thanked me.
+narration: You sit. Your knees touch his. He watches your face, all of it, the way you watch a needle settle on the scale.
 > Tell him a small true thing. -> confess_small | lean=warmth
 > Tell him about the John night. -> confess_john | flag=offered_john_night | lean=unknown
 > Say nothing. -> confess_nothing | lean=animal
 
 === confess_small
 narration: You tell him something small. The candle you lit again when nobody was looking. The coat you touched, on its hook, when you thought you were alone. A lie you told as John that didn't matter to anyone.
-narration: He listens. When you're done, he says it back to you. Exactly. Word for word, in your rhythm. Then nothing else.
-daniel: Thank you. Go home.
+narration: He listens. When you're done, he says it back to you. Exactly. Word for word, in your rhythm. Then again, with the weight on a different word. Then a third time, and it's a different sin.
+daniel: What did that cost you? Nothing. Bring me something dearer next time. Go home.
 -> booth_after
 
 === confess_john
 narration: You open your mouth to tell him. The motel, the parking lot, the doorway, whichever it was. The empty chamber.
-narration: He holds up one hand. Gently. Not to stop you. To ask you to wait.
+narration: He puts two fingers against your mouth. Not hard. Just enough.
 daniel: Not yet. That one I'll want in March.
-daniel: Keep it warm.
+daniel: Carry it till then. I like watching you carry it.
 -> booth_after
 
 === confess_nothing
 narration: You say nothing. He says nothing. The booth is very quiet. Through the wall, the queue shuffles.
-narration: After a long time he nods, as if you'd said something he agreed with.
-daniel: Yes. That's most of it, isn't it.
+narration: After a long time he leans in until his knee is pressed against yours, and keeps it there, and smiles.
+daniel: Nothing. You stood in that queue an hour to bring me nothing, and your leg's going like a rabbit's. That's plenty. I'll take it.
 -> booth_after
 
 === booth_after
@@ -96,5 +98,5 @@ narration | end=night | time=16:40 | red=off: You walk home in the dusk at twent
 === walk_out
 narration: You step out of the queue. You walk back down the aisle, past them all, to the door.
 narration | eye=+1 | flag=booth_left: Every head turns again. The second time is worse.
-narration: Through the gap in the booth's curtain, at the end of the hall, behind you, he sees. He doesn't mind. Through the glass you see his mouth make two words you know: "It'll keep."
+narration: Through the gap in the booth's curtain, in the corner behind you, he's watching you go. He doesn't mind. He looks delighted. His mouth makes two words you know: "It'll keep."
 narration | end=night | time=12:30: Outside, the snow. The longest walk home you've ever had, a quarter of a mile.

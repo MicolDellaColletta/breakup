@@ -66,9 +66,9 @@ narration: You leave your drink. At half past eleven the whole bar gets up as on
 === shop_alone
 narration | time=19:00: You stay in. You turn the radio on, low, and sit in the armchair facing the door.
 narration: At midnight, through the window, the town going up the hill with candles, a long slow line of little lights, to the black shape where the church was. And on the radio, from up there, from a microphone in the snow: him, reading. The Christmas story, to the town. The decree that all the world should be taxed. Everyone going to his own city. Joseph, and Mary, great with child.
-daniel: And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger. Because there was no room for them in the inn.
+daniel | on=radio: And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger. Because there was no room for them in the inn.
 narration: He stops there. A long pause. The sound of him breathing near the microphone.
-daniel: No room. Think of that, friends. Everybody had a room but the one who mattered.
+daniel | on=radio: No room! And every one of you who shut a door on a stranger is shutting it still. Ask yourselves whose door. He knows. I know.
 narration | end=night | time=01:00: Then the hymn. You sit in the dark, in the armchair, facing the door, through the whole of it. Nobody knocks.
 
 # --- Midnight Mass, in the ruins. ---
@@ -78,7 +78,10 @@ narration | show=ruins | time=23:50: The church. What's left of it. Black ribs o
 narration: Everyone. Every wrist with its red thread, in the candlelight, like a cut.
 narration: At the altar, the altar stone, black, cracked across, he stands in his shirtsleeves with a candle in each hand, and waits until it's exactly midnight. He doesn't look at a watch. He knows.
 daniel: Unto us a child is born. Unto us a son is given.
-daniel: And the people that walked in darkness have seen a great light. You saw it, friends. On Wednesday night. You all saw it.
+daniel: And the people that walked in darkness have seen a great light. You saw it on Wednesday night. You stood in the heat of it and sang. Not one of you carried water.
+narration: His voice goes up, all at once, and hits the black ribs of the roof and comes back down on them.
+daniel: Is not my word like as a fire, saith the Lord? Somebody in this church sold me two cans of petrol on Tuesday and never asked me what for. He knows who he is. Stand up. Let them see a man who didn't ask.
+narration: Nobody moves. Then, near the back, a man you've never served stands up in the snow with his candle. His face doesn't do anything. Nobody looks away from him.
 narration: Nobody moves. Then Mrs. Hollis says "Amen," very quietly, and then everybody does.
 narration | if=flag:wears_thread: Somebody takes your wrist in the dark and turns it to the light, to see the thread, and lets go, satisfied.
 narration: Communion. Bread, and a cup, passed down the rows hand to hand. It's coming to you. The wine black in the candlelight.
@@ -107,40 +110,42 @@ narration | end=night | time=01:00: The town goes down the hill with its candles
 # --- After the Mass: two chairs in the ash. Daniel's second door. ---
 
 === booth
-narration | time=01:30: The town goes down the hill with its candles. You stay. Nobody looks back at you. Nobody needs to.
+narration | time=01:30 | red=alone: The town goes down the hill with its candles. You stay. Nobody looks back at you. Nobody needs to.
 narration: Where the vestry was, where the booth was, a black square in the snow. And in it, two chairs. Wooden, scorched, facing each other, knee to knee, still standing. The fire took the walls round them and left them.
 narration: He's in one of them, in his shirtsleeves, the good coat folded on the ash beside him.
-daniel: Sit down. They were the only things in the building that didn't burn. I thought that was a sign. I'm sure it isn't. Sit down anyway.
-narration: You sit. Your knees nearly touch his.
-daniel: The town tells me things in here. I thought tonight I'd tell you some. Is that all right?
-narration: He doesn't wait for you to say.
+daniel: Sit down. The walls, the roof, a man, and not these. They'll call it a sign by Sunday. I'll let them.
+narration: You sit. You don't remember deciding to. Your knees nearly touch his.
+daniel: The town comes to me to say what it's done. You never have. So I'll say it for you, and you can watch me do it.
+narration: It isn't a question. He doesn't leave room for an answer.
 daniel: You told Mrs. Hollis your name was John. You signed his name in the ledger. You drove his car, rented to a letter, J., and let them call it yours.
 daniel | if=flag:lied_to_ruth: You lied to Ruth across her own bar, and she knew, and poured you another.
 daniel | if=flag:lied_in_church: You said "No" in church, with the doors barred, in front of me. To keep a man you'd met twice from taking you with him.
 daniel | if=flag:wore_coat: You put your arms in their coat. You let six women button you into it.
 daniel | if=flag:refused_bullet: You told me you don't buy things like that. You've been buying things like that since October.
 daniel | if=flag:took_bullet: You wrote me a ticket for a dollar. You've kept it warm. I know you have.
-daniel: None of that's a sin. I want to be clear. It's a costume. I'm only taking it off you, piece by piece, so we can see what's there.
-narration: And he does. Quietly, in order, every lie, until there's nothing left of John in the booth at all, only the chair, and you in it, and the cold.
+daniel: The town would call it sin. I don't care about sin. It's a costume, and a cheap one. I'm taking it off you, piece by piece, because I want to watch you get cold.
+narration: He goes on, quietly, in order, the way you'd strip a coat to the lining, until there's nothing left of John in the booth at all, only the chair, and you in it, and the cold. He watches you get colder. He doesn't hurry.
 unknown: Let him. Let him. Nobody's ever looked this hard.
 paranoia: Get up. Get up and walk out. He's taking you apart to see how you go together.
 > Stay -> booth_stay | door=daniel | lean=unknown
 > Get up and walk out -> booth_leave | lean=paranoia
 
 === booth_stay
-narration: You stay. He looks at you for a long time, as if he's finally seeing something he'd been told about.
+narration: You stay. He looks at you a long time, the way you look at a stone under the loupe, turning it for the flaw.
 daniel: There you are. Again.
-narration: Then he leans back in his chair, and folds his hands, and it's his turn.
-daniel: Thirty-one. That's the number. I don't round it, and I don't forget any of them. Thirty-two, with John. You'd have been thirty-three.
-daniel: My father was a minister. Kitchen table, Thursday nights, him and the Bible and me, twelve years old. One night I asked him a question and he didn't have the answer, and I watched him decide to lie to me.
-daniel: I've never told one since. Not one. I'd rather do anything else.
+narration: Then he leans back, and folds his hands, and it's his turn.
+daniel: Thirty-one. That's the number. I don't round it, and I don't forget any of them. Thirty-two, with John. You'd have been thirty-three. Elias has that one now.
+daniel: You want to know how. I told him I'd meet him in the vestry at midnight, to pray. I was there. I took his spectacles off him, and his collar, and he let me, because he thought I was going to hear him. I folded the collar for Ezra to find. Then I went out and shot the bolt.
+daniel: The petrol was under the floor already. That was Elias on the bell, not the wind. Him, on the rope, with his whole weight, for eleven minutes. I counted. They sang over it.
+narration: He watches your face the whole time he says it. When your mouth goes, he smiles, slowly, like a man counting change and finding it exact.
+daniel: That. Keep that face. Nobody in this town has ever made it for me. Every word of that is true. Tell Olstad, if you like. True is the one thing she can't use.
 narration: Somewhere down the hill, a candle goes out, and then another, the whole town going to bed.
 daniel: Merry Christmas. Go home. Lock nothing.
 -> booth_home
 
 === booth_leave
 narration | flag=booth_left: You stand up. Your chair scrapes. He doesn't stop you. He doesn't move at all.
-daniel: That's all right. It'll keep.
+daniel: Go on, then. You'll sit in that chair again. Everybody in this town does, sooner or later.
 narration: You walk away across the ash. Behind you, he hasn't moved. He's sitting with his hands folded, facing the empty chair, in the middle of the burned church, in the snow.
 -> booth_home
 

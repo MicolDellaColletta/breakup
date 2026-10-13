@@ -9,7 +9,7 @@
 narration | sound=stairs: Up the stairs.
 narration | stop=stairs: The apartment. You check everything is where you left it. You check the window. You check the window again.
 narration | if=flag:took_bullet: Downstairs, on the back shelf, a flattened bullet with a tag, next to a tin. You can feel it there, the way you'd feel a stove left on.
-narration | if=flag:door_daniel_1: "There you are." You keep hearing it. Gently. Almost tenderly.
+narration | if=flag:door_daniel_1: "There you are." You keep hearing it. Quiet. Pleased. A man finding a thing exactly where he left it.
 paranoia: The rules. Tonight more than any night.
 
 === radio

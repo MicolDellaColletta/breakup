@@ -49,8 +49,8 @@ narration | sound=bell: He goes. His hands don't shake on the door handle. You w
 # --- Olstad: hard fork 4. Him, in the customer chair. ---
 
 === trooper_enters
-narration | time=+60: You don't hear him come in. You look up and he's in the customer chair by the stove, the good coat open, warming his hands, as if he'd been there an hour.
-daniel: Don't mind me. It's cold out. Go on with your day.
+narration | time=+60 | red=on: You don't hear him come in. You look up and he's in the customer chair by the stove, the good coat open, warming his hands, as if he'd been there an hour.
+daniel: Don't mind me. Somebody's coming to ask you a question. I'd like to watch you answer it.
 narration | sound=bell: The bell. Olstad. Eight months gone. She sees him in the chair, and her face doesn't change at all, which is how you know.
 trooper: Johnny.
 trooper: I've got no fire marshal. I've got no coroner. I've got no road. I've got a doctor who cried when he signed it and a town that's sewing red string round its wrists.
@@ -76,8 +76,8 @@ narration: You tell her. Out loud, in the shop, with him six feet away. The bolt
 narration: She writes it down. Her pen doesn't stop.
 trooper: Thank you.
 narration: In the chair, he stands up, slowly, and buttons the good coat.
-daniel: I wore boots that night. Everyone wore boots. I'm glad you told her. It's a terrible thing to carry.
-narration | sound=bell: He goes. Olstad watches him all the way up the road. Then she looks at you, and for the first time since October, she looks at you like someone on her side.
+daniel: I wore boots that night. Everyone wore boots. Write that down too, Sergeant: a whole town in good boots, standing in the snow, singing. Not one of them carried water.
+narration | sound=bell | red=off: He goes. Olstad watches him all the way up the road. Then she looks at you, and for the first time since October, she looks at you like someone on her side.
 -> fire_after
 
 === fire_truth
@@ -85,8 +85,8 @@ narration: You tell her you don't believe it. That's all you've got. That a man 
 trooper: That's not evidence, Johnny.
 trooper: It's the only honest thing anybody's said to me in two days.
 narration: In the chair, he stands and buttons the good coat.
-daniel: It's a terrible thing, not to believe. I know.
-narration | sound=bell: He goes. Olstad stays a long time, not saying anything, with her hand on her belly.
+daniel: "Their quiver is as an open sepulchre." Jeremiah, on the ones who won't believe. Come Sunday, Sergeant. I'll keep you a seat at the front, where everyone can see you.
+narration | sound=bell | red=off: He goes. Olstad stays a long time, not saying anything, with her hand on her belly.
 -> fire_after
 
 === fire_silent
@@ -94,9 +94,9 @@ narration: You say nothing. You look at the counter. The grain of the wood.
 narration: She waits. He waits. The stove ticks.
 trooper: Okay.
 narration: She looks at you the way she's going to look at the whole town now. Then she goes.
-narration: In the chair, he sits a while longer, warming his hands. Then he gets up.
-daniel: Silence is a kind of answer. People forget that.
-narration | sound=bell: The bell.
+narration | red=alone: In the chair, he sits a while longer, warming his hands, watching you. Then he gets up.
+daniel: You went white and said nothing, with the law at your counter and me six feet away. Nobody's ever given me a better answer. Do it again on Sunday.
+narration | sound=bell | red=off: The bell.
 -> fire_after
 
 === fire_doctor
@@ -104,9 +104,9 @@ narration: You hear yourself say it. The stove. The doctor said.
 narration: Olstad looks at you for a long time. Then she closes her notebook without writing anything.
 trooper: Sure. The stove.
 narration | sound=bell: She goes. She doesn't say Johnny.
-narration: In the chair, he nods, slowly, at the fire. As if you'd said grace.
-daniel: Thank you. That was kind. You'll see how kind.
-narration | sound=bell: The bell.
+narration | red=alone: In the chair, he laughs. Quietly, once, at the stove, as if it had told him something.
+daniel: The stove. You said it like you'd practised. That's the first lie you've told for me, and you gave it away for nothing. I'll remember what it cost. You won't.
+narration | sound=bell | red=off: The bell.
 -> fire_after
 
 === fire_after

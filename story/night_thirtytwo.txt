@@ -1,6 +1,7 @@
 # THE THIRTY-SECOND NIGHT: Friday, February 11. After Ruth.
-# Same format as the other nights. The radio: him, very gentle, about
-# forgiveness, as if he'd been at the end of the bar. He was. Out of place:
+# Same format as the other nights. The radio: him, quiet and close, about
+# forgiveness and the woman who drove a man to the highway, as if he'd been
+# at the end of the bar. He was. Out of place:
 # the blue bowl, Ruth's mother's, on your kitchen table (odd_bowl).
 # Design: docs/february.md.
 
@@ -18,7 +19,7 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him, very gentle, as if he were sitting on the end of your bed. "Forgiveness, friends. It isn't a gift. It's a debt you agree to carry for someone. Tonight somebody in this town agreed to carry one. Or didn't. I won't say who."
+narration | sound=click: Him, not shouting tonight. Low and close, as if he were sitting on the end of your bed, which is worse. "The heart is deceitful above all things. Jeremiah seventeen. There's a woman in this town who drove a man to the highway and left her mother to sit in the dark for it, and tonight she told it, to the one person she thought would keep it. Forgiveness isn't a gift, friends. It's a debt. Somebody agreed to carry hers tonight. Or didn't. I was there. I know which."
 
 === radio_off
 narration: You leave it off. You know what he'd say. You heard him get up from his chair in the dark.

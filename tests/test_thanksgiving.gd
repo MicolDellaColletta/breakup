@@ -225,7 +225,7 @@ func _thanksgiving() -> void:
 	check(_log(column).contains("The boy is at the edge of the stage, bowing."), "the lights come up; the boy is bowing")
 	check(gs.flags.has("pageant_done"), "the pageant's done")
 	check(visit.current_room() == "hall", "back in the hall for the Thursday watch (in %s)" % visit.current_room())
-	check(_log(column).contains("Isn't that a mercy. To have someone who carries it for you."), "his voice on the radio on the pie table: Leviticus 16")
+	check(_log(column).contains("You need someone to carry it for you. And you have one."), "his voice on the radio on the pie table: Leviticus 16, and the goat")
 	visit.click("hall_vestry")
 	_route(column)
 	await wait(0.2)

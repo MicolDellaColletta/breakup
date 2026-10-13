@@ -19,7 +19,7 @@ narration: Ezra stands, and the room goes quiet the way a room goes quiet for hi
 ezra: For the harvest. For the ice, coming in. For the ones at table, and the ones not.
 ezra: And for the Keeper, who keeps.
 narration: Everyone looks at you. Then everyone says amen, and the noise comes back, all at once, like a door opened on a party.
-narration: At the Reverend's right hand, carving, in shirtsleeves, the good coat on the back of his chair: him.
+narration | red=on: At the Reverend's right hand, carving, in shirtsleeves, the good coat on the back of his chair: him.
 paranoia: Find your seat. Sit down. Don't stand in the middle of the room like a man who doesn't know where he's supposed to be.
 
 # --- The hall: things to look at. ---
@@ -175,14 +175,16 @@ narration: Beside you, Mrs. Hollis is crying, and clapping, and crying.
 narration | show=hall | flag=pageant_done | time=21:00: Nine o'clock. The coffee urn ticking. Children asleep on coats under the tables.
 narration: Somebody turns the radio on the pie table up. All the way. And the whole hall stops. Forks down. Mid-sentence.
 narration: The chair at the Reverend's right hand is empty. The good coat's gone from the back of it.
-narration: The radio. A breath. And then his voice, the voice from the Fridays, from the phone, filling the hall from a brown box among forty pies.
-daniel: Good evening, friends. Happy Thanksgiving. The Reverend has been kind enough to lend me his chair tonight, and I find I'm a little nervous. Bear with me.
-daniel: I'd like to read you something. It's an old story. It's in Leviticus, the sixteenth chapter. It's about two goats.
-narration: He reads it like a bedtime story. Slow. Kind. Each word set down like a glass on a table.
-daniel: One goat is for the Lord. And the other, the priest lays both his hands on its head, and confesses over it all the sins of the people, all of them, and puts them on its head. And it's sent away, into the wilderness, carrying them. To a land not inhabited.
-daniel: And the people are clean.
+narration: The radio. A breath. And then his voice, the voice from the Fridays, the one that breathes on your phone and never speaks, filling the hall from a brown box among forty pies.
+daniel | on=radio: Kettle Lake. The Reverend has given me his chair tonight. Put your forks down. You've eaten. Now you'll listen.
+daniel | on=radio: Leviticus. The sixteenth chapter. Two goats.
+narration: He doesn't read it like a story. He reads it like a sentence being passed, each word set down hard, like a glass on a table he means you to hear.
+daniel | on=radio: One goat is for the Lord. And the other, the priest lays both his hands on its head, and confesses over it all the sins of the people, all of them, and puts them on its head. And it's sent away, into the wilderness, carrying them. To a land not inhabited.
+daniel | on=radio: And the people are clean.
 narration: Nobody in the hall moves. A child turns over under a table, and a mother puts her hand on him without looking.
-daniel: Isn't that a mercy. To have someone who carries it for you.
+daniel | on=radio: You are not clean. I've been in this town two days, and I can smell it on you. The bottle behind the woodpile. The letter in the stove. The child at one of these tables with another man's eyes.
+narration: It comes all at once, a shout, too big for the brown box. The speaker tears on the loud words. Up and down the tables, people look at their plates.
+daniel | on=radio: You need someone to carry it for you. And you have one. You've had one since October.
 narration: Around the hall, people nod. Slowly. Mrs. Hollis. Ezra. Ruth, by the urn, not nodding, holding the blue bowl against her chest.
 narration | if=flag:told_olstad_daniel: Olstad, at the door, isn't nodding. She's looking at the vestry door.
 paranoia: Don't look at you. Don't anybody look at you.
@@ -193,11 +195,11 @@ narration: The vestry door, at the side of the hall, ajar. Down the short passag
 narration: Through the glass: the red bulb lit. ON AIR. His back, in his shirtsleeves, very straight, at the microphone. The Reverend in the chair beside him, his hands in his lap, not looking at the microphone. Looking at the floor.
 narration: On the radio behind you in the hall, and through the glass in front of you, a half-second apart, the same voice.
 narration: The Reverend looks up. He sees you at the glass. He doesn't do anything. He looks at you like a man at a bus window, pulling away.
-narration: He doesn't turn round. He doesn't stop reading. But on the radio, in the hall behind you, a hundred people hear him pause, just once, in the middle of a word.
+narration: The man at the microphone doesn't turn round. He doesn't stop reading. But on the radio, in the hall behind you, a hundred people hear him pause, just once, in the middle of a word. Long enough to enjoy it.
 paranoia: Go. Go back. Go home.
 
 === walk_home
 narration | time=22:00: You walk home down the hill with a foil plate Mrs. Hollis put in your hands at the door.
 narration: Every house on the road, the windows lit. Every one with a radio on in it. The same voice from every window, a half-second apart, so that walking down the hill you hear him from all sides, a little out of step with himself, like a choir.
-narration: "To have someone who carries it for you."
-narration | end=night: The shop, dark. The neon, the only thing on the whole road that isn't him.
+daniel | on=radio: You've had one since October.
+narration | end=night | red=off: The shop, dark. The neon, the only thing on the whole road that isn't him.

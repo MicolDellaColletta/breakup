@@ -25,6 +25,9 @@ narration | red=off: He goes.
 === phone
 daniel_line: Happy New Year.
 
+=== radio
+daniel | on=radio: Good evening, Kettle Lake.
+
 === silent
 narration | red=on: He's in the chair. He doesn't say anything.
 """)
@@ -78,6 +81,8 @@ func _the_phone() -> void:
 	section("On the phone he isn't in the room")
 	await _play("phone")
 	check(presence.state == "", "a daniel_line line leaves the light alone")
+	await _play("radio")
+	check(presence.state == "", "nor does his voice on the radio (on=radio): he's in every kitchen and none")
 
 func _silent() -> void:
 	section("There, and silent")

@@ -17,8 +17,10 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. The Saturday count, that was always the Reverend's. "Twenty-seven days, friends. Twenty-seven days, and the year turns over." His voice making the number sound like a gift.
-narration: Then, after the hymn: "Tomorrow, the lesson is mine. The Reverend's been so kind. I hope you'll all come. I hope everyone comes."
+narration | sound=click: Him. The Saturday count, that was always the Reverend's. He says the number like a sentence.
+daniel | on=radio: Twenty-seven days. Twenty-seven days, and the year turns over. It is written: I will come on thee as a thief, and thou shalt not know what hour. Count your doors.
+narration: Then, after the hymn, louder, close to the microphone, so the speaker buzzes.
+daniel | on=radio: Tomorrow the lesson is mine again. And next Sunday I'll have every one of you in a pew where I can see you. Every one. I'll know who stayed home.
 
 === radio_off
 narration: You leave it off. The cold ticks in the walls.

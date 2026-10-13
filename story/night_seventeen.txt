@@ -20,7 +20,7 @@ paranoia: Rule seven.
 
 === radio_on
 narration | sound=click: Him. The late repeat. The same reading, the same breath before the first word, the same pause in the middle of a word, exactly where you stood at the glass.
-narration: "Isn't that a mercy. To have someone who carries it for you."
+daniel | on=radio: You need someone to carry it for you. And you have one. You've had one since October.
 narration: Then, after it, where the Reverend would come on to say goodnight, nothing. A minute of the hiss of an open microphone in an empty room. Then off.
 paranoia: They kept the pause. They kept the pause where you were standing.
 

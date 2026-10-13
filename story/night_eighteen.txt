@@ -16,7 +16,8 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. Not a caller now. The host. "Good evening, friends. The Reverend's asked me to keep you company tonight. He's tired. We should let him rest."
+narration | sound=click: Him. Not a caller now. The host.
+daniel | on=radio: Kettle Lake. The Reverend will read you the notices, and then he'll sit down. He's tired. A man gets tired, carrying a town that won't carry itself.
 narration: Then the Reverend, for a minute only, reading the notices in a flat voice: the Advent candles; the nativity; the teeth for the vestry jar, by Christmas, every family.
 narration: Then him again, for an hour, reading. Not scripture. A list. Names, slowly, with a breath between each, like a man counting sheep. You don't know any of them. You listen to the whole list for one you'd know.
 paranoia: Thirty. Thirty-one. Stop counting. Stop counting them.

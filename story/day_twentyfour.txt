@@ -38,32 +38,32 @@ narration | sound=bell: She knocks twice on the frame. Three candles in the wind
 # --- Him, with the thread. ---
 
 === daniel_enters
-narration | sound=bell | time=+60: The bell, once. The good coat. A hank of red wool in his hand, the kind you'd buy for darning, and a pair of small scissors.
+narration | sound=bell | time=+60 | red=alone: The bell, once. The good coat. A hank of red wool in his hand, the kind you'd buy for darning, and a pair of small scissors.
 narration: He cuts a length on the counter without asking, the scissors very loud.
 -> daniel_thread_worn | if=flag:wears_thread
 -> daniel_thread_offer
 
 === daniel_thread_worn
-narration: He looks at your wrist. He reaches across and straightens the knot, the way you'd straighten someone's tie.
-daniel: There. It was slipping.
-daniel: They're kinder to you now. Aren't they. You can feel it.
+narration: He looks at your wrist. He reaches across and takes the knot between two fingers and pulls it, once, hard, till it bites.
+daniel: There. It was slipping. I don't let things slip.
+daniel: They wave at you now. Mrs. Hollis brings you dishes. They think it's because they've forgiven you. It's because they can see the mark from across the road. Isn't that funny?
 narration | sound=bell: He leaves the length he cut on the counter, for somebody else. The bell, once.
 
 === daniel_thread_offer
 daniel: It's Leviticus. The scarlet thread, tied to the goat's horns. So everyone knows which one carries it. Here it's the other way round. The thread is for the ones who don't.
 narration: He holds it out to you across the glass. A loop of red wool, the size of a wrist.
-daniel: It isn't a test. It's an invitation. I'm terrible at telling the difference, I'm told.
+daniel: It's a test. It's an invitation. It's a leash. All three, and every one of them true. Pick which one you'd rather be afraid of.
 > Hold out your wrist -> daniel_thread_take | take=red_thread | flag=wears_thread | eye=-9 | lean=warmth
 > "No." -> daniel_thread_refuse | flag=refused_thread | lean=paranoia
 
 === daniel_thread_take
-narration: He ties it himself. His fingers warm. Two knots, the way Ezra ties them.
-daniel: There.
+narration: He ties it himself. His fingers are dry and very sure. He pulls the second knot tighter than it needs to be, and watches your face while he does it.
+daniel: There. Now you're theirs. And mine. They don't know about that part.
 narration | sound=bell: The bell, once. By noon, three people have nodded to you in the road who didn't yesterday.
 
 === daniel_thread_refuse
 narration: He nods, and puts it in his pocket.
-daniel: Of course. It'll keep.
+daniel: Then yours will be the only bare wrist on the road. They'll notice by Sunday. I'll see to it.
 narration | sound=bell: The bell, once. Through the window you watch him tie the length on the wrist of a child waiting outside the store, and the child's mother thank him.
 
 # --- Olstad: the padlock is hers. ---

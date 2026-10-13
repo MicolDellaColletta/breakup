@@ -40,16 +40,16 @@ narration | sound=bell: He goes. He doesn't touch his hat.
 # --- Him, with your groceries. ---
 
 === daniel_enters
-narration | sound=bell | time=+90: The bell, once. The good coat, and in his arms a cardboard box, the same as the others.
+narration | sound=bell | time=+90 | red=alone: The bell, once. The good coat, and in his arms a cardboard box, the same as the others.
 narration: He sets it on the counter. Bread. Tinned milk. A tin of peaches. Coffee, the good kind, the kind the store didn't have even before.
-daniel: I brought yours myself. They didn't want to. I told them the Keeper eats too.
+daniel: I told them the Keeper's mine to feed. Nobody argued. Nobody on this road argues with me about you any more.
 narration: And under the coffee, wrapped in a dish towel: the Bible. The one he bought on the first. Calfskin. The names on the flyleaf back to 1871.
-daniel: I'm returning this. I've finished with it.
+daniel: I'm returning this. I've taken what I wanted out of it.
 narration | pawned=bible_cut | loan=0: You open it to the middle. Leviticus. Fifteen, and then seventeen. Between them, close to the spine, a stub of cut pages, clean as a knife through butter. Sixteen is gone. Every page of it.
-daniel: I know it by heart. It seemed a shame for it to be in two places.
+daniel: The goat, the lots, the wilderness. I know it by heart. It seemed a shame for it to be in two places.
 narration | if=!flag:wears_thread: He looks at your bare wrist, and back at your face, and doesn't say anything about it, and that's worse.
-narration | if=flag:wears_thread: He looks at your wrist. He smiles.
-daniel: The road opens on the second. You'll want to stay for New Year's. Everyone's staying.
+narration | if=flag:wears_thread: He looks at your wrist. He smiles, and taps the thread once with one finger, like a man checking a knot he tied.
+daniel: The road opens on the second. Go and stand at the end of it, if you like. Watch the plough go by. Then come back. Everyone comes back.
 narration | sound=bell: The bell, once.
 
 # --- Olstad, for the spectacles. ---

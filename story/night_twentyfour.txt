@@ -31,7 +31,7 @@ narration: You push the first one up. It snaps back down. You try another. It ho
 
 === radio_fuse_upstairs
 narration | sound=click: It holds. Up the stairs, the lamp's on, and the radio, mid-word, as if it had been talking all along.
-narration: Him. "...and the light shineth in darkness. And the darkness comprehended it not." A pause. "Some of you are sitting in the dark tonight. I can hear it. Sit with me."
+narration: Him. "...and the light shineth in darkness. And the darkness comprehended it not." A pause. Then, so loud the speaker rattles: "Some of you are sitting in the dark tonight, glad nobody can see your faces. I know your faces. I've had since October to learn them. I know thy works, saith the Lord, and so do I."
 narration: Outside, the road dark. The shop sign dark. Below, the freezer silent.
 
 === radio_fuse_sign

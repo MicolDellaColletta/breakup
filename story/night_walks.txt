@@ -171,8 +171,8 @@ narration | take=revolver | unflag=gun_floorboard: The loose board. The towel. S
 === confront
 narration | red=alone: Out the front door, into the road, at midnight. The Gleaner dark, all but the back window, lit red. You go round.
 narration: The back room. A transmitter on a card table, its dials glowing. Shelves of jars: the children's teeth, every family's. A microphone on a stand. And him, alone, off the air, in his shirtsleeves, reading.
-narration: He looks up. He isn't surprised. He closes the book on his finger.
-daniel: Come in. It's cold. Shut the door. Nobody will come; they think I'm praying.
+narration: He looks up. He isn't surprised. He's pleased. He closes the book on his finger and reads your face the way you read a scale, waiting for it to settle.
+daniel: Come in. Shut the door. Nobody will come; they think I'm praying. Look at you. You've been working up to this for weeks, and now you're here you don't know which hand to use.
 paranoia: Go back. Go back. You don't have to do this.
 narration: You've wanted to do this since the Tuesday he walked into your shop.
 > "Did you bolt the door?" -> confront_ask | flag=confronted | flag=asked_daniel | lean=appraisal
@@ -185,21 +185,21 @@ narration: You've wanted to do this since the Tuesday he walked into your shop.
 narration: You ask him. Out loud. Did you bolt the vestry door.
 narration: He doesn't look away. He doesn't hesitate.
 daniel: Yes.
-narration: That's all. One word. He waits to see if you'll ask anything else. You can't think of anything else.
-daniel: I don't lie. You knew what I'd say. You came to hear me say it. Now you have. Nobody else ever will.
-daniel: Go home. Tell Olstad, if you like. She'll believe you. That's the cruel part. It won't help her at all.
+narration: That's all. One word. He watches it land in you, and go all the way down, and he likes it. You can't think of anything else to ask.
+daniel: There. That, on your face. Do that again. You knew what I'd say. You came to hear me say it, so you couldn't pretend any more. Now you can't.
+daniel: Go home. Tell Olstad. She'll believe you, and it won't help her at all, and I'll get to watch that too.
 narration: You go home. The word comes with you. Yes.
 
 === confront_air
 narration: You cross the room before he can move. You flip the switch on the transmitter, the red light on, and you lean into the microphone, and you say it.
 narration: To every kitchen in Kettle Lake. The bolt. The door. The prints in the snow. The man who sat by the stove while Olstad asked. His name, the one he uses.
 narration: He doesn't stop you. He sits and listens, with his finger in his book, the way you'd listen to a child recite.
-narration: When you've finished, he leans past you, gently, to the microphone.
-daniel: Thank you, friends. That was the Keeper. I'd like to tell you something about the Keeper, now, since we're being honest.
+narration: When you've finished, he leans past you to the microphone, close, his chin nearly on your shoulder. Then his voice comes up out of him like a fire taking, loud enough to make the needle jump.
+daniel: That was your Keeper, friends! Since we're confessing tonight, let's do it properly. Leviticus: the goat shall bear upon him ALL their iniquities. Let me tell you what this one's carrying.
 narration: And he does. To every kitchen. John. The motel. The parking lot. Whose gun it was. What name you came here under, and why.
 narration: He doesn't lie once. He doesn't need to.
 narration: Then he switches the transmitter off, and the red light goes out.
-daniel: There. Now everybody knows everything. Isn't that better? It's always better.
+daniel: There. Now everybody knows everything. You started it. I only finished your sentence for you.
 
 === confront_gun
 narration: You take it out of your coat. John's gun. You point it at him across the card table.
@@ -213,6 +213,7 @@ narration | unflag=gun_pillow,gun_dresser,gun_floorboard,gun_bear,gun_furnace,gu
 === confront_gun_held
 narration: He stands up. Slowly. He comes round the table, toward you, until the muzzle's against his shirt, over the place on his side that nobody stitched right.
 daniel: There you are.
+narration: He looks down at your hand on the grip, at the shake in it, and back up at your face, and smiles at what he finds there.
 narration: Five rounds. Six chambers. You know which one's under the hammer. You've always known.
 > Pull the trigger. -> confront_click | flag=pulled_trigger | lean=animal
 > Lower it. -> confront_lower | lean=warmth
@@ -221,7 +222,7 @@ narration: Five rounds. Six chambers. You know which one's under the hammer. You
 narration: You pull it.
 narration: Click.
 narration: The empty chamber. The sixth. It came round, the way it always comes round.
-narration: He closes his eyes. He breathes out, a long breath, like a man setting something down.
+narration: He laughs. Once, softly, into your face, close enough that you feel it. He felt the hammer fall through his shirt, and he liked it.
 -> confront_taken
 
 === confront_lower
@@ -229,14 +230,14 @@ narration: You lower it. Your arm won't hold it up anymore. It weighs what a man
 -> confront_taken
 
 === confront_taken
-narration | lose=revolver: He takes it out of your hand. Gently, the way you'd take scissors from a child. He puts it inside his coat, over his heart, with the stubs.
-daniel: I'll keep this for you. Till March. You'll want it back then, I think, and then we'll see.
+narration | lose=revolver: He takes it out of your hand, one finger at a time, unhurried, the way you'd take scissors from a child who'd been told twice. He puts it inside his coat, over his heart, with the stubs.
+daniel: Mine now. In March you'll come and ask me for it. Nicely. And I'll decide.
 narration: He sits down again. He opens his book where his finger was.
-daniel: Goodnight.
+daniel: Goodnight. Go out the way you came. They'll think you were praying too.
 
 === confront_leave
 narration: You stand under the red window a long time, in the road, in the cold. Then you go home.
-narration: Behind you, the red light doesn't change. He knew you were there. He'll know if you come back.
+narration: Behind you, the red light doesn't change. But at the glass there's a shape, standing, watching you go, all the way down the road. He lets you see him watch. He'll know if you come back.
 
 # --- February finds: Abraham's other pocket; the bench drawer. ---
 

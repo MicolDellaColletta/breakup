@@ -94,7 +94,7 @@ narration | sound=bell: She knocks twice on the frame. The bell.
 # --- The man in the good coat. Polite; a stranger; exactly as yesterday. ---
 
 === daniel_enters
-narration | sound=bell | time=+150: The bell. Rings once. He's closed the door behind him so gently it doesn't ring twice.
+narration | sound=bell | time=+150 | red=alone: The bell. Rings once. He's closed the door behind him so carefully it doesn't ring twice.
 narration: The good coat. No snow on it today. He stands where he stood yesterday, and looks at the shop again, as if he hadn't.
 narration: He looks at the tin. Once. It's the only thing he looks at once.
 -> daniel_there | if=flag:there_you_are
@@ -107,8 +107,8 @@ narration: He says nothing about yesterday. He looks at you a moment too long, t
 -> daniel_asks
 
 === daniel_refused
-daniel: The matches kept me warm. Thank you.
-narration: He says it as if you'd done him a kindness. Maybe you did.
+daniel: The matches kept me warm. I burned them one at a time, down to the fingers, and thought about this shop.
+narration: He watches you hear it. He waits to see what the word "burned" does to your face, and seems satisfied.
 -> daniel_asks
 
 === daniel_took
@@ -118,10 +118,10 @@ paranoia: He means the bullet. He means you.
 -> daniel_asks
 
 === daniel_asks
-daniel: I wondered if I might buy something. Whatever Mr. Lund buys on Thursdays.
-daniel: I'd like to bring him something tomorrow. He's been kind to me. I'm told he's a creature of habit, and I find that's the best way to a man's heart. His habits.
+daniel: I'll have whatever Mr. Lund buys on Thursdays. The box in the drawer.
+daniel: I'm bringing it to him tomorrow. He's a creature of habit. They all are, up here. Take away a man's Thursday and watch what he'll do to get it back.
 narration: Ezra's box. In the drawer, under your hand, with THURS on the slip in the owner's writing.
-paranoia: He knows about the drawer. Two days in town and he knows what's in the drawer.
+paranoia: He knows about the drawer. One day in town and he knows what's in the drawer.
 appraisal | if=appraisal>=1: Every Thursday since before the ledger starts. One box. Ezra's never missed.
 > Sell him the box -> daniel_sell | flag=sold_ezra_shells | lean=appraisal
 > "That's spoken for." -> daniel_spoken | flag=kept_ezra_shells | lean=warmth
@@ -129,14 +129,14 @@ appraisal | if=appraisal>=1: Every Thursday since before the ledger starts. One 
 === daniel_sell
 narration | sound=drawer | sold=shells: You open the drawer and put the box on the glass. Six dollars. He puts down six dollars, faced, square.
 narration: He reads the slip under the rubber band. THURS. He leaves it where it is.
-daniel: Thank you. He'll be so surprised.
+daniel: He'll be so surprised. Men his age shouldn't be surprised. It's bad for the heart.
 paranoia: Tomorrow's Thursday. Tomorrow Ezra comes in for his box, and there won't be one, and he'll know who has it.
 -> daniel_goes
 
 === daniel_spoken
 narration: You keep your hand on the drawer.
 narration: He smiles. It reaches his eyes. It seems to please him more than the sale would have.
-daniel: Of course. Everything here is someone's.
+daniel: Everything here is someone's. You'll find out whose.
 -> daniel_goes
 
 === daniel_goes

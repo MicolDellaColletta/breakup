@@ -37,7 +37,7 @@ ruth: Every Keeper since. Every one. I keep them in town. I keep their keys. I t
 narration | if=has:ruth_diary: You know. You read it in her diary, in her room: "Mom says she'll go and sit in the shop so it's not empty." You don't tell her you know. Or she sees it in your face.
 narration | if=flag:saw_locked_room: She looks at you. "You've been in my room. Haven't you. You saw his coat. I couldn't give it back. I couldn't give it to the shop."
 narration | if=flag:ruth_has_keys: She pushes the ring of keys an inch toward you. Then stops, with her hand flat on them.
-narration: At the end of the bar, in the dark, where the light from the candle doesn't reach, a chair creaks. Somebody's been sitting there the whole time. Neither of you looks.
+narration | red=on: At the end of the bar, in the dark, where the light from the candle doesn't reach, a chair creaks. Somebody's been sitting there the whole time. Neither of you looks.
 paranoia: Him. He's been here the whole time. He heard all of it.
 > "It wasn't your fault." -> evening_forgive | door=ruth | lean=warmth
 > "You'd keep me here to die. Like the others." -> evening_refuse | lean=paranoia
@@ -65,5 +65,6 @@ narration | if=flag:ruth_has_keys: She puts the keys back in her pocket, and her
 -> evening_home
 
 === evening_home
-narration: At the end of the bar, the chair creaks again. A man stands up in the dark, and puts on a good coat, and goes out through the kitchen without a word. The back door, softly.
+narration: At the end of the bar, the chair creaks again. A man stands up in the dark, and puts on a good coat. On his way past he stops at your table, lifts the candle, and holds it up to Ruth's wet face, then to yours, a while each, as if comparing them.
+narration | red=off: He sets the candle down where it was and goes out through the kitchen without a word. The back door, softly.
 narration | end=night | time=23:30: You walk home. Behind you, the candle in the Gleaner goes out.

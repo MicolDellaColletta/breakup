@@ -6,7 +6,7 @@
 
 === morning
 narration | time=07:30: Saturday, the fifth of February. Light at nine. Dark after five. Eleven weeks, the radio says, and says it again, as if you might not have heard.
-narration: Sunday's sermon, repeated: the second goat. "Who goes out into the wilderness carrying all of it, friends. All of it. And is never asked to come back."
+narration: Sunday's sermon, repeated. Leviticus sixteen, the second goat, and his voice climbing till the little speaker buzzes with it. "Aaron shall lay both his hands upon the head of the live goat, and confess over him ALL the iniquities. All of them, friends. Yours. I have yours written down. And the goat goes out into the wilderness, and he is never asked to come back."
 narration: Up on the hill, against the white sky, the pine thing on the tower stump is finished. A tall post. A crosspiece near the top. An iron ring, bolted through.
 paranoia: A bell frame. For a new bell. They'll hang a new bell.
 unknown: There's no bell.
@@ -20,12 +20,13 @@ narration | time=09:00: You turn the sign. OPEN.
 === ezra_enters
 narration | sound=bell | time=+60: The bell. Two men. Ezra, and the man in the good coat with an arm round Ezra's shoulders, the way you'd walk a man home from a funeral.
 narration: Ezra's right arm in a cast from the knuckles to the elbow, in a sling made from a church altar cloth.
-daniel: An accident. The hall door. It swung on him in the wind. Didn't it, Ezra.
-ezra: It did.
+daniel: The hall door. I shut it on his hand, and then I opened it and shut it again, to be sure. Tell the Keeper what you tell the hall, Ezra.
+ezra: It was the door.
+daniel: He called you the goat. In the hall, out loud, twice. Nobody calls you anything. Nobody but me.
 narration: Ezra looks at the counter. At the drawer.
 ezra: I missed Thursday. First Thursday in twenty-two years. I couldn't load it. I sat at the kitchen table with the box and the gun and I couldn't get one in.
 ezra: I'd like my box. And I'd like... I'd like you to load it for me. If you would. Five in the tube. So I've got Thursday.
-narration: In the doorway, the man in the good coat waits, his hands folded, and watches which you'll do.
+narration: In the doorway, the man in the good coat waits, his hands folded. He isn't watching your hands. He's watching your face, to see which you'll do.
 paranoia: Ezra. Who called you the goat. Who barred the doors. Who brought you the church's things to hold.
 warmth | if=warmth>=1: His hand. Look at his hand.
 > Load the shells for him. -> ezra_load | keep=ezra | lean=warmth
@@ -36,15 +37,16 @@ narration | sound=drawer | sold=shells: You take the box from the drawer. He put
 narration | write=E. Lund. .22 shells, one box. Loaded for him. $6: You write his line in the ledger, the same line, the twenty-third year of it.
 ezra: Thank you.
 narration: He doesn't look at you when he says it. He looks at the gun. His eyes are wet.
-daniel: That was kind. You're always kind, in the end. It's what they'll say about you.
-narration | sound=bell: They go out together. The bell, once.
+narration: The man in the good coat lays six dollars on the glass before Ezra can reach for his. Exact. For the shells, or for the hand.
+daniel: Five in the tube for the man who called you the goat, and your hands never shook. I was watching. Now I know what you'll do, and for whom.
+narration | sound=bell | red=off: They go out together. The bell, once.
 
 === ezra_refuse
 narration: He nods. He picks up the gun with his good hand and holds it against his chest like a baby.
 ezra: No. No, that's right. That's right.
-narration: In the doorway, the man in the good coat closes his eyes for a moment, as if something he'd hoped wasn't true had turned out to be.
-daniel: Come on, Ezra. I'll load it for you. I don't mind.
-narration | sound=bell: They go out together. Through the window you watch him load it on the step, five, slowly, in the cold, while Ezra watches his hands.
+narration: In the doorway, the man in the good coat smiles, slowly, the way a man smiles when the card he's been waiting for turns over.
+daniel: Come on, Ezra. I'll load it for you. I broke the hand. I always pay for what I break.
+narration | sound=bell | red=off: They go out together. Through the window you watch him load it on the step, five, slowly, in the cold, while Ezra watches his hands.
 
 # --- Mrs. Hollis, fasting. ---
 

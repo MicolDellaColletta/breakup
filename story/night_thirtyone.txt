@@ -17,7 +17,7 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him. "Eleven weeks, friends. Eleven. The ice is two feet and a half off the point. Sam Wakeman's ice, they call it." A laugh in the room behind him. "And every week it's ready, it's a week closer to being ready to let go."
+narration | sound=click: Him. "Eleven weeks, friends. Eleven. The ice is two feet and a half off the point. Sam Wakeman's ice, they call it, as if the Lord needed a man with a torch to count it for Him." A laugh in the room behind him. "Every week it holds, it's a week closer to letting go. And the sea gave up the dead which were in it. Revelation twenty. So will the lake. So will the lake."
 
 === radio_off
 narration: You leave it off. Through the wall: nine. You hear the number through the wall. Just the number.

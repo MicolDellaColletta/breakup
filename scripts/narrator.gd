@@ -418,7 +418,7 @@ func _show_line(index: int, with_effects: bool = true) -> void:
 		_apply_effects(line)
 	var presence: Node = get_node_or_null("/root/Presence")
 	if presence:
-		presence.heard(line["speaker"])
+		presence.heard(line["speaker"], line.get("on", ""))
 	var speaker: Dictionary = speaker_info(line["speaker"])
 	_speed = speaker["speed"]
 	_display_line(line, speaker, not with_effects)
