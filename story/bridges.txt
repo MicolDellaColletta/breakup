@@ -114,4 +114,30 @@ narration | card=Sunday. The lesson. | time=10:00: He reads the lesson at the mo
 narration: The church fuller than you've ever seen it. People standing at the back. People you've never seen, from up the lake road, in their good coats.
 narration | card=Tuesday. The Keeper is paid. | cash=+150: Snow, and the envelope a day early. A hundred and fifty, faced. And with it, for the first time, nothing. Not a card. Not a hymn number. Not a swatch.
 paranoia: Nothing. They've stopped telling you things. Or they've stopped needing to.
-narration: (The story continues in December, which is still being written. Thank you for playing.)
+
+# --- Before key day 19 (Saturday, December 4): Thursday and Friday. ---
+
+=== bridge_early_december
+narration | card=Thursday. The plow doesn't come. | time=08:00: Snow all night and all day. The road a white trough. The plow doesn't come; the plow driver's at the Gleaner, they say, and the Gleaner's full.
+narration: The back table: the man in the good coat and Ezra, with their heads together, two cups of coffee going cold between them. Every night. Ruth says they don't drink.
+narration | card=Friday. Forty below.: The radio says forty below and then stops saying it, as if it's embarrassed. Your breath freezes in your scarf between the shop and the woodpile.
+narration | if=flag:car_forgotten: Olstad's cruiser goes past the lot twice a day. It doesn't slow. She's forgetting, very carefully.
+
+# --- Before key day 20 (Sunday, December 12): the week. ---
+
+=== bridge_second_week
+narration | card=Monday. The Reverend's car. | time=09:00: Up at the manse, the Reverend's car with its hood up in the snow, and the man in the good coat bent over the engine in his shirtsleeves, at twenty below. Helping.
+narration: By noon the whole road knows the car won't start. By two the whole road knows he stayed out there three hours trying.
+narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope, under the door before dawn. You lie in bed and listen to the boots on the step, and the paper on the wood, and the boots going away. You don't go down. You know who.
+narration: On the church board, Thursday's hymn numbers, chalked up as always. One of them rubbed out with a thumb, and not replaced.
+narration | card=Saturday. The second candle.: Mrs. Hollis goes down the road at dusk with a box of matches, lighting the second candle in every window, the way her mother did. She does yours. She doesn't come in.
+narration | if=eye>=3: At the Gleaner, when you come in, a table of men stops talking, and starts again, about the weather.
+
+# --- After key day 20: the end of what's written, for now. ---
+
+=== bridge_mid_december
+narration | card=Monday. An empty pulpit. | time=09:00: The road the morning after, very quiet. People shovel their walks without talking.
+narration | if=flag:reverend_gone: The manse dark. The car in the drive, hood down, under fresh snow. By Wednesday nobody says his name. By Friday nobody says they don't say it.
+narration | if=flag:reverend_warned: The manse dark. Ezra at the pulpit on Sunday, reading what's written. He reads it badly. He knows he does. The man in the good coat, in the front pew, listening with his eyes closed.
+narration | if=flag:reverend_hidden: The manse dark. The town looking. Ezra at your door on Tuesday, polite, asking if you'd seen him. You say no. He writes something in his book.
+narration: (The story continues on the shortest day, which is still being written. Thank you for playing.)

@@ -18,6 +18,7 @@
 -> map_day_thirteen | if=day==13
 -> map_day_fifteen | if=day==15
 -> map_day_sixteen | if=day==16
+-> map_day_eighteen | if=day==18
 -> map_day_two
 
 === map_day_one
@@ -36,6 +37,7 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_thirteen | if=day==13
 -> pub_fifteen | if=day==15
 -> pub_sixteen | if=day==16
+-> pub_eighteen | if=day==18
 -> pub_two
 
 === pub_first
@@ -103,6 +105,7 @@ narration: The cold outside is almost a relief.
 -> lake_thirteen | if=day==13
 -> lake_fifteen | if=day==15
 -> lake_sixteen | if=day==16
+-> lake_eighteen | if=day==18
 -> lake_two
 
 === lake_first
@@ -173,6 +176,7 @@ narration: You leave money on the bar and go before the room can decide to be fr
 -> church_thirteen | if=day==13
 -> church_fifteen | if=day==15
 -> church_sixteen | if=day==16
+-> church_eighteen | if=day==18
 -> church_two
 
 === church_two
@@ -242,6 +246,7 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 -> cabin_thirteen | if=day==13 and flag:met_sam
 -> cabin_fifteen | if=day==15 and flag:met_sam
 -> cabin_sixteen | if=day==16 and flag:met_sam
+-> cabin_eighteen | if=day==18 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -895,6 +900,32 @@ sam: Good. Go home. Don't come here tomorrow. They'll be counting who isn't at t
 narration | time=+20: The lake. Black ice gone gray, gray gone white. Somebody's swept a path out from the shore, straight, a shovel's width, a hundred yards out onto the ice, and stopped.
 narration: No shanty at the end of it. No hole. Just the end of the path, and the white.
 paranoia: For the pageant. For a picture. For something to walk out on.
+
+=== map_day_eighteen
+narration: December. A candle in every window on the road, one each, the same height, as if somebody had come along with a ruler.
+narration: The Gleaner lit. The church dark. The manse lit, upstairs, one window, late.
+
+=== pub_eighteen
+narration | time=+60: The Gleaner. Full, and quiet for full.
+narration: The back table: the man in the good coat and Ezra, heads together, two coffees going cold. Ezra's hand flat on the table between them, the way you'd hold down a page in the wind.
+narration | if=!faithless:ruth: Ruth pours you one without asking. She keeps her eyes on the back table while she does it.
+narration | if=faithless:ruth: Ruth pours you one. She doesn't say anything. She doesn't need to.
+ruth: They don't drink. Ezra hasn't not drunk in my bar in twenty years.
+narration: The man in the good coat looks up, across the room, at you. He lifts his coffee cup, an inch, the way you'd raise a glass.
+
+=== church_eighteen
+narration | time=+20: The church, dark. The board out front: Thursday's hymns, chalked. Somebody's started rubbing one out with a thumb and stopped halfway, so it's a smudge with a number underneath you can't read.
+narration: Up at the manse, one window lit. A man sitting at a desk, not writing.
+
+=== cabin_eighteen
+narration | time=+10: The cabin. Sam on the porch in the dark with a cigarette he isn't smoking.
+sam | if=flag:told_sam_daniel: Ezra's been to the church every night this week. Not the church. The radio booth. He comes out after the Reverend's gone home.
+sam | if=!flag:told_sam_daniel: Ezra's been up at the booth every night this week. After the Reverend's gone home. Thought you'd want to know. Don't know why I thought that.
+sam: Saturday. Come Saturday. I'll have something to show you.
+
+=== lake_eighteen
+narration | time=+20: The lake. The ice a foot thick now; the trucks are out on it, and the shanties, a little town of plywood on the white, with stovepipes smoking.
+narration: Out past them, alone, the tripod and the clock. Somebody's swept the snow off the face.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

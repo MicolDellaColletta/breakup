@@ -8,7 +8,7 @@
 === morning
 narration | time=06:10: December. You wake in the dark, and lie there, and know why you're awake before you know you know.
 narration: A sound downstairs. Not the dog. Not the furnace. Paper, on wood.
-narration | sound=stairs: Down the stairs in your socks. The shop dark, the neon off, the street lamp throwing the window's shape across the floor.
+narration: Down the stairs in your socks. The shop dark, the neon off, the street lamp throwing the window's shape across the floor.
 narration: Through the glass of the front door: boots on the step. Someone bending.
 narration: The envelope comes under the door, an inch at a time, and stops.
 narration: Then the someone straightens up. Sees you, through the glass, standing in the dark three feet away.

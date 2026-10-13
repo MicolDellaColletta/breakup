@@ -145,17 +145,24 @@ func _saturday() -> void:
 	ring_bell()
 	check(column._section == "closing", "closing")
 	advance(column)
-	await wait(3.5)
-	check(current_scene.name == "Visit", "the evening is walked: to Sam's")
+	await process_frame
+	counter._leave_for_the_evening()
+	await wait(2.5)
+	check(current_scene.name == "Visit" and current_scene.current_room() == "cabin_road", "the evening is walked: the shore path to Sam's")
 
 func _wall() -> void:
 	section("The evening of key day 19: Sam's wall")
+	await wait(1.0)
 	var visit: Node = current_scene
 	gs.set_flag("sam_crossed")
 	var column: Node = visit.get_node("%Narrator")
+	for i in 50:
+		if column._section != "":
+			break
+		await wait(0.1)
 	_route(column)
 	await wait(0.7)
-	check(visit.current_room() == "cabin" and _log(column).contains("That's the chair."), "Sam's doors are open: inside, one chair, and it's yours")
+	check(visit.current_room() == "cabin" and _log(column).contains("That's the chair."), "Sam's doors are open: inside, one chair, and it's yours (%s, %s)" % [visit.current_room(), column._section])
 	visit.click("cabin_envelopes")
 	_route(column)
 	await wait(0.2)
@@ -182,8 +189,9 @@ func _road() -> void:
 	var visit: Node = await _go("res://scenes/visit.tscn")
 	var column: Node = visit.get_node("%Narrator")
 	_route(column)
+	var seen: String = _log(column)
 	await wait(2.5)
-	check(_log(column).contains("pinning something, very carefully") and current_scene.name == "Night", "a shadow at the wall through the curtain; then home")
+	check(seen.contains("pinning something, very carefully") and current_scene.name == "Night", "a shadow at the wall through the curtain; then home")
 
 func _frozen_latch(choice: String, flag: String) -> void:
 	section("The nineteenth night: the frozen latch (%s)" % flag)
@@ -231,8 +239,8 @@ func _reverend(choice: String, flag: String) -> void:
 
 func _night_twenty() -> void:
 	section("The twentieth night: after the Reverend")
+	await wait(2.0)
 	var night: Node = current_scene
-	await wait(0.5)
 	var column: Node = night.get_node("%Narrator")
 	advance(column)
 	await process_frame

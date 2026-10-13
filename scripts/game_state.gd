@@ -52,12 +52,21 @@ const DAY_STORIES: Dictionary = {
 	15: "res://story/day_fifteen.txt",
 	16: "res://story/day_sixteen.txt",
 	17: "res://story/day_seventeen.txt",
+	18: "res://story/day_eighteen.txt",
+	19: "res://story/day_nineteen.txt",
+	20: "res://story/day_twenty.txt",
 }
 # Evenings that are walked instead of picked from the town map (key day 10:
 # the first-ice party on the lake). The story starts at "evening" and ends
 # with end=night.
 const EVENINGS: Dictionary = {
 	10: "res://story/evening_ten.txt",
+	19: "res://story/evening_nineteen.txt",
+}
+# Where a walked evening starts (the first-ice party on the shore).
+const EVENING_ROOMS: Dictionary = {
+	10: "shore",
+	19: "cabin_road",
 }
 const MAP_SCENE: String = "res://scenes/map.tscn"
 const VISIT_SCENE: String = "res://scenes/visit.tscn"
@@ -69,6 +78,7 @@ const DAY_SCENES: Dictionary = {
 	12: "res://scenes/visit.tscn",
 	14: "res://scenes/visit.tscn",
 	17: "res://scenes/visit.tscn",
+	20: "res://scenes/visit.tscn",
 }
 # After week one, the story days are key days, with days skipped between them.
 # Which calendar day (counted from October 5, the drive) each one is. Days
@@ -85,6 +95,9 @@ const DAY_DATES: Dictionary = {
 	16: 50,
 	17: 51,
 	18: 57,
+	19: 60,
+	20: 68,
+	21: 77,
 }
 # A bridge before a key day covers the days skipped: a title card and a few
 # lines (story/bridges.txt, the section named here), then the day itself.
@@ -97,6 +110,9 @@ const BRIDGES: Dictionary = {
 	14: "bridge_mid_november",
 	15: "bridge_thanksgiving_week",
 	18: "bridge_late_november",
+	19: "bridge_early_december",
+	20: "bridge_second_week",
+	21: "bridge_mid_december",
 }
 const BRIDGE_SCENE: String = "res://scenes/bridge.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
@@ -118,6 +134,9 @@ const NIGHT_STORIES: Dictionary = {
 	15: "res://story/night_fifteen.txt",
 	16: "res://story/night_sixteen.txt",
 	17: "res://story/night_seventeen.txt",
+	18: "res://story/night_eighteen.txt",
+	19: "res://story/night_nineteen.txt",
+	20: "res://story/night_twenty.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on

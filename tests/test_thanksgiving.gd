@@ -256,4 +256,4 @@ func _night_seventeen() -> void:
 	check(current_scene.card_text() == "Tuesday. The Keeper is paid.", "Friday, Sunday, Tuesday: the envelope, and nothing with it")
 	check(root.get_node("Hud").get_node("%ClockLabel").text.begins_with("Tue Nov 30"), "the clock says Tuesday, November 30")
 	await wait(4.0)
-	check(current_scene.name == "Title", "the end of what's written: back to the title")
+	check(current_scene.name == "Counter" and gs.day == 18, "then December, at the counter")

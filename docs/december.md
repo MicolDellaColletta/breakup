@@ -115,6 +115,8 @@ reported stolen. She stands at the counter with the letter.
 - What decides it: whether you tried to run (`tried_to_run`), what you did
   with the rental letter (`rental_letter`, `rental_call`), and kept faith
   with her.
+- **The money order** comes with her, in the mail: postmarked Kettle Lake,
+  from the store's window (built so; the dawn envelope holds only the money).
 - **The choice:** ask her to forget (she does if faith with her is kept:
   `car_forgotten`; otherwise she can't), let her tow it (`car_towed`: no
   car until April), or **show her the letter, signed "John"** (the truth, a
@@ -367,3 +369,33 @@ April.
 - Fixed on the way: two `flag=` on one line now both apply (night 15's bowl
   at the back door lost `fed_fifteen`).
 - Tests: `test_counts.gd`.
+
+**Pass 2, to hard fork 4 (Oct 13).**
+- **Engine:** `DAY_DATES` 19-21; key day 19's walked evening
+  (`EVENINGS`, and `EVENING_ROOMS` for where a walked evening starts); key
+  day 20 a walk-around; visit rooms `cabin` and `cabin_road` (place art);
+  the counter's December visitors (18: Olstad, Mrs. Hollis, him at the
+  window; 19: Ruth, June); bridges 19-21, the last one ending what's
+  written.
+- **Key day 18** (`day_eighteen.txt`): Ezra at the door at dawn; Olstad with
+  the third money order (`money_order_kettle`) and the car: forget it (with
+  her kept faith: `car_forgotten`), tow it (`car_towed`), or show her the
+  rental letter ("Not John. Just J.": `keep=olstad`); Mrs. Hollis and the
+  first candle, reading the Thanksgiving place; him at the window with his
+  little book. Map evening (`town.txt`); night 18, out of place: the mat.
+- **Key day 19** (`day_nineteen.txt`, `evening_nineteen.txt`): Ruth with
+  your glass (and your keys in her pocket); June and the nativity window
+  (refusing it: `eye=+1`). Sam's wall with his doors open: the six
+  envelopes, the wall, a pin (the money order, Ezra, or the bullet:
+  `door=sam`), your line, the faces cut out, "Nobody does. That's the point
+  of it." (`sam_never_touches`); without them, his shadow at the wall from
+  the road. Night 19, the frozen latch: tape from the fuse box
+  (`frozen_taped`), or rule one broken (`frozen_open`).
+- **Key day 20** (`day_twenty.txt`): the lesson, the doors barred, "I don't
+  lie", "I helped them live"; the voice on the air (`said_on_air`: "Was he
+  helping you too?"); the teeth jar asked for. At dusk, the vestry and the
+  fork: walk him to the town line or give him the car (`reverend_warned`),
+  hide him in the back room or at Sam's (`reverend_hidden`, `eye=+2`), or
+  walk away (`reverend_gone`). Night 20: him alone at night; praying
+  through the floor if he's in the back room; out of place, the bulletin.
+- **Tests:** `test_december.gd`.

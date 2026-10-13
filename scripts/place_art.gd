@@ -48,6 +48,8 @@ func _draw() -> void:
 		"far_ice": _draw_far_ice()
 		"hall": _draw_hall()
 		"stage": _draw_stage()
+		"cabin": _draw_cabin()
+		"cabin_road": _draw_cabin_road()
 
 func _draw_church() -> void:
 	# White walls, tall plain windows on both sides, pews running to the altar.
@@ -175,3 +177,55 @@ func _draw_stage() -> void:
 	for row in 3:
 		for k in 9:
 			draw_circle(_p(0.1 + k * 0.1, 0.8 + row * 0.07), size.y * 0.025, Color(0.12, 0.12, 0.14))
+
+func _draw_cabin() -> void:
+	# Sam's cabin, inside: the wall of string and pins across the back, the
+	# table with the six envelopes, one chair, the stove going red.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.36, 0.3, 0.24))
+	_poly([Vector2(0, 0.58), Vector2(1, 0.58), Vector2(1, 1), Vector2(0, 1)], FLOOR)
+	# The wall: cards, and red and white string between them.
+	_rect(0.04, 0.08, 0.92, 0.44, Color(0.5, 0.44, 0.36))
+	var cards: Array = []
+	for k in 26:
+		var x: float = 0.06 + fmod(k * 0.137, 0.86)
+		var y: float = 0.1 + fmod(k * 0.073, 0.38)
+		cards.append(Vector2(x, y))
+		_rect(x, y, 0.035, 0.03, Color(0.86, 0.82, 0.7))
+	for k in cards.size() - 1:
+		var a: Vector2 = cards[k] + Vector2(0.017, 0.015)
+		var b: Vector2 = cards[(k * 7 + 3) % cards.size()] + Vector2(0.017, 0.015)
+		draw_line(_p(a.x, a.y), _p(b.x, b.y), CLOTH if k % 2 == 0 else Color(0.9, 0.9, 0.88), 1.0)
+	# The faces cut out of the Polaroids, top right.
+	for k in 3:
+		_rect(0.78 + k * 0.05, 0.14, 0.04, 0.05, Color(0.92, 0.92, 0.9))
+		_rect(0.79 + k * 0.05, 0.15, 0.02, 0.02, Color(0.5, 0.44, 0.36))
+	# The names, bottom left, a line each.
+	for k in 4:
+		draw_line(_p(0.07, 0.38 + k * 0.025), _p(0.22, 0.38 + k * 0.025), PENCIL, 1.5)
+	# The table and the six envelopes.
+	_rect(0.34, 0.66, 0.32, 0.04, WOOD)
+	_rect(0.36, 0.7, 0.02, 0.18, WOOD_DARK)
+	_rect(0.62, 0.7, 0.02, 0.18, WOOD_DARK)
+	for k in 6:
+		_rect(0.37 + k * 0.045, 0.62, 0.035, 0.04, Color(0.9, 0.86, 0.74))
+	# The one chair.
+	_rect(0.24, 0.62, 0.06, 0.24, WOOD_DARK)
+	# The stove.
+	_rect(0.8, 0.56, 0.12, 0.2, IRON)
+	_rect(0.83, 0.62, 0.06, 0.06, Color(0.85, 0.3, 0.1))
+	_rect(0.85, 0.08, 0.02, 0.48, IRON)
+
+func _draw_cabin_road() -> void:
+	# The cabin from the shore path at night: snow, the cabin dark against the
+	# trees, a lamp behind the curtain and a shadow at the wall.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.05, 0.06, 0.1))
+	_poly([Vector2(0, 0.62), Vector2(1, 0.58), Vector2(1, 1), Vector2(0, 1)], Color(0.72, 0.76, 0.84))
+	for k in 9:
+		var x: float = 0.02 + k * 0.12
+		_poly([Vector2(x, 0.6), Vector2(x + 0.05, 0.28), Vector2(x + 0.1, 0.6)], Color(0.03, 0.05, 0.06))
+	_rect(0.36, 0.38, 0.28, 0.24, Color(0.12, 0.1, 0.09))
+	_poly([Vector2(0.33, 0.39), Vector2(0.5, 0.26), Vector2(0.67, 0.39)], Color(0.1, 0.08, 0.07))
+	# The curtain, lit; the shadow with one arm up.
+	_rect(0.44, 0.44, 0.12, 0.1, Color(0.85, 0.66, 0.36))
+	_rect(0.49, 0.46, 0.025, 0.08, Color(0.3, 0.2, 0.12))
+	draw_line(_p(0.5, 0.48), _p(0.54, 0.445), Color(0.3, 0.2, 0.12), 3.0)
