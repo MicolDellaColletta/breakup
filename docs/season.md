@@ -6,8 +6,7 @@ review's unpaid promises (`review.md` section 4) and missing groundwork
 (section 7) get paid. A roadmap to agree before building, month by month,
 each month planned in its own doc first, as before.
 
-**Leans** are my recommendations; "Your call" marks the decisions.
-Everything here follows `forks.md` (the six hard forks, the doors, kept
+**Decided Oct 13: all four leans.** Everything here follows `forks.md` (the six hard forks, the doors, kept
 faith, the endings) and `pillars.md`.
 
 ---
