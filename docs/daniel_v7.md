@@ -239,7 +239,94 @@ like this:
   - The night-walks face-off at the Gleaner's back window should be him at his
     scariest. It's MC's one chance to face him, so he should enjoy it.
 
-## Your calls
+---
+
+## 9. Darker: a past that won't hold still
+
+**Is v7 dark enough?** His deeds are dark, but his past is too explained: a
+con man, warrants, one summer in 1988. An explained man is a man you can
+arrest. Darker means **we learn less, and what we learn doesn't agree.** MC is
+the one who remembers him, and MC isn't reliable.
+
+**The trick: he never lies, but his stories don't match.** Each time MC asks
+about his past in the counsel room, he answers plainly and truthfully, and
+each time the answer is different. If he never lies, then **MC is
+misremembering**, and the player has to decide which one is broken. The doubt
+moves from Daniel onto MC. No other rule in the game does that.
+
+### Fragments, never a biography
+
+Each fragment comes from a different source, and none of them confirms the
+others.
+
+| Source | What it says | What it does |
+|---|---|---|
+| **Olstad's file** (Feb/Mar) | "Daniel Hale" is on a Minnesota gravestone: a boy, drowned at eight, in 1961, through the ice. **He's wearing a dead child's name.** | The ice was his before it was the town's. |
+| **A clipping in the files** (Mar) | 1984, North Dakota: a church in a grain elevator, 31 dead, the preacher never found. No photograph, only a description of his voice. | It sets up April. Ask him and he says: *"Ask me properly."* If MC does, he tells him, and it's worse than the clipping. |
+| **His father** (one line, the counsel room) | The pastor was found dead in his church in 1971, with the boy, thirteen, in the front pew, *"still listening."* Nothing more, ever. | It's left to the player. |
+| **The cigar box** (his room above the Gleaner, a night walk) | One keepsake from every town: a wedding ring, a lock of hair, a baby tooth, a hymnal page. And one from 1988: **a photograph of MC at seventeen, wet, on a lake shore.** And an empty slot, already labelled in pencil: *Kettle Lake.* | MC was collected. So is the town. |
+| **His body** (noticed, never confirmed) | The wound from the sixth bullet is still wet in March. He doesn't eat, ever. One morning at minus thirty, his breath doesn't fog. | That's the gap between strands. MC can't tell if it's real. |
+
+### The 1988 lake changes each time
+
+The flashback plays in three pieces, and each time **it's different, and
+worse:**
+
+1. **First:** the tent, the money, the girl at the baptism. Brother Abel holds
+   her under. MC watches from the shore.
+2. **Second:** the same scene, but MC is standing **in the water**, closer.
+   Abel's hand is on MC's shoulder. MC's hands are on the girl.
+3. **Third (the night before breakup):** the preacher's face, when he finally
+   turns round, is **MC's own.** Or Daniel's, laughing. The player sees
+   whichever face fits their background and their strongest voice.
+
+What's true is left to the backgrounds:
+
+- **Guilt:** MC drowned her, and built Daniel to carry it. But Daniel is real
+  in the town: he broke Ezra's hand. The town saw.
+- **Witness:** all three pieces are true, in order. MC was moved closer each
+  time because that's what happened.
+- **Debt:** MC owes Daniel for the second piece.
+- **Insanity:** there was no tent. Or there was, and MC was never there.
+  Whatever the truth, Daniel knows the dream in detail.
+
+**Lean:** yes to all of section 9. It doesn't replace the 1988 lake in
+section 6, it decays it. Daniel's lines stay true, and the game never says
+which fragment is real.
+
+## 10. The red light
+
+At present only **his phone lines** are red (`speakers.cfg`, January). There's
+no light effect yet. Proposal:
+
+- **The scene goes red when he's present.** A dim red cast over the whole
+  picture, multiplied in, not a wash. It fades in over about two seconds when
+  he enters or speaks, and fades out when he leaves. The lamps take it most:
+  the stove glow, the bulb, the candle.
+- **Stronger alone:** in the counsel room, or when it's only him and MC, the
+  red deepens, and the light pulses very slightly when he enjoys something
+  (MC's fear, a flinch).
+- **It lies when MC is frayed:** with ??? strong, the red comes **when he
+  isn't there.** An empty shop at night, the stove glowing red, nobody in the
+  room. The player stops trusting the signal, which is the point.
+- **How:** one overlay layer shared by the counter, visit and night scenes.
+  It comes up automatically on any `daniel` line (or with a `red=on` /
+  `red=off` effect for scenes where he's present but silent) and drops at a
+  scene change or when he leaves. It's saved with the scene, and tested.
+- **Lean:** yes. Build it with the rewrite pass (section 3), so every built
+  Daniel scene gets the light at the same time.
+
+## Your calls (darker)
+
+9. **A past that won't hold still:** true answers that don't match, so MC's
+   memory is the broken thing; the five fragments (the dead boy's name, the
+   grain elevator, his father, the cigar box, his body). Lean: yes.
+10. **The flashback decays:** three pieces, each worse, the last with MC's
+    face; what's true depends on the background. Lean: yes.
+11. **The red light:** present means red, alone means deeper, and frayed means
+    red when he isn't there; built with the rewrite pass. Lean: yes.
+
+## Your calls (v7)
 
 1. **A con man who kills, on the run;** the crew job is his cover, his motive
    is amusement, and he keeps both rules (never lies, always pays). Lean: yes.
