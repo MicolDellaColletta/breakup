@@ -3,7 +3,60 @@
 The running list of what's next, in order. The shop redesign has its own
 step-by-step list (`shop.md`, "To do"); this is everything around it.
 
-## Next session
+## Pick up here (Oct 13)
+
+**Open branches:** `night-walks` and `february` are pushed. All of their tests
+pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
+
+1. **Merge the two branches, in order.** Open a PR for `night-walks` and merge
+   it. Then open a PR for `february`; it's built on night-walks, so its diff
+   only shrinks to February's own changes once night-walks is merged. After
+   each merge, update main.
+
+2. **Answer the Daniel calls** in `daniel_v7.md`: calls 1–8 for v7, calls 9–11
+   for the darker version.
+   - The open questions: flashback A, B or C (lean A, the 1988 lake), and
+     who drowns (lean a girl from the town, not MC's brother).
+   - Once they're agreed, fold the decisions into `daniel.md`, `forks.md`
+     (endings: the four ways out) and `decisions.md`.
+
+3. **The Daniel rewrite pass** (its own PR, before March).
+   - Every built Daniel scene, from Thanksgiving to February, about 120 lines
+     over 18 days, plus the night-walks face-off. The rule: hard in public,
+     himself alone with MC, never kind.
+   - The confession booth becomes **the anxious bench** (in public) plus
+     **the counsel room** (in private), in the hall days (30, 34), the
+     December vestry and `town.txt`.
+   - Ezra's breaking, Olstad asleep in her cruiser with her rounds on the
+     dashboard (move it into February), and the "let in" offers (the
+     Reverend, the files, the collection).
+
+4. **The red light.** One overlay shared by the counter, visit and night
+   scenes.
+   - It comes up automatically on `daniel` lines, plus `red=on` / `red=off`
+     for scenes where he's there but silent.
+   - Deeper when he's alone with MC, and red when he *isn't* there if ???
+     is strong.
+   - Build it with the rewrite pass, with tests.
+
+5. **Plan March in a doc,** following `season.md`, now with v7:
+   - Fork 6 becomes his offer, "come with me".
+   - His one lie, "I knew", and the first piece of the 1988 flashback.
+   - Someone who hurt MC disappears (exact change on the kitchen table).
+   - Sam's lie (door 3). Olstad's 1988 file. The cigar box in his room
+     above the Gleaner.
+   - The gun "till March".
+
+6. **April and the endings.**
+   - The ending reader.
+   - The four ways out: go with him, the town takes MC, escape with someone,
+     escape alone.
+   - Three ways to beat Daniel for the fire: Olstad, the town, the gun.
+   - The flashback's last piece (the face).
+
+7. **Then the older list below,** from "Unreliable narration" down.
+
+## Next session (older)
 
 1. **Review: anything still missing.** First thing. A full, honest pass over
    the game as it plays now (the prologue to Daniel's arrival, the shop
