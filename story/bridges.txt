@@ -103,9 +103,15 @@ narration | card=Monday. Thanksgiving week.: The plow at dawn. The road open. Tu
 narration: On the radio, at noon, the Reverend reads the notices, and then, in a voice you've never heard him use: "And our friend from the road writes to say he'll be passing through this week. He asks for nothing. Make him welcome."
 narration: Make him welcome. In the shop, you find you're standing very still.
 
-# --- After key day 15: the end of what's written. ---
+# --- After Thanksgiving (key day 17): Friday to Tuesday, then December. ---
 
-=== bridge_to_be_continued
-narration | card=Wednesday. Thanksgiving week.: The envelope. The roads open. A room taken above the Gleaner, for the week. Or longer.
-narration: He's here.
-narration: (The story continues in Thanksgiving week, which is still being written. Thank you for playing.)
+=== bridge_late_november
+narration | card=Friday. Such a voice. | time=12:00: The Gleaner, full at noon, the day after. Nobody talking about anything else. "Such a voice." "Like he was reading to you. Just you."
+narration | if=flag:sat_in_place: At the bar, someone you don't know says, not to you, "The Keeper sat in the place." Somebody else says, "I know." Nobody says what it means.
+narration | if=flag:sold_ezra_shells: Ezra at his table by the window, with a box of .22 shells in front of him, unopened, a ribbon round it. He doesn't look at you.
+narration | if=flag:kept_ezra_shells: Ezra comes in on Friday, a day late, for his box. He doesn't say why he's late. He pays, and at the door he says, "Thank you for keeping it," and goes before you can ask what else he means.
+narration | card=Sunday. The lesson. | time=10:00: He reads the lesson at the morning service. The Reverend gets up to give it, and sits down again in the front pew, and doesn't get up until it's over.
+narration: The church fuller than you've ever seen it. People standing at the back. People you've never seen, from up the lake road, in their good coats.
+narration | card=Tuesday. The Keeper is paid. | cash=+150: Snow, and the envelope a day early. A hundred and fifty, faced. And with it, for the first time, nothing. Not a card. Not a hymn number. Not a swatch.
+paranoia: Nothing. They've stopped telling you things. Or they've stopped needing to.
+narration: (The story continues in December, which is still being written. Thank you for playing.)

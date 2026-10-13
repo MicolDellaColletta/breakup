@@ -69,6 +69,12 @@ const VISITS: Dictionary = {
 	# Key day 15, Tuesday November 23: Mrs. Hollis; then, in the last of the
 	# light, the man in the good coat.
 	15: ["widow", "daniel"],
+	# Key day 16, Wednesday November 24: Mrs. Hollis, a place for whoever; the
+	# man in the good coat, for Ezra's Thursday box; then whoever MC told about
+	# him (Olstad first), or June with the pageant's program.
+	16: ["widow", "daniel", "trooper | if=flag:told_olstad_daniel",
+		"sam | if=flag:told_sam_daniel and !flag:told_olstad_daniel",
+		"june | if=!flag:told_olstad_daniel and !flag:told_sam_daniel"],
 }
 # From the bell to the door opening.
 const CUSTOMER_GAP: float = 0.8

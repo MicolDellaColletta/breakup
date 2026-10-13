@@ -1,0 +1,111 @@
+# THE SEVENTEENTH NIGHT: Thursday, November 25. Thanksgiving night.
+# Same format as the other nights. The radio: him again, the late repeat.
+# Out of place: on the back step, a plate under foil, still warm, from the
+# potluck: "For the Keeper's dog." There's no dog (odd_plate in spots.cfg,
+# downstairs at the back door). Then the bridge to December.
+# Design: docs/thanksgiving.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. Full. Too full. Mrs. Hollis's foil plate in your hands, warm through the foil.
+narration | stop=stairs: The apartment, cold after the hall. Everything where you left it.
+narration | if=flag:sat_in_place: You sat in it. You keep feeling the warmth of the seat, at the backs of your legs, as if you hadn't stood up.
+narration | if=flag:refused_pie: You didn't eat the pie. You keep coming back to it, like a tooth.
+paranoia: The rules. Same as always.
+
+=== radio
+narration | time=+10: The radio. Thursday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Him. The late repeat. The same reading, the same breath before the first word, the same pause in the middle of a word, exactly where you stood at the glass.
+narration: "Isn't that a mercy. To have someone who carries it for you."
+narration: Then, after it, where the Reverend would come on to say goodnight, nothing. A minute of the hiss of an open microphone in an empty room. Then off.
+paranoia: They kept the pause. They kept the pause where you were standing.
+
+=== radio_off
+narration: You leave it off. Through the wall, the neighbors' radio, the same voice, a half-second ahead of the one across the road, a half-second behind the one up the hill.
+narration: You put the pillow over your head. You can still count the words.
+
+=== kitchen
+narration | time=+10: The bowl. On the counter, the foil plate. Turkey, stuffing, a slice of pie wrapped separately.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_seventeen
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_seventeen | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl. You set it inside the door, on no line at all.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line. You think about putting some turkey in. You don't. It isn't in the rules.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. The town going dark, house by house, up the hill. The church last. The room above the Gleaner, not at all.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched. Twice.
+
+=== windows_open
+narration: Cold. Woodsmoke. Far off, from the lake, a single low flat note, like a duck call. Nobody hunts at night.
+
+=== painting
+narration | time=+5: The painting. The figure far out on the ice, in the long brown coat. You've always thought of it as a man.
+narration: Tonight, in this light, it's small. A boy's height. Bowing.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. Through the glass, the step, and something on it, square, pale. You don't open the door to see.
+
+=== back_door_locked
+narration | sound=latch: The key turns. Through the glass, the step, and something on it, square, pale. You locked it in, or out.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven. Twelve.
+narration: No phone. You know now it won't. He doesn't need it.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_seventeen
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. A long time at the bowl. Then down, and the back door, and then a sound from the step you've never heard it make: eating. Slowly. Something with all night to do it.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up. From downstairs, at three, from the back step, a sound like eating. Slowly.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door, below. A long time. In the morning the bowl is clean, and the foil from the step is folded, very small, into a square, and set inside it.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Friday.
+narration | if=flag:saw_plate: The back step. The plate, gone. The foil, folded into a square, very small, set on the step where the plate was.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_plate
+narration | time=+5: The back step, through the glass. You open the door an inch, because it's yours, because it's your step.
+narration | flag=saw_plate: A paper plate, under foil, crimped tight round the edge. Still warm. Turkey. Stuffing. A slice of pie.
+narration: On the foil, in marker, in a hand you don't know, a careful adult's print: For the Keeper's dog.
+paranoia: There's no dog. Everybody knows there's no dog. You've never told anyone about the dog.
+narration: The snow round the step is trodden flat. A lot of feet. Children's, some of them. None of the prints lead away.

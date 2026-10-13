@@ -1,7 +1,7 @@
 # Breakup: Thanksgiving week (plan)
 
-Key days 16 and 17, from `season.md`. A plan to agree before building.
-**Leans** are my recommendations; "Your call" marks the decisions.
+Key days 16 and 17, from `season.md`. **Decided Oct 13: all four leans.
+Built** (see "As built" at the end).
 
 ## The shape
 
@@ -177,3 +177,35 @@ the potluck: *For the Keeper's dog.* There's no dog.
 3. **Sitting in the empty place** at the potluck as a choice. Lean: yes.
 4. **The pageant's lights go down, and the boy is fine.** Nothing happens,
    and that's the horror. Lean: yes.
+
+## As built (Oct 13)
+
+- **Engine:** `DAY_DATES` 16-18; key day 17 a walk-around; nights 16 and 17;
+  `bridge_late_november` before day 18 (Friday, Sunday, Tuesday cards, then
+  "continues in December" and the title); visit rooms `hall` and `stage`
+  (place art placeholders); the counter's day-16 visitors. A visit fix: two
+  `show=` lines read quickly now land on the later room.
+- **Key day 16** (`day_sixteen.txt`): the morning reads Olstad / Sam / no
+  one, "There you are", the bullet still warm; the envelope with a child's
+  turkey card. Mrs. Hollis's browse: the duck call (`place_duck_call`, she
+  pays anyway), Ray's jacket (`place_jacket`, given back), the picks or the
+  button (not his; look again), anything else, or nothing (`place_bare`).
+  The man in the good coat: Ezra's shells sold (`sold_ezra_shells`) or
+  spoken for (`kept_ezra_shells`). Then Olstad, Sam's note
+  (`sam_pie_note`), or June's program.
+- **The evening** (`town.txt`): the hall lit, figures crossing a white floor;
+  Ruth's mother's bowl; the rehearsal through the window; Sam behind his
+  door ("Did you get my note."), or the cabin dark; a swept path out onto
+  the ice.
+- **Night 16:** no call; the Reverend's notice; out of place, the payphone's
+  receiver hanging (`saw_payphone`).
+- **Key day 17** (`day_seventeen.txt`): the sign, grace, then the hall's
+  spots: the empty place (what you gave her, or a skin of ice on the water;
+  sit in your chair or the empty one: `sat_in_place`), the window, the pie
+  table (refuse the pie with Sam's note: `refused_pie`), Ruth's bowl,
+  Olstad ("The two bachelors.", with Sam there), him (the salt, with
+  "There you are"). Sitting down opens the pageant; after it, the watch on
+  the pie-table radio, then the vestry door and the walk home.
+- **Night 17:** the late repeat; out of place, the plate on the back step
+  "For the Keeper's dog" (`saw_plate`).
+- **Tests:** `test_thanksgiving.gd`.

@@ -1,0 +1,184 @@
+# KEY DAY 16: Wednesday, November 24, 1999. The day before Thanksgiving.
+# Same format as the other counter days. Mrs. Hollis wants something of Ray's
+# for tomorrow's empty place (a browse: > Let me look -> @browse_back); the man
+# in the good coat buys Ezra's Thursday shells, or doesn't; then whoever MC
+# told last night (Olstad, Sam's note) or, if no one, June with the program.
+# See VISITS in scripts/counter.gd. Design: docs/thanksgiving.md.
+
+=== morning
+narration | time=07:30: Wednesday, the twenty-fourth. The day before Thanksgiving.
+narration | if=flag:told_olstad_daniel: Across the road, by the gas station, Olstad's cruiser, engine running, exhaust standing straight up in the cold. It was there when you went to bed. You don't think it ever left.
+narration | if=flag:told_sam_daniel and !flag:told_olstad_daniel: From the back window you can just see Sam's cabin down the shore. The curtains drawn. At this hour, a light on behind them.
+narration | if=!flag:told_olstad_daniel and !flag:told_sam_daniel: Up the hill, the church lights, still on. In daylight they look like something somebody forgot.
+narration | if=flag:there_you_are: You wake with two words in your mouth. You say them to the ceiling before you're awake enough to stop. In his rhythm.
+narration | if=flag:took_bullet: Before the coffee, before anything, you go down to the back shelf. The flattened bullet with its tag, next to the tin. You put a finger on it. Still warm. It can't be. It is.
+-> morning_envelope
+
+=== morning_envelope
+narration | cash=+150: The envelope, under the door. A hundred and fifty, faced, every bill the same way up.
+narration: And something else, folded in with the money. A card, made by a child: a turkey drawn around a hand, the fingers colored in as feathers, brown and orange and red. Under it, in an adult's careful print: For the Keeper's table.
+paranoia: Whose hand. Whose hand did they draw around.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Outside, the whole road smells of somebody's onions.
+
+# --- Mrs. Hollis: a place for whoever. A browse, Ray's things. ---
+
+=== widow_enters
+narration | sound=bell | time=+90: The bell. Mrs. Hollis, in Ray's parka again, a covered dish under each arm, both for somebody else.
+widow: I can't stop. I've three pies in and Ezra's turkey's too big for his oven, so it's coming to mine.
+narration: She sets the dishes on the glass anyway, and stands a moment, getting her breath, looking at the shelves.
+widow: Tomorrow, at the hall. There's a place set for whoever. There always is. A plate and a glass and a chair, at the window. Nobody sits there.
+widow: I'd like something on it, this year. From the shop. Something of his.
+narration: She doesn't say whose. She looks at you as if she's said.
+widow: You'll know.
+appraisal | if=appraisal>=1: Ray's things came in this year, one by one. The ledger has every one.
+> Let me look -> @browse_back
+
+=== widow_given_duck_call
+narration: You set the duck call on the glass. She knows it before her hand gets there.
+narration: She picks it up, and turns it, and finds the letters with her thumb without looking.
+widow: He carved that the winter we were married. He used to blow it at the shore at night, to tell the lake whose he was.
+narration: She puts it to her lips. She doesn't blow it. She holds it there.
+widow: He'll hear that.
+narration | sold=duck_call | flag=place_duck_call: She puts fifteen dollars on the glass. You tell her no. She leaves it there anyway, faced, and you don't argue with her, because she's crying a little and not stopping to.
+-> widow_goes
+
+=== widow_given_hollis_jacket
+narration: You lay the jacket on the glass. R. HOLLIS in red thread, inside the collar.
+narration: She puts both hands flat on it, the way you'd feel a forehead for fever.
+widow: Oh. Oh, he'll be warm.
+widow: He was always cold. Forty years I told him take a coat.
+narration | redeemed=hollis_jacket | flag=place_jacket: She folds it over her arm, sleeves in, the way you'd fold a coat for someone who's coming back for it.
+-> widow_goes
+
+=== widow_given_ice_picks
+narration: She looks at the picks on the glass and doesn't touch them.
+widow: No. Not those.
+widow: He traded those. He won't need those where he is.
+narration: She pushes them back an inch toward you, gently, with one finger, the way you'd return a wrong coin.
+> Look again -> @browse_back
+> "I can't find anything." -> widow_nothing
+
+=== widow_given_ice_picks_held
+narration: She looks at the picks on the glass, at the bent spike, and her face closes like a door.
+widow: No. Not those. Not those.
+widow: Cody brought those back. Those did their work. Put them away, dear.
+> Look again -> @browse_back
+> "I can't find anything." -> widow_nothing
+
+=== widow_given_brass_button
+narration: She picks the button up and turns it over, and reads the back, and puts it down again quickly, the way you'd put down something hot.
+widow: That's not his. That's the other one's.
+narration: She doesn't say which other one.
+> Look again -> @browse_back
+> "I can't find anything." -> widow_nothing
+
+=== widow_given_other
+narration: She holds it a while, to be polite. Then she gives it back.
+widow: That's kind. That's not his.
+> Look again -> @browse_back
+> "I can't find anything." -> widow_nothing
+
+=== widow_nothing
+narration | flag=place_bare: She nods. She doesn't seem surprised.
+widow: Then the place stays bare. That's all right. It usually does.
+-> widow_goes
+
+=== widow_goes
+widow: Tomorrow at one. Don't eat breakfast. You're sitting with me.
+narration: She gathers up her dishes, both of them, which she never needed to set down.
+narration | sound=bell: She knocks twice on the frame. The bell.
+
+# --- The man in the good coat. Polite; a stranger; exactly as yesterday. ---
+
+=== daniel_enters
+narration | sound=bell | time=+150: The bell. Rings once. He's closed the door behind him so gently it doesn't ring twice.
+narration: The good coat. No snow on it today. He stands where he stood yesterday, and looks at the shop again, as if he hadn't.
+narration: He looks at the tin. Once. It's the only thing he looks at once.
+-> daniel_there | if=flag:there_you_are
+-> daniel_refused | if=flag:refused_bullet
+-> daniel_took | if=flag:took_bullet
+-> daniel_asks
+
+=== daniel_there
+narration: He says nothing about yesterday. He looks at you a moment too long, the way you'd look at a word you'd taught someone, to see if they still had it.
+-> daniel_asks
+
+=== daniel_refused
+daniel: The matches kept me warm. Thank you.
+narration: He says it as if you'd done him a kindness. Maybe you did.
+-> daniel_asks
+
+=== daniel_took
+narration: His eyes go past you, to the back shelf, and come back.
+daniel: Keeping well?
+paranoia: He means the bullet. He means you.
+-> daniel_asks
+
+=== daniel_asks
+daniel: I wondered if I might buy something. Whatever Mr. Lund buys on Thursdays.
+daniel: I'd like to bring him something tomorrow. He's been kind to me. I'm told he's a creature of habit, and I find that's the best way to a man's heart. His habits.
+narration: Ezra's box. In the drawer, under your hand, with THURS on the slip in the owner's writing.
+paranoia: He knows about the drawer. Two days in town and he knows what's in the drawer.
+appraisal | if=appraisal>=1: Every Thursday since before the ledger starts. One box. Ezra's never missed.
+> Sell him the box -> daniel_sell | flag=sold_ezra_shells | lean=appraisal
+> "That's spoken for." -> daniel_spoken | flag=kept_ezra_shells | lean=warmth
+
+=== daniel_sell
+narration | sound=drawer | sold=shells: You open the drawer and put the box on the glass. Six dollars. He puts down six dollars, faced, square.
+narration: He reads the slip under the rubber band. THURS. He leaves it where it is.
+daniel: Thank you. He'll be so surprised.
+paranoia: Tomorrow's Thursday. Tomorrow Ezra comes in for his box, and there won't be one, and he'll know who has it.
+-> daniel_goes
+
+=== daniel_spoken
+narration: You keep your hand on the drawer.
+narration: He smiles. It reaches his eyes. It seems to please him more than the sale would have.
+daniel: Of course. Everything here is someone's.
+-> daniel_goes
+
+=== daniel_goes
+daniel: Tomorrow, then. I'm told the Keeper always sits at the front.
+narration | sound=bell: He doesn't knock on the frame. The bell, once. Up the hill, not hurrying.
+
+# --- Whoever MC told. Olstad, if her; Sam's note, if him; June, if no one. ---
+
+=== trooper_enters
+narration | sound=bell | time=+120: The bell. Olstad, out of the cruiser for the first time today, stamping snow off her boots on the mat, one hand on the small of her back.
+trooper: I looked at him. Real close, like I said.
+trooper: He's got a permit for everything he owns. Every single thing. I've never met a man with that much paper. And a hole in his side nobody's stitched right. I could see it through the shirt, the way he sits.
+trooper: He told me a hunting accident. And then in the same breath he told me the truth about something else. So I'd believe the lie.
+narration: She doesn't say what the true thing was. She looks at you while she doesn't say it.
+paranoia: You. The true thing was about you.
+trooper: Funny thing, Johnny. He knew my name before I told it. He knew the baby's due in January.
+narration: She zips her coat up to the chin.
+trooper: Stay where I can see you.
+narration | sound=bell: She doesn't knock on the frame. Through the window, the cruiser, the exhaust, the patience.
+
+=== sam_enters
+narration | time=+120: The afternoon. Nobody. The bell doesn't ring.
+narration: Then a sound at the door, low down, paper on wood. A folded sheet, pushed under, the way the envelopes come. Nobody on the step when you look. Prints going back down the shore.
+narration: Sam's writing, small and square. Numbers down the left side: the hymns from Sunday's radio, all of them, with the dates. A calendar for November, drawn with a ruler, and tomorrow's date circled three times.
+narration | flag=sam_pie_note: At the bottom, underlined twice: Don't eat the pie.
+paranoia: Which pie. There'll be forty pies. There's always forty pies.
+unknown: He knows something. Or he's been alone in that cabin too long. Those are the only two answers, and they look exactly the same.
+
+=== june_enters
+narration | sound=bell | time=+120: The bell. June Merrill, glasses misted, a stack of paper held flat against her coat against the wind.
+june: I'm doing the programs. I'm doing them on the school machine, it jams on every one. I brought you yours.
+narration: She gives you a sheet folded in half. THANKSGIVING AT THE HALL. Grace: Mr. Lund. The Pageant: The Fourth and Fifth Grade. And under it, typed, in capitals, the cast: THE KEEPER ..... JOHN.
+june: The children wanted your name. Not Tommy's. The part's always the Keeper's name.
+narration | if=flag:lent_shirt: Outside, at the window, in the back of the school truck, a boy in a red flannel shirt too big for him, waving with both arms. Your shirt. He's worn it all week. He won't take it off.
+narration | if=!flag:lent_shirt: Outside, in the back of the school truck, a boy waving with both arms. He's in a brown coat down to his boots, cut down from something bigger.
+june | if=flag:pageant_yes: Front row. I saved it. The Keeper always sits in front.
+june | if=!flag:pageant_yes: I saved you the front row anyway. The Keeper always sits in front.
+narration | sound=bell: She goes. The bell.
+
+# --- Closing. ---
+
+=== closing
+narration | time=15:55: Five to four, and the light's gone. You turn the sign. CLOSED.
+narration: Up and down the road, every kitchen window's lit, steamed over. Tomorrow the whole town eats together, and you with them, at the window, next to the empty chair.
+narration | if=flag:sold_ezra_shells: The drawer, with nothing in it. You open it twice to check.

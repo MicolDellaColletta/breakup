@@ -50,6 +50,8 @@ const DAY_STORIES: Dictionary = {
 	13: "res://story/day_thirteen.txt",
 	14: "res://story/day_fourteen.txt",
 	15: "res://story/day_fifteen.txt",
+	16: "res://story/day_sixteen.txt",
+	17: "res://story/day_seventeen.txt",
 }
 # Evenings that are walked instead of picked from the town map (key day 10:
 # the first-ice party on the lake). The story starts at "evening" and ends
@@ -66,6 +68,7 @@ const DAY_SCENES: Dictionary = {
 	9: "res://scenes/visit.tscn",
 	12: "res://scenes/visit.tscn",
 	14: "res://scenes/visit.tscn",
+	17: "res://scenes/visit.tscn",
 }
 # After week one, the story days are key days, with days skipped between them.
 # Which calendar day (counted from October 5, the drive) each one is. Days
@@ -80,6 +83,8 @@ const DAY_DATES: Dictionary = {
 	14: 47,
 	15: 49,
 	16: 50,
+	17: 51,
+	18: 57,
 }
 # A bridge before a key day covers the days skipped: a title card and a few
 # lines (story/bridges.txt, the section named here), then the day itself.
@@ -91,7 +96,7 @@ const BRIDGES: Dictionary = {
 	13: "bridge_november",
 	14: "bridge_mid_november",
 	15: "bridge_thanksgiving_week",
-	16: "bridge_to_be_continued",
+	18: "bridge_late_november",
 }
 const BRIDGE_SCENE: String = "res://scenes/bridge.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
@@ -111,6 +116,8 @@ const NIGHT_STORIES: Dictionary = {
 	13: "res://story/night_thirteen.txt",
 	14: "res://story/night_fourteen.txt",
 	15: "res://story/night_fifteen.txt",
+	16: "res://story/night_sixteen.txt",
+	17: "res://story/night_seventeen.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on

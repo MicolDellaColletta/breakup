@@ -23,6 +23,8 @@ const ROOMS: Dictionary = {
 	"hollis_kitchen": ["place", "hollis_kitchen"],
 	"shore": ["place", "shore"],
 	"far_ice": ["place", "far_ice"],
+	"hall": ["place", "hall"],
+	"stage": ["place", "stage"],
 }
 
 @onready var narrator: DialogueColumn = %Narrator
@@ -39,6 +41,7 @@ const ROOMS: Dictionary = {
 }
 
 var _room: String = "apartment"
+var _fading_to: String = ""
 var _busy: bool = true
 var _ending: bool = false
 var _leaving: bool = false
@@ -107,10 +110,15 @@ func walk(room: String) -> void:
 # --- Private: the machinery ---
 
 func _fade_to(room: String) -> void:
+	# Two show= lines read quickly: the later room wins, whichever fade ends last.
+	_fading_to = room
 	var fade: Tween = create_tween()
 	fade.tween_property(self, "modulate", Color(0.15, 0.15, 0.15), VIEW_FADE)
 	await fade.finished
-	_show_room(room)
+	if _fading_to == "":
+		return
+	_show_room(_fading_to)
+	_fading_to = ""
 	fade = create_tween()
 	fade.tween_property(self, "modulate", Color.WHITE, VIEW_FADE)
 
@@ -143,7 +151,7 @@ func _on_line_shown(line: Dictionary) -> void:
 		_leaving = true
 		_leaving_to = MAP_SCENE if line["end"] == "map" else NIGHT_SCENE
 	var room: String = line.get("show", "")
-	if room != "" and room != _room:
+	if room != "" and room != (_fading_to if _fading_to != "" else _room):
 		_fade_to(room)
 
 func _on_section_finished(_section: String) -> void:
