@@ -1,0 +1,65 @@
+# KEY DAY 19: Saturday, December 4, 1999.
+# Same format as the other counter days: Ruth, with your glass; June, who
+# wants the window for the nativity. Then the evening is walked
+# (GameState.EVENINGS: story/evening_nineteen.txt), to Sam's cabin.
+# See VISITS in scripts/counter.gd. Design: docs/december.md.
+
+=== morning
+narration | time=07:30: Saturday, the fourth. The second candle isn't till tomorrow. The first one's still burning in the window. You didn't light it again. You're almost sure you didn't.
+narration | if=flag:car_towed: You go to the back window out of habit to look at the car. The trench where it was has filled in with snow overnight. Smooth. Like nothing was ever there.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Forty below, the radio says. Nobody's going to come. You turn it anyway.
+
+# --- Ruth, with your glass. ---
+
+=== ruth_enters
+narration | sound=bell | time=+120: The bell. Ruth, in a man's coat, stamping snow, with something wrapped in a bar towel.
+narration: She unwraps it on the counter. A pint glass. Heavy, with a chip in the base.
+ruth: You left it. Wednesday. You never leave it. Thought you'd want it back.
+narration: It isn't yours. It's the Gleaner's. You don't say so. She doesn't either.
+-> ruth_cold | if=faithless:ruth
+-> ruth_warm
+
+=== ruth_warm
+narration | if=flag:ruth_has_keys: When she puts her hands in her pockets you hear them: keys. Yours. The rental's, on the plastic tag. She keeps her hand on them in the pocket, the way you'd keep a hand on a dog.
+ruth: He comes in every night now. Him and Ezra. The back table. They don't drink. They just talk, with their heads together, till I put the chairs up.
+ruth: Ezra's never not drunk a thing in my bar in twenty years.
+narration: She looks at the shelves. At the back shelf. At the tin.
+ruth: He asked me what you were like. Before. I said I didn't know you before. He said, "No. None of us did."
+narration | sound=bell: She goes. The glass stays on the counter, catching the light.
+
+=== ruth_cold
+narration: She doesn't take her gloves off. She doesn't look at you while she says it.
+ruth: He comes in every night now. Him and Ezra. I thought you'd want to know. I don't know why I thought that.
+narration | sound=bell: She goes. The glass stays on the counter.
+
+# --- June: the window for the nativity. ---
+
+=== june_enters
+narration | sound=bell | time=+120: The bell. June Merrill, with a cardboard box held in front of her like a cake.
+june: I've a favor. Every year Abraham let the school have his window for the nativity. The children make it. It's the only window on the road where everybody walks past.
+narration: In the box: a stable made of a shoebox, cotton wool, a doll in a dish towel. A row of clay animals. And a figure in a long brown coat, standing a little apart from the others, at the edge of the cotton-wool snow.
+june: They always put the Keeper in. I don't know when that started. It's sweet.
+narration | if=!window:empty: Whatever's in your window now would have to come out, till Twelfth Night.
+> "Of course. Put it in." -> june_window_yes | flag=window_nativity | lean=warmth
+> "The window's the shop's. I'm sorry." -> june_window_no | eye=+1 | lean=paranoia
+
+=== june_window_yes
+narration: She builds it herself, in the window, kneeling on the sill, humming. The stable. The animals. The doll. And last, very carefully, the Keeper, at the edge of the snow, facing out at the road.
+june: There. Now everybody'll stop.
+narration | sound=bell: They do. All afternoon. Mothers, children, the plow driver. They stop and look at the little figure in the brown coat, and then they look past it, into the shop, at you.
+
+=== june_window_no
+narration: Her face does a small thing and then puts itself back.
+june: No. Of course. It's your shop now.
+narration: She closes the box.
+narration | sound=bell: By evening, you'll learn later, Ezra knows. By Sunday the whole church does. The Keeper wouldn't have the children's crib.
+
+# --- Closing. Then the walk to Sam's. ---
+
+=== closing
+narration | time=15:43: Seventeen minutes to four. Dark. You turn the sign. CLOSED.
+narration | if=flag:window_nativity: In the window, lit from below by the candle, the little Keeper at the edge of the cotton-wool snow, facing the road. From inside you can only see his back.
+narration: Down the shore, at Sam's, a light.

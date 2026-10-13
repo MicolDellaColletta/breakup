@@ -1,0 +1,106 @@
+# THE NINETEENTH NIGHT: Saturday, December 4. The frozen latch.
+# Same format as the other nights, but one front window is frozen open and
+# won't shut (docs/nights.md 7): rule one broken whatever you do, unless you
+# go down to the fuse box in the dark for the tape. Design: docs/december.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs. Forty below. The cold has got into the building; your breath shows in the stairwell.
+narration | if=flag:pin_bullet: Your card, in the middle of his wall, where the strings cross. You can feel it there, a mile down the shore, like a splinter.
+narration | if=flag:pin_ezra: Ezra's initials, on a card, on a dead man's wall. You put them there.
+narration | if=flag:pin_money_order: 0527, pinned to a wall a mile away. You keep checking your pocket for the money order. It's still there.
+paranoia: The rules. And then sleep. And then Sunday.
+
+=== radio
+narration | time=+10: The radio. Saturday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Him. The Saturday count, that was always the Reverend's. "Twenty-seven days, friends. Twenty-seven days, and the year turns over." His voice making the number sound like a gift.
+narration: Then, after the hymn: "Tomorrow, the lesson is mine. The Reverend's been so kind. I hope you'll all come. I hope everyone comes."
+
+=== radio_off
+narration: You leave it off. The cold ticks in the walls.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_nineteen
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_nineteen | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl. The kibble freezes to the bottom of it before you've set it down.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line. Frost on the inside of the bowl.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. You go along them, latch by latch.
+narration: The third one won't close. Frozen open a finger's width, the frame swollen with ice, the latch a lump of white. The cold coming through the gap in a thin, steady blade.
+narration: You push. You hit it with the heel of your hand. It doesn't move.
+paranoia: Rule one. Close the windows. You can't close the window.
+> Force it -> windows_force | break=window | flag=frozen_open
+> Go down to the fuse box. There was tape. -> windows_tape | flag=frozen_taped
+> Leave it -> windows_leave | break=window | flag=frozen_open
+
+=== windows_force
+narration: You put your shoulder to the frame. Something gives. Not the ice. A crack runs across the corner of the pane, quick and white, like a hair.
+narration: The window stays open. A finger's width. The blade of cold.
+
+=== windows_tape
+narration | sound=stairs: Down the stairs in the dark. The shop hall, black. The fuse box on the wall, its little door. Your hand finds the roll of black tape on top of it, where it was in October.
+narration: You don't turn on a light. Something about the shop at night says don't.
+narration | sound=stairs: Back up. You tape the gap, frame to sash, round and round, until the blade of cold is gone and the window's a wound with a bandage on it.
+narration: It isn't closed. It's sealed. You decide that counts. You decide the rule would allow it.
+unknown: Rules are for people who think they're being watched.
+
+=== windows_leave
+narration: You leave it. You put a towel along the sill. By morning the towel is a board.
+
+=== painting
+narration | time=+5: The painting. The figure on the ice in the long coat, and at the edge, on the shore, the second small figure that watches. Tonight there's a third. Further back, by the trees. You count them twice.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. The bolt's so cold it would burn.
+
+=== back_door_locked
+narration | sound=latch: The key turns, stiff with cold.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven. Under every blanket in the apartment, and your coat.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_nineteen
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other. Slower tonight. It's cold for anything.
+narration | stop=stairs: The kitchen. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+narration | if=flag:frozen_open: Toward four, from the front room, the sound of snow coming in through the gap. A soft sound, all night, like someone breathing out.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door, below. In the morning, the bowl is clean, and frozen to the floor.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Sunday. You don't go to church. You'll go next Sunday. Everyone's going next Sunday. He said so.
