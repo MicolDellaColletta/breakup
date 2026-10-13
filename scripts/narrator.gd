@@ -416,6 +416,9 @@ func _show_line(index: int, with_effects: bool = true) -> void:
 		_talked_over = true
 	if with_effects:
 		_apply_effects(line)
+	var presence: Node = get_node_or_null("/root/Presence")
+	if presence:
+		presence.heard(line["speaker"])
 	var speaker: Dictionary = speaker_info(line["speaker"])
 	_speed = speaker["speed"]
 	_display_line(line, speaker, not with_effects)
@@ -456,6 +459,10 @@ static func is_speaker(speaker_id: String) -> bool:
 # lean=, cash=, write=, fray=, settle=, rewind=, keep=, betray=, door=, eye=,
 # unflag=
 func _apply_effects(entry: Dictionary) -> void:
+	if entry.has("red"):
+		var presence: Node = get_node_or_null("/root/Presence")
+		if presence:
+			presence.apply(entry["red"])
 	if entry.has("stop"):
 		stop_sound(entry["stop"])
 	if entry.has("sound"):

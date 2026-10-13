@@ -79,6 +79,7 @@ func _scapegoat(ezra: String, goat: String) -> void:
 	advance(column)
 	await process_frame
 	check(column._section == "ezra_enters" and _log(column).contains("I missed Thursday."), "him, bringing Ezra in, his hand broken: he missed Thursday")
+	check(root.get_node("Presence").state == "present", "he spoke at the counter: the red light is on")
 	await pick(column, ezra)
 	advance(column)
 	if ezra.begins_with("Load"):
@@ -87,6 +88,7 @@ func _scapegoat(ezra: String, goat: String) -> void:
 		check(gs.is_faithless("ezra") and _log(column).contains("I'll load it for you."), "you turn him away; he loads it for Ezra on the step")
 	advance(column)
 	check(column._section == "widow_enters" and _log(column).contains("Everybody's being weighed again."), "Mrs. Hollis, fasting: the scale again")
+	check(root.get_node("Presence").state == "", "he's gone with Ezra: the light goes with him")
 	advance(column)
 	check(column._section == "goat_enters", "the goat at the door")
 	await pick(column, goat)

@@ -33,7 +33,7 @@ narration: Your page. JOHN, at the top, in Ezra's hand. October, a weight. Novem
 paranoia: It's a guess. A target. A goal, for the fasting. It's just a number.
 
 === booth_sam
-narration | show=booth: The booth in the corner of the hall, the two scorched chairs. He's in one. You sit in the other.
+narration | show=booth | red=alone: The booth in the corner of the hall, the two scorched chairs. He's in one. You sit in the other.
 daniel: I won't keep you. One question, and I'll take your answer as it comes.
 daniel: The lights on the ice. At night, by the clock, past the shanties. Everyone's seen them. Someone out there with a torch, every night, writing things down. The town's been asking me who. They'd like to know. They'd like to go and ask him what he's writing.
 narration: He waits. He knows. He knows you know. He wants you to say it.
@@ -44,7 +44,7 @@ paranoia: Sam. He wants Sam. If you say it they'll go tonight with their lantern
 === booth_keep
 narration: He looks at you for a long time. He knows you're lying. You know he knows. He doesn't say so.
 daniel: All right. That's a kind lie. I don't tell them, but I know a kind one when I hear it.
-narration | time=16:30 | show=cabin: At dusk you go down the shore path. Sam's cabin. The door open. Inside, the wall coming down: string coiled, pins in a jar, the cards going into boxes. Ten years of it, into boxes.
+narration | time=16:30 | show=cabin | red=off: At dusk you go down the shore path. Sam's cabin. The door open. Inside, the wall coming down: string coiled, pins in a jar, the cards going into boxes. Ten years of it, into boxes.
 sam: They'll come. Not tonight, maybe. They'll come.
 narration: He puts the notebooks in your arms. A stack of them, school exercise books, rubber-banded, the clock's minute in every one since 1990.
 sam: You keep them. You keep things. That's what you are.
@@ -76,6 +76,6 @@ narration | end=night | time=18:00: Back at the cabin, when you look back from t
 narration: You say it. His name. In the booth, in the hall, with the whole town on the other side of a curtain.
 narration: He nods. He doesn't look pleased. He looks like a man who's been handed something heavy.
 daniel: Thank you. They'll be kind to him. I promise you that. I don't make promises I can't keep.
-narration | time=17:00 | show=cabin_road: At dusk, from the shore path, you watch the lanterns go down to the cabin. Twenty. Thirty. A long slow line of them along the shore. They stop at his door. It opens. They go in.
+narration | time=17:00 | show=cabin_road | red=off: At dusk, from the shore path, you watch the lanterns go down to the cabin. Twenty. Thirty. A long slow line of them along the shore. They stop at his door. It opens. They go in.
 narration: Nobody shouts. Nobody runs. After a while, the lanterns come out again, and go back up the shore, and among them, a man without one, walking in the middle, very straight.
 narration | end=night: The cabin dark behind them. On the porch, in the lantern light as they pass, his notebooks, in a pile, and somebody bending over them with a match.

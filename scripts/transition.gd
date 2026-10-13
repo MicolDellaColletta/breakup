@@ -36,6 +36,10 @@ func go_to(scene_path: String, fade_duration: float, hold: float = 0.0) -> void:
 	var saves: Node = get_node_or_null("/root/Saves")
 	if saves:
 		saves.mark_checkpoint(scene_path)
+	# Whoever was in the room isn't in the next one.
+	var presence: Node = get_node_or_null("/root/Presence")
+	if presence:
+		presence.leave(true)
 	get_tree().change_scene_to_file(scene_path)
 	busy = false
 

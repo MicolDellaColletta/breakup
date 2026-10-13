@@ -81,6 +81,8 @@ func _ready() -> void:
 	narrator.set_input_enabled(false)
 	await Transition.fade_in(1.5)
 	narrator.set_input_enabled(true)
+	if Presence.phantom_tonight():
+		Presence.arrive("phantom")
 	narrator.play("arrival")
 
 # --- Public: what tests and other scenes can use ---
@@ -148,6 +150,10 @@ func walk(room: String) -> void:
 
 # The story has nowhere left to go: back to the room, or the night is over.
 func _on_section_finished(section: String) -> void:
+	# Night sections are short walks: whoever came in one has gone at its end.
+	# (The phantom red of a frayed night stays: nobody brought it.)
+	if Presence.state in ["present", "alone"]:
+		Presence.leave()
 	if section == "morning_after":
 		_end_of_day()
 	elif section == "skipped_rules":

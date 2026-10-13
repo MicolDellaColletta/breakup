@@ -316,6 +316,8 @@ func ring_bell() -> void:
 	_next_customer()
 
 func _next_customer() -> void:
+	# Whoever was at the counter has gone, and his light with him.
+	Presence.leave()
 	_customer_index += 1
 	# Skip anyone whose "| if=" doesn't hold today.
 	while _customer_index < _visits.size() and not _visit_happens(_visits[_customer_index]):

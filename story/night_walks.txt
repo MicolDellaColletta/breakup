@@ -166,7 +166,7 @@ narration | take=revolver | unflag=gun_floorboard: The loose board. The towel. S
 # --- The Gleaner's back window: facing him. Once, between the ruling and the confession. ---
 
 === confront
-narration: Out the front door, into the road, at midnight. The Gleaner dark, all but the back window, lit red. You go round.
+narration | red=alone: Out the front door, into the road, at midnight. The Gleaner dark, all but the back window, lit red. You go round.
 narration: The back room. A transmitter on a card table, its dials glowing. Shelves of jars: the children's teeth, every family's. A microphone on a stand. And him, alone, off the air, in his shirtsleeves, reading.
 narration: He looks up. He isn't surprised. He closes the book on his finger.
 daniel: Come in. It's cold. Shut the door. Nobody will come; they think I'm praying.

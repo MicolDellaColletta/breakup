@@ -23,6 +23,7 @@ Hud="*res://scenes/hud.tscn"
 Settings="*res://scripts/settings.gd"
 Saves="*res://scripts/saves.gd"
 Menu="*res://scenes/menu.tscn"
+Presence="*res://scripts/presence.gd"
 
 [display]
 

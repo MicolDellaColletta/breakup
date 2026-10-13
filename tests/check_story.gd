@@ -248,6 +248,8 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 			problems.append("%s: no one called '%s' (walt, hollis, ezra, ruth, sam, olstad)  %s" % [key, entry[key], where])
 	if entry.has("door") and not gs.ROMANCES.has(entry["door"]):
 		problems.append("door: no romance '%s' (ruth, sam, daniel)  %s" % [entry["door"], where])
+	if entry.has("red") and not entry["red"] in ["on", "alone", "phantom", "off"]:
+		problems.append("red '%s' should be on, alone, phantom or off  %s" % [entry["red"], where])
 	if entry.has("eye") and not entry["eye"].trim_prefix("+").is_valid_int():
 		problems.append("eye '%s' should look like +1 or -1  %s" % [entry["eye"], where])
 	if entry.has("set") and not (entry["set"] in gs and gs.get(entry["set"]) is bool):

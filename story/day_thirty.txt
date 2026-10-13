@@ -64,7 +64,7 @@ narration: Ruth, near the front. She goes into the booth before you're halfway. 
 # --- The booth, or not. ---
 
 === booth_confession
-narration | show=booth: Your turn. The curtain. Inside, two chairs, scorched, knee to knee: the ones from the ruin. He's in one.
+narration | show=booth | red=alone: Your turn. The curtain. Inside, two chairs, scorched, knee to knee: the ones from the ruin. He's in one.
 daniel: Sit down. You don't have to say anything. Most of them don't, for the first minute.
 narration: You sit. He waits. He's very good at waiting.
 > Tell him a small true thing. -> confess_small | lean=warmth
@@ -91,7 +91,7 @@ daniel: Yes. That's most of it, isn't it.
 -> booth_after
 
 === booth_after
-narration | end=night | time=16:40: You walk home in the dusk at twenty to five. Behind you, in the hall, the queue still running down the side wall, all the way out the door into the snow.
+narration | end=night | time=16:40 | red=off: You walk home in the dusk at twenty to five. Behind you, in the hall, the queue still running down the side wall, all the way out the door into the snow.
 
 === walk_out
 narration: You step out of the queue. You walk back down the aisle, past them all, to the door.
