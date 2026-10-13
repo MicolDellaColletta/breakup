@@ -17,6 +17,8 @@ builds on the one before.
 | 2 | `february` | February: key days 31–34, Ruth's lie, the duel, the scale and the booth, the February finds. | Full suite passes (25 files) |
 | 3 | `full-review` | The full review (`docs/review_full.md`), the story map script, `CLAUDE.md`, and the bug fixes from the review. | See the PR |
 | 4 | `red-light` | The red light when Daniel is present (`docs/red_light.md`). Built ahead of your answer to v7 call 11. Drop the PR if you say no. | See the PR |
+| 5 | `canon-fixes` | The canon fixes from the review, following my leans on 15–27 (`review_full.md`, last section). Drop it if you disagree with them. | See the PR |
+| 6 | `daniel-rewrite` | **A draft** of the Daniel rewrite pass: every soft line from Thanksgiving to February, hard in public, himself alone with MC, never lying, the real name dropping out of the sound, the red light tagged on each scene. Done ahead of your answers to v7 calls 1–3 and 12–14, because "too kind" was your note. | See the PR |
 | — | `todo-next` | Docs only: the to-do list, the March plan (`docs/march.md`), this file. Can go in any time. | — |
 
 ## A. Daniel v7 (`docs/daniel_v7.md`)
@@ -84,7 +86,8 @@ builds on the one before.
     - Lean: **keep all three on purpose**, one per teller, never resolved.
     - Update `story.md` to say so.
 20. **The 1989 Keeper's name:** "J.W." on the suitcase vs "David" in Ruth's
-    letters. Lean: **David Ward**; the suitcase says "D.W.".
+    letters. **Not a contradiction:** "David" is in quotes, his Keeper name,
+    the way MC's is "John". `story.md` now says so (on `canon-fixes`).
 21. **Ruth's age in 1989** was 30, but the diary is written as a schoolgirl's.
     Lean: reword it to a grown woman's hand.
 22. **A second Ida** (the storekeeper) while Ida is Walt's unsayable pawned
