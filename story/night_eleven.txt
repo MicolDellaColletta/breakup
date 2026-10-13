@@ -23,6 +23,7 @@ narration: "Number nine, for the Keeper. And goodnight."
 
 === radio_off
 narration: You leave it off. Down the road, the Gleaner counts something down, ten, nine, eight, and cheers at nothing.
+unknown | if=broken:radio>=3: Nobody's on the radio tonight. Only me. I'm always on.
 
 === kitchen
 narration | time=+10: The bowl.
@@ -52,12 +53,6 @@ narration: Cold, and the party, and a woman laughing, and then, closer, someone 
 narration | time=+5 | sound=drawer: The dresser. The rental agreement, under the shirts.
 narration | if=flag:gave_return_date: 10/30. In your hand. Today.
 narration | if=!flag:gave_return_date: Blank. As if you'd never meant to give it back.
-
-=== painting
-narration | time=+5: The painting. The figure in the long coat, far out on the ice.
-
-=== locked_door
-narration | time=+5: The door at the end of the hall. Locked.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.

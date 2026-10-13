@@ -21,6 +21,7 @@ paranoia: Rule seven.
 narration | sound=click: The Sunday hymn hour. Real hymns, played all the way through, one after another. No numbers. No weather. Nothing in them for you at all.
 narration: You find that's harder. You keep listening for the part that's meant for you, and it never comes.
 paranoia: He's said what he had to say this morning. In person. To your face.
+narration: The dial's a hair off the church station, the hymns coming in through a hiss. You don't remember touching it. You leave it.
 
 === radio_off
 narration: You leave it off. The ice talks instead, out on the lake. A long groan, and a crack like a rifle, and then nothing.

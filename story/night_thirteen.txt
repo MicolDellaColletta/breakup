@@ -41,7 +41,11 @@ narration: Through the wall, up the road, somebody's radio, turned up, and a man
 narration | time=+10: The bowl.
 paranoia: Rule five.
 > Fill it -> kitchen_fed | set=fed_dog | flag=fed_thirteen
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_thirteen | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl, the way the note says. You set it inside the door, on no line at all.
 
 === kitchen_fed
 narration: The kibble rattles. On the line.
@@ -51,6 +55,7 @@ narration: You roll the sack shut.
 
 === windows
 narration | time=+10: The front windows. Snow, the neon, the dark.
+narration | if=broken:window>=2: Two handprints on the inside of the glass, side by side, as if someone leaned in to look out. One of them's yours. You're almost sure.
 paranoia: Rule one.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
@@ -63,20 +68,36 @@ narration: Cold. Up the road, a radio. The voice.
 
 === dresser
 narration | time=+5 | sound=drawer: The dresser.
-narration | if=has:notebook: The notebook. You write: "Nov 5. 11:00. The radio, not the phone." Then, after a long time: "The voice." You don't know which column.
+narration | if=has:notebook: The notebook. You write: "Nov 5. 11:00. The radio, not the phone." Then the pen waits.
 narration | if=!has:notebook: The flannel shirts.
+> Write "The voice." -> dresser_voice | if=has:notebook | flag=notebook_voice
+> Write "I know that voice." -> dresser_know | if=has:notebook | flag=notebook_know_voice
+> Write nothing more -> dresser_nothing | if=has:notebook
+
+=== dresser_voice
+narration: "The voice." You don't know which column it goes in. You close it.
+
+=== dresser_know
+narration: "I know that voice." You look at it a long time. It looks like someone else's handwriting, trying to be yours.
+
+=== dresser_nothing
+narration: You close it.
 
 === painting
 narration | time=+5: The painting. The figure far out on the ice, its back to you. Waiting for someone to come across the ice to it.
 
-=== locked_door
-narration | time=+5: The door at the end of the hall. Locked.
-
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
-paranoia: Rule one.
-> Leave it unlocked -> back_door_unlocked | lean=paranoia
-> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+narration: In the frost on the inside of its little window, words, scratched with a fingernail. The letters thin and deep.
+narration: LOCK IT NOW
+paranoia: Rule one. Leave the back door unlocked. The letter says. The letter's always said.
+appraisal | if=appraisal>=1: The inside of the glass. Whoever wrote it was in here, standing where you're standing.
+> Leave it unlocked. The letter says. -> back_door_unlocked | flag=kept_letter_lock | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | flag=obeyed_note_lock | lean=animal
+> Wedge the chair under the handle -> back_door_wedged | if=!has:back_door_key | break=back_door | flag=obeyed_note_lock | lean=animal
+
+=== back_door_wedged
+narration: The kitchen chair, carried down, tipped under the handle. It won't stop anyone. It'll tell you if someone tries.
 
 === back_door_unlocked
 narration: You leave it.
@@ -92,6 +113,7 @@ paranoia: He called them instead. He called everybody but you.
 -> night_dog
 
 === night_dog
+-> night_dog_door | if=flag:bowl_door
 -> night_dog_fed | if=flag:fed_thirteen
 -> night_dog_unfed
 
@@ -107,3 +129,10 @@ narration | show=bedroom: Facing the door. Nothing comes up.
 
 === morning_after
 narration | time=07:30: Saturday.
+narration | if=flag:obeyed_note_lock: The frost on the little window is smooth again, as if nothing was ever written there. The door is as you left it.
+narration | if=flag:kept_letter_lock: The back door stands an inch open. The snow on the step is unmarked. Nobody came in. Or nobody needed to.
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door, below. A long time open. You lie there and feel the cold come up the stairs to find you. In the morning, the bowl is clean.
+-> morning_after

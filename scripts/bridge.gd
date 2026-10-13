@@ -37,6 +37,9 @@ func _on_line_shown(line: Dictionary) -> void:
 	if not line.has("card"):
 		return
 	card.text = line["card"]
+	# A card that names a day ("Friday. The Keeper dresses the window.") moves
+	# the clock on to that day, so the clock and the card agree.
+	GameState.advance_to_weekday(line["card"].get_slice(".", 0).strip_edges())
 	card.modulate.a = 0.0
 	create_tween().tween_property(card, "modulate:a", 1.0, CARD_FADE)
 

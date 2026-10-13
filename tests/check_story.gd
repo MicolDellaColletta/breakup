@@ -237,6 +237,19 @@ func _condition_problems(text: String, items: ConfigFile, stock: ConfigFile) -> 
 					problems.append("no background '%s' (guilt, debt, witness, insanity)" % condition)
 			elif condition.begins_with("flag:") or condition.begins_with("broke:"):
 				pass
+			elif condition.begins_with("broken:"):
+				if not condition.trim_prefix("broken:").split(">")[0].split("<")[0].split("=")[0].strip_edges().is_valid_identifier():
+					problems.append("'%s' should look like broken:dog>=2" % condition)
+			elif condition.begins_with("order:"):
+				var spots_cfg: ConfigFile = ConfigFile.new()
+				spots_cfg.load("res://story/spots.cfg")
+				for stop in condition.trim_prefix("order:").split("<"):
+					if not spots_cfg.has_section(stop.strip_edges()):
+						problems.append("'%s': no spot '%s' in spots.cfg" % [condition, stop.strip_edges()])
+			elif condition.begins_with("knows:"):
+				var known: PackedStringArray = condition.trim_prefix("knows:").split("/")
+				if known.size() != 2 or not stock.has_section_key(known[0], "prop_" + known[1]):
+					problems.append("'%s': no such property in stock.cfg" % condition)
 			else:
 				var value: String = condition
 				for op in [">=", "<=", "==", "!=", ">", "<"]:

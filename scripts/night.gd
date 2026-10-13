@@ -18,7 +18,7 @@ const VIEW_FADE: float = 0.25
 # Flags the picture shows (an open window, the radio's dial) that belong to a
 # single night: cleared when the next one starts.
 const TONIGHT_FLAGS: Array[String] = ["window_open", "radio_on", "tv_on",
-	"skipped_radio", "skipped_kitchen", "skipped_windows"]
+	"skipped_radio", "skipped_kitchen", "skipped_windows", "bowl_door"]
 # The rules you check on your way to bed, and the rule each one breaks if you
 # go to bed without having checked it: skipping one isn't keeping it.
 const NIGHTLY_RULES: Dictionary = {"radio": "radio", "kitchen": "dog", "windows": "window"}
@@ -58,6 +58,7 @@ func _ready() -> void:
 	GameState.locked_back_door = false
 	for flag in TONIGHT_FLAGS:
 		GameState.flags.erase(flag)
+	GameState.night_order.clear()
 	art.view = _room
 	hotspots.spot_clicked.connect(click)
 	hotspots.aside.connect(play_aside)
@@ -92,6 +93,7 @@ func click(spot_id: String) -> void:
 # thing can be looked at once a night.
 func look(spot_id: String) -> void:
 	_looked.append(spot_id)
+	GameState.night_order.append(spot_id)
 	hotspots.mark_used(spot_id)
 	_busy = true
 	hotspots.interactive = false

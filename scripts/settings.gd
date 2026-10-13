@@ -16,6 +16,10 @@ var volume: float = 0.8
 var text_speed: String = "Normal"
 var fullscreen: bool = false
 
+# Sound is off for now, until it's redone with care (docs/todo.md): every
+# sound still plays, silently, so nothing else changes. True turns it back on.
+const SOUND_ON: bool = false
+
 # How much of the screen the window takes when it isn't fullscreen.
 const WINDOW_SHARE: float = 0.85
 const ASPECT: float = 16.0 / 9.0
@@ -34,6 +38,7 @@ func speed_multiplier() -> float:
 
 func apply() -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(maxf(volume, 0.0001)))
+	AudioServer.set_bus_mute(0, not SOUND_ON)
 	if DisplayServer.get_name() == "headless":
 		return
 	if fullscreen:

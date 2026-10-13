@@ -18,6 +18,7 @@ Checks that run Godot without a window and play through the game.
 | `test_november.gd` | November to Daniel's arrival: key day 13 (the Wasilla money order, Ruth's cellar and the keys, the minister on the radio), the fitting, the wipers on the line, key day 15 (the sixth bullet three ways, telling Olstad), and the payphone across the street. |
 | `test_evening.gd` | The town map: which places show, travel time, the pub, the lake, going home. |
 | `test_night.gd` | The first night as Keeper: radio, back door with and without the key, the reflection after three, staying in bed. |
+| `test_nights.gd` | The nights' drift (`docs/nights.md`): rule tallies (`broken:`), the order of stops (`order:`), stops that only show with something new, something out of place, note one (the bowl at the back door) and note three (LOCK IT NOW). |
 | `test_voices.gd` | The voices' own rules: Paranoia talking over the others, fraying and coming back, ??? when frayed, the background. |
 | `test_menu.gd` | The title screen, pause menu, saving, loading and settings. Uses its own save folder, never your saves. |
 | `test_shop.gd` | The drawn shelves: picking up and putting down, the front window (and saving it), turning to the walls and the back shelf, the bell (nobody comes in until you ring; then "Close up for the day"), the person across the counter, examining a thing in close-up and handing it over. Elsewhere, `advance()` rings the bell whenever the shop is waiting. |

@@ -107,3 +107,10 @@ narration: Nothing comes up. Just before dawn, from the back door, the sound of 
 
 === morning_after
 narration | time=07:30: Tuesday. October twelfth. One week.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_coat
+narration | time=+5: Your coat. On the second hook, not the first. You always use the first.
+narration: The first hook has nothing on it. It's bent down a little, as if something heavy hung there a long time.
+paranoia: You moved it. This morning, in the dark, and you forgot.

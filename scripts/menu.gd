@@ -22,6 +22,8 @@ var _from_title: bool = false
 var _saving: bool = false
 
 func _ready() -> void:
+	# No volume to set while sound is off (Settings.SOUND_ON).
+	volume_slider.get_parent().visible = Settings.SOUND_ON
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_close_all()
 	%ResumeButton.pressed.connect(resume)

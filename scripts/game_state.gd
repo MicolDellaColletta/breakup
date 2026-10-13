@@ -129,6 +129,13 @@ var fed_dog: bool
 var invited_to_pub: bool
 var locked_back_door: bool
 var rules_broken: Array[String] = []
+# How many times each rule has been broken ("dog": 2): story files ask with
+# broken:dog>=2, for what comes back days later (docs/nights.md).
+var rule_tally: Dictionary = {}
+# Tonight's stops, in the order you went to them (night.gd fills it; not
+# saved: a night restarts from its beginning). Story files ask with
+# order:back_door<windows.
+var night_order: Array[String] = []
 # Things that happened, for later story to remember: flag=ezra_satisfied in a
 # story file, if=flag:ezra_satisfied to ask.
 var flags: Array[String] = []
@@ -212,6 +219,8 @@ func reset() -> void:
 	invited_to_pub = false
 	locked_back_door = false
 	rules_broken.clear()
+	rule_tally.clear()
+	night_order.clear()
 	flags.clear()
 	visited.clear()
 	minutes = 22 * 60
@@ -249,7 +258,7 @@ func reset() -> void:
 # Everything a save file keeps. A new value that should survive saving and
 # loading needs its name added here.
 const SAVED: Array[String] = [
-	"day", "answered_phone", "fed_dog", "invited_to_pub", "locked_back_door", "rules_broken",
+	"day", "answered_phone", "fed_dog", "invited_to_pub", "locked_back_door", "rules_broken", "rule_tally",
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
 	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags",
 	"fray", "broke_today", "background_settled", "last_lean",
@@ -288,6 +297,7 @@ func from_dict(data: Dictionary) -> void:
 func break_rule(rule: String) -> void:
 	if not rules_broken.has(rule):
 		rules_broken.append(rule)
+	rule_tally[rule] = int(rule_tally.get(rule, 0)) + 1
 	if day >= 1:
 		fray += 1
 		broke_today = true
@@ -403,6 +413,20 @@ func date_text() -> String:
 func weekday_text() -> String:
 	var days: int = floori(float(minutes) / MINUTES_PER_DAY)
 	return "%s %s" % [WEEKDAYS[(FIRST_NIGHT_WEEKDAY + days) % 7], date_text()]
+
+const WEEKDAY_NAMES: Array[String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+# Moves the clock forward to the next day with this name ("Friday"), at the
+# same time of day; nothing if it's already that day, or the name isn't one.
+func advance_to_weekday(day_name: String) -> void:
+	var target: int = WEEKDAY_NAMES.find(day_name)
+	if target == -1:
+		return
+	var days: int = floori(float(minutes) / MINUTES_PER_DAY)
+	var ahead: int = (target - (FIRST_NIGHT_WEEKDAY + days) % 7 + 7) % 7
+	if ahead > 0:
+		minutes += ahead * MINUTES_PER_DAY
+		time_changed.emit()
 
 func clock_text() -> String:
 	var of_day: int = minutes % MINUTES_PER_DAY

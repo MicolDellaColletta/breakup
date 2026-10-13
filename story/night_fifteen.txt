@@ -32,7 +32,11 @@ narration: You leave it off. Up the hill, the church, still lit at eleven.
 narration | time=+10: The bowl.
 paranoia: Rule five.
 > Fill it -> kitchen_fed | set=fed_dog | flag=fed_fifteen
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_fifteen | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl, the way the note says. You set it inside the door, on no line at all.
 
 === kitchen_fed
 narration: The kibble rattles. On the line.
@@ -42,6 +46,7 @@ narration: You roll the sack shut.
 
 === windows
 narration | time=+10: The front windows. Across the road, by the gas station, the payphone, in its little hood, lit.
+narration: One latch is open. You closed them all last night; you remember the cold of the metal. You close it again.
 paranoia: Rule one.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
@@ -56,12 +61,26 @@ narration: Cold. Across the road, the payphone's light buzzing. Nobody at it. Ye
 narration | time=+5 | sound=drawer: The dresser.
 narration | if=has:revolver: John's revolver, wrapped in the flannel. Five rounds. The empty chamber. You know now where the sixth went.
 narration | if=!has:revolver: The flannel shirts. Somewhere under the snow by the back door, the revolver. You think about it more tonight than you have in a month.
+narration | if=has:notebook: The notebook, under the flannel. The pen.
+> Write "He's here." -> dresser_here | if=has:notebook | flag=notebook_here
+> Write "There you are." -> dresser_there | if=has:notebook and flag:door_daniel_1 | flag=notebook_there
+> Write "The dog came up at three. I was glad." -> dresser_dog | if=has:notebook and flag:fed_fourteen | flag=notebook_dog
+> Write nothing -> dresser_quiet | if=has:notebook
+
+=== dresser_here
+narration: "He's here." You press so hard the next three pages carry it.
+
+=== dresser_there
+narration: "There you are." In his rhythm. You didn't mean it to come out in his rhythm.
+
+=== dresser_dog
+narration: "The dog came up at three. I was glad." It's the only true thing you've written in a week, and it's about a dog nobody's seen.
+
+=== dresser_quiet
+narration: You hold the pen over the page until your hand aches. Nothing. You put it away.
 
 === painting
 narration | time=+5: The painting. The figure far out on the ice. And, for the first time, at the very edge of the canvas, on the shore, a second small figure, standing, watching. You've never seen it. It's been there all along.
-
-=== locked_door
-narration | time=+5: The door at the end of the hall. Locked.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
@@ -103,6 +122,7 @@ narration | stop=ring: Then he hangs up, and walks away up the hill. The phone s
 -> night_dog
 
 === night_dog
+-> night_dog_door | if=flag:bowl_door
 -> night_dog_fed | if=flag:fed_fifteen
 -> night_dog_unfed
 
@@ -119,3 +139,9 @@ narration | show=bedroom: Facing the door. Nothing comes up. All night, nothing.
 
 === morning_after
 narration | time=07:30: Wednesday. Thanksgiving week.
+narration | if=broken:back_door>=2: On the back step, a dog's bowl that isn't yours. Empty. Set square.
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door opens below and closes, and across the road, at the same moment, the payphone's light goes out. In the morning, the bowl is clean.
+-> morning_after

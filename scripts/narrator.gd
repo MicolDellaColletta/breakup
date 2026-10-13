@@ -275,6 +275,13 @@ func _single_condition_met(condition: String) -> bool:
 		result = GameState.visited.has(text.trim_prefix("visited:"))
 	elif text.begins_with("flag:"):
 		result = GameState.flags.has(text.trim_prefix("flag:"))
+	elif text.begins_with("broken:"):
+		result = _tally_met(text.trim_prefix("broken:"))
+	elif text.begins_with("order:"):
+		var pair: PackedStringArray = text.trim_prefix("order:").split("<")
+		var first: int = GameState.night_order.find(pair[0].strip_edges())
+		var then: int = GameState.night_order.find(pair[1].strip_edges()) if pair.size() > 1 else -1
+		result = first != -1 and then != -1 and first < then
 	elif text.begins_with("knows:"):
 		var known: String = text.trim_prefix("knows:")
 		result = GameState.knows_prop(known.get_slice("/", 0), known.get_slice("/", 1))
@@ -283,6 +290,22 @@ func _single_condition_met(condition: String) -> bool:
 	else:
 		result = _compare(text)
 	return result != negate
+
+# broken:dog>=2: how many times that rule's been broken.
+func _tally_met(text: String) -> bool:
+	for op in [">=", "<=", "==", ">", "<"]:
+		var parts: PackedStringArray = text.split(op, true, 1)
+		if parts.size() < 2:
+			continue
+		var count: int = int(GameState.rule_tally.get(parts[0].strip_edges(), 0))
+		var wanted: int = parts[1].strip_edges().to_int()
+		match op:
+			">=": return count >= wanted
+			"<=": return count <= wanted
+			"==": return count == wanted
+			">": return count > wanted
+			"<": return count < wanted
+	return int(GameState.rule_tally.get(text.strip_edges(), 0)) > 0
 
 func _compare(text: String) -> bool:
 	for op in [">=", "<=", "==", "!=", ">", "<"]:

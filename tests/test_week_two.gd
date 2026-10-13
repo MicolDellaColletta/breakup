@@ -186,8 +186,10 @@ func _bridge_weekend() -> void:
 	advance(column, 1)
 	await process_frame
 	check(bridge.card_text() == "Friday. The Keeper dresses the window.", "Friday's card")
+	check(gs.weekday_text().begins_with("Fri"), "and the clock says Friday too")
 	_route(column)
 	check(bridge.card_text() == "Saturday. The Keeper is seen.", "Saturday's card")
+	check(gs.weekday_text().begins_with("Sat"), "and the clock says Saturday")
 	await wait(3.5)
 	check(current_scene.name == "Visit" and gs.day == 9, "then key day 9: the second Sunday")
 	check(root.get_node("Hud").get_node("%ClockLabel").text.begins_with("Sun Oct 17"), "Sunday, October 17")
