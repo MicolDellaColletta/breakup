@@ -79,7 +79,7 @@ pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
    - Three ways to beat Daniel for the fire: Olstad, the town, the gun.
    - The flashback's last piece (the face).
 
-9. **Smaller things, any time:**
+8. **Smaller things, any time:**
    - **A `CLAUDE.md` for the repo,** so a fresh session starts fast. It should
      cover the story file format (sections, lines, choices, effects,
      conditions), the gotchas (jumps only at the end of a section; `redeemed=`
@@ -103,7 +103,7 @@ pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
    - **The gap from Feb 20 to Mar 12** is the longest jump in the game. Does
      the bridge carry three weeks, or does March need an extra early day?
 
-10. **Then the older list below,** from "Unreliable narration" down.
+9. **Then the older list below,** from "Unreliable narration" down.
 
 ## Next session (older)
 
