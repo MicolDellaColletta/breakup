@@ -136,6 +136,18 @@ builds on the one before.
 38. **A beat in the three-week gap before March** (Olstad away for the
     christening, the count on the hall, holes in the ice). Lean: yes.
 
+## C2. April and the endings (`docs/april.md`)
+
+39. **Breakup is Sat Apr 22** (Abraham's calendar). Lean: yes.
+40. **The collection plate** is the town buying MC from Daniel. Lean: yes.
+41. **Three ways to beat him** (Olstad, the town, the gun), one attempt only.
+    Lean: yes.
+42. **Escape with someone:** a catch for each companion. Lean: yes.
+43. **The Daniel ending's epilogue:** the new tent, the hymnals, his real name
+    said once. Lean: yes.
+44. **"Four of six kept faith":** keep it, and add kept moments for Hollis and
+    Ruth in March. Lean: yes.
+
 ## D. Order of work, once you've answered
 
 1. **Merge** 0's branches.
