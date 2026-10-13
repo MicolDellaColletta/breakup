@@ -79,7 +79,31 @@ pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
    - Three ways to beat Daniel for the fire: Olstad, the town, the gun.
    - The flashback's last piece (the face).
 
-8. **Then the older list below,** from "Unreliable narration" down.
+9. **Smaller things, any time:**
+   - **A `CLAUDE.md` for the repo,** so a fresh session starts fast. It should
+     cover the story file format (sections, lines, choices, effects,
+     conditions), the gotchas (jumps only at the end of a section; `redeemed=`
+     on lines, never choices; `use_*` sections in `use.txt`; runtime `load()`
+     in tests), how to run the tests headless, the plan-then-build
+     workflow, and the PR routine.
+   - **Godot in the cloud session.** The binary lived in a scratchpad that's
+     gone next session. Either a SessionStart hook that downloads Godot
+     4.7.2 (linux, headless) and runs `--import`, or a note in `CLAUDE.md`
+     on how to fetch it.
+   - **One long playthrough test:** from the prologue to the end of February
+     in one run, through the real bridges and saves, not day by day. It
+     catches state that leaks between months.
+   - **Old saves:** load a save from each month into the new build (new
+     flags, new counts, the eye seeded at day 18) and check nothing breaks.
+   - **Docs drift:** `pillars.md`, `story.md` and `daniel.md` still describe
+     Daniel as a hired killer (v6). Fold v7 in once the calls are answered.
+   - **The art list** (older item 8) now needs the new places: church_fire,
+     vestry_door, ruins, booth, gleaner, cabin, cabin_road, and the counsel
+     room.
+   - **The gap from Feb 20 to Mar 12** is the longest jump in the game. Does
+     the bridge carry three weeks, or does March need an extra early day?
+
+10. **Then the older list below,** from "Unreliable narration" down.
 
 ## Next session (older)
 
