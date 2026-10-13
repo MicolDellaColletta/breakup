@@ -59,14 +59,6 @@ narration | time=+5 | sound=drawer: The dresser. The flannel shirts.
 narration: Clean clothes for tomorrow. You lay one out on the chair, the cleanest, and then put it back, and then lay it out again.
 paranoia: They like a clean Keeper.
 
-=== painting
-narration | time=+5: The painting over the armchair. The lake breaking up, the small figure far out on the ice.
-narration: You don't look at it long. You don't want to know if it's nearer.
-
-=== locked_door
-narration | time=+5: The door at the end of the hall. Locked. Quiet tonight. No hum, no music. Nothing.
-paranoia: Even the nothing sounds like it's listening.
-
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, along the hallway, through the steel door. The freezer, the crates, the back door.
 paranoia: Rule one.
@@ -165,3 +157,10 @@ narration: Near dawn, very faint, from the bottom of them, something that might 
 === morning_after
 narration | time=07:30: Sunday. Church bells, from the hill. Not for anyone in particular. For everyone, and you.
 
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_sink
+narration | time=+5: The sink. Two cups, rinsed, upside down on the board to dry.
+narration: You live alone. You've used one cup since you came. You're almost sure it's one.
+paranoia: Ruth, the day she came up. Olstad, with her key. You, twice, and you forgot.
+narration: You put one of them away in the cupboard, at the back.

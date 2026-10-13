@@ -20,6 +20,10 @@ static func in_room(scene: String, room: String, narrator: Narrator) -> Array[St
 		var condition: String = _spots().get_value(spot_id, "if", "")
 		if condition != "" and not narrator._condition_met(condition):
 			continue
+		# only_if_written=true: shown only when tonight's story has something
+		# for it (a night with nothing new at the dresser leaves it out).
+		if _spots().get_value(spot_id, "only_if_written", false) and not narrator.has_section(section(spot_id)):
+			continue
 		found.append(spot_id)
 	return found
 

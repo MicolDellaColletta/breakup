@@ -22,6 +22,7 @@ narration: A pause.
 narration: "Make him welcome, friends."
 narration: He says it the way you'd say the forecast is for more snow.
 paranoia: He's frightened. The Reverend's frightened of a man on the radio.
+narration: Under the hymn, softly, as if to himself: "The back of the house before the front, friends. Always the back first."
 
 === radio_off
 narration: You leave it off. Through the wall, the hymns, from somebody else's radio, and then a man reading a letter, too far away to hear.
@@ -30,7 +31,11 @@ narration: You leave it off. Through the wall, the hymns, from somebody else's r
 narration | time=+10: The bowl.
 paranoia: Rule five.
 > Fill it -> kitchen_fed | set=fed_dog | flag=fed_fourteen
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_fourteen | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl, the way the note says. You set it inside the door, on no line at all.
 
 === kitchen_fed
 narration: The kibble rattles. On the line.
@@ -57,9 +62,6 @@ narration | if=has:notebook: The notebook. You write: "Nov 21. It fit." Then you
 
 === painting
 narration | time=+5: The painting. The figure in the long coat, far out on the ice. You know now exactly how heavy the coat is.
-
-=== locked_door
-narration | time=+5: The door at the end of the hall. Locked.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
@@ -96,6 +98,7 @@ narration | stop=ring: It stops.
 -> night_dog
 
 === night_dog
+-> night_dog_door | if=flag:bowl_door
 -> night_dog_fed | if=flag:fed_fourteen
 -> night_dog_unfed
 
@@ -107,7 +110,22 @@ narration | stop=stairs: The kitchen. Then down.
 
 === night_dog_unfed
 narration | show=bedroom: Facing the door. Nothing comes up.
+narration | if=broken:dog>=3: Something lies down outside the bedroom door, with a sigh, and stays till the light.
 -> morning_after
 
 === morning_after
 narration | time=07:30: Monday.
+
+# --- Something out of place (docs/nights.md). ---
+narration | if=order:back_door<windows: You slept. You don't remember the stairs. You don't remember anything until the light, and the light is kind.
+narration | if=fray==0: The bowl on its line, licked clean. On the pillow beside yours, a single short hair, pale. You leave it there.
+
+=== odd_pillow
+narration | time=+5: The bed. On the side you don't sleep on, a dent in the pillow. Small. The pillowcase cool.
+paranoia: You rolled over in the night. You slept on the wrong side.
+narration: You don't sleep on the wrong side. You plump it flat. The dent comes back, slowly, the way a cushion does when someone gets up.
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning the bowl is clean, and the prints in the snow go out from the door toward the lake, and come back in somebody's boots.
+-> morning_after

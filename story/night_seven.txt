@@ -60,10 +60,6 @@ paranoia: Not yet.
 narration | time=+5: The painting. The figure on the ice, with its back to you.
 narration: Tonight you'd give anything for it to turn around. You'd give anything for it not to.
 
-=== locked_door
-narration | time=+5: The door at the end of the hall. Locked. Dark underneath. No light tonight.
-paranoia: Even the house is waiting.
-
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door. Your own footprints out to the car and back, in the snow.
 paranoia: Rule one.

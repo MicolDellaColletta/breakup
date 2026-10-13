@@ -18,15 +18,22 @@ paranoia: Rule seven.
 
 === radio_on
 narration | sound=click: The Sunday hymn hour. Real hymns, nothing in them. You listen anyway, the way you'd listen to someone breathing in the next room.
+narration: Between hymns, the calm voice, almost too low to hear: "See to your doors before your windows tonight, friends."
 
 === radio_off
 narration: You leave it off. The lake ice, far off, groaning like furniture being moved.
+unknown | if=broken:radio>=2: You keep turning it off. So it's me, then. Just you and me, and the dark.
 
 === kitchen
 narration | time=+10: The bowl.
+narration: It's already on the line. Empty, clean, set straight, waiting. You didn't put it back. You're nearly sure you didn't.
 paranoia: Rule five.
 > Fill it -> kitchen_fed | set=fed_dog | flag=fed_nine
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_nine | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl, the way the note says. You set it inside the door, on no line at all.
 
 === kitchen_fed
 narration: The kibble rattles. On the line. Beside it, still, the brown thread from Thursday. You haven't moved it. You can't.
@@ -53,9 +60,6 @@ narration | if=has:notebook: The notebook. You open it, and there's a second lin
 
 === painting
 narration | time=+5: The painting. The figure in its long brown coat, far out on the ice. Walking away.
-
-=== locked_door
-narration | time=+5: The door at the end of the hall. Locked. Quiet.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
@@ -114,6 +118,7 @@ narration | sound=hangup: You put it down. Upstairs, the hymn goes on, without h
 -> night_dog
 
 === night_dog
+-> night_dog_door | if=flag:bowl_door
 -> night_dog_fed | if=flag:fed_nine
 -> night_dog_unfed
 
@@ -127,7 +132,15 @@ paranoia: Slower. Knees get tired. Sunday knees. Church knees.
 === night_dog_unfed
 narration | show=bedroom: Back in bed. Facing the door.
 narration: Nothing comes up. Near dawn, something at the bottom of the stairs, patient, then gone.
+narration | if=broken:dog>=2: Near three: a scratching at the bedroom door. Low down. Patient. It stops when you sit up.
 -> morning_after
 
 === morning_after
 narration | time=07:30: Monday.
+narration | if=order:back_door<windows: The windows, this morning, are clear. Every other window on the road has frost on it, in ferns. Yours don't.
+narration | if=broken:back_door>=2: On the back step, a dish under a cloth. Still warm. No note.
+
+=== night_dog_door
+narration | show=bedroom: Back in bed. Facing the door.
+narration: Three o'clock. Below, the back door: open, a long pause, shut. In the morning the bowl's clean, and the prints come up to the door and stop, as if whatever made them waited to be asked in.
+-> morning_after

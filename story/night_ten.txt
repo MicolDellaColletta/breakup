@@ -31,7 +31,11 @@ narration: You leave it off. Through the wall, from somewhere up the shore, some
 narration | time=+10: The bowl.
 paranoia: Rule five.
 > Fill it -> kitchen_fed | set=fed_dog | flag=fed_ten
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_ten | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl, the way the note says. You set it inside the door, on no line at all.
 
 === kitchen_fed
 narration: The kibble rattles. On the line. Your hand's still shaking from the cold. It's the cold.
@@ -41,6 +45,7 @@ narration: You roll the sack shut.
 
 === windows
 narration | time=+10: The front windows. The lake, dark now. The fire, embers.
+narration | if=broken:window>=2: On the inside of one pane, a handprint in the damp, at your height. You put your hand to it. It fits.
 paranoia: Rule one.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
@@ -66,7 +71,23 @@ paranoia: You can see what you want in paint. You can see what you want in ice.
 narration | time=+5: The door at the end of the hall. Locked. Dark. Cold air under it, colder than the hall.
 
 === back_door
-narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+narration | time=+20 | sound=floorboards: Down the stairs, to the steel door.
+narration | take=note_furnace: On the steel door, at eye height, a card, pinned with a tack. The owner's hand, small and careful: "9. Don't let the furnace go out."
+paranoia: There are eight rules. There were eight rules.
+narration: In the back room the furnace is low. Embers. The coal scuttle beside it, full, the way it always is.
+> Feed it -> furnace_fed | flag=fed_furnace
+> Leave it. There are eight rules. -> furnace_left | break=furnace | flag=furnace_out
+
+=== furnace_fed
+narration: Three shovels. The belly of it goes from red to orange to white. Your face burns. Behind you the freezer hums, as if it were glad.
+-> back_door_rule
+
+=== furnace_left
+narration: You leave it. The embers tick as they cool. Behind you the freezer hums louder, as if it were working harder.
+-> back_door_rule
+
+=== back_door_rule
+narration: The back door.
 paranoia: Rule one.
 > Leave it unlocked -> back_door_unlocked | lean=paranoia
 > Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
@@ -123,6 +144,7 @@ narration | sound=hangup: You put it down. The train horn goes on in your head.
 -> night_dog
 
 === night_dog
+-> night_dog_door | if=flag:bowl_door
 -> night_dog_fed | if=flag:fed_ten
 -> night_dog_unfed
 
@@ -142,3 +164,9 @@ narration: Nothing comes up. In the morning, on the bottom step, a puddle, froze
 
 === morning_after
 narration | time=07:30: Sunday.
+narration | if=fray==0: You slept. A whole night. You wake warm, and for a moment you don't know where you are, and it's the best moment you've had here.
+
+=== night_dog_door
+narration | show=bedroom: Back in bed. Facing the door.
+narration: Three o'clock. The back door, below. Then, on the stairs, one step. Only one. Then down again. In the morning the bowl is clean.
+-> morning_after

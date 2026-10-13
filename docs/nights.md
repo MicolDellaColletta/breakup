@@ -1,7 +1,7 @@
-# The nights, redesigned (plan)
+# The nights, redesigned
 
-To-do 4, from `review.md` section 5. A plan to agree before building.
-**Leans** are my recommendations; "Your call" marks the decisions.
+To-do 4, from `review.md` section 5. **Decided Oct 13: all the leans.
+Built** (see "As built" at the end).
 
 ## What's wrong now
 
@@ -162,3 +162,40 @@ week; they're listed so they're planned for.
 3. **Order on three nights only,** given by the radio? Lean: yes.
 4. **The notebook** as the thing Daniel quotes in January? Lean: yes.
 5. **Flavour stops hide** when there's nothing new? Lean: yes.
+
+## As built (Oct 13)
+
+- **Engine:** `GameState.rule_tally` (saved), `broken:rule>=n`;
+  `GameState.night_order` (tonight only), `order:a<b`; `only_if_written=true`
+  on the dresser, painting and locked door (hidden on nights without a
+  section for them); notes as items with documents. `check_story` knows
+  `broken:`, `order:`, `knows:`. Tests: `test_nights.gd`.
+- **Quiet stops:** the painting cut on nights 4 and 11; the locked door on
+  4, 7, 8, 9, 11-15 (where it only said "Locked.").
+- **Out of place:** two cups (night 4), the radio off its station (5), your
+  coat on the wrong hook (6), the kitchen chair facing the window (8), the
+  bowl already on its line (9), the painting nearer the shore (12), the
+  other pillow dented (14), one latch open (15).
+- **Note one** (night 8): under the bowl, in your hand; from then on the
+  bowl can go to the back door every night, and three o'clock comes up from
+  below instead of the stairs (prints in the snow, a sweet, boots).
+- **Note two** (night 10): on the steel door; feed the furnace or not
+  (`break=furnace`); unfed, a cold morning and the hand mirror cracked on
+  day 11, and the furnace found fed.
+- **Note three** (night 13): LOCK IT NOW in the frost; leave it (the
+  letter), lock it, or wedge the chair (without the key). The morning shows
+  which.
+- **Order:** the radio on nights 9 (doors before windows), 12 (windows
+  before the bowl), 14 (the back before the front), each with a morning
+  line if you did.
+- **Tallies:** radio off twice (???, nights 9 and 11), the bowl left twice
+  (scratching, a clean bowl, something lying down outside the door), the
+  window open twice (a handprint that fits; two), the back door locked
+  twice (a dish, a mitten, a dog's bowl on the step); a clean week (fray 0)
+  a warm morning (nights 10, 14).
+- **The notebook:** choices on nights 13 ("The voice." / "I know that
+  voice.") and 15 ("He's here." / "There you are." / "The dog came up at
+  three. I was glad."), each a flag (`notebook_*`) for Daniel to quote in
+  January.
+- **Later:** the power cut and the frozen latch (with shop step 8 and
+  Thanksgiving week).

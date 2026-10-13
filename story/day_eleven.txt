@@ -8,6 +8,9 @@
 === morning
 narration | time=07:30: Saturday. The car in the lot, under a foot of snow. The Northern Lights sticker on the bumper is the only thing showing, a little blue square.
 narration: Today's the day. Four weeks, prepaid, from the second. Today it stops being a rental.
+narration | if=flag:furnace_out: The apartment is cold enough to see your breath. Downstairs, the hand mirror on the back shelf has a crack across the glass, corner to corner.
+narration | if=flag:furnace_out: And the furnace, when you go down: lit. Fed. Full. Somebody came in the night and fed it.
+paranoia | if=flag:furnace_out: Olstad has a key. Somebody always has a key.
 -> morning_flash_guilt | if=background:guilt
 -> morning_flash_witness | if=background:witness
 -> morning_flash_debt | if=background:debt

@@ -31,9 +31,17 @@ narration: You leave it off. Up the hill, faint, through the wall, you can hear 
 
 === kitchen
 narration | time=+10: The stove. The bowl.
-paranoia: Rule five.
-> Fill it -> kitchen_fed | set=fed_dog | flag=fed_eight
+narration | take=note_bowl: Under the bowl, a square of paper, folded once. In your handwriting. Your handwriting exactly.
+narration: "5. Feed the dog. At the back door. Not upstairs."
+paranoia: You didn't write that. You'd remember writing that. Rule five says feed the dog. It doesn't say where.
+appraisal: People write in their sleep. Shopping lists. Apologies.
+> Fill it, here, on the line -> kitchen_fed | set=fed_dog | flag=fed_eight
+> Take it down to the back door -> kitchen_door | set=fed_dog | flag=fed_eight | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down the stairs with the bowl in both hands, the kibble shifting. Through the steel door, past the freezer. You set it on the floor inside the back door, on no line at all.
+narration: You leave the door the way the letter says. The cold comes in around the bowl.
 
 === kitchen_fed
 narration: The kibble rattles. You set it on the line.
@@ -62,9 +70,6 @@ narration | if=!has:notebook: The flannel shirts. You count them. You keep count
 narration | time=+5: The painting. The figure far out on the breaking ice.
 narration: Tonight you see it's wearing a long coat. You're sure it wasn't, before. It's a smudge of brown paint, the length of the figure, down to the ice.
 paranoia: It always was. You didn't know what you were looking at. Now you do.
-
-=== locked_door
-narration | time=+5: The door at the end of the hall. Locked. Dark.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
@@ -127,6 +132,7 @@ narration | sound=hangup: You put it down. Your hand stays on it, as if to keep 
 -> night_dog
 
 === night_dog
+-> night_dog_door | if=flag:bowl_door
 -> night_dog_fed | if=flag:fed_eight
 -> night_dog_unfed
 
@@ -144,3 +150,19 @@ narration: Nothing comes up. In the morning, at the bottom of the stairs, a sing
 
 === morning_after
 narration | time=07:30: Friday.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_chair
+narration | time=+5: The kitchen chair. Pulled out from the table and turned to face the window.
+narration: The seat's cold. Not warm, the way it would be if someone had just got up. Cold, the way it is when someone's sat very still for a long time and then gone.
+appraisal | if=appraisal>=1: Chairs are cold. It's a cold room.
+narration: You turn it back to the table. It takes a moment to want to go.
+
+=== night_dog_door
+narration | show=bedroom: Back in bed. Facing the door.
+narration: Three o'clock. Nothing on the stairs. From far below, through the floor, the back door, opening. A long pause. Closing.
+narration: In the morning the bowl is empty, licked clean, and in the snow outside the back door: prints. A dog's, going away. And coming back, beside them, something that isn't quite a dog's, that walks upright for the last few steps.
+paranoia: A dog. A big dog. A dog that stands up.
+appraisal: Or a dog, and somebody walking it home.
+-> morning_after
