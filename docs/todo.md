@@ -69,5 +69,25 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
     tests share one save folder and can't run side by side. A folder each
     would let them run in parallel (about three minutes).
 
+11. **The look: 90s, pixelated, the shop like Strange Antiquities.** The
+    shop window and shelves still feel odd. Direction: a 90s pixel-art
+    style for the whole game (low resolution, a limited palette, hard
+    pixels), and the shop as a Strange Antiquities-style counter view: warm,
+    cluttered, objects with weight, the customer across the counter, tools
+    to hand. Start with an art-direction note and a mock-up of the counter,
+    agree it, then the shop, then the rest (rooms, map, nights, cards).
+    Placeholder art in code until the paintings: the style first, the
+    detail later.
+
+12. **Sound, redone carefully.** Turned off for now (`Settings.SOUND_ON`):
+    some sounds were out of sync with the text. Later, once things are more
+    polished: each sound timed to its line (or to the click), ambient
+    loops, and the volume setting back in the menu.
+
+13. **Better interactions with each object.** Once the whole story is
+    written: every object in the shop gets interactions that fit it (wind
+    the music box, open the watch, shake the tin, read the teeth's papers),
+    building on the tools and the catalogue (shop steps 3 and 4).
+
 After those: the shop's step 4 (examine reveals properties; object puzzles),
 then on down the list in `shop.md`.

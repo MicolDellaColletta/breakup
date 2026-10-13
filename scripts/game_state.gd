@@ -404,6 +404,20 @@ func weekday_text() -> String:
 	var days: int = floori(float(minutes) / MINUTES_PER_DAY)
 	return "%s %s" % [WEEKDAYS[(FIRST_NIGHT_WEEKDAY + days) % 7], date_text()]
 
+const WEEKDAY_NAMES: Array[String] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+# Moves the clock forward to the next day with this name ("Friday"), at the
+# same time of day; nothing if it's already that day, or the name isn't one.
+func advance_to_weekday(day_name: String) -> void:
+	var target: int = WEEKDAY_NAMES.find(day_name)
+	if target == -1:
+		return
+	var days: int = floori(float(minutes) / MINUTES_PER_DAY)
+	var ahead: int = (target - (FIRST_NIGHT_WEEKDAY + days) % 7 + 7) % 7
+	if ahead > 0:
+		minutes += ahead * MINUTES_PER_DAY
+		time_changed.emit()
+
 func clock_text() -> String:
 	var of_day: int = minutes % MINUTES_PER_DAY
 	var h: int = floori(of_day / 60.0)
