@@ -114,6 +114,14 @@ narration | sound=keys: The red tag. It fits. You don't turn it. The rule's for 
 
 # --- The nights ---
 
+# Going to bed with a rule never checked (night.gd): it's broken, the same as
+# refusing it. Then the night's own "sleep".
+=== skipped_rules
+narration | if=flag:skipped_radio: The radio. You never turned it on. It sits on the shelf in the dark, and you lie there not getting up.
+narration | if=flag:skipped_kitchen: The bowl. You didn't fill it. You're already lying down.
+narration | if=flag:skipped_windows: The windows. You didn't check the latches. You can't remember whether they're latched. You decide they are.
+paranoia: Not doing it isn't the same as not breaking it.
+
 === use_compass_painting
 narration: You hold the compass up to the painting, not knowing why.
 narration: The needle swings off north and settles, trembling, on the small figure far out on the breaking ice.

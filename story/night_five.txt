@@ -125,7 +125,7 @@ narration: The open line. The room. The clock.
 narration: And, faint, behind the breathing, a radio. A hymn. The Sunday hour.
 narration | if=flag:radio_on: The same hymn your radio is playing upstairs. A second behind. Like an echo with a long way to come.
 narration | if=!flag:radio_on: The hymn hour, from the church. He's listening to the same station as the whole town.
-unknown | if=frayed: He's listening to you listen, sweetheart.
+unknown | if=frayed: He's listening to you listen.
 paranoia: He's close enough to get the station. He's in range. He's somewhere you could drive to.
 > Wait -> phone_wait
 > Hang up first -> phone_hang_up | lean=animal

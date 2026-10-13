@@ -392,7 +392,7 @@ narration: Mrs. Hollis's dish is still on the counter, under its towel. Her husb
 > "I don't buy anything warm. Sorry." -> stranger_refuse | lean=paranoia
 
 === stranger_buy
-narration | pawned=hollis_jacket | loan=10: You count ten dollars out of the drawer. He folds it into his coat without looking at it.
+narration | pawned=hollis_jacket | loan=10: You count out ten dollars. He folds it into his coat without looking at it.
 stranger: Somebody'll want it.
 narration | sound=bell: The bell. He goes out into the dusk and turns, not toward the road, but toward the lake.
 narration: The jacket on the glass. Still warm. A little less than it was.

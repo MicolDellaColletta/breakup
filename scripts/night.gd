@@ -17,7 +17,11 @@ const USE_PATH: String = "res://story/use.txt"
 const VIEW_FADE: float = 0.25
 # Flags the picture shows (an open window, the radio's dial) that belong to a
 # single night: cleared when the next one starts.
-const TONIGHT_FLAGS: Array[String] = ["window_open", "radio_on", "tv_on"]
+const TONIGHT_FLAGS: Array[String] = ["window_open", "radio_on", "tv_on",
+	"skipped_radio", "skipped_kitchen", "skipped_windows"]
+# The rules you check on your way to bed, and the rule each one breaks if you
+# go to bed without having checked it: skipping one isn't keeping it.
+const NIGHTLY_RULES: Dictionary = {"radio": "radio", "kitchen": "dog", "windows": "window"}
 # Rooms downstairs, and the shop picture (shop_art.gd) each one shows.
 const SHOP_ROOMS: Dictionary = {
 	"shop_hall": "hallway",
@@ -91,7 +95,22 @@ func look(spot_id: String) -> void:
 	hotspots.mark_used(spot_id)
 	_busy = true
 	hotspots.interactive = false
+	if spot_id == "bed" and _break_skipped_rules():
+		narrator.start_conversation("skipped_rules")
+		return
 	narrator.start_conversation(Spots.section(spot_id))
+
+# Going to bed: every rule you never checked tonight is broken (and said so).
+# True if there were any.
+func _break_skipped_rules() -> bool:
+	var any: bool = false
+	for spot_id in NIGHTLY_RULES:
+		if _looked.has(spot_id) or not narrator.has_section(Spots.section(spot_id)):
+			continue
+		GameState.break_rule(NIGHTLY_RULES[spot_id])
+		GameState.set_flag("skipped_" + spot_id)
+		any = true
+	return any
 
 # A short scene that changes nothing: something from your pockets used on a
 # hotspot, or a second look (story/use.txt).
@@ -120,6 +139,8 @@ func walk(room: String) -> void:
 func _on_section_finished(section: String) -> void:
 	if section == "morning_after":
 		_end_of_day()
+	elif section == "skipped_rules":
+		narrator.start_conversation(Spots.section("bed"))
 	elif section.ends_with("_go_down"):
 		# Down the stairs into the dark shop (the phone on night two, a glass of
 		# water on night three).

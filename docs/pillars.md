@@ -97,8 +97,8 @@ Sam asks for a true name; Daniel knows it and never says it.
   the law is the only thing she believes in. She's the one person in Kettle
   Lake who believes in neither the ice, nor God, nor Daniel. **She lives.** At
   breakup she's on the shore, against all of them. Protecting MC doesn't
-  redeem her prejudice, and the game doesn't pretend it does. (MC's own
-  gender is never stated outright; her prejudice shows around him, not in a
+  redeem her prejudice, and the game doesn't pretend it does. (MC is a man;
+  her prejudice shows around him and Sam, in what she assumes, never in a
   label.)
 - **The Reverend Elias**: the calm voice on the night radio, the helper. The
   town turns on him in December.
@@ -115,7 +115,8 @@ For the offering."*
 
 **Daniel's voice arrives before he does,** through the night radio: a caller,
 then a guest, then the host. He talks to the whole town every night, and never
-to MC. **His wound helps the con:** a preacher with a wound in his side. He
+to MC: face to face he's a polite stranger, and on the phone he never speaks,
+until New Year's Eve. **His wound helps the con:** a preacher with a wound in his side. He
 never claims anything; they decide what it means.
 
 **What he gets from it:** access (a town that loves him hands him the shop,
@@ -188,9 +189,10 @@ text):
       slip of paper to the books).
 - [x] **`day_three.md`:** the money order through Olstad; Ruth's question;
       ??? in Daniel's cadence; the cost of waving.
-- [x] **Game text:** names as a custom, things that fade, MC's gender never
-      stated, a click instead of your own voice, "sweetheart" only where the
-      prologue has it.
+- [x] **Game text:** names as a custom, things that fade, a click instead of
+      your own voice, "sweetheart" only where the prologue has it (and night
+      three). (MC's gender "never stated" was the rule until Oct 13: MC is now
+      a man.)
 - [x] **`breakup_decisions.md`:** replaced by `decisions.md`, a dated log.
 
 ## Open

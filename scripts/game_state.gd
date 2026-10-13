@@ -480,7 +480,8 @@ func record_pawn(item_name: String, item_id: String, loan: int, tag: String, sel
 	pawn_tags.append("%s=%s" % [item_id, tag])
 	var from_till: int = mini(loan, till)
 	till -= from_till
-	cash -= loan - from_till
+	# What the drawer can't cover comes out of your pocket, as far as it goes.
+	cash = maxi(0, cash - (loan - from_till))
 	till_by_ledger -= from_till
 	var by: String = (" by " + seller) if seller != "" else ""
 	var money: String = ("$%d loan" % loan) if loan > 0 else "No loan"

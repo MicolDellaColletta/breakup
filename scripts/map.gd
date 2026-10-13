@@ -20,6 +20,7 @@ var _away: String = ""
 var _going_home: bool = false
 
 func _ready() -> void:
+	places_layer.resized.connect(_place_buttons)
 	if _places.load(PLACES_PATH) != OK:
 		push_error("Could not load places: " + PLACES_PATH)
 	home_button.pressed.connect(_go_home)
@@ -74,14 +75,20 @@ func _show_places() -> void:
 		var button: Button = Button.new()
 		button.name = place_id
 		button.text = _places.get_value(place_id, "name")
-		button.position = Vector2(
-			float(_places.get_value(place_id, "x", 0.5)) * places_layer.size.x,
-			float(_places.get_value(place_id, "y", 0.5)) * places_layer.size.y)
+		button.set_meta("at", Vector2(float(_places.get_value(place_id, "x", 0.5)),
+			float(_places.get_value(place_id, "y", 0.5))))
+		button.position = button.get_meta("at") * places_layer.size
 		button.pressed.connect(visit.bind(place_id))
 		button.mouse_entered.connect(_describe.bind(place_id))
 		places_layer.add_child(button)
 	home_button.visible = true
 	details.text = "It's %s. Where to?" % GameState.clock_text()
+
+# The window changed size (fullscreen): the places keep their spots on the map.
+func _place_buttons() -> void:
+	for button in places_layer.get_children():
+		if button.has_meta("at"):
+			button.position = button.get_meta("at") * places_layer.size
 
 func _hide_places() -> void:
 	# Out now, not at the end of the frame, so new buttons keep their names.

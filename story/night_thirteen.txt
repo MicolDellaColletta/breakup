@@ -30,7 +30,7 @@ narration: Then scripture, by heart, without a breath: "For I was a stranger, an
 narration: On the air, the Reverend is silent for too long. Then: "Thank you, friend. Safe travels."
 narration: He doesn't sound grateful. He sounds like a man who heard a step on the stair.
 paranoia: That voice. You know that voice. No. You know the way it waits before the last word. You know the waiting.
-unknown: Isn't he lovely, sweetheart? The whole town thinks so already.
+unknown: Isn't he lovely? The whole town thinks so already.
 appraisal | if=appraisal>=1: A payphone on the highway. Trucks behind him, going by. No train. He's moved.
 
 === radio_off

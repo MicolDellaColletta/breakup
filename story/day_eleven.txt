@@ -51,6 +51,13 @@ appraisal | if=appraisal>=2: The back door key. "Old man gave me this a few wint
 > "I'm John." -> trooper_john | lean=john
 > "Somebody who rented a car." -> trooper_half | lean=appraisal
 > Say nothing -> trooper_nothing | lean=paranoia
+> [John] "John. Like it says on the rental. Ask anyone." -> trooper_john_sure | needs=john | lean=john
+
+=== trooper_john_sure
+john: John. Ask anyone.
+narration: It comes out easier than your own name ever did. Your mouth knows the shape of it now.
+trooper: I did ask. That's the trouble, Johnny. Everybody says the same thing.
+-> trooper_goes
 
 === trooper_john
 trooper: Ya. That's what the town says too.
@@ -85,6 +92,13 @@ paranoia: She's measuring you for it. In your own shop. Behind your own counter.
 warmth | if=warmth>=1: Her hands are so gentle. That's the worst of it. They mean it.
 > Let her finish -> widow_finish | lean=warmth
 > Step away -> widow_step | lean=animal
+> [???] "Who wore it before Thomas?" -> widow_unknown | needs=unknown | lean=unknown
+
+=== widow_unknown
+narration: Her hands stop on your shoulders. Then go on.
+widow: Oh, a lot of nice boys, dear.
+narration: She writes the number on the back of her hand. It's the same number as the two that have half washed off. You're almost sure it is.
+-> widow_goes
 
 === widow_finish
 narration: You let her. Shoulders. Then, without asking, the length of your arm, wrist to shoulder, again, as if checking the Lunds' number.
@@ -117,8 +131,9 @@ unknown | if=frayed: Two of you now. Two of you can't be wrong.
 > "Show me." -> sam_show | flag=sam_map | lean=unknown
 
 === sam_how
-sam: You told me. On the ice. You said it while we were kneeling. You don't remember?
-narration: You don't remember.
+sam: You told me. You called the cabin at four this morning and told me. You don't remember?
+narration: You don't remember. You remember the train, and lying down after, and then it was light.
+appraisal | if=appraisal>=1: Or he's been listening to the same calls. He's got a scanner. He's got a notebook of everything.
 sam: Write it down next time. That's what it's for.
 -> sam_goes
 

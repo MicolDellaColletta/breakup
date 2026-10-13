@@ -104,6 +104,14 @@ narration | if=has:pawn_ticket: The ticket in your wallet. 0527. You're its hold
 > Get the hammer from under the counter, and open it -> tin_hammer | lean=animal
 > Put it back. Turn the tag to the wall. -> tin_shut | flag=tin_shut | lean=paranoia
 > Run. Now, in the hour nobody counts. -> tin_run | flag=tried_to_run | lean=animal
+> [???] Ask it what it wants -> tin_ask | needs=unknown | lean=unknown
+
+=== tin_ask
+narration: You hold the tin to your ear, the way you'd hold a shell.
+narration: Nothing. The neon buzzing. And then, very faintly, inside, something small and metal turns over, once, as if it had been lying on one side too long.
+unknown: It wants to be opened in the hour nobody counts. That's all anything wants.
+narration: You're holding the hammer. You don't remember getting it out from under the counter.
+-> tin_open
 
 === tin_redeem
 narration | write=Tin box, redeemed. Ticket 0527. No loan, no price.: You open the ledger, and find the line, the one with the name scratched out so hard the pen went through. Under your last entry, in your own hand, you write: Tin box, redeemed. Ticket 0527.

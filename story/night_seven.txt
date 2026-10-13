@@ -119,7 +119,7 @@ narration: You try another. You try them all. You sit there for an hour with a b
 === gun_listen
 narration: You sit with it. You leave it open on the table, the empty chamber up, like an eye.
 narration: You wait. The static on the radio, or the hum, or the blood in your ears. You wait for it to say something.
-unknown: There you are, sweetheart. I've been waiting all week for you to sit still.
+unknown: There you are. I've been waiting all week for you to sit still.
 narration: You sit very still. It doesn't say anything else. It doesn't need to.
 -> john_night
 

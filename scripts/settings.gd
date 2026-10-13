@@ -1,7 +1,9 @@
 extends Node
 
 # Player settings, remembered between sessions: volume, text speed and
-# fullscreen.
+# fullscreen. The game is laid out at 1152x648 and scales to the window
+# (canvas_items), so it stays sharp at any size; windowed, it opens 16:9 and
+# as large as fits comfortably on the screen.
 
 const PATH: String = "user://settings.cfg"
 const TEXT_SPEEDS: Dictionary = {
@@ -13,6 +15,10 @@ const TEXT_SPEEDS: Dictionary = {
 var volume: float = 0.8
 var text_speed: String = "Normal"
 var fullscreen: bool = false
+
+# How much of the screen the window takes when it isn't fullscreen.
+const WINDOW_SHARE: float = 0.85
+const ASPECT: float = 16.0 / 9.0
 
 func _ready() -> void:
 	var file: ConfigFile = ConfigFile.new()
@@ -28,9 +34,24 @@ func speed_multiplier() -> float:
 
 func apply() -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(maxf(volume, 0.0001)))
-	if DisplayServer.get_name() != "headless":
-		DisplayServer.window_set_mode(
-			DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED)
+	if DisplayServer.get_name() == "headless":
+		return
+	if fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		_size_window()
+
+# A 16:9 window as big as WINDOW_SHARE of the screen it's on, centred.
+func _size_window() -> void:
+	var screen: int = DisplayServer.window_get_current_screen()
+	var usable: Rect2i = DisplayServer.screen_get_usable_rect(screen)
+	if usable.size.x <= 0 or usable.size.y <= 0:
+		return
+	var fit: Vector2 = Vector2(usable.size) * WINDOW_SHARE
+	var size: Vector2i = Vector2i(int(minf(fit.x, fit.y * ASPECT)), int(minf(fit.y, fit.x / ASPECT)))
+	DisplayServer.window_set_size(size)
+	DisplayServer.window_set_position(usable.position + (usable.size - size) / 2)
 
 func save() -> void:
 	var file: ConfigFile = ConfigFile.new()

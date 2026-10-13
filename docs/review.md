@@ -15,7 +15,26 @@ explains far too much.
 
 ---
 
-## 1. Bugs (fix first)
+## 1. Bugs (fixed Oct 13)
+
+All thirteen fixed, with tests. How: (1) going to bed with a rule
+unchecked breaks it, and the night says which (`use.txt` skipped_rules);
+(2) five colored choices added where the voice can be strong enough:
+[Animal] Olstad on day 10, [John] "Who's John?" on day 11, [???] Mrs.
+Hollis's tape measure on day 11, [Appraisal] weighing the bullet on day 15,
+[???] asking the tin in the double hour; (3) the menu won't open during a
+scene change, and the hold pauses with the game; (4) a day's autosave moves
+the clock to that morning first; (5) `check_story` fails a customer who lets
+you look without `_given_other` and `_nothing`; (6) close-up details play
+into the conversation instead of clearing it; (7) the bell's label updates
+when the window changes; (8) a customer leaving no longer clears the next
+one's picture; (9) New Game asks before replacing the autosave; (10) loans
+never take cash below zero, and the jacket line no longer says "drawer";
+(11) map places move with the window; (12) day seven's sign plays; (13) on
+the last card of what's written, the title shows "To be continued" instead
+of Continue (Load still works).
+
+(The original list, for the record:)
 
 1. **Skipping a nightly rule is free; refusing it is punished.** The bed is
    always clickable, so never clicking the radio or the bowl breaks nothing,
@@ -47,7 +66,22 @@ explains far too much.
     comes back, and Continue replays "to be continued" forever. Needs an end
     screen and an autosave that doesn't loop.
 
-## 2. Story: contradictions in the text (must fix)
+## 2. Story: contradictions in the text (fixed Oct 13)
+
+All fixed: (1) Mrs. Hollis on day 10 grieves if Cody drowned ("I set three
+places last night"), and only says he's out on the ice if he had the picks;
+(2) "Cody said not to" only if he did; (3) Warmth thinks of the freezer
+instead of knowing; (4) the bullet is warm "from his pocket" (the plain
+reading stays); (5) "It's time you saw the wall"; (6) Sam says MC called him
+at four in the morning, after the train, and Appraisal offers the plain
+reading (a scanner); (7) Ruth: "every September since Mom, since
+eighty-nine" (which also plants her mother's death), "in ten years", "the
+room nobody rents, paid for the week", the shoebox runs to 1999; (8) "no
+train anywhere near here"; "they don't say all of them" come back in May;
+Abraham kept the shop shut while he waited (`story.md`). The countdown was
+right after all: Nov 1 repeats Sunday's broadcast, so sixty-one.
+
+(The original list, for the record:)
 
 1. **Cody alive after he drowned.** `day_ten.txt:86-90` plays for anyone who
    didn't give the picks back, including players whose Cody drowned on day
@@ -76,7 +110,15 @@ explains far too much.
    Thursdays while Abraham was in town; Thomas went under in April, so by the
    town's own rule he'd have come back in May (say not all of them do).
 
-## 3. Docs that disagree (your call)
+## 3. Docs that disagree (decided Oct 13, see `decisions.md`)
+
+All seven decided and done: 1, 2 and 5 as proposed (the docs now say "a
+polite stranger face to face; calls, never speaks on one; the payphone is the
+last call"); 3, the six extra "sweetheart"s cut; 4, the docs moved to the
+double hour; 6 and 7 settled by a bigger decision: **MC is a man**, and it
+can be said, so the Keeper's "he" is about him and "sir" stays.
+
+(The original list, for the record:)
 
 1. **Does Daniel talk to MC before New Year's Eve?** The pillars say never;
    `forks.md`, `november.md` and day 15 have him speak as a polite stranger.

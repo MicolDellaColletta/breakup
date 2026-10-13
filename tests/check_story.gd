@@ -82,6 +82,14 @@ func run() -> void:
 			var part: Dictionary = column._story[name]
 			for entry in part["lines"] + part["choices"] + part["next"]:
 				_check_entry(entry, name, sounds, items, stock, column, problems)
+			# Someone who lets you look (@browse) needs a reply for whatever you
+			# hand over, and for "nothing", or the counter would wait forever.
+			for entry in part["choices"]:
+				if str(entry.get("target", "")).begins_with("@browse"):
+					var who: String = name.get_slice("_", 0)
+					for needed in [who + "_given_other", who + "_nothing"]:
+						if not column._story.has(needed):
+							problems.append("%s lets you look but has no '%s'  (section %s)" % [who, needed, name])
 			# The shop only hears about sales and pawns on lines, not choices.
 			for entry in part["choices"]:
 				for key in ["sold", "pawned", "redeemed", "misplace"]:

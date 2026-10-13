@@ -45,7 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_back()
 	elif pause_panel.visible:
 		resume()
-	elif not _on_title():
+	elif not _on_title() and not Transition.busy:
 		open_pause()
 
 # --- Public: what other scenes can use ---

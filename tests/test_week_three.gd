@@ -140,16 +140,22 @@ func _party_go_home() -> void:
 	check(current_scene.name == "Night", "then the night")
 
 func _saturday_widow() -> void:
-	section("Key day 10: Cody didn't have the picks: Mrs. Hollis")
-	_reset(10, SATURDAY_DAWN, [])
-	var counter: Node = await open_scene("res://scenes/counter.tscn")
-	var column: Node = counter.get_node("%DialogueColumn")
-	_route(column)
-	await wait(1.8)
-	advance(column)
-	await pick(column, "Say nothing")
-	await _next(column)
-	check(_log(column).contains("not been home two nights"), "Mrs. Hollis: Cody's been out on the ice two nights")
+	for had_picks in [false, true]:
+		section("Key day 10: Mrs. Hollis, " + ("Cody kept the picks" if had_picks else "Cody never had the picks (he drowned)"))
+		_reset(10, SATURDAY_DAWN, [])
+		if had_picks:
+			gs.record_sale("Ice picks", "ice_picks", 12, "Cody Hollis")
+		var counter: Node = await open_scene("res://scenes/counter.tscn")
+		var column: Node = counter.get_node("%DialogueColumn")
+		_route(column)
+		await wait(1.8)
+		advance(column)
+		await pick(column, "Say nothing")
+		await _next(column)
+		if had_picks:
+			check(_log(column).contains("not been home two nights"), "Mrs. Hollis: Cody's been out on the ice two nights")
+		else:
+			check(_log(column).contains("They'll find him in May") and not _log(column).contains("not been home"), "Mrs. Hollis sets a place for a boy who drowned; she doesn't say he's out on the ice")
 
 func _night_ten() -> void:
 	section("The tenth night: the train, the button, and the bridge into week four")

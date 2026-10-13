@@ -127,7 +127,7 @@ paranoia: The Thursday watch. Somebody sits up there with the radio all night, s
 narration | time=+60: The Gleaner, quieter on a Thursday. Half the stools empty. The jukebox playing something nobody chose.
 narration: Ruth sets a beer in front of you before you ask, and then, after a moment, a coffee mug for herself. She pours into it from a bottle under the bar. Clear. She doesn't say what's in it, and you don't ask.
 ruth: Thanks. For today. For letting me.
-ruth: I hadn't been in that room since I was eleven. It still smells like crayons. Can you believe that?
+ruth: I hadn't been in that room in ten years. It still smells like crayons. Can you believe that?
 narration: She drinks. She doesn't look at the Polaroids behind her. You get the feeling she doesn't have to; she knows where every one of them is.
 ruth: The first winter's the hardest. After that it gets...
 narration: She stops. She wipes the bar, where it's already dry.
@@ -136,10 +136,10 @@ ruth: That's what I hear.
 > Ask what she left up there -> pub_two_left | lean=appraisal
 
 === pub_two_father
-ruth: Dad goes away every fall. Every September since I can remember. Comes back when the ice is in. Never says where.
+ruth: Dad goes away every fall. Every September since Mom. Since eighty-nine. Comes back when the ice is in. Never says where.
 ruth: This year he didn't even say goodbye. Just the truck in the yard and the shop locked.
 ruth: I still check the phone. Behind the bar, there. Every time it rings, I let it go twice so I don't look like I was waiting.
-warmth | if=warmth>=1: She's waiting for a call she's stopped expecting. You know exactly where he is.
+warmth | if=warmth>=1: She's waiting for a call she's stopped expecting. You think of the freezer, and its new padlock, and you don't know why you think of it.
 paranoia: Say nothing. You don't know anything. You're John.
 -> pub_two_leave
 
@@ -500,7 +500,7 @@ ruth | if=flag:prayed_for: I saw them put their hands on you. I was at the back.
 ruth | if=flag:walked_out: You walked out. Nobody walks out. I almost clapped.
 ruth: I used to sit up front. When I was a kid. Before.
 narration: She doesn't say before what. She refills her glass. Then she's asleep, in the chair, the glass tipped safe against her knee.
-narration: On the shelf by the TV, a shoebox. On its lid, in her handwriting, years: 1989, 1990, 1991, all the way to 1998.
+narration: On the shelf by the TV, a shoebox. On its lid, in her handwriting, years: 1989, 1990, 1991, all the way to 1999, the last one in fresher ink.
 > Lift the lid -> ruth_box_open | lean=appraisal
 > Leave it. Cover her with the blanket and go. -> ruth_box_left | lean=warmth
 
@@ -827,7 +827,7 @@ paranoia: He's up there. Or he's up the hill. Either way, he's here, and he know
 === pub_fifteen
 narration | time=+60: The Gleaner, half empty. Everyone's at the church.
 narration: Ruth behind the bar. She looks up at the ceiling when a floorboard creaks above it.
-ruth: He's taken Dad's old room upstairs. Paid two weeks in advance. Cash. Exact.
+ruth: He's taken the room upstairs. The one nobody rents. Paid for the week. Cash. Exact.
 ruth: He's very polite. He asked my name, and then he said it back to me, like it was a thing worth having.
 narration | if=!flag:broke_faith_ruth: She pours you one. Her hand isn't steady.
 ruth: I don't like him. I don't know why. Everybody likes him.

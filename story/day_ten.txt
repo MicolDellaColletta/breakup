@@ -37,6 +37,14 @@ narration: She doesn't look at you while she says it. She looks out the window, 
 paranoia: She's heard. She's heard and she's here, telling you she's heard.
 > "What kind of something?" -> trooper_ask | lean=appraisal
 > Say nothing -> trooper_quiet | lean=paranoia
+> [Animal] Look where she's looking. Not at her. -> trooper_animal | needs=animal | lean=animal
+
+=== trooper_animal
+narration: You look where she's looking. Out on the lake, the line of people walking. One of them has stopped. The others walk around the place where he's stopped, the way water goes around a stone.
+animal: There. That's where it is.
+narration: When you look back, she's looking at you, not the lake.
+trooper: Ya. Kids say a lot. There's a party on the ice tonight. Keep your eyes on the fire.
+-> trooper_goes
 
 === trooper_ask
 trooper: The kind kids say.
@@ -85,9 +93,12 @@ narration | sound=bell: He goes. Not toward home. Toward the lake.
 
 === widow_enters
 narration | sound=bell | time=+60: The bell. Mrs. Hollis, with a dish, though it's not Thursday.
-widow: Cody's not been home two nights. He does that. He's always done that.
-narration: She says it to the dish, not to you.
-widow: He's out on the ice. He says he saw something under it. He was always seeing things. Since he was little.
+widow | if=sold:ice_picks: Cody's not been home two nights. He does that. He's always done that.
+narration | if=sold:ice_picks: She says it to the dish, not to you.
+widow | if=sold:ice_picks: He's out on the ice. He says he saw something under it. He was always seeing things. Since he was little.
+widow | if=!sold:ice_picks: I set three places last night. Ray's, and Cody's, and mine. I do it without thinking.
+narration | if=!sold:ice_picks: She says it to the dish, not to you. Her voice is perfectly ordinary.
+widow | if=!sold:ice_picks: They'll find him in May. They find them all in May. That's what everyone tells me, and they mean it kindly.
 narration: There's a brown thread caught in the lining of her glove. She doesn't see it.
 widow: There's a party tonight. On the ice. You'll come. Eat this first.
 -> widow_goes

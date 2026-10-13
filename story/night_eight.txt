@@ -113,7 +113,7 @@ narration: A kettle, coming to the boil. Somebody lets it scream a long time bef
 narration: Then a pill bottle. Shaken. The lid. Two, by the sound. Water.
 narration: And the breathing. It catches, once, sharp, when he moves. As if moving hurt.
 paranoia: He's hurt. Whoever he is. Something in him hurts when he moves.
-unknown | if=frayed: Ask him where it hurts, sweetheart. You know where.
+unknown | if=frayed: Ask him where it hurts. Go on. You know where.
 > Wait -> phone_wait
 > Hang up first -> phone_hang_up | lean=animal
 

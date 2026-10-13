@@ -9,6 +9,22 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 
 ---
 
+## October 13 — after the review (`review.md`)
+
+- **MC is a man**, and it can be said: "he", "sir", "young man" from other
+  characters. The narration still says "you". The town's "he" for the Keeper
+  is about him. (Replaces "male, never said outright", Oct 12.)
+- **Daniel before New Year's Eve:** face to face from November a polite
+  stranger; he calls, but never speaks on a call; no "sweetheart" and no
+  word of the John night. (Replaces "never speaks to MC" and "never calls
+  MC".)
+- **The payphone (Nov 23) is the last call** until New Year's Eve: none in
+  Thanksgiving week.
+- **"Sweetheart" from ???:** the prologue's four, and night three. The six
+  others (nights 4, 5, 7, 8, 13, day 15) are cut.
+- **Hard fork 2 is the double hour,** Saturday Oct 30, as built (the docs
+  that put it on Halloween are updated).
+
 ## October 12 — November, to Daniel's arrival (`november.md`)
 
 - Three key days: **Fri Nov 5** (the Wasilla money order; the minister calls

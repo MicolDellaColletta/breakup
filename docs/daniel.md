@@ -59,7 +59,7 @@ The night John died (per background, story.md), Daniel had MC in front of him, a
 
 ## 6. ✅ How he's present before he speaks to MC (Oct–Dec)
 
-He talks to the whole town every night from November, on the radio. **He never speaks to MC until New Year's Eve.**
+He talks to the whole town every night from November, on the radio. **He never speaks to MC on the phone, and never as himself, until New Year's Eve.** Face to face, from his arrival (Nov 23), he's a polite stranger: no "sweetheart", no word of the John night. The payphone is the last call until New Year's Eve.
 
 ### a. The silent calls, told in sound
 
@@ -74,7 +74,7 @@ Rule 4: MC must never speak first. Daniel never speaks (yet). Every call is two 
 | Early November, the same week | **On the night radio, a caller:** a travelling minister, phoning the show from the road. A beautiful voice, scripture by heart. The town talks about him for days. | MC knows the breathing. Does he know the voice? |
 | Mid November | A car interior, wipers, sleet (the prologue's own sound). | He's on the road MC drove. |
 | Late November, after he arrives | A payphone. Wind. A church bell, which MC also hears through the shop window, half a second later. | He's here. Across the street. |
-| Thanksgiving week | No call. Not one night. He's on the radio instead, as a guest on the Thursday watch. | He's talking to everyone but MC. |
+| Thanksgiving week, after the payphone | No call. Not one night. He's on the radio instead, as a guest on the Thursday watch. | He's talking to everyone but MC. |
 | December | One night the shop phone rings **while he's speaking live on the radio** upstairs. Silence on the line. (Two explanations: the broadcast is a tape; or someone else has started calling.) | Dread. |
 | New Year's Eve | He speaks first. | He breaks rule 4 without a thought. |
 
@@ -88,7 +88,7 @@ Every month, a postal money order: *"Interest, ticket 0527."* No name. Exact to 
 
 ### c. ??? borrowed his word
 
-??? says "sweetheart" four times in the prologue. Who learned it from whom stays open. (The one place layer 3 may touch him, and only as a question.)
+??? says "sweetheart" four times in the prologue, and once on night three, in his cadence. Nowhere else before New Year's Eve. Who learned it from whom stays open. (The one place layer 3 may touch him, and only as a question.)
 
 ### d. The flashes (from Tue Oct 12)
 
