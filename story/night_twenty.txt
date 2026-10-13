@@ -1,34 +1,27 @@
-# THE TWENTIETH NIGHT: Sunday, December 12. After the Reverend.
-# Same format as the other nights. No Reverend on the radio: him, alone, at
-# night, for the first time. What happened to Elias shows: praying through
-# the floor (hidden in the back room), a lamp at Sam's (hidden there), the
-# manse dark (gone). Out of place: the church bulletin on the kitchen table,
-# every hymn number crossed out (odd_bulletin). Design: docs/december.md.
+# THE TWENTIETH NIGHT: Monday, December 6. After the miracle.
+# Same format as the other nights. The radio: him, reading a list of the sick
+# in town, by name, slowly. Out of place: the alarm clock by the bed, stopped
+# at nine (odd_clock). Design: docs/december_revised.md.
 
 === arrival
 narration | sound=stairs: Up the stairs.
-narration | stop=stairs: The apartment.
-narration | if=flag:reverend_in_back_room: Below you, behind the steel door, a man sitting on a bench in the dark. You took him a blanket and a plate. He said thank you as if you'd done something terrible.
-narration | if=flag:reverend_at_sam: Down the shore, at Sam's, two shadows on the curtain now. One at the wall. One on the floor, not moving.
-narration | if=flag:reverend_warned: Somewhere south, on the highway, in the dark, a man with a bag on his knees. You hope. You hope.
-narration | if=flag:reverend_gone: Up the hill, the manse. You don't look. You've stopped looking at the manse.
+narration | stop=stairs: The apartment. You stand at the window a while first. Up the road, at the Gleaner, the door open, and the light falling out on the snow, and nobody closing it.
+narration | if=flag:took_watch: Downstairs, on the back shelf, beside the tin and the bullet, a watch that won't go past nine. You can feel all three of them there.
 paranoia: The rules.
 
 === radio
-narration | time=+10: The radio. Sunday.
+narration | time=+10: The radio. Monday.
 paranoia: Rule seven.
 > Turn it on -> radio_on | flag=radio_on
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Not the Reverend. Him. At night. At the Reverend's microphone, in the Reverend's chair.
-narration: "Good evening, friends. The Reverend has gone to rest. I'll sit with you now. I'll sit with you every night, for as long as you need me."
-narration: Then a hymn, and no numbers after it. The first night in twenty-two years, Sam will tell you, without the numbers.
-narration | if=flag:reverend_in_back_room: And under the radio, through the floor, from behind the steel door, a man praying, very quietly. The same words, as the voice on the radio says them. A half-second behind.
+narration | sound=click: Him. Not a sermon. A list. "Friends, I've been asked to pray for some of you tonight. I'll say your names, and you'll know."
+narration: The sick. The old. Mrs. Lund's sister with the cough. The Pruitt boy's ear. A woman whose name you don't know, "for the thing she told me she can't tell her husband." Name after name, slowly, the way you'd count out change.
+narration: At the end: "And for the Keeper. Who isn't sick. Who'll be well." Then a hymn.
 
 === radio_off
-narration: You leave it off.
-narration | if=flag:reverend_in_back_room: In the silence, through the floor, from behind the steel door, a man praying. Very quietly. The same few words, over and over, like a man trying to remember a phone number.
+narration: You leave it off. Through the wall, his voice, a list of something. Names. One of them, you'd swear, is yours.
 
 === kitchen
 narration | time=+10: The bowl.
@@ -39,7 +32,6 @@ paranoia: Rule five.
 
 === kitchen_door
 narration: Down to the back door with the bowl.
-narration | if=flag:reverend_in_back_room: Past the steel door. You don't stop. You don't knock. You set the bowl down and go back up, and behind the steel door the praying stops while you pass, and starts again.
 
 === kitchen_fed
 narration: The kibble rattles. On the line.
@@ -48,18 +40,16 @@ narration: The kibble rattles. On the line.
 narration: You roll the sack shut.
 
 === windows
-narration | time=+10: The front windows. Two candles in every window on the road.
-narration | if=flag:frozen_taped: The taped one holds. A white cross of frost on the black.
-narration | if=flag:frozen_open: The frozen one, still open its finger's width. You've stopped trying.
+narration | time=+10: The front windows. The Gleaner's door still open up the road, the light lying on the snow like a rug put out.
 paranoia: Rule one.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
 
 === windows_closed
-narration | sound=latch: Latched. What latches.
+narration | sound=latch: Latched.
 
 === windows_open
-narration: Cold. Up the hill, at the manse, a light goes on in an upstairs window, and off again. Someone looking for something.
+narration: Cold. From up the road, through the Gleaner's open door, the sound of a whole room laughing at once.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
@@ -68,15 +58,13 @@ paranoia: Rule one. Leave the back door unlocked.
 > Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
 
 === back_door_unlocked
-narration: You leave it. Anyone can come in.
-narration | if=flag:reverend_in_back_room: Anyone. Tonight that means them. Tonight the rule is a door you've left open on a man hiding twelve feet away.
+narration: You leave it.
 
 === back_door_locked
 narration | sound=latch: The key turns.
-narration | if=flag:reverend_in_back_room: Behind you, on the bench, the Reverend lets out a breath. He doesn't thank you. Rule one, broken for him. He knows what it costs.
 
 === sleep
-narration | time=+20 | show=bedroom: You lie down. Eleven.
+narration | time=+20 | show=bedroom: You lie down. Eleven. The clock by the bed ticking.
 -> night_dog
 
 === night_dog
@@ -87,7 +75,7 @@ narration | time=+20 | show=bedroom: You lie down. Eleven.
 === night_dog_fed
 narration | show=bedroom: Facing the door.
 narration | sound=stairs: Three o'clock. The stairs. One and then the other.
-narration | stop=stairs: The kitchen. Then down. It stops at the steel door on the way. A long time. Then down.
+narration | stop=stairs: The kitchen. Then down.
 -> morning_after
 
 === night_dog_unfed
@@ -96,17 +84,17 @@ narration | show=bedroom: Facing the door. Nothing comes up.
 
 === night_dog_door
 narration | show=bedroom: Facing the door.
-narration: Three o'clock. The back door, below. In the morning the bowl is clean.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
 -> morning_after
 
 === morning_after
-narration | time=07:30: Monday.
-narration | if=flag:reverend_gone: The manse, from the window. The car in the drive, hood down now. No smoke from the chimney. Nobody says where he went.
+narration | time=07:30: Tuesday.
+narration | if=flag:saw_clock: The alarm clock by the bed, going again. You didn't touch it. It says the right time. It's a minute slow by noon, and stops again at nine that night.
 
 # --- Something out of place (docs/nights.md). ---
 
-=== odd_bulletin
-narration | time=+5: On the kitchen table, the church bulletin. This Sunday's. You didn't bring one home. You didn't take one.
-narration | flag=saw_bulletin: The hymn numbers down the side, the ones the Reverend chose. Every one crossed out, neatly, with a ruler. And in the margin, in pencil, a new column, in a hand you know from the money orders' memo line. One number. The same number, every Sunday till April.
-paranoia: Which number. What number.
-narration: You can't read it. You can read every word on the page but that one. You hold it to the light. It's a number. You'd know it if you saw it. You're seeing it.
+=== odd_clock
+narration | time=+5: The alarm clock on the nightstand. The one you wind every night without thinking.
+narration | flag=saw_clock: Stopped. The hands at nine. Not quite nine: a minute before, the minute hand bent, very slightly, as if someone had pressed on it with a fingertip.
+paranoia: You forgot to wind it. Tired. You forgot.
+narration: You wound it last night. You remember the sound of it.

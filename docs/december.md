@@ -1,5 +1,8 @@
 # Breakup: December (plan)
 
+> **Revised:** the Reverend dies in the fire, the road closes, and four days
+> are added. See `december_revised.md`; where the two differ, that one wins.
+
 Key days 18 to 23, from `season.md`. **Decided Oct 13: all seven leans.**
 Built in three passes; see "As built" at the end.
 

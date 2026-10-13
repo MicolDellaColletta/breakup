@@ -1,17 +1,23 @@
 extends "res://tests/test_base.gd"
 
-# December (docs/december.md), up to hard fork 4: key day 18 (Ezra at the
-# door at dawn; the third money order; Olstad and the car three ways; the
-# first candle; the man at the window), the evening and night 18; key day 19
-# (Ruth, June and the window) and Sam's wall (his second door, a pin), or the
-# cabin from the road; night 19's frozen latch; key day 20, the Reverend:
-# the doors shut, the voice on the air, and the fork (warn him, give him the
-# car, hide him in the back room or at Sam's, or walk away); night 20; the
-# bridge to the end of what's written.
+# December to the ruling (docs/december.md, docs/december_revised.md): key
+# day 18 (Ezra at the door at dawn; the third money order; Olstad and the
+# car; the first candle; him, for the oldest Bible), the evening and night
+# 18; key day 19 (Ruth, June) and Sam's wall, or the cabin from the road;
+# night 19's frozen latch; key day 20 (the doctor's hands; the watch stopped
+# at nine), night 20; key day 21, the Reverend exposed and the storm closing
+# the road (every escape turned back), night 21; key day 22, the fire (his
+# question if the Reverend's hidden; the front doors, the singing, the
+# vestry door bolted from outside), night 22; key day 23, the ruling (the
+# church's things, the doctor, Olstad with him in the chair: hard fork 4,
+# and the thread on the step), and on into the shortest day.
 
 const DEC_1: int = 57 * 24 * 60 + 6 * 60
 const DEC_4: int = 60 * 24 * 60 + 6 * 60
+const DEC_6: int = 62 * 24 * 60 + 6 * 60
 const DEC_12: int = 68 * 24 * 60 + 6 * 60
+const DEC_15: int = 71 * 24 * 60 + 6 * 60
+const DEC_17: int = 73 * 24 * 60 + 6 * 60
 
 func run() -> void:
 	await _dawn("Forget it", ["told_olstad_daniel", "walked_out", "said_on_air"], "car_forgotten")
@@ -24,12 +30,23 @@ func run() -> void:
 	await _road()
 	await _frozen_latch("Go down to the fuse box", "frozen_taped")
 	await _frozen_latch("Leave it", "frozen_open")
+	await _miracle("Write him a ticket", "took_watch")
+	await _miracle("I don't buy things like that", "refused_watch")
+	await _night_twenty()
 	await _reverend("Go tonight", "reverend_warned")
 	await _reverend("Give him the car keys", "gave_reverend_car")
 	await _reverend("There's a room behind the steel door", "reverend_in_back_room")
 	await _reverend("Sam Wakeman's cabin", "reverend_at_sam")
 	await _reverend("", "reverend_gone")
-	await _night_twenty()
+	await _night_twentyone()
+	await _fire(["reverend_hidden", "reverend_in_back_room"], "Yes.", "fire_front", "tried_church")
+	await _fire(["reverend_hidden", "reverend_at_sam"], "No.", "fire_sing", "sang_at_fire")
+	await _fire(["reverend_gone"], "", "fire_vestry", "saw_vestry_door")
+	await _night_twentytwo()
+	await _ruling(["saw_vestry_door", "door_sam_1"], "Tell her: the door was bolted", "told_olstad_fire")
+	await _ruling([], "Say nothing", "silent_on_fire")
+	await _ruling([], "It was the stove", "backed_doctor")
+	await _night_twentythree()
 
 func _log(column: Node) -> String:
 	var text: String = ""
@@ -89,7 +106,8 @@ func _dawn(choice: String, flags: Array, outcome: String, items: Array = []) -> 
 	advance(column)
 	check(column._section == "widow_enters" and _log(column).contains("I heard it, you know."), "Mrs. Hollis and the first candle; she heard the duck call on the lake")
 	advance(column)
-	check(column._section == "window_enters" and _log(column).contains("carrying a box of shells with a ribbon on it"), "the man in the good coat at the window, not coming in; Ezra with the shells")
+	check(column._section == "daniel_enters" and _log(column).contains("One with Leviticus in it."), "him, coming in now: the oldest Bible, one with Leviticus in it")
+	check(gs.ledger_lines[-1].contains("Bible, family, calfskin. Sold to D."), "the ledger: the Bible, sold to D.")
 	ring_bell()
 	check(column._section == "closing", "closing")
 
@@ -207,38 +225,88 @@ func _frozen_latch(choice: String, flag: String) -> void:
 	advance(column)
 	check(gs.flags.has(flag) and gs.rules_broken.has("window") == (flag == "frozen_open"), "%s: rule one %s" % [flag, "broken" if flag == "frozen_open" else "kept, with tape from the fuse box"])
 
+func _miracle(choice: String, flag: String) -> void:
+	section("Key day 20: the first miracle; the watch (%s)" % flag)
+	_reset(20, DEC_6, [])
+	var counter: Node = await open_scene("res://scenes/counter.tscn")
+	var column: Node = counter.get_node("%DialogueColumn")
+	check(root.get_node("Hud").get_node("%ClockLabel").text.begins_with("Mon Dec 6"), "Monday, December 6")
+	_route(column)
+	check(_log(column).contains("a whole street of doors standing open"), "in the night, every door on the road open")
+	await wait(1.8)
+	advance(column)
+	await process_frame
+	check(column._section == "widow_enters" and _log(column).contains("Still as a table."), "Mrs. Hollis: the doctor's hands, still as a table")
+	advance(column)
+	check(column._section == "brekke_enters" and _log(column).contains("Like you'd hold a bird."), "Dr. Brekke shows you his hands: they don't move")
+	advance(column)
+	check(column._section == "daniel_enters" and _log(column).contains("Stopped. Nine o'clock."), "him: his father's watch, stopped at nine")
+	await pick(column, choice)
+	advance(column)
+	check(gs.flags.has(flag), flag)
+	if flag == "took_watch":
+		check(gs.acquired.has("father_watch") and gs.rules_broken.has("warm"), "the watch on the back shelf, warm; rule two")
+	else:
+		check(_log(column).contains("It's very faithful."), "he winds it: a minute, then nine again")
+	ring_bell()
+	advance(column)
+	check(column._section == "closing" and _log(column).contains("Stopped at nine. You've never seen it stopped."), "the Gleaner's clock, stopped at nine")
+
+func _night_twenty() -> void:
+	section("The twentieth night: the sick, by name; the clock")
+	_reset(20, DEC_6 + 16 * 60, [])
+	var night: Node = await _go("res://scenes/night.tscn")
+	var column: Node = night.get_node("%Narrator")
+	advance(column)
+	await process_frame
+	night.look("radio")
+	advance(column)
+	await pick(column, "Turn it on")
+	advance(column)
+	check(_log(column).contains("And for the Keeper. Who isn't sick."), "the radio: a list of the sick, and the Keeper")
+	night.look("odd_clock")
+	advance(column)
+	check(gs.flags.has("saw_clock"), "out of place: the alarm clock, stopped at nine")
+	night.look("bed")
+	_route(column)
+	await wait(5.2)
+	check(current_scene.name == "Bridge" and gs.day == 21, "the week before the Reverend")
+	await wait(2.0)
+	_route(current_scene.get_node("%Narrator"))
+	check(current_scene.card_text() == "Saturday. The second candle.", "the car; no hymn numbers; the rhyme's tenth line; the second candle")
+	await wait(3.5)
+	check(current_scene.name == "Visit" and root.get_node("Hud").get_node("%ClockLabel").text.begins_with("Sun Dec 12"), "Sunday, December 12")
+
 func _reverend(choice: String, flag: String) -> void:
-	section("Key day 20: the Reverend (%s)" % flag)
+	section("Key day 21: the Reverend; the storm (%s)" % flag)
 	var flags: Array = ["said_on_air", "ezra_doubts"]
 	if flag == "reverend_at_sam":
 		flags.append("door_sam_1")
-	_reset(20, DEC_12, flags)
+	_reset(21, DEC_12, flags)
 	var visit: Node = await _go("res://scenes/visit.tscn")
 	var column: Node = visit.get_node("%Narrator")
-	check(root.get_node("Hud").get_node("%ClockLabel").text.begins_with("Sun Dec 12"), "Sunday, December 12")
 	_route(column)
-	check(_log(column).contains("I don't lie. It's the one thing I don't do.") and _log(column).contains("I helped them live."), "the doors shut; he never lies; \"I helped them live.\"")
-	check(_log(column).contains("Was he helping you too?"), "you spoke on the air in October: was he helping you too?")
+	check(_log(column).contains("I don't lie. It's the one thing I don't do.") and _log(column).contains("I helped them live."), "the doors barred; he never lies; \"I helped them live.\"")
 	await pick(column, "Say nothing")
 	_route(column)
 	await wait(0.7)
-	check(gs.eye >= 2 and visit.current_room() == "vestry", "silence is an answer (the eye); dusk, the vestry, a bag on the table")
+	check(visit.current_room() == "vestry", "dusk, the vestry, a bag on the table")
 	if choice == "":
 		visit.click("reverend_walk_home")
 	else:
 		visit.click("reverend_bag")
 		_route(column)
-		check(_log(column).contains("The Keeper can't help anyone."), "\"The Keeper can't help anyone. That's the rule above the rules.\"")
 		await pick(column, choice)
 	_route(column)
-	check(gs.flags.has(flag), "hard fork 4: %s" % flag)
-	if flag.begins_with("reverend_in") or flag == "reverend_at_sam":
-		check(gs.flags.has("reverend_hidden") and gs.eye >= 4, "hiding him: the town's eye")
+	check(gs.flags.has(flag), "the fork on the 12th: %s" % flag)
+	if flag == "reverend_warned" or flag == "gave_reverend_car":
+		check(gs.flags.has("road_turned_back"), "the storm: the plow buried at the town line; he turns back")
+	check(_log(column).contains("the road's closed, both ways"), "by midnight, the road closed")
 	await wait(2.5)
 	check(current_scene.name == "Night", "home; the night")
 
-func _night_twenty() -> void:
-	section("The twentieth night: after the Reverend")
+func _night_twentyone() -> void:
+	section("The twenty-first night; the road closed")
 	await wait(2.0)
 	var night: Node = current_scene
 	var column: Node = night.get_node("%Narrator")
@@ -249,14 +317,124 @@ func _night_twenty() -> void:
 	await pick(column, "Turn it on")
 	advance(column)
 	check(_log(column).contains("The Reverend has gone to rest. I'll sit with you now."), "the radio: him, alone, at night")
-	night.look("odd_bulletin")
-	advance(column)
-	check(gs.flags.has("saw_bulletin"), "out of place: the bulletin, every hymn crossed out")
 	night.look("bed")
 	_route(column)
 	await wait(5.2)
-	check(current_scene.name == "Bridge" and gs.day == 21, "the bridge after the Reverend")
+	check(current_scene.name == "Bridge" and gs.day == 22, "the bridge: the road closed")
 	await wait(2.0)
 	_route(current_scene.get_node("%Narrator"))
-	await wait(4.0)
-	check(current_scene.name == "Counter" and gs.day == 21, "then the shortest day, at the counter")
+	check(current_scene.card_text() == "Tuesday. Doors.", "an island; every door open again")
+	await wait(3.5)
+	check(current_scene.name == "Visit" and gs.day == 22, "Wednesday, December 15")
+
+func _fire(flags: Array, answer: String, spot: String, outcome: String) -> void:
+	section("Key day 22: the fire (%s)" % outcome)
+	_reset(22, DEC_15, flags)
+	var visit: Node = await _go("res://scenes/visit.tscn")
+	var column: Node = visit.get_node("%Narrator")
+	_route(column)
+	if answer != "":
+		check(_log(column).contains("Is he in your back room?") or _log(column).contains("Is he at Sam Wakeman's?"), "the Reverend's hidden: he asks you plainly where")
+		await pick(column, answer)
+		_route(column)
+		check(gs.flags.has("told_daniel_hidden" if answer == "Yes." else "lied_to_daniel"), "you %s" % ("tell him" if answer == "Yes." else "lie; he smiles"))
+	await wait(0.7)
+	check(visit.current_room() == "church_fire" and _log(column).contains("The church is burning."), "two in the morning, the bell ringing by itself: the church burning")
+	check(_log(column).contains("Singing louder than anyone."), "the town in the snow, singing; him among them, soot on his cuffs")
+	if spot == "fire_vestry":
+		visit.click("fire_round_back")
+		await wait(0.8)
+		check(visit.current_room() == "vestry_door", "round the back: the vestry door")
+	visit.click(spot)
+	_route(column)
+	var seen: String = _log(column)
+	check(gs.flags.has(outcome), outcome)
+	match outcome:
+		"tried_church":
+			check(seen.contains("It's in His hands."), "the front doors: they pull you back, kindly")
+		"sang_at_fire":
+			check(seen.contains("You didn't know you knew the words."), "you sing with them")
+		"saw_vestry_door":
+			check(seen.contains("Bolted from the outside.") and seen.contains("a short length of red wool"), "bolted from the outside; prints going away; a red thread")
+	await wait(2.5)
+	check(current_scene.name == "Night", "then the night")
+
+func _night_twentytwo() -> void:
+	section("The twenty-second night: static; ash")
+	await wait(2.0)
+	var night: Node = current_scene
+	var column: Node = night.get_node("%Narrator")
+	advance(column)
+	await process_frame
+	night.look("radio")
+	advance(column)
+	await pick(column, "Turn it on")
+	advance(column)
+	check(_log(column).contains("Static. The whole dial."), "the booth burned: nothing on the radio but static")
+	night.look("odd_ash")
+	advance(column)
+	check(gs.flags.has("saw_ash"), "out of place: ash on the inside of the sill, warm")
+	night.look("bed")
+	_route(column)
+	await wait(5.2)
+	check(current_scene.name == "Bridge" and gs.day == 23, "the bridge: ash")
+	await wait(2.0)
+	_route(current_scene.get_node("%Narrator"))
+	check(current_scene.card_text() == "Thursday. Ash.", "ash with the snow; the first red thread, on Ezra's wrist")
+	await wait(3.5)
+	check(current_scene.name == "Counter" and gs.day == 23, "Friday, December 17")
+
+func _ruling(flags: Array, choice: String, outcome: String) -> void:
+	section("Key day 23: the ruling; hard fork 4 (%s)" % outcome)
+	_reset(23, DEC_17, flags)
+	var counter: Node = await open_scene("res://scenes/counter.tscn")
+	var column: Node = counter.get_node("%DialogueColumn")
+	_route(column)
+	await wait(1.8)
+	advance(column)
+	await process_frame
+	check(column._section == "ezra_enters" and gs.acquired.has("spectacles") and gs.acquired.has("bell_clapper") and gs.acquired.has("microphone") and gs.acquired.has("reverend_collar"), "Ezra's box of church things, held: the spectacles, the clapper, the microphone, the collar")
+	check(_log(column).contains("The lenses are whole."), "the spectacles' lenses, whole")
+	advance(column)
+	check(column._section == "brekke_enters" and _log(column).contains("He wouldn't have woken."), "Dr. Brekke: the stove; he wouldn't have woken")
+	advance(column)
+	check(column._section.begins_with("trooper") and _log(column).contains("I want to know what you saw."), "Olstad, with him in the customer chair: what did you see")
+	await pick(column, choice)
+	advance(column)
+	check(gs.flags.has(outcome), "hard fork 4: %s" % outcome)
+	if outcome == "told_olstad_fire":
+		check(gs.faith_count("olstad") >= 1 and gs.eye >= 2, "the truth: kept faith with Olstad; the town's eye")
+		advance(column)
+		check(column._section == "sam_enters" and _log(column).contains("Petrol."), "Sam, at closing: petrol, under the vestry")
+	ring_bell()
+	check(column._section == "closing", "closing")
+	advance(column)
+	if outcome == "backed_doctor":
+		check(_log(column).contains("a loop of red wool"), "the thread on the step")
+		await pick(column, "Put it on")
+		advance(column)
+		check(gs.flags.has("wears_thread") and gs.has_item("red_thread") and gs.eye == 0, "you put it on: the town warm to you again")
+
+func _night_twentythree() -> void:
+	section("The twenty-third night: the radio from the Gleaner; the door handle")
+	_reset(23, DEC_17 + 16 * 60, ["wears_thread"])
+	var night: Node = await _go("res://scenes/night.tscn")
+	var column: Node = night.get_node("%Narrator")
+	advance(column)
+	await process_frame
+	night.look("radio")
+	advance(column)
+	await pick(column, "Turn it on")
+	advance(column)
+	check(_log(column).contains("Talking keeps a fire alive."), "the radio, from the Gleaner's back room: don't talk about the fire")
+	night.look("odd_door")
+	advance(column)
+	check(gs.flags.has("saw_door_thread") and _log(column).contains("This is another."), "out of place: a red thread on the door handle")
+	night.look("bed")
+	_route(column)
+	await wait(5.2)
+	check(current_scene.name == "Bridge" and gs.day == 24, "the bridge: the thread spreads")
+	await wait(2.0)
+	_route(current_scene.get_node("%Narrator"))
+	await wait(3.5)
+	check(current_scene.name == "Counter" and gs.day == 24, "then the shortest day, at the counter")

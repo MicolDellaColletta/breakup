@@ -1,0 +1,103 @@
+# THE TWENTY-FIFTH NIGHT: Friday, December 24, into Christmas. After Midnight Mass.
+# Same format as the other nights. The radio: the Mass again, recorded in the ruins.
+# Out of place: a stocking on the bedroom door handle, with a tangerine, a
+# candy cane, and a milk tooth twisted in paper with a name on it that isn't
+# anyone's you know (odd_stocking). Design: docs/december.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment. Cold. Christmas Eve.
+narration | if=doors:daniel>=2: "Lock nothing." Your knees still feel his, an inch away.
+narration | if=flag:booth_left: The empty chair in the booth, facing his. You keep seeing it from his side.
+paranoia: The rules. It's a night like any night. Say it.
+
+=== radio
+narration | time=+10: The radio. Christmas Eve.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The Mass again. Recorded in the ruins, an hour ago: the whole town's breath in a microphone in the snow, singing. Silent Night, slow, the way people sing it when they mean it.
+narration: Then him, reading. Not the Reverend's reading. His own choosing. "The people that walked in darkness have seen a great light."
+narration: Then, quietly, not to the congregation, close to the microphone: "Goodnight, Keeper."
+
+=== radio_off
+narration: You leave it off. Up the hill, the last candles in the ruin, going out one by one, as if someone were walking along the rows pinching them.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentytwo
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentytwo | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line. You put a piece of ham in. It isn't in the rules. It's Christmas.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. Four candles in every window on the road, and up the hill, where the church was, a few candles still burning in the snow.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold. Singing, from up the hill. All of them. Silent night. You stand at the gap until your face goes numb.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it. "Lock nothing," somebody said tonight. Or nobody. The rule says it anyway.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Midnight. Christmas.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_twentytwo
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. It finds the ham. You hear it find the ham. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning, the bowl is clean.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Christmas morning.
+narration | if=flag:saw_stocking: The stocking, on the handle still. The tooth, back in its twist of paper, on the dresser. You don't throw it away. You can't think how you'd throw it away.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_stocking
+narration | time=+5: On the bedroom door handle, a stocking. Red, knitted, a white band at the top with no name stitched on it.
+narration | flag=saw_stocking: Inside, a tangerine. A candy cane. And at the toe, a twist of paper, and in it, a milk tooth, small and yellow.
+narration: A name on the paper, in pencil, a child's careful capitals. Not yours. Not anyone's you know. And a year: 1958.
+paranoia: The jar. The children's teeth. Every child in town since 1958.
+unknown: One came back. One came home for Christmas.

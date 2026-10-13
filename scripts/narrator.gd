@@ -243,7 +243,8 @@ func _visible_choices() -> Array:
 
 # answered_phone, !answered_phone, rules_broken>=2, broke:window, has:key,
 # sold:ice_picks, window:fox, window:empty, visited:lake, flag:ezra_satisfied, frayed, background:guilt,
-# faith:ruth>=1, faithless:sam, doors:daniel>=2, eye>=3. Join them with " and " or
+# faith:ruth>=1, faithless:sam, doors:daniel>=2, eye>=3, held:silver_dollars (pawned to you,
+# still on the shelf). Join them with " and " or
 # " or " (and binds tighter): day>=2 or invited_to_pub
 func _condition_met(condition: String) -> bool:
 	for either in condition.split(" or "):
@@ -268,6 +269,9 @@ func _single_condition_met(condition: String) -> bool:
 		result = GameState.has_item(text.trim_prefix("has:"))
 	elif text.begins_with("sold:"):
 		result = GameState.sold.has(text.trim_prefix("sold:"))
+	elif text.begins_with("held:"):
+		var held: String = text.trim_prefix("held:")
+		result = GameState.acquired.has(held) and not GameState.sold.has(held)
 	elif text == "window:empty":
 		result = GameState.shelf_window.all(func(item: String) -> bool: return item == "")
 	elif text.begins_with("window:"):

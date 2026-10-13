@@ -1,108 +1,93 @@
-# THE TWENTY-FIRST NIGHT: Tuesday, December 21. The power cut.
-# Same format as the other nights, but at the radio the power's gone (docs/
-# nights.md 7): the radio, the neon and the freezer all dead. Down to the fuse
-# box in the dark, and one switch only: the upstairs (the radio: rule seven
-# kept), the neon (the Keeper's light, for the town), or the freezer.
-# Design: docs/december.md.
+# THE TWENTY-FIRST NIGHT: Sunday, December 12. After the Reverend. The storm.
+# Same format as the other nights. No Reverend on the radio: him, alone, at
+# night, for the first time. What happened to Elias shows: praying through
+# the floor (hidden in the back room), a lamp at Sam's (hidden there), the
+# manse dark (gone). Out of place: the church bulletin on the kitchen table,
+# every hymn number crossed out (odd_bulletin). Design: docs/december.md.
 
 === arrival
 narration | sound=stairs: Up the stairs.
 narration | stop=stairs: The apartment.
-narration | if=flag:ruth_saw_father: Ruth's face, at the edge of the freezer. You'll see it every night now. You knew you would.
-narration | if=flag:freezer_closed: The freezer key in your pocket. You take it out and put it on the dresser and then put it back in your pocket.
-narration | if=flag:told_olstad_freezer: "Every day, Johnny." You can hear the heater in her cruiser still.
-paranoia: The longest night. Fifteen hours of dark. Get through it.
+narration | if=flag:reverend_in_back_room: Below you, behind the steel door, a man sitting on a bench in the dark. You took him a blanket and a plate. He said thank you as if you'd done something terrible.
+narration | if=flag:reverend_at_sam: Down the shore, at Sam's, two shadows on the curtain now. One at the wall. One on the floor, not moving.
+narration | if=flag:reverend_warned: Up the hill, the manse, a light. He's back in it. The road wouldn't have him. Nothing will, now.
+narration | if=flag:reverend_gone: Up the hill, the manse. You don't look. You've stopped looking at the manse.
+paranoia: The rules.
 
 === radio
-narration | time=+10: The radio. You turn the dial. Nothing. Not static. Nothing.
-narration: The lamp. The lamp's out too. Through the window, the neon's out. For the first time since you came, the road outside the shop is dark.
-narration: And under your feet, a sound you've stopped hearing because it's always there, stops. The freezer.
-paranoia: Rule seven. The radio on. You can't turn it on.
-> Go down to the fuse box -> radio_fuse
-> Leave it. Sit in the dark. -> radio_dark | break=radio | flag=power_left
+narration | time=+10: The radio. Sunday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
 
-=== radio_fuse
-narration | sound=stairs: Down the stairs in the pitch dark, one hand on the wall. The shop hall. The fuse box, its little door, by touch.
-narration: Three switches, thrown down. Labels in Abraham's hand on masking tape, gone soft: UPSTAIRS. SIGN. FREEZER.
-narration: You push the first one up. It snaps back down. You try another. It holds a second and snaps down. One at a time. Only one will hold.
-> UPSTAIRS -> radio_fuse_upstairs | flag=power_upstairs | flag=radio_on
-> SIGN -> radio_fuse_sign | break=radio | flag=power_sign | eye=-1
-> FREEZER -> radio_fuse_freezer | break=radio | flag=power_freezer
+=== radio_on
+narration | sound=click: Not the Reverend. Him. At night. At the Reverend's microphone, in the Reverend's chair.
+narration: "Good evening, friends. The Reverend has gone to rest. I'll sit with you now. I'll sit with you every night, for as long as you need me."
+narration: Then a hymn, and no numbers after it. The first night in twenty-two years, Sam will tell you, without the numbers.
+narration | if=flag:reverend_in_back_room: And under the radio, through the floor, from behind the steel door, a man praying, very quietly. The same words, as the voice on the radio says them. A half-second behind.
 
-=== radio_fuse_upstairs
-narration | sound=click: It holds. Up the stairs, the lamp's on, and the radio, mid-word, as if it had been talking all along.
-narration: Him. "...and the light shineth in darkness. And the darkness comprehended it not." A pause. "Some of you are sitting in the dark tonight. I can hear it. Sit with me."
-narration: Outside, the road dark. The shop sign dark. Below, the freezer silent.
-
-=== radio_fuse_sign
-narration: It holds. Through the front window, the neon stutters, and catches, red, and the snow outside goes pink.
-narration: Up the road, a door opens. Then another. People on their steps, looking at the shop's sign, the only light on the road. Somebody waves. You don't know who.
-narration: Upstairs, no radio. Rule seven, broken in the dark. Below you, the freezer silent.
-
-=== radio_fuse_freezer
-narration: It holds. Somewhere behind the steel door, the freezer shudders and begins to hum again.
-narration: You stand in the dark with your hand on the fuse box, and listen to it, the only sound in the building. Keeping him.
-narration: No radio. No sign. The road outside black.
-
-=== radio_dark
-narration: You sit in the dark. Fifteen hours of it. The cold starts coming in through the walls at once, the way water comes into a boat.
-narration: Below you, the freezer, silent. Thawing.
+=== radio_off
+narration: You leave it off.
+narration | if=flag:reverend_in_back_room: In the silence, through the floor, from behind the steel door, a man praying. Very quietly. The same few words, over and over, like a man trying to remember a phone number.
 
 === kitchen
-narration | time=+10: The bowl. In the dark, by feel.
+narration | time=+10: The bowl.
 paranoia: Rule five.
-> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyone
-> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyone | flag=bowl_door
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twenty
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twenty | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
 
 === kitchen_door
-narration: Down to the back door with the bowl, in the dark.
+narration: Down to the back door with the bowl.
+narration | if=flag:reverend_in_back_room: Past the steel door. You don't stop. You don't knock. You set the bowl down and go back up, and behind the steel door the praying stops while you pass, and starts again.
 
 === kitchen_fed
-narration: The kibble rattles. On the line, you think. You can't see the line.
+narration: The kibble rattles. On the line.
 
 === kitchen_unfed
 narration: You roll the sack shut.
 
 === windows
-narration | time=+10: The front windows. You check them by feel.
-narration | if=flag:frozen_taped: The taped one. Your fingers find the tape, stiff as bark.
+narration | time=+10: The front windows. Two candles in every window on the road.
+narration | if=flag:frozen_taped: The taped one holds. A white cross of frost on the black.
+narration | if=flag:frozen_open: The frozen one, still open its finger's width. You've stopped trying.
 paranoia: Rule one.
 > Check the latches -> windows_closed
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
 
 === windows_closed
-narration | sound=latch: Latched. You think. You check again. Latched.
+narration | sound=latch: Latched. What latches.
 
 === windows_open
-narration: Cold. The whole road dark, every window, except the candles. Three in every window. They're enough to see the snow by. They were always enough.
+narration: Cold. Up the hill, at the manse, a light goes on in an upstairs window, and off again. Someone looking for something.
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
-narration | if=flag:reverend_in_back_room: The Reverend, on the bench, in the dark. "It went off," he says. "Everything went off." As if it were news.
 paranoia: Rule one. Leave the back door unlocked.
 > Leave it unlocked -> back_door_unlocked | lean=paranoia
 > Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
 
 === back_door_unlocked
-narration: You leave it.
+narration: You leave it. Anyone can come in.
+narration | if=flag:reverend_in_back_room: Anyone. Tonight that means them. Tonight the rule is a door you've left open on a man hiding twelve feet away.
 
 === back_door_locked
 narration | sound=latch: The key turns.
+narration | if=flag:reverend_in_back_room: Behind you, on the bench, the Reverend lets out a breath. He doesn't thank you. Rule one, broken for him. He knows what it costs.
 
 === sleep
-narration | time=+20 | show=bedroom: You lie down in the dark, in your coat. Eleven. It could be any hour.
+narration | time=+20 | show=bedroom: You lie down. Eleven.
 -> night_dog
 
 === night_dog
 -> night_dog_door | if=flag:bowl_door
--> night_dog_fed | if=flag:fed_twentyone
+-> night_dog_fed | if=flag:fed_twenty
 -> night_dog_unfed
 
 === night_dog_fed
 narration | show=bedroom: Facing the door.
-narration | sound=stairs: Three o'clock. The stairs. One and then the other. In the dark, it doesn't matter that you can't see it. You never could.
-narration | stop=stairs: The kitchen. Then down.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. Then down. It stops at the steel door on the way. A long time. Then down.
 -> morning_after
 
 === night_dog_unfed
@@ -111,11 +96,18 @@ narration | show=bedroom: Facing the door. Nothing comes up.
 
 === night_dog_door
 narration | show=bedroom: Facing the door.
-narration: Three o'clock. The back door. In the morning the bowl is clean.
+narration: Three o'clock. The back door, below. In the morning the bowl is clean.
 -> morning_after
 
 === morning_after
-narration | time=07:30: Wednesday. The power comes back at six, all at once, every light in the building, the radio shouting a hymn.
-narration | if=flag:power_sign: At the Gleaner, they're saying the Keeper kept his light on, the longest night. Mrs. Hollis says it twice.
-narration | if=!flag:power_freezer: Under the freezer, on the back-room floor, a little water. Not much. You mop it up with a towel before anybody sees.
-narration | if=flag:power_freezer: The freezer hummed all night. You lay awake listening to it, like a man listening to someone else breathe.
+narration | time=07:30: Monday.
+narration | if=flag:reverend_gone: The manse, from the window, under a foot of new snow. Smoke from the chimney. He's still there. Where else would he go.
+narration: The road closed. The radio says it every hour, between his sermons, like a blessing.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_bulletin
+narration | time=+5: On the kitchen table, the church bulletin. This Sunday's. You didn't bring one home. You didn't take one.
+narration | flag=saw_bulletin: The hymn numbers down the side, the ones the Reverend chose. Every one crossed out, neatly, with a ruler. And in the margin, in pencil, a new column, in a hand you know from the money orders' memo line. One number. The same number, every Sunday till April.
+paranoia: Which number. What number.
+narration: You can't read it. You can read every word on the page but that one. You hold it to the light. It's a number. You'd know it if you saw it. You're seeing it.

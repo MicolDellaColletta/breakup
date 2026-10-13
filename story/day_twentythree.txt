@@ -1,113 +1,147 @@
-# KEY DAY 23: Friday, December 31, 1999. New Year's Eve. Hard fork 5.
-# A walk-around day (scenes/visit.tscn). The shop by day; the locker key, if
-# the tin was opened (Anchorage tomorrow, if there's a car); then where MC is
-# at midnight is a spot (spots.cfg, if=day==23): the Gleaner with Ruth (two
-# doors, no betrayal), the ice with Sam (the same), or alone at the shop, when
-# the phone rings at midnight (with Daniel's two doors, speak first). It locks
-# the romance, or none. Each ends with end=night.
-# Design: docs/december.md, docs/forks.md ("5. New Year's Eve").
+# KEY DAY 23: Friday, December 17, 1999. The ruling. Hard fork 4.
+# Same format as the other counter days: Ezra, with a box of church things
+# for the shop to hold (the spectacles, the bell's clapper, the melted
+# microphone, the collar); Dr. Brekke, with the ruling (an old man asleep in
+# the vestry; the stove); Olstad, who doesn't believe it, asking MC what he
+# saw, with Daniel in the customer chair: tell her, say nothing, or back the
+# doctor (and the red thread on the step). Sam at closing, if his doors are
+# open: petrol. See VISITS in scripts/counter.gd.
+# Design: docs/december_revised.md.
 
 === morning
-narration | time=09:00: Friday, the thirty-first. The last day.
-narration: The night radio's counting hours now, not days. "Fifteen hours, friends." The Anchorage station, when you turn the dial, is all banks and airplanes and computers. In Kettle Lake nobody's talking about computers.
-narration | show=shop | time=13:00: The shop, open, and nobody comes. Five candles in the window, the last lit from the fourth. Through the glass the whole road is busy, carrying things up to the Gleaner. Folding chairs. A ham. A crate of something.
-narration | if=flag:reverend_hidden: A man walking up the road in a long coat with his face turned away. Not the Reverend. You check twice.
-narration: At four, dark. At nine, the party. At midnight, the year turns over, and some say the world with it.
-paranoia: Where will you be. Where will you be when it happens.
+narration | time=09:00: Friday, the seventeenth. Two days of ash. The snow on the road gone the grey of newsprint. The children won't make snowmen in it.
+narration | if=flag:tried_church: Your hands, in fresh bandages. Mrs. Hollis came at eight to change them. She hummed while she did it.
+narration: Up the hill, where the church was: black ribs against the sky, and the tower a stump, and the smell, still, when the wind's from there.
+-> opening
 
-# --- The locker key. ---
+=== opening
+narration | time=09:30: You turn the sign. OPEN. On every wrist that passes the window, you start to notice, a short loop of red wool.
 
-=== locker
-narration: The locker key, out of your pocket, on the glass. 114. ANCHORAGE GREYHOUND. PAID THRU 12/31/99.
-narration: Paid through tonight. Tomorrow it's the station's. Tomorrow somebody opens it with a master key and takes John's books, whatever's in them, whoever's in them, to a lost-and-found.
--> locker_car | if=!flag:car_towed and !flag:ruth_has_keys and !flag:gave_reverend_car
--> locker_no_car
+# --- Ezra, with the church things. ---
 
-=== locker_car
-narration: Three hours to Anchorage. The car in the lot. The road open, they said on the radio, as far as Palmer.
-> Tomorrow, first light, drive to Anchorage. -> locker_go | flag=anchorage_tomorrow | lean=animal
-> Let it go. Let the station have them. -> locker_let_go | flag=locker_lapsed | lean=paranoia
+=== ezra_enters
+narration | sound=bell | time=+60: The bell. Ezra Lund, with a cardboard box, carried in both arms in front of him like a christening.
+narration: A red thread round his wrist, knotted twice.
+ezra: The church's things. What came out. We'd like the shop to hold them. Till we build again.
+narration: He sets the box on the glass. You lift the flaps.
+narration | pawned=spectacles | loan=0: Wire spectacles, black and bent. The Reverend's. You pick them up. The lenses are whole. Not a crack in them.
+narration | pawned=bell_clapper | loan=0: The bell's iron clapper, the length of your forearm, black.
+narration | pawned=microphone | loan=0: The microphone from the booth, melted half through, its grille slumped into something like a face.
+narration | pawned=reverend_collar | loan=0: And at the bottom, folded small, a white collar. Clean. Not a mark on it.
+appraisal | if=appraisal>=1: Glass cracks in a fire hot enough to blacken wire. These lenses didn't.
+ezra: Hold them. No price. The Keeper keeps.
+narration | sound=bell: He touches his hat. At the door he stops, and looks back at the box, and you'd swear his lips move. Then the bell.
 
-=== locker_go
-narration: You put the key back in your pocket. You check the tank. Half. Enough.
-paranoia: You're going to leave town on New Year's Day. In a stolen car. To get the thing he came for. With him a hundred yards away, and never lying, and knowing.
-unknown: He'll know by morning. He might know already.
+# --- Dr. Brekke: the ruling. ---
 
-=== locker_let_go
-narration: You put the key in the drawer, under the shells. At midnight it'll be just a key.
-narration: Somewhere in a station in Anchorage, a locker with John's books in it, and nobody coming. You feel lighter, and you don't know if that's good.
+=== brekke_enters
+narration | sound=bell | time=+90: The bell. Dr. Brekke. His hands steady on the head of his cane. A red thread on his wrist, under the glove.
+brekke: I wanted the Keeper to hear it right. From me. Not from the Gleaner.
+brekke: Elias was asleep in the vestry. He'd been sleeping there, since the trouble. The little stove. The old wiring behind the booth. Smoke first, then fire. He wouldn't have woken.
+brekke: I've written it down and signed it. The road's shut; there's nobody else to sign it. When the road opens, the county will read what I wrote.
+narration: He looks at you with very clear, wet eyes.
+brekke: He wouldn't have woken. I'm sure of that. I'm a doctor.
+paranoia: He wasn't asleep. The bolt. The door was bolted.
+narration | if=!flag:saw_vestry_door: You didn't see the door. You weren't round the back. You were in the line, or at the front, or at your window. You don't know anything. You keep telling yourself you don't know anything.
+narration | sound=bell: He goes. His hands don't shake on the door handle. You watch for it.
 
-=== locker_no_car
-narration: Three hours to Anchorage. No car.
-narration | if=flag:car_towed: The car's in a lot in Wasilla, on a hook, with a sticker on the windshield.
-narration | if=flag:ruth_has_keys: The car's in your lot under two feet of snow, and the keys are in Ruth's pocket. Where she keeps them, like a hand on a dog.
-narration | if=flag:gave_reverend_car: The car's somewhere south, with a man who reads the Psalms out loud.
-narration | flag=locker_lapsed: At midnight the locker's the station's. You put the key in the drawer. It's just a key now. It was always going to be.
+# --- Olstad: hard fork 4. Him, in the customer chair. ---
 
-# --- Where MC is at midnight. ---
+=== trooper_enters
+narration | time=+60: You don't hear him come in. You look up and he's in the customer chair by the stove, the good coat open, warming his hands, as if he'd been there an hour.
+daniel: Don't mind me. It's cold out. Go on with your day.
+narration | sound=bell: The bell. Olstad. Eight months gone. She sees him in the chair, and her face doesn't change at all, which is how you know.
+trooper: Johnny.
+trooper: I've got no fire marshal. I've got no coroner. I've got no road. I've got a doctor who cried when he signed it and a town that's sewing red string round its wrists.
+trooper: You were up there. Everybody was up there. I want to know what you saw.
+narration: In the customer chair, he doesn't move. He doesn't look at you. He looks at the stove.
+-> trooper_ask_door | if=flag:saw_vestry_door
+-> trooper_ask
 
-=== new_year_ruth
-narration | show=gleaner | time=23:30: The Gleaner. Everyone. Paper hats, a fiddle, the jukebox fighting it. Five candles in every window, and the wall of faces with its tinsel.
-narration: He isn't here. You look for the good coat at every table. He isn't anywhere.
-narration: Ruth, behind the bar, takes her apron off at a quarter to twelve and comes round to your side and stands with you, close, her shoulder against yours.
-narration | if=flag:ruth_saw_father: Her father's scarf, round her neck. She keeps touching it.
-ruth: Ten. Nine. They're starting early. They always start early.
-narration: The countdown. Everybody. Eight, the glass. Seven, the radio. They're counting the rhyme backwards. Somebody laughs. Nobody stops.
-narration: Midnight.
-narration: Nothing happens. The lights don't go out. The ice doesn't move. The world goes on being the world, a beat late, the way the cheer comes, a beat late, thin, and then louder to make up for it.
-narration: Ruth kisses you. On the mouth. It tastes of whisky and of her saying sorry for something she hasn't done yet.
-ruth | flag=new_year_ruth: Stay. Please. Just stay.
-narration: Through the floor, under the noise, somewhere down in the cellar or in the walls, a phone, ringing. Nobody else hears it. It rings and rings and stops.
--> new_year_after
+=== trooper_ask_door
+paranoia: The bolt. The prints. The thread. Tell her. Don't tell her. He's six feet away.
+> Tell her: the door was bolted from outside. Prints. A red thread. -> fire_truth_door | keep=olstad | flag=told_olstad_fire | eye=+2 | lean=appraisal
+> Say nothing. -> fire_silent | flag=silent_on_fire | lean=paranoia
+> "It was the stove. The doctor said." -> fire_doctor | flag=backed_doctor | lean=animal
 
-=== new_year_sam
-narration | show=far_ice | time=23:30: The ice. A mile out, in the dark, past the shanties, past the last lantern. The tripod. The clock. And Sam beside it with a flashlight pointed at its face, and a thermos, and two cups.
-sam: You came. You actually came.
-narration: Behind you, on the shore, the Gleaner, lit, and the noise of it coming across the ice small and far away, like a radio in another room.
-sam: Watch the minute hand. Watch it. Don't watch the town. Watch the hand.
-narration: You watch the hand. He watches it. Your shoulders touch. The cold comes up through your boots.
-narration: Midnight.
-narration: Nothing happens. The hand moves on. On the shore, the cheer, faint, a beat late. And then, somewhere under your feet, the ice, one long low note, like a duck call a mile down.
-sam | flag=new_year_sam: Did you hear that. Tell me you heard that.
-narration: You heard it. You tell him. He laughs, the first time you've heard him laugh, and it's terrible and wonderful, and he writes it down, by flashlight, in the notebook, with your initials beside it.
-narration: Across the ice, from the shore, faint, from the direction of the shop: a phone, ringing. Then it stops.
--> new_year_after
+=== trooper_ask
+paranoia: You don't know anything. You don't. Say so. Or say what you think.
+> "I don't believe it was the stove." -> fire_truth | keep=olstad | flag=told_olstad_fire | eye=+2 | lean=appraisal
+> Say nothing. -> fire_silent | flag=silent_on_fire | lean=paranoia
+> "It was the stove. The doctor said." -> fire_doctor | flag=backed_doctor | lean=animal
 
-=== new_year_alone
-narration | time=23:30: You stay in. The shop dark. Five candles in the window, burning low.
-narration: Up the road, the Gleaner, roaring. You can hear the countdown start, early, through the walls, through the snow. Ten. Nine.
-narration: Midnight.
-narration: Nothing happens.
-narration: The shop phone. Ringing.
-narration: Of course. Of course it does.
-paranoia: Rule four. Don't answer. If you do, don't speak first.
-narration: You lift it. Breathing. Not wipers, not wind. A quiet room. A man sitting very still in it.
-daniel: Happy New Year, sweetheart.
-narration: That's all. He waits. He's never waited before. He's waiting now for you.
--> new_year_alone_door | if=doors:daniel>=2
--> new_year_alone_listen
+=== fire_truth_door
+narration: You tell her. Out loud, in the shop, with him six feet away. The bolt on the outside, hot. The prints going away, good boots, unhurried. The red wool on the snow.
+narration: She writes it down. Her pen doesn't stop.
+trooper: Thank you.
+narration: In the chair, he stands up, slowly, and buttons the good coat.
+daniel: I wore boots that night. Everyone wore boots. I'm glad you told her. It's a terrible thing to carry.
+narration | sound=bell: He goes. Olstad watches him all the way up the road. Then she looks at you, and for the first time since October, she looks at you like someone on her side.
+-> fire_after
 
-=== new_year_alone_door
-unknown: Say it. You know it. You've always known it. Say his name and he'll stop being a voice.
-> Say his name. -> new_year_alone_speak | flag=new_year_daniel | break=phone | lean=unknown
-> Say nothing. Hang up. -> new_year_alone_hangup | flag=new_year_alone | lean=paranoia
+=== fire_truth
+narration: You tell her you don't believe it. That's all you've got. That a man who prayed at midnight doesn't fall asleep at midnight. That the whole town stood and sang.
+trooper: That's not evidence, Johnny.
+trooper: It's the only honest thing anybody's said to me in two days.
+narration: In the chair, he stands and buttons the good coat.
+daniel: It's a terrible thing, not to believe. I know.
+narration | sound=bell: He goes. Olstad stays a long time, not saying anything, with her hand on her belly.
+-> fire_after
 
-=== new_year_alone_listen
-narration | flag=new_year_alone: You say nothing. He doesn't either. After a long time, very gently, he hangs up.
--> new_year_after
+=== fire_silent
+narration: You say nothing. You look at the counter. The grain of the wood.
+narration: She waits. He waits. The stove ticks.
+trooper: Okay.
+narration: She looks at you the way she's going to look at the whole town now. Then she goes.
+narration: In the chair, he sits a while longer, warming his hands. Then he gets up.
+daniel: Silence is a kind of answer. People forget that.
+narration | sound=bell: The bell.
+-> fire_after
 
-=== new_year_alone_speak
-narration: You say it. His name. The first time you've said it aloud. You didn't know you knew it.
-narration: On the line, a breath. A long one. Like a man setting down something he's carried a very long way.
-daniel: There. Now we both know where we are.
-daniel: Go to sleep. I'll be right here.
-narration: He doesn't hang up. You don't either. You sit in the dark with the receiver against your ear, listening to him listen to you, until the candles in the window go out one by one.
--> new_year_after
+=== fire_doctor
+narration: You hear yourself say it. The stove. The doctor said.
+narration: Olstad looks at you for a long time. Then she closes her notebook without writing anything.
+trooper: Sure. The stove.
+narration | sound=bell: She goes. She doesn't say Johnny.
+narration: In the chair, he nods, slowly, at the fire. As if you'd said grace.
+daniel: Thank you. That was kind. You'll see how kind.
+narration | sound=bell: The bell.
+-> fire_after
 
-=== new_year_alone_hangup
-narration: You put the receiver down. Gently. In its cradle.
-narration: You sit there. It doesn't ring again. It doesn't need to.
--> new_year_after
+=== fire_after
+narration: On the glass, Ezra's box. The spectacles on top, their whole lenses catching the light from the window.
 
-=== new_year_after
-narration | end=night | time=01:00: The year is 2000. The world didn't end. The ice didn't move. The town goes home through the snow, slowly, cheering still, disappointed, talking about April.
+# --- Sam, at closing, if his doors are open. ---
+
+=== sam_enters
+narration | sound=bell | time=+60: The bell. Sam Wakeman, in the shop, for the first time. He doesn't take his hat off. He doesn't come to the counter.
+sam: Petrol.
+sam: Under the vestry. Where the booth was. I can smell it from the shore when the wind's right. Three days later. You don't get that from a stove.
+sam: Nobody else can smell it. Apparently. I asked. Nobody else can smell a thing.
+narration | if=flag:told_olstad_fire: You tell him you told Olstad. He closes his eyes. "Good. Good. Then there's two of us on the wall."
+narration | if=flag:backed_doctor: You don't tell him what you told Olstad. He looks at your face and doesn't ask.
+narration | sound=bell: He goes. On the floor where he stood, grey footprints, ash, in the shape of his boots.
+
+# --- Closing. ---
+
+=== closing
+narration | time=15:40: Twenty to four, and dark. You turn the sign. CLOSED.
+-> closing_thread | if=flag:backed_doctor
+-> closing_plain
+
+=== closing_plain
+narration: The road outside grey. The hill grey. Every window lit, and every one of them with someone in it looking out.
+
+=== closing_thread
+narration: On the step, when you go to turn the sign: a loop of red wool. Tied in a circle the size of a wrist. Waiting for you, the way the envelopes do.
+paranoia: Don't. Don't put it on. It's a thread. It's only a thread.
+warmth | if=warmth>=1: They'd be kind to you again. All of them. Mrs. Hollis would bring dishes. The men would nod.
+> Put it on -> thread_wear | take=red_thread | flag=wears_thread | eye=-9 | lean=warmth
+> Leave it on the step -> thread_leave | lean=paranoia
+
+=== thread_wear
+narration: You tie it round your wrist with your teeth and your bandaged hand. It's a little tight. It's supposed to be.
+narration: Up the road, a door opens, and someone waves. You don't know who. You wave back.
+
+=== thread_leave
+narration: You leave it on the step. In the morning it's gone. You didn't see who took it back. You didn't see who brought it.

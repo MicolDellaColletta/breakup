@@ -1,0 +1,48 @@
+# THE EVENING OF KEY DAY 29: Saturday, January 15. Olstad at the ruins.
+# A walked evening (scenes/visit.tscn; GameState.EVENINGS), in the ruins of
+# the church. A week after the baby, Olstad brings MC up the hill at night to
+# show him what she's kept: the vestry bolt, in an evidence bag. What she's
+# building, and whether MC will say it in front of them, when it comes to it.
+# end=night. Design: docs/december_revised.md, docs/january.md.
+
+=== evening
+narration | show=ruins | time=19:00: The ruin, at night. The scaffold against the tower stump, and on top of it now, finished, a thing of new pine: a cross, or a mast, or a gallows. You can't tell from below. The snow inside the walls trodden flat, and the candles in it out.
+narration: Olstad, waiting by the black square where the vestry was. A week since the baby. She's thin in the face, and her coat closes now, and she's holding a paper evidence bag the way you'd hold a hymn book.
+trooper: I left her with my sister in Wasilla. First night I've been away from her. I came back for this.
+-> evening_bolt_told | if=flag:told_olstad_fire
+-> evening_bolt_found
+
+=== evening_bolt_told
+trooper: You told me about the bolt. With him sitting there. So I came up here the next morning and I took it off what was left of the post with a hacksaw.
+-> evening_bolt
+
+=== evening_bolt_found
+trooper: Nobody told me about the bolt. I found it myself, the morning after, with my hands, in the ash. Shot. On the outside. Nobody bolts a door from the outside unless there's somebody in.
+-> evening_bolt
+
+=== evening_bolt
+narration: She opens the bag. An iron bolt, black, a piece of charred wood still on it. Drawn across. Fused that way.
+narration | if=flag:spectacles_to_olstad: "And the spectacles. Anchorage says ordinary glass, ordinary lenses, no cracks. They won't say more till somebody official asks them to. I'm somebody official. They don't think so."
+narration | if=flag:spectacles_to_church: "The spectacles would have done it. Ezra buried them. In the ground. In January. Do you know what it takes to dig a grave in January?"
+trooper: Brekke signed it. The county'll read what he signed, because there was nobody else to sign anything. And he's got a whole town that'll say they saw an old man go in to pray and fall asleep.
+trooper: I need one person to say different. Out loud. In front of them. When it comes to it.
+narration: She closes the bag.
+trooper: Will you? When it comes to it?
+paranoia: In front of them. In front of him. You saw the town sing.
+> "Yes." -> evening_yes | keep=olstad | flag=will_testify | lean=appraisal
+> "I don't know." -> evening_maybe | flag=wont_promise | lean=paranoia
+
+=== evening_yes
+narration: She nods. She doesn't thank you. She puts the bag inside her coat, against her chest.
+trooper: Then don't wear the thread. Whatever happens. Don't let me see you in the thread.
+narration | if=flag:wears_thread: You look down at your wrist. She's already looking at it.
+-> evening_home
+
+=== evening_maybe
+narration: She nods. As if that's what she expected. As if it's fair.
+trooper: That's honest. That's more than most.
+-> evening_home
+
+=== evening_home
+narration: Behind you, on the scaffold, a lantern comes on. Someone's been up there the whole time, sitting in the cold, at the top of the new pine thing, watching you.
+narration | end=night | time=20:30: You walk home down the hill. Olstad doesn't. When you look back she's still standing in the black square, alone, holding her coat closed over the bag.

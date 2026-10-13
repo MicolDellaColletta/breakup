@@ -1,0 +1,111 @@
+# THE THIRTIETH NIGHT: Sunday, January 23. After the confessions.
+# Same format as the other nights. The radio silent for an hour after
+# midnight, the first time since October; then him, saying goodnight to the
+# town by name, one by one. MC's name last, or not at all. Out of place: a
+# second toothbrush in the glass in the bathroom (odd_toothbrush).
+# Design: docs/january.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment.
+narration | if=flag:offered_john_night: "Keep it warm." You carry it up the stairs like something in your coat.
+narration | if=!flag:offered_john_night: The queue, running down the side of the hall and out into the snow. Everyone in town with something to put down. You, still carrying yours.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Sunday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Silence. Not static: an open line, a quiet room, a microphone on. For an hour. You keep it on. The rule says on.
+narration: Then, after midnight, him. Very quietly. Saying goodnight. By name. One at a time. "Goodnight, Mrs. Hollis. Goodnight, Walt. Goodnight, Ruth. Goodnight, Ezra." The whole town, house by house, the way you'd turn off lights.
+-> radio_name | if=doors:daniel>=2 or flag:new_year_daniel
+-> radio_no_name
+
+=== radio_name
+narration: And last, after a long pause, your name. Your real one. On the radio, into every kitchen in Kettle Lake.
+narration: Nobody in town knows it. Nobody will know whose it is. Only you.
+
+=== radio_no_name
+narration: He goes through all of them. He doesn't say yours. Not John, not the other one. The list just ends, and the line stays open, and he breathes into it, waiting, as if you might say it yourself.
+
+=== radio_off
+narration: You leave it off. The silence in the apartment is exactly the same as the silence on the radio would have been. You lie awake trying to tell them apart.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentysix
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentysix | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold. Up the road, the hall, the door open, a light inside. Still somebody in the queue. At midnight.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Midnight.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_twentysix
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Monday.
+narration | if=flag:saw_toothbrush: Two toothbrushes in the glass. You use yours. You don't touch the other. In the evening it's damp.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_toothbrush
+narration | time=+5: The bathroom. The glass on the sink. Your toothbrush.
+narration | flag=saw_toothbrush: And another one. Red. New. The bristles wet.
+paranoia: Mrs. Hollis. She brings things. She'd bring a toothbrush.
+narration: Mrs. Hollis has never been upstairs.

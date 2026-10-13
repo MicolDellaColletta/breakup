@@ -19,7 +19,10 @@
 -> map_day_fifteen | if=day==15
 -> map_day_sixteen | if=day==16
 -> map_day_eighteen | if=day==18
--> map_day_twentyone | if=day==21
+-> map_day_twenty | if=day==20
+-> map_day_twentythree | if=day==23
+-> map_day_twentysix | if=day==26
+-> map_day_twentyfour | if=day==24
 -> map_day_two
 
 === map_day_one
@@ -39,7 +42,10 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_fifteen | if=day==15
 -> pub_sixteen | if=day==16
 -> pub_eighteen | if=day==18
--> pub_twentyone | if=day==21
+-> pub_twenty | if=day==20
+-> pub_twentythree | if=day==23
+-> pub_twentysix | if=day==26
+-> pub_twentyfour | if=day==24
 -> pub_two
 
 === pub_first
@@ -108,7 +114,10 @@ narration: The cold outside is almost a relief.
 -> lake_fifteen | if=day==15
 -> lake_sixteen | if=day==16
 -> lake_eighteen | if=day==18
--> lake_twentyone | if=day==21
+-> lake_twenty | if=day==20
+-> lake_twentythree | if=day==23
+-> lake_twentysix | if=day==26
+-> lake_twentyfour | if=day==24
 -> lake_two
 
 === lake_first
@@ -180,7 +189,10 @@ narration: You leave money on the bar and go before the room can decide to be fr
 -> church_fifteen | if=day==15
 -> church_sixteen | if=day==16
 -> church_eighteen | if=day==18
--> church_twentyone | if=day==21
+-> church_twenty | if=day==20
+-> church_twentythree | if=day==23
+-> church_twentysix | if=day==26
+-> church_twentyfour | if=day==24
 -> church_two
 
 === church_two
@@ -251,7 +263,10 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 -> cabin_fifteen | if=day==15 and flag:met_sam
 -> cabin_sixteen | if=day==16 and flag:met_sam
 -> cabin_eighteen | if=day==18 and flag:met_sam
--> cabin_twentyone | if=day==21 and flag:met_sam
+-> cabin_twenty | if=day==20 and flag:met_sam
+-> cabin_twentythree | if=day==23 and flag:met_sam
+-> cabin_twentysix | if=day==26 and flag:met_sam
+-> cabin_twentyfour | if=day==24 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -932,32 +947,88 @@ sam: Saturday. Come Saturday. I'll have something to show you.
 narration | time=+20: The lake. The ice a foot thick now; the trucks are out on it, and the shanties, a little town of plywood on the white, with stovepipes smoking.
 narration: Out past them, alone, the tripod and the clock. Somebody's swept the snow off the face.
 
-=== map_day_twentyone
+=== map_day_twentyfour
 narration: The longest night starting at half past three. Three candles in every window. The church dark; the manse dark; the Gleaner lit.
 narration | if=flag:ruth_saw_father: The Gleaner's sign is off. A light upstairs.
 
-=== pub_twentyone
+=== pub_twentyfour
 -> pub_twentyone_shut | if=flag:ruth_saw_father
 -> pub_twentyone_open
 
 === pub_twentyone_open
 narration | time=+60: The Gleaner. Quiet. The back table empty for once.
-narration | if=!faithless:ruth: Ruth pours you one. "He's at the booth every night now," she says. "Not even the pretence of coffee."
+narration | if=!faithless:ruth: Ruth pours you one. "He broadcasts from my back room now," she says. "Ezra carried the transmitter out of the fire. My back room. Every night." She doesn't look at the door to it.
 narration | if=faithless:ruth: Ruth pours you one and goes to the other end of the bar.
 
 === pub_twentyone_shut
 narration | time=+20: The Gleaner. The door locked, the sign off. Upstairs, in her window, a lamp. You stand in the road. You don't knock. She doesn't come to the window.
 
-=== church_twentyone
-narration | time=+20: The church, dark. Behind it, the vestry passage, and at the end of it, in the little window of the booth, the red bulb. ON AIR. On the shortest day, at four in the afternoon.
+=== church_twentyfour
+narration | time=+20: The church. What's left of it. Black beams against the last of the light, and the scaffold going up against the tower stump. A few candles in the snow inside the walls, burning. Somebody keeps lighting them.
 
-=== cabin_twentyone
+=== cabin_twentyfour
 narration | time=+10: The cabin. Sam on the porch.
-sam | if=flag:reverend_at_sam: He's asleep. On my floor. He prays in his sleep. I write it down. It's numbers, mostly.
-sam | if=!flag:reverend_at_sam: Shortest day. The clock's a minute fast. First time in ten years. I didn't touch it.
+sam: Shortest day. The clock's a minute fast. First time in ten years. I didn't touch it.
+sam | if=flag:reverend_at_sam: They took him off my floor. Seven of them. Polite. I should have locked the door. I don't lock the door. Nobody does now.
 
-=== lake_twentyone
+=== lake_twentyfour
 narration | time=+20: The lake, at four, already full night. The shanties lit like a village. Out past them the tripod and the clock, and the clock's face catching the last light from nowhere.
+
+=== map_day_twenty
+narration: Monday night. Every door on the road shut, for now. The Gleaner lit and loud. The church dark. Up at the manse, one window.
+
+=== pub_twenty
+narration | time=+60: The Gleaner. Full, on a Monday. Everyone wants to see the doctor's hands. He holds them out over the bar for anyone who asks, and people touch them, the backs of them, gently, the way you'd touch a relic.
+narration: The clock over the bar, stopped at nine. Ruth hasn't wound it. "Leave it," she says, when somebody reaches up. "He likes it."
+narration: At the back table, the man in the good coat, alone for once, reading the Bible you sold him with his finger on the line.
+
+=== church_twenty
+narration | time=+20: The church, dark. The manse behind it, one window lit, and the Reverend in it, at his desk, his head in his hands.
+
+=== cabin_twenty
+narration | time=+10: The cabin. Sam on the porch, smoking, the binoculars on the rail.
+sam: Hands don't just stop. Tremors are neurological. I looked it up. Well. I looked it up in 1994, for something else. They don't just stop.
+sam: Unless they were never real. Unless he's been shaking for thirty years for the same reason everybody here does what they do. Because it's expected.
+
+=== lake_twenty
+narration | time=+20: The lake. The shanties. On the ice in front of the Gleaner, somebody's laid out a word in pine boughs, big enough to read from the hill. You can't read it from the shore. You don't walk up the hill to find out.
+
+=== map_day_twentythree
+narration: Friday night. Grey snow. The ruin on the hill, a few candles in it. The Gleaner's back window, red.
+
+=== pub_twentythree
+narration | time=+60: The Gleaner. Quiet. A red thread on every wrist at the bar.
+narration | if=flag:wears_thread: Ruth sees yours. She doesn't say anything. She pours you one, and it's on the house, and that's the first time.
+narration | if=!flag:wears_thread and !faithless:ruth: Ruth sees your bare wrist. She puts her own hand, with its thread, under the bar, out of sight, and pours you one.
+narration | if=faithless:ruth: Ruth pours you one and goes to the far end.
+narration: Through the door to the back room, closed, his voice, low, a microphone voice, talking to the whole town at once.
+
+=== church_twentythree
+narration | time=+20: The ruin. You stand at the edge of the black square where the vestry was. The side door gone. Where it hung, an iron bolt still in its keeper, on a charred post, standing up out of the ash. Shot.
+narration | if=flag:told_olstad_fire: Olstad's tape round it, yellow, already half buried in grey snow.
+
+=== cabin_twentythree
+narration | time=+10: The cabin. Sam in the doorway.
+sam: You can smell it from here. Can't you. Tell me you can smell it.
+
+=== lake_twentythree
+narration | time=+20: The lake, grey. Ash on the ice, a skin of it, and the shanties' stovepipes smoking into it. Somebody's swept a path from the shore to the place where the clock stands, and lined it with red thread, tied to stakes, like a runway.
+
+=== map_day_twentysix
+narration: Seventeen days since the road closed. Every house lit, every door with its thread. The Gleaner's back window red. The scaffold on the hill.
+
+=== pub_twentysix
+narration | time=+60: The Gleaner. No beer since Christmas; they're drinking what's left of the whisky, in thimbles. Nobody minds. Everybody's waiting for the radio at nine.
+narration: When it comes on, through the back-room door, the whole bar stops and listens to the man in the next room as if he were a thousand miles away.
+
+=== church_twentysix
+narration | time=+20: The ruin. The scaffold. Men on it by lantern light, at nine at night, in forty below, singing while they work. They're not rebuilding the church. They're building something on top of the stump of the tower. You can't tell what yet.
+
+=== cabin_twentysix
+narration | time=+10: The cabin, dark. On the door, a red thread, tied to the handle. Sam didn't put it there. You can tell by how he's left it: he's cut it, and left the ends hanging, like a message back.
+
+=== lake_twentysix
+narration | time=+20: The lake. A hole cut in the ice in front of the clock, a perfect square, a yard across, and fresh: the water black in it, not yet skinned over. Nobody fishing. No line. Just the hole, and the clock, and the path of red thread leading to it.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

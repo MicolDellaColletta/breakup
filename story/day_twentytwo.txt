@@ -1,105 +1,80 @@
-# KEY DAY 22: Friday, December 24, 1999. Christmas Eve.
-# A walk-around day (scenes/visit.tscn). The shop, shut, in the afternoon;
-# where MC spends the evening is a spot (spots.cfg, if=day==22): the booth,
-# if Daniel's first door is open (his second door: the confession, reversed);
-# Mrs. Hollis's table; the Gleaner; or the shop alone, with the radio.
-# Each ends with end=night. Design: docs/december.md.
+# KEY DAY 22: Wednesday, December 15, 1999. The fire.
+# A walk-around day that is mostly a night (scenes/visit.tscn). The road
+# closed since Sunday. In the morning, if the Reverend is hidden, Daniel asks
+# MC plainly where (tell him, or lie: either way he's gone by evening). In the
+# night the church burns, with the Reverend inside. Spots (spots.cfg,
+# if=day==22): round the back to the vestry door (bolted from outside), the
+# front doors, or stand with the town and sing. end=night.
+# Design: docs/december_revised.md.
 
 === morning
-narration | time=09:00: Christmas Eve. The fourth candle.
-narration | if=flag:ruth_saw_father: No envelope from the Gleaner this week, no glass, no Ruth. On the bar, they say, a scarf, folded, by the till. She serves with her coat on.
-narration | if=flag:power_sign: People nod to you in the road. More than nod. Mr. Pruitt shakes your hand. "Kept your light on," he says. "The longest night."
-narration | show=shop | time=14:00: The shop, shut for Christmas Eve, the sign turned. Four candles in the window. The light going at half past three.
-narration: Under the door, cards. One from every house on the road, it looks like. Unsigned, every one. A robin. A church in snow. A man in a long brown coat, walking out onto a white field, and the inside blank.
-narration | if=doors:daniel>=1: And one that isn't a card. A plain sheet, folded once. A careful hand: "The booth is open tonight. Nobody else is coming. D."
-paranoia: Where do you go tonight. Where does a man like you go on Christmas Eve.
+narration | time=09:00: Wednesday, the fifteenth. The storm blew itself out on Monday. The road's still shut: drifts at the town line higher than the plow, and the plow under them.
+narration | show=shop: The shop. Nobody comes. Nobody can come from anywhere but here.
+narration | if=flag:reverend_gone: Up at the manse, smoke from the chimney. People take him things. Soup. Bread. They stand on his step and hand them in and don't go inside.
+narration | if=flag:reverend_warned: Up at the manse, smoke from the chimney. He came back. People take him soup, and stand on his step, and don't go inside.
+-> morning_question | if=flag:reverend_hidden
+-> morning_quiet
 
-# --- The booth: Daniel's second door. ---
+=== morning_question
+narration | sound=bell | time=10:30: The bell, once. The good coat. He comes to the counter and puts both hands flat on the glass, the way you'd steady yourself on a boat.
+daniel | if=flag:reverend_in_back_room: Is he in your back room?
+daniel | if=flag:reverend_at_sam: Is he at Sam Wakeman's?
+narration: Not a threat. A question, asked the way you'd ask the time. He never lies. He's asking because he'll know if you do.
+> "Yes." -> question_tell | flag=told_daniel_hidden | lean=paranoia
+> "No." -> question_lie | flag=lied_to_daniel | lean=animal
 
-=== booth
-narration | show=booth | time=21:00: The church, dark but for the vestry passage. The radio booth behind the vestry wall. The door with its little window. The red bulb off.
-narration: Inside, two chairs, facing, knee to knee. The microphone pushed back on its arm. He's already in one of them, in his shirtsleeves, the good coat folded on the floor.
-daniel: Sit down. I won't take long. Then you can take as long as you like.
-narration: You sit. Your knees nearly touch his.
-daniel: The town tells me things in here. I thought tonight I'd tell you some. Is that all right?
-narration: He doesn't wait for you to say.
-daniel: You told Mrs. Hollis your name was John. You signed his name in the ledger. You drove his car, rented to a letter, J., and let them call it yours.
-daniel | if=flag:lied_to_ruth: You lied to Ruth across her own bar, and she knew, and poured you another.
-daniel | if=flag:lied_in_church: You said "No" in church, with the doors barred, in front of me. To keep a man you'd met twice from taking you with him.
-daniel | if=flag:wore_coat: You put your arms in their coat. You let six women button you into it.
-daniel | if=flag:refused_bullet: You told me you don't buy things like that. You've been buying things like that since October.
-daniel | if=flag:took_bullet: You wrote me a ticket for a dollar. You've kept it warm. I know you have.
-daniel: None of that's a sin. I want to be clear. It's a costume. I'm only taking it off you, piece by piece, so we can see what's there.
-narration: And he does. Quietly, in order, every lie, until there's nothing left of John in the booth at all, only the chair, and you in it, and the cold.
-unknown: Let him. Let him. Nobody's ever looked this hard.
-paranoia: Get up. Get up and walk out. He's taking you apart to see how you go together.
-> Stay -> booth_stay | door=daniel | lean=unknown
-> Get up and walk out -> booth_leave | lean=paranoia
+=== question_tell
+narration: He nods. He looks, for a moment, genuinely grateful.
+daniel: Thank you. That was hard. I know it was.
+narration | if=flag:reverend_in_back_room: By evening, the bench in the back room is empty. A blanket folded square. You didn't hear anyone come. The back door's never locked.
+narration | if=flag:reverend_at_sam: By evening, Sam's at your door, white-faced. "They came for him at four. Ezra and six others. Very polite. He went with them. He didn't even take his bag."
+-> morning_quiet
 
-=== booth_stay
-narration: You stay. He looks at you for a long time, as if he's finally seeing something he'd been told about.
-daniel: There you are. Again.
-narration: Then he leans back in his chair, and folds his hands, and it's his turn.
-daniel: Thirty-one. That's the number. I don't round it, and I don't forget any of them. Thirty-two, with John. You'd have been thirty-three.
-daniel: My father was a minister. Kitchen table, Thursday nights, him and the Bible and me, twelve years old. One night I asked him a question and he didn't have the answer, and I watched him decide to lie to me.
-daniel: I've never told one since. Not one. I'd rather do anything else.
-narration: The bulb above the door flickers red, once, as if somebody somewhere had touched a switch, and goes out.
-daniel: Merry Christmas. Go home. Lock nothing.
--> booth_home
+=== question_lie
+narration: He smiles. Not unkindly. Like a teacher whose pupil has got a sum wrong in an interesting way.
+daniel: All right.
+narration | if=flag:reverend_in_back_room: By evening, the bench in the back room is empty. A blanket folded square. And your back door, which is never locked, is standing open, and snow has blown in across the floor of the hall.
+narration | if=flag:reverend_at_sam: By evening, Sam's at your door, white-faced. "They came for him at four. They knew exactly where he'd be. Who told them? Who told them?"
+-> morning_quiet
 
-=== booth_leave
-narration: You stand up. Your chair scrapes. He doesn't stop you. He doesn't move at all.
-daniel: That's all right. It'll keep.
-narration: You go out through the vestry. Behind you, through the little window, he hasn't moved. He's sitting with his hands folded, facing the empty chair.
--> booth_home
+=== morning_quiet
+narration | time=16:00: Dark at four. The radio, from the church, his voice. A prayer for the Reverend, "who has been so tired," and for everyone who has carried something too long.
+narration | time=02:10 | show=church_fire: You wake to the bell.
+narration: The church bell, ringing, at two in the morning. Not tolling. Ringing, wildly, all on its own, as if someone were swinging on the rope with their whole weight. And on your bedroom ceiling, a light. Orange. Moving.
+narration: You go up the hill in your coat over your nightclothes, with your boots unlaced.
+narration: The church is burning.
+narration: All of it. The roof, the tower, the tall windows lit from inside like a lantern, gold and then white. The heat on your face from a hundred yards. The snow on the hill melting back from it in a ring, steaming.
+narration: And the town. All of them. In the snow, in their nightclothes and their coats, in a long line facing the fire. Not running. Not carrying water. Standing. Their faces lit. Singing.
+narration: Abide with me. Slow. The way you sing it at a graveside.
+narration: Mrs. Hollis, with her hands folded. Ezra. Dr. Brekke, his hands perfectly still at his sides. The children, holding their parents' hands.
+narration: And him, in the middle of them, in his shirtsleeves, the good coat over his arm. His cuffs black with soot. Singing louder than anyone.
+narration: Somebody beside you says, very calmly: "The Reverend went in to pray at midnight. He always prays at midnight, now."
+paranoia: He's in there. He's in there. Somebody do something.
+narration: Nobody does anything. The bell stops, all at once, mid-swing, and you hear it fall through the tower, a long tearing note, and then nothing, and then the singing again.
 
-=== booth_home
-narration | end=night | time=22:30: The walk home. Midnight Mass in an hour; people already going up the hill with lanterns. Nobody speaks to you. Everybody looks.
+# --- What MC does. ---
 
-# --- Mrs. Hollis's table. ---
+=== fire_front
+narration: You run at the front doors. You don't decide to. Your legs do it.
+narration: The heat stops you ten feet off like a wall. You put your arm up over your face and go on anyway, and your sleeve starts to smoke, and your hands find the door handle and it's so hot you don't feel it, then you do.
+narration | flag=tried_church: Hands on you. Pulling you back, gently, kindly, three men, four. "No, Keeper. No. It's done. It's in His hands." They hold you in the snow until you stop.
+narration: Your palms, in the light of the fire, white and wet and wrong.
+narration: Across the line, he's watching you. His face, in the firelight, is sorry. Truly sorry. You've never seen a face so sorry.
+narration | end=night | time=05:00: They walk you home at five. Mrs. Hollis wraps your hands in snow and a dish towel. Behind you, up the hill, the church, still burning, lower now, a red glow.
 
-=== hollis_table
-narration | show=hollis_kitchen | time=18:00: Mrs. Hollis's kitchen. The table laid for three. Her, you, and Ray's chair.
-narration | if=flag:place_duck_call: On Ray's plate, the duck call, laid across it like a knife.
-narration | if=flag:place_jacket: Over Ray's chair, the hunting jacket, R. HOLLIS in the collar, the shoulders set.
-narration | if=flag:place_bare: Ray's plate, bare. A glass of water with a skin of ice on it. In her warm kitchen.
-narration: Ham. Potatoes. A pudding she set on fire with the lights off and the three of you watched it burn blue.
-narration: Behind the kitchen door, on a hanger, something long and brown. The coat. Finished. The hem done.
-widow | if=flag:wore_coat: It's ready. It'll be ready for you whenever you want it. It fits. You saw it fit.
-widow | if=flag:refused_fitting: It's ready. We had your measurements. It'll keep. Things keep, up here.
-widow | if=!flag:wore_coat and !flag:refused_fitting: It's ready. It's been ready a long time. It was always going to be ready.
-narration: She holds your hand across the table during grace. Her hand is dry and warm and very strong.
-widow: For the ones at table. And the ones not.
-narration | end=night | time=22:00: She walks you to the door. "Merry Christmas, dear." She doesn't say your name. She's never once said it.
+=== fire_sing
+narration: You stand in the line. Somebody takes your hand on one side. Somebody takes the other.
+narration | flag=sang_at_fire | eye=-1: You sing. You know the words. You didn't know you knew the words.
+narration: The heat on your face. The singing all round you, warm, and the snow at your back, and the fire in front, and inside it, somewhere, a man who prays at midnight.
+narration: Down the line, he looks at you, and nods, very slightly. As if you'd done something right. You feel it all through you, and you'll hate that later. Not now.
+narration | end=night | time=05:00: At five, the roof goes in, and the singing stops, and everybody goes home, quietly, like after a long service.
 
-# --- The Gleaner. ---
-
-=== gleaner
-narration | show=gleaner | time=20:00: The Gleaner. Full. The jukebox playing carols nobody chose. Tinsel on everything.
-narration: Tinsel on the wall of faces. The Keepers, all of them, ten years of Polaroids, each one with a strand of silver round its frame, like a little halo.
--> gleaner_cold | if=faithless:ruth
--> gleaner_warm
-
-=== gleaner_warm
-narration: Ruth behind the bar in a paper crown somebody put on her. She pours you one without asking and pushes it across.
-narration | if=flag:ruth_saw_father: She has her father's scarf on. She doesn't say anything about it. She doesn't have to.
-narration | if=flag:took_envelope: When the bar thins out she reaches under the till and puts an envelope on the bar in front of you. Yours. The one you took off her wall in November. Empty.
-ruth | if=flag:took_envelope: I made another one. I always make another one. I just thought you should have the first.
-narration | if=!flag:took_envelope: On the wall, at the end of the row, your face, with tinsel round it. You don't remember the picture being taken.
-ruth: Merry Christmas. Stay till close. Stay after, if you like. Nobody'll say anything.
-narration | end=night | time=23:30: You stay till close. Not after. Walking home, the bells for Midnight Mass, up the hill, and the whole town going up to it with lanterns, and you going the other way.
-
-=== gleaner_cold
-narration: Ruth behind the bar. She serves you. She doesn't look at you while she does it.
-narration: On the wall, at the end of the row, your face. With tinsel round it. Somebody's drawn the face in by hand, over the Polaroid, in pencil, very carefully. Your face, but the way they'd want it.
-narration | end=night | time=22:00: You leave your drink. Nobody watches you go. Everybody knows you've gone.
-
-# --- The shop alone, with the radio. ---
-
-=== shop_alone
-narration | time=19:00: You stay in. You turn the radio on, low, and sit in the armchair facing the door.
-narration: Him, reading. The Christmas story, to the town. The decree that all the world should be taxed. Everyone going to his own city. Joseph, and Mary, great with child.
-daniel: And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger. Because there was no room for them in the inn.
-narration: He stops there. A long pause. The sound of him breathing near the microphone.
-daniel: No room. Think of that, friends. Everybody had a room but the one who mattered.
-narration | end=night | time=23:00: Then the hymn. You sit in the dark, in the armchair, facing the door, through the whole of it. Nobody knocks.
+=== fire_vestry
+narration: The side of the church. The vestry door. The fire roaring on the other side of it, light round its edges in a thin bright line.
+narration: The bolt is shot. On the outside. An old iron bolt you've never noticed, drawn across into its keeper. You put your hand to it and snatch it back. It's hot. Hot from the fire. Or from a hand.
+narration: Bolted from the outside. Nobody bolts a door from the outside unless there's someone in.
+narration | flag=saw_vestry_door: In the snow below the door, prints. A man's. Good boots. Going away from the door, unhurried, round the back of the church toward the road.
+narration: And on the snow, by the last print you can see, a short length of red wool. Like a thread off a sleeve.
+paranoia: Draw it. Draw the bolt. Open it.
+narration: You put your hand on it again, through your coat sleeve, and pull. It doesn't move. It's swollen in the heat, or fused, or someone's hammered it home. It doesn't move.
+narration | end=night | time=05:00: You stand there until the door itself starts to burn. Then you walk round the front, and stand at the back of the crowd, and nobody asks where you were.

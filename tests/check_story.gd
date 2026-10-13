@@ -52,14 +52,29 @@ const STORY_SCENES: Dictionary = {
 	"res://story/day_nineteen.txt": "res://scenes/counter.tscn",
 	"res://story/evening_nineteen.txt": "res://scenes/visit.tscn",
 	"res://story/night_nineteen.txt": "res://scenes/night.tscn",
-	"res://story/day_twenty.txt": "res://scenes/visit.tscn",
+	"res://story/day_twenty.txt": "res://scenes/counter.tscn",
 	"res://story/night_twenty.txt": "res://scenes/night.tscn",
-	"res://story/day_twentyone.txt": "res://scenes/counter.tscn",
+	"res://story/day_twentyone.txt": "res://scenes/visit.tscn",
 	"res://story/night_twentyone.txt": "res://scenes/night.tscn",
 	"res://story/day_twentytwo.txt": "res://scenes/visit.tscn",
 	"res://story/night_twentytwo.txt": "res://scenes/night.tscn",
-	"res://story/day_twentythree.txt": "res://scenes/visit.tscn",
+	"res://story/day_twentythree.txt": "res://scenes/counter.tscn",
 	"res://story/night_twentythree.txt": "res://scenes/night.tscn",
+	"res://story/day_twentyfour.txt": "res://scenes/counter.tscn",
+	"res://story/night_twentyfour.txt": "res://scenes/night.tscn",
+	"res://story/day_twentyfive.txt": "res://scenes/visit.tscn",
+	"res://story/night_twentyfive.txt": "res://scenes/night.tscn",
+	"res://story/day_twentysix.txt": "res://scenes/counter.tscn",
+	"res://story/night_twentysix.txt": "res://scenes/night.tscn",
+	"res://story/day_twentyseven.txt": "res://scenes/visit.tscn",
+	"res://story/night_twentyseven.txt": "res://scenes/night.tscn",
+	"res://story/day_twentyeight.txt": "res://scenes/counter.tscn",
+	"res://story/night_twentyeight.txt": "res://scenes/night.tscn",
+	"res://story/day_twentynine.txt": "res://scenes/counter.tscn",
+	"res://story/evening_twentynine.txt": "res://scenes/visit.tscn",
+	"res://story/night_twentynine.txt": "res://scenes/night.tscn",
+	"res://story/day_thirty.txt": "res://scenes/visit.tscn",
+	"res://story/night_thirty.txt": "res://scenes/night.tscn",
 	"res://story/use.txt": "res://scenes/counter.tscn",
 	"res://story/examine.txt": "res://scenes/counter.tscn",
 }
@@ -70,8 +85,8 @@ const SPOT_STORIES: Dictionary = {
 	"shop_night": ["res://story/shop.txt"],
 	"apartment_first": ["res://story/apartment.txt"],
 	"shop": ["res://story/shop_looks.txt"],
-	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt", "res://story/night_six.txt", "res://story/night_seven.txt", "res://story/night_eight.txt", "res://story/night_nine.txt", "res://story/night_ten.txt", "res://story/night_eleven.txt", "res://story/night_twelve.txt", "res://story/night_thirteen.txt", "res://story/night_fourteen.txt", "res://story/night_fifteen.txt", "res://story/night_sixteen.txt", "res://story/night_seventeen.txt", "res://story/night_eighteen.txt", "res://story/night_nineteen.txt", "res://story/night_twenty.txt", "res://story/night_twentyone.txt", "res://story/night_twentytwo.txt", "res://story/night_twentythree.txt"],
-	"visit": ["res://story/day_five.txt", "res://story/day_nine.txt", "res://story/evening_ten.txt", "res://story/day_twelve.txt", "res://story/day_fourteen.txt", "res://story/day_seventeen.txt", "res://story/evening_nineteen.txt", "res://story/day_twenty.txt", "res://story/day_twentytwo.txt", "res://story/day_twentythree.txt"],
+	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt", "res://story/night_six.txt", "res://story/night_seven.txt", "res://story/night_eight.txt", "res://story/night_nine.txt", "res://story/night_ten.txt", "res://story/night_eleven.txt", "res://story/night_twelve.txt", "res://story/night_thirteen.txt", "res://story/night_fourteen.txt", "res://story/night_fifteen.txt", "res://story/night_sixteen.txt", "res://story/night_seventeen.txt", "res://story/night_eighteen.txt", "res://story/night_nineteen.txt", "res://story/night_twenty.txt", "res://story/night_twentyone.txt", "res://story/night_twentytwo.txt", "res://story/night_twentythree.txt", "res://story/night_twentyfour.txt", "res://story/night_twentyfive.txt", "res://story/night_twentysix.txt", "res://story/night_twentyseven.txt", "res://story/night_twentyeight.txt", "res://story/night_twentynine.txt", "res://story/night_thirty.txt"],
+	"visit": ["res://story/day_five.txt", "res://story/day_nine.txt", "res://story/evening_ten.txt", "res://story/day_twelve.txt", "res://story/day_fourteen.txt", "res://story/day_seventeen.txt", "res://story/evening_nineteen.txt", "res://story/day_twentyone.txt", "res://story/day_twentytwo.txt", "res://story/day_twentyfive.txt", "res://story/day_twentyseven.txt", "res://story/day_thirty.txt", "res://story/evening_twentynine.txt"],
 	"examine": ["res://story/examine.txt"],
 }
 
@@ -246,8 +261,8 @@ func _condition_problems(text: String, items: ConfigFile, stock: ConfigFile) -> 
 			if condition.begins_with("has:"):
 				if not items.has_section(condition.trim_prefix("has:")):
 					problems.append("no item '%s'" % condition)
-			elif condition.begins_with("sold:"):
-				if not stock.has_section(condition.trim_prefix("sold:")):
+			elif condition.begins_with("sold:") or condition.begins_with("held:"):
+				if not stock.has_section(condition.get_slice(":", 1)):
 					problems.append("no stock item '%s'" % condition)
 			elif condition.begins_with("window:"):
 				var in_window: String = condition.trim_prefix("window:")

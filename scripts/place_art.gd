@@ -52,6 +52,9 @@ func _draw() -> void:
 		"cabin_road": _draw_cabin_road()
 		"booth": _draw_booth()
 		"gleaner": _draw_gleaner()
+		"church_fire": _draw_church_fire()
+		"vestry_door": _draw_vestry_door()
+		"ruins": _draw_ruins()
 
 func _draw_church() -> void:
 	# White walls, tall plain windows on both sides, pews running to the altar.
@@ -274,3 +277,52 @@ func _draw_gleaner() -> void:
 	# The jukebox, lit.
 	_rect(0.88, 0.44, 0.09, 0.24, Color(0.7, 0.3, 0.2))
 	_rect(0.895, 0.47, 0.06, 0.08, Color(0.95, 0.8, 0.4))
+
+func _draw_church_fire() -> void:
+	# The church on the hill, burning, at night; the town in the snow below it,
+	# a row of dark shapes with their faces lit.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.08, 0.04, 0.05))
+	_poly([Vector2(0, 0.7), Vector2(1, 0.66), Vector2(1, 1), Vector2(0, 1)], Color(0.55, 0.42, 0.4))
+	_rect(0.36, 0.3, 0.28, 0.32, Color(0.12, 0.08, 0.06))
+	_poly([Vector2(0.34, 0.31), Vector2(0.5, 0.16), Vector2(0.66, 0.31)], Color(0.1, 0.06, 0.05))
+	_rect(0.47, 0.04, 0.06, 0.14, Color(0.12, 0.08, 0.06))
+	for k in 9:
+		var x: float = 0.34 + k * 0.035
+		_poly([Vector2(x, 0.32), Vector2(x + 0.02, 0.1 + fmod(k * 0.07, 0.12)), Vector2(x + 0.04, 0.32)], Color(0.95, 0.5 + fmod(k * 0.11, 0.3), 0.1, 0.85))
+	for k in 4:
+		_rect(0.39 + k * 0.06, 0.38, 0.03, 0.1, Color(1.0, 0.7, 0.2))
+	# The crowd, faces lit.
+	for k in 16:
+		var x: float = 0.04 + k * 0.06
+		_rect(x, 0.72, 0.035, 0.14, Color(0.06, 0.05, 0.05))
+		draw_circle(_p(x + 0.017, 0.7), size.y * 0.018, Color(0.9, 0.55, 0.3))
+
+func _draw_vestry_door() -> void:
+	# The side of the church: the vestry door, bolted from outside, the light
+	# of the fire through the cracks round it; footprints going away.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.1, 0.06, 0.06))
+	_poly([Vector2(0, 0.74), Vector2(1, 0.74), Vector2(1, 1), Vector2(0, 1)], Color(0.6, 0.5, 0.48))
+	_rect(0.1, 0.06, 0.8, 0.68, Color(0.2, 0.12, 0.09))
+	_rect(0.4, 0.28, 0.2, 0.46, Color(0.98, 0.6, 0.2))
+	_rect(0.41, 0.29, 0.18, 0.44, WOOD_DARK)
+	_rect(0.55, 0.48, 0.08, 0.025, IRON)
+	for k in 6:
+		draw_circle(_p(0.62 + k * 0.06, 0.8 + (k % 2) * 0.03), size.y * 0.012, Color(0.3, 0.24, 0.24))
+	draw_line(_p(0.66, 0.86), _p(0.7, 0.88), CLOTH, 2.0)
+
+func _draw_ruins() -> void:
+	# The church, burned: black ribs of the roof against the snow, the altar
+	# stone, two chairs standing in the ash where the booth was; candles.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.05, 0.06, 0.1))
+	_poly([Vector2(0, 0.62), Vector2(1, 0.62), Vector2(1, 1), Vector2(0, 1)], Color(0.32, 0.3, 0.3))
+	for k in 7:
+		var x: float = 0.12 + k * 0.12
+		draw_line(_p(x, 0.62), _p(x + 0.02, 0.16 + (k % 3) * 0.06), Color(0.04, 0.03, 0.03), 5.0)
+	_rect(0.42, 0.5, 0.16, 0.12, Color(0.55, 0.53, 0.5))
+	_rect(0.72, 0.56, 0.05, 0.1, WOOD_DARK)
+	_rect(0.8, 0.56, 0.05, 0.1, WOOD_DARK)
+	for k in 20:
+		var x: float = 0.04 + fmod(k * 0.173, 0.92)
+		var y: float = 0.68 + fmod(k * 0.061, 0.26)
+		_rect(x, y, 0.006, 0.02, Color(0.95, 0.9, 0.8))
+		draw_circle(_p(x + 0.003, y - 0.006), size.y * 0.006, Color(1.0, 0.75, 0.3))
