@@ -78,7 +78,7 @@ narration | time=23:30: You stay in. The shop dark. Five candles in the window, 
 narration: Up the road, the Gleaner, roaring. You can hear the countdown start, early, through the walls, through the snow. Ten. Nine.
 narration: Midnight.
 narration: Nothing happens.
-narration | sound=ring: The shop phone.
+narration: The shop phone. Ringing.
 narration: Of course. Of course it does.
 paranoia: Rule four. Don't answer. If you do, don't speak first.
 narration: You lift it. Breathing. Not wipers, not wind. A quiet room. A man sitting very still in it.

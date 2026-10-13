@@ -399,3 +399,32 @@ April.
   walk away (`reverend_gone`). Night 20: him alone at night; praying
   through the floor if he's in the back room; out of place, the bulletin.
 - **Tests:** `test_december.gd`.
+
+**Pass 3, to hard fork 5 (Oct 13).**
+- **Engine:** `DAY_DATES` 22-24; key days 22 and 23 as walk-arounds;
+  visit rooms `booth` and `gleaner` (place art); the counter's day-21
+  visitors (a note if `eye>=3`, Mrs. Hollis, Olstad); bridges 22-24, the
+  last ending what's written; the collar as stock (`reverend_collar`).
+- **Key day 21** (`day_twentyone.txt`): the Reverend's fate in the morning
+  (a postcard from Tok; the collar in the envelope, pawned to the back
+  shelf); the note (WE SEE YOUR LIGHT); Ray's baby teeth for the vestry;
+  Olstad's key (`olstad_freezer_key`, only with her trust). At closing,
+  the freezer: Olstad's key or the bear's second seam; the Reverend, if
+  he's in the back room, knew; Abraham. Bring Ruth (`keep=ruth`,
+  `ruth_saw_father`), tell Olstad (`told_olstad_freezer`), or lock it
+  (`freezer_closed`). Map evening; night 21, the power cut: UPSTAIRS (rule
+  seven kept), SIGN (the town sees the Keeper's light: `eye=-1`), FREEZER.
+- **Key day 22** (`day_twentytwo.txt`): cards under the door; the booth
+  with Daniel's first door (he takes the costume off, lie by lie, from the
+  flags; stay: `door=daniel`, his count, his father's table); Mrs.
+  Hollis's table (Ray's chair, the coat behind the door); the Gleaner (your
+  envelope back, or your face drawn in); the shop alone with the Christmas
+  story. Night 22, out of place: the stocking and the 1958 tooth.
+- **Key day 23** (`day_twentythree.txt`): the locker key (Anchorage
+  tomorrow if there's a car: `anchorage_tomorrow`; else `locker_lapsed`);
+  midnight with Ruth (`doors:ruth>=2`), with Sam (`doors:sam>=2`), or
+  alone, when the phone rings (with Daniel's two doors, say his name:
+  `new_year_daniel`, rule four broken). Night 23: "Breakup, friends.";
+  the calendar. The bridge into January: John's books (`has_books`), or
+  lost.
+- **Tests:** `test_december_late.gd`.

@@ -95,7 +95,7 @@ func _shortest_day(trusted: bool) -> void:
 	check(column._section == "closing", "closing")
 	advance(column)
 	check(_log(column).contains("I could hear him, I thought."), "the Reverend, in the back room: he knew")
-	check(_log(column).contains("as if he'd sat down to wait") or _log(column).contains("waiting for somebody"), "the freezer opens: Abraham, waiting")
+	check(_log(column).contains("sat down to wait for somebody"), "the freezer opens: Abraham, waiting")
 	if trusted:
 		await pick(column, "Bring Ruth")
 		advance(column)

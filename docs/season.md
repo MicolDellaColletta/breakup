@@ -58,7 +58,7 @@ with bridges between them, as now:
   in February). Ruth's mother: Ruth at the potluck sets out a bowl, her
   mother's, and says so.
 
-## December (plan: `december.md`)
+## December (built: `december.md`)
 
 **KD18, Wed Dec 1: the envelope at dawn.**
 - MC wakes before light and watches, through the door's glass, the boots on

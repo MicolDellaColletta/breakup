@@ -50,6 +50,8 @@ func _draw() -> void:
 		"stage": _draw_stage()
 		"cabin": _draw_cabin()
 		"cabin_road": _draw_cabin_road()
+		"booth": _draw_booth()
+		"gleaner": _draw_gleaner()
 
 func _draw_church() -> void:
 	# White walls, tall plain windows on both sides, pews running to the altar.
@@ -229,3 +231,46 @@ func _draw_cabin_road() -> void:
 	_rect(0.44, 0.44, 0.12, 0.1, Color(0.85, 0.66, 0.36))
 	_rect(0.49, 0.46, 0.025, 0.08, Color(0.3, 0.2, 0.12))
 	draw_line(_p(0.5, 0.48), _p(0.54, 0.445), Color(0.3, 0.2, 0.12), 3.0)
+
+func _draw_booth() -> void:
+	# The radio booth behind the vestry wall: two chairs knee to knee, the
+	# microphone pushed back on its arm, the ON AIR bulb dark over the door.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.16, 0.13, 0.11))
+	_poly([Vector2(0, 0.7), Vector2(1, 0.7), Vector2(1, 1), Vector2(0, 1)], Color(0.1, 0.08, 0.07))
+	# Egg-crate soundproofing on the walls.
+	for row in 6:
+		for col in 12:
+			draw_circle(_p(0.05 + col * 0.08, 0.08 + row * 0.1), size.y * 0.012, Color(0.22, 0.18, 0.15))
+	# The door, its little window, the bulb above it.
+	_rect(0.42, 0.18, 0.16, 0.52, WOOD_DARK)
+	_rect(0.46, 0.24, 0.08, 0.08, Color(0.3, 0.3, 0.32))
+	draw_circle(_p(0.5, 0.13), size.y * 0.02, Color(0.35, 0.08, 0.06))
+	# Two chairs, facing.
+	_rect(0.26, 0.5, 0.1, 0.04, WOOD)
+	_rect(0.26, 0.38, 0.02, 0.16, WOOD)
+	_rect(0.64, 0.5, 0.1, 0.04, WOOD)
+	_rect(0.72, 0.38, 0.02, 0.16, WOOD)
+	# The microphone on its arm.
+	draw_line(_p(0.8, 0.2), _p(0.86, 0.34), IRON, 3.0)
+	draw_circle(_p(0.86, 0.36), size.y * 0.025, IRON)
+
+func _draw_gleaner() -> void:
+	# The Gleaner: the bar along the left, the wall of Keepers' faces on the
+	# back wall (each with its strand of tinsel at Christmas), a jukebox.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.32, 0.14, 0.1))
+	_poly([Vector2(0, 0.66), Vector2(1, 0.66), Vector2(1, 1), Vector2(0, 1)], FLOOR)
+	_rect(0, 0.5, 0.36, 0.2, WOOD_DARK)
+	_rect(0, 0.48, 0.38, 0.03, WOOD)
+	for k in 5:
+		_rect(0.04 + k * 0.06, 0.22, 0.03, 0.12, Color(0.5, 0.36, 0.18, 0.8))
+	# The wall of faces, in rows.
+	for row in 3:
+		for col in 7:
+			var x: float = 0.44 + col * 0.075
+			var y: float = 0.12 + row * 0.12
+			_rect(x, y, 0.05, 0.07, Color(0.88, 0.86, 0.8))
+			_rect(x + 0.012, y + 0.012, 0.026, 0.035, Color(0.42, 0.36, 0.32))
+			draw_line(_p(x - 0.005, y - 0.005), _p(x + 0.055, y - 0.005), Color(0.85, 0.85, 0.9), 1.5)
+	# The jukebox, lit.
+	_rect(0.88, 0.44, 0.09, 0.24, Color(0.7, 0.3, 0.2))
+	_rect(0.895, 0.47, 0.06, 0.08, Color(0.95, 0.8, 0.4))

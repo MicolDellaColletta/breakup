@@ -140,4 +140,31 @@ narration | card=Monday. An empty pulpit. | time=09:00: The road the morning aft
 narration | if=flag:reverend_gone: The manse dark. The car in the drive, hood down, under fresh snow. By Wednesday nobody says his name. By Friday nobody says they don't say it.
 narration | if=flag:reverend_warned: The manse dark. Ezra at the pulpit on Sunday, reading what's written. He reads it badly. He knows he does. The man in the good coat, in the front pew, listening with his eyes closed.
 narration | if=flag:reverend_hidden: The manse dark. The town looking. Ezra at your door on Tuesday, polite, asking if you'd seen him. You say no. He writes something in his book.
-narration: (The story continues on the shortest day, which is still being written. Thank you for playing.)
+
+# --- Before key day 22 (Friday, December 24): Wednesday and Thursday. ---
+
+=== bridge_christmas_week
+narration | card=Wednesday. The Keeper is paid. | cash=+150 | time=07:30: The envelope, before dawn. You don't go down. You hear the boots, and the paper, and the boots going. Christmas money, in with it: a five, crisp, folded into a little star.
+narration | if=flag:ruth_saw_father: The Gleaner shut, Wednesday. A card on the door in Ruth's hand: FAMILY. Nobody in Kettle Lake asks which family.
+narration | if=flag:freezer_closed: Ezra, at the post office, asks you if you've heard from Abraham. His sister in Anchorage hasn't. You say no. He writes it down.
+narration | card=Thursday. Teeth.: The teeth go up to the vestry in a procession at dusk, in jars and envelopes and a cigar box, every family, the children carrying their own.
+narration | if=eye>=3: Nobody knocks for the shop's jar. It stays on your back shelf. Somehow that's worse.
+narration | if=eye<3: Ezra knocks for the shop's jar, and you give it to him, and he thanks you as if you'd given blood.
+
+# --- Before key day 23 (Friday, December 31): Christmas week. ---
+
+=== bridge_christmas
+narration | card=Saturday. Christmas Day. | time=10:00: Christmas Day in a line. The shop shut. Carols on every station. A plate left on the back step at noon, under foil, still warm. You don't read the foil.
+narration | card=Tuesday. The money order.: In the mail, the fourth money order. Interest, ticket 0527. Postmarked Kettle Lake. No stamp on the envelope. Hand-delivered.
+narration | if=flag:reverend_hidden: Wednesday, men at the back door. Polite. Asking. You say you haven't seen him. They look past you at the steel door for a long time and go away.
+narration | card=Thursday. One day left.: The radio counts the hours till midnight tomorrow. Twenty-four. Twenty-three. The Anchorage station's full of banks and airplanes. In Kettle Lake, nobody mentions computers.
+
+# --- After key day 23: the end of what's written. ---
+
+=== bridge_into_january
+narration | card=Saturday. January. | time=08:00: The first of January, 2000. Snow. The plow at nine.
+narration | if=flag:anchorage_tomorrow: At first light you dig the car out and drive south. Three hours. The Greyhound station in Anchorage, fluorescent, empty, smelling of floor polish. Locker 114. The key turns.
+narration | if=flag:anchorage_tomorrow | flag=has_books: Inside, wrapped in a bread bag: three ledgers. John's hand. Names, and money, and dates. You don't read them in the station. You don't read them in the car. You drive home with them on the passenger seat like a sleeping dog.
+narration | if=flag:anchorage_tomorrow: When you get back to Kettle Lake at dusk, the man in the good coat is standing at the window of the shop, reading the shelves, as if he'd been waiting all day. He doesn't turn round.
+narration | if=flag:locker_lapsed: In a station in Anchorage, a man with a master key opens locker 114, and takes out a bread bag, and puts it in a box marked LOST. You'll never know what was in it. You'll think about it every day until April.
+narration: (The story continues in January, which is still being written. Thank you for playing.)

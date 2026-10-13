@@ -27,6 +27,8 @@ const ROOMS: Dictionary = {
 	"stage": ["place", "stage"],
 	"cabin": ["place", "cabin"],
 	"cabin_road": ["place", "cabin_road"],
+	"booth": ["place", "booth"],
+	"gleaner": ["place", "gleaner"],
 }
 
 @onready var narrator: DialogueColumn = %Narrator

@@ -259,4 +259,4 @@ func _night_twenty() -> void:
 	await wait(2.0)
 	_route(current_scene.get_node("%Narrator"))
 	await wait(4.0)
-	check(current_scene.name == "Title", "the end of what's written, for now")
+	check(current_scene.name == "Counter" and gs.day == 21, "then the shortest day, at the counter")
