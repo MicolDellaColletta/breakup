@@ -1,0 +1,49 @@
+# THE EVENING OF KEY DAY 25: Saturday, January 15. The Reverend moved.
+# A walked evening (scenes/visit.tscn; GameState.EVENINGS), on the shore. If
+# the Reverend is hidden, January is when it breaks: with Olstad's trust she
+# drives him to Wasilla (reverend_moved); without it, the congregation is
+# waiting on the shore with lanterns (reverend_taken). If warned, a voice on
+# the radio far away; if gone, nothing. end=night. Design: docs/january.md.
+
+=== evening
+narration | show=shore | time=19:00: The shore, after dark. The shanty town out on the ice, lit, smoke going straight up from every pipe. Forty below again.
+-> evening_hidden | if=flag:reverend_hidden
+-> evening_warned | if=flag:reverend_warned
+-> evening_quiet
+
+=== evening_hidden
+narration | if=flag:reverend_in_back_room: You've brought him out of the back room, wrapped in Abraham's old coat from the hook in the hall, a hat pulled down. He hasn't been outside in a month. He stands on the shore and breathes like a man who's been underwater.
+narration | if=flag:reverend_at_sam: Sam's brought him along the shore to you, the two of them dark shapes against the white. Sam doesn't stay. "Not my chair," he says, and goes back.
+reverend: Where?
+-> evening_olstad | if=faith:olstad
+-> evening_lanterns
+
+=== evening_olstad
+narration: Headlights on the shore road, low, no siren. The cruiser. It stops. The back door opens from inside.
+narration: Olstad at the wheel, in a parka over a nightgown, a baby seat strapped in beside her, empty. Her face in the dash light, a week of no sleep in it.
+trooper: Get in, Elias. Wasilla. My sister's. Don't talk.
+narration: He gets in. He looks back at you through the window, once, and raises his hand, and the cruiser goes, without lights, up the shore road and out of town.
+narration | flag=reverend_moved: She'll never say she did it. You'll never ask.
+-> evening_home
+
+=== evening_lanterns
+narration: You walk him out along the shore, toward the highway, keeping to the dark under the bank.
+narration: Halfway, lanterns. On the shore ahead of you, in a line across the path. Twenty of them. Thirty. The congregation, in their coats, waiting. Ezra at the front.
+ezra: Elias. There you are. We've been so worried.
+narration: Nobody touches him. Nobody needs to. They open the line for him, and close it behind him, and take him up the hill to sit with, and be kind to, until spring.
+narration | flag=reverend_taken | eye=+2: Ezra looks at you over the lanterns. He doesn't say anything. He writes something in his book.
+narration: In the next envelope there'll be a collar. As if you'd stayed out of it after all.
+-> evening_home
+
+=== evening_warned
+narration: You stand on the shore with the little radio from the counter in your coat pocket, turned low, the way the shanty men do.
+narration: Hymns. His voice between them. And then, very faint, under a hymn, another voice, far away, cracked with distance, like a station bleeding in from the other side of a mountain: a number. Three. Then gone.
+paranoia: Three in the first verse. Keep the stove in. That's what he told you. That's what it meant.
+-> evening_home
+
+=== evening_quiet
+narration: The lake. The shanties. Nobody says the Reverend's name anymore. You walk along the shore and the town looks at you from its lit windows and doesn't say anything either.
+-> evening_home
+
+=== evening_home
+narration | end=night | time=21:00: Home. The road white and empty, and every window on it lit, and in every one, a radio.

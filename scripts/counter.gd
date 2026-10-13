@@ -82,6 +82,10 @@ const VISITS: Dictionary = {
 	# The shortest day: a note if the town's eye is on you; the third candle;
 	# Olstad and the freezer's key.
 	21: ["note | if=eye>=3", "widow", "trooper"],
+	# January: the coat; Ruth and the freezer; him, in the customer chair.
+	# Then Walt, and Cody or Mrs. Hollis for his picks.
+	24: ["widow", "ruth", "daniel"],
+	25: ["seller", "nephew | if=flag:gave_picks_back", "widow | if=flag:kept_picks"],
 }
 # From the bell to the door opening.
 const CUSTOMER_GAP: float = 0.8

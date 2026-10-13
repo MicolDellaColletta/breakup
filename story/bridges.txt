@@ -148,7 +148,7 @@ narration | card=Wednesday. The Keeper is paid. | cash=+150 | time=07:30: The en
 narration | if=flag:ruth_saw_father: The Gleaner shut, Wednesday. A card on the door in Ruth's hand: FAMILY. Nobody in Kettle Lake asks which family.
 narration | if=flag:freezer_closed: Ezra, at the post office, asks you if you've heard from Abraham. His sister in Anchorage hasn't. You say no. He writes it down.
 narration | card=Thursday. Teeth.: The teeth go up to the vestry in a procession at dusk, in jars and envelopes and a cigar box, every family, the children carrying their own.
-narration | if=eye>=3: Nobody knocks for the shop's jar. It stays on your back shelf. Somehow that's worse.
+narration | if=eye>=3 | flag=kept_teeth_jar: Nobody knocks for the shop's jar. It stays on your back shelf. Somehow that's worse.
 narration | if=eye<3: Ezra knocks for the shop's jar, and you give it to him, and he thanks you as if you'd given blood.
 
 # --- Before key day 23 (Friday, December 31): Christmas week. ---
@@ -167,4 +167,27 @@ narration | if=flag:anchorage_tomorrow: At first light you dig the car out and d
 narration | if=flag:anchorage_tomorrow | flag=has_books: Inside, wrapped in a bread bag: three ledgers. John's hand. Names, and money, and dates. You don't read them in the station. You don't read them in the car. You drive home with them on the passenger seat like a sleeping dog.
 narration | if=flag:anchorage_tomorrow: When you get back to Kettle Lake at dusk, the man in the good coat is standing at the window of the shop, reading the shelves, as if he'd been waiting all day. He doesn't turn round.
 narration | if=flag:locker_lapsed: In a station in Anchorage, a man with a master key opens locker 114, and takes out a bread bag, and puts it in a box marked LOST. You'll never know what was in it. You'll think about it every day until April.
-narration: (The story continues in January, which is still being written. Thank you for playing.)
+
+# --- Before key day 25 (Saturday, January 15): the week without Olstad. ---
+
+=== bridge_early_january
+narration | card=Saturday. A girl. | time=10:00: Olstad's baby, born in Wasilla in the night, the eighth. A girl. Seven pounds. The Gleaner drinks to her, and Ruth puts the sign in the window: IT'S A GIRL, in her father's old stencils.
+narration: The cruiser parked at her house all week. The road without anybody watching it.
+narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope. And that week, things happen that wouldn't have. A window broken at the manse. The shop's back step trodden flat every morning, by more feet than one. Somebody's dog, found sitting on the ice in the middle of the lake, facing the shore, who won't come in.
+narration | card=Friday. The light.: Light at a quarter to ten. The radio says it like a warning. Six hours and forty minutes of day. "Every day a little more, friends. Every day closer."
+
+# --- Before key day 26 (Sunday, January 23): the week of sermons. ---
+
+=== bridge_late_january
+narration | card=Monday. Leviticus. | time=20:00: The sermon on the radio every night now, Leviticus 16, the two goats, and every night a little more about the second one.
+narration | if=flag:ida_returned: At the Gleaner, Walt buys a round, and makes everybody say her name. Ida. The whole bar. Somebody cries. It's not Walt.
+narration | card=Thursday. A goat.: A goat, tethered in the churchyard on Thursday morning. White, with a red ribbon round its neck. Nobody says whose. Two explanations: somebody's idea of a joke; or somebody meaning it.
+narration | card=Saturday. The queue.: On the church board, chalked, in capitals: CONFESSION AFTER SERVICE. ALL WELCOME. The plow comes twice on Saturday, so the road up the hill will be clear.
+
+# --- After key day 26: the end of what's written. ---
+
+=== bridge_into_february
+narration | card=Saturday. The light. | time=09:00: The light past seven hours. Nobody says it's good news.
+narration | card=Tuesday. February.: The first of the month. The plow, the envelope a day early, the radio.
+narration: Ezra at the post office with his right hand in a bandage, thick, white, from wrist to fingertips. "An accident," he says, to anyone who asks. "At the vestry door." Nobody asks twice.
+narration: (The story continues in February, which is still being written. Thank you for playing.)

@@ -1,7 +1,7 @@
 # Breakup: January (plan)
 
-Key days 24 to 26, from `season.md`. A plan to agree before building.
-**Leans** are my recommendations; "Your call" marks the decisions.
+Key days 24 to 26, from `season.md`. **Decided Oct 13: all seven leans,
+and Daniel on the phone in red** (see "As built" at the end).
 
 January is the hangover. The world didn't end, and the town has to decide
 what that means. He decides for them: the Lord is waiting for the ice. From
@@ -222,3 +222,39 @@ No engine needed: lines with conditions.
    John night is refused till March. Lean: yes.
 7. **The blur, lightly, from January:** one moment per key day above a
    threshold, lines only. Lean: yes.
+
+## As built (Oct 13)
+
+- **Daniel on the phone** speaks as `daniel_line` ("On the line"), in ???'s
+  red (`speakers.cfg`); in person he stays `daniel`. Used for the New Year's
+  call and every call from now on.
+- **Engine:** `DAY_DATES` 24-27; key day 25's walked evening on the shore
+  (`EVENINGS`, `EVENING_ROOMS`); key day 26 a walk-around; the counter's
+  January visitors; a new condition, `held:item` (pawned to the shop, still
+  on the shelf), for Walt's silver dollars.
+- **Key day 24** (`day_twentyfour.txt`): the radio's "Breakup, friends";
+  the coat hung on the shop door (`coat_in_shop`) or not (`eye=+1`); Ruth
+  grieving (`ruth_saw_father`), closed, or told by him: the truth
+  (`ruth_told_late`) or a lie (`betray=ruth`); him in the customer chair,
+  your real name once, the most intimate notebook line (there you are > I
+  know that voice > the voice > he's here > any), or the tooth, or the
+  armchair; Anchorage and the New Year's lock. Night 24: the cards.
+- **Key day 25** (`day_twentyfive.txt`, `evening_twentyfive.txt`): Walt for
+  Ida's name (`ida_returned`, `keep=walt`; or `betray=walt`) and the warm
+  dollars (`keep=walt`); Cody's knock under the ice, or Mrs. Hollis for his
+  picks (`picks_for_place`, `keep=hollis`). The evening: Olstad drives the
+  hidden Reverend to Wasilla (`reverend_moved`, with her trust) or the
+  lanterns take him (`reverend_taken`, `eye=+2`); warned, a number on the
+  radio. Night 25: the coat put on, at three.
+- **Key day 26** (`day_twentysix.txt`): the eye on faces (under 2 / 2-3 /
+  4+); the queue (Mrs. Hollis, Ezra with the teeth: `kept_teeth_jar`, Mrs.
+  Lund if you lied in church, Ruth stepping out to stand with you); the booth
+  (a small true thing said back; the John night refused till March:
+  `offered_john_night`; nothing) or walking out (`eye=+1`). Night 26:
+  goodnight by name, yours last only with his doors.
+- **The blur:** one line per key day above `fray>=4 or unknown>=4` or a
+  locked romance (the potluck you didn't speak at; the coat in the ledger;
+  "the other night" that's tonight).
+- **Bridges:** Olstad's girl; the week without her; the goat; Ezra's hand
+  (into February, to be continued).
+- **Tests:** `test_january.gd`.

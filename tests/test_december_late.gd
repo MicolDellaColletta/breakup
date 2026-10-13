@@ -212,4 +212,4 @@ func _night_twentythree() -> void:
 	_route(current_scene.get_node("%Narrator"))
 	check(gs.flags.has("has_books"), "Anchorage, on New Year's Day: John's books")
 	await wait(4.0)
-	check(current_scene.name == "Title", "the end of what's written")
+	check(current_scene.name == "Counter" and gs.day == 24, "then January, at the counter")

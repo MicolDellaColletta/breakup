@@ -82,7 +82,7 @@ narration: The shop phone. Ringing.
 narration: Of course. Of course it does.
 paranoia: Rule four. Don't answer. If you do, don't speak first.
 narration: You lift it. Breathing. Not wipers, not wind. A quiet room. A man sitting very still in it.
-daniel: Happy New Year, sweetheart.
+daniel_line: Happy New Year, sweetheart.
 narration: That's all. He waits. He's never waited before. He's waiting now for you.
 -> new_year_alone_door | if=doors:daniel>=2
 -> new_year_alone_listen
@@ -99,8 +99,8 @@ narration | flag=new_year_alone: You say nothing. He doesn't either. After a lon
 === new_year_alone_speak
 narration: You say it. His name. The first time you've said it aloud. You didn't know you knew it.
 narration: On the line, a breath. A long one. Like a man setting down something he's carried a very long way.
-daniel: There. Now we both know where we are.
-daniel: Go to sleep. I'll be right here.
+daniel_line: There. Now we both know where we are.
+daniel_line: Go to sleep. I'll be right here.
 narration: He doesn't hang up. You don't either. You sit in the dark with the receiver against your ear, listening to him listen to you, until the candles in the window go out one by one.
 -> new_year_after
 
