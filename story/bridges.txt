@@ -233,7 +233,7 @@ narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope. And w
 # --- Before key day 33 (Saturday, February 19): the week after Ruth. ---
 
 === bridge_mid_february
-narration | card=Monday. Eight weeks. | time=09:00: On the hall door, the nine crossed out, eight painted under it, white, dripping.
+narration | card=Monday. Ten weeks. | time=09:00: On the hall door, the ten has dried. Somebody has painted a line under it, and under the line, nothing yet.
 narration | if=doors:ruth>=3: Ruth at the Gleaner, serving with her coat off for the first time since December. When you come in she sets a glass down in your place, at the end of the bar, before you've reached it.
 narration | if=faithless:ruth: Ruth at the Gleaner. Your place at the end of the bar has someone else in it, every night.
 narration | card=Friday. Fasting.: Friday again. Nobody eats. The bakery dark. At dusk the whole town walks up the hill to the post on the tower, in the cold, and stands under it, and then walks down again, and nobody says why.
@@ -243,5 +243,5 @@ narration | card=Friday. Fasting.: Friday again. Nobody eats. The bakery dark. A
 === bridge_into_march
 narration | card=Tuesday. The doors.: In the morning every door on the road is shut again, as if nothing happened. In every house, a drift of snow in the hallway, and everyone sweeping it out, and nobody talking about it.
 narration | if=flag:gave_up_sam: Sam's cabin dark. Sam in the hall, sleeping on the floor with the others, his hands folded on his chest. He says good morning to you. He doesn't say anything else.
-narration | card=Saturday. March.: March. Six weeks. The light past ten hours. The sun on the snow so bright at noon you can't look at the lake.
+narration | card=Saturday. March.: March. Seven weeks. The light past ten hours. The sun on the snow so bright at noon you can't look at the lake.
 narration: (The story continues in March, which is still being written. Thank you for playing.)

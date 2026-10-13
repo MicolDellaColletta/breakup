@@ -11,7 +11,7 @@
 narration | time=09:00: Friday, the thirty-first. The last day.
 narration: The night radio's counting hours now, not days. "Fifteen hours, friends." The Anchorage station, when you turn the dial, is all banks and airplanes and computers. In Kettle Lake nobody's talking about computers.
 narration | show=shop | time=13:00: The shop, open, and nobody comes. Five candles in the window, the last lit from the fourth. Through the glass the whole road is busy, carrying things up to the Gleaner. Folding chairs. A ham. A crate of something.
-narration: Up the hill, the ruin, and a scaffold already going up against the black tower stump. Men working on it in the dark at noon, with red threads on their wrists, singing.
+narration: Up the hill, the ruin, and a scaffold already going up against the black tower stump. Men working on it in the grey noon light, with red threads on their wrists, singing.
 narration: At four, dark. At nine, the party. At midnight, the year turns over, and some say the world with it.
 paranoia: Where will you be. Where will you be when it happens.
 

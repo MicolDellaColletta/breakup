@@ -86,7 +86,7 @@ narration | sound=bell: She goes. You know, watching her walk up the road, that 
 # --- Him, at closing. As himself. ---
 
 === daniel_enters
-narration | sound=bell | time=+180: The bell. Twenty to four. The good coat. He closes the door behind him so gently it rings only once.
+narration | sound=bell | time=15:40: The bell. Twenty to four. The good coat. He closes the door behind him so gently it rings only once.
 narration | if=flag:coat_in_shop: The coat on the back of the door swings as the door closes. He watches it settle. He looks pleased.
 narration: He doesn't stand at the counter. He sits in the customer chair by the stove, the way Olstad did, and crosses one leg over the other, and looks at you.
 daniel: I'm not here to buy anything. I wanted to talk to you in a room. It's different in a room.

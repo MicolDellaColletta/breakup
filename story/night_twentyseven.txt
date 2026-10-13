@@ -32,8 +32,8 @@ narration: You leave it off. Through the wall, the neighbor's radio, his voice, 
 === kitchen
 narration | time=+10: The bowl.
 paranoia: Rule five.
-> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentythree
-> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentythree | flag=bowl_door
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyseven
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyseven | flag=bowl_door
 > Leave it -> kitchen_unfed | break=dog
 
 === kitchen_door
@@ -75,7 +75,7 @@ narration | time=+20 | show=bedroom: You lie down. Two in the morning. The first
 
 === night_dog
 -> night_dog_door | if=flag:bowl_door
--> night_dog_fed | if=flag:fed_twentythree
+-> night_dog_fed | if=flag:fed_twentyseven
 -> night_dog_unfed
 
 === night_dog_fed

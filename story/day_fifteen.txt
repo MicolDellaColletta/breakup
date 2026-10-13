@@ -29,7 +29,7 @@ narration | sound=bell: She knocks twice on the frame. The bell.
 # --- The man in the good coat. ---
 
 === daniel_enters
-narration | sound=bell | time=+240: The bell. Twenty to four. The light nearly gone.
+narration | sound=bell | time=15:40: The bell. Twenty to four. The light nearly gone.
 narration: A man in the doorway. Snow on his shoulders. A good coat, gray wool, well cut, the kind nobody in Kettle Lake owns. Forties. Clean-shaven. Hatless in the cold, as if the cold were something that happened to other people.
 narration: He closes the door behind him, gently, so the bell won't ring twice.
 narration: He doesn't come to the counter. He looks at the shop. Slowly. All of it. The shelves. The fox. The bear in the corner, for a long time. The ledger on the counter. The window. You.

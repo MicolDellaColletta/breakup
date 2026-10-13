@@ -7,7 +7,7 @@
 # scripts/counter.gd. Design: docs/february.md, docs/forks.md.
 
 === morning
-narration | time=07:30: Saturday, the nineteenth. Seven weeks. Light at eight. The snow off the roofs at noon, dripping, and freezing again by four.
+narration | time=07:30: Saturday, the nineteenth. Nine weeks. Light at eight. The snow off the roofs at noon, dripping, and freezing again by four.
 narration: Tomorrow, the scale, at the hall. Mrs. Hollis said so twice. The radio says so between hymns.
 narration | if=flag:keys_returned: Your car keys on the dresser. You've moved them three times this week, from pocket to dresser to pocket. Nowhere feels like the right place for a way out.
 -> opening
@@ -42,10 +42,10 @@ trooper: It'll cost you. You know it'll cost you.
 -> trooper_reads
 
 === trooper_reads
-narration | if=flag:will_testify: "You said yes. At the ruins. When it comes to it. This is it coming to it."
-narration | if=flag:accused_on_air: "I heard the start of it on the radio. From him. I want the rest from you."
-narration | if=flag:asked_daniel: "And he said yes to you. About the door. I believe you. I need something I can write."
-narration | if=flag:pointed_gun: "And he's got your gun in his coat. Ezra's seen it. That's a stolen firearm, Johnny. That I can use."
+trooper | if=flag:will_testify: You said yes. At the ruins. When it comes to it. This is it coming to it.
+trooper | if=flag:accused_on_air: I heard the start of it on the radio. From him. I want the rest from you.
+trooper | if=flag:asked_daniel: And he said yes to you. About the door. I believe you. I need something I can write.
+trooper | if=flag:pointed_gun: And he's got your gun in his coat. Ezra's seen it. That's a stolen firearm, Johnny. That I can use.
 paranoia: Tell her and it's over. Lie to her and she'll know.
 > Tell her the truth about the John night. -> trooper_truth | keep=olstad | flag=told_olstad_john | lean=appraisal
 > Lie. -> trooper_lie | betray=olstad | flag=lied_to_olstad | lean=paranoia
