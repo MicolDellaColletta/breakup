@@ -38,7 +38,7 @@ narration: "The Keeper was on the radio. In October. On the Thursday watch. We a
 narration | eye=+1: Every face in the church turns. To you.
 narration: "Was he helping you too?"
 paranoia: Say no. Say no. It's church. Say no.
-> "No." -> morning_on_air_no | lean=paranoia
+> "No." -> morning_on_air_no | flag=lied_in_church | lean=paranoia
 > Say nothing. -> morning_on_air_silent | eye=+1 | lean=animal
 > "He never helped me. I wish he had." -> morning_on_air_wish | lean=warmth
 
