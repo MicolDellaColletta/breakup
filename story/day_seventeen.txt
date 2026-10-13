@@ -1,0 +1,203 @@
+# KEY DAY 17: Thursday, November 25, 1999. Thanksgiving.
+# A walk-around day (scenes/visit.tscn). The shop is shut; the church hall,
+# the potluck: the empty place set facing the lake window, MC's seat beside
+# it (spots in spots.cfg, if=day==17). Sitting down at the table opens the
+# pageant (the stage); after it, the Thursday watch on the radio on the pie
+# table, his voice; then the vestry door, and the walk home (end=night).
+# Design: docs/thanksgiving.md.
+
+=== morning
+narration | time=10:00: Thursday, the twenty-fifth. Thanksgiving.
+narration: On the shop door, from the inside, a sign you didn't put there. Cardboard, gone yellow, the corners soft with years of tape. In the owner's hand: CLOSED FOR THANKSGIVING. THE KEEPER IS AT TABLE.
+paranoia: It was in the drawer. It must have been in the drawer. You must have put it up.
+narration | if=flag:sold_ezra_shells: It's Thursday. The bell doesn't ring at ten. Nobody comes for a box of shells. There isn't one to come for.
+narration | time=12:40: You walk up the hill at twenty to one. Every chimney on the road is going. Every one. The smoke goes straight up and stops at the same height, as if the sky had a ceiling.
+narration | show=hall | time=13:00: The church hall. The whole town, at long tables, paper on the tables, paper turkeys on the paper. Steam on the windows. Children under the tables. Forty pies on a trestle by the far wall, and a radio among them, a big brown one with a dial, already warm.
+narration: At the end of the long table, in front of the big window that looks down at the lake, one place set. A plate. A glass. A chair, pulled out a little, the way you'd pull out a chair for someone.
+narration: And next to it, a card folded in half with your name on it. Not your name. JOHN.
+narration: Ezra stands, and the room goes quiet the way a room goes quiet for him.
+ezra: For the harvest. For the ice, coming in. For the ones at table, and the ones not.
+ezra: And for the Keeper, who keeps.
+narration: Everyone looks at you. Then everyone says amen, and the noise comes back, all at once, like a door opened on a party.
+narration: At the Reverend's right hand, carving, in shirtsleeves, the good coat on the back of his chair: him.
+paranoia: Find your seat. Sit down. Don't stand in the middle of the room like a man who doesn't know where he's supposed to be.
+
+# --- The hall: things to look at. ---
+
+=== hall_place
+narration: The empty place, at the window. The lake below it, white, all the way to the far shore.
+-> hall_place_duck_call | if=flag:place_duck_call
+-> hall_place_jacket | if=flag:place_jacket
+-> hall_place_bare
+
+=== hall_place_duck_call
+narration: On the plate, laid across it like a knife: Ray's duck call. R.H. on the side, turned to face the window.
+narration: Mrs. Hollis, across the table, doesn't look at it. She doesn't need to. Every so often she touches her own lips.
+-> hall_place_sit
+
+=== hall_place_jacket
+narration: Over the back of the chair, the hunting jacket, R. HOLLIS in the collar. Hung square, the shoulders set, as if a man had just stood up from the table to look at the lake.
+narration: Mrs. Hollis, across the table, keeps reaching to straighten it. It's straight.
+-> hall_place_sit
+
+=== hall_place_bare
+narration: The plate's bare. The glass is full of water, and the water has a skin of ice on it, thin as paper. In a warm room. Everyone's breath on the windows.
+paranoia: The window's leaking cold. That's all. Old windows.
+-> hall_place_sit
+
+=== hall_place_sit
+narration: Your chair's beside it. Your card. JOHN.
+narration: Your chair, or the empty one. Both pulled out. Both facing the lake.
+warmth | if=warmth>=1: Sit with them. It's Thanksgiving. They set you a place.
+unknown: The empty one's warmer. Put your hand on the seat. Go on.
+> Sit in your own chair -> hall_sit_own | flag=hall_seated | lean=warmth
+> Sit in the empty place -> hall_sit_empty | flag=hall_seated | flag=sat_in_place | lean=unknown
+
+=== hall_sit_own
+narration: You sit in the chair with your card. Beside you, the empty place, and the cold off the window, all down your left side, the whole meal.
+narration: Nobody sits in it. Children run past it and swerve, without looking, the way water goes round a stone.
+narration: Mrs. Hollis puts food on your plate until there isn't any plate.
+
+=== hall_sit_empty
+narration: You move your card over, and sit in the empty place.
+narration: The room doesn't go quiet. That would be easier. The room goes on exactly as it was, every voice, every fork, a beat too carefully, the way a room goes on when somebody's dropped a glass and everybody's decided not to have seen it.
+narration: The seat's warm. Warm as if someone had just got up.
+narration: Across the table, Mrs. Hollis smiles at you. A small smile, private, settled. The smile of a woman who's been waiting for something to be decided, and it has been.
+widow: There. Now.
+narration: Down the table, Ezra writes something in a small book, and puts it back in his pocket.
+paranoia: You've done something. You don't know what you've done.
+
+=== hall_bowl
+narration: Ruth, at the next table, serving potatoes out of a big blue bowl. Old, glazed, a chip on the rim she keeps turned away from people.
+-> hall_bowl_cold | if=flag:broke_faith_ruth
+-> hall_bowl_warm
+
+=== hall_bowl_warm
+ruth: Mom's. She'd have wanted it out. She did the potatoes every year in this.
+narration: She serves you, and then stands holding the spoon a moment.
+ruth: She liked the old Keeper. She said he had the saddest face she ever saw on a man. She used to bring him a plate.
+narration: She goes on down the table with the bowl before you can ask which old Keeper.
+
+=== hall_bowl_cold
+narration: She serves you without looking at you. A spoonful exactly like everyone else's. The bowl goes on down the table.
+narration: Somebody says to her, "Is that your mom's?" and she says, "Yes," and nothing else, and holds it a little tighter.
+
+=== hall_olstad
+narration: Olstad, by the door, in uniform, not eating. Her coat open over the baby. She's watching the head of the table. The man carving. She hasn't looked away from him since you came in.
+-> hall_olstad_sam | if=flag:met_sam
+-> hall_olstad_alone
+
+=== hall_olstad_alone
+narration: Then her eyes come to you, and stay a while, and go back to him.
+trooper: Happy Thanksgiving, Johnny. Eat something. You look like a man waiting for a bus.
+
+=== hall_olstad_sam
+narration: Then her eyes come down the table, to the far end, by the window. To you. And to Sam, who came, who's sitting two chairs down from you with his coat still on, eating very fast, not looking at anyone.
+narration: She smiles. It isn't a nice smile, and it isn't a cruel one. It's a joke she's been saving.
+trooper: Look at that. The two bachelors. Down at the cold end.
+narration: The table nearest her laughs. Then the next one. It goes down the room like a wave and breaks on you.
+narration: Sam puts his fork down.
+narration: Olstad doesn't take it back. She looks at you both a moment longer, as if she'd written something down, and goes back to watching the head of the table.
+paranoia: She means nothing by it. She means exactly what she said. Those are the same.
+
+=== hall_him
+narration: At the head of the table, at the Reverend's right hand. He carves the way he does everything: unhurried, exact, each slice the same thickness, laid on the plates in a fan.
+narration: The Reverend beside him hasn't touched his food. He's holding his fork like he's forgotten what it's for.
+narration: He doesn't look down the table at you. Not once. Everyone else does, now and then. He doesn't.
+-> hall_him_salt | if=flag:there_you_are
+
+=== hall_him_salt
+narration: Then, without looking up, without being asked, he picks up the salt and sets it on the table and slides it down. Hand to hand, all the way down the long table, nobody asking why, until it stops in front of you.
+narration: You hadn't wanted salt. You find that you do.
+
+=== hall_window
+narration: The big window. The lake below, the whole of it, white to the far shore, and the light already going at two in the afternoon, blue coming up out of the snow.
+narration: Far out, near the point, a dark dot on the white. A fisherman. Or a stump. Or a man standing very still, looking up at the hall.
+narration: You look away to say something to somebody, and when you look back the dot's gone, or it was never there, or it's moved, and you can't find it again.
+narration: Your breath on the glass. Under it, when it fades, a mark you didn't make: a small handprint. A child's. On the outside.
+
+=== hall_pies
+narration: The pie table. Forty pies. Pumpkin, mince, rhubarb from somebody's freezer, a lemon one going soft. And in the middle, the radio, the big brown one, turned low: hymns.
+narration: Mrs. Hollis cuts you a slice of pumpkin without asking, and puts it in your hand, on a paper plate.
+widow: Mine. Ray always said it was too much clove.
+-> hall_pies_note | if=flag:sam_pie_note
+-> hall_pies_eat
+
+=== hall_pies_eat
+narration: You eat it standing up. It's very good. There's too much clove.
+
+=== hall_pies_note
+narration: Don't eat the pie.
+paranoia: Sam's note. Under the door. Underlined twice.
+> Eat it -> hall_pie_eat | lean=warmth
+> Put it down. "I couldn't. Not one more thing." -> hall_pie_refuse | flag=refused_pie | lean=paranoia
+
+=== hall_pie_eat
+narration: You eat it. It's very good. There's too much clove.
+narration: Nothing happens. You wait for something to happen. You wait all afternoon, and nothing does, and that's almost worse.
+
+=== hall_pie_refuse
+narration: You set the plate down on the table by the radio. Full.
+narration: Mrs. Hollis looks at it. Then at you. Her face doesn't change at all, which is how you know.
+widow: That's all right, dear. I'll keep it for you.
+narration: She covers it with a napkin and puts it aside, apart from the others, and at the end of the day, when she wraps the leftovers, she wraps it separately, and writes something on the foil.
+
+# --- The stage: the pageant. ---
+
+=== pageant
+narration | time=17:00: The tables pushed back, the chairs turned round. June at the front with a pitch pipe.
+narration | if=flag:pageant_yes: She walks you to the front row. Your seat has a paper sign on it. THE KEEPER. You sit.
+narration | if=!flag:pageant_yes: She's saved you the front row. A paper sign on the chair. THE KEEPER. The Keeper always sits in front.
+narration | show=stage: The stage at the end of the hall, painted white, all of it, the boards, the back wall, the curtains pinned back. White and a little blue at the edges. Ice.
+narration: The children in a row along the side, in their best clothes, singing.
+narration | if=flag:lent_shirt: And from the wings, a boy in a long brown coat down to his boots, cut down from something bigger, and under it, at the collar and the cuffs, red flannel. Your shirt. Tommy Pruitt. Walking out across the white.
+narration | if=!flag:lent_shirt: And from the wings, a boy in a long brown coat down to his boots, cut down from something bigger, the brass buttons done all the way up. Walking out across the white.
+narration: The children count him out. One, the window. Two, the warm. Three, the price. Four, the bell.
+narration: He walks slowly, the way he's been told to. Heel and toe. Looking straight ahead. The whole hall holding its breath with him, a hundred people in the dark not breathing.
+narration: Five, the dog. Six, the lock. Seven, the radio. Eight, the glass.
+narration: He's at the edge. The very edge of the white, where the boards stop and the dark of the hall starts.
+narration: And nine's the Keeper. In he goes.
+june: And then the lights go down.
+narration: They do.
+narration: All of them. The stage, the hall, the windows black, the lake black under them. Total. You can't see your own hands.
+narration: In the dark, the applause. All at once, the whole hall, loud, warm, going on and on, louder than it needs to, a long time.
+paranoia: Where is he. Where's the boy. Somebody turn on the lights.
+narration: Nobody turns on the lights. The applause goes on.
+narration: Then they come up.
+narration: The boy is at the edge of the stage, bowing. Of course he is. Bowing, and bowing again, red in the face, delighted, the coat too big for him.
+narration: Of course he is. Nothing happened. Nothing was ever going to happen.
+narration: Beside you, Mrs. Hollis is crying, and clapping, and crying.
+-> watch
+
+# --- The Thursday watch: his voice on the radio in the hall. ---
+
+=== watch
+narration | show=hall | flag=pageant_done | time=21:00: Nine o'clock. The coffee urn ticking. Children asleep on coats under the tables.
+narration: Somebody turns the radio on the pie table up. All the way. And the whole hall stops. Forks down. Mid-sentence.
+narration: The chair at the Reverend's right hand is empty. The good coat's gone from the back of it.
+narration: The radio. A breath. And then his voice, the voice from the Fridays, from the phone, filling the hall from a brown box among forty pies.
+daniel: Good evening, friends. Happy Thanksgiving. The Reverend has been kind enough to lend me his chair tonight, and I find I'm a little nervous. Bear with me.
+daniel: I'd like to read you something. It's an old story. It's in Leviticus, the sixteenth chapter. It's about two goats.
+narration: He reads it like a bedtime story. Slow. Kind. Each word set down like a glass on a table.
+daniel: One goat is for the Lord. And the other, the priest lays both his hands on its head, and confesses over it all the sins of the people, all of them, and puts them on its head. And it's sent away, into the wilderness, carrying them. To a land not inhabited.
+daniel: And the people are clean.
+narration: Nobody in the hall moves. A child turns over under a table, and a mother puts her hand on him without looking.
+daniel: Isn't that a mercy. To have someone who carries it for you.
+narration: Around the hall, people nod. Slowly. Mrs. Hollis. Ezra. Ruth, by the urn, not nodding, holding the blue bowl against her chest.
+narration | if=flag:told_olstad_daniel: Olstad, at the door, isn't nodding. She's looking at the vestry door.
+paranoia: Don't look at you. Don't anybody look at you.
+narration: Nobody looks at you. Nobody needs to.
+
+=== hall_vestry
+narration: The vestry door, at the side of the hall, ajar. Down the short passage, the booth behind the vestry wall, the door with its little window.
+narration: Through the glass: the red bulb lit. ON AIR. His back, in his shirtsleeves, very straight, at the microphone. The Reverend in the chair beside him, his hands in his lap, not looking at the microphone. Looking at the floor.
+narration: On the radio behind you in the hall, and through the glass in front of you, a half-second apart, the same voice.
+narration: The Reverend looks up. He sees you at the glass. He doesn't do anything. He looks at you like a man at a bus window, pulling away.
+narration: He doesn't turn round. He doesn't stop reading. But on the radio, in the hall behind you, a hundred people hear him pause, just once, in the middle of a word.
+paranoia: Go. Go back. Go home.
+
+=== walk_home
+narration | time=22:00: You walk home down the hill with a foil plate Mrs. Hollis put in your hands at the door.
+narration: Every house on the road, the windows lit. Every one with a radio on in it. The same voice from every window, a half-second apart, so that walking down the hill you hear him from all sides, a little out of step with himself, like a choir.
+narration: "To have someone who carries it for you."
+narration | end=night: The shop, dark. The neon, the only thing on the whole road that isn't him.

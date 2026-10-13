@@ -17,6 +17,7 @@
 -> map_day_eleven | if=day==11
 -> map_day_thirteen | if=day==13
 -> map_day_fifteen | if=day==15
+-> map_day_sixteen | if=day==16
 -> map_day_two
 
 === map_day_one
@@ -34,6 +35,7 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_eleven | if=day==11
 -> pub_thirteen | if=day==13
 -> pub_fifteen | if=day==15
+-> pub_sixteen | if=day==16
 -> pub_two
 
 === pub_first
@@ -100,6 +102,7 @@ narration: The cold outside is almost a relief.
 -> lake_eleven | if=day==11
 -> lake_thirteen | if=day==13
 -> lake_fifteen | if=day==15
+-> lake_sixteen | if=day==16
 -> lake_two
 
 === lake_first
@@ -169,6 +172,7 @@ narration: You leave money on the bar and go before the room can decide to be fr
 -> church_eleven | if=day==11
 -> church_thirteen | if=day==13
 -> church_fifteen | if=day==15
+-> church_sixteen | if=day==16
 -> church_two
 
 === church_two
@@ -237,6 +241,7 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 -> cabin_eleven | if=day==11 and flag:met_sam
 -> cabin_thirteen | if=day==13 and flag:met_sam
 -> cabin_fifteen | if=day==15 and flag:met_sam
+-> cabin_sixteen | if=day==16 and flag:met_sam
 -> cabin_three | if=flag:met_sam
 -> cabin_first
 
@@ -848,6 +853,48 @@ sam: The Reverend hasn't smiled once. I've been counting.
 === lake_fifteen
 narration | time=+20: The lake. The poles under their tarp. Black ice, gray ice, the bonfire's scorch mark still on the snow by the bank.
 narration: You stand on the shore a long time. Behind you, up the hill, the church bell rings once. Nobody rings it on Tuesdays.
+
+
+=== map_day_sixteen
+narration: Wednesday night, the night before. Every kitchen lit. The smell of baking all the way down to the lake.
+narration: Up the hill, the hall behind the church, lit too, and through its windows, small figures crossing a white floor, one at a time, and turning back.
+
+=== pub_sixteen
+narration | time=+60: The Gleaner. Ruth at a table by the stove with a big blue bowl in her lap, polishing it with a dish towel, round and round.
+narration: Old, glazed, a chip on the rim. She turns the chip away from you without seeming to.
+ruth: Mom's. She'd have wanted it out. She did the potatoes in it every Thanksgiving till she couldn't.
+narration | if=!flag:broke_faith_ruth: She pours you one without getting up, reaching over the bar. She keeps the bowl in her lap while she does it.
+narration | if=flag:broke_faith_ruth: She doesn't get up to pour you one. You pour it yourself. She lets you.
+ruth: First time I've had it down since. I don't know why this year.
+narration: Above you, in the room nobody rents, a floorboard. Then another. Then still. Ruth stops polishing until it's still, and then goes on.
+paranoia: She knows what's up there. She's polishing her mother's bowl under it.
+
+=== church_sixteen
+narration | time=+20: Not the church. The hall behind it, every window lit. You stand in the dark by the cars and look in.
+narration: A stage at the far end, painted white. White boards, a white back wall. June at the front with a pitch pipe.
+narration: A row of children along the side. One of them, small, in a long brown coat to his boots, walks out across the white, slowly, heel and toe, and stops at the edge. June says something. He walks back. He does it again.
+narration: And again. Each time to the edge. Each time June says something, and he comes back.
+narration: Through the glass you can't hear what they're singing. You can see their mouths. You can count along. You get to nine.
+
+=== cabin_sixteen
+-> cabin_sixteen_told | if=flag:told_sam_daniel
+-> cabin_sixteen_dark
+
+=== cabin_sixteen_dark
+narration | time=+10: The cabin, dark. No light. No Sam on the porch. Tracks in the snow going down to the lake, and none coming back yet.
+narration: On the door, a calendar page pinned with a tack. November. Tomorrow circled.
+
+=== cabin_sixteen_told
+narration | time=+10: The cabin. The curtains drawn, all of them, and a light behind them. You knock. Nothing.
+narration: You knock again. Through the door, very close, as if he'd been standing right behind it the whole time:
+sam: Did you get my note.
+narration: You say yes. A long silence.
+sam: Good. Go home. Don't come here tomorrow. They'll be counting who isn't at the hall.
+
+=== lake_sixteen
+narration | time=+20: The lake. Black ice gone gray, gray gone white. Somebody's swept a path out from the shore, straight, a shovel's width, a hundred yards out onto the ice, and stopped.
+narration: No shanty at the end of it. No hole. Just the end of the path, and the white.
+paranoia: For the pageant. For a picture. For something to walk out on.
 
 === home
 narration: The drive back is the same black corridor of spruce. Your one good headlight does most of the work.

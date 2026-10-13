@@ -27,7 +27,7 @@ with bridges between them, as now:
 
 ---
 
-## Thanksgiving week
+## Thanksgiving week (built: `thanksgiving.md`)
 
 **KD16, Wed Nov 24: the man in the good coat, at the counter.**
 - Daniel comes in again, polite, a stranger: buys something small and exact

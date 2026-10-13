@@ -46,6 +46,8 @@ func _draw() -> void:
 		"hollis_kitchen": _draw_kitchen()
 		"shore": _draw_shore()
 		"far_ice": _draw_far_ice()
+		"hall": _draw_hall()
+		"stage": _draw_stage()
 
 func _draw_church() -> void:
 	# White walls, tall plain windows on both sides, pews running to the altar.
@@ -141,3 +143,35 @@ func _draw_far_ice() -> void:
 	# Sam, kneeling, with his flashlight pointed down.
 	_rect(0.72, 0.6, 0.03, 0.06, Color(0.08, 0.08, 0.07))
 	_poly([Vector2(0.735, 0.66), Vector2(0.7, 0.74), Vector2(0.76, 0.74)], Color(0.9, 0.9, 0.7, 0.25))
+
+func _draw_hall() -> void:
+	# The church hall at Thanksgiving: long tables under paper, the lake window
+	# at the end, one place set facing it, the radio on the pie table.
+	_poly([Vector2(0, 0.6), Vector2(1, 0.6), Vector2(1, 1), Vector2(0, 1)], FLOOR)
+	_rect(0.38, 0.12, 0.24, 0.3, GLASS)
+	for row in 2:
+		var y: float = 0.62 + row * 0.14
+		_rect(0.06, y, 0.88, 0.05, Color(0.92, 0.9, 0.85))
+		for k in 7:
+			draw_circle(_p(0.12 + k * 0.12, y + 0.025), size.y * 0.012, Color(0.8, 0.78, 0.72))
+	# The empty place, at the window end, its chair turned to the glass.
+	_rect(0.46, 0.5, 0.08, 0.04, Color(0.95, 0.94, 0.9))
+	_rect(0.47, 0.42, 0.06, 0.08, WOOD_DARK)
+	# The pie table, and the radio on it.
+	_rect(0.78, 0.46, 0.16, 0.04, WOOD)
+	_rect(0.83, 0.4, 0.06, 0.06, Color(0.3, 0.22, 0.16))
+	# The door, and whoever's standing in it.
+	_rect(0.02, 0.2, 0.1, 0.4, WALL_DARK)
+
+func _draw_stage() -> void:
+	# The stage, painted white like ice, a row of small chairs, the dark hall.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.06, 0.06, 0.08))
+	_poly([Vector2(0.1, 0.5), Vector2(0.9, 0.5), Vector2(1, 0.72), Vector2(0, 0.72)], Color(0.86, 0.9, 0.94))
+	for k in 5:
+		draw_line(_p(0.2 + k * 0.15, 0.52), _p(0.24 + k * 0.15, 0.7), Color(0.7, 0.76, 0.82), 1.5)
+	_rect(0.08, 0.1, 0.06, 0.4, CLOTH)
+	_rect(0.86, 0.1, 0.06, 0.4, CLOTH)
+	# The rows of heads, from behind, and the front seat: the Keeper's.
+	for row in 3:
+		for k in 9:
+			draw_circle(_p(0.1 + k * 0.1, 0.8 + row * 0.07), size.y * 0.025, Color(0.12, 0.12, 0.14))
