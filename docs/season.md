@@ -131,7 +131,7 @@ with bridges between them, as now:
 - **Paid here:** Locker 114, paid through tonight (if MC opened the tin: he
   can drive to Anchorage the next day, if the car's still his).
 
-## January
+## January (plan: `january.md`)
 
 **KD24, ~Mon Jan 3: the Disappointment.**
 - Daniel, on the radio, now the host: *"The end didn't come because the Lord
