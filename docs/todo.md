@@ -77,7 +77,7 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
     to hand. Start with an art-direction note and a mock-up of the counter,
     agree it, then the shop, then the rest (rooms, map, nights, cards).
     Placeholder art in code until the paintings: the style first, the
-    detail later.
+    detail later. **Plan: `art.md`.**
 
 12. **Sound, redone carefully.** Turned off for now (`Settings.SOUND_ON`):
     some sounds were out of sync with the text. Later, once things are more
