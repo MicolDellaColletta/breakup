@@ -1,0 +1,69 @@
+# THE EVENING OF KEY DAY 32: Friday, February 11. Ruth's lie.
+# A walked evening (scenes/visit.tscn; GameState.EVENINGS) in the shut
+# Gleaner. Ruth, drunk, with her mother's bowl and her father's scarf: the
+# 1989 Keeper didn't run. She drove him to the highway herself, and her
+# mother died that night in the empty shop. Read differently if MC has the
+# 1989 letter, her diary, or has seen her room. The car keys on the table.
+# Forgive her (her third door) or don't. Daniel at the end of the bar, the
+# whole time. end=night. Design: docs/february.md, docs/forks.md.
+
+=== evening
+narration | show=gleaner | time=21:00: The back door of the Gleaner, unlocked. Nobody locks anything now. The kitchen, one bulb, and through the swing door, the bar, dark, the chairs up on the tables like legs.
+narration: And one table down, in the middle, with a candle. Ruth. A bottle. Her mother's blue bowl in front of her, empty. Her father's scarf.
+narration | if=flag:ruth_has_keys: And on the table, by the bowl, a ring of keys. Yours. The rental's tag.
+ruth: You came. Sit down. Don't take a chair down, sit on the table, I don't care.
+narration: The wall of faces, in the dark, behind her. The tinsel still on some of them.
+-> evening_letter | if=has:letter_1989
+-> evening_tell
+
+=== evening_letter
+narration: You take the letter out of your coat. March 1989. You lay it on the table by the bowl, face up, the way you'd lay down a card.
+narration: She reads it. "She says she'll drive me." She reads it again. She puts her finger on the place where it stops.
+ruth: He gave it to Dad to post. Dad kept it. Of course Dad kept it.
+-> evening_lie
+
+=== evening_tell
+ruth: I want to tell you something. I've been drinking since four so I could tell you something.
+-> evening_lie
+
+=== evening_lie
+ruth: I told you he ran. The Keeper. Eighty-nine. I tell everyone he ran.
+ruth: He didn't run. I drove him. The night before breakup, when they were all at the church. I had Dad's truck. I was thirty and I was so in love with him I couldn't see.
+ruth: I drove him to the highway. I watched him get a ride with a trucker. I watched the tail-lights. I came home at three in the morning and I was happy. I was so happy.
+ruth: And the shop was empty. No Keeper. And Mom knew. Mom knew what happens if the table's not set. So she went and sat in the shop. In his chair. In the dark. So it wouldn't be empty.
+narration: She stops. She drinks.
+ruth: They found her at breakup. In the morning. On the ice, off the point, where they always are. In her nightdress.
+ruth: Every Keeper since. Every one. I keep them in town. I keep their keys. I take their picture. So it's never empty again. So it's never her again.
+narration | if=has:ruth_diary: You know. You read it in her diary, in her room: "Mom says she'll go and sit in the shop so it's not empty." You don't tell her you know. Or she sees it in your face.
+narration | if=flag:saw_locked_room: She looks at you. "You've been in my room. Haven't you. You saw his coat. I couldn't give it back. I couldn't give it to the shop."
+narration | if=flag:ruth_has_keys: She pushes the ring of keys an inch toward you. Then stops, with her hand flat on them.
+narration: At the end of the bar, in the dark, where the light from the candle doesn't reach, a chair creaks. Somebody's been sitting there the whole time. Neither of you looks.
+paranoia: Him. He's been here the whole time. He heard all of it.
+> "It wasn't your fault." -> evening_forgive | door=ruth | lean=warmth
+> "You'd keep me here to die. Like the others." -> evening_refuse | lean=paranoia
+
+=== evening_forgive
+narration: You say it. You put your hand over hers, on the keys.
+narration: She cries. Not prettily. The way people cry who haven't for eleven years.
+-> evening_keys_back | if=flag:ruth_has_keys
+-> evening_forgiven
+
+=== evening_keys_back
+narration | flag=keys_returned: She takes her hand off the keys. She pushes them the rest of the way across the table, into yours.
+ruth: Take them. Take them before I change my mind. I always change my mind.
+-> evening_forgiven
+
+=== evening_forgiven
+ruth: I'll set a place for you. At breakup. Whatever happens. There'll be a place.
+narration: You don't know if that's a promise or a threat. Neither does she.
+-> evening_home
+
+=== evening_refuse
+narration: She takes it. She nods. She doesn't argue.
+ruth: Yes. Yes, I would. I'd rather. I'd rather you dead here than gone like him.
+narration | if=flag:ruth_has_keys: She puts the keys back in her pocket, and her hand on them, and keeps it there.
+-> evening_home
+
+=== evening_home
+narration: At the end of the bar, the chair creaks again. A man stands up in the dark, and puts on a good coat, and goes out through the kitchen without a word. The back door, softly.
+narration | end=night | time=23:30: You walk home. Behind you, the candle in the Gleaner goes out.

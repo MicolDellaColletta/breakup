@@ -221,4 +221,27 @@ narration | card=Saturday. The queue.: On the board outside the hall, chalked, i
 narration | card=Saturday. The light. | time=09:00: The light past seven hours. Nobody says it's good news.
 narration | card=Tuesday. February.: The first of the month. The plow, the envelope a day early, the radio.
 narration: Ezra at the post office with his right hand in a bandage, thick, white, from wrist to fingertips. "An accident," he says, to anyone who asks. "At the hall door." Nobody asks twice.
-narration: (The story continues in February, which is still being written. Thank you for playing.)
+
+# --- Before key day 32 (Friday, February 11): the week of the goat. ---
+
+=== bridge_first_february
+narration | card=Sunday. Weighed. | time=11:00: Everyone in the hall, weighed, one at a time, written in the book. You hear about it at the Gleaner. You weren't asked this time. You will be.
+narration | card=Tuesday. The goat.: The children lead the goat round the town every afternoon on its red rope. House to house. At every door it stops, and someone comes out and touches its head, and it goes on.
+narration | if=flag:let_goat_in: At the shop, it doesn't stop at the door. It comes in, and lies by the stove, and the children wait outside.
+narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope. And with it, for the first time since November, a hymn number, in pencil: one. Just one. It's a number from the bulletin you found on your table in December.
+
+# --- Before key day 33 (Saturday, February 19): the week after Ruth. ---
+
+=== bridge_mid_february
+narration | card=Monday. Eight weeks. | time=09:00: On the hall door, the nine crossed out, eight painted under it, white, dripping.
+narration | if=doors:ruth>=3: Ruth at the Gleaner, serving with her coat off for the first time since December. When you come in she sets a glass down in your place, at the end of the bar, before you've reached it.
+narration | if=faithless:ruth: Ruth at the Gleaner. Your place at the end of the bar has someone else in it, every night.
+narration | card=Friday. Fasting.: Friday again. Nobody eats. The bakery dark. At dusk the whole town walks up the hill to the post on the tower, in the cold, and stands under it, and then walks down again, and nobody says why.
+
+# --- After key day 34: the end of what's written. ---
+
+=== bridge_into_march
+narration | card=Tuesday. The doors.: In the morning every door on the road is shut again, as if nothing happened. In every house, a drift of snow in the hallway, and everyone sweeping it out, and nobody talking about it.
+narration | if=flag:gave_up_sam: Sam's cabin dark. Sam in the hall, sleeping on the floor with the others, his hands folded on his chest. He says good morning to you. He doesn't say anything else.
+narration | card=Saturday. March.: March. Six weeks. The light past ten hours. The sun on the snow so bright at noon you can't look at the lake.
+narration: (The story continues in March, which is still being written. Thank you for playing.)

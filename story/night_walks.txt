@@ -99,6 +99,7 @@ paranoia: Thomas. That's Thomas's hand. From the ledger. From the first page.
 
 === walk_freezer
 -> take_gun_freezer | if=flag:gun_freezer
+-> walk_freezer_pocket | if=day>=31 and !flag:found_abraham_letter
 -> walk_freezer_plain
 
 === walk_freezer_plain
@@ -137,7 +138,16 @@ narration: The lamp on the dressing table, on a timer, the old kind with a dial.
 unknown: That's all it ever was. You believe that.
 
 === walk_locked_room_again
+-> walk_ruth_drawer | if=day>=31 and !flag:found_diary
+-> walk_locked_room_doorway
+
+=== walk_locked_room_doorway
 narration: Ruth's room. The coat on the door. The name on the wall. You don't go in again. You stand in the doorway, and the lamp clicks on, on its timer, while you watch.
+
+=== walk_ruth_drawer
+narration: Ruth's room. This time you go in. The dressing table. A shallow drawer, swollen, that opens with a jerk.
+narration | take=ruth_diary | flag=found_diary: Hairpins. A dried corsage. And a schoolgirl's diary, the lock broken. April 1989. One entry, pressed so hard it carries through three pages.
+paranoia: You shouldn't read it. You've already read it.
 
 # --- The gun: taking it back. ---
 
@@ -224,3 +234,28 @@ daniel: Goodnight.
 === confront_leave
 narration: You stand under the red window a long time, in the road, in the cold. Then you go home.
 narration: Behind you, the red light doesn't change. He knew you were there. He'll know if you come back.
+
+# --- February finds: Abraham's other pocket; the bench drawer. ---
+
+=== walk_freezer_pocket
+narration: The freezer. The padlock. You know what's in there. You open it anyway, because you have to know if there's anything else.
+narration: Abraham, on his crate, waiting. Frost on his eyebrows. Your hand goes to his coat, the other pocket, the inside one. You don't decide to do it.
+narration | take=abraham_letter | flag=found_abraham_letter: An envelope. "Ruthie." His hand. Never given. The paper soft with cold.
+narration: You close the lid. Softly. The seal makes its sound anyway.
+
+=== walk_bench
+-> walk_bench_done | if=flag:found_bench_notebook
+-> walk_bench_find | if=day>=31
+-> walk_bench_plain
+
+=== walk_bench_plain
+narration: Abraham's bench. His tools in their rack, oiled. Glass eyes in their jar, sorted by size. The drawer under the bench, stuck.
+
+=== walk_bench_find
+narration: Abraham's bench. The drawer under it, stuck. You work it loose with a chisel.
+narration | take=bench_notebook | flag=found_bench_notebook: A notebook. Every mount he ever made, with dates. The fox. The ram. The bear, 1968. And the bear again, October 1999: second seam, white thread. "For the key. And for the other thing, if it comes to it."
+paranoia: What other thing. What else is in the bear.
+
+=== walk_bench_done
+narration: The bench, the notebook back in its drawer. The bear, through the wall, out in the shop, with something else in it.
+

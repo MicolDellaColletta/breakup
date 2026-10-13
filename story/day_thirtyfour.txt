@@ -1,0 +1,81 @@
+# KEY DAY 34: Sunday, February 20, 2000. The lights on the ice.
+# A walk-around day (scenes/visit.tscn): the church hall, the scale (be
+# weighed, or refuse), the book; the booth, where he asks MC where the lights
+# on the ice come from (kept faith, Sam: don't give him up, and hide his
+# notebooks at dusk; or tell, and the lanterns go to the cabin). Spots in
+# spots.cfg (if=day==34). end=night. Design: docs/february.md, docs/forks.md.
+
+=== morning
+narration | time=09:30: Sunday, the twentieth. The service in the hall. Leviticus 16, the whole chapter, read aloud by everyone together, from memory.
+narration | show=hall | time=11:00: After, the benches pushed back, and in the middle of the hall, the scale. The grain scale from the vestry, from the first Sunday in October. It didn't burn. It was in the hall all along.
+narration: A queue for it. Everyone. One at a time, onto the platform, the beam settling, Ezra writing in the book with his left hand, slow and crooked, the cast on his right in its altar-cloth sling.
+narration: Mrs. Hollis, light as a child now. Dr. Brekke. The Pruitt boy. Ruth, not looking at anyone.
+narration: Your turn comes.
+ezra: Keeper.
+> Step onto the scale. -> weigh_yes | flag=weighed | eye=-1 | lean=warmth
+> "No." -> weigh_no | flag=refused_scale | eye=+1 | lean=paranoia
+
+=== weigh_yes
+narration: You step up. The platform rocks under you and steadies. The beam rises, and wavers, and settles, and stays.
+narration: Ezra reads it, and writes it down, and looks up at you, and for a moment his face is very tired and very kind.
+ezra: Less than October. Not much less. You're holding up.
+
+=== weigh_no
+narration: You don't step up. The queue behind you goes very quiet.
+narration: Ezra looks at the empty platform. He writes something in the book anyway. You can't see what.
+ezra: That's all right. We have your weight from October. It won't have changed much. Things don't, here.
+
+# --- The hall: the book; the booth. ---
+
+=== scale_book
+narration: The book, open on its lectern by the scale. Columns. Names down the side, Sundays across the top, October to April.
+narration: Your page. JOHN, at the top, in Ezra's hand. October, a weight. November. December. And the column for April, for the last Sunday before breakup, already ruled off. And in it, already written, in pencil: a number. Lighter than you've ever been.
+paranoia: It's a guess. A target. A goal, for the fasting. It's just a number.
+
+=== booth_sam
+narration | show=booth: The booth in the corner of the hall, the two scorched chairs. He's in one. You sit in the other.
+daniel: I won't keep you. One question, and I'll take your answer as it comes.
+daniel: The lights on the ice. At night, by the clock, past the shanties. Everyone's seen them. Someone out there with a torch, every night, writing things down. The town's been asking me who. They'd like to know. They'd like to go and ask him what he's writing.
+narration: He waits. He knows. He knows you know. He wants you to say it.
+paranoia: Sam. He wants Sam. If you say it they'll go tonight with their lanterns.
+> "I don't know whose lights they are." -> booth_keep | keep=sam | flag=kept_sam | lean=warmth
+> "Sam Wakeman." -> booth_tell | betray=sam | flag=gave_up_sam | lean=paranoia
+
+=== booth_keep
+narration: He looks at you for a long time. He knows you're lying. You know he knows. He doesn't say so.
+daniel: All right. That's a kind lie. I don't tell them, but I know a kind one when I hear it.
+narration | time=16:30 | show=cabin: At dusk you go down the shore path. Sam's cabin. The door open. Inside, the wall coming down: string coiled, pins in a jar, the cards going into boxes. Ten years of it, into boxes.
+sam: They'll come. Not tonight, maybe. They'll come.
+narration: He puts the notebooks in your arms. A stack of them, school exercise books, rubber-banded, the clock's minute in every one since 1990.
+sam: You keep them. You keep things. That's what you are.
+> Hide them in the office safe. -> notebooks_safe | if=flag:found_deed | flag=notebooks_safe | lean=appraisal
+> Hide them in the bear. -> notebooks_bear | flag=notebooks_bear | lean=unknown
+> Hide them in Ruth's room, upstairs. -> notebooks_room | if=has:room_key | flag=notebooks_room | lean=warmth
+> Keep them under your bed. -> notebooks_bed | flag=notebooks_bed | lean=paranoia
+
+=== notebooks_safe
+narration: In the office safe, behind the empty space where the deed was. The numbers turn under your fingers. The door shuts on ten years.
+-> sam_after
+
+=== notebooks_bear
+narration: In the bear. The second seam. You open it another six inches, and push them in, rubber band and all, into the straw, until the bear's chest is full of the clock's minute.
+-> sam_after
+
+=== notebooks_room
+narration: In Ruth's room. Under the girl's bed, with the dust, below a wall with a dead man's name on it a thousand times. Nobody goes in there. Nobody's gone in for ten years.
+-> sam_after
+
+=== notebooks_bed
+narration: Under your own bed. In a box. Where anyone who came in through a door that's always open would look first. You know that. You do it anyway.
+-> sam_after
+
+=== sam_after
+narration | end=night | time=18:00: Back at the cabin, when you look back from the shore, Sam sitting on his porch in the dark with no lamp and no notebook, for the first time in ten years just watching the ice.
+
+=== booth_tell
+narration: You say it. His name. In the booth, in the hall, with the whole town on the other side of a curtain.
+narration: He nods. He doesn't look pleased. He looks like a man who's been handed something heavy.
+daniel: Thank you. They'll be kind to him. I promise you that. I don't make promises I can't keep.
+narration | time=17:00 | show=cabin_road: At dusk, from the shore path, you watch the lanterns go down to the cabin. Twenty. Thirty. A long slow line of them along the shore. They stop at his door. It opens. They go in.
+narration: Nobody shouts. Nobody runs. After a while, the lanterns come out again, and go back up the shore, and among them, a man without one, walking in the middle, very straight.
+narration | end=night: The cabin dark behind them. On the porch, in the lantern light as they pass, his notebooks, in a pile, and somebody bending over them with a match.

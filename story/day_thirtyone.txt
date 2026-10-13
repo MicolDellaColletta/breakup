@@ -1,0 +1,85 @@
+# KEY DAY 31: Saturday, February 5, 2000. The scapegoat.
+# Same format as the other counter days: Ezra, brought in by him, his hand
+# broken, his Thursday missed (kept faith, Ezra: load the shells for him, or
+# turn him away); Mrs. Hollis, fasting, asking MC to be weighed; the goat at
+# the door. See VISITS in scripts/counter.gd. Design: docs/february.md.
+
+=== morning
+narration | time=07:30: Saturday, the fifth of February. Light at nine. Dark after five. Nine weeks, the radio says, and says it again, as if you might not have heard.
+narration: Sunday's sermon, repeated: the second goat. "Who goes out into the wilderness carrying all of it, friends. All of it. And is never asked to come back."
+narration: Up on the hill, against the white sky, the pine thing on the tower stump is finished. A tall post. A crosspiece near the top. An iron ring, bolted through.
+paranoia: A bell frame. For a new bell. They'll hang a new bell.
+unknown: There's no bell.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN.
+
+# --- Ezra, and his hand. Brought in by him. ---
+
+=== ezra_enters
+narration | sound=bell | time=+60: The bell. Two men. Ezra, and the man in the good coat with an arm round Ezra's shoulders, the way you'd walk a man home from a funeral.
+narration: Ezra's right arm in a cast from the knuckles to the elbow, in a sling made from a church altar cloth.
+daniel: An accident. The hall door. It swung on him in the wind. Didn't it, Ezra.
+ezra: It did.
+narration: Ezra looks at the counter. At the drawer.
+ezra: I missed Thursday. First Thursday in twenty-two years. I couldn't load it. I sat at the kitchen table with the box and the gun and I couldn't get one in.
+ezra: I'd like my box. And I'd like... I'd like you to load it for me. If you would. Five in the tube. So I've got Thursday.
+narration: In the doorway, the man in the good coat waits, his hands folded, and watches which you'll do.
+paranoia: Ezra. Who called you the goat. Who barred the doors. Who brought you the church's things to hold.
+warmth | if=warmth>=1: His hand. Look at his hand.
+> Load the shells for him. -> ezra_load | keep=ezra | lean=warmth
+> "I'm sorry, Ezra. I can't." -> ezra_refuse | betray=ezra | lean=paranoia
+
+=== ezra_load
+narration | sound=drawer | sold=shells: You take the box from the drawer. He puts the .22 on the glass, an old one, the stock dark with hands. You load it. Five in the tube, one at a time, the way he shows you with his good hand.
+narration | write=E. Lund. .22 shells, one box. Loaded for him. $6: You write his line in the ledger, the same line, the twenty-third year of it.
+ezra: Thank you.
+narration: He doesn't look at you when he says it. He looks at the gun. His eyes are wet.
+daniel: That was kind. You're always kind, in the end. It's what they'll say about you.
+narration | sound=bell: They go out together. The bell, once.
+
+=== ezra_refuse
+narration: He nods. He picks up the gun with his good hand and holds it against his chest like a baby.
+ezra: No. No, that's right. That's right.
+narration: In the doorway, the man in the good coat closes his eyes for a moment, as if something he'd hoped wasn't true had turned out to be.
+daniel: Come on, Ezra. I'll load it for you. I don't mind.
+narration | sound=bell: They go out together. Through the window you watch him load it on the step, five, slowly, in the cold, while Ezra watches his hands.
+
+# --- Mrs. Hollis, fasting. ---
+
+=== widow_enters
+narration | sound=bell | time=+90: The bell. Mrs. Hollis. Thinner. Her coat hangs on her. No dish.
+widow: I'm not eating Fridays. Nobody is. It's easier than you'd think. You feel very clear.
+widow: Tomorrow, at the hall. They've brought the scale out. From the first Sunday, do you remember? Everybody's being weighed again. Every Sunday till April. Written down.
+widow: You'll come. You'll be weighed. It's only to know.
+narration: She puts her hand on your wrist across the counter.
+narration | if=flag:wears_thread: She touches your thread. She smiles.
+narration | if=!flag:wears_thread: Her thumb rubs your bare wrist, where a thread would be. She doesn't say anything.
+narration | sound=bell: She knocks twice on the frame. The bell.
+
+# --- The goat. ---
+
+=== goat_enters
+narration | time=+120: Three o'clock. The light going.
+narration: At the door, outside, on the step: the goat. White, the red rope round its neck, the end trailing in the snow. Nobody holding it.
+narration: It doesn't knock. It doesn't bleat. It stands with its face to the glass, its strange flat eyes on you, and waits.
+narration: Across the road, the children who lead it round the town every afternoon, in a row, holding hands, waiting too.
+paranoia: It's a goat. Somebody's goat. The children take it round.
+> Go out to it. -> goat_out | flag=let_goat_in | eye=+1 | lean=warmth
+> Stay behind the counter. -> goat_stay | lean=paranoia
+
+=== goat_out
+narration: You open the door. The goat walks in past you, as if it lived here, and goes to the stove, and lies down in front of it, its legs folded under, and closes its eyes.
+narration: The children across the road watch through the window. Then they run off up the road, all of them, to tell someone.
+narration: It sleeps by your stove till dark. Then it gets up, and goes to the door, and waits for you to open it, and goes.
+
+=== goat_stay
+narration: You stay where you are. It stays where it is.
+narration: It stands on your step, face to the glass, until it's dark. The children stand across the road with it, until their mothers come and take them home. Then it turns, and walks away down the middle of the road, the rope trailing, and the snow fills its prints.
+
+# --- Closing. ---
+
+=== closing
+narration | time=17:10: Ten past five, and the light holding on longer than it did. You turn the sign. CLOSED.
+narration: Up the hill, against the last of the sky, the post on the tower, and the iron ring, and something tied to the ring that wasn't there this morning: a red rope, hanging down, moving in the wind.

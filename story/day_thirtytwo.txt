@@ -1,0 +1,37 @@
+# KEY DAY 32: Friday, February 11, 2000. A fasting Friday.
+# Same format as the other counter days, nearly empty: the town fasting;
+# the goat; at closing, a note from Ruth: "Come after. Back door. I'm
+# closed." Then the walked night at the shut Gleaner (story/
+# evening_thirtytwo.txt): Ruth's lie, her third door.
+# See VISITS in scripts/counter.gd. Design: docs/february.md.
+
+=== morning
+narration | time=07:30: Friday, the eleventh. Eight weeks. On the hall door up the road, a column of numbers painted in white, nine at the top, crossed out, then eight.
+narration: Friday. Nobody eats. No smoke from the bakery chimney. The Gleaner's sign off at noon.
+narration | if=flag:let_goat_in: On your step, a clump of white hair, caught on the boot scraper. The goat's been back in the night.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Nobody comes. Fasting people don't shop.
+
+# --- The goat. ---
+
+=== goat_enters
+narration | time=+180: Noon. The goat at the door again, the children across the road. Today the goat has a red thread round one horn.
+narration | if=flag:let_goat_in: You open the door before it's finished turning its head. It comes in and lies down by the stove as if it had never left.
+narration | if=!flag:let_goat_in: It stands on the step, face to the glass. You don't open the door. It doesn't mind. It's patient. It's the most patient thing you've ever seen.
+narration: At one o'clock the man in the good coat comes down the road and unties nothing, and says nothing, and the goat gets up and follows him away.
+
+# --- Ruth's note. ---
+
+=== note_enters
+narration | time=+240: Five o'clock. Dark. Under the door, a beer mat, the Gleaner's, written on in pencil on the back.
+narration: "Come after. Back door. I'm closed. R."
+narration | if=faithless:ruth: You turn it over twice. She hasn't written to you since the freezer. She hasn't looked at you.
+paranoia: Fasting night. The whole town home in the dark, not eating. And Ruth, alone in a shut bar.
+
+# --- Closing. ---
+
+=== closing
+narration | time=17:40: Twenty to six, and the light only just going. You turn the sign. CLOSED.
+narration: Up the road, the Gleaner dark, all but the back. Not the red window. The kitchen, a yellow light, one bulb.

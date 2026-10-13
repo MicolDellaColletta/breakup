@@ -1,0 +1,79 @@
+# KEY DAY 33: Saturday, February 19, 2000. The duel.
+# Same format as the other counter days: the goat; then Olstad, the baby in
+# a sling, and him in the customer chair, very polite. He says her sister's
+# address once; she says she isn't leaving. Then she asks MC for the truth
+# about the John night, for her case (kept faith, Olstad), and what else MC
+# can give her: the deed, the fact of the gun. See VISITS in
+# scripts/counter.gd. Design: docs/february.md, docs/forks.md.
+
+=== morning
+narration | time=07:30: Saturday, the nineteenth. Seven weeks. Light at eight. The snow off the roofs at noon, dripping, and freezing again by four.
+narration: Tomorrow, the scale, at the hall. Mrs. Hollis said so twice. The radio says so between hymns.
+narration | if=flag:keys_returned: Your car keys on the dresser. You've moved them three times this week, from pocket to dresser to pocket. Nowhere feels like the right place for a way out.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN.
+
+# --- The goat. ---
+
+=== goat_enters
+narration | time=+90: The goat at the door. The red thread round its horn, and a second one now round the other.
+narration: It stays an hour. Then it goes, on its own, up the hill, toward the post.
+
+# --- Olstad and Daniel. ---
+
+=== trooper_enters
+narration | time=+60: He's in the customer chair when you look up. You didn't hear the bell. Warming his hands.
+narration | sound=bell: The bell. Olstad. The baby in a sling under her coat, a red face in a white hat, asleep. She sees him in the chair. She doesn't stop walking.
+daniel: Sergeant. And this is her. What's her name?
+trooper: No.
+daniel: Of course. Of course.
+narration: He looks at the baby. Then at Olstad. Very polite.
+daniel: Your sister's in Wasilla, isn't she. Lakeview Drive. The yellow house, the one with the swing. It must be pretty in summer, that street.
+narration: Olstad doesn't move. The baby sleeps.
+trooper: I'm not leaving. She's not leaving. And you're not leaving either. I'll be on the shore at breakup, and you'll be on it, and I'll be standing right next to you.
+narration: He smiles. He stands, and buttons the good coat.
+daniel: I'd like that very much.
+narration | sound=bell: The bell, once. Through the window he stops on the step to look at the goat's prints in the snow, as if they were a message he could read.
+narration: Olstad stands at the counter a long time with her hand on the baby's back.
+trooper: I need the John night. All of it. The motel, the lot, the apartment, whatever it was. I need you to tell me, and I need to write it down. It's the only thing I can take to a judge that isn't a town's word against a town's word.
+trooper: It'll cost you. You know it'll cost you.
+-> trooper_reads
+
+=== trooper_reads
+narration | if=flag:will_testify: "You said yes. At the ruins. When it comes to it. This is it coming to it."
+narration | if=flag:accused_on_air: "I heard the start of it on the radio. From him. I want the rest from you."
+narration | if=flag:asked_daniel: "And he said yes to you. About the door. I believe you. I need something I can write."
+narration | if=flag:pointed_gun: "And he's got your gun in his coat. Ezra's seen it. That's a stolen firearm, Johnny. That I can use."
+paranoia: Tell her and it's over. Lie to her and she'll know.
+> Tell her the truth about the John night. -> trooper_truth | keep=olstad | flag=told_olstad_john | lean=appraisal
+> Lie. -> trooper_lie | betray=olstad | flag=lied_to_olstad | lean=paranoia
+
+=== trooper_truth
+narration: You tell her. All of it, as far as you have it. The empty chamber. The man in the doorway. The night it was his, and you were there, or near, or somewhere you can't find.
+narration: She writes it down. She doesn't look up. The baby wakes and looks at you over the edge of the sling with enormous dark eyes and doesn't cry.
+trooper: Okay. Okay. That's a man I can put on a witness stand. That's a man who might be in a cell in Anchorage by June. I'm sorry. That's the deal.
+-> trooper_deed | if=has:church_deed
+-> trooper_after
+
+=== trooper_lie
+narration: You tell her something. It's smooth. It comes out the way John's lies used to come out, the ones you heard through walls.
+narration: She stops writing halfway through. She closes the notebook.
+trooper: Okay.
+narration: She doesn't say Johnny. She doesn't say anything else.
+-> trooper_after
+
+=== trooper_deed
+narration: You take the deed out of your coat. 1931. The Congregation of the Lake. The Keeper, season by season. You put it on the glass.
+narration | lose=church_deed | flag=gave_deed: She reads it twice. "They own the shop. They own you. That's motive. That's a thing a county attorney understands." She folds it into her notebook.
+-> trooper_after
+
+=== trooper_after
+narration | sound=bell: She goes. Slowly, the baby's hand out of the sling, holding her collar.
+
+# --- Closing. ---
+
+=== closing
+narration | time=17:58: Two minutes to six. Still light. You turn the sign. CLOSED.
+narration: Up the hill, on the post, at the iron ring: two red ropes now.

@@ -94,6 +94,12 @@ const VISITS: Dictionary = {
 	26: ["ezra", "daniel", "trooper"],
 	28: ["widow", "ruth", "daniel"],
 	29: ["seller", "nephew | if=flag:gave_picks_back", "widow | if=flag:kept_picks"],
+	# February: Ezra and his hand (brought in by him); Mrs. Hollis, fasting;
+	# the goat at the door. A fasting Friday: the goat, and Ruth's note. The
+	# duel: the goat again, and Olstad with him in the chair.
+	31: ["ezra", "widow", "goat"],
+	32: ["goat", "note"],
+	33: ["goat", "trooper"],
 }
 # From the bell to the door opening.
 const CUSTOMER_GAP: float = 0.8

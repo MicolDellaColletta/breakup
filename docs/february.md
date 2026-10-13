@@ -162,3 +162,34 @@ New finds, one a week:
    locked room, or the bear) if MC keeps it. Lean: yes.
 6. **The February finds** (Ruth's diary, Abraham's letter to Ruth, the bench
    notebook and the bear's "other thing"). Lean: yes.
+
+## As built
+
+All six calls taken as leaned.
+
+- **Dates:** key days 31 (Sat Feb 5), 32 (Fri Feb 11, with the walked
+  evening `evening_thirtytwo` at the shut Gleaner), 33 (Sat Feb 19) and 34
+  (Sun Feb 20, a walk-around in the hall). Then the bridge into March (day
+  35, Mar 12). Bridges: `bridge_first_february`, `bridge_mid_february`,
+  `bridge_into_march`.
+- **Counter visits:** 31 `ezra, widow, goat`; 32 `goat, note`; 33
+  `goat, trooper`. The goat and the note have no person art and come in
+  as visitors that aren't people.
+- **Faith and doors:**
+  - Ezra kept by loading his shells, betrayed by refusing.
+  - Ruth's third door if MC forgives her; `keys_returned` if she had the
+    keys.
+  - Olstad kept by `told_olstad_john`, betrayed by `lied_to_olstad`.
+    `gave_deed` if MC has the deed.
+  - Sam kept by `kept_sam` (notebooks hidden: `notebooks_safe`, which needs
+    the deed found; `notebooks_bear`; `notebooks_room`, which needs the room
+    key; or `notebooks_bed`), betrayed by `gave_up_sam`.
+- **Flags:** `let_goat_in`, `weighed` / `refused_scale` (eye -1 / +1).
+- **Finds** (`story/night_walks.txt`): `walk_ruth_drawer` (ruth_diary),
+  `walk_freezer_pocket` (abraham_letter), `walk_bench` (bench_notebook).
+  Each comes with a document.
+- **Hall spots** on day 34: `hall_scale_book`, `hall_booth_sam`.
+- **Odd spots** for nights 31–34: `odd_coat_up`, `odd_bowl`,
+  `odd_drawing`, `odd_prints`.
+- **Tests:** `test_february.gd` (65 checks). `test_january` now ends on
+  counter day 31.

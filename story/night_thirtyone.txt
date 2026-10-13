@@ -1,0 +1,99 @@
+# THE THIRTY-FIRST NIGHT: Saturday, February 5. The post on the tower.
+# Same format as the other nights. The radio counts weeks. Out of place: the
+# coat (on the shop door, or not) with its collar turned up (odd_coat_up).
+# Design: docs/february.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment.
+narration | if=flag:keep_ezra_1 or flag:keep_ezra_2 or flag:keep_ezra_3: Five in the tube. Ezra's good hand showing you how. You can still feel the shells, small and cold, going in.
+narration | if=faithless:ezra: Ezra on the step, and him loading it, five, slowly, while Ezra watched his hands.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Saturday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Him. "Nine weeks, friends. Nine. The ice is two feet and a half off the point. Sam Wakeman's ice, they call it." A laugh in the room behind him. "And every week it's ready, it's a week closer to being ready to let go."
+
+=== radio_off
+narration: You leave it off. Through the wall: nine. You hear the number through the wall. Just the number.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_thirtyone
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_thirtyone | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The front windows. Up on the hill, on the post, the red rope moving in the wind.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold. The rope on the post knocking against the wood, a sound you can hear all the way down the hill.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_thirtyone
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
+-> morning_after
+
+=== morning_after
+narration | time=07:30: Sunday.
+narration | if=flag:saw_coat_up: The coat, back as it was. Collar down. You stand in front of it a while.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_coat_up
+narration | time=+5: From the top of the stairs, looking down into the shop, the front door. And the coat.
+narration | if=flag:coat_in_shop | flag=saw_coat_up: On its hook, the coat. Every brass button done up. The collar turned up round where a neck would be. As if somebody were inside it, standing very still with their back to you, keeping warm.
+narration | if=!flag:coat_in_shop | flag=saw_coat_up: On the hook on the back of the front door, where the coat would hang if you'd let her hang it, a coat hanger, swinging. Nothing on it. Swinging.
+paranoia: The draught. The door. The furnace.

@@ -247,4 +247,4 @@ func _night_thirty() -> void:
 	_route(current_scene.get_node("%Narrator"))
 	check(current_scene.card_text() == "Tuesday. February.", "Ezra's hand, bandaged")
 	await wait(4.0)
-	check(current_scene.name == "Title", "the end of what's written")
+	check(current_scene.name == "Counter" and gs.day == 31, "then February, at the counter")
