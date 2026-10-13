@@ -191,7 +191,8 @@ text):
       ??? in Daniel's cadence; the cost of waving.
 - [x] **Game text:** names as a custom, things that fade, a click instead of
       your own voice, "sweetheart" only where the prologue has it (and night
-      three). (MC's gender "never stated" was the rule until Oct 13: MC is now
+      three, and the Witness flash on night seven, as `story.md`'s
+      backgrounds table has it). (MC's gender "never stated" was the rule until Oct 13: MC is now
       a man.)
 - [x] **`breakup_decisions.md`:** replaced by `decisions.md`, a dated log.
 

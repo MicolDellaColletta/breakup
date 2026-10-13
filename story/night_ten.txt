@@ -72,7 +72,7 @@ narration | time=+5: The door at the end of the hall. Locked. Dark. Cold air und
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, to the steel door.
-narration | take=note_furnace: On the steel door, at eye height, a card, pinned with a tack. The owner's hand, small and careful: "9. Don't let the furnace go out."
+narration | take=note_furnace: On the steel door, at eye height, a card, pinned with a tack. The owner's hand, small and careful: "Don't let the furnace go out." No number.
 paranoia: There are eight rules. There were eight rules.
 narration: In the back room the furnace is low. Embers. The coal scuttle beside it, full, the way it always is.
 > Feed it -> furnace_fed | flag=fed_furnace

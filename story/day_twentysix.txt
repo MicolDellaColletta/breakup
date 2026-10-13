@@ -7,7 +7,7 @@
 # Design: docs/december_revised.md.
 
 === morning
-narration | time=08:00: Wednesday, the twenty-ninth. Seventeen days since the road closed. The store's been empty since Boxing Day: a sign on the door in Ida's hand, ALL GONE, and a drawing of a sad face somebody's child added.
+narration | time=08:00: Wednesday, the twenty-ninth. Seventeen days since the road closed. The store's been empty since Boxing Day: a sign on the door in Edie's hand, ALL GONE, and a drawing of a sad face somebody's child added.
 narration: Up and down the road, men with boxes. Going door to door. Ezra, the Pruitt boy, Dr. Brekke with a sack over his shoulder like a saint in a picture. The houses with a red thread on the door handle first.
 narration | if=flag:wears_thread: They knock at yours at seven. A box on the step: bread, tinned milk, a jar of somebody's jam.
 narration | if=!flag:wears_thread: They go past yours. Twice. The second time the Pruitt boy looks at your door, and then at his father, and his father shakes his head.

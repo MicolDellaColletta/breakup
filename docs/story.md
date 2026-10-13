@@ -89,7 +89,7 @@ Dead in the freezer when MC arrives. The person who knew the most.
   apartment above the shop. Every winter the Keeper had the bedroom; the family
   had the rest. Ruth's room was the one at the end of the hall, above the
   freezer: the door that's locked now.
-- **1989.** In the winter of 1988–89 the Keeper ran, in February. The shop was
+- **1989.** In the winter of 1988–89 the Keeper ran, the night before breakup (April). The shop was
   unkept for one night, and **Abraham's wife** died, alone in the shop while he
   was in town. How is open (the town says she went through the ice; Abraham
   believed the shop took her, for the keys she was holding; it could have been
@@ -159,7 +159,7 @@ Dead in the freezer when MC arrives. The person who knew the most.
 - **MC chooses who that is.** Whoever he leaves holding a key: Olstad (the back
   door), Ruth (her old room), or someone he hands the front-door key to on his
   way out. The epilogue is that person's spring.
-- The previous Keeper who ran (February 1989) is the precedent. Sam and Ruth
+- The previous Keeper who ran (April 1989, the night before breakup) is the precedent. Sam and Ruth
   both know the story, from opposite sides.
 
 ## What the town believes the shop does
@@ -656,6 +656,13 @@ Suspicious of everyone, the new Keeper most of all.
   Keeper to the highway herself, and her mother died for it; she keeps every
   Keeper since in town as penance, and this winter she keeps MC's car keys.
   Love as a cage. Doors: `forks.md`.
+- **How her mother died, three ways, on purpose** (decided in the full review,
+  Oct 13): Ruth says she was found on the ice at breakup, in her nightdress;
+  Abraham's letter has her putting her coat on to go and sit in the shop; the
+  town says she died alone in the shop. One per teller, never resolved.
+- **The 1989 Keeper:** "David" was his Keeper name, in quotes, the way MC's is
+  "John"; J.W. on the suitcase is his own. He ran the night before breakup,
+  not in February; Ruth drove him.
 - Locks **break the cycle:** MC stays because she couldn't let go, and the town
   lets them be, at the cost of her father's legacy and the town's protection.
 
@@ -713,7 +720,7 @@ this one leaves him alone, and free.
 | Winter 1958–59 | Abraham is the Keeper. He survives breakup by walking the old owner onto the ice in his place, and becomes the one who hires. |
 | May 1959 | The old owner's body surfaces in the thaw. Abraham puts what's left inside the bear. |
 | 1959 | Ruth is born. She grows up above the shop, with a Keeper down the hall every winter. |
-| February 1989 | The Keeper runs. The shop is unkept for a night, and Abraham's wife dies in it. "She went through the ice," the town says. |
+| April 1989 | The Keeper runs, the night before breakup. The shop is unkept for a night, and Abraham's wife dies in it. "She went through the ice," the town says. |
 | Spring–autumn 1989 | Someone paints the breakup. Ruth buys the Gleaner and starts the wall. Abraham starts keeping carbons, and starts leaving every September. Sam arrives. |
 | September 1993 | Sam gets the notice and refuses. That winter's Keeper doesn't see May. It comes to him every September after. |
 | May 1999 | John hides what he stole at the shop. Ticket 0527. |

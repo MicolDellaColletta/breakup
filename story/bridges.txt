@@ -51,6 +51,7 @@ narration: The call, at eleven. The room, the clock. And footsteps, now. Slow. A
 narration | card=Friday. The road closes.: Snow all day, thick and soft and sideways.
 narration: At four, the radio: the pass is drifted in. The road's closed till Sunday. Kettle Lake is an island.
 narration | flag=road_closed: You stand at the window and watch the snow fill in the road, and understand that for two days there's no out. Not even the bad one.
+narration: That night the snow stops, and the cold comes down behind it like a lid. Thirty below by two in the morning, and still going. From your bed you can hear the lake setting: long booms, under the town, like something turning over in its sleep. By dawn the radio says six inches off the point, and clear. "Clear as a window, friends. Come down and see."
 
 # --- Before key day 11 (Saturday, October 30): Sunday the 24th to Friday. ---
 

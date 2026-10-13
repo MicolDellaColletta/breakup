@@ -55,7 +55,7 @@ paranoia: Deer. It's a skinning knife. It's for deer.
 narration: The rawhide lacing has been mended in three places, each with a different knot. Three people, at least, walked a long way in these.
 
 === examine_snowshoes_frame
-narration: Burned into the ash frame, small, with a hot nail: A.K. 98.
+narration: Burned into the ash frame, small, with a hot nail: T. 98.
 narration: Under it, scratched in later and fainter, one word: KEEPER.
 paranoia: Last winter's. From the Keeper's things, after breakup, the ledger said.
 paranoia: Things. Not the Keeper. The Keeper's things.

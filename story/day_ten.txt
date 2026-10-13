@@ -28,6 +28,7 @@ narration | time=09:00: You turn the sign. OPEN. Nobody can get to town, and nob
 narration | sound=bell | time=+30: The bell. Olstad, out of uniform, in a parka that won't zip over her belly. She stamps the snow off and stands by the radiator like she's paying rent on it.
 trooper: Road's shut. I can't get out to anything that's mine. Figured I'd come stand somewhere warm and look at you.
 narration: She does. For a while.
+trooper: No ring. No girl calling the shop from Anchorage. Thomas didn't have one either. I notice that kind of thing. It's my job to.
 trooper: Rental's due Saturday next, Johnny. Roads permitting.
 narration | if=flag:gave_return_date: She says the thirtieth the way you'd say a number you'd written on your hand.
 narration: She picks up the compass, sets it down, picks it up.

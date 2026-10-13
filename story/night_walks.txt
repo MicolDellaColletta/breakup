@@ -132,7 +132,7 @@ narration: In the hall, by the bathroom door, a board that gives under your foot
 narration: The locked door. The key on its string from Abraham's coat. It goes in. It turns.
 narration: A girl's room. Kept. A narrow bed with a quilt, a dressing table, a mirror with photographs tucked into the frame. Nothing touched in ten years; the dust like grey felt on everything.
 narration: On the back of the door, on a hook, a man's coat. Long, brown, the brass buttons. The Keeper's coat. Not yours. His. 1989.
-narration | flag=saw_locked_room: And on the wall above the bed, written in pencil, small, over and over, hundreds of times, in a girl's careful hand: one name. A man's. Over and over, until the wallpaper's grey with it.
+narration | flag=saw_locked_room: And on the wall above the bed, written in pencil, small, over and over, hundreds of times, in a careful hand, a grown woman's, trying to be small: one name. A man's. Over and over, until the wallpaper's grey with it.
 paranoia: Ruth's room. Ruth's. And the coat. She kept his coat.
 narration: The lamp on the dressing table, on a timer, the old kind with a dial. That's the light under the door. That's all it ever was.
 unknown: That's all it ever was. You believe that.
@@ -146,7 +146,7 @@ narration: Ruth's room. The coat on the door. The name on the wall. You don't go
 
 === walk_ruth_drawer
 narration: Ruth's room. This time you go in. The dressing table. A shallow drawer, swollen, that opens with a jerk.
-narration | take=ruth_diary | flag=found_diary: Hairpins. A dried corsage. And a schoolgirl's diary, the lock broken. April 1989. One entry, pressed so hard it carries through three pages.
+narration | take=ruth_diary | flag=found_diary: Hairpins. A dried corsage. And a diary, the cheap kind with a lock, the lock broken. April 1989. One entry, pressed so hard it carries through three pages.
 paranoia: You shouldn't read it. You've already read it.
 
 # --- The gun: taking it back. ---
@@ -256,7 +256,7 @@ narration: Abraham's bench. His tools in their rack, oiled. Glass eyes in their 
 
 === walk_bench_find
 narration: Abraham's bench. The drawer under it, stuck. You work it loose with a chisel.
-narration | take=bench_notebook | flag=found_bench_notebook: A notebook. Every mount he ever made, with dates. The fox. The ram. The bear, 1968. And the bear again, October 1999: second seam, white thread. "For the key. And for the other thing, if it comes to it."
+narration | take=bench_notebook | flag=found_bench_notebook: A notebook. Every mount he ever made, with dates. The fox. The ram. The bear, 1959. And the bear again, October 1999: second seam, white thread. "For the key. And for the other thing, if it comes to it."
 paranoia: What other thing. What else is in the bear.
 
 === walk_bench_done

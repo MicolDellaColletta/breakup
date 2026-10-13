@@ -57,7 +57,7 @@ narration: Cold. The whole town open to the night. You can hear a clock ticking 
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
 paranoia: Rule one. Leave the back door unlocked.
 > Leave it unlocked -> back_door_unlocked | lean=paranoia
-> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | flag=locked_thirtyfour | lean=animal
 
 === back_door_unlocked
 narration: You leave it. Wide open, tonight. Like everyone's.
@@ -91,11 +91,22 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 
 === morning_after
 narration | time=07:30: Monday.
+narration | if=flag:saw_knob: The back door. On the outside of the knob, in the frost, a whole hand, pressed and held, bigger than yours.
 narration | if=flag:saw_prints: The prints. You follow them down with a broom, sweeping. They don't sweep. They're pressed into the boards, as if whatever made them had been very heavy, or very cold.
 
 # --- Something out of place (docs/nights.md). ---
 
 === odd_prints
+-> odd_prints_locked | if=flag:locked_thirtyfour
+-> odd_prints_open
+
+# Locked, the town's one closed door: it doesn't come in. It waits.
+=== odd_prints_locked
+narration | time=+5: At three, from below, the back door. Not opening. The knob, turning. Turning back. Turning again. Slow, patient, the only locked door on the road.
+narration | flag=saw_knob: It goes on until it's light. You lie and listen to it the whole time, and you don't go down.
+paranoia: Everyone else's door is open. Yours is the one they'll remember.
+
+=== odd_prints_open
 narration | time=+5: At three, from below, the back door. Not the dog. The dog's at three, and this is three, and it isn't the dog.
 narration: Something moving through the shop. Slow. Round the shelves, one by one, the way you'd walk round a room you were thinking of buying.
 narration | flag=saw_prints: Then up the stairs. Each one. To the bedroom door. And there it stops. It stands outside your door for a long time. You don't breathe. Then it goes back down, slowly, and out, and the back door stays open.

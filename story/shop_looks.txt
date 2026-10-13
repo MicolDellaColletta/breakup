@@ -26,7 +26,7 @@ appraisal | if=day>=2 and appraisal>=1: A balance doesn't drift from one side to
 === look_bear
 narration | time=+5: The bear in the corner. Up close it's bigger than you thought, reared up, mouth open on a roar nobody heard.
 narration: A cardboard tag hangs from one claw, in the owner's small hand: NOT FOR SALE. NEVER.
-appraisal | if=appraisal>=1: It isn't in the ledger, either. Every item gets a price, the letter said. Even the ones you'd never sell.
+appraisal | if=appraisal>=1: It has no price in the ledger, either. Only a year. Every item gets a price, the letter said. Even the ones you'd never sell.
 warmth | if=warmth>=1: Somebody stood this where they'd have to look at it every day. Not love. Something owed.
 appraisal | if=appraisal>=2: The seams along the belly were sewn twice. Years apart. The newer thread is a different color.
 narration | if=day>=2: Its head is turned a little further toward the counter than you remember. Toward where you stand all day.
@@ -95,8 +95,8 @@ narration: You take your hand away. The print of it stays on the frost a long mo
 narration | time=+5: The owner's workbench. A pegboard over it, every tool hanging inside its own outline, painted in white. Knives, scrapers, awls, curved needles, a fleshing beam.
 narration: Every outline full but one. Something small, with a hook at the end.
 narration: On the bench, a stoat in its white winter coat, half drawn over its form. The stitches stop in the middle of the belly. The needle's still threaded, hanging from the last one, turning slowly in the draught.
-narration: Pinned to the pegboard, a feed-store calendar on October. The fourth is circled, twice, in pencil.
-paranoia: October fourth. The day before you came. He put down the needle in the middle of a stitch.
+narration: Pinned to the pegboard, a feed-store calendar on October. The third is circled, twice, in pencil.
+paranoia: October third. Two days before you came. He put down the needle in the middle of a stitch.
 warmth | if=warmth>=1: The tools are clean. Oiled. Somebody loved this work.
 
 === look_glass_eyes

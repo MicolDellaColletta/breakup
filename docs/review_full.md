@@ -900,3 +900,32 @@ radio, gentle); night_walks:221, 230.
 - night 34 (repeats December, the lock does nothing, the prints out of
   order);
 - day 32.
+
+---
+
+## Canon fixes (branch `canon-fixes`, ready if you agree with questions 15–27)
+
+Done ahead of your answers, following the leans in `questions.md`. Drop the PR
+to undo any of them.
+
+- **15, the bear:** 1959 everywhere. The ledger gives it a year but no price.
+- **16, the snowshoes:** "T. 98", Thomas.
+- **17, Abraham's death:** the bench calendar circles October 3.
+- **18, the furnace card:** unnumbered ("No number."), so Abraham's rules keep
+  their nine.
+- **19, Ruth's mother:** three versions, kept on purpose. `story.md` says so.
+- **20, the 1989 Keeper:** not a contradiction. "David" (in quotes) was his
+  Keeper name, J.W. his own. `story.md` now says he ran the night before
+  breakup (April), not in February.
+- **21, Ruth's diary and room:** a grown woman's hand, not a schoolgirl's.
+- **22, the storekeeper:** Edie, not Ida.
+- **23, "sweetheart":** pillars now allows the Witness flash, as `story.md`
+  does.
+- **24, the cold snap:** a line in the bridge before day 10. Thirty below, the
+  lake booming as it sets, "clear as a window".
+- **26, night 34:** locking the back door changes the night now. The knob
+  turns until light, and in the morning there's a frosted handprint, instead
+  of the prints coming up to the bedroom door.
+- **27, Olstad:** one line each on days 10 and 13. Thomas "didn't have one
+  either"; "a man paying a man's bills… there was a word for that, and it
+  wasn't 'friend.'"

@@ -72,7 +72,7 @@ narration: In the bear. The second seam. You open it another six inches, and pus
 -> sam_after
 
 === notebooks_room
-narration: In Ruth's room. Under the girl's bed, with the dust, below a wall with a dead man's name on it a thousand times. Nobody goes in there. Nobody's gone in for ten years.
+narration: In Ruth's room. Under her old bed, with the dust, below a wall with a dead man's name on it a thousand times. Nobody goes in there. Nobody's gone in for ten years.
 -> sam_after
 
 === notebooks_bed

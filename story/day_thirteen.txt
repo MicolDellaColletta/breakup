@@ -28,6 +28,7 @@ narration | if=flag:tin_opened: The tin's open. The key's in your pocket. And so
 narration | if=!flag:tin_opened: Somebody's paying interest on a tin you haven't opened, from an hour away. Closer every month.
 trooper: That car of yours is still in my book as stolen. I'm the only one who's opened the book.
 trooper: I'd like to know who you are before he gets here. Whoever he is.
+trooper: A man paying a man's bills, from a long way off, every month. Where I grew up there was a word for that, and it wasn't "friend."
 paranoia: She thinks it's one man. She thinks it's someone you know.
 > "So would I." -> trooper_true | lean=warmth
 > "Nobody's coming." -> trooper_lie | lean=john
