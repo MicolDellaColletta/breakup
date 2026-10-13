@@ -89,6 +89,7 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 
 === morning_after
 narration | time=07:30: Tuesday.
+narration | if=flag:gun_furnace: At four in the morning, a crack from downstairs, flat and loud, one, like a board breaking. In the back room, behind the furnace, the towel smoking. The gun, the cylinder turned one place on. Nothing fired. There was nothing to fire. The empty chamber came round on its own.
 narration | if=flag:saw_clock: The alarm clock by the bed, going again. You didn't touch it. It says the right time. It's a minute slow by noon, and stops again at nine that night.
 
 # --- Something out of place (docs/nights.md). ---

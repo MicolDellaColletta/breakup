@@ -140,6 +140,10 @@ narration | if=flag:has_books: He looks at the counter drawer, once. "You went t
 narration | if=flag:new_year_ruth: "She kissed you at midnight. Did she taste of sorry? She always does."
 narration | if=flag:new_year_sam: "Did you hear the ice? At midnight? He'll have written it down."
 narration | if=flag:new_year_daniel: "You said my name." He says it the way you'd say thank you.
+narration | if=flag:gun_dresser: "You keep his gun in the dresser. Under the flannel, with your papers. I wouldn't. I'd keep it nearer."
+narration | if=flag:asked_daniel: "You came to my room and asked me. I told you. You've been carrying that word around since. Yes. It gets lighter."
+narration | if=flag:accused_on_air: "Everyone heard you. Everyone heard me. Nobody believes either of us, now. Do you see how kind that is?"
+narration | if=flag:pointed_gun: He touches his coat, over his heart, where the gun is. "I've still got it. It's warm. You'll have it back in March."
 daniel: I don't want anything today. I wanted you to hear my voice in a room, and know it's the same voice. That's all.
 narration: He stands. He buttons the good coat.
 daniel: April. You'll be ready. Everyone will.

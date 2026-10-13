@@ -453,7 +453,8 @@ static func is_speaker(speaker_id: String) -> bool:
 
 # Options that change the world, on a line when it's shown or on a choice
 # when it's picked: stop=, sound=, time=, take=, lose=, break=, set=, flag=,
-# lean=, cash=, write=, fray=, settle=, rewind=, keep=, betray=, door=, eye=
+# lean=, cash=, write=, fray=, settle=, rewind=, keep=, betray=, door=, eye=,
+# unflag=
 func _apply_effects(entry: Dictionary) -> void:
 	if entry.has("stop"):
 		stop_sound(entry["stop"])
@@ -486,6 +487,10 @@ func _apply_effects(entry: Dictionary) -> void:
 	if entry.has("flag"):
 		for flag in entry["flag"].split(","):
 			GameState.set_flag(flag.strip_edges())
+	# unflag=gun_bear (or a,b): it's no longer so (the gun taken back).
+	if entry.has("unflag"):
+		for flag in entry["unflag"].split(","):
+			GameState.flags.erase(flag.strip_edges())
 	if entry.has("write"):
 		GameState.write_ledger(entry["write"])
 	if entry.has("fray"):

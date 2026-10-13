@@ -5,7 +5,9 @@ extends Control
 # then bed, and whatever wakes you. First person, three rooms you walk between
 # with arrows (story/spots.cfg, scene "night"): the main room, the hall and
 # the bedroom. When the phone rings downstairs and you go to it, the shop
-# itself, in the dark: the hallway and the counter (SHOP_ROOMS). A line with
+# itself, in the dark: the hallway and the counter (SHOP_ROOMS). From the John
+# night on, the stairs go down every night: the whole shop, in the dark
+# (night walks: docs/night_walks.md, story/night_walks.txt). A line with
 # show=bedroom (or another room) takes the picture back without walking.
 # Each day's night has its own story file
 # (GameState.NIGHT_STORIES). In the morning, the next day at the counter, or
@@ -26,7 +28,13 @@ const NIGHTLY_RULES: Dictionary = {"radio": "radio", "kitchen": "dog", "windows"
 const SHOP_ROOMS: Dictionary = {
 	"shop_hall": "hallway",
 	"shop_counter": "counter",
+	"shop_floor": "floor",
+	"shop_office": "office",
+	"shop_back": "backroom",
 }
+# What every night shares: the shop at night, its finds, the gun's hiding
+# places, and the Gleaner's back window (docs/night_walks.md).
+const WALKS_PATH: String = "res://story/night_walks.txt"
 
 @onready var narrator: DialogueColumn = %Narrator
 @onready var art: Control = %ApartmentArt
@@ -69,6 +77,7 @@ func _ready() -> void:
 	narrator.line_shown.connect(_on_line_shown)
 	narrator.load_story(GameState.NIGHT_STORIES.get(GameState.day, GameState.NIGHT_STORIES[1]))
 	narrator.add_story(USE_PATH)
+	narrator.add_story(WALKS_PATH)
 	narrator.set_input_enabled(false)
 	await Transition.fade_in(1.5)
 	narrator.set_input_enabled(true)

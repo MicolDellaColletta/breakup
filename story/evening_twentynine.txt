@@ -25,6 +25,9 @@ narration: She opens the bag. An iron bolt, black, a piece of charred wood still
 narration | if=flag:spectacles_to_olstad: "And the spectacles. Anchorage says ordinary glass, ordinary lenses, no cracks. They won't say more till somebody official asks them to. I'm somebody official. They don't think so."
 narration | if=flag:spectacles_to_church: "The spectacles would have done it. Ezra buried them. In the ground. In January. Do you know what it takes to dig a grave in January?"
 trooper: Brekke signed it. The county'll read what he signed, because there was nobody else to sign anything. And he's got a whole town that'll say they saw an old man go in to pray and fall asleep.
+narration | if=flag:asked_daniel: You tell her. You asked him. He said yes. She looks at you a long time. "I believe you. God help me. I can't write down 'he said yes.'"
+narration | if=flag:accused_on_air: "I heard you. On the radio. Then I heard him. My sister turned it off. She wanted to know who John was."
+narration | if=flag:pointed_gun: "And he's got your gun. Ezra saw it in his coat. I'm not going to ask."
 trooper: I need one person to say different. Out loud. In front of them. When it comes to it.
 narration: She closes the bag.
 trooper: Will you? When it comes to it?

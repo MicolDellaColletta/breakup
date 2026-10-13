@@ -103,6 +103,7 @@ narration: On the calendar by the furnace, October. Nobody's turned it. The four
 narration: The bear, in the corner of the shop, eight feet of it on its hind legs, the way it's stood since before you came.
 narration: Down its back, under the fur, a second seam. Not the old one, gone brown. This one's new thread. White. Somebody opened it this year and sewed it shut again.
 narration: You open it with a knife from the counter. Stitch by stitch. The stuffing's straw, old and dry, and in it, on a red tag, a key.
+narration | if=flag:gun_bear: And deeper, where you pushed it in October, your fingers touch the towel. John's gun, in the bear's chest, cold. You leave it there. It's in good company.
 paranoia: A spare. There's always a spare. Somebody always has a key.
 -> freezer_open
 
@@ -120,6 +121,7 @@ narration: He looks like a man who sat down to wait for somebody, and they're la
 appraisal | if=appraisal>=1: An old man who believed it. Who climbed in himself, in October, before the Keeper came, so there'd be a Keeper. Who pulled the lid down on himself.
 unknown: Or the shop that took him, and put him where you'd find him on the shortest day.
 narration: On the crate beside him, a mug. Empty. And the ledger's pencil.
+narration | take=room_key: His coat pocket, the top one, unbuttoned. A key on a loop of kitchen string. You take it before you've thought about it. It's warm the moment it's out of the cold.
 narration: Ruth's father. Ruth, who thinks he's away.
 > Go to the Gleaner. Bring Ruth here. -> freezer_ruth | if=!faithless:ruth | keep=ruth | flag=ruth_saw_father | lean=warmth
 > Tell Olstad. -> freezer_olstad | flag=told_olstad_freezer | lean=appraisal

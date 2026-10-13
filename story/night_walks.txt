@@ -1,0 +1,226 @@
+# NIGHT WALKS: the shop after dark, every night from the John night on.
+# Loaded with every night's story (scripts/night.gd, WALKS_PATH). Spots in
+# spots.cfg (scene "night", rooms shop_hall, shop_counter, shop_floor,
+# shop_office, shop_back, and the apartment hall): the finds, one or two a
+# week from December, never announced; the gun's hiding places (use the
+# revolver from your pockets on a spot: hide_gun_*; take it back: take_gun_*);
+# and, between the ruling and the confession, the Gleaner's back window.
+# Design: docs/night_walks.md.
+
+# --- The counter: the drawer's false bottom; the register. ---
+
+=== walk_drawer
+-> walk_drawer_found | if=flag:found_rules
+-> walk_drawer_find | if=day>=18
+-> walk_drawer_plain
+
+=== walk_drawer_plain
+narration: The counter drawer, by torchlight. The shells, the index card, the stub of a pencil. The drawer's shallower than it should be. You only notice it at night.
+
+=== walk_drawer_find
+narration: The counter drawer, by torchlight. Shallower than the drawer below it. You've looked at it a hundred times. In the dark, with the torch held low, you see the seam: a thin board laid in, a quarter inch above the real bottom.
+narration: You get a fingernail under it. It lifts.
+narration | take=abraham_rules | flag=found_rules: Under it, a card. The owner's hand, older, the ink gone brown. Rules. Nine of them.
+paranoia: Nine. There were eight. There were always eight.
+
+=== walk_drawer_found
+narration: The false bottom, back in place. The drawer knows you know.
+
+=== walk_register
+narration: The register. You run your hand along the underside of the cash drawer, the way you'd check a table for gum.
+narration | take=desk_key | flag=found_desk_key: Tape. Old, yellow, brittle. And under it, a small brass key with a hollow barrel. A desk key.
+
+# --- The office: the desk; the safe. ---
+
+=== walk_desk
+-> walk_desk_read | if=flag:found_letters
+-> walk_desk_open | if=has:desk_key
+-> walk_desk_plain
+
+=== walk_desk_plain
+narration: Abraham's desk. The big drawer, locked. A keyhole, small, brass, scratched round the edge by a key that missed it many times in the dark.
+
+=== walk_desk_open
+narration: The brass key from under the register. It turns as if it had been waiting.
+narration: Inside: a bundle of letters, tied with string. Eleven. Addressed in different hands, to mothers, a brother, a wife in Fairbanks. Stamped. Never posted.
+narration: The Keepers. One a year. Writing home, near the end, and giving the letter to the man at the counter to post. He kept them.
+narration | take=letter_1989 | flag=found_letters: The oldest on top. March 1989. It stops in the middle of a sentence.
+paranoia: You'd have given him yours. You'd have given him yours to post.
+
+=== walk_desk_read
+narration: The letters, back in their string. You don't untie them again. You know the order they go in.
+
+=== walk_safe
+-> walk_safe_empty | if=flag:found_deed
+-> walk_safe_open | if=flag:saw_bulletin or doors:sam>=2
+-> walk_safe_plain
+
+=== walk_safe_plain
+narration: The safe, under the desk, behind the chair. A dial, numbers worn off half of it. You turn it. Nothing you try. You don't know the numbers.
+
+=== walk_safe_open
+narration: The safe. You kneel. The numbers come to your hand before you've decided on them: the Reverend's last hymns, the ones crossed out on the bulletin, in the order he chose them.
+narration: It opens.
+narration | take=church_deed | flag=found_deed: Inside, one envelope. A deed, 1931. The shop, the land, the building, held in trust for the Keeper, by the Congregation of the Lake. Season by season. In perpetuity.
+narration: Pinned behind it, a pawn ticket. Number 0001. "One season." No name.
+paranoia: It was never Abraham's. It was never anybody's. It's theirs. You're theirs.
+
+=== walk_safe_empty
+narration: The safe, open, empty. You leave the door ajar. It feels wrong to close it on nothing.
+
+# --- The back room: the crate; the furnace; the freezer. ---
+
+=== walk_crate
+-> walk_crate_done | if=flag:found_photo
+-> walk_crate_plain
+
+=== walk_crate_plain
+narration: The crates along the wall, by torchlight. One at the bottom, under the others, its lid nailed. You get the crowbar from the bench.
+narration: Inside: a suitcase. Brown cardboard, a strap, initials stencilled on the lid: J.W. Clothes, folded. A shaving kit. A paperback with the pages swollen.
+narration | take=keeper_photo | flag=found_photo: And in the lid pocket, a photograph: a young man on the shop's front step, in a red flannel shirt, squinting into the sun. On the back, in pencil: Me, the Keeper, ha. Oct. 88.
+paranoia: His eyes. Look at his eyes.
+narration: Brown.
+
+=== walk_crate_done
+narration: The suitcase, back in its crate, the lid on. You've stopped thinking of it as stock.
+
+=== walk_furnace
+-> take_gun_furnace | if=flag:gun_furnace
+-> walk_furnace_ash | if=day>=24 and !flag:found_corner
+-> walk_furnace_plain
+
+=== walk_furnace_plain
+narration: The furnace, ticking. Its little window red. The heat on your face like standing too near someone.
+
+=== walk_furnace_ash
+narration: The furnace. You pull the ash pan out to empty it, the way Abraham's card on the wall says to, every week.
+narration | take=burned_corner | flag=found_corner: In the grey, one scrap the fire missed. A corner of paper, the edge brown. A few words in a tidy, old-fashioned hand: "...not the ice. They walk you out onto it, and then"
+paranoia: Thomas. That's Thomas's hand. From the ledger. From the first page.
+
+=== walk_freezer
+-> take_gun_freezer | if=flag:gun_freezer
+-> walk_freezer_plain
+
+=== walk_freezer_plain
+narration | if=day<24: The freezer, humming. The padlock. Frost on the seal. You put your hand flat on the lid and take it away quickly.
+narration | if=day>=24: The freezer, humming. You don't open it. You know what's sitting in it, waiting.
+
+# --- The bear. ---
+
+=== walk_bear
+-> take_gun_bear | if=flag:gun_bear
+-> walk_bear_plain
+
+=== walk_bear_plain
+narration: The bear, in the dark, on its hind legs. The neon through the front window lights one glass eye red. Down its back, under the fur, the seams: an old one, and a new one in white thread.
+
+# --- The hall upstairs: the loose floorboard; the locked room. ---
+
+=== walk_floorboard
+-> take_gun_floorboard | if=flag:gun_floorboard
+-> walk_floorboard_plain
+
+=== walk_floorboard_plain
+narration: In the hall, by the bathroom door, a board that gives under your foot. You kneel. It lifts. Underneath, joists, dust, the dark. Room for something wrapped in a towel.
+
+=== walk_locked_room
+-> walk_locked_room_again | if=flag:saw_locked_room
+-> walk_locked_room_plain
+
+=== walk_locked_room_plain
+narration: The locked door. The key on its string from Abraham's coat. It goes in. It turns.
+narration: A girl's room. Kept. A narrow bed with a quilt, a dressing table, a mirror with photographs tucked into the frame. Nothing touched in ten years; the dust like grey felt on everything.
+narration: On the back of the door, on a hook, a man's coat. Long, brown, the brass buttons. The Keeper's coat. Not yours. His. 1989.
+narration | flag=saw_locked_room: And on the wall above the bed, written in pencil, small, over and over, hundreds of times, in a girl's careful hand: one name. A man's. Over and over, until the wallpaper's grey with it.
+paranoia: Ruth's room. Ruth's. And the coat. She kept his coat.
+narration: The lamp on the dressing table, on a timer, the old kind with a dial. That's the light under the door. That's all it ever was.
+unknown: That's all it ever was. You believe that.
+
+=== walk_locked_room_again
+narration: Ruth's room. The coat on the door. The name on the wall. You don't go in again. You stand in the doorway, and the lamp clicks on, on its timer, while you watch.
+
+# --- The gun: taking it back. ---
+
+=== take_gun_bear
+narration | take=revolver | unflag=gun_bear: You put your arm into the bear's seam to the shoulder. Straw. Straw. Then the towel, and the weight in it. You bring it out. The bear doesn't mind.
+
+=== take_gun_furnace
+narration | take=revolver | unflag=gun_furnace: Behind the furnace, on the ledge. It's hot through the towel. You juggle it from hand to hand like a potato.
+
+=== take_gun_freezer
+narration | take=revolver | unflag=gun_freezer: Behind the freezer. Cold as the lid. Your fingers stick to it for a second.
+
+=== take_gun_floorboard
+narration | take=revolver | unflag=gun_floorboard: The loose board. The towel. Still there. Of course it's still there. Nobody knows about the board.
+
+# --- The Gleaner's back window: facing him. Once, between the ruling and the confession. ---
+
+=== confront
+narration: Out the front door, into the road, at midnight. The Gleaner dark, all but the back window, lit red. You go round.
+narration: The back room. A transmitter on a card table, its dials glowing. Shelves of jars: the children's teeth, every family's. A microphone on a stand. And him, alone, off the air, in his shirtsleeves, reading.
+narration: He looks up. He isn't surprised. He closes the book on his finger.
+daniel: Come in. It's cold. Shut the door. Nobody will come; they think I'm praying.
+paranoia: Go back. Go back. You don't have to do this.
+narration: You've wanted to do this since the Tuesday he walked into your shop.
+> "Did you bolt the door?" -> confront_ask | flag=confronted | flag=asked_daniel | lean=appraisal
+> Switch on the transmitter. Say it to the whole town. -> confront_air | flag=confronted | flag=accused_on_air | eye=+5 | lean=animal
+> Take out John's gun. -> confront_gun | if=has:revolver | flag=confronted | flag=pointed_gun | lean=john
+> Go back for John's gun. -> confront_fetch | if=flag:gun_pillow or flag:gun_dresser or flag:gun_floorboard or flag:gun_bear or flag:gun_furnace or flag:gun_freezer | flag=confronted | flag=pointed_gun | lean=john
+> Walk away. -> confront_leave | lean=paranoia
+
+=== confront_ask
+narration: You ask him. Out loud. Did you bolt the vestry door.
+narration: He doesn't look away. He doesn't hesitate.
+daniel: Yes.
+narration: That's all. One word. He waits to see if you'll ask anything else. You can't think of anything else.
+daniel: I don't lie. You knew what I'd say. You came to hear me say it. Now you have. Nobody else ever will.
+daniel: Go home. Tell Olstad, if you like. She'll believe you. That's the cruel part. It won't help her at all.
+narration: You go home. The word comes with you. Yes.
+
+=== confront_air
+narration: You cross the room before he can move. You flip the switch on the transmitter, the red light on, and you lean into the microphone, and you say it.
+narration: To every kitchen in Kettle Lake. The bolt. The door. The prints in the snow. The man who sat by the stove while Olstad asked. His name, the one he uses.
+narration: He doesn't stop you. He sits and listens, with his finger in his book, the way you'd listen to a child recite.
+narration: When you've finished, he leans past you, gently, to the microphone.
+daniel: Thank you, friends. That was the Keeper. I'd like to tell you something about the Keeper, now, since we're being honest.
+narration: And he does. To every kitchen. John. The motel. The parking lot. Whose gun it was. What name you came here under, and why.
+narration: He doesn't lie once. He doesn't need to.
+narration: Then he switches the transmitter off, and the red light goes out.
+daniel: There. Now everybody knows everything. Isn't that better? It's always better.
+
+=== confront_gun
+narration: You take it out of your coat. John's gun. You point it at him across the card table.
+-> confront_gun_held
+
+=== confront_fetch
+narration: You go back for it. Down the road, in through the back door, wherever you put it, your hands knowing the way in the dark. Back up the road. He's waiting. He's left the door open for you.
+narration | unflag=gun_pillow,gun_dresser,gun_floorboard,gun_bear,gun_furnace,gun_freezer | take=revolver: You point it at him across the card table.
+-> confront_gun_held
+
+=== confront_gun_held
+narration: He stands up. Slowly. He comes round the table, toward you, until the muzzle's against his shirt, over the place on his side that nobody stitched right.
+daniel: There you are.
+narration: Five rounds. Six chambers. You know which one's under the hammer. You've always known.
+> Pull the trigger. -> confront_click | flag=pulled_trigger | lean=animal
+> Lower it. -> confront_lower | lean=warmth
+
+=== confront_click
+narration: You pull it.
+narration: Click.
+narration: The empty chamber. The sixth. It came round, the way it always comes round.
+narration: He closes his eyes. He breathes out, a long breath, like a man setting something down.
+-> confront_taken
+
+=== confront_lower
+narration: You lower it. Your arm won't hold it up anymore. It weighs what a man weighs.
+-> confront_taken
+
+=== confront_taken
+narration | lose=revolver: He takes it out of your hand. Gently, the way you'd take scissors from a child. He puts it inside his coat, over his heart, with the stubs.
+daniel: I'll keep this for you. Till March. You'll want it back then, I think, and then we'll see.
+narration: He sits down again. He opens his book where his finger was.
+daniel: Goodnight.
+
+=== confront_leave
+narration: You stand under the red window a long time, in the road, in the cold. Then you go home.
+narration: Behind you, the red light doesn't change. He knew you were there. He'll know if you come back.

@@ -32,6 +32,8 @@ narration: Nobody nods. Not one. They look at you the way you'd look at weather 
 narration: You stand at the end of the queue. It moves very slowly. Everyone in it is very quiet. You can hear, faintly, from the end of the passage, the murmur of one voice, and then the other.
 narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel: Somebody touches your sleeve. "Like the other night," they say, smiling, "walking home after the booth." Then they're gone up the line. You haven't been to the booth. It's tonight. It hasn't happened yet.
 
+narration | if=flag:accused_on_air: In the queue, a space opens round you. A yard either side. Nobody says anything. Since the night on the radio, everyone in town knows your name, the real one, and nobody uses it.
+
 # --- The queue. ---
 
 === queue_widow

@@ -133,3 +133,28 @@ narration: You hold the bulletin under the radio's amber light. "The night radio
 narration: The Thursday watch. The calm voice, reading out hymn numbers that are your rules.
 narration: In the margin, in pencil, pressed hard: DON'T LET THEM PRAY FOR YOU.
 paranoia: He's on the radio. He's in the bulletin. He walked into your shop and put a compass in your hand.
+
+# --- John's gun, hidden somewhere at night (docs/night_walks.md): the
+# revolver from your pockets used on a spot. Taken back: story/night_walks.txt. ---
+
+=== hide_gun_pillow
+narration | lose=revolver | flag=gun_pillow | lean=animal: Under your pillow. You lie down with your head on it, and your hand under the pillow, on it.
+
+=== hide_gun_dresser
+narration | lose=revolver | flag=gun_dresser | lean=appraisal: You wrap it in the red-and-black flannel and push it to the back of the bottom drawer, behind the papers. Everything you know about that night, in one drawer. Filed.
+
+=== hide_gun_snow
+narration | sound=floorboards: Down and out the back door in your socks. You kneel in the snowbank and push it in up to your elbow.
+narration | lose=revolver | flag=gun_snow | lean=warmth: When you pull your arm out, there's only a hole, and the snow already falling into it. In May the bank will melt, and there it'll be. In May.
+
+=== hide_gun_floorboard
+narration | lose=revolver | flag=gun_floorboard | lean=paranoia: Under the loose board in the hall, in its towel, between the joists. You put the board back and stand on it. It doesn't give now. As if it knew.
+
+=== hide_gun_bear
+narration | lose=revolver | flag=gun_bear | lean=unknown: You open the bear's new seam two inches with your thumb and push it in, into the straw, deep, until it's somewhere in the bear's chest. The fur closes over the seam. You can't see where.
+
+=== hide_gun_furnace
+narration | lose=revolver | flag=gun_furnace | lean=john: Behind the furnace, on the brick ledge, in the dark where the pipe goes up. Warm there. It'll always be warm there.
+
+=== hide_gun_freezer
+narration | lose=revolver | flag=gun_freezer | lean=paranoia: In the gap behind the freezer, wedged, against the wall. The hum goes through it. You can feel the hum in your hand after you've let go.

@@ -11,6 +11,7 @@
 === morning
 narration | time=09:00: Friday, the seventeenth. Two days of ash. The snow on the road gone the grey of newsprint. The children won't make snowmen in it.
 narration | if=flag:tried_church: Your hands, in fresh bandages. Mrs. Hollis came at eight to change them. She hummed while she did it.
+narration | if=flag:tried_church and flag:gun_pillow: She changed the sheets too, while she was up there. Her hand stopped under your pillow. Then she smoothed the pillow, and plumped it, and said nothing, and hummed.
 narration: Up the hill, where the church was: black ribs against the sky, and the tower a stump, and the smell, still, when the wind's from there.
 -> opening
 

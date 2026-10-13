@@ -2,8 +2,8 @@
 
 Three things asked for together: nights that are worth exploring, the gun as
 something MC puts somewhere (and that matters later), and one chance to
-confront Daniel. A plan to agree before building. **Leans** are my
-recommendations; "Your call" marks the decisions.
+confront Daniel. **Decided Oct 13: all five leans. Built** (see "As built"
+at the end).
 
 ## What's there now
 
@@ -151,3 +151,32 @@ does.
 5. **Build order:** the gun and night walks first (one PR), then the
    confrontation with the January reads (a second PR), then on with
    February. Lean: yes.
+
+## As built (Oct 13)
+
+- **Engine:** the night scene's shop rooms grow to five (`shop_hall`,
+  `shop_counter`, `shop_floor`, `shop_office`, `shop_back`); every night loads
+  `story/night_walks.txt` beside its own story; a new effect, `unflag=`.
+- **Walks:** the stairs down (`walk_down`) every night from the John night
+  on, except the phone nights 8-10 (`day==7 or day>=11`), and the rooms'
+  spots (`walk_*` in `spots.cfg`).
+- **Finds:** the drawer's false bottom (`abraham_rules`, from Dec 1), the key
+  under the register (`desk_key`, from Dec 6), the desk's letters
+  (`letter_1989`), the safe (`church_deed`, with the Reverend's last hymns:
+  `saw_bulletin`, or Sam's two doors), the crate (`keeper_photo`, from Dec
+  17), the ash pan (`burned_corner`, from Dec 21), the key in Abraham's coat
+  (`room_key`, at the freezer), and the locked room (January). Documents for
+  the rules, the letter and the deed.
+- **The gun:** on night 7 the revolver can be used on the bed, the dresser,
+  the back door (the snowbank), the hall's loose floorboard, the bear, the
+  furnace or the freezer (`hide_gun_*` in `use.txt`, `gun_<place>` flags);
+  the old bedtime choices stay, shown only while it's still in your hands.
+  Taken back from the bear, furnace, freezer or floorboard (`take_gun_*`).
+  Read: Mrs. Hollis finds it under the pillow (Dec 17); the furnace fires it
+  (night of Dec 6); the bear's seam (Dec 21); Daniel on the dresser (Jan 3).
+- **Facing him** (`walk_confront`, nights of Dec 17 to Jan 22, once): ask
+  (`asked_daniel`: "Yes."), accuse on air (`accused_on_air`, eye +5; he
+  answers with John), the gun in hand or fetched (`pointed_gun`: "There you
+  are", the empty chamber, he keeps it till March), or walk away. Read on Jan
+  3 (him), Jan 15 (Olstad), Jan 23 (the queue).
+- **Tests:** `test_night_walks.gd`.

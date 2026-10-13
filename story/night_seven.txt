@@ -11,6 +11,7 @@ narration | sound=stairs: You don't go up. Not yet. You go out the back, through
 narration: Under the passenger seat, where you pushed it a week ago, still in its towel. Heavier than it looks.
 narration | take=revolver: You bring it up the stairs held against your chest, the way the stranger carried the jacket, as if it might wake.
 narration | stop=stairs: You put it on the kitchen table. You don't unwrap it. You sit and look at the towel.
+narration: You could put it somewhere. Anywhere. The apartment's full of places. So's the shop, downstairs, in the dark.
 paranoia: One week. You knew this was coming. You've known all day. You've known since the car.
 paranoia: Do the rules first. Do them like any night. Then you can sit with it.
 
@@ -75,27 +76,30 @@ narration | sound=latch: The key turns. You stand with your forehead against the
 # --- The table. ---
 
 === sleep
-narration | time=+20: You don't go to bed. You sit down at the kitchen table, and you unwrap the towel, one corner at a time.
-narration: The revolver. You open the cylinder against your palm. Five rounds in six chambers. The empty one turns under your thumb, and turns, and comes round again.
+narration | time=+20: You don't go to bed.
+narration | if=has:revolver: You sit down at the kitchen table, and you unwrap the towel, one corner at a time.
+narration | if=has:revolver: The revolver. You open the cylinder against your palm. Five rounds in six chambers. The empty one turns under your thumb, and turns, and comes round again.
 narration | if=flag:radio_on: On the radio, the static thins. The calm voice, at an hour he's never been on the air.
 narration | if=flag:radio_on: "For anyone awake tonight. The Lord knows your name, friend. Even if you've put it down somewhere."
 narration | if=flag:radio_on: Then static. He doesn't say anything else. You're not sure he meant to say that much.
 narration: It's one week since you drove in. It's longer since the night it was his, and you were there, or near, or somewhere you can't find.
-paranoia: Do something with it. Anything. You can't sleep with it on the table.
-> Put it under your pillow -> gun_pillow | lean=animal
-> Wrap it in a flannel shirt and hide it at the back of the dresser, with the papers -> gun_dresser | lean=appraisal
-> Take it outside and push it deep into the snowbank by the back door, till May -> gun_snow | lean=warmth
-> Try to load the sixth chamber with the .22s from the counter drawer -> gun_load | lean=john
-> Sit with it. Wait for the static to clear. Listen to what it says. -> gun_listen | lean=unknown
+paranoia | if=has:revolver: Do something with it. Anything. You can't sleep with it on the table.
+narration | if=!has:revolver: You sit down at the kitchen table without it. You've put it where you put it. Your hands keep going to the table where it was.
+-> john_night
+> Put it under your pillow -> gun_pillow | if=has:revolver | lean=animal
+> Wrap it in a flannel shirt and hide it at the back of the dresser, with the papers -> gun_dresser | if=has:revolver | lean=appraisal
+> Take it outside and push it deep into the snowbank by the back door, till May -> gun_snow | if=has:revolver | lean=warmth
+> Try to load the sixth chamber with the .22s from the counter drawer -> gun_load | if=has:revolver | lean=john
+> Sit with it. Wait for the static to clear. Listen to what it says. -> gun_listen | if=has:revolver | lean=unknown
 
 === gun_pillow
-narration: You carry it to the bedroom and put it under your pillow, and lie down with your head on it, and your hand under the pillow, on it.
+narration | flag=gun_pillow: You carry it to the bedroom and put it under your pillow, and lie down with your head on it, and your hand under the pillow, on it.
 narration: It's the first time all week you've felt like nobody could come in.
 narration: It's the first time all week you've felt like somebody might have to.
 -> john_night
 
 === gun_dresser
-narration: You wrap it in the red-and-black flannel, the way you'd wrap evidence, and push it to the back of the bottom drawer, behind the bulletin and the rental papers and the job offer.
+narration | lose=revolver | flag=gun_dresser: You wrap it in the red-and-black flannel, the way you'd wrap evidence, and push it to the back of the bottom drawer, behind the bulletin and the rental papers and the job offer.
 narration: Everything you know about the night is in that drawer now. Labeled, almost. Filed.
 narration: You close the drawer. You check it's closed. You know exactly what's in it, and in what order.
 -> john_night
@@ -103,7 +107,7 @@ narration: You close the drawer. You check it's closed. You know exactly what's 
 === gun_snow
 narration | sound=floorboards: You take it down the stairs and out the back door in your socks, and kneel in the snowbank, and push it in up to your elbow, as deep as your arm will go.
 narration: The cold burns. You leave your arm there longer than you need to.
-narration | lose=revolver: When you pull it out, there's only a hole, and the snow already falling into it from the sides. In May the bank will melt, and there it'll be. In May.
+narration | lose=revolver | flag=gun_snow: When you pull it out, there's only a hole, and the snow already falling into it from the sides. In May the bank will melt, and there it'll be. In May.
 -> john_night
 
 === gun_load
