@@ -13,14 +13,39 @@ pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
    only shrinks to February's own changes once night-walks is merged. After
    each merge, update main.
 
-2. **Answer the Daniel calls** in `daniel_v7.md`: calls 1–8 for v7, calls 9–11
+2. **A full review of everything built,** before any more building (it comes
+   before the Daniel rewrite and March). Write the findings down first, then
+   fix them. Like `review.md`, but complete, and covering:
+   - **Objects:** every item, stock piece and document. Is each one taken,
+     used, examined and paid off, or is it a dead end? Are its descriptions
+     consistent from month to month?
+   - **Branches:** every section reachable; no dead ends, loops, or jumps
+     placed in the middle of a section.
+   - **Flags:** every flag that's set, and where it's read. Set and never
+     read, read and never set, spelling mismatches.
+   - **Forks and counts:** the six hard forks, kept faith per person, the
+     doors, the eye. Does each choice actually change something later? Are
+     the counts balanced (can every ending still be reached)?
+   - **Exploration:** night walks, spots, use-item targets, map evenings. What
+     can be found, when, and is it findable without luck?
+   - **Dialogue:** voice per character (Daniel especially, per v7),
+     contradictions between months, repeated lines, too much text.
+   - **Choices:** every choice gives the player something real, no fake
+     choices, the voices' leans used evenly, gated choices reachable.
+   - **Continuity:** dates, days of the week, light hours, who knows what
+     when, dead people staying dead.
+   - **How:** a script that extracts the flag/item/section graph from
+     `story/` (set vs read, reachability), plus a read-through by month.
+     Output: `review_full.md`, with an order of fixes.
+
+3. **Answer the Daniel calls** in `daniel_v7.md`: calls 1–8 for v7, calls 9–11
    for the darker version.
    - The open questions: flashback A, B or C (lean A, the 1988 lake), and
      who drowns (lean a girl from the town, not MC's brother).
    - Once they're agreed, fold the decisions into `daniel.md`, `forks.md`
      (endings: the four ways out) and `decisions.md`.
 
-3. **The Daniel rewrite pass** (its own PR, before March).
+4. **The Daniel rewrite pass** (its own PR, before March).
    - Every built Daniel scene, from Thanksgiving to February, about 120 lines
      over 18 days, plus the night-walks face-off. The rule: hard in public,
      himself alone with MC, never kind.
@@ -31,7 +56,7 @@ pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
      dashboard (move it into February), and the "let in" offers (the
      Reverend, the files, the collection).
 
-4. **The red light.** One overlay shared by the counter, visit and night
+5. **The red light.** One overlay shared by the counter, visit and night
    scenes.
    - It comes up automatically on `daniel` lines, plus `red=on` / `red=off`
      for scenes where he's there but silent.
@@ -39,7 +64,7 @@ pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
      is strong.
    - Build it with the rewrite pass, with tests.
 
-5. **Plan March in a doc,** following `season.md`, now with v7:
+6. **Plan March in a doc,** following `season.md`, now with v7:
    - Fork 6 becomes his offer, "come with me".
    - His one lie, "I knew", and the first piece of the 1988 flashback.
    - Someone who hurt MC disappears (exact change on the kitchen table).
@@ -47,14 +72,14 @@ pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
      above the Gleaner.
    - The gun "till March".
 
-6. **April and the endings.**
+7. **April and the endings.**
    - The ending reader.
    - The four ways out: go with him, the town takes MC, escape with someone,
      escape alone.
    - Three ways to beat Daniel for the fire: Olstad, the town, the gun.
    - The flashback's last piece (the face).
 
-7. **Then the older list below,** from "Unreliable narration" down.
+8. **Then the older list below,** from "Unreliable narration" down.
 
 ## Next session (older)
 
