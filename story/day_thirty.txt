@@ -95,6 +95,6 @@ narration | end=night | time=16:40: You walk home in the dusk at twenty to five.
 
 === walk_out
 narration: You step out of the queue. You walk back down the aisle, past them all, to the door.
-narration | eye=+1: Every head turns again. The second time is worse.
+narration | eye=+1 | flag=booth_left: Every head turns again. The second time is worse.
 narration: Through the gap in the booth's curtain, at the end of the hall, behind you, he sees. He doesn't mind. Through the glass you see his mouth make two words you know: "It'll keep."
 narration | end=night | time=12:30: Outside, the snow. The longest walk home you've ever had, a quarter of a mile.
