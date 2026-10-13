@@ -41,7 +41,7 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
    bed). Make the routine interesting: rules that change or get added, a
    rule that contradicts another, things out of place, nights where the
    order matters, a cost for skipping, consequences that show up days later.
-   Plan it in a doc first, then build.
+   Plan it in a doc first, then build. **Plan: `nights.md`.**
 
 5. **The story past November 23.** Thanksgiving week (Daniel on the
    Thursday watch, the pageant), Sam's wall, Olstad's duel. The review (1)
