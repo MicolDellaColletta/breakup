@@ -66,7 +66,22 @@ of Continue (Load still works).
     comes back, and Continue replays "to be continued" forever. Needs an end
     screen and an autosave that doesn't loop.
 
-## 2. Story: contradictions in the text (must fix)
+## 2. Story: contradictions in the text (fixed Oct 13)
+
+All fixed: (1) Mrs. Hollis on day 10 grieves if Cody drowned ("I set three
+places last night"), and only says he's out on the ice if he had the picks;
+(2) "Cody said not to" only if he did; (3) Warmth thinks of the freezer
+instead of knowing; (4) the bullet is warm "from his pocket" (the plain
+reading stays); (5) "It's time you saw the wall"; (6) Sam says MC called him
+at four in the morning, after the train, and Appraisal offers the plain
+reading (a scanner); (7) Ruth: "every September since Mom, since
+eighty-nine" (which also plants her mother's death), "in ten years", "the
+room nobody rents, paid for the week", the shoebox runs to 1999; (8) "no
+train anywhere near here"; "they don't say all of them" come back in May;
+Abraham kept the shop shut while he waited (`story.md`). The countdown was
+right after all: Nov 1 repeats Sunday's broadcast, so sixty-one.
+
+(The original list, for the record:)
 
 1. **Cody alive after he drowned.** `day_ten.txt:86-90` plays for anyone who
    didn't give the picks back, including players whose Cody drowned on day

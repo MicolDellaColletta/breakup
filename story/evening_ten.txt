@@ -41,7 +41,7 @@ narration: Long. Dark. Arms at its sides. Wearing something heavy that spreads a
 narration | if=flag:met_sam: Sam, on his knees beside it, his flashlight pointed down. He doesn't look up.
 narration: The face, you can't see. The ice is cloudy there, just there, as if on purpose.
 paranoia: A tarp. A log. Weed. Your eyes. The fire behind you, the black ice, a week of brown coats. Your mind giving you what it's been shown.
-paranoia: Or Thomas. "Coat not returned."
+paranoia: Or Thomas. "Coat not returned." The lake gives them back in May, they say. They don't say all of them.
 narration: Behind you, the children skate their ring right over it, chanting, laughing. Nobody looks down. Nobody in Kettle Lake looks down.
 > Join them. Skate over it like everyone. -> far_skate | flag=skated_over | lean=john
 > Go and get Olstad -> far_olstad | flag=showed_olstad_ice | lean=appraisal
@@ -86,6 +86,7 @@ narration | end=night | time=22:00: You walk home. Behind you, very faint, the c
 === shore_home
 narration: You finish the cocoa. You put the cup in the bag by the fire, the way everybody does. You walk up the bank.
 narration: Nobody stops you. Halfway up, you look back. The children's ring, out at the edge of the light, going round and round the same spot.
-paranoia: You didn't go out past the lanterns. Good. Cody said not to. Olstad said keep your eyes on the fire.
+paranoia | if=flag:gave_picks_back: You didn't go out past the lanterns. Good. Cody said not to. Olstad said keep your eyes on the fire.
+paranoia | if=!flag:gave_picks_back: You didn't go out past the lanterns. Good. Olstad said keep your eyes on the fire.
 paranoia: You'll never know what was out there. Good. Good.
 narration | end=night | time=21:30: You walk home with the fiddle behind you.

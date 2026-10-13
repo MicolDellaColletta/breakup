@@ -106,6 +106,8 @@ Dead in the freezer when MC arrives. The person who knew the most.
   and was gone until after breakup. He never said where (Ruth: "Doesn't tell me
   where, never has"). He locked Ruth's old room behind him.
 - **This year he stayed,** because John was late. "You're later than I hoped."
+  He kept the shop shut while he waited (Ezra found it locked two Thursdays
+  in September; Ruth saw "the truck in the yard and the shop locked").
   He believed staying would kill him.
 - **He signed the job offers "Management",** but Management isn't only him.
   Who Management is now that he's dead is open, and needs a human answer (see

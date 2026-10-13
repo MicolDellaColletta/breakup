@@ -44,7 +44,7 @@ daniel: I'm passing through. I won't keep you. I only wondered if you'd look at 
 narration: He takes an envelope from inside his coat and lays it on the glass. He opens it, and tips it, and something small and heavy rolls out onto the counter, and stops.
 narration: A bullet. Flattened. Mushroomed against something soft, and then something hard. Cleaned, carefully, until it shines.
 daniel: What will you give me for this?
-narration: You put out your hand before you can stop it. It's warm. Not warm from his pocket. Warm the way the jacket was, the way the coat was. Warm like something that's just come out of somewhere.
+narration: You put out your hand before you can stop it. It's warm. From his pocket, from the inside of a good coat. The way the jacket was. The way the coat was.
 paranoia: Rule two. Don't buy anything that's still warm.
 -> daniel_background_guilt | if=background:guilt
 -> daniel_background_witness | if=background:witness
@@ -148,8 +148,8 @@ narration: You tell him. He doesn't write it down. For the first time, he doesn'
 sam: The minister.
 sam: Then the circle on the map was right. Then everything on the map is right.
 narration: He looks at you with an expression you've never seen on him. Not fear. Vindication. The terrible relief of being right.
-sam: Come in. Lock the door. We need to start the wall.
-paranoia: The wall. He has a wall. You didn't know he had a wall.
+sam: Come in. Lock the door. It's time you saw the wall.
+paranoia: The wall. Names and dates and string, and no faces. Ten years of it. And now you're on it.
 
 === tell_no_one
 narration: You tell no one. You go upstairs and sit on the bed with your coat still on.

@@ -131,8 +131,9 @@ unknown | if=frayed: Two of you now. Two of you can't be wrong.
 > "Show me." -> sam_show | flag=sam_map | lean=unknown
 
 === sam_how
-sam: You told me. On the ice. You said it while we were kneeling. You don't remember?
-narration: You don't remember.
+sam: You told me. You called the cabin at four this morning and told me. You don't remember?
+narration: You don't remember. You remember the train, and lying down after, and then it was light.
+appraisal | if=appraisal>=1: Or he's been listening to the same calls. He's got a scanner. He's got a notebook of everything.
 sam: Write it down next time. That's what it's for.
 -> sam_goes
 
