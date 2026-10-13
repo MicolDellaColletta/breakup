@@ -38,27 +38,27 @@ anchor_right = 0.62
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
 
 [node name="SceneLayout" type="VBoxContainer" parent="SceneArea/SceneMargins" unique_id=1410596877]
 layout_mode = 2
-theme_override_constants/separation = 18
+theme_override_constants/separation = 10
 
 [node name="ViewTitle" type="Label" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1510697887]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 0.85)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 24
 text = "Behind the counter"
 
 [node name="ViewText" type="Label" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1610798897]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.62, 0.62, 0.6, 1)
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 15
 autowrap_mode = 2
 
 [node name="ViewButtons" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1710899907]
@@ -90,22 +90,29 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Register"
 
+[node name="CatalogueButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ViewButtons" unique_id=1131434566]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Catalogue"
+
 [node name="ShelfPanel" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=2111303947]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 14
+theme_override_constants/separation = 10
 
 [node name="ShelfView" type="Control" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1012404957]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
 script = ExtResource("24_shelves")
 
 [node name="ItemDetails" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel" unique_id=1112505967]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 6
 
 [node name="ItemName" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1212606977]
@@ -114,27 +121,21 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.87, 0.91, 1)
 theme_override_font_sizes/font_size = 20
 
-[node name="ItemDescription" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1312707987]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.72, 0.72, 0.7, 1)
-theme_override_font_sizes/font_size = 17
-autowrap_mode = 2
-
-[node name="ItemTag" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1412808997]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0.79, 0.71, 0.35, 0.9)
-theme_override_font_sizes/font_size = 16
-
-[node name="VoiceNotes" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1717171717]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 6
-
 [node name="ItemButtons" type="HBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1532939937]
 layout_mode = 2
 theme_override_constants/separation = 12
+
+[node name="LoupeButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1552959957]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Loupe"
+
+[node name="HandleButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1562969967]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Handle it"
 
 [node name="ExamineButton" type="Button" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/ItemButtons" unique_id=1542949947]
 unique_name_in_owner = true
@@ -151,6 +152,45 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Next customer"
+
+[node name="DetailsScroll" type="ScrollContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails" unique_id=1112505968]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="DetailsText" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll" unique_id=1112505969]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="ItemDescription" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll/DetailsText" unique_id=1312707987]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.72, 0.7, 1)
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 2
+
+[node name="ItemTag" type="Label" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll/DetailsText" unique_id=1412808997]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.79, 0.71, 0.35, 0.9)
+theme_override_font_sizes/font_size = 16
+
+[node name="PropsText" type="RichTextLabel" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll/DetailsText" unique_id=1717171718]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.78, 0.76, 0.7, 1)
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+theme_override_font_sizes/italics_font_size = 15
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="VoiceNotes" type="VBoxContainer" parent="SceneArea/SceneMargins/SceneLayout/ShelfPanel/ItemDetails/DetailsScroll/DetailsText" unique_id=1717171717]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
 
 [node name="LedgerPanel" type="ScrollContainer" parent="SceneArea/SceneMargins/SceneLayout" unique_id=1221524656]
 unique_name_in_owner = true

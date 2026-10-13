@@ -133,15 +133,16 @@ func _cell(area: Rect2, rows: int, columns: int, row: int, col: int) -> Rect2:
 	return Rect2(area.position + Vector2(col * cell.x + cell.x * 0.1, row * cell.y + cell.y * 0.12), Vector2(cell.x * 0.8, cell.y * 0.72))
 
 func counter_rect() -> Rect2:
-	return Rect2(Vector2(size.x * 0.3, size.y * 0.8), Vector2(size.x * 0.4, size.y * 0.17))
+	return Rect2(Vector2(size.x * 0.3, size.y * 0.87), Vector2(size.x * 0.4, size.y * 0.11))
 
 func _window_rect() -> Rect2:
-	return Rect2(Vector2(size.x * 0.29, size.y * 0.06), Vector2(size.x * 0.42, size.y * 0.42))
+	return Rect2(Vector2(size.x * 0.26, size.y * 0.04), Vector2(size.x * 0.48, size.y * 0.64))
 
 # The shelf left (0) or right (1) of the window, above the counter.
 func _side_shelf_rect(side: int) -> Rect2:
-	var x: float = ARROW_WIDTH + 8 if side == 0 else size.x * 0.73
-	return Rect2(Vector2(x, size.y * 0.04), Vector2(size.x * 0.27 - ARROW_WIDTH - 8, size.y * 0.7))
+	var w: float = size.x * 0.24 - ARROW_WIDTH - 10
+	var x: float = ARROW_WIDTH + 6 if side == 0 else size.x * 0.76 + 4
+	return Rect2(Vector2(x, size.y * 0.04), Vector2(w, size.y * 0.78))
 
 # The picture between the two arrows.
 func _inner_rect() -> Rect2:
@@ -263,8 +264,8 @@ func _draw_counter() -> void:
 	if person != "":
 		PersonArt.draw(self, person, Rect2(Vector2(size.x * 0.25, size.y * 0.12), Vector2(size.x * 0.5, size.y * 0.72)), person_alpha)
 	# The counter top, close, under your hands.
-	draw_rect(Rect2(Vector2(0, size.y * 0.78), Vector2(size.x, size.y * 0.22)), Color(0.06, 0.065, 0.075))
-	draw_rect(Rect2(Vector2(0, size.y * 0.78), Vector2(size.x, 5)), Color(0.4, 0.45, 0.5, 0.35))
+	draw_rect(Rect2(Vector2(0, size.y * 0.85), Vector2(size.x, size.y * 0.15)), Color(0.06, 0.065, 0.075))
+	draw_rect(Rect2(Vector2(0, size.y * 0.85), Vector2(size.x, 5)), Color(0.4, 0.45, 0.5, 0.35))
 	var top: Rect2 = counter_rect()
 	if can_hand_over:
 		draw_rect(top, Color(HOVER, 0.12 if not _hovering_counter else 0.25))

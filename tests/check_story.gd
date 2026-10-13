@@ -182,6 +182,10 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 	for key in ["sold", "redeemed", "misplace"]:
 		if entry.has(key) and not stock.has_section(entry[key]):
 			problems.append("%s: no item '%s' in stock.cfg  %s" % [key, entry[key], where])
+	if entry.has("learn"):
+		var learned: PackedStringArray = entry["learn"].split("/")
+		if learned.size() != 2 or not stock.has_section_key(learned[0], "prop_" + learned[1]):
+			problems.append("learn: no property '%s' in stock.cfg (item/kind, prop_kind=)  %s" % [entry["learn"], where])
 	if entry.has("pawned"):
 		if not stock.has_section(entry["pawned"]):
 			problems.append("pawned: no item '%s' in stock.cfg  %s" % [entry["pawned"], where])

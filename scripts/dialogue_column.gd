@@ -111,6 +111,7 @@ func _make_choice_button(choice: Dictionary, number: int) -> Button:
 		return button
 	button.text = "%d. %s" % [number, choice["label"]]
 	button.add_theme_color_override("font_color", CHOICE_COLOR)
+	button.add_theme_color_override("font_disabled_color", CHOICE_COLOR)
 	return button
 
 # needs=john: a choice that voice put in your head, in the voice's color and
@@ -124,7 +125,7 @@ func _make_colored(button: Button, choice: Dictionary, number: int) -> void:
 	# The button keeps its own (invisible) text so it sizes itself normally;
 	# a label that can wave sits exactly on top of it.
 	button.text = "%d. %s" % [number, label_text]
-	for state in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_hover_pressed_color"]:
+	for state in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_hover_pressed_color", "font_disabled_color"]:
 		button.add_theme_color_override(state, Color(0, 0, 0, 0))
 	var plain: String = "%d. %s" % [number, label_text.replace("[", "[lb]")]
 	var text: RichTextLabel = RichTextLabel.new()

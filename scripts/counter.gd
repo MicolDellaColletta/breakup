@@ -78,7 +78,7 @@ const FACINGS: Array[String] = ["counter", "right", "back", "left"]
 const VIEWS: Dictionary = {
 	"counter": {
 		"title": "Behind the counter",
-		"text": "Glass under your hands. The front window, three spots on the ledge, seen from the road; a shelf either side. Click a thing to pick it up, a spot to put it down. Right-click puts it back.",
+		"text": "The front window, three spots seen from the road; a shelf either side. Click a thing to pick it up, a spot to put it down. Right-click puts it back.",
 	},
 	"left": {
 		"title": "The left wall",
@@ -95,6 +95,10 @@ const VIEWS: Dictionary = {
 	"ledger": {
 		"title": "The ledger",
 		"text": "A clothbound book, swollen with damp. Every item the shop holds, in the owner's small, careful hand.",
+	},
+	"catalogue": {
+		"title": "The owner's catalogue",
+		"text": "The back half of the ledger, turned upside down. His notes on things, half what the town believes and half what he knew. Blanks for what you haven't found.",
 	},
 	"register": {
 		"title": "The register",
@@ -114,6 +118,10 @@ const TAKE_AMOUNT: int = 20
 @onready var next_button: Button = %NextButton
 @onready var ledger_button: Button = %LedgerButton
 @onready var register_button: Button = %RegisterButton
+@onready var catalogue_button: Button = %CatalogueButton
+@onready var loupe_button: Button = %LoupeButton
+@onready var handle_button: Button = %HandleButton
+@onready var props_text: RichTextLabel = %PropsText
 @onready var shelf_panel: Control = %ShelfPanel
 @onready var ledger_panel: ScrollContainer = %LedgerPanel
 @onready var ledger_text: RichTextLabel = %LedgerText
@@ -172,6 +180,8 @@ var _walking: bool = false
 var _examining: bool = false
 # Details looked at in close-ups, as "item_id/spot_id": they stay looked at.
 var _details_seen: Array[String] = []
+# What the last tool told you about the thing in your hand ("" for nothing).
+var _tool_note: String = ""
 
 func _ready() -> void:
 	if _stock.load(STOCK_PATH) != OK:
@@ -184,6 +194,9 @@ func _ready() -> void:
 	right_button.pressed.connect(turn.bind("right"))
 	ledger_button.pressed.connect(_toggle_panel.bind("ledger"))
 	register_button.pressed.connect(_toggle_panel.bind("register"))
+	catalogue_button.pressed.connect(_toggle_panel.bind("catalogue"))
+	loupe_button.pressed.connect(use_tool.bind("loupe"))
+	handle_button.pressed.connect(use_tool.bind("handle"))
 	next_button.pressed.connect(ring_bell)
 	next_button.visible = false
 	take_button.pressed.connect(_on_take_pressed)
@@ -349,10 +362,12 @@ func _show_view(view: String) -> void:
 	view_title.text = VIEWS[view]["title"]
 	view_text.text = VIEWS[view]["text"]
 	shelf_panel.visible = FACINGS.has(view)
-	ledger_panel.visible = view == "ledger"
+	ledger_panel.visible = view == "ledger" or view == "catalogue"
 	register_panel.visible = view == "register"
 	if view == "ledger":
 		_write_ledger()
+	if view == "catalogue":
+		ledger_text.text = _catalogue_bbcode()
 	if view == "register":
 		_open_register()
 	if shelf_panel.visible:
@@ -373,12 +388,14 @@ func _toggle_panel(view: String) -> void:
 # Picks a thing up off its shelf (tests use it to choose what to offer).
 func _select(item_id: String) -> void:
 	_selected = item_id
+	_tool_note = ""
 	shelf_view.held = item_id
 	_show_details()
 
 # Puts down whatever you're holding: it stays where it was.
 func _put_down() -> void:
 	_selected = ""
+	_tool_note = ""
 	shelf_view.held = ""
 	_show_details()
 
@@ -460,8 +477,70 @@ func _show_details() -> void:
 			item_tag.text = "Pawn tag no. %s. Held, not for sale." % _tag(item_id)
 		else:
 			item_tag.text = "$%d" % _stock.get_value(item_id, "price")
+	props_text.text = _props_bbcode(item_id)
+	loupe_button.visible = item_id != ""
+	handle_button.visible = item_id != ""
 	_show_voice_notes(item_id)
 	_refresh_offer()
+
+# --- What things are: tools, and the owner's catalogue (scripts/props.gd) ---
+
+const TOOL_NOTHING: Dictionary = {
+	"loupe": "Under the loupe, nothing you haven't already seen.",
+	"handle": "You turn it over, weigh it, smell it, hold it to your ear. Nothing new.",
+}
+
+# Uses a tool on the thing in your hand. Free: nobody's waiting on it.
+func use_tool(tool: String) -> void:
+	if _selected == "":
+		return
+	var found: Array[String] = Props.use_tool(_stock, _selected, tool)
+	_tool_note = TOOL_NOTHING[tool] if found.is_empty() else ""
+	_show_details()
+
+# What you've found out about one thing, and how much is left to find.
+func _props_bbcode(item_id: String) -> String:
+	if item_id == "":
+		return ""
+	var lines: PackedStringArray = []
+	var left: int = 0
+	for kind in Props.kinds_of(_stock, item_id):
+		if GameState.knows_prop(item_id, kind):
+			lines.append("[b]%s:[/b] %s" % [Props.LABELS[kind], Props.text(_stock, item_id, kind).replace("[", "[lb]")])
+		else:
+			left += 1
+	if left > 0:
+		lines.append("[i]%s to find out.[/i]" % ("One more thing" if left == 1 else "%d more things" % left))
+	if _tool_note != "":
+		lines.append("[i]%s[/i]" % _tool_note)
+	return "\n".join(lines)
+
+# The back of the ledger: the owner's note on each thing he knew, then what
+# you've found, with a blank for each thing still to find.
+func _catalogue_bbcode() -> String:
+	var text: String = "[i]In the same small, careful hand, from the back of the book forward. He didn't seem to tell belief from appraisal. Maybe there wasn't a difference, here.[/i]\n"
+	var found: int = 0
+	var total: int = 0
+	for item_id in _stock.get_sections():
+		if not _in_shop(item_id):
+			continue
+		var kinds: Array[String] = Props.kinds_of(_stock, item_id)
+		if kinds.is_empty() and not _stock.has_section_key(item_id, "catalogue"):
+			continue
+		text += "\n[b]%s[/b]%s\n" % [_stock.get_value(item_id, "name"), ", sold" if GameState.sold.has(item_id) else ""]
+		if _stock.has_section_key(item_id, "catalogue"):
+			text += "[i]\"%s\"[/i]\n" % str(_stock.get_value(item_id, "catalogue")).replace("[", "[lb]")
+		else:
+			text += "[i]Nothing in his hand. It came in after him.[/i]\n"
+		for kind in kinds:
+			total += 1
+			if GameState.knows_prop(item_id, kind):
+				found += 1
+				text += "%s: %s\n" % [Props.LABELS[kind], Props.text(_stock, item_id, kind).replace("[", "[lb]")]
+			else:
+				text += "%s: ________\n" % Props.LABELS[kind]
+	text += "\n[b]FILLED IN[/b]\n\n%d of %d, in your hand." % [found, total]
+	return text
 
 # --- Examining: a close-up of the thing in your hand ---
 

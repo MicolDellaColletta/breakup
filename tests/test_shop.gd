@@ -11,6 +11,7 @@ func run() -> void:
 	await _bell()
 	await _customer_and_examine()
 	await _back_room()
+	await _properties_and_catalogue()
 
 func _open(day: int) -> Node:
 	gs.reset()
@@ -126,6 +127,10 @@ func _customer_and_examine() -> void:
 	check(view.person == "widow" and view.mode == "counter", "Mrs. Hollis stands across the counter as she comes in")
 	advance(column, 10)
 	await process_frame
+	var first: Button = column.get_node("%ChoiceBox").get_child(0)
+	check(first.disabled and first.modulate.a < 0.5, "her question's choices fade in, and can't be clicked yet")
+	await wait(0.8)
+	check(not first.disabled and is_equal_approx(first.modulate.a, 1.0), "then they can")
 	await pick(column, "That's right")
 	advance(column)
 	await pick(column, "sorry")
@@ -185,6 +190,38 @@ func _back_room() -> void:
 	counter.click("closed_backroom_hall")
 	await wait(0.7)
 	check(counter.current_room() == "hallway", "and back to the hallway")
+
+func _properties_and_catalogue() -> void:
+	section("What things are: the loupe, your hands, the owner's catalogue")
+	var counter: Node = await _open(1)
+	var column: Node = counter.get_node("%DialogueColumn")
+	var props: RichTextLabel = counter.get_node("%PropsText")
+	check(not counter.get_node("%LoupeButton").visible, "no tools with nothing in your hands")
+	counter._select("duck_call")
+	check(counter.get_node("%LoupeButton").visible and counter.get_node("%HandleButton").visible, "pick something up: the loupe, or turn it over in your hands")
+	check(props.get_parsed_text().contains("5 more things to find out"), "the duck call has five things to find out")
+	counter.get_node("%LoupeButton").pressed.emit()
+	check(gs.knows_prop("duck_call", "marks") and gs.knows_prop("duck_call", "material"), "the loupe finds its marks and what it's made of")
+	check(props.get_parsed_text().contains("sanded off") and props.get_parsed_text().contains("3 more things"), "they show under it; three left")
+	counter.use_tool("loupe")
+	check(props.get_parsed_text().contains("nothing you haven't already seen"), "the loupe again: nothing new")
+	counter.use_tool("handle")
+	check(gs.knows_prop("duck_call", "sound") and gs.knows_prop("duck_call", "smell") and not gs.knows_prop("duck_call", "warmth"), "your hands find its sound and smell (it has no warmth to find)")
+	check(props.get_parsed_text().contains("One more thing"), "one thing left: what they say about it")
+	counter._put_down()
+	check(props.get_parsed_text() == "", "put it down: nothing")
+	counter.get_node("%CatalogueButton").pressed.emit()
+	var book: String = counter.get_node("%LedgerText").get_parsed_text()
+	check(counter.get_node("%LedgerPanel").visible and counter.get_node("%ViewTitle").text == "The owner's catalogue", "the catalogue opens")
+	check(book.contains("so the lake knows whose it is") and book.contains("Sound: Not a duck") and book.contains("What they say: ________"), "the owner's note, what you found, and blanks")
+	check(not book.contains("Thirty silver dollars"), "what hasn't come in isn't in it")
+	check(book.contains("4 of "), "how much is filled in")
+	column._apply_effects({"learn": "compass/folk"})
+	check(gs.knows_prop("compass", "folk") and column._condition_met("knows:compass/folk") and not column._condition_met("knows:compass/plain"), "a story can teach a property (learn=), and ask about it (knows:)")
+	var saved: Dictionary = gs.to_dict()
+	gs.reset()
+	gs.from_dict(saved)
+	check(gs.knows_prop("compass", "folk"), "what you know is saved")
 
 func _log(column: Node) -> String:
 	var text: String = ""
