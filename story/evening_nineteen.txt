@@ -1,0 +1,108 @@
+# THE EVENING OF KEY DAY 19: Saturday, December 4. Sam's wall.
+# A walked evening (scenes/visit.tscn; GameState.EVENINGS), rooms cabin_road
+# and cabin. With Sam's doors open (doors:sam>=1), he lets you in: the six
+# envelopes, and the wall, where MC adds a pin: Sam's second door. Without,
+# the cabin from the road, and a figure at the wall through the curtain.
+# It starts at "evening"; end=night ends it. Design: docs/december.md.
+
+=== evening
+narration | show=cabin_road | time=19:00: The shore path, in the dark. Forty below, and the snow squeaks underfoot like something alive. Your breath freezes on your scarf.
+-> evening_door | if=doors:sam>=1
+-> evening_road
+
+# --- Without his doors: from the road. ---
+
+=== evening_road
+narration: The cabin. The curtains drawn. A light behind them, low, a lamp on the floor.
+narration | if=!flag:met_sam: A man you've never spoken to lives here. You know that much. Everybody in town knows that much, and says it the way you'd say a dog bites.
+narration: On the curtain, his shadow. Thrown big by the lamp. He's standing at the wall, one arm up, pinning something, very carefully, the way you'd thread a needle.
+narration: He stands back to look at it. He stays looking at it a long time.
+narration: Then the shadow turns its head, slowly, toward the window. Toward the road. Toward you.
+paranoia: He can't see you. The lamp's on his side. He can't see anything but his own wall.
+narration | end=night: You walk home. Behind you, the light goes out, and doesn't come back on.
+
+# --- With his doors: inside. ---
+
+=== evening_door
+narration: You knock. He opens it before the second knock, as if he'd been standing behind it.
+narration | if=flag:told_sam_daniel: He looks past you, up the shore, at the dark, before he looks at you.
+sam: You walked. In this. Get in. Close it. Close it.
+narration | show=cabin: Inside. The stove going red. One chair. The table. And on the table, laid out in a row like a hand of cards: six envelopes, all the same, all unopened.
+sam: Sit. No, there. That's the chair.
+narration: You sit. He doesn't.
+paranoia: One chair. He's given you the only chair.
+
+=== cabin_envelopes
+narration: Six envelopes. Cream, heavy, the kind the church uses for the bulletin. Each one addressed by hand: Mr. Samuel Wakeman. Each postmark a September. 1993. 1994. 1995. 1996. 1997. 1998. None of them opened.
+narration: And the seventh. September, this year. Addressed the same. It's not on the table. It's on the floor by the stove, half under the wood box, as if he'd kicked it there.
+sam: One every year. Since I said no.
+sam: In ninety-three they asked me. The job. The shop, the room, the dog that isn't there. I said no. I had a practice. I had a wife, then.
+sam: That winter's Keeper was a boy from Fairbanks. Twenty-two. He went through the ice at breakup and they never found him.
+narration: He looks at you, in the chair.
+sam: You're sitting in my chair.
+unknown: He means the chair. He doesn't mean the chair.
+
+=== cabin_wall
+narration: The wall. The whole of it, floor to ceiling, corner to corner.
+narration: String, red and white, pinned point to point. Clippings, gone brown. Polaroids with the faces cut out. A map of the lake with a circle in pencil at the point. Columns of numbers: hymns from the radio, by date. The church's collection totals, by week, for ten years. The clock on the tripod, its minute, written down every day since 1990.
+narration: And names. Ten of them. A line each. A date in October, a name in quotes, and a blank.
+sam: I can't make it close. Every year I think it'll close and it doesn't. There's always one piece that doesn't go.
+narration: He holds out a pin. A red one.
+sam: You've seen things I haven't. You've been in the shop. Put one up.
+narration: Your hand closes on the pin.
+> Pin the money order: Kettle Lake, November 30. Interest on 0527. -> cabin_pin_money | door=sam | flag=pin_money_order | lean=appraisal
+> Pin the face at the door at dawn: Ezra, with the envelope. -> cabin_pin_ezra | door=sam | flag=pin_ezra | lean=paranoia
+> Pin the bullet: flattened, warm, out of a man in a good coat. -> cabin_pin_bullet | door=sam | flag=pin_bullet | lean=unknown
+> Give him the pin back. -> cabin_pin_none | lean=animal
+
+=== cabin_pin_money
+narration: You write it on a card from his stack, in your own hand: KETTLE LAKE. 11/30. 0527. You pin it under the money orders he's already got, which he couldn't have got, which he's got.
+narration: He takes the end of a red string and runs it from your card across the wall to the church. To the collection totals. He doesn't hesitate.
+sam: Interest. Somebody's keeping it alive. You don't keep a thing alive unless you mean to collect.
+-> cabin_after_pin
+
+=== cabin_pin_ezra
+narration: You write it on a card: E.L. WEDNESDAYS. DAWN. You pin it by the church.
+narration: He looks at it for a long time. Then he takes a pin out of a card already there, an old one, brown at the edges, and moves it two inches, so the two cards touch.
+narration: The old card says, in his hand: WHO PAYS THE KEEPER. And under it, a question mark, gone over so many times it's worn through the paper.
+sam: Ten years. Ten years I've had a question mark there.
+-> cabin_after_pin
+
+=== cabin_pin_bullet
+narration: You write it on a card: .38. FLATTENED. WARM. You don't know where to pin it. Your hand goes to the middle of the wall on its own, where all the strings cross.
+narration: He watches you do it. He doesn't move it.
+sam: That's where I'd have put it.
+sam: That's where I've been leaving a space.
+narration: There is a space. A square of bare board where the strings cross, a pin's width wide, the pinholes of other cards that came and went around it. As if he'd been keeping it.
+-> cabin_after_pin
+
+=== cabin_pin_none
+narration: You put the pin back in his hand. He looks at it.
+sam: No. No, that's fair. It's not your wall.
+narration: He puts it back in the cushion with the others. Red, in a row of red.
+sam: Yet.
+
+=== cabin_after_pin
+narration: He stands back, and you stand with him, and look at it, the whole wall, with your card on it.
+narration: It doesn't close. But it's nearer. You can feel it, the way you feel a tooth about to come loose.
+narration: The clock's minute, in a column down the side. You ask if he ever touches it. The clock.
+sam | flag=sam_never_touches: Never. Nobody does. That's the point of it.
+paranoia: He answered before you'd finished asking.
+
+=== cabin_line
+narration: Your line. Near the bottom, in his hand: October 5, 1999.
+narration | if=flag:sam_crossed: And then the name. Not "John". Crossed out, where you took his pencil in October and did it yourself. And above it, in his hand, small, careful, in capitals: your own. The first time you've seen it written since you came. It looks like somebody else's.
+narration | if=!flag:sam_crossed: And the name in quotes: "John". The quotes gone over twice. And the blank after it, waiting.
+narration: The blank's been gone over too. Not filled in. Just gone over, again and again, as if he'd sat here with the pen at it, deciding.
+
+=== cabin_eyes
+narration: Near the 1989 line, a Polaroid with the face cut out. Under it, in his hand, a list: tall, fair, a scar on the left hand. Brown eyes.
+narration | if=flag:seen_human_eyes: The jar in the back room. Glass eyes for the animals, and two that aren't glass. Brown.
+narration | if=flag:seen_human_eyes: You don't tell him. You look at "brown eyes" until he asks what you're looking at.
+narration | if=!flag:seen_human_eyes: Brown eyes, underlined. And a question mark: where?
+sam: Everything else of his left with him. Car, clothes, the shirt off his back. Ruth says he ran. Ruth would.
+
+=== cabin_leave
+narration: At the door he stops you with a hand on your arm. The first time he's touched you.
+sam: Walk on the road. Not the shore. Not tonight.
+narration | end=night: You walk home on the road. Behind you, through the curtain, the lamp, and his shadow at the wall again, already, one arm up.

@@ -1,0 +1,113 @@
+# KEY DAY 23: Friday, December 31, 1999. New Year's Eve. Hard fork 5.
+# A walk-around day (scenes/visit.tscn). The shop by day; the locker key, if
+# the tin was opened (Anchorage tomorrow, if there's a car); then where MC is
+# at midnight is a spot (spots.cfg, if=day==23): the Gleaner with Ruth (two
+# doors, no betrayal), the ice with Sam (the same), or alone at the shop, when
+# the phone rings at midnight (with Daniel's two doors, speak first). It locks
+# the romance, or none. Each ends with end=night.
+# Design: docs/december.md, docs/forks.md ("5. New Year's Eve").
+
+=== morning
+narration | time=09:00: Friday, the thirty-first. The last day.
+narration: The night radio's counting hours now, not days. "Fifteen hours, friends." The Anchorage station, when you turn the dial, is all banks and airplanes and computers. In Kettle Lake nobody's talking about computers.
+narration | show=shop | time=13:00: The shop, open, and nobody comes. Five candles in the window, the last lit from the fourth. Through the glass the whole road is busy, carrying things up to the Gleaner. Folding chairs. A ham. A crate of something.
+narration | if=flag:reverend_hidden: A man walking up the road in a long coat with his face turned away. Not the Reverend. You check twice.
+narration: At four, dark. At nine, the party. At midnight, the year turns over, and some say the world with it.
+paranoia: Where will you be. Where will you be when it happens.
+
+# --- The locker key. ---
+
+=== locker
+narration: The locker key, out of your pocket, on the glass. 114. ANCHORAGE GREYHOUND. PAID THRU 12/31/99.
+narration: Paid through tonight. Tomorrow it's the station's. Tomorrow somebody opens it with a master key and takes John's books, whatever's in them, whoever's in them, to a lost-and-found.
+-> locker_car | if=!flag:car_towed and !flag:ruth_has_keys and !flag:gave_reverend_car
+-> locker_no_car
+
+=== locker_car
+narration: Three hours to Anchorage. The car in the lot. The road open, they said on the radio, as far as Palmer.
+> Tomorrow, first light, drive to Anchorage. -> locker_go | flag=anchorage_tomorrow | lean=animal
+> Let it go. Let the station have them. -> locker_let_go | flag=locker_lapsed | lean=paranoia
+
+=== locker_go
+narration: You put the key back in your pocket. You check the tank. Half. Enough.
+paranoia: You're going to leave town on New Year's Day. In a stolen car. To get the thing he came for. With him a hundred yards away, and never lying, and knowing.
+unknown: He'll know by morning. He might know already.
+
+=== locker_let_go
+narration: You put the key in the drawer, under the shells. At midnight it'll be just a key.
+narration: Somewhere in a station in Anchorage, a locker with John's books in it, and nobody coming. You feel lighter, and you don't know if that's good.
+
+=== locker_no_car
+narration: Three hours to Anchorage. No car.
+narration | if=flag:car_towed: The car's in a lot in Wasilla, on a hook, with a sticker on the windshield.
+narration | if=flag:ruth_has_keys: The car's in your lot under two feet of snow, and the keys are in Ruth's pocket. Where she keeps them, like a hand on a dog.
+narration | if=flag:gave_reverend_car: The car's somewhere south, with a man who reads the Psalms out loud.
+narration | flag=locker_lapsed: At midnight the locker's the station's. You put the key in the drawer. It's just a key now. It was always going to be.
+
+# --- Where MC is at midnight. ---
+
+=== new_year_ruth
+narration | show=gleaner | time=23:30: The Gleaner. Everyone. Paper hats, a fiddle, the jukebox fighting it. Five candles in every window, and the wall of faces with its tinsel.
+narration: He isn't here. You look for the good coat at every table. He isn't anywhere.
+narration: Ruth, behind the bar, takes her apron off at a quarter to twelve and comes round to your side and stands with you, close, her shoulder against yours.
+narration | if=flag:ruth_saw_father: Her father's scarf, round her neck. She keeps touching it.
+ruth: Ten. Nine. They're starting early. They always start early.
+narration: The countdown. Everybody. Eight, the glass. Seven, the radio. They're counting the rhyme backwards. Somebody laughs. Nobody stops.
+narration: Midnight.
+narration: Nothing happens. The lights don't go out. The ice doesn't move. The world goes on being the world, a beat late, the way the cheer comes, a beat late, thin, and then louder to make up for it.
+narration: Ruth kisses you. On the mouth. It tastes of whisky and of her saying sorry for something she hasn't done yet.
+ruth | flag=new_year_ruth: Stay. Please. Just stay.
+narration: Through the floor, under the noise, somewhere down in the cellar or in the walls, a phone, ringing. Nobody else hears it. It rings and rings and stops.
+-> new_year_after
+
+=== new_year_sam
+narration | show=far_ice | time=23:30: The ice. A mile out, in the dark, past the shanties, past the last lantern. The tripod. The clock. And Sam beside it with a flashlight pointed at its face, and a thermos, and two cups.
+sam: You came. You actually came.
+narration: Behind you, on the shore, the Gleaner, lit, and the noise of it coming across the ice small and far away, like a radio in another room.
+sam: Watch the minute hand. Watch it. Don't watch the town. Watch the hand.
+narration: You watch the hand. He watches it. Your shoulders touch. The cold comes up through your boots.
+narration: Midnight.
+narration: Nothing happens. The hand moves on. On the shore, the cheer, faint, a beat late. And then, somewhere under your feet, the ice, one long low note, like a duck call a mile down.
+sam | flag=new_year_sam: Did you hear that. Tell me you heard that.
+narration: You heard it. You tell him. He laughs, the first time you've heard him laugh, and it's terrible and wonderful, and he writes it down, by flashlight, in the notebook, with your initials beside it.
+narration: Across the ice, from the shore, faint, from the direction of the shop: a phone, ringing. Then it stops.
+-> new_year_after
+
+=== new_year_alone
+narration | time=23:30: You stay in. The shop dark. Five candles in the window, burning low.
+narration: Up the road, the Gleaner, roaring. You can hear the countdown start, early, through the walls, through the snow. Ten. Nine.
+narration: Midnight.
+narration: Nothing happens.
+narration: The shop phone. Ringing.
+narration: Of course. Of course it does.
+paranoia: Rule four. Don't answer. If you do, don't speak first.
+narration: You lift it. Breathing. Not wipers, not wind. A quiet room. A man sitting very still in it.
+daniel: Happy New Year, sweetheart.
+narration: That's all. He waits. He's never waited before. He's waiting now for you.
+-> new_year_alone_door | if=doors:daniel>=2
+-> new_year_alone_listen
+
+=== new_year_alone_door
+unknown: Say it. You know it. You've always known it. Say his name and he'll stop being a voice.
+> Say his name. -> new_year_alone_speak | flag=new_year_daniel | break=phone | lean=unknown
+> Say nothing. Hang up. -> new_year_alone_hangup | flag=new_year_alone | lean=paranoia
+
+=== new_year_alone_listen
+narration | flag=new_year_alone: You say nothing. He doesn't either. After a long time, very gently, he hangs up.
+-> new_year_after
+
+=== new_year_alone_speak
+narration: You say it. His name. The first time you've said it aloud. You didn't know you knew it.
+narration: On the line, a breath. A long one. Like a man setting down something he's carried a very long way.
+daniel: There. Now we both know where we are.
+daniel: Go to sleep. I'll be right here.
+narration: He doesn't hang up. You don't either. You sit in the dark with the receiver against your ear, listening to him listen to you, until the candles in the window go out one by one.
+-> new_year_after
+
+=== new_year_alone_hangup
+narration: You put the receiver down. Gently. In its cradle.
+narration: You sit there. It doesn't ring again. It doesn't need to.
+-> new_year_after
+
+=== new_year_after
+narration | end=night | time=01:00: The year is 2000. The world didn't end. The ice didn't move. The town goes home through the snow, slowly, cheering still, disappointed, talking about April.

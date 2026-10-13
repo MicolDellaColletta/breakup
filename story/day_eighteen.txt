@@ -1,0 +1,102 @@
+# KEY DAY 18: Wednesday, December 1, 1999. The envelope at dawn.
+# Same format as the other counter days, with a dawn first: MC sees who
+# pushes the envelope under the door. Then Olstad and the car (tow it, or
+# forget); Mrs. Hollis and the first Advent candle; the man in the good coat
+# at the window, not coming in (see VISITS in scripts/counter.gd).
+# Design: docs/december.md.
+
+=== morning
+narration | time=06:10: December. You wake in the dark, and lie there, and know why you're awake before you know you know.
+narration: A sound downstairs. Not the dog. Not the furnace. Paper, on wood.
+narration: Down the stairs in your socks. The shop dark, the neon off, the street lamp throwing the window's shape across the floor.
+narration: Through the glass of the front door: boots on the step. Someone bending.
+narration: The envelope comes under the door, an inch at a time, and stops.
+narration: Then the someone straightens up. Sees you, through the glass, standing in the dark three feet away.
+narration: Ezra.
+narration: Neither of you moves. His breath on the glass, and yours, on the other side.
+narration: He touches the brim of his hat. Then he goes down the step and away up the road in the dark, not hurrying, the way a man walks home from work.
+paranoia: Every Wednesday. Every Wednesday since you came. Ezra. Ezra with his book.
+unknown: Not only Ezra. Whoever sends Ezra. Count the pews.
+narration | cash=+150: A hundred and fifty, faced. Same as always. Nothing else in it.
+narration | if=flag:sold_ezra_shells: You stand there a long time thinking about the box of shells, and the ribbon round it, and whether he opened it.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. December. The light comes at ten now, if it comes.
+
+# --- Olstad: the car. ---
+
+=== trooper_enters
+narration | sound=bell | time=+60: The bell. Olstad, slower than she was. Eight months gone, under the uniform coat. She lays two things on the glass: a letter, and an envelope with a window in it.
+trooper: Mail's slow up here, so I bring it. This one's yours.
+narration | take=money_order_kettle: A money order. Eleven dollars and twenty-seven cents. Interest, ticket 0527. Anchorage, then Wasilla. This one is postmarked Kettle Lake. Yesterday.
+trooper: Whoever's paying the interest on that tin is in town, Johnny. Posted it from Ida's window at the store. Ida says a man in a good coat.
+paranoia: He's paying to keep the tin on your shelf. He's paying to keep it here.
+narration: Then she turns the letter round so you can read it. Northern Lights Auto Rental. Anchorage.
+trooper: Dark blue sedan, rented in Anchorage October fourth. Never came back. They've reported it.
+trooper: It's in your lot under two feet of snow.
+narration | if=flag:tried_to_run: She looks at you. You tried the town line once, in that car. She hasn't forgotten.
+trooper: I could tow it. Or I could forget. I've got a lot on my mind. It's easy to forget things with a lot on your mind.
+> "Forget it. Please." -> trooper_ask | lean=warmth
+> "Tow it." -> trooper_tow | flag=car_towed | lean=paranoia
+> Show her the rental letter -> trooper_letter | if=has:rental_letter | keep=olstad | flag=car_forgotten | flag=showed_olstad_letter | lean=appraisal
+
+=== trooper_ask
+-> trooper_forgets | if=faith:olstad
+-> trooper_cannot
+
+=== trooper_forgets
+narration: She folds the letter in half, and in half again, and puts it in her breast pocket and buttons the pocket.
+trooper | flag=car_forgotten: What car.
+narration: She doesn't smile. It isn't a joke. It's a thing she's lending you, and she'll want it back.
+
+=== trooper_cannot
+narration: She looks at you a long time.
+trooper | flag=car_towed: I can't, Johnny. I don't know you well enough to forget for you.
+narration: That afternoon a tow truck comes from Wasilla. You watch it drag the car out of the snow by its back end, the one good headlight looking up at the sky as it goes.
+
+=== trooper_tow
+narration: She nods slowly, as if you'd passed something.
+trooper: Okay.
+narration: That afternoon a tow truck comes from Wasilla. You watch it drag the car out of the snow by its back end. You don't know why you said it. You think you wanted somebody to take the decision away.
+paranoia: No car till spring. No road out but your feet.
+
+=== trooper_letter
+narration: You take the rental company's letter out of your pocket, the one from October, soft at the folds, and put it beside hers.
+narration: She reads it. The address. The name.
+trooper: "J."
+trooper: Not John. Just J. They never had a John. You did that yourself.
+narration: She folds both letters together and puts them in her breast pocket and buttons it.
+trooper: What car. I'll keep these. In case I ever need to remember.
+paranoia: She knows. She knows what J is short for, or she knows it isn't short for anything.
+
+# --- Mrs. Hollis: the first candle. ---
+
+=== widow_enters
+narration | sound=bell | time=+90: The bell. Mrs. Hollis, with a candle in a jar, the kind with a paper sleeve, for a window.
+widow: Advent. One a week, dear, in the window. Till he comes.
+narration: She doesn't say who. She sets it on the sill herself, and lights it with a kitchen match, and blows the match out with a little puff, like a birthday.
+widow | if=flag:place_duck_call: I heard it, you know. Friday night. On the lake. The call. One long note, and nobody out there.
+widow | if=flag:place_jacket: The jacket's back on the hook by the door. The house is warmer. I don't know how that works.
+widow | if=flag:place_bare: The place stayed bare. That's all right. I set it again on Sunday, at home. You never know.
+widow | if=flag:sat_in_place: And you sat in it. Everybody saw. I was so proud of you.
+narration | sound=bell: She knocks twice on the frame. The candle stays.
+
+# --- The man in the good coat, at the window. He doesn't come in. ---
+
+=== window_enters
+narration | time=+120: Early afternoon, and the light already going.
+narration: A shape at the front window. The good coat. He doesn't come in.
+narration: He stands on the sidewalk in the snow and reads your shelves through the glass, slowly, left to right, top to bottom, the way you'd read a menu in a town you didn't mean to stay in.
+narration: Then he takes a small book from inside his coat, and writes something, and puts it away.
+narration | if=flag:sold_ezra_shells: Ezra is with him, a step behind, carrying a box of shells with a ribbon on it.
+narration | if=!flag:sold_ezra_shells: Ezra is with him, a step behind. He doesn't look at the shop.
+narration: They go on up the road to the Gleaner together.
+paranoia: He didn't come in. He doesn't need to come in. He's been in.
+
+# --- Closing. ---
+
+=== closing
+narration | time=15:47: Thirteen minutes to four, and the light's gone. You turn the sign. CLOSED.
+narration: In the window, Mrs. Hollis's candle. Up and down the road, in every window, the same small flame. Like a street of people holding their breath.
+narration | if=flag:car_towed: In the lot, a long trench in the snow where the car was.

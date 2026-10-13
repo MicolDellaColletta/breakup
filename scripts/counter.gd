@@ -75,6 +75,13 @@ const VISITS: Dictionary = {
 	16: ["widow", "daniel", "trooper | if=flag:told_olstad_daniel",
 		"sam | if=flag:told_sam_daniel and !flag:told_olstad_daniel",
 		"june | if=!flag:told_olstad_daniel and !flag:told_sam_daniel"],
+	# December: Olstad and the car; the first candle; him at the window, not
+	# coming in. Then Ruth, with your glass, and June, for the window.
+	18: ["trooper", "widow", "window"],
+	19: ["ruth", "june"],
+	# The shortest day: a note if the town's eye is on you; the third candle;
+	# Olstad and the freezer's key.
+	21: ["note | if=eye>=3", "widow", "trooper"],
 }
 # From the bell to the door opening.
 const CUSTOMER_GAP: float = 0.8

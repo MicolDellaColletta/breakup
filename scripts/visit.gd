@@ -25,6 +25,10 @@ const ROOMS: Dictionary = {
 	"far_ice": ["place", "far_ice"],
 	"hall": ["place", "hall"],
 	"stage": ["place", "stage"],
+	"cabin": ["place", "cabin"],
+	"cabin_road": ["place", "cabin_road"],
+	"booth": ["place", "booth"],
+	"gleaner": ["place", "gleaner"],
 }
 
 @onready var narrator: DialogueColumn = %Narrator
@@ -63,7 +67,7 @@ func _ready() -> void:
 	hotspots.aside.connect(play_aside)
 	hotspots.interactive = false
 	if GameState.is_walked_evening():
-		_room = "shore"
+		_room = GameState.EVENING_ROOMS.get(GameState.day, "shore")
 	_show_room(_room)
 	narrator.set_input_enabled(false)
 	await Transition.fade_in(1.5)

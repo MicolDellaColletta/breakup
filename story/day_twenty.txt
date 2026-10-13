@@ -1,0 +1,134 @@
+# KEY DAY 20: Sunday, December 12, 1999. The Reverend. Hard fork 4.
+# A walk-around day (scenes/visit.tscn). The service: Daniel reads the lesson;
+# after the blessing Ezra shuts the doors, and the congregation turns on the
+# Reverend Elias (Daniel told Ezra one true thing: he helped the Keepers).
+# At dusk, the vestry: Elias packing a bag, and the fork (spots.cfg,
+# if=day==20): warn him, hide him, or walk home. end=night.
+# Design: docs/december.md, docs/forks.md ("4. The Reverend").
+
+=== morning
+narration | time=08:30: Sunday, the twelfth. The second candle in every window on the road, lit from the first.
+narration | if=flag:frozen_taped: The tape on the front window held all week. Furred with frost now, a white cross on the glass.
+narration | if=flag:frozen_open: The front window still won't shut. A drift on the sill, inside, a week deep, and you've stopped sweeping it.
+narration | if=flag:window_nativity: In your window, the little Keeper at the edge of the cotton-wool snow. Overnight somebody has turned him round to face the shop.
+narration | time=10:00 | show=church: The church. Fuller than you've ever seen it. People standing at the back, along the walls, in their coats.
+narration: The Reverend Elias in the pulpit. Grayer than in October. He reads the notices too fast.
+narration: Then the lesson. Not the Reverend. The man in the good coat comes up from the front pew and stands at the lectern, and the church goes so quiet you hear the stove tick.
+daniel: Leviticus, the sixteenth chapter. You'll remember it from Thanksgiving. I'd like to read you the end.
+daniel: And the goat shall bear upon him all their iniquities unto a land not inhabited. And he shall let go the goat in the wilderness.
+narration: He closes the book. He doesn't go back to his seat. He stands at the lectern with his hands folded, looking at the pulpit. At the Reverend.
+narration: The blessing. The Reverend gives it with his eyes shut.
+narration: Nobody moves.
+narration: At the back, Ezra closes the doors. Both of them. You hear the bar go across.
+narration | if=flag:ezra_doubts: Ezra, at the doors, doesn't look at anyone. In October you saw him doubt. You watch the doubt go out of his face, now, like a lamp turned down.
+ezra: Elias. There's a thing been said. We'd like to hear you say it isn't so.
+narration: The Reverend holds the edge of the pulpit with both hands.
+ezra: The Thursday watch. All these years. Between the hymns. The numbers. He says you've been telling them. The Keepers. What to do. When to do it. How to get through the winter.
+narration: Nobody says who "he" is. Nobody needs to. The man at the lectern hasn't moved.
+daniel: I'm sorry, Elias. I don't lie. It's the one thing I don't do.
+narration: The Reverend looks at him. Then out at all of them. Then, for a long moment, at you.
+reverend: I helped them live.
+narration: It's the wrong thing to say. You feel the church turn, all of it at once, the way the lake turns over in the fall.
+-> morning_on_air | if=flag:said_on_air
+-> morning_after
+
+=== morning_on_air
+narration: And then a voice from the pews. Mrs. Lund, Hanna's mother.
+narration: "The Keeper was on the radio. In October. On the Thursday watch. We all heard him."
+narration | eye=+1: Every face in the church turns. To you.
+narration: "Was he helping you too?"
+paranoia: Say no. Say no. It's church. Say no.
+> "No." -> morning_on_air_no | flag=lied_in_church | lean=paranoia
+> Say nothing. -> morning_on_air_silent | eye=+1 | lean=animal
+> "He never helped me. I wish he had." -> morning_on_air_wish | lean=warmth
+
+=== morning_on_air_no
+narration: You say it. One word. In church.
+narration: Mrs. Lund looks at you a long time and sits down. The man at the lectern doesn't look at you at all. Somewhere a pew creaks, like a man shifting his weight.
+unknown: He never lies. You just did. In front of him.
+-> morning_after
+
+=== morning_on_air_silent
+narration: You say nothing. You hold the back of the pew in front of you.
+narration: The silence goes on long enough to become an answer.
+-> morning_after
+
+=== morning_on_air_wish
+narration: You say it, and it's true, and you hear how it sounds.
+narration: Somebody near the front laughs, once, not kindly. Mrs. Lund sits down. At the lectern, for the first time, he looks at you. A small nod. As if you'd got a sum right.
+-> morning_after
+
+=== morning_after
+narration: The bar comes off the doors. People go out into the cold without talking. Nobody shakes the Reverend's hand.
+narration: Ezra, at the door, stops you with two fingers on your sleeve.
+ezra: The jar. The children's teeth. We'll want it in the vestry, by Christmas. We're counting them.
+narration: He lets go of your sleeve.
+narration | time=12:30: You walk down the hill. Behind you, up at the manse, the Reverend's car, its hood up, a man in shirtsleeves bent over the engine in the cold. Helping.
+narration | time=15:20 | show=vestry: Dusk, at twenty past three. You don't remember deciding to go back up the hill. The church dark. The vestry door, ajar, a light.
+narration: Inside, the Reverend. His coat on. A single bag on the table, the kind you'd take for a night in a motel, and he's putting things in it: a shirt, a razor, a Bible, a jar of instant coffee. His hands keep stopping.
+narration: The car won't start. You know without asking.
+paranoia: Walk away. This isn't yours. You've got your own winter to get through.
+
+# --- The fork, at the vestry. ---
+
+=== reverend
+narration: He looks up. He isn't surprised it's you.
+reverend: They'll come tonight. Not to hurt me. They're not cruel. They'll just come and sit with me, the way they sit with the Keeper, and be very kind, until spring.
+reverend: Twenty-two years I gave them hymn numbers. Hints. Three in the first verse means keep the stove in. Seven means don't answer. I thought if one of you lived through it, just one, it would break.
+reverend: None of them did. Not one. Did you know that?
+narration: He zips the bag.
+reverend: I'm not asking you for anything. The Keeper can't help anyone. That's the rule above the rules.
+> "Go tonight. I'll get you to the town line." -> reverend_warn_walk | flag=reverend_warned | lean=warmth
+> Give him the car keys. -> reverend_warn_car | if=!flag:car_towed and !flag:ruth_has_keys | flag=reverend_warned | flag=gave_reverend_car | lean=warmth
+> "There's a room behind the steel door. Nobody goes there." -> reverend_hide_shop | flag=reverend_hidden | flag=reverend_in_back_room | eye=+2 | lean=animal
+> "Sam Wakeman's cabin. Nobody goes there either." -> reverend_hide_sam | if=faith:sam | flag=reverend_hidden | flag=reverend_at_sam | eye=+2 | lean=unknown
+> Say nothing. Walk home. -> reverend_stay_out | flag=reverend_gone | lean=paranoia
+
+=== reverend_warn_walk
+narration: You walk him down the back of the hill in the full dark, off the road, through the spruce, his bag on your shoulder because his hands are shaking too much to hold it.
+narration: Two miles. The cold gets into your teeth. Neither of you says anything.
+narration: At the town line, the sign: KETTLE LAKE. And past it the highway, and a pair of headlights, far off, coming. A truck. He steps out into the road and raises his arm.
+reverend: You'll be on the radio, someday. Between the hymns. If I can.
+narration: The truck stops. He climbs up. It goes.
+narration: You walk back alone. Halfway home, a car passes you going the other way, slowly, no lights. You don't see who's driving.
+-> walk_home
+
+=== reverend_warn_car
+narration: You take the keys out of your pocket and put them on the table by his bag. The rental's tag. The car under the snow in your lot.
+narration: He looks at them as if you'd put down a live thing.
+reverend: They'll know whose car it is.
+narration: You know. You leave them there anyway.
+narration: An hour later, from your window, you watch your car pull out of the lot with its one good headlight, and turn south, and go. You never saw him dig it out. He must have had help. You don't know whose.
+paranoia: No car now. Your only way out, going down the highway with somebody else's sins in it.
+-> walk_home
+
+=== reverend_hide_shop
+narration: You bring him down the hill the back way, in the dark, and in through the back door. Unlocked. Rule one.
+narration: Through the steel door. The back room. The freezer humming. The bench, the crates, the glass eyes in their jar.
+narration: He looks at the freezer for a long time.
+reverend: Abraham's?
+narration: You don't answer. He doesn't ask again. He sits down on the bench with his bag on his knees, like a man in a station.
+narration: In the morning, somebody will have seen. Somebody always sees.
+-> walk_home
+
+=== reverend_hide_sam
+narration: You take him along the shore in the dark, to Sam's. Sam opens the door before you knock, sees who it is, and doesn't say anything at all for a long time.
+sam: Him.
+sam: Him. Of all of them.
+narration: Then he steps back and lets the Reverend in, and looks at you over his shoulder.
+sam: He can have the floor. He doesn't get the chair.
+narration: Somebody will have seen. On the shore path, in the snow, the prints of three men go in, and two come out.
+-> walk_home
+
+=== reverend_stay_out
+narration: You say nothing. You go out of the vestry the way you came in, and close the door behind you, gently, so it won't click.
+narration: Behind you, through the door, he goes on packing. A shirt. A razor. You hear him zip the bag, and unzip it, and zip it again.
+-> walk_home
+
+=== reverend_walk_away
+narration | flag=reverend_gone: You don't go in. You stand in the vestry doorway long enough for him to look up, and then you turn and go back out into the dark.
+narration: Behind you, he goes on packing. You hear the zip of the bag, from the steps, from the road.
+-> walk_home
+
+=== walk_home
+narration | end=night | time=18:00: Home. Up the hill behind you, the church dark. The manse dark. Every window on the road with its two candles, lit, and nobody behind them.

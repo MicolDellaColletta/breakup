@@ -47,6 +47,19 @@ const STORY_SCENES: Dictionary = {
 	"res://story/night_sixteen.txt": "res://scenes/night.tscn",
 	"res://story/day_seventeen.txt": "res://scenes/visit.tscn",
 	"res://story/night_seventeen.txt": "res://scenes/night.tscn",
+	"res://story/day_eighteen.txt": "res://scenes/counter.tscn",
+	"res://story/night_eighteen.txt": "res://scenes/night.tscn",
+	"res://story/day_nineteen.txt": "res://scenes/counter.tscn",
+	"res://story/evening_nineteen.txt": "res://scenes/visit.tscn",
+	"res://story/night_nineteen.txt": "res://scenes/night.tscn",
+	"res://story/day_twenty.txt": "res://scenes/visit.tscn",
+	"res://story/night_twenty.txt": "res://scenes/night.tscn",
+	"res://story/day_twentyone.txt": "res://scenes/counter.tscn",
+	"res://story/night_twentyone.txt": "res://scenes/night.tscn",
+	"res://story/day_twentytwo.txt": "res://scenes/visit.tscn",
+	"res://story/night_twentytwo.txt": "res://scenes/night.tscn",
+	"res://story/day_twentythree.txt": "res://scenes/visit.tscn",
+	"res://story/night_twentythree.txt": "res://scenes/night.tscn",
 	"res://story/use.txt": "res://scenes/counter.tscn",
 	"res://story/examine.txt": "res://scenes/counter.tscn",
 }
@@ -57,8 +70,8 @@ const SPOT_STORIES: Dictionary = {
 	"shop_night": ["res://story/shop.txt"],
 	"apartment_first": ["res://story/apartment.txt"],
 	"shop": ["res://story/shop_looks.txt"],
-	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt", "res://story/night_six.txt", "res://story/night_seven.txt", "res://story/night_eight.txt", "res://story/night_nine.txt", "res://story/night_ten.txt", "res://story/night_eleven.txt", "res://story/night_twelve.txt", "res://story/night_thirteen.txt", "res://story/night_fourteen.txt", "res://story/night_fifteen.txt", "res://story/night_sixteen.txt", "res://story/night_seventeen.txt"],
-	"visit": ["res://story/day_five.txt", "res://story/day_nine.txt", "res://story/evening_ten.txt", "res://story/day_twelve.txt", "res://story/day_fourteen.txt", "res://story/day_seventeen.txt"],
+	"night": ["res://story/night_one.txt", "res://story/night_two.txt", "res://story/night_three.txt", "res://story/night_four.txt", "res://story/night_five.txt", "res://story/night_six.txt", "res://story/night_seven.txt", "res://story/night_eight.txt", "res://story/night_nine.txt", "res://story/night_ten.txt", "res://story/night_eleven.txt", "res://story/night_twelve.txt", "res://story/night_thirteen.txt", "res://story/night_fourteen.txt", "res://story/night_fifteen.txt", "res://story/night_sixteen.txt", "res://story/night_seventeen.txt", "res://story/night_eighteen.txt", "res://story/night_nineteen.txt", "res://story/night_twenty.txt", "res://story/night_twentyone.txt", "res://story/night_twentytwo.txt", "res://story/night_twentythree.txt"],
+	"visit": ["res://story/day_five.txt", "res://story/day_nine.txt", "res://story/evening_ten.txt", "res://story/day_twelve.txt", "res://story/day_fourteen.txt", "res://story/day_seventeen.txt", "res://story/evening_nineteen.txt", "res://story/day_twenty.txt", "res://story/day_twentytwo.txt", "res://story/day_twentythree.txt"],
 	"examine": ["res://story/examine.txt"],
 }
 
@@ -205,6 +218,13 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 			problems.append("pawned: '%s' needs arrives=true in stock.cfg  %s" % [entry["pawned"], where])
 		if not entry.get("loan", "").is_valid_int():
 			problems.append("pawned: needs a loan=amount  %s" % where)
+	for key in ["keep", "betray"]:
+		if entry.has(key) and not gs.FAITH.has(entry[key]):
+			problems.append("%s: no one called '%s' (walt, hollis, ezra, ruth, sam, olstad)  %s" % [key, entry[key], where])
+	if entry.has("door") and not gs.ROMANCES.has(entry["door"]):
+		problems.append("door: no romance '%s' (ruth, sam, daniel)  %s" % [entry["door"], where])
+	if entry.has("eye") and not entry["eye"].trim_prefix("+").is_valid_int():
+		problems.append("eye '%s' should look like +1 or -1  %s" % [entry["eye"], where])
 	if entry.has("set") and not (entry["set"] in gs and gs.get(entry["set"]) is bool):
 		problems.append("set: GameState has no true/false '%s'  %s" % [entry["set"], where])
 	if entry.has("cash") and not entry["cash"].trim_prefix("+").is_valid_int():
@@ -250,6 +270,14 @@ func _condition_problems(text: String, items: ConfigFile, stock: ConfigFile) -> 
 				for stop in condition.trim_prefix("order:").split("<"):
 					if not spots_cfg.has_section(stop.strip_edges()):
 						problems.append("'%s': no spot '%s' in spots.cfg" % [condition, stop.strip_edges()])
+			elif condition.begins_with("faith:") or condition.begins_with("faithless:"):
+				var person: String = condition.get_slice(":", 1).split(">")[0].split("<")[0].split("=")[0].strip_edges()
+				if not gs.FAITH.has(person):
+					problems.append("'%s': no one called '%s'" % [condition, person])
+			elif condition.begins_with("doors:"):
+				var romance: String = condition.trim_prefix("doors:").split(">")[0].split("<")[0].split("=")[0].strip_edges()
+				if not gs.ROMANCES.has(romance):
+					problems.append("'%s': no romance '%s'" % [condition, romance])
 			elif condition.begins_with("knows:"):
 				var known: PackedStringArray = condition.trim_prefix("knows:").split("/")
 				if known.size() != 2 or not stock.has_section_key(known[0], "prop_" + known[1]):
