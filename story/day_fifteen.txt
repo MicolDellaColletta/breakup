@@ -99,7 +99,7 @@ narration: That's all. Two words. He says them gently, almost tenderly, and they
 narration: Then he picks up the bullet and puts it back in its envelope, and the envelope inside his coat, and the man in the good coat is back, polite, a stranger.
 daniel: Thank you for your time.
 paranoia: You told him. You told him you know. You told him to his face.
-unknown: He knew already, sweetheart. He just wanted you to say it.
+unknown: He knew already. He wanted to hear which word you'd use.
 -> daniel_goes
 
 === daniel_goes

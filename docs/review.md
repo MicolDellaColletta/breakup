@@ -76,7 +76,15 @@ explains far too much.
    Thursdays while Abraham was in town; Thomas went under in April, so by the
    town's own rule he'd have come back in May (say not all of them do).
 
-## 3. Docs that disagree (your call)
+## 3. Docs that disagree (decided Oct 13, see `decisions.md`)
+
+All seven decided and done: 1, 2 and 5 as proposed (the docs now say "a
+polite stranger face to face; calls, never speaks on one; the payphone is the
+last call"); 3, the six extra "sweetheart"s cut; 4, the docs moved to the
+double hour; 6 and 7 settled by a bigger decision: **MC is a man**, and it
+can be said, so the Keeper's "he" is about him and "sir" stays.
+
+(The original list, for the record:)
 
 1. **Does Daniel talk to MC before New Year's Eve?** The pillars say never;
    `forks.md`, `november.md` and day 15 have him speak as a polite stranger.

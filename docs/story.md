@@ -25,9 +25,12 @@ Keeper has ever seen the summer.
 
 ## MC
 
-- **Male, but never said outright.** The narration speaks to MC as "you" and
-  never names his gender; other characters can use "he" where it's natural. It
-  makes passing as John plausible.
+- **Male** (decided Oct 13; was "never said outright"). The narration speaks
+  to MC as "you"; other characters say "he", "sir", "young man" where it's
+  natural. It makes passing as John plausible, and the town's "he" for the
+  Keeper (the rhyme's "in he goes", the radio's "whoever he is") is about
+  him. The romances with Sam and with Daniel's pull are between men, and the
+  town (Olstad first) sees it.
 - His real name is never given (or only at the very end).
 
 ## Three strands (was: three layers)
@@ -412,9 +415,11 @@ short:
   obsession.
 - **The sixth bullet** from John's revolver is in him (who fired it depends on
   the background). He arrives in Kettle Lake in **November**, still wounded.
-- **Before that, he's a silence on the phone** (he never speaks to MC until New
-  Year's Eve) and a **money order** each month: "Interest, ticket 0527," exact
-  to the cent.
+- **Before that, he's a silence on the phone**: he calls, and never speaks on
+  a call until New Year's Eve; the payphone (Nov 23) is the last call until
+  then. Face to face, from November, he's a polite stranger who never says
+  "sweetheart" and never speaks of the John night. And a **money order** each
+  month: "Interest, ticket 0527," exact to the cent.
 - **New Year's Eve:** MC comes back from the party at the pub and the phone is
   ringing. "Happy New Year, sweetheart." He's already in town. The call is the
   promise.
@@ -772,8 +777,9 @@ Done where ticked. The passenger seat now has a choice to count the bullets.
       hints later.
 - [x] **Two explanations, everywhere** (Oct 12): pawned names as a custom; the
       warm coins and the fog fade; speaking first on night two gets a click;
-      MC's gender never stated; the compass finds nails behind the painting;
-      ??? says "sweetheart" only in the prologue's four places.
+      the compass finds nails behind the painting; ??? says "sweetheart" only
+      in the prologue's four places and night three. (MC's gender "never
+      stated" was the rule until Oct 13: MC is now a man.)
 - [x] **Rental agreement:** "Note at pick-up: no damage." (Currently "one headlight
       dim".)
 - [x] **Office letter:** written not knowing if anyone would come. John isn't coming;

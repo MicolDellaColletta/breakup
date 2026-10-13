@@ -124,7 +124,7 @@ narration: You don't say anything. You know better now.
 narration: The open line. A room at the other end. The clock in it, ticking.
 narration: Someone breathing. Slow. Even. Longer than last time. Long enough that you start breathing with it, without meaning to, and then can't stop.
 narration: The clock ticks. A minute. Two. Neither of you speaks.
-unknown | if=frayed: He's waiting for you to say it, sweetheart. Your name. The real one.
+unknown | if=frayed: He's waiting for you to say it. Your name. The real one.
 > Wait -> phone_wait
 > Hang up first -> phone_hang_up | lean=animal
 

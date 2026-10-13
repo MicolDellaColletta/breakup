@@ -160,7 +160,7 @@ everyone's on the ice.)
 |---|---|---|
 | Mon 25 – Fri 29 | Bridge | The road reopens. The rental's last week. |
 | **Sat 30** | **Key day 11** | The rental's due. Olstad, and the plate. The clocks fall back at 2 a.m.: **the double hour**, and the call comes twice at 1:40; in the second, his clock chimes, and once, very quietly, he laughs (`daniel.md`). |
-| **Sun 31** | **Key day 12** | **Halloween**, the dark an hour early. Church, then **hard fork 2: the tin** (`forks.md`). |
+| **Sun 31** | **Key day 12** | **Halloween**, the dark an hour early. Church. (Hard fork 2, the tin, moved to Saturday night's double hour: `week_four.md`.) |
 
 (Moved from the week-two outline: the rental day is Saturday the 30th, not
 Friday the 29th, so the double hour falls on its night.)
@@ -183,8 +183,8 @@ Friday the 29th, so the double hour falls on its night.)
 - [x] **Cody's button, the same day** (decided): two explanations meeting.
 - [x] **Olstad knows** it's Thomas, and says "log" because of the crowd
       (decided).
-- [ ] **Halloween:** church and the tin on the same Sunday, or the tin on
-      Saturday night, during the double hour?
+- [x] **Halloween:** the tin on Saturday night, during the double hour
+      (decided in `week_four.md`, built).
 
 ## As built (Oct 12)
 

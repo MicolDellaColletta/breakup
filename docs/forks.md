@@ -178,7 +178,7 @@ Each one changes what happens next. They're spread across the calendar
   (`story.md`, "The sixth bullet"), what MC will have to confess to Olstad or
   to Daniel.
 
-### 2. The tin (Halloween, October 31)
+### 2. The tin (the double hour, Saturday October 30; as built)
 
 - **The setup:** the rental's four prepaid weeks run out; Northern Lights
   reports it; Olstad reads the plate. The clocks fall back, and the dark comes
