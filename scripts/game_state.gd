@@ -146,6 +146,10 @@ var night_order: Array[String] = []
 # Things that happened, for later story to remember: flag=ezra_satisfied in a
 # story file, if=flag:ezra_satisfied to ask.
 var flags: Array[String] = []
+# The town's eye (docs/forks.md, docs/december.md): how much strangeness the
+# town has seen MC do, through the people who watch. Never shown. Seeded once,
+# on December 1, from what they'd already seen; then eye=+1 in story files.
+var eye: int
 # Places on the town map you've been to, any evening (if=visited:lake).
 var visited: Array[String] = []
 # Times something already looked at was clicked again: picks the reply.
@@ -229,6 +233,7 @@ func reset() -> void:
 	rule_tally.clear()
 	night_order.clear()
 	flags.clear()
+	eye = 0
 	visited.clear()
 	minutes = 22 * 60
 	fray = 0
@@ -269,7 +274,7 @@ const SAVED: Array[String] = [
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
 	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags",
 	"fray", "broke_today", "background_settled", "last_lean",
-	"shelf_floor", "shelf_back", "shelf_window", "known_props",
+	"shelf_floor", "shelf_back", "shelf_window", "known_props", "eye",
 ]
 
 func to_dict() -> Dictionary:
@@ -368,6 +373,97 @@ func settle_background() -> void:
 				settled = name
 	background_settled = settled
 
+# --- The counts: kept faith, the doors, the town's eye (docs/december.md) ---
+
+# The six people MC can keep faith with, and the flags that already say so.
+# Kept faith and doors are worked out from flags, never stored apart from
+# them: keep=ruth adds keep_ruth_1, keep_ruth_2...; betray=ruth adds
+# betrayed_ruth. A betrayal closes that person: no more kept faith, no doors.
+const FAITH: Dictionary = {
+	"walt": {"kept": ["walt_kind"], "broken": ["walt_hard"]},
+	"hollis": {"kept": ["faith_hollis"], "broken": ["broke_faith_hollis"]},
+	"ezra": {"kept": ["ezra_satisfied", "kept_ezra_shells"], "broken": []},
+	"ruth": {"kept": ["door_ruth_1", "door_ruth_2"], "broken": ["broke_faith_ruth", "lied_to_ruth"]},
+	"sam": {"kept": ["door_sam_1", "told_sam_daniel"], "broken": ["broke_faith_sam"]},
+	"olstad": {"kept": ["showed_olstad_ticket", "told_olstad_daniel"], "broken": [], "costs": ["tried_to_run"]},
+}
+# Who has doors (closeness): door_ruth_1 to door_ruth_3.
+const ROMANCES: Array[String] = ["ruth", "sam", "daniel"]
+const DOORS_EACH: int = 3
+# What the town had already seen by December, each +1 to the eye: walking out
+# of church, the voice on the air, the empty place, the pie, running, the ice.
+const EYE_SEEDS: Array[String] = ["walked_out", "walked_out_again", "said_on_air", "sat_in_place",
+	"refused_pie", "tried_to_run", "skated_over", "showed_olstad_ice", "knelt_with_sam"]
+const EYE_SEED_CAP: int = 4
+const EYE_SEED_DAY: int = 18
+
+# How many kept moments with this person (0 once betrayed).
+func faith_count(person: String) -> int:
+	if is_faithless(person):
+		return 0
+	var entry: Dictionary = FAITH.get(person, {})
+	var count: int = 0
+	for flag in entry.get("kept", []):
+		if flags.has(flag):
+			count += 1
+	count += _numbered_flags("keep_%s_" % person)
+	for flag in entry.get("costs", []):
+		if flags.has(flag):
+			count -= 1
+	return maxi(count, 0)
+
+func is_faithless(person: String) -> bool:
+	if flags.has("betrayed_" + person):
+		return true
+	for flag in FAITH.get(person, {}).get("broken", []):
+		if flags.has(flag):
+			return true
+	return false
+
+# keep=ruth: one more kept moment (nothing, once betrayed).
+func keep_faith(person: String) -> void:
+	if is_faithless(person):
+		return
+	set_flag("keep_%s_%d" % [person, _numbered_flags("keep_%s_" % person) + 1])
+
+# betray=ruth: closed for good.
+func betray(person: String) -> void:
+	set_flag("betrayed_" + person)
+
+# How many of this person's doors are open (0 once betrayed).
+func doors(person: String) -> int:
+	if is_faithless(person):
+		return 0
+	return _numbered_flags("door_%s_" % person)
+
+# door=sam: the next door opens (nothing once betrayed, or all three open).
+func open_door(person: String) -> void:
+	var open: int = doors(person)
+	if is_faithless(person) or open >= DOORS_EACH:
+		return
+	set_flag("door_%s_%d" % [person, open + 1])
+
+func add_eye(amount: int) -> void:
+	eye = maxi(eye + amount, 0)
+
+# December 1: the town remembers what it's already seen. Once.
+func seed_eye() -> void:
+	if flags.has("eye_seeded"):
+		return
+	set_flag("eye_seeded")
+	var seen: int = 0
+	for flag in EYE_SEEDS:
+		if flags.has(flag):
+			seen += 1
+	eye += mini(seen, EYE_SEED_CAP)
+
+# keep_ruth_1, keep_ruth_2... counted from 1 until one's missing.
+func _numbered_flags(prefix: String) -> int:
+	var n: int = 0
+	while flags.has(prefix + str(n + 1)):
+		n += 1
+	return n
+
 func set_flag(flag: String) -> void:
 	if not flags.has(flag):
 		flags.append(flag)
@@ -461,6 +557,8 @@ func start_day() -> void:
 	if minutes < morning:
 		minutes = morning
 		time_changed.emit()
+	if day >= EYE_SEED_DAY:
+		seed_eye()
 
 # Where the day leads after closing: the town map, or a walked evening.
 func evening_scene() -> String:

@@ -18,9 +18,9 @@ own; together they decide which endings are open at breakup.
 | **The voices** (paranoia, john, appraisal, warmth, animal, ???) | How MC answers, `lean=` | The background (fork 1), colored choices, The ice variant | Yes (`GameState.voices`) |
 | **Fray** | Rules broken (+1), unsettling things (+1), small comforts (-1) | Frayed at breakup or not; The ice | Yes (`GameState.fray`) |
 | **Rules broken** | The eight rules | Fray; how the town sees MC | Yes (`GameState.rules_broken`) |
-| **Kept faith with**, per person | A kindness kept, a promise kept, a truth told: Walt, the Hollises, Ezra, Ruth, Sam, Olstad | Who lets MC go (The fire); who MC trusts with the keys (Run) | No: flags today (`flag=`), a count later |
-| **Closeness**, per romance (Ruth, Sam, Daniel) | Three doors per person (below) | Which romance can lock at fork 5 | No |
-| **The town's eye** | The town seeing MC break a rule or a custom, through the people who watch (below) | How hard the frenzy turns on MC in February and March | No |
+| **Kept faith with**, per person | A kindness kept, a promise kept, a truth told: Walt, the Hollises, Ezra, Ruth, Sam, Olstad | Who lets MC go (The fire); who MC trusts with the keys (Run) | Yes: worked out from flags (`faith:`, `keep=`, `betray=`; `december.md`) |
+| **Closeness**, per romance (Ruth, Sam, Daniel) | Three doors per person (below) | Which romance can lock at fork 5 | Yes: `door_<who>_<n>` flags (`doors:`, `door=`) |
+| **The town's eye** | The town seeing MC break a rule or a custom, through the people who watch (below) | How hard the frenzy turns on MC in February and March | Yes: `GameState.eye` (`eye>=`, `eye=`), seeded December 1 |
 | **The blur** | Fray, ???, and how deep MC is in a romance | How unreliable the game itself becomes (below) | No |
 
 Rule of thumb: a soft fork never asks the player to pick "the good option". Each

@@ -1,7 +1,7 @@
 # Breakup: December (plan)
 
-Key days 18 to 23, from `season.md`. A plan to agree before building.
-**Leans** are my recommendations; "Your call" marks the decisions.
+Key days 18 to 23, from `season.md`. **Decided Oct 13: all seven leans.**
+Built in three passes; see "As built" at the end.
 
 December is the month the town stops being kind. It opens with a face at the
 door at dawn and ends with midnight, when the world doesn't end. In between:
@@ -351,3 +351,19 @@ April.
 6. **The night disruptions:** the frozen latch on night 19, the power cut
    on night 21. Lean: yes.
 7. **Three passes, three PRs** (counts; to fork 4; to fork 5). Lean: yes.
+
+## As built
+
+**Pass 1, the counts (Oct 13).**
+- `GameState.FAITH` (person → the flags that keep, break, or cost), with
+  `faith_count()`, `is_faithless()`, `keep_faith()`, `betray()`;
+  `doors()` / `open_door()` from `door_<who>_<n>`; `eye` (saved),
+  `add_eye()`, `seed_eye()` from `EYE_SEEDS` on the first day from 18,
+  capped at 4.
+- Story files: `faith:ruth`, `faith:ruth>=2`, `faithless:ruth`,
+  `doors:sam>=2`, `eye>=3`; `keep=ruth`, `betray=ruth`, `door=sam`,
+  `eye=+1`. `check_story` knows the names.
+- Walt's day-two answers now leave flags (`walt_kind`, `walt_hard`).
+- Fixed on the way: two `flag=` on one line now both apply (night 15's bowl
+  at the back door lost `fed_fifteen`).
+- Tests: `test_counts.gd`.

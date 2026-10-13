@@ -242,7 +242,8 @@ func _visible_choices() -> Array:
 	return shown
 
 # answered_phone, !answered_phone, rules_broken>=2, broke:window, has:key,
-# sold:ice_picks, window:fox, window:empty, visited:lake, flag:ezra_satisfied, frayed, background:guilt. Join them with " and " or
+# sold:ice_picks, window:fox, window:empty, visited:lake, flag:ezra_satisfied, frayed, background:guilt,
+# faith:ruth>=1, faithless:sam, doors:daniel>=2, eye>=3. Join them with " and " or
 # " or " (and binds tighter): day>=2 or invited_to_pub
 func _condition_met(condition: String) -> bool:
 	for either in condition.split(" or "):
@@ -287,9 +288,31 @@ func _single_condition_met(condition: String) -> bool:
 		result = GameState.knows_prop(known.get_slice("/", 0), known.get_slice("/", 1))
 	elif text.begins_with("background:"):
 		result = GameState.background() == text.trim_prefix("background:")
+	elif text.begins_with("faith:"):
+		result = _count_met(text.trim_prefix("faith:"), GameState.faith_count)
+	elif text.begins_with("faithless:"):
+		result = GameState.is_faithless(text.trim_prefix("faithless:").strip_edges())
+	elif text.begins_with("doors:"):
+		result = _count_met(text.trim_prefix("doors:"), GameState.doors)
 	else:
 		result = _compare(text)
 	return result != negate
+
+# faith:ruth (any kept), faith:ruth>=2, doors:sam>=2: a count per person.
+func _count_met(text: String, count_of: Callable) -> bool:
+	for op in [">=", "<=", "==", ">", "<"]:
+		var parts: PackedStringArray = text.split(op, true, 1)
+		if parts.size() < 2:
+			continue
+		var count: int = count_of.call(parts[0].strip_edges())
+		var wanted: int = parts[1].strip_edges().to_int()
+		match op:
+			">=": return count >= wanted
+			"<=": return count <= wanted
+			"==": return count == wanted
+			">": return count > wanted
+			"<": return count < wanted
+	return count_of.call(text.strip_edges()) > 0
 
 # broken:dog>=2: how many times that rule's been broken.
 func _tally_met(text: String) -> bool:
@@ -426,7 +449,7 @@ static func is_speaker(speaker_id: String) -> bool:
 
 # Options that change the world, on a line when it's shown or on a choice
 # when it's picked: stop=, sound=, time=, take=, lose=, break=, set=, flag=,
-# lean=, cash=, write=, fray=, settle=, rewind=
+# lean=, cash=, write=, fray=, settle=, rewind=, keep=, betray=, door=, eye=
 func _apply_effects(entry: Dictionary) -> void:
 	if entry.has("stop"):
 		stop_sound(entry["stop"])
@@ -457,7 +480,8 @@ func _apply_effects(entry: Dictionary) -> void:
 	if entry.has("cash"):
 		GameState.add_cash(entry["cash"].to_int())
 	if entry.has("flag"):
-		GameState.set_flag(entry["flag"])
+		for flag in entry["flag"].split(","):
+			GameState.set_flag(flag.strip_edges())
 	if entry.has("write"):
 		GameState.write_ledger(entry["write"])
 	if entry.has("fray"):
@@ -465,6 +489,15 @@ func _apply_effects(entry: Dictionary) -> void:
 	# learn=compass/folk: a property of something in the shop (scripts/props.gd).
 	if entry.has("learn"):
 		GameState.learn_prop(entry["learn"].get_slice("/", 0), entry["learn"].get_slice("/", 1))
+	# keep=ruth, betray=ruth, door=sam, eye=+1 (docs/december.md).
+	if entry.has("keep"):
+		GameState.keep_faith(entry["keep"])
+	if entry.has("betray"):
+		GameState.betray(entry["betray"])
+	if entry.has("door"):
+		GameState.open_door(entry["door"])
+	if entry.has("eye"):
+		GameState.add_eye(entry["eye"].to_int())
 	if entry.has("settle") and entry["settle"] == "background":
 		GameState.settle_background()
 
@@ -562,8 +595,14 @@ func _parse_choice(body: String) -> Dictionary:
 func _parse_options(parts: PackedStringArray, into: Dictionary) -> void:
 	for i in range(1, parts.size()):
 		var option: PackedStringArray = parts[i].split("=", true, 1)
-		if option.size() == 2:
-			into[option[0].strip_edges()] = option[1].strip_edges()
+		if option.size() != 2:
+			continue
+		var key: String = option[0].strip_edges()
+		# flag=a | flag=b sets both (kept as "a,b").
+		if key == "flag" and into.has("flag"):
+			into["flag"] += "," + option[1].strip_edges()
+		else:
+			into[key] = option[1].strip_edges()
 
 func _check_targets(path: String) -> void:
 	for section in _story:

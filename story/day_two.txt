@@ -242,8 +242,8 @@ seller: I don't want money for it. Just take it. Write me a ticket.
 paranoia: Rule six. Say no. Be polite about it.
 warmth | if=warmth>=1 and frayed: Take it. Look at him. It would be a mercy.
 unknown | if=frayed: Write it down. Go on. It's only a word.
-> "I can't take that, Mr. Pruitt. I'm sorry." -> walt_kind | lean=warmth
-> "Names aren't for sale. Go home, Walt." -> walt_hard | break=name | lean=animal
+> "I can't take that, Mr. Pruitt. I'm sorry." -> walt_kind | flag=walt_kind | lean=warmth
+> "Names aren't for sale. Go home, Walt." -> walt_hard | break=name | flag=walt_hard | lean=animal
 > Write him a ticket -> walt_accept | break=name | flag=ida_pawned | lean=unknown
 
 === walt_kind
