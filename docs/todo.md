@@ -9,7 +9,8 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
    the game as it plays now (the prologue to Daniel's arrival, the shop
    steps built so far) and the docs: what's set up and never paid off, what's
    promised and not built, what's thin. Write the findings down here before
-   fixing anything.
+   fixing anything. **Done: `review.md`** (bugs, story contradictions,
+   decisions to make, unpaid promises, systems, writing, and an order).
 
 2. **A wider screen.** The game opens in a small window (Godot's default,
    1152 x 648). Make the real resolution bigger and wider: a larger window
