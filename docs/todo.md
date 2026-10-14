@@ -3,34 +3,30 @@
 The running list of what's next, in order. The shop redesign has its own
 step-by-step list (`shop.md`, "To do"); this is everything around it.
 
-## Pick up here (Oct 14)
+## Pick up here (Oct 14, evening)
 
-**Branches to merge, in order.** Each one stacks on the one before:
+**The season is written end to end** (prologue to breakup and May), and
+every ending can be reached by playing (`routes.md`).
+
+**Branches to merge, in order:**
 1. `night-walks`
 2. `february`
 3. `full-review`
 4. `red-light`
 5. `canon-fixes`
 6. `daniel-rewrite`
-7. `march` (it also carries `todo-next`'s docs, so `todo-next` doesn't need
-   its own PR)
-
-**Done (Oct 13–14):**
-- the full review (`review_full.md`);
-- the red light;
-- the canon fixes;
-- the Daniel rewrite, with real choices in his scenes, the counsel room and
-  the anxious bench;
-- v7 folded into the design docs;
-- March built (`march.md`, "As built").
+7. `march`
+8. `april`
+9. `endings`
+10. `routes`
 
 **Next:**
-1. **April and the endings** (`april.md`, its calls all agreed): key days
-   39–42, the collection, the three ways to beat him, the night before
-   breakup (the fire), the shore, the ending reader, the epilogues.
-2. **The smaller things below** (item 8 of the old list): a long playthrough
-   test, and Godot in the cloud (a SessionStart hook).
-3. **The older list**, from "Unreliable narration" down.
+1. **You play it.** Your notes from playing go here, then get fixed.
+2. **The narration rewrite:** less reliable, more cryptic, and fewer tics
+   ("the way you'd…", "as if").
+3. **The art:** 90s pixel art, the checklist in `art_list.md`, and `art.md`.
+4. **Sound,** timed to the lines.
+5. **Godot in the cloud:** a SessionStart hook.
 
 ## Next session (older)
 
