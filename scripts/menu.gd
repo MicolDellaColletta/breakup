@@ -4,6 +4,8 @@ extends CanvasLayer
 # which the title screen uses too. The game freezes while it's open.
 
 const TITLE_SCENE: String = "res://scenes/title.tscn"
+# The keys nothing else teaches, shown on the title and the pause menu.
+const KEYS_HINT: String = "Tab: show what you can click   ·   1–9: pick a choice   ·   Esc: menu"
 
 @onready var dim: ColorRect = %Dim
 @onready var pause_panel: Control = %PausePanel
@@ -25,6 +27,7 @@ func _ready() -> void:
 	# No volume to set while sound is off (Settings.SOUND_ON).
 	volume_slider.get_parent().visible = Settings.SOUND_ON
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	pause_panel.add_child(keys_hint_label())
 	_close_all()
 	%ResumeButton.pressed.connect(resume)
 	%SaveButton.pressed.connect(open_slots.bind(true))
@@ -51,6 +54,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		open_pause()
 
 # --- Public: what other scenes can use ---
+
+# A small grey line with KEYS_HINT on it.
+func keys_hint_label() -> Label:
+	var hint: Label = Label.new()
+	hint.text = KEYS_HINT
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint.add_theme_font_size_override("font_size", 14)
+	hint.add_theme_color_override("font_color", Color(0.7, 0.72, 0.76, 0.6))
+	return hint
 
 func is_open() -> bool:
 	return dim.visible

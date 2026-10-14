@@ -134,3 +134,4 @@ func _title_with_saves() -> void:
 	# The season is written to the end now: even the last card leads on, to breakup.
 	check(not script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": last}}), "the last card leads on to breakup: Continue")
 	check(not script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": earlier}}) and not script.at_the_end({"scene": "res://scenes/night.tscn", "state": {"day": earlier}}), "any other save can be continued")
+	check(script.at_the_end({"scene": "res://scenes/visit.tscn", "state": {"day": gs.LAST_DAY}, "finished": true}) and not script.at_the_end({"scene": "res://scenes/visit.tscn", "state": {"day": gs.LAST_DAY}}), "after the ending has played, nothing to continue; before it, breakup can be continued")

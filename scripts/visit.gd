@@ -169,7 +169,10 @@ func _on_line_shown(line: Dictionary) -> void:
 		match line["end"]:
 			"map": _leaving_to = MAP_SCENE
 			"night": _leaving_to = NIGHT_SCENE
-			"title": _leaving_to = TITLE_SCENE
+			"title":
+				_leaving_to = TITLE_SCENE
+				if GameState.day >= GameState.LAST_DAY:
+					Saves.mark_finished()
 	var room: String = line.get("show", "")
 	if room != "" and room != (_fading_to if _fading_to != "" else _room):
 		_fade_to(room)

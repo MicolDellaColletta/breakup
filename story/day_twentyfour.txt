@@ -28,7 +28,7 @@ unknown: All of them. That's what light is for.
 
 === widow_enters
 narration | sound=bell | time=+60: The bell. Mrs. Hollis, with the third candle.
-widow: Three. One more Sunday and then it's Christmas.
+widow: Three. One more, and then it's Christmas.
 narration: She lights it from the other two. Her hand shakes, the match goes out, she strikes another.
 widow: Ezra's asked for the children's teeth, for the jar. He keeps it at the Gleaner now, in the back, since the vestry. By Friday. I gave him Ray's. Ray's baby teeth. I'd kept them in an envelope fifty years.
 narration: She looks at you.

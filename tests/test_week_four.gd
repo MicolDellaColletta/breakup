@@ -176,6 +176,6 @@ func _night_twelve() -> void:
 	await wait(2.0)
 	var bridge: Node = current_scene
 	_route(bridge.get_node("%Narrator"))
-	check(_log(bridge.get_node("%Narrator")).contains("Sixty-one days, friends.") and bridge.card_text() == "Wednesday. The Keeper is paid.", "November. The Keeper stays; then the first November envelope")
+	check(_log(bridge.get_node("%Narrator")).contains("Sixty days, friends.") and bridge.card_text() == "Wednesday. The Keeper is paid.", "November. The Keeper stays; then the first November envelope")
 	await wait(3.5)
 	check(current_scene.name == "Counter" and gs.day == 13, "then November: key day 13")

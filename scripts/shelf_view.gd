@@ -7,7 +7,8 @@ extends Control
 #             from the road), a shelf either side of it (floor spots 0 to 3),
 #             whoever is standing across the counter (PersonArt), and the
 #             counter top: the register, the ledger, the bell, and the space
-#             in the middle where things are handed over
+#             in the middle where things are handed over (and where new stock
+#             from the back room waits to be put out: shelf "counter")
 #   "left"    the left wall: shelves for sale (floor spots 4 to 9)
 #   "right"   the right wall: shelves for sale (floor spots 10 to 15), and the
 #             front door at the end of it, with its bell
@@ -127,6 +128,14 @@ func spots() -> Array[Dictionary]:
 				var unit: Rect2 = _side_shelf_rect(side)
 				for row in 2:
 					out.append({"shelf": "floor", "spot": side * 2 + row, "rect": _cell(unit, 2, 1, row, 0)})
+			# New stock from the back room, on the counter top until it's put out.
+			var waiting: int = GameState.unshelved.size()
+			if waiting > 0:
+				var row: Rect2 = _new_stock_rect()
+				var slot: float = minf(row.size.x / waiting, row.size.y * 1.4)
+				var x: float = row.get_center().x - slot * waiting / 2.0
+				for i in waiting:
+					out.append({"shelf": "counter", "spot": i, "rect": Rect2(Vector2(x + slot * i + 3, row.position.y), Vector2(slot - 6, row.size.y))})
 		"left", "right":
 			var layout: Array = WALL_SPOTS[mode]
 			var area: Rect2 = _wall_shelves_rect()
@@ -151,6 +160,11 @@ func spot_rects() -> Array[Rect2]:
 func _cell(area: Rect2, rows: int, columns: int, row: int, col: int) -> Rect2:
 	var cell: Vector2 = Vector2(area.size.x / columns, area.size.y / rows)
 	return Rect2(area.position + Vector2(col * cell.x + cell.x * 0.1, row * cell.y + cell.y * 0.12), Vector2(cell.x * 0.8, cell.y * 0.72))
+
+# Where new stock waits: along the back of the counter, under the window.
+func _new_stock_rect() -> Rect2:
+	var window: Rect2 = _window_rect()
+	return Rect2(Vector2(window.position.x, window.end.y + 6), Vector2(window.size.x, size.y * 0.82 - window.end.y - 8))
 
 func counter_rect() -> Rect2:
 	return Rect2(Vector2(size.x * 0.32, size.y * 0.85), Vector2(size.x * 0.36, size.y * 0.13))
@@ -386,6 +400,8 @@ func _draw_counter() -> void:
 	draw_rect(Rect2(Vector2(0, size.y * 0.82), Vector2(size.x, 5)), Color(0.4, 0.45, 0.5, 0.35))
 	_draw_counter_objects()
 	var top: Rect2 = counter_rect()
+	if not GameState.unshelved.is_empty() and held == "":
+		_draw_label("New stock: put it out on the shelves", Vector2(top.get_center().x, size.y * 0.84 + 22))
 	if can_hand_over:
 		draw_rect(top, Color(HOVER, 0.12 if not _hovering_counter else 0.25))
 		draw_rect(top, Color(HOVER, 0.4 if not _hovering_counter else 0.8), false, 1.5)
@@ -467,6 +483,8 @@ func _draw_items() -> void:
 
 # What's in a spot ("" for nothing, or a shelf not filled in yet).
 func _item_in(s: Dictionary) -> String:
+	if s["shelf"] == "counter":
+		return GameState.unshelved[s["spot"]] if s["spot"] < GameState.unshelved.size() else ""
 	var on: Array[String] = GameState.shelf(s["shelf"])
 	return on[s["spot"]] if s["spot"] < on.size() else ""
 
@@ -488,12 +506,14 @@ func _draw_counter_objects() -> void:
 		draw_line(Vector2(book.get_center().x + 4, y), Vector2(book.end.x - 6, y), Color(0.3, 0.25, 0.2, 0.6), 1.0)
 	# Not to click: a mug gone cold, and a cup of pens and a loupe.
 	var mug: Vector2 = Vector2(counter_rect().position.x - size.y * 0.06, size.y * 0.93)
-	draw_rect(Rect2(mug - Vector2(size.y * 0.025, size.y * 0.06), Vector2(size.y * 0.05, size.y * 0.06)), Color(0.55, 0.52, 0.48))
-	draw_arc(mug + Vector2(size.y * 0.032, -size.y * 0.032), size.y * 0.014, -PI / 2, PI / 2, 8, Color(0.55, 0.52, 0.48), 2.0)
+	if not Rect2(mug - Vector2(size.y * 0.03, size.y * 0.07), Vector2(size.y * 0.08, size.y * 0.08)).intersects(book.grow(4)):
+		draw_rect(Rect2(mug - Vector2(size.y * 0.025, size.y * 0.06), Vector2(size.y * 0.05, size.y * 0.06)), Color(0.55, 0.52, 0.48))
+		draw_arc(mug + Vector2(size.y * 0.032, -size.y * 0.032), size.y * 0.014, -PI / 2, PI / 2, 8, Color(0.55, 0.52, 0.48), 2.0)
 	var cup: Vector2 = Vector2(counter_rect().end.x + size.y * 0.06, size.y * 0.93)
-	for k in 3:
-		draw_line(cup + Vector2(-size.y * 0.01 + k * size.y * 0.01, -size.y * 0.05), cup + Vector2(-size.y * 0.016 + k * size.y * 0.016, -size.y * 0.1), [Color(0.15, 0.2, 0.5), Color(0.6, 0.15, 0.1), Color(0.1, 0.1, 0.1)][k], 2.0)
-	draw_rect(Rect2(cup - Vector2(size.y * 0.022, size.y * 0.055), Vector2(size.y * 0.044, size.y * 0.055)), Color(0.3, 0.32, 0.28))
+	if not Rect2(cup - Vector2(size.y * 0.03, size.y * 0.11), Vector2(size.y * 0.06, size.y * 0.11)).intersects(object_rect("bell").grow(4)):
+		for k in 3:
+			draw_line(cup + Vector2(-size.y * 0.01 + k * size.y * 0.01, -size.y * 0.05), cup + Vector2(-size.y * 0.016 + k * size.y * 0.016, -size.y * 0.1), [Color(0.15, 0.2, 0.5), Color(0.6, 0.15, 0.1), Color(0.1, 0.1, 0.1)][k], 2.0)
+		draw_rect(Rect2(cup - Vector2(size.y * 0.022, size.y * 0.055), Vector2(size.y * 0.044, size.y * 0.055)), Color(0.3, 0.32, 0.28))
 	var bell: Rect2 = object_rect("bell")
 	var c: Vector2 = Vector2(bell.get_center().x, bell.end.y - bell.size.y * 0.2)
 	var radius: float = bell.size.y * 0.38

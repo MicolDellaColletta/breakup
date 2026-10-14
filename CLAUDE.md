@@ -42,7 +42,7 @@ speaker | key=value | key=value: The line's text.
   - Counts: `eye=+n`, `keep=who`, `betray=who`, `door=who`.
   - Scene and voices: `lean=`, `time=`, `show=room`, `sound=`,
     `end=night|map`.
-  - The shop: `pawned=item | loan=n`, `sold=`, `redeemed=`.
+  - The shop: `pawned=item | loan=n`, `sold=`, `redeemed=`, `unpacked=item,item` (new stock from the back room, onto the counter to be shelved; `arrives=true` items).
 - **Gotchas:**
   - **Jumps only run at the end of a section,** after its lines. To branch
     halfway through, split the section in two.

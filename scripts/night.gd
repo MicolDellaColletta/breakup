@@ -174,6 +174,10 @@ func _on_line_shown(line: Dictionary) -> void:
 	fade.tween_property(self, "modulate", Color(0.15, 0.15, 0.15), VIEW_FADE)
 	await fade.finished
 	_show_room(room)
+	# The section may have ended during the fade, and set out the last room's
+	# spots: set out this one's.
+	if not _busy:
+		_show_spots()
 	fade = create_tween()
 	fade.tween_property(self, "modulate", Color.WHITE, VIEW_FADE)
 

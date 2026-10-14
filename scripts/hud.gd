@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-# Always on screen: the clock, the Pockets button, the pockets panel,
+# Always on screen: the clock, the Pockets and Menu buttons, the pockets panel,
 # and a short note when something is added to your pockets. From the
 # pockets you can take something out to use on a thing in the room: it stays
 # in your hand (its name follows the mouse) until you click something with
@@ -14,6 +14,7 @@ const HELD_OFFSET: Vector2 = Vector2(18, 14)
 
 @onready var clock_label: Label = %ClockLabel
 @onready var pockets_button: Button = %PocketsButton
+@onready var menu_button: Button = %MenuButton
 @onready var toast: Label = %Toast
 @onready var pockets_panel: ColorRect = %PocketsPanel
 @onready var item_buttons: VBoxContainer = %ItemButtons
@@ -35,6 +36,7 @@ func _ready() -> void:
 	pockets_panel.visible = false
 	toast.modulate.a = 0.0
 	pockets_button.pressed.connect(open_pockets)
+	menu_button.pressed.connect(_open_menu)
 	close_button.pressed.connect(close_pockets)
 	read_button.pressed.connect(_on_read_pressed)
 	use_button.pressed.connect(_on_use_pressed)
@@ -44,6 +46,12 @@ func _ready() -> void:
 	GameState.item_added.connect(_on_item_added)
 	_update_clock()
 	Cursors.apply(false)
+
+# The pause menu, the same as Esc (not mid-transition, not twice).
+func _open_menu() -> void:
+	if not Transition.busy and not Menu.is_open():
+		close_pockets()
+		Menu.open_pause()
 
 # --- Public: what other scenes can use ---
 
@@ -133,7 +141,11 @@ func _on_document_closed(_doc_id: String) -> void:
 
 # Notes wait their turn, so two items picked up close together both get seen.
 func _on_item_added(item_id: String) -> void:
-	_toast_queue.append("Added to your pockets: " + GameState.item_info(item_id, "name"))
+	show_toast("Added to your pockets: " + GameState.item_info(item_id, "name"))
+
+# A short note at the top of the screen, after any already showing.
+func show_toast(text: String) -> void:
+	_toast_queue.append(text)
 	if not _toast_showing:
 		_show_toasts()
 

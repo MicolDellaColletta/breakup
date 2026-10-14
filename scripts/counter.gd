@@ -394,6 +394,13 @@ func _on_line_shown(line: Dictionary) -> void:
 	# misplace=tin_box: somebody put it back in the wrong spot.
 	if line.has("misplace"):
 		_misplace(line["misplace"])
+	# unpacked=lantern,cb_radio: new stock from the back room, onto the counter
+	# to be put out.
+	if line.has("unpacked"):
+		for item_id in line["unpacked"].split(","):
+			GameState.record_unpacked(_stock.get_value(item_id.strip_edges(), "name"), item_id.strip_edges())
+		Hud.show_toast("New stock on the counter. Put it out on the shelves.")
+		_show_view("counter")
 	if line.has("pawned"):
 		var pawned: String = line["pawned"]
 		GameState.record_pawn(_stock.get_value(pawned, "name"), pawned, int(line.get("loan", "0")),
@@ -481,6 +488,12 @@ func _put_down() -> void:
 # A spot on a shelf (or in the window) was clicked: pick up what's there, or
 # put what you're holding there (swapping with what was there).
 func _on_spot_clicked(shelf: String, spot: int) -> void:
+	# New stock on the counter: pick it up to put it out.
+	if shelf == "counter":
+		var waiting: String = GameState.unshelved[spot] if spot < GameState.unshelved.size() else ""
+		if waiting != "":
+			_select(waiting)
+		return
 	var there: String = GameState.shelf(shelf)[spot]
 	if _selected == "":
 		if there != "":
@@ -493,6 +506,13 @@ func _on_spot_clicked(shelf: String, spot: int) -> void:
 		_tool_note = _wont_fit(_selected, shelf)
 		_show_details()
 		return
+	if GameState.unshelved.has(_selected):
+		# Off the counter onto a shelf; whatever was in the spot goes back on
+		# the counter in its place.
+		GameState.unshelved.erase(_selected)
+		if there != "":
+			GameState.unshelved.append(there)
+			GameState.take_off_shelves(there)
 	GameState.place_on_shelf(_selected, shelf, spot)
 	# Who comes next can depend on the window: the bell says so as it changes.
 	if _waiting:
@@ -540,6 +560,9 @@ func _fill_shelves() -> void:
 			continue
 		if not _in_shop(item_id) or GameState.sold.has(item_id):
 			GameState.take_off_shelves(item_id)
+			continue
+		# Still on the counter, waiting to be put out.
+		if GameState.unshelved.has(item_id):
 			continue
 		if GameState.shelf_spot_of(item_id)[1] == -1:
 			var spot: int = GameState.empty_spot(kind)

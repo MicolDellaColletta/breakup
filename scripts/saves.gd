@@ -43,6 +43,15 @@ func mark_checkpoint(scene_path: String) -> void:
 	}
 	_write(0)
 
+# The ending has played (breakup's end=title): the autosave says so, and the
+# title stops offering to continue it.
+func mark_finished() -> void:
+	if _checkpoint.is_empty():
+		return
+	_checkpoint["finished"] = true
+	_checkpoint["label"] = "The end, %s" % GameState.date_text()
+	_write(0)
+
 func can_save() -> bool:
 	return not _checkpoint.is_empty()
 

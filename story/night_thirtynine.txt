@@ -87,7 +87,7 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 -> morning_after
 
 === morning_after
-narration | time=07:00: Monday. The light at half past five. You didn't sleep for any of the dark there was.
+narration | time=07:00: Monday. The light at half past six. You didn't sleep for any of the dark there was.
 
 # --- Something out of place (docs/nights.md). ---
 

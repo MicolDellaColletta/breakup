@@ -80,7 +80,7 @@ narration | card=November. The Keeper stays. | time=08:00: Monday, the first. Su
 narration | if=flag:tin_opened: The locker key, where you put it. Anchorage is three hours away. You check it's there before you check anything else.
 narration | if=flag:tin_shut: The tin on the back shelf, its tag to the wall. You don't turn it round.
 narration | if=flag:tried_to_run: Olstad's cruiser at the end of the road again, at dawn, engine running. Then it goes.
-narration: The Reverend, on the radio, the morning service repeated: "Sixty-one days, friends."
+narration: The Reverend, on the radio, the morning service repeated: "Sixty days, friends."
 narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope. A hundred and fifty, faced. November's first.
 narration: The bulletin with it: the Thanksgiving pageant, the fitting on the twenty-first, and at the bottom, new: "Pray for travellers on the roads this season, and for any who come to us in need."
 
@@ -90,8 +90,8 @@ narration: The bulletin with it: the Thanksgiving pageant, the fitting on the tw
 narration | card=November. The minister calls again.: He calls the night radio twice more that week, and the week after. The same beautiful voice, from a different payphone each time, a different town each time, nearer.
 narration: The Gleaner talks about him. The post office talks about him. Mrs. Hollis says she sat by the radio with her hands folded and cried, and didn't know why.
 narration: On the nights he's on the radio, the shop phone doesn't ring. On the nights he isn't, it does: a car, wipers, sleet on a windshield. The road you drove in on.
-narration | card=The Keeper is paid. | cash=+300: Two envelopes, two Wednesdays. Faced. The wool swatch again in the second, a little darker, as if it had been handled.
-narration | card=The road closes. Three days.: Snow, and the pass shut, and the lake road shut. Nobody in, nobody out. The minister calls anyway, from somewhere the snow hasn't reached. "I'll be with you when the road opens, friends. Keep a light on."
+narration | card=Wednesday. The Keeper is paid. | cash=+300: Two envelopes, two Wednesdays. Faced. The wool swatch again in the second, a little darker, as if it had been handled.
+narration | card=Monday. The road closes. Three days.: Snow, and the pass shut, and the lake road shut. Nobody in, nobody out. The minister calls anyway, from somewhere the snow hasn't reached. "I'll be with you when the road opens, friends. Keep a light on."
 narration: The Reverend, on the air, after him, quietly: "Our thanks to our caller." Nothing else. He doesn't sound grateful. He sounds like a man listening to a weather report.
 narration | card=Saturday. The count.: The Reverend's count, Saturday night. "Forty-one days, friends." He's lost his place. He corrects himself. "Forty. Forty days."
 paranoia: Forty days. The flood. The wilderness. He didn't mean it. Did he mean it.
@@ -206,7 +206,7 @@ narration | if=flag:spectacles_to_olstad: Olstad's cruiser goes south behind the
 narration | card=Saturday. A girl. | time=10:00: Olstad's baby, born in Wasilla in the night, the eighth. A girl. Seven pounds. The Gleaner drinks to her, and Ruth puts the sign in the window: IT'S A GIRL, in her father's old stencils.
 narration: The cruiser parked at her house all week. The road without anybody watching it.
 narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope. And that week, things happen that wouldn't have. A window broken at the manse. The shop's back step trodden flat every morning, by more feet than one. Somebody's dog, found sitting on the ice in the middle of the lake, facing the shore, who won't come in.
-narration | card=Friday. The light.: Light at a quarter to ten. The radio says it like a warning. Six hours and forty minutes of day. "Every day a little more, friends. Every day closer."
+narration | card=Friday. The light.: Light at ten. The radio says it like a warning. Six hours and a quarter of day. "Every day a little more, friends. Every day closer."
 
 # --- Before key day 26 (Sunday, January 23): the week of sermons. ---
 
@@ -246,8 +246,8 @@ narration | card=Tuesday. The doors.: In the morning every door on the road is s
 narration | if=flag:gave_up_sam: Sam's cabin dark. Sam in the hall, sleeping on the floor with the others, his hands folded on his chest. He says good morning to you. He doesn't say anything else.
 narration | card=Friday. Wasilla.: Olstad's cruiser gone from the end of the road. The radio says the trooper's taken her daughter to Wasilla to be christened. A week. Nobody on the road says anything. Everybody on the road notices.
 narration | if=flag:told_olstad_john or flag:gave_deed: Under your door, on a page from her notebook: "Back Friday. Don't do anything I'll have to write down. M.O."
-narration | card=Saturday. March.: March. Seven weeks. The light past ten hours. The sun on the snow so bright at noon you can't look at the lake.
-narration: On the hall door, the eight crossed out, a seven painted under it. And out on the lake, the first hole cut in the ice off the point, square, a yard across. By Wednesday there are four, in a line.
+narration | card=Wednesday. March.: March. Seven weeks. The light past ten hours. The sun on the snow so bright at noon you can't look at the lake.
+narration: On the hall door, the eight crossed out, a seven painted under it. And out on the lake, the first hole cut in the ice off the point, square, a yard across. By the next Wednesday there are four, in a line.
 
 # --- Before key day 36 (Sunday, March 19): Sunday the 12th to Saturday. ---
 
@@ -261,7 +261,7 @@ narration | card=Friday. Fasting.: Nobody eats. The radio plays the clock tickin
 # --- Before key day 37 (Saturday, March 25): Monday the 20th to Friday. ---
 
 === bridge_late_march
-narration | card=Tuesday. The equinox.: Equal day and night. Twelve hours each. The radio says it twice, as if it were a warning.
+narration | card=Monday. The equinox.: Equal day and night. Twelve hours each. The radio says it twice, as if it were a warning.
 narration | if=flag:took_from_room: On Wednesday, the window above the Gleaner: the shape in the chair, facing the shop, all day. It doesn't move once. When it gets dark, it's still there.
 narration | if=!flag:took_from_room: On Wednesday, the window above the Gleaner: empty. You find you'd rather the shape were there.
 narration | card=Thursday. Olstad's back.: The cruiser at the end of the road again. A baby seat in the back. She doesn't come to the shop. She parks where she can see it, and stays till dark.
@@ -273,7 +273,7 @@ narration | card=Sunday. The hall.: The service. You don't go, or you go, and it
 narration | if=flag:fork6_yes: In the queue, Mrs. Hollis takes your hand and squeezes it and says, "I'm so glad," and you don't know what she thinks she's glad about.
 narration | if=flag:fork6_refuse: Nobody in the queue looks at you. You're not in a race with them. They know who you're in a race with.
 narration | card=Tuesday. Twenty-six holes.: From the point to almost the middle now. The ice between them is grey, and wet, and talks at night.
-narration | card=Thursday. The light.: Sunset after eight. Children out in the road at nine at night, in the light, throwing snowballs at the post on the hill, at the straw man, laughing.
+narration | card=Thursday. The light.: Sunset near eight. Children out in the road at nine at night, in the last of the light, throwing snowballs at the post on the hill, at the straw man, laughing.
 
 # --- After key day 38: into April (the clocks go forward). ---
 
@@ -284,7 +284,7 @@ narration | card=Saturday. April.: The first of April. Three weeks. The clocks g
 
 === bridge_early_april
 narration | card=Monday. The road.: Trucks on the road for the first time since December. A propane delivery. The mail van from Wasilla, with three months of mail in it. Nobody on the road goes out to meet it.
-narration: In your box, under three months of catalogues: a postcard from the rental company in Anchorage. "Your vehicle is now 151 days overdue."
+narration: In your box, under three months of catalogues: a postcard from the rental company in Anchorage. "Your vehicle is now 156 days overdue."
 narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope, under the door. A hundred and fifty, faced. The last one, it says, in pencil on the back. "Last."
 narration | card=Friday. Fasting.: Nobody eats. At noon the radio plays the clock, and the whole road stands on its porches in the sun to listen.
 
@@ -299,7 +299,7 @@ narration | card=Friday. Fasting.: Nobody eats. The children go round with the g
 # --- Before key day 42 (Good Friday, April 21): Monday the 17th to Thursday. ---
 
 === bridge_holy_week
-narration | card=Monday. Four days.: The straw man taken down off the post and carried round the road on a pole, door to door, and every door opens to let him look in.
+narration | card=Monday. Five days.: The straw man taken down off the post and carried round the road on a pole, door to door, and every door opens to let him look in.
 narration | if=flag:daniel_taken: The radio says the preacher's in custody in Anchorage. The radio says it once, and then plays the clock for the rest of the day, as if to make up for it.
 narration | if=flag:daniel_given: Nobody says where he is. His room above the Gleaner is let to nobody. The cigar box is gone from the sill.
 narration | if=flag:daniel_shot: The freezer hums. Nobody asks where the preacher went. Mrs. Hollis says, "Gone on ahead," and smiles, and pats your hand.

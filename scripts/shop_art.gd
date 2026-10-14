@@ -250,7 +250,7 @@ func _draw_office() -> void:
 
 func _draw_backroom() -> void:
 	# Concrete, one caged bulb. The walk-in freezer on the left, padlocked;
-	# Abraham's bench; the back door at the far end; the furnace on the right;
+	# Abraham's bench; the sink; the back door at the far end; the furnace on the right;
 	# crates in the front corner.
 	_poly([Vector2(0, 0), Vector2(1, 0), Vector2(1, 0.7), Vector2(0, 0.7)], Color(0.05, 0.05, 0.055))
 	_poly([Vector2(0, 0.7), Vector2(1, 0.7), Vector2(1, 1), Vector2(0, 1)], Color(0.045, 0.043, 0.045))
@@ -279,10 +279,22 @@ func _draw_backroom() -> void:
 	_rect(0.52, 0.46, 0.035, 0.06, Color(0.5, 0.55, 0.6, 0.35))
 	for k in 3:
 		draw_circle(_p(0.53 + k * 0.01, 0.5 - (k % 2) * 0.012), 2.5, Color(0.7, 0.6, 0.3))
+	# The old sink between the bench and the back door: a deep enamel basin
+	# on iron legs, the tap furred with rust, a pipe down the wall, and a
+	# shaving mirror the size of a playing card wired to the pipe, turned to
+	# the wall. Where you come for water the night the pipes freeze.
+	draw_line(_p(0.645, 0.0), _p(0.645, 0.4), Color(0.2, 0.2, 0.21), 4.0)
+	_rect(0.633, 0.33, 0.025, 0.035, Color(0.22, 0.2, 0.18))
+	_rect(0.638, 0.4, 0.014, 0.035, Color(0.45, 0.3, 0.18))
+	_poly([Vector2(0.605, 0.44), Vector2(0.685, 0.44), Vector2(0.678, 0.52), Vector2(0.612, 0.52)], Color(0.62, 0.62, 0.58))
+	_rect(0.612, 0.445, 0.066, 0.02, Color(0.3, 0.27, 0.22))
+	_rect(0.615, 0.52, 0.008, 0.18, Color(0.12, 0.12, 0.13))
+	_rect(0.668, 0.52, 0.008, 0.18, Color(0.12, 0.12, 0.13))
+	draw_line(_p(0.645, 0.52), _p(0.645, 0.62), Color(0.15, 0.15, 0.16), 3.0)
 	# The back door, far end: a deadbolt, and snow swept by the frame.
-	_rect(0.65, 0.22, 0.1, 0.48, Color(0.07, 0.06, 0.05))
-	_rect(0.73, 0.44, 0.012, 0.03, Color(0.4, 0.4, 0.42))
-	_poly([Vector2(0.63, 0.7), Vector2(0.66, 0.68), Vector2(0.68, 0.7)], Color(0.7, 0.72, 0.76, 0.5))
+	_rect(0.695, 0.22, 0.08, 0.48, Color(0.07, 0.06, 0.05))
+	_rect(0.758, 0.44, 0.01, 0.03, Color(0.4, 0.4, 0.42))
+	_poly([Vector2(0.685, 0.7), Vector2(0.705, 0.68), Vector2(0.725, 0.7)], Color(0.7, 0.72, 0.76, 0.5))
 	# The furnace: squat, black, its mouth glowing through the grate.
 	var glow: float = 0.5 + 0.15 * sin(_time * 2.1)
 	_poly([Vector2(0.8, 0.32), Vector2(0.96, 0.3), Vector2(0.97, 0.8), Vector2(0.79, 0.8)], Color(0.03, 0.03, 0.032))

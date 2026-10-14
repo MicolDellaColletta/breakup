@@ -5,7 +5,8 @@ extends RefCounted
 # are paintings: one simple shape per kind of object (shape= in stock.cfg):
 # call, decoy, knife, snowshoes, picks, compass, fox, rifle, tin, coins, box,
 # name, jacket, musicbox, mirror, watch, jar, braid, shells, bible, spectacles,
-# button, clapper, microphone, collar, bullet, batteries.
+# button, clapper, microphone, collar, bullet, batteries, lantern, radio,
+# thermos, trap.
 # Each fits the box it's given, so the same drawing works small on a shelf and
 # big in a close-up. A shape this doesn't know is drawn as a wrapped bundle.
 
@@ -136,6 +137,44 @@ static func draw(ci: CanvasItem, shape: String, r: Rect2, faded: bool = false) -
 			_poly(ci, [c + Vector2(-u * 0.2, u * 0.1), c + Vector2(u * 0.2, u * 0.1), c + Vector2(u * 0.18, u * 0.55), c + Vector2(-u * 0.18, u * 0.55)], Color(0.62, 0.55, 0.4), a)
 			_poly(ci, [c + Vector2(-u * 0.5, u * 0.12), c + Vector2(-u * 0.35, -u * 0.25), c + Vector2(-u * 0.05, -u * 0.38), c + Vector2(u * 0.3, -u * 0.3), c + Vector2(u * 0.55, -u * 0.05), c + Vector2(u * 0.4, u * 0.15)], Color(0.5, 0.5, 0.53), a)
 			ci.draw_line(c + Vector2(-u * 0.25, -u * 0.1), c + Vector2(u * 0.2, -u * 0.18), Color(0.32, 0.32, 0.34, a), 1.5)
+		"lantern":
+			# A green camp lantern: the tank, the glass globe with two mantles,
+			# the vented cap and the bail handle.
+			var green: Color = Color(0.2, 0.4, 0.25)
+			ci.draw_colored_polygon(_ellipse(c + Vector2(0, u * 0.6), Vector2(u * 0.42, u * 0.16)), Color(green, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.38, u * 0.3), Vector2(u * 0.76, u * 0.3)), Color(green, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.24, -u * 0.25), Vector2(u * 0.48, u * 0.55)), Color(0.85, 0.85, 0.75, 0.45 * a))
+			for dx in [-0.08, 0.08]:
+				ci.draw_circle(c + Vector2(u * dx, u * 0.0), u * 0.07, Color(0.95, 0.92, 0.8, a))
+			_poly(ci, [c + Vector2(-u * 0.32, -u * 0.25), c + Vector2(u * 0.32, -u * 0.25), c + Vector2(u * 0.12, -u * 0.45), c + Vector2(-u * 0.12, -u * 0.45)], green, a)
+			ci.draw_arc(c + Vector2(0, -u * 0.45), u * 0.38, PI, TAU, 16, Color(METAL, a), 2.0)
+		"radio":
+			# A CB set: a squat box, a dial, the knobs, the mic on its curly cord.
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.75, -u * 0.25), Vector2(u * 1.25, u * 0.55)), Color(0.18, 0.18, 0.2, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.65, -u * 0.15), Vector2(u * 0.45, u * 0.2)), Color(0.75, 0.55, 0.2, a))
+			for k in 3:
+				ci.draw_circle(c + Vector2(u * (0.0 + k * 0.17), u * 0.05), u * 0.06, Color(0.6, 0.6, 0.62, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.55, u * 0.12), Vector2(u * 0.3, u * 0.08)), Color(0.85, 0.8, 0.65, a))
+			for k in 6:
+				ci.draw_arc(c + Vector2(u * (0.55 + k * 0.05), u * (0.1 + k * 0.06)), u * 0.05, 0, TAU, 8, Color(0.1, 0.1, 0.1, a), 1.5)
+			ci.draw_rect(Rect2(c + Vector2(u * 0.75, u * 0.35), Vector2(u * 0.2, u * 0.32)), Color(0.15, 0.15, 0.16, a))
+		"thermos":
+			# A green steel flask, the cup on top, a dent in the side.
+			var paint: Color = Color(0.25, 0.42, 0.3)
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.22, -u * 0.55), Vector2(u * 0.44, u * 1.35)), Color(paint, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.25, -u * 0.8), Vector2(u * 0.5, u * 0.27)), Color(paint.darkened(0.25), a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.22, -u * 0.1), Vector2(u * 0.44, u * 0.12)), Color(0.6, 0.62, 0.64, a))
+			ci.draw_colored_polygon(_ellipse(c + Vector2(u * 0.1, u * 0.35), Vector2(u * 0.08, u * 0.12)), Color(paint.darkened(0.35), a))
+		"trap":
+			# A leg-hold trap from above, set: the jaws open in a ring, the pan,
+			# the springs either side, the chain.
+			var steel: Color = Color(0.45, 0.43, 0.4)
+			ci.draw_arc(c, u * 0.45, 0, TAU, 24, Color(steel, a), maxf(2.0, u * 0.07))
+			ci.draw_circle(c, u * 0.14, Color(steel.darkened(0.2), a))
+			for side in [-1.0, 1.0]:
+				_poly(ci, [c + Vector2(side * u * 0.45, -u * 0.08), c + Vector2(side * u * 0.95, -u * 0.05), c + Vector2(side * u * 0.95, u * 0.05), c + Vector2(side * u * 0.45, u * 0.08)], steel, a)
+			for k in 4:
+				ci.draw_arc(c + Vector2(0, u * (0.55 + k * 0.1)), u * 0.05, 0, TAU, 8, Color(steel, a), 1.5)
 		"batteries":
 			# A card of D-cells, two of them gone.
 			ci.draw_rect(Rect2(c + Vector2(-u * 0.7, -u * 0.7), Vector2(u * 1.4, u * 1.4)), Color(0.85, 0.8, 0.3, a))

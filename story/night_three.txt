@@ -106,7 +106,7 @@ narration: You know that voice. Not the words. The way it waits before the last 
 paranoia: That's not him. That's you. That's you doing him. You've been doing him in your head for a week.
 paranoia: That's worse. Isn't that worse?
 narration | time=00:40: You sleep, or something like it. You wake at twenty to one with your mouth dry as paper.
-narration: In the kitchen, the tap coughs and gives nothing. The pipes have frozen. Downstairs, behind the counter, there's the sink in the washroom, on the warm side of the building.
+narration: In the kitchen, the tap coughs and gives nothing. The pipes have frozen. Downstairs, through the steel door, there's the old sink in the back room, on the warm side of the building, by the furnace.
 > Go down for water -> water_go_down | lean=animal
 > Stay in bed. Wait for morning. -> water_stay | flag=stayed_in_bed | lean=paranoia
 
@@ -120,12 +120,21 @@ narration: Morning takes a long time. Twice, you're sure you hear the bell over 
 
 === water_go_down
 narration | sound=stairs: Down the stairs in your socks, in the dark. The ones that complain, complain.
-narration | stop=stairs: The hallway. The steel door, and the hum. At the end, past the counter, the shop, and the red of the neon through the front window. The window you dressed.
+narration | stop=stairs: The hallway. The steel door, and the hum behind it. At the end, past the counter, the red of the neon through the front window. The window you dressed.
 
 === water_steel_door
 narration: You stop at the steel door. The hum doesn't change.
 narration: On the floor, along the bottom of the door, a line of frost, as fine as salt. As if the cold behind it had pressed against the gap all night, trying.
 paranoia: Freezers do that. Go and get your water.
+narration | show=shop_back | sound=door_shut: You push it open. The back room: the furnace breathing in the corner, the freezer humming against the wall, and between the bench and the back door, the old sink, its tap furred with rust.
+
+# The sink, in the back room (spots.cfg: night_sink_three). After it, back
+# through the hall to the counter, and the window.
+=== water_sink
+narration | time=+5: The tap coughs, and spits, and then runs, so cold it aches in your teeth. You drink from your hands.
+narration: There's a shaving mirror wired to the pipe above it, the size of a playing card. You don't look in it. You've learned that much in three nights.
+narration | show=shop_counter: Back through the hallway, wiping your mouth. At the counter, you turn around.
+-> night_window
 
 === water_turn_back
 narration | sound=stairs: You turn around on the bottom step and go back up without your water.
@@ -133,7 +142,6 @@ narration | stop=stairs: You don't look toward the front of the shop. You don't 
 -> water_stay
 
 === night_window
-narration: The washroom tap runs. You drink from your hands. Then, wiping your mouth, you turn around.
 narration: The front window. Red neon on the glass, and through it, the snow, the lot, the two spruce across the road.
 narration | if=window:empty: Nothing on the ledge. Nothing between you and the glass.
 narration | if=window:fox: The fox on the ledge, with its back to the road. Its glass eyes have caught the neon. Both of them are looking in.

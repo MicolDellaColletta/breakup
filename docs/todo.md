@@ -19,79 +19,70 @@ every ending can be reached by playing (`routes.md`).
 8. `april`
 9. `endings`
 10. `routes`
+11. `placeholders`
+12. `todo-fixes`
 
-**Your notes from playing (Oct 14), for next week.** More to come once you
-finish the playthrough. Not started yet.
-- [ ] **Some dates are still wrong.** Every `DAY_DATES` entry and every file
-      header's weekday is right. What's wrong is inside the bridges and lines
-      (checked Oct 14):
-      - `bridges.txt:249` "Saturday. March. … Seven weeks.": the clock lands on
-        Sat Feb 26, not March, and that's eight weeks. Make it "Wednesday.
-        March." (Mar 1), or move the card.
-      - `bridges.txt:302` "Monday. Four days." vs `night_fortyone.txt:93`
-        "Monday. Five days." (Mon Apr 17): five is right.
-      - `day_twentyfour.txt:31` (Tue Dec 21) "One more Sunday and then it's
-        Christmas": Christmas is Sat Dec 25, with no Sunday between. The third
-        Advent candle is also late (the fourth Sunday was Dec 19).
-      - `bridges.txt:287` "151 days overdue" on Mon Apr 3: paid through
-        Oct 30, so 156.
-      - `bridges.txt:83` "Sixty-one days" on Mon Nov 1: everywhere else counts
-        to Dec 31, so sixty.
-      - `bridges.txt:89–96` (mid-November): no card names a weekday, so the
-        clock stays on Sat Nov 6 while the text covers Nov 10–20. Give a card
-        a weekday or a `time=`.
-      - `bridges.txt:264` "Tuesday. The equinox.": it was Mon Mar 20.
-      - Daylight: `bridges.txt:276` "sunset after eight" on Mar 30 (about
-        7:20; the clocks went forward Apr 2); `night_thirtynine.txt:90` "light
-        at half past five" on Apr 3 (sunrise about 7:45); `bridges.txt:209`
-        "six hours forty" on Jan 14 (about 6h10).
-      - `night_thirtyeight.txt:90` and `bridges.txt:281` both say "Saturday,
-        April first, the clocks go forward", back to back.
-      Tell me any others you saw.
-- [ ] **The night sink goes in the back room, where you can see it.** The
-      sink we go to at night should be a spot in `shop_back`, visible on
-      screen (art and hotspot), not only a line.
-- [ ] **Still not enough objects.** More stock on the shelves and more items
-      to find, look at and take. There are 27 things in `stock.cfg`; the floor
-      has 16 spots and fewer than half are filled. The right wall and the
-      left wall's bottom row are empty all season, and the shelves look the
-      same in December as in October. Ideas for the floor (plain things, a
-      line and a price each, a few with a prop): a CB radio, a chainsaw, a
-      Coleman lantern, a fishing reel, leg-hold traps, a thermos, binoculars,
-      a Polaroid camera, a VHS player, a guitar with five strings, a box of
-      cassettes, a wolf pelt, a .410 shotgun (back shelf), a wedding band
-      (back shelf). Plus new arrivals by month, so the shelves change.
-- [ ] **The counter view still needs fixing.** Done in part (Oct 14, branch
-      `placeholders`): the window shows the street by the hour and the season
-      (dark mornings in December, snow from late October, the streetlight,
-      the Gleaner's windows, PAWN backwards on the glass). There are price
-      tags on the floor shelves, panelling, antlers and a trap on the left
-      wall, the month's calendar and NO REFUNDS by the door, a loans sign
-      over the back shelf, and a mug and a pen cup on the counter. Still to
-      do: what else you meant (tell me).
-- [ ] **Sam's batteries are in the boxes in the back room.** Taking them from
-      the crates prompts putting the new objects on the shelves (the
-      unpacking leads into stocking).
+**Your notes from playing (Oct 14).** More to come once you finish the
+playthrough. Done on branch `todo-fixes` unless it says otherwise.
+- [x] **Some dates were still wrong.** Fixed:
+      - the March card lands on Wed Mar 1;
+      - Holy Week's Monday is "Five days";
+      - Mrs. Hollis on Dec 21: "One more, and then it's Christmas";
+      - 156 days overdue;
+      - "Sixty days" on Nov 1;
+      - the mid-November cards have weekdays, so the clock moves (Wed 10, Mon 15,
+        Sat 20);
+      - the equinox is on Monday;
+      - daylight: "six hours and a quarter" on Jan 14, "sunset near eight" on
+        Mar 30, "light at half past six" on Apr 3;
+      - night 38's morning no longer repeats the April 1 card.
+      The town's candles follow its own custom (the fourth on Christmas Eve,
+      the fifth at New Year), so they stay as they are. Tell me any other dates
+      you saw.
+- [x] **The night sink is in the back room, where you can see it.** On night
+      three (the frozen pipes), the way down is through the steel door. The
+      old sink is drawn by the furnace, between the bench and the back door,
+      with a shaving mirror wired to the pipe and turned to the wall. You drink
+      there, then go back to the counter and the window. On the night walks
+      (night 7 and from night 11) it's a spot of its own.
+- [x] **Sam's batteries are in the crates in the back room** (day four). With
+      them, under straw, are things Abraham never put out: a Coleman lantern, a
+      CB radio, a thermos and a leg-hold trap. They come out onto the counter
+      ("New stock on the counter. Put it out on the shelves.") and you shelve
+      them by hand. The ledger writes them in. New story effect:
+      `unpacked=item,item` (`arrives=true` items).
+- [ ] **Still not enough objects.** Started: four new things from the crates
+      (above), so there are 31. The right wall and the left wall's bottom row
+      still need filling, and the shelves should change by month. More ideas: a
+      chainsaw, a fishing reel, binoculars, a Polaroid camera, a VHS player, a
+      guitar with five strings, a box of cassettes, a wolf pelt, a .410 shotgun
+      (back shelf), a wedding band (back shelf). Your call on which, and when
+      they arrive.
+- [ ] **The counter view still needs fixing.** Done in part (branch
+      `placeholders`): the street in the window by the hour and the season,
+      price tags, things on the walls, a mug and a pen cup. New stock now waits
+      along the back of the counter. Still to do: what else you meant (tell
+      me).
 
 **To make it playable by someone else** (checked Oct 14; nothing in the story
 soft-locks):
-- [ ] **Export presets** for Windows and Mac (there's no
-      `export_presets.cfg`), with the 4.7.2 templates. **Important:** the
-      story is read as raw `.txt`/`.cfg`, which Godot leaves out of exports by
-      default. Add `story/*.txt, story/*.cfg, story/documents/*.txt` to the
-      non-resource filter, and exclude `tests/*, tools/*, docs/*`. Otherwise
-      the built game has no words.
+- [x] **Export presets** (`export_presets.cfg`) for Windows, macOS and Linux.
+      The story `.txt`/`.cfg` files are in the non-resource filter, and
+      tests, tools and docs are left out. A Linux pack export was checked: the
+      story is in it, the tests aren't, and it starts. To build: install the
+      4.7.2 export templates (Editor > Manage Export Templates), then Project >
+      Export. Builds go in `build/` (ignored by git).
 - [ ] **Sound is off** (`settings.gd:21` `SOUND_ON = false`; the volume slider
-      is hidden at `menu.gd:28`). There are 24 effects and no music. Turn it
-      on for the ones that are timed right.
-- [ ] **A menu button on screen,** next to Pockets: Save and Settings are only
-      on Esc, and nothing says so.
-- [ ] **Teach the hidden keys** once (day one, or the title): Tab shows what
-      you can click, 1–9 pick a choice, Esc for the menu.
-- [ ] **Loading goes back to the start of the part** (the whole counter day or
-      night). Say so on the pause screen, or save between customers.
-- [ ] **After the ending, Continue replays breakup** (`title.gd:47`): treat a
-      day 43 save as finished.
+      is hidden at `menu.gd:28`). There are 24 effects and no music. Your call:
+      which effects are timed right enough to switch on.
+- [x] **A Menu button on screen,** next to Pockets (the same as Esc).
+- [x] **The hidden keys are taught** on the title and the pause menu: "Tab:
+      show what you can click · 1–9: pick a choice · Esc: menu".
+- [x] **Loading goes back to the start of the part:** the Save screen already
+      says so ("A save keeps your progress from the start of this part").
+- [x] **After the ending, Continue no longer replays breakup.** When the ending
+      plays to the title, the autosave is marked finished, and the title says
+      "The end".
 - [ ] **Skip lines you've seen** (there's no skip or auto-advance), which
       matters more because loading replays a part.
 - [ ] Polish: our own icon (it's Godot's), the `.ico`/`.icns`, a credits screen

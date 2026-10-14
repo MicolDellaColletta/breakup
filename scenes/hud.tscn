@@ -11,7 +11,7 @@ script = ExtResource("1_hud")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -220.0
+offset_left = -300.0
 offset_top = 12.0
 offset_right = -16.0
 offset_bottom = 44.0
@@ -31,6 +31,12 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 text = "Pockets"
+
+[node name="MenuButton" type="Button" parent="TopBar" unique_id=1405968779]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Save, load, settings (Esc)"
+text = "Menu"
 
 [node name="Toast" type="Label" parent="." unique_id=1506978879]
 unique_name_in_owner = true

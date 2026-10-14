@@ -206,7 +206,9 @@ paranoia: For Sunday. She cut it for Sunday. What happens on Sunday.
 narration | sound=bell | time=+90 | flag=met_sam: The bell. Sam Wakeman, in the duct-taped parka. He stamps his boots exactly three times on the mat.
 narration: He doesn't look at the bear, or the fox, or you. He looks at the corners of the ceiling, one after another, as if counting exits.
 sam: Batteries. D cells. Eight, if you have them.
-narration: You have six, in a box under the counter that's been there since the Carter administration. He buys all six. He checks the date on every one.
+narration: None under the counter. You try the back room: Abraham's crates, stacked by the furnace, stencilled in his square hand.
+narration | unpacked=lantern,cb_radio,thermos,leg_trap: In the second crate, under straw, a box of D cells that's been there since the Carter administration. Six. And under them, wrapped in newspaper, things he never put out: a Coleman lantern, a CB radio, a thermos, a trap wired open. You bring the lot out to the counter.
+narration: Sam buys all six batteries. He checks the date on every one. He doesn't look at the rest.
 narration: Then he doesn't leave.
 narration: He takes the notebook out of his parka and puts it on the glass, open, turned so you can read it.
 narration: Columns. Names. Dates. The last line on the page: October 5, 1999. "John". And after it, a blank.

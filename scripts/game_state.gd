@@ -122,6 +122,9 @@ const DAY_SCENES: Dictionary = {
 	41: "res://scenes/visit.tscn",
 	43: "res://scenes/visit.tscn",
 }
+# Breakup: the last key day, the ending (story/breakup.txt).
+const LAST_DAY: int = 43
+
 # After week one, the story days are key days, with days skipped between them.
 # Which calendar day (counted from October 5, the drive) each one is. Days
 # not listed fall on the day after the last (week one: day 3 is October 8).
@@ -328,6 +331,9 @@ var acquired: Array[String] = []
 var ledger_lines: Array[String] = []
 # The ticket written for each thing pawned this season, as "item_id=0433".
 var pawn_tags: Array[String] = []
+# New stock brought out from the back room (unpacked= in a story file), on the
+# counter waiting for you to put it out on the shelves.
+var unshelved: Array[String] = []
 
 # How the shop is arranged: an item id per spot, "" for an empty one. The
 # floor shelves (for sale), the back shelf (held), and the front window (three
@@ -385,6 +391,7 @@ func reset() -> void:
 	acquired.clear()
 	ledger_lines.clear()
 	pawn_tags.clear()
+	unshelved.clear()
 	shelf_floor.clear()
 	shelf_back.clear()
 	shelf_window.clear()
@@ -398,7 +405,7 @@ func reset() -> void:
 const SAVED: Array[String] = [
 	"day", "answered_phone", "fed_dog", "invited_to_pub", "locked_back_door", "rules_broken", "rule_tally",
 	"minutes", "voices", "inventory", "cash", "till", "till_by_ledger",
-	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags",
+	"sold", "acquired", "ledger_lines", "flags", "visited", "pawn_tags", "unshelved",
 	"fray", "broke_today", "background_settled", "last_lean",
 	"shelf_floor", "shelf_back", "shelf_window", "known_props", "eye",
 ]
@@ -817,6 +824,15 @@ func record_pawn(item_name: String, item_id: String, loan: int, tag: String, sel
 	var by: String = (" by " + seller) if seller != "" else ""
 	var money: String = ("$%d loan" % loan) if loan > 0 else "No loan"
 	ledger_lines.append("%s. %s, pawned%s, tag %s. %s" % [date_text(), item_name, by, tag, money])
+
+# New stock out of Abraham's crates: in the shop and the ledger now, and on
+# the counter until you put it on a shelf.
+func record_unpacked(item_name: String, item_id: String) -> void:
+	if acquired.has(item_id):
+		return
+	acquired.append(item_id)
+	unshelved.append(item_id)
+	ledger_lines.append("%s. %s, from the crates in the back. Put out for sale." % [date_text(), item_name])
 
 # --- What you know about things ---
 

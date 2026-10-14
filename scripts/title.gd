@@ -15,6 +15,7 @@ var _confirming: bool = false
 
 func _ready() -> void:
 	Hud.visible = false
+	$Layout.add_child(Menu.keys_hint_label())
 	continue_button.pressed.connect(_continue)
 	new_game_button.pressed.connect(_new_game)
 	load_button.pressed.connect(Menu.open_slots.bind(false, true))
@@ -25,7 +26,7 @@ func _ready() -> void:
 	# The latest save is the last card of what's written: nothing to continue.
 	var can_continue: bool = has_saves
 	if has_saves and at_the_end(Saves.slot_info(Saves.latest_slot())):
-		continue_button.text = "To be continued"
+		continue_button.text = "The end" if Saves.slot_info(Saves.latest_slot()).get("finished", false) else "To be continued"
 		continue_button.disabled = true
 		can_continue = false
 	load_button.disabled = not has_saves
@@ -40,9 +41,11 @@ func _continue() -> void:
 	_leave()
 	Saves.load_slot(Saves.latest_slot())
 
-# A save that stands at the end of what's written (the last bridge, with no
-# day after it).
+# A save that stands at the end of what's written: the ending has played, or
+# it's a last bridge with no day after it.
 static func at_the_end(save: Dictionary) -> bool:
+	if not save.is_empty() and save.get("finished", false):
+		return true
 	if save.is_empty() or save["scene"] != GameState.BRIDGE_SCENE:
 		return false
 	return GameState.day_scene(int(save["state"].get("day", 0))) == ""

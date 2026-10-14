@@ -256,6 +256,10 @@ narration: Abraham, on his crate, waiting. Frost on his eyebrows. Your hand goes
 narration | take=abraham_letter | flag=found_abraham_letter: An envelope. "Ruthie." His hand. Never given. The paper soft with cold.
 narration: You close the lid. Softly. The seal makes its sound anyway.
 
+=== walk_sink
+narration: The old sink by the furnace, stained orange under the tap. The one you came down to the night the pipes froze. The shaving mirror wired to the pipe, turned to the wall. You didn't turn it.
+narration: The tap drips once while you watch, and then holds the next drop, the way a person holds their breath.
+
 === walk_bench
 -> walk_bench_done | if=flag:found_bench_notebook
 -> walk_bench_find | if=day>=31

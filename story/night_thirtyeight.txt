@@ -87,7 +87,7 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 -> morning_after
 
 === morning_after
-narration | time=07:00: Saturday. April. The first of April, and the clocks go forward tonight.
+narration | time=07:00: Saturday. In the night the snow came off the roof all at once, like something let go.
 
 # --- Something out of place (docs/nights.md). ---
 

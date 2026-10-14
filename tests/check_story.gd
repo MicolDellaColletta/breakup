@@ -154,7 +154,7 @@ func run() -> void:
 							problems.append("%s lets you look but has no '%s'  (section %s)" % [who, needed, name])
 			# The shop only hears about sales and pawns on lines, not choices.
 			for entry in part["choices"]:
-				for key in ["sold", "pawned", "redeemed", "misplace"]:
+				for key in ["sold", "pawned", "redeemed", "misplace", "unpacked"]:
 					if entry.has(key):
 						problems.append("%s= on a choice does nothing; put it on a line  (section %s)" % [key, name])
 		for problem in problems:
@@ -256,6 +256,12 @@ func _check_entry(entry: Dictionary, part: String, sounds: Dictionary, items: Co
 		var learned: PackedStringArray = entry["learn"].split("/")
 		if learned.size() != 2 or not stock.has_section_key(learned[0], "prop_" + learned[1]):
 			problems.append("learn: no property '%s' in stock.cfg (item/kind, prop_kind=)  %s" % [entry["learn"], where])
+	if entry.has("unpacked"):
+		for item_id in entry["unpacked"].split(","):
+			if not stock.has_section(item_id.strip_edges()):
+				problems.append("unpacked: no item '%s' in stock.cfg  %s" % [item_id, where])
+			elif not stock.get_value(item_id.strip_edges(), "arrives", false):
+				problems.append("unpacked: '%s' needs arrives=true in stock.cfg  %s" % [item_id, where])
 	if entry.has("pawned"):
 		if not stock.has_section(entry["pawned"]):
 			problems.append("pawned: no item '%s' in stock.cfg  %s" % [entry["pawned"], where])
