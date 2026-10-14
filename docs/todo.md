@@ -20,8 +20,23 @@ every ending can be reached by playing (`routes.md`).
 9. `endings`
 10. `routes`
 
+**Your notes from playing (Oct 14), for next week.** More to come once you
+finish the playthrough. Not started yet.
+- [ ] **Some dates are still wrong.** Check every day's clock (`DAY_DATES`,
+      HUD), the dates in the lines, and the dates in the bridges against the
+      calendar (Oct 5, 1999 = day 0). Ask which ones you saw.
+- [ ] **The night sink goes in the back room, where you can see it.** The
+      sink we go to at night should be a spot in `shop_back`, visible on
+      screen (art and hotspot), not only a line.
+- [ ] **Still not enough objects.** More stock on the shelves and more items
+      to find, look at and take.
+- [ ] **The counter view still needs fixing.**
+- [ ] **Sam's batteries are in the boxes in the back room.** Taking them from
+      the crates prompts putting the new objects on the shelves (the
+      unpacking leads into stocking).
+
 **Next:**
-1. **You play it.** Your notes from playing go here, then get fixed.
+1. **You play it.** Your notes from playing go here, then get fixed (above).
 2. **The narration rewrite:** less reliable, more cryptic, and fewer tics
    ("the way you'd…", "as if").
 3. **The art:** 90s pixel art, the checklist in `art_list.md`, and `art.md`.
