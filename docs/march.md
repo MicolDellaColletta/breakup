@@ -242,3 +242,56 @@ waved to) · `keys_returned` · the sixth bullet (pawned or refused).
    if v7 call 6 is A.
 9. **A beat in the gap** (Olstad away for the christening; the hall's count;
    the holes in the ice), in the bridge. Lean: yes.
+
+
+## As built (Oct 14)
+
+All nine calls taken as leaned.
+
+**Days:**
+
+| Key day | Date | Kind |
+|---|---|---|
+| 35 | Sat Mar 11 | Counter, then the map |
+| 36 | Sun Mar 19 | Walk-around: the hall, then his room |
+| 37 | Sat Mar 25 | Counter, then the counsel room (a walked evening) |
+| 38 | Fri Mar 31 | Counter, then the tripod or the cellar (a walked evening) |
+
+`DAY_DATES` 158, 166, 172, 178; day 39 is Apr 2. The bridges are
+`bridge_into_march` (the gap: Olstad's christening week, the count, the first
+holes), `bridge_mid_march`, `bridge_late_march`, `bridge_last_march` and
+`bridge_into_april` (the end of what's written).
+
+**The flashback** plays inside the visit scene, in its own place
+(`lake_1988`, the only warm picture):
+- **piece one:** on day 36, at dusk, asleep in the chair by the stove;
+- **piece two:** on day 37, on the road home from the counsel room, awake.
+
+The night scene has no place art, so this keeps the look without new engine
+work.
+
+**Flags March sets:**
+- **The search:** `notebooks_burned`, `safe_marked`, `bear_known`,
+  `ruth_shielded`.
+- **Who's gone:** `gone_ezra` / `gone_brekke`, read on day 36.
+- **His room:** `took_files`, `took_photo`, `took_from_room`.
+- **The bullet:** `gun_six` / `has_sixth_round`.
+- **Fork 6:** `fork6_yes` (taken back without two of his doors) /
+  `fork6_confess` / `fork6_refuse`.
+- **The flashback:** `lake_one`, `lake_two`.
+- **Sam:** `sam_unforgiven`, `sam_stayed_dark`, `told_sam_time`.
+
+**Counts:**
+- **Kept moments:** Hollis (her hand), Ruth (leaving his room as it was, if
+  she let you up).
+- **Doors:** Daniel's third door (his one lie), Sam's third (forgiving him at
+  the tripod).
+
+**New things:**
+- **Items:** `daniel_file` (LUND, with a document), `boy_photo`,
+  `hollis_ring`, `sixth_round`.
+- **Places:** `daniel_room`, `lake_1988`, `ice_tripod`, `hall_cellar`.
+- **Day 35's map evening:** its own version of every place.
+
+**Tests:** `test_march.gd` (87 checks). `test_february` now ends on the
+counter on day 35.
