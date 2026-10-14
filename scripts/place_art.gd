@@ -59,6 +59,7 @@ func _draw() -> void:
 		"lake_1988": _draw_lake_1988()
 		"ice_tripod": _draw_ice_tripod()
 		"hall_cellar": _draw_hall_cellar()
+		"town_line": _draw_town_line()
 
 func _draw_church() -> void:
 	# White walls, tall plain windows on both sides, pews running to the altar.
@@ -398,4 +399,20 @@ func _draw_hall_cellar() -> void:
 	_rect(0.38, 0.82, 0.24, 0.006, Color(1.0, 0.75, 0.35))
 	_rect(0.48, 0.72, 0.04, 0.04, Color(0.5, 0.5, 0.52))
 	draw_circle(_p(0.72, 0.8), size.y * 0.03, Color(0.6, 0.6, 0.62))
+
+func _draw_town_line() -> void:
+	# The town line in April: the road between rotten snowbanks, the sign from
+	# behind, and a cruiser parked square across the road.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.7, 0.76, 0.82))
+	_poly([Vector2(0, 0.5), Vector2(1, 0.48), Vector2(1, 1), Vector2(0, 1)], Color(0.62, 0.62, 0.6))
+	_poly([Vector2(0.36, 1), Vector2(0.47, 0.5), Vector2(0.53, 0.5), Vector2(0.64, 1)], Color(0.35, 0.34, 0.33))
+	for k in 7:
+		_rect(0.05 + k * 0.13, 0.38 - fmod(k * 0.05, 0.1), 0.03, 0.14, Color(0.12, 0.2, 0.14))
+	# The sign, from behind.
+	_rect(0.7, 0.42, 0.14, 0.07, Color(0.55, 0.5, 0.45))
+	_rect(0.765, 0.49, 0.01, 0.1, WOOD_DARK)
+	# The cruiser, across the road.
+	_rect(0.4, 0.62, 0.22, 0.08, Color(0.9, 0.9, 0.88))
+	_rect(0.45, 0.58, 0.12, 0.05, Color(0.3, 0.36, 0.42))
+	_rect(0.49, 0.565, 0.04, 0.015, Color(0.8, 0.2, 0.2))
 

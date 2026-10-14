@@ -9,7 +9,7 @@ extends "res://tests/test_base.gd"
 # bullet comes back, six of six) and the counsel room (hard fork 6: yes,
 # confess, refuse; his one lie, door three; the lake, the second piece); key
 # day 38 and Sam's lie at the tripod, or the hall cellar; the bridge into
-# April, the end of what's written.
+# April.
 
 const MAR_11: int = 158 * 24 * 60 + 6 * 60
 const MAR_19: int = 166 * 24 * 60 + 6 * 60
@@ -235,4 +235,4 @@ func _night_thirtyeight() -> void:
 	await wait(2.0)
 	_route(current_scene.get_node("%Narrator"))
 	await wait(4.0)
-	check(current_scene.name == "Title", "the end of what's written")
+	check(current_scene.name == "Visit" and gs.day == 39, "into April: Sunday the second, the hall")

@@ -73,6 +73,10 @@ const DAY_STORIES: Dictionary = {
 	36: "res://story/day_thirtysix.txt",
 	37: "res://story/day_thirtyseven.txt",
 	38: "res://story/day_thirtyeight.txt",
+	39: "res://story/day_thirtynine.txt",
+	40: "res://story/day_forty.txt",
+	41: "res://story/day_fortyone.txt",
+	42: "res://story/day_fortytwo.txt",
 }
 # Evenings that are walked instead of picked from the town map (key day 10:
 # the first-ice party on the lake). The story starts at "evening" and ends
@@ -84,6 +88,7 @@ const EVENINGS: Dictionary = {
 	32: "res://story/evening_thirtytwo.txt",
 	37: "res://story/evening_thirtyseven.txt",
 	38: "res://story/evening_thirtyeight.txt",
+	42: "res://story/evening_fortytwo.txt",
 }
 # Where a walked evening starts (the first-ice party on the shore).
 const EVENING_ROOMS: Dictionary = {
@@ -93,6 +98,7 @@ const EVENING_ROOMS: Dictionary = {
 	32: "gleaner",
 	37: "booth",
 	38: "ice_tripod",
+	42: "shore",
 }
 const MAP_SCENE: String = "res://scenes/map.tscn"
 const VISIT_SCENE: String = "res://scenes/visit.tscn"
@@ -111,6 +117,8 @@ const DAY_SCENES: Dictionary = {
 	30: "res://scenes/visit.tscn",
 	34: "res://scenes/visit.tscn",
 	36: "res://scenes/visit.tscn",
+	39: "res://scenes/visit.tscn",
+	41: "res://scenes/visit.tscn",
 }
 # After week one, the story days are key days, with days skipped between them.
 # Which calendar day (counted from October 5, the drive) each one is. Days
@@ -148,6 +156,10 @@ const DAY_DATES: Dictionary = {
 	37: 172,
 	38: 178,
 	39: 180,
+	40: 186,
+	41: 194,
+	42: 199,
+	43: 200,
 }
 # A bridge before a key day covers the days skipped: a title card and a few
 # lines (story/bridges.txt, the section named here), then the day itself.
@@ -180,6 +192,10 @@ const BRIDGES: Dictionary = {
 	37: "bridge_late_march",
 	38: "bridge_last_march",
 	39: "bridge_into_april",
+	40: "bridge_early_april",
+	41: "bridge_palm",
+	42: "bridge_holy_week",
+	43: "bridge_breakup",
 }
 const BRIDGE_SCENE: String = "res://scenes/bridge.tscn"
 const COUNTER_SCENE: String = "res://scenes/counter.tscn"
@@ -222,6 +238,10 @@ const NIGHT_STORIES: Dictionary = {
 	36: "res://story/night_thirtysix.txt",
 	37: "res://story/night_thirtyseven.txt",
 	38: "res://story/night_thirtyeight.txt",
+	39: "res://story/night_thirtynine.txt",
+	40: "res://story/night_forty.txt",
+	41: "res://story/night_fortyone.txt",
+	42: "res://story/night_fortytwo.txt",
 }
 
 # The last ticket number in the owner's hand (the rifle). New pawns count on
@@ -439,6 +459,9 @@ func drowned(voice: String) -> bool:
 # if one leads outright. "" while nothing leads, or once settled, what it
 # settled on.
 func background() -> String:
+	# Shooting him makes it guilt, whatever it was before (docs/april.md).
+	if flags.has("daniel_shot"):
+		return "guilt"
 	if background_settled != "":
 		return background_settled
 	var best: String = ""
@@ -500,6 +523,44 @@ const EYE_SEEDS: Array[String] = ["walked_out", "walked_out_again", "said_on_air
 	"refused_pie", "tried_to_run", "skated_over", "showed_olstad_ice", "knelt_with_sam"]
 const EYE_SEED_CAP: int = 4
 const EYE_SEED_DAY: int = 18
+
+# --- April: the way out (docs/april.md). Story conditions read these by
+# name: if=car_ready, if=fire_open, if=faith_kept>=4. ---
+
+# A car to leave in: not towed, not given to the Reverend, keys in hand.
+var car_ready: bool:
+	get:
+		return not flags.has("car_towed") and not flags.has("gave_reverend_car") and not flags.has("ruth_has_keys")
+# The town line lets the car through: the plate forgotten in December, or
+# Olstad looking the other way.
+var line_clear: bool:
+	get:
+		return flags.has("car_forgotten") or flags.has("olstad_looks_away")
+# One of the three ways to beat him worked (Palm Sunday).
+var daniel_beaten: bool:
+	get:
+		return flags.has("daniel_taken") or flags.has("daniel_given") or flags.has("daniel_shot")
+# Someone who lets MC go: Olstad looking away, or Ruth giving back the keys.
+var someone_lets_go: bool:
+	get:
+		return flags.has("olstad_looks_away") or flags.has("keys_returned")
+# How many of the six people MC kept faith with.
+var faith_kept: int:
+	get:
+		var kept: int = 0
+		for person in FAITH:
+			if faith_count(person) > 0:
+				kept += 1
+		return kept
+# A romance locked at New Year's and carried to its third door.
+var romance_locked: bool:
+	get:
+		return (flags.has("new_year_ruth") and doors("ruth") >= DOORS_EACH) or (flags.has("new_year_sam") and doors("sam") >= DOORS_EACH)
+# The fire is open: no romance locked, him beaten, four of six kept faith,
+# someone who lets MC go, and Abraham's paraffin from the bear.
+var fire_open: bool:
+	get:
+		return not romance_locked and daniel_beaten and faith_kept >= 4 and someone_lets_go and has_item("paraffin")
 
 # How many kept moments with this person (0 once betrayed).
 func faith_count(person: String) -> int:

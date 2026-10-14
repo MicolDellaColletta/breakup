@@ -1,0 +1,24 @@
+# KEY DAY 42: Friday, April 21, 2000. Good Friday. The night before breakup.
+# Same format as the other counter days, and nobody comes: at noon the road
+# walks past to the hall with the straw man on a pole, singing; the radio
+# plays the clock ticking all day. Then the walked evening (story/
+# evening_fortytwo.txt): the procession down to the ice, and the lake one
+# last time. See VISITS in scripts/counter.gd. Design: docs/april.md.
+
+=== morning
+narration | time=06:00: Friday, the twenty-first. Good Friday, though nobody on the road says so. On the hall door, the count: 1. Somebody's painted it red.
+narration: The radio, all day: the clock. Sam's clock, the one on the tripod, ticking, with a microphone held up to it, and nobody speaking over it. Hours of it.
+narration | if=flag:daniel_given or flag:daniel_taken or flag:daniel_shot: The voice that would have spoken over it isn't there. The ticking is louder without it.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. For the last time, you think. You don't know which way you mean.
+
+=== note_enters
+narration | time=+180: Noon. The whole road walks past the window, toward the hall, singing. At the front, on a pole, the straw man in his coat, nodding as they carry him.
+narration: Nobody looks in. They look straight ahead. Then, as the end of the procession passes, the children at the back, holding the goat's red rope, all turn their heads at once and wave.
+paranoia: Goodbye. That's goodbye.
+
+=== closing
+narration | time=19:55: Five to eight, and the sun on the snow. You turn the sign. CLOSED.
+narration: You leave the key in the door. You don't know why. Nobody locks anything now.

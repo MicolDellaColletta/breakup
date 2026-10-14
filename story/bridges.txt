@@ -279,4 +279,33 @@ narration | card=Thursday. The light.: Sunset after eight. Children out in the r
 
 === bridge_into_april
 narration | card=Saturday. April.: The first of April. Three weeks. The clocks go forward tonight. Everyone on the road changes them at the same minute; you hear the town do it, a hundred little clicks.
-narration: (The story continues in April, which is still being written. Thank you for playing.)
+
+# --- Before key day 40 (Saturday, April 8): Monday the 3rd to Friday. ---
+
+=== bridge_early_april
+narration | card=Monday. The road.: Trucks on the road for the first time since December. A propane delivery. The mail van from Wasilla, with three months of mail in it. Nobody on the road goes out to meet it.
+narration: In your box, under three months of catalogues: a postcard from the rental company in Anchorage. "Your vehicle is now 151 days overdue."
+narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope, under the door. A hundred and fifty, faced. The last one, it says, in pencil on the back. "Last."
+narration | card=Friday. Fasting.: Nobody eats. At noon the radio plays the clock, and the whole road stands on its porches in the sun to listen.
+
+# --- Before key day 41 (Palm Sunday, April 16): Sunday the 9th to Saturday. ---
+
+=== bridge_palm
+narration | card=Sunday. One more week of light.: The hall. The anxious bench. Names. You go, or you don't. The count on the door goes to 1, a week early, and somebody paints over it and puts back the 2.
+narration | card=Tuesday. The ice.: The ice off the point goes grey, then black, then grey again. At night it talks in long sentences, and the whole town lies awake listening, and in the morning nobody says what it said.
+narration | if=flag:ruth_comes or flag:sam_comes or flag:cody_comes: Every night this week you pack a bag and unpack it again.
+narration | card=Friday. Fasting.: Nobody eats. The children go round with the goat and a basket, collecting teeth.
+
+# --- Before key day 42 (Good Friday, April 21): Monday the 17th to Thursday. ---
+
+=== bridge_holy_week
+narration | card=Monday. Four days.: The straw man taken down off the post and carried round the road on a pole, door to door, and every door opens to let him look in.
+narration | if=flag:daniel_taken: The radio says the preacher's in custody in Anchorage. The radio says it once, and then plays the clock for the rest of the day, as if to make up for it.
+narration | if=flag:daniel_given: Nobody says where he is. His room above the Gleaner is let to nobody. The cigar box is gone from the sill.
+narration | if=flag:daniel_shot: The freezer hums. Nobody asks where the preacher went. Mrs. Hollis says, "Gone on ahead," and smiles, and pats your hand.
+narration | card=Thursday. The last supper.: Every house lit, every table laid, every family eating for the first time in a week, all at once, at six. Through every window, the same meal. At the Gleaner, a place laid for you.
+
+# --- After key day 42: breakup. ---
+
+=== bridge_breakup
+narration | card=Saturday. Breakup.: (The story continues at breakup, which is still being written. Thank you for playing.)

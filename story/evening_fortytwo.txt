@@ -1,0 +1,54 @@
+# THE EVENING OF KEY DAY 42: Good Friday, April 21. The procession.
+# A walked evening (scenes/visit.tscn; GameState.EVENINGS): the procession
+# at dusk goes down to the shore and out along the path of holes with
+# candles, and back. MC walks with it, or watches from the step. Then the
+# lake, 1988, the last piece: the preacher turns round, and the face is the
+# background's (guilt, or MC shot him: his own; witness: Daniel, laughing;
+# debt: Daniel, holding out the money; insanity or ??? strongest: nobody,
+# an empty shirt). end=night. Design: docs/april.md.
+
+=== evening
+narration | show=shore | time=21:00: Dusk, at nine. The procession comes back down the road from the hall with its candles lit, and turns at the shop, and goes down the lake road to the shore.
+paranoia: Stay on the step.
+unknown: Go with them. Just to see.
+> Walk with them. -> walk_with | eye=+1 | lean=unknown
+> Watch from the step. -> watch_step | lean=paranoia
+
+=== walk_with
+narration: You fall in at the back. Nobody turns. A woman you've never served hands you a candle without looking at you and you take it.
+narration: At the shore they don't stop. They walk out onto the ice, single file, along the path of holes, a candle beside every one. The ice is soft. It gives under your boots like a mattress. You can hear water moving under it.
+narration: At the last hole, in the middle, they stop, and stand, and then they turn round, all together, and walk back. Nobody says anything. It was practice.
+-> lake_three
+
+=== watch_step
+narration: You stay on the step. From there you can see them go out onto the ice, a line of candles, single file, along the path of holes, all the way to the middle.
+narration: They stand there a long time. Then the line of lights turns round and comes back. It was practice.
+-> lake_three
+
+# --- The lake, 1988. The last piece. ---
+
+=== lake_three
+narration | show=lake_1988: And standing there, with the candles coming back toward you over the ice, it's summer.
+narration: The tent. The piano. The singing. The lake flat and blue. You're on the shore. You're in the water. You're both. The girl's gone under and you're counting, forty, forty-one.
+narration: The man in the white shirt, waist-deep, with his back to you, turns round.
+-> face_guilt | if=background:guilt
+-> face_empty | if=background:insanity
+-> face_empty | if=unknown>=4
+-> face_debt | if=background:debt
+-> face_witness
+
+=== face_guilt
+narration: It's you. Seventeen. Wet to the waist, in a white shirt too big for you, your hands still out in front of you, pressing down on the water where she was.
+narration | flag=lake_three | end=night: The candles reach the shore. Somebody takes the candle out of your hand and blows it out.
+
+=== face_witness
+narration: It's him. Thirty. Laughing. Not at the girl. At you, on the shore, watching. He holds out his hand to you across the water, the way he held out the money.
+narration | flag=lake_three | end=night: The candles reach the shore. Somebody takes the candle out of your hand and blows it out.
+
+=== face_debt
+narration: It's him. Thirty. Holding out a roll of bills across the water, at arm's length, the way you'd hold out bread to a dog. "What's your price?" Eleven years, and you still haven't finished paying it.
+narration | flag=lake_three | end=night: The candles reach the shore. Somebody takes the candle out of your hand and blows it out.
+
+=== face_empty
+narration: Nobody. The white shirt turns round with nobody in it, standing up in the water on its own, its empty sleeves held out over the place where she went down.
+narration | flag=lake_three | end=night: The candles reach the shore. Somebody takes the candle out of your hand and blows it out. There was no candle in your hand. There was never a tent.

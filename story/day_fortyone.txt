@@ -1,0 +1,102 @@
+# KEY DAY 41: Sunday, April 16, 2000. Palm Sunday: the collection.
+# A walk-around day (scenes/visit.tscn): the hall, spruce on every bench;
+# the plate goes round, the town buying MC from him (how he takes it
+# depends on fork 6). Then the attempt, one only, MC's choice of what's
+# open: Olstad on the steps (daniel_taken), Lund's notebook read from the
+# anxious bench (daniel_given), or John's gun in the counsel room
+# (daniel_shot; or it fails, gun_failed, if he loaded it). The hall cellar,
+# if Sam was given up (freed_sam). end=night. Design: docs/april.md.
+
+=== morning
+narration | time=09:30 | show=hall: Palm Sunday. Sprigs of spruce laid on every bench, and on the scale, and on the lectern. The hall smells like a forest after rain.
+narration: Leviticus. All of it. Then he lifts his hand, and the plate goes round.
+narration: It's a baking tray. It goes from hand to hand down every bench. Money, first, folded small. Then rings. Then the deeds to three houses on the road, folded twice. The pages of the weigh-in book, torn out. And from every family, out of a jar, one child's tooth.
+narration: When it comes to you, it's heavy. Everyone watches you hold it. You pass it on.
+paranoia: They're paying him. For you. So he'll let go at the shore.
+-> plate_yes | if=flag:fork6_yes
+-> plate_confess | if=flag:fork6_confess
+-> plate_refuse
+
+=== plate_yes
+narration: It comes back to him. He takes it. He laughs, out loud, the only laugh the hall has heard from him, and puts the deeds inside his coat.
+narration: He already has what he wants. Now he has their houses too.
+-> attempt
+
+=== plate_confess
+narration: It comes back to him. He takes it, and walks down the aisle, and hands it to you, and goes back to the lectern, and leaves you holding it all through the last hymn.
+-> attempt
+
+=== plate_refuse
+narration: It comes back to him. He takes it. He says nothing. He doesn't look at you. That's the worst of it.
+-> attempt
+
+# --- The attempt. One. ---
+
+=== attempt
+narration: The hymn. The blessing. The queue forming for the little room behind the stage.
+narration | if=!flag:olstad_case and !has:daniel_file and !has:revolver: You've got nothing to stop him with. You know it. So does he.
+> Go out to the steps, where Olstad's waiting. -> way_olstad | if=flag:olstad_case and faith:olstad>=2 | flag=attempted | lean=appraisal
+> Walk up to the anxious bench with Lund's notebook. -> way_town | if=has:daniel_file | flag=attempted | lean=paranoia
+> Join the queue, with John's gun in your coat. -> way_gun | if=has:revolver | flag=attempted | lean=john
+> Do nothing. Go home. -> after_service | lean=animal
+
+=== way_olstad
+narration: Outside, on the hall steps, the cruiser. Olstad, in uniform, out of the car, waiting. She sees you come out. She nods.
+narration: He comes out behind you, the last, buttoning the good coat. She says his name. Then another name. Then a third. All of them.
+narration | flag=daniel_taken: He holds his wrists out before she asks. He's smiling.
+daniel: See you in court, Keeper. You'll be there. You signed.
+narration: He goes quietly. He sits in the back of the cruiser beside the empty baby seat, and looks at you through the glass all the way down the road, until the road bends.
+narration: The hall stands on its steps and watches, and nobody says anything, and then somebody starts the last hymn again, very quietly, and they all go back in.
+-> after_service
+
+=== way_town
+narration: You walk up the aisle against the queue. Up to the front. You sit down on the anxious bench, uninvited, and open the notebook with LUND on the cover, and read it out loud.
+narration: Her son. The bottle behind the flour bin. Her Fridays. In his handwriting, which everyone in the hall has seen on a hymn sheet. "She will stand up when called. She will sit where she's told. She will thank me."
+narration: The hall is very quiet. Behind the stage, the door of the little room opens. He stands in it. He doesn't come out.
+narration: Martha Lund stands up.
+narration | flag=daniel_given: That night, from your window, the lanterns go up the outside stairs of the Gleaner. Twenty. Thirty. The way they went down to Sam's cabin. He doesn't run. He never runs. In the morning his window above the Gleaner is dark, and stays dark.
+-> after_service
+
+=== way_gun
+narration | show=booth | red=alone: The queue. An hour. Then the little room. One bulb. Two scorched chairs. He's in one.
+narration: He sees your hand in your coat. He smiles.
+daniel: I wondered if you would.
+-> gun_fails | if=flag:gun_six
+-> gun_fires
+
+=== gun_fails
+narration: You pull the trigger. The hammer falls. A click.
+narration: The flattened round. The sixth. It came round first. He put it there, on the glass, in March, with his thumb.
+daniel: I said six. I said it was a whole thing. I never said it would fire.
+narration | lose=revolver | flag=gun_failed: He takes the gun out of your hand, gently, one finger at a time, and puts it in his coat. "Go home. I'll see you on the shore."
+-> after_service
+
+=== gun_fires
+narration: You pull the trigger.
+narration: It's very loud in the little room. Louder than anything. The bulb swings.
+narration: He doesn't fall. He sits. He looks down at himself, and then at you, very interested, the way he's always looked at you, as if you'd done something he'd been waiting eleven years to see.
+narration | flag=daniel_shot: Then he stops looking.
+paranoia: Nobody came. Nobody came to the door. The queue's still out there. Nobody came.
+narration: That night you bring him back to the shop in the dark, in the wheelbarrow from behind the hall, under a tarp, and nobody on the road sees, or everybody does. You put him in the freezer, on the other crate, facing Abraham.
+narration: The lid. The seal. It makes its sound.
+-> after_service
+
+# --- After: the cellar. ---
+
+=== after_service
+-> cellar_hatch | if=flag:gave_up_sam and !flag:freed_sam
+-> home
+
+=== cellar_hatch
+narration: Behind the stage, past the little room, the hatch in the floor. The padlock key hangs on a nail beside it. Nobody locks anything now.
+> Lift the hatch. -> cellar_free | flag=freed_sam | lean=warmth
+> Leave it. -> home | lean=paranoia
+
+=== cellar_free
+narration: You lift it. Warm air. Sam, on a cot, in the paraffin light, a Bible and a lamp and a pencil, the walls covered in numbers.
+sam: What time is it?
+narration: You tell him. He climbs out. He doesn't thank you. He walks out of the hall and down to the shore, to his clock, without looking back, and you watch him go out onto the soft ice to it.
+-> home
+
+=== home
+narration | end=night | time=19:50: You walk home in the light. Six days.

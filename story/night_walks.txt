@@ -110,7 +110,16 @@ narration | if=day>=24: The freezer, humming. You don't open it. You know what's
 
 === walk_bear
 -> take_gun_bear | if=flag:gun_bear
+-> walk_bear_paraffin | if=day>=40 and flag:bear_known and !has:paraffin
+-> walk_bear_paraffin | if=day>=40 and flag:found_bench_notebook and !has:paraffin
 -> walk_bear_plain
+
+# April: the bear's "other thing, if it comes to it" (docs/april.md).
+=== walk_bear_paraffin
+narration: The bear. The second seam, white thread, the one Abraham sewed in October. "For the key. And for the other thing, if it comes to it."
+narration: You open it with the bench knife, the whole length this time. Straw. Straw. And at the bottom of the chest, wrapped in a feed sack, two things.
+narration | take=paraffin | flag=found_paraffin: A square tin of paraffin, full, the cap wired shut. And a box of kitchen matches, the big kind, in a sandwich bag against the damp.
+paranoia: He knew. He knew he wouldn't make it to April. He left it for whoever did.
 
 === walk_bear_plain
 narration: The bear, in the dark, on its hind legs. The neon through the front window lights one glass eye red. Down its back, under the fur, the seams: an old one, and a new one in white thread.

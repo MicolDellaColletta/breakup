@@ -103,6 +103,8 @@ const VISITS: Dictionary = {
 	35: ["note", "widow", "ezra | if=!flag:gave_up_sam"],
 	37: ["goat", "daniel"],
 	38: ["note"],
+	40: ["trooper", "ruth | if=!faithless:ruth", "widow | if=has:hollis_ring", "sam | if=flag:door_sam_3 and !flag:gave_up_sam", "nephew | if=flag:kept_picks"],
+	42: ["note"],
 }
 # From the bell to the door opening.
 const CUSTOMER_GAP: float = 0.8

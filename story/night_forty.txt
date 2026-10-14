@@ -1,0 +1,108 @@
+# THE FORTIETH NIGHT: Saturday, April 8. The race.
+# Same format as the other nights. The radio: him, reading the Keepers'
+# names again, slower. Out of place: the sixth round (if he left it with
+# MC), standing on the kitchen table: put it in the empty chamber, or
+# throw it in the lake (odd_round). Tonight the bear opens (night walks).
+# Design: docs/april.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment.
+narration | if=flag:olstad_case: You signed it. Your name. The real one. On paper, in a folder, in a cruiser.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Saturday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Him, reading the Keepers' names again. Slower. When he gets to John, he stops, and lets the silence go on so long you think the set's died.
+
+=== radio_off
+narration: You leave it off. You know where he'd stop.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_forty
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_forty | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The windows.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold, and the smell of the lake, open water somewhere far out.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven. You don't sleep.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_forty
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
+-> morning_after
+
+=== morning_after
+narration | time=07:00: Sunday. Two weeks less a day.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_round
+narration | time=+5: On the kitchen table, standing on its end: the flattened round. You've moved it every day. It's always on the table in the evening.
+> Put it in the empty chamber. -> round_load | if=has:revolver | flag=round_loaded | lean=john
+> Throw it in the lake. -> round_lake | lose=sixth_round | flag=round_thrown | lean=paranoia
+> Leave it there. -> round_leave | lean=animal
+
+=== round_load
+narration: You open the cylinder. Five, and the empty. You press the flattened round in with your thumb. It shouldn't fit. It goes in. You turn the cylinder so the empty-that-isn't sits at the back, where it won't come round first. You choose where it goes. Nobody else.
+
+=== round_lake
+narration: You walk it down to the shore in the dark and throw it as far as you can. It doesn't make a sound. The ice takes it like a coin in a slot.
+
+=== round_leave
+narration: You leave it standing on the table. In the morning it's moved an inch.

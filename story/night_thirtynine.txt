@@ -1,0 +1,96 @@
+# THE THIRTY-NINTH NIGHT: Sunday, April 2. The light comes back.
+# Same format as the other nights, and the dark comes late: sunset at a
+# quarter to nine. The radio: the clock, and him, counting the weeks. Out of
+# place: the town on its porches in the light, watching (odd_porches).
+# Design: docs/april.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment. Light in it at nine at night, which is wrong.
+narration | if=flag:olstad_looks_away: Go at night, she said. Don't look at me.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Sunday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Him. "Three weeks, friends. Turn your clocks and turn your hearts." And every house on the road clicks its radio off at the same moment, so you hear it go.
+
+=== radio_off
+narration: You leave it off. Through the wall, the house across the road counting to three.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_thirtynine
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_thirtynine | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The windows.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Light, and cold, and through the crack, people talking quietly on their porches, about you.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven. Still a little light in the sky. You don't sleep.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_thirtynine
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
+-> morning_after
+
+=== morning_after
+narration | time=07:00: Monday. The light at half past five. You didn't sleep for any of the dark there was.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_porches
+narration | time=+5: Out of the window: every porch on the road with someone on it. Nine at night, broad daylight, nobody doing anything. Facing the shop.
+narration | flag=saw_porches: When you pull the curtain, across the road, one of them pulls theirs too. As if to be polite.

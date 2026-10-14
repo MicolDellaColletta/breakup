@@ -1,0 +1,58 @@
+# KEY DAY 39: Sunday, April 2, 2000. The light comes back.
+# A walk-around day (scenes/visit.tscn): the clocks went forward in the
+# night; the hall, the count at three, the Keepers' names read from the
+# ledger, the last one "John"; then out to the town line (by car if MC has
+# one, on foot if not), where Olstad is parked across the road: her trust
+# settles the plate (olstad_looks_away). Home, a note from him, true to the
+# word, by fork 6. Spots in spots.cfg (if=day==39). end=night.
+# Design: docs/april.md.
+
+=== morning
+narration | time=09:30 | show=hall: Sunday, the second of April. The clocks went forward in the night. You heard the town do it, a hundred little clicks at the same minute, and lay awake after.
+narration: The hall. On the door, the count: 3. The scale in the middle of the floor. Nobody stands on it now. There's nothing left to weigh.
+narration: He doesn't call anyone to the anxious bench. He opens the ledger, the shop's ledger, Abraham's, that nobody's seen him take, and reads the Keepers' names, from the front. 1931. One name a winter. After every name, the hall says "Amen."
+narration: It takes a long time. Seventy names. The light comes in sideways through the big window and goes all the way across the floor.
+narration: The last name he reads is "John."
+narration: The hall says "Amen."
+paranoia: You. They said amen over you.
+narration: At the door, after, Mrs. Hollis takes your hand. "Sunset's at a quarter to nine now," she says. "Isn't that nice. We'll all be able to see."
+
+# --- The town line. ---
+
+=== line
+-> line_drive | if=car_ready
+-> line_walk
+
+=== line_drive
+narration | show=town_line | time=+40: The car starts on the fourth try. The road's open: the radio said so, three times, the pass clear for the first time since December. You drive out past the PREPARE TO MEET THY G... sign to the town line.
+-> line_olstad
+
+=== line_walk
+narration | show=town_line | time=+90: You walk. Three miles of road gone to slush and gravel, the snowbanks rotten and grey. The radio in every house you pass says the pass is open. You've got no car to open it with.
+-> line_olstad
+
+=== line_olstad
+narration: At the town line, a cruiser parked square across the road. Engine running. Olstad at the wheel, and in the back, in the baby seat, asleep, her daughter, in a red knitted hat.
+narration: She rolls the window down. She doesn't get out.
+-> line_trusted | if=faith:olstad>=2
+-> line_logged
+
+=== line_trusted
+trooper: Road's open. You'll have heard.
+trooper: When you go, go at night. Don't look at me. I won't be looking.
+narration | flag=olstad_looks_away: She rolls the window up. She looks at the road ahead of her, not at you, the whole time you're standing there.
+-> line_home
+
+=== line_logged
+trooper | if=!flag:car_forgotten: Road's open. That car's still in my book, Johnny. Plate and all. You drive it past this line and I'll stop it, and I won't enjoy it.
+trooper | if=flag:car_forgotten: Road's open. I forgot your car once. Don't make me remember it.
+narration: She rolls the window up. The baby wakes and looks at you through the glass, very serious, and goes back to sleep.
+-> line_home
+
+=== line_home
+narration | show=shop | time=19:30: Home. Half past seven, and broad daylight. Across the road, people on their porches, just standing, in the light, looking at the shop.
+narration | if=flag:fork6_refuse: Under the door, a note, in a small upright hand: "Friday the 21st, after dark, I'll come to the shop for you. If you're gone, I'll know which way. I always do. D."
+narration | if=flag:fork6_yes: Under the door, a note, in a small upright hand: "Wait for me on the shore. D."
+narration | if=flag:fork6_confess: Under the door, a note, in a small upright hand: "I know where you'll be. D."
+narration | if=!flag:fork6_refuse and !flag:fork6_yes and !flag:fork6_confess: Under the door, nothing. That's worse.
+narration | end=night: The sun goes down at a quarter to nine. The whole town watches it go, and then watches your window.

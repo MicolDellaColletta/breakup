@@ -341,3 +341,61 @@ Four of six is reachable on a careful path. Lean: keep four of six.
     are reachable. Lean: yes.
 14. **Build in two parts:** April's days first, then the endings and the
     ending reader, each its own PR. Lean: yes.
+
+
+## As built, part one: April's days (Oct 14)
+
+All fourteen calls taken as leaned.
+
+**Days:**
+
+| Key day | Date | Kind |
+|---|---|---|
+| 39 | Sun Apr 2 | Walk-around: the hall, then the town line |
+| 40 | Sat Apr 8 | Counter, then the map, with its own day-40 versions and the way out |
+| 41 | Sun Apr 16 | Walk-around: the plate, the attempt, the cellar |
+| 42 | Fri Apr 21 | Counter, then the procession (a walked evening), then the last night |
+
+- **Dates:** `DAY_DATES` 180, 186, 194, 199 and 200.
+- **Bridges:** `bridge_into_april`, `bridge_early_april`, `bridge_palm`,
+  `bridge_holy_week`, and `bridge_breakup` (the end of what's written until
+  the endings are built).
+
+**What the story reads by name** (new in `GameState`):
+- `car_ready`;
+- `line_clear`;
+- `daniel_beaten`;
+- `someone_lets_go`;
+- `faith_kept` (how many of the six);
+- `romance_locked`;
+- `fire_open`.
+
+`background()` returns guilt once `daniel_shot` is set.
+
+**Flags April sets:**
+- **The way out:** `olstad_looks_away`, `keys_returned`.
+- **Day 40:** `olstad_case`, `ruth_comes`, `sam_comes`, `cody_comes`.
+- **Night 40:** `found_paraffin` (the item `paraffin`, from the bear),
+  `round_loaded` / `round_thrown`.
+- **Palm Sunday:** `attempted`, `daniel_taken` / `daniel_given` /
+  `daniel_shot` / `gun_failed`, `freed_sam`.
+- **Good Friday:** `lake_three`.
+- **The last night:** `ran_alone`, `ran_with_ruth` / `_sam` / `_cody`,
+  `daniel_in_car`, `set_fire`, `left_kettle_lake`.
+
+**The last night** is the night scene with three new spots:
+- `leave_now` (the back door and the car);
+- `cody_truck`;
+- `burn_it` (only when `fire_open`).
+
+Leaving or burning goes straight to the morning.
+
+**New things:**
+- **Item:** `paraffin`.
+- **Place:** `town_line`.
+- **Map place:** `way_out`.
+
+**Tests:** `test_april.gd` (68 checks). `test_march` now ends on day 39.
+
+**Part two** is the shore and the endings: the ending reader, the endings
+and their epilogues, and the May lines.

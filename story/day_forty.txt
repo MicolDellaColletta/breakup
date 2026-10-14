@@ -1,0 +1,133 @@
+# KEY DAY 40: Saturday, April 8, 2000. The race.
+# Same format as the other counter days: the last people who come to the
+# counter, and each sets something up, or nothing will be: Olstad's
+# statement (the Olstad way, olstad_case); Ruth, the keys back, or "take me
+# with you" (ruth_comes); Mrs. Hollis and Ray's ring (the last kept moment);
+# Sam's minute (sam_comes); Cody's truck to Fairbanks (cody_comes). Nothing
+# new after today. See VISITS in scripts/counter.gd. Design: docs/april.md.
+
+=== morning
+narration | time=06:30: Saturday, the eighth. Two weeks. The light at six. Water lying on the ice in sheets, blue as a road. The holes in their line all the way to the middle now.
+narration: On the hall door: 2.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN.
+
+# --- Olstad, for a signature. ---
+
+=== trooper_enters
+narration | sound=bell | time=+30: The bell. Olstad, in uniform, a folder under her arm. She puts it on the glass and keeps her hand flat on it.
+-> trooper_case | if=flag:told_olstad_john
+-> trooper_nothing
+
+=== trooper_case
+trooper: The John night, the way you told it to me. Typed. And the rest I've got.
+narration | if=flag:gave_deed: The church's deed, in a plastic sleeve, under it.
+narration | if=has:boy_photo: You take the photograph out of your shirt. The boy on the lake shore. She looks at it a long time. "Minnesota," she says. "Summer of '88. A girl drowned at a tent meeting. The witness was a local boy who left town. Never found." She looks up at you. "Found."
+trooper: I need you to sign it. And I need you on the hall steps after the service on Sunday week, when I take him. You'll be the witness. Your name, the real one, on paper, in Anchorage. That's the price.
+> Sign it. -> trooper_sign | flag=olstad_case | keep=olstad | lean=appraisal
+> "Not yet." -> trooper_wait | lean=paranoia
+
+=== trooper_sign
+narration: You sign it. Your name. The real one. It looks strange in your hand, like someone else's writing.
+narration: She reads it upside down. She doesn't say it out loud.
+trooper: Sunday week. The steps. Don't be late.
+narration | sound=bell: The bell.
+
+=== trooper_wait
+trooper: Then it's the town's word against the town's word, and the ice gets the last one.
+narration | sound=bell: She takes the folder. The bell.
+
+=== trooper_nothing
+trooper: I've got nothing I can take to a judge. You never gave me the night. Without it he's a preacher who's good with names.
+trooper: Two weeks. Stay where I can see you.
+narration | sound=bell: The bell.
+
+# --- Ruth. ---
+
+=== ruth_enters
+narration | sound=bell | time=+60: The bell. Ruth, in her coat, at ten in the morning, sober. She hasn't been sober at ten in the morning since you've known her.
+-> ruth_offer | if=doors:ruth>=3
+-> ruth_keys | if=flag:ruth_has_keys and doors:ruth>=2
+-> ruth_place
+
+=== ruth_keys
+narration | unflag=ruth_has_keys | flag=keys_returned: She puts your car keys on the glass. The rental's tag. She takes her hand off them.
+ruth: Take them. I'll set a place anyway. I always set a place.
+narration | sound=bell: The bell.
+
+=== ruth_offer
+narration | if=flag:ruth_has_keys | unflag=ruth_has_keys | flag=keys_returned: She puts your car keys on the glass.
+ruth: Take me with you. When you go. I don't care where. I've been keeping this town's Keepers for eleven years. Let somebody else keep it.
+> "Be at the car. Friday, the twenty-first, after dark." -> ruth_yes | flag=ruth_comes | lean=warmth
+> "I can't." -> ruth_no | lean=paranoia
+
+=== ruth_yes
+narration: She nods. She doesn't smile. She looks at you as if she were memorising you, the way she does the faces on her wall.
+narration | sound=bell: The bell.
+
+=== ruth_no
+ruth: No. That's right. Somebody has to set the place.
+narration | sound=bell: The bell.
+
+=== ruth_place
+ruth: I came to tell you I'll set a place for you. At breakup. Whatever happens.
+narration | sound=bell: She goes before you can answer. The bell.
+
+# --- Mrs. Hollis, and Ray's ring. ---
+
+=== widow_enters
+narration | sound=bell | time=+60: The bell. Mrs. Hollis. She doesn't knock on the frame. She's forgotten to.
+> Give her Ray's ring. -> widow_ring | lose=hollis_ring | keep=hollis | lean=warmth
+> Keep it. -> widow_keep | lean=paranoia
+
+=== widow_ring
+narration: You put the ring on the glass. She looks at it for a long time without touching it.
+narration: Then she puts it on her thumb. It's too big for every finger now.
+widow: He'll know I've got it back. Let him.
+narration | sound=bell: She knocks twice on the frame, remembering. The bell.
+
+=== widow_keep
+narration: You don't. She talks about the weather, and the light, and the weigh-in book, and goes. You feel the ring in your pocket all day like a stone.
+narration | sound=bell: The bell.
+
+# --- Sam's minute. ---
+
+=== sam_enters
+narration | sound=bell | time=+60: The bell. Sam, in the duct-taped parka, a notebook open in his hand. A new one. The first page full already.
+sam: The minute is five forty-one, on the twenty-second. I've checked it every night. I'll be at the clock.
+sam: Come and stand with me. Or drive me out of here the night before. Either. I'd understand either.
+> "Be at the car, Friday night." -> sam_yes | flag=sam_comes | lean=warmth
+> "I'll be on the shore." -> sam_shore | lean=unknown
+
+=== sam_yes
+narration: He writes it down. Friday. The car. In his square capitals, as if it were a minute he'd measured.
+narration | sound=bell: The bell.
+
+=== sam_shore
+sam: Then I'll see you at five forty-one. Bring a watch. Not his.
+narration | sound=bell: The bell.
+
+# --- Cody, and the truck. ---
+
+=== nephew_enters
+narration | sound=bell | time=+60: The bell. Cody, taller than in October, in a coat that fits now. He's got the ice picks round his neck, on their cord.
+nephew: My mom says there's room in the truck if you want it. Friday the twenty-first. We're going to my aunt's in Fairbanks. We're not staying for it.
+nephew: Uncle Ray's still out there. Mom says he'll come up in May. She says she doesn't want to see it.
+> "I'll be there." -> nephew_yes | flag=cody_comes | lean=warmth
+> "Go without me." -> nephew_no | lean=animal
+
+=== nephew_yes
+narration: He nods, very serious, the way boys do when they've been given a job.
+narration | sound=bell: The bell.
+
+=== nephew_no
+nephew: Okay. I'll keep the picks on. In case.
+narration | sound=bell: The bell.
+
+# --- Closing. ---
+
+=== closing
+narration | time=19:45: A quarter to eight, and the sun still up. You turn the sign. CLOSED.
+narration: Two weeks. On the post on the hill, the straw man's coat has blown open. He's empty inside, except for straw.

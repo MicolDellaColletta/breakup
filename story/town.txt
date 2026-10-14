@@ -24,6 +24,7 @@
 -> map_day_twentysix | if=day==26
 -> map_day_twentyeight | if=day==28
 -> map_day_thirtyfive | if=day==35
+-> map_day_forty | if=day==40
 -> map_day_thirtyone | if=day==31
 -> map_day_thirtythree | if=day==33
 -> map_day_twentyfour | if=day==24
@@ -51,6 +52,7 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_twentysix | if=day==26
 -> pub_twentyeight | if=day==28
 -> pub_thirtyfive | if=day==35
+-> pub_forty | if=day==40
 -> pub_thirtyone | if=day==31
 -> pub_thirtythree | if=day==33
 -> pub_twentyfour | if=day==24
@@ -127,6 +129,7 @@ narration: The cold outside is almost a relief.
 -> lake_twentysix | if=day==26
 -> lake_twentyeight | if=day==28
 -> lake_thirtyfive | if=day==35
+-> lake_forty | if=day==40
 -> lake_thirtyone | if=day==31
 -> lake_thirtythree | if=day==33
 -> lake_twentyfour | if=day==24
@@ -206,6 +209,7 @@ narration: You leave money on the bar and go before the room can decide to be fr
 -> church_twentysix | if=day==26
 -> church_twentyeight | if=day==28
 -> church_thirtyfive | if=day==35
+-> church_forty | if=day==40
 -> church_thirtyone | if=day==31
 -> church_thirtythree | if=day==33
 -> church_twentyfour | if=day==24
@@ -284,6 +288,7 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 -> cabin_twentysix | if=day==26 and flag:met_sam
 -> cabin_twentyeight | if=day==28 and flag:met_sam
 -> cabin_thirtyfive | if=day==35 and flag:met_sam
+-> cabin_forty | if=day==40 and flag:met_sam
 -> cabin_thirtyone | if=day==31 and flag:met_sam
 -> cabin_thirtythree | if=day==33 and flag:met_sam
 -> cabin_twentyfour | if=day==24 and flag:met_sam
@@ -1134,3 +1139,32 @@ narration | time=+20: The lake. The square hole in front of Sam's clock, cut ope
 narration | if=!flag:gave_up_sam and !flag:notebooks_burned | time=+10: The cabin. Sam on the step in the cold, without his coat, watching the ice. He doesn't get up. "They came. They didn't find them. They'll come again."
 narration | if=flag:notebooks_burned | time=+10: The cabin, dark. On the step, a ring of black ash where his notebooks burned. He's inside. He doesn't answer the door. Through it, very quietly, a pencil, writing, starting again.
 narration | if=flag:gave_up_sam | time=+10: The cabin, dark. Nobody's lived in it for three weeks. Somebody's taken the clock off the wall.
+
+# --- Key day 40, Saturday April 8: the race. ---
+
+=== map_day_forty
+narration: Saturday night, and the sun not down till nine. The road busy with nothing: people walking up and down it in the light, in pairs, slowly, the way you'd walk round a house you were about to leave.
+
+=== pub_forty
+narration | time=+60: The Gleaner. Full, for the first time since Christmas, and nobody drinking. Glasses of water on every table. The wall of faces with a new space cleared at the end of the last row.
+narration | if=flag:ruth_comes: Ruth behind the bar. She doesn't look at you. She's taken her mother's blue bowl down off the shelf and put it in a bag under the counter.
+narration | if=!flag:ruth_comes: Ruth behind the bar, polishing the same glass, looking at the space at the end of the wall.
+
+=== church_forty
+narration | time=+20: The ruin. The post on the tower stump, empty: they've taken the straw man down to carry him. Only the iron ring, and the ropes, and the light coming through the black beams.
+
+=== lake_forty
+narration | time=+20: The lake. The path of holes, all the way to the middle, each one open, black, with a ring of slush round it. The ice between them the colour of wet cardboard. Far out, Sam's clock on its tripod, leaning a little now.
+
+=== cabin_forty
+narration | if=!flag:gave_up_sam | time=+10: The cabin. Sam on the step, in the light, with a new notebook. He holds up a hand without looking up. He's counting.
+narration | if=flag:gave_up_sam | time=+10: The cabin, dark. The clock gone from the wall. A padlock on the door that nobody's locked.
+
+# --- The town line, from the map (key day 40 on). ---
+
+=== way_out
+narration | time=+20: The town line, in the evening light. The PREPARE TO MEET THY G... sign from the other side, for the first time since October.
+narration | if=flag:olstad_looks_away: The cruiser on the shoulder, empty. She's not here. She said she wouldn't be looking.
+narration | if=!flag:olstad_looks_away and !flag:car_forgotten: The cruiser across the road. Olstad at the wheel, watching your headlight come and go. She doesn't move.
+narration | if=!flag:olstad_looks_away and flag:car_forgotten: The road, empty. Nobody stopping anybody.
+narration: You sit in the car with the engine running. Two weeks. Then you turn round.

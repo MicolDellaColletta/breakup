@@ -1,0 +1,172 @@
+# THE FORTY-SECOND NIGHT: Good Friday, April 21. The night before breakup.
+# Same format as the other nights, for the last time, and three ways it can
+# go: leave now (the back door and the car, if MC has one and the line is
+# clear; Cody's truck at the end of the road), burn it (the ledger, the
+# freezer, the bear, if the fire is open), or wait. If he isn't beaten, he
+# comes, as his note said, and sits at the bottom of the stairs until it's
+# light, or in the car. Design: docs/april.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment. The last time, one way or another.
+narration | if=!daniel_beaten: Downstairs, the back door opens. The door you leave open. Footsteps in the shop, unhurried. They stop at the bottom of the stairs. Somebody sits down on the bottom step.
+paranoia: The rules. One more time.
+
+=== radio
+narration | time=+10: The radio. Friday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: The clock, ticking. Only the clock. Five forty-one, it's going to say, in the morning, and then it won't matter what it says.
+
+=== radio_off
+narration: You leave it off. You can hear the clock anyway, from the lake, through the window, or you think you can.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_fortytwo
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_fortytwo | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The windows.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold, and the whole lake talking under the town, cracks running out from the point like sentences.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven.
+narration | if=!daniel_beaten: From the bottom of the stairs, his voice, quiet, not raised, talking up into the dark. About a lake. About a summer. About a boy behind a tent. He doesn't stop. He doesn't come up. He talks until it's light.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_fortytwo
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
+-> morning_after
+
+=== morning_after
+narration | time=05:00: Saturday. The light. Breakup.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_last
+narration | time=+5: The bed, made. The dresser, the painting, the window. The last time you'll see any of it like this.
+narration | flag=saw_last: You find you've made the bed without meaning to, tight enough to bounce a coin on.
+
+# --- The way out: leave now. ---
+
+=== leave_now
+-> car_occupied | if=!daniel_beaten
+-> leave_choose
+
+=== car_occupied
+narration: Out through the back door, to the car in the lot. The keys in your hand. You open the door.
+narration: He's in the passenger seat. His hands folded. Facing the windshield.
+daniel: Drive, then. I'll come as far as you're going.
+> Drive. -> leave_with_him | flag=ran_alone | flag=daniel_in_car | lean=unknown
+> Get out of the car. -> leave_stay | lean=paranoia
+
+=== leave_with_him
+narration: You drive. He doesn't speak. At the town line the cruiser is there, or it isn't; you don't look. The spruce going by, black. The wipers, for no reason, the sky clear.
+-> left_town
+
+=== leave_choose
+narration: Out through the back door, to the car in the lot. The keys in your hand.
+> Go alone. -> left_alone | flag=ran_alone | lean=animal
+> Ruth is waiting by the car. -> left_ruth | if=flag:ruth_comes | flag=ran_with_ruth | lean=warmth
+> Sam is waiting by the car, with a box of notebooks. -> left_sam | if=flag:sam_comes and !flag:gave_up_sam | flag=ran_with_sam | lean=warmth
+> Not yet. Go back up. -> leave_stay | lean=paranoia
+
+=== left_alone
+narration: You drive. Alone. The rental's heater roaring. The spruce going by, black.
+-> left_town
+
+=== left_ruth
+narration: Ruth, by the car, with one bag and her mother's blue bowl in a towel. She gets in without a word. She doesn't look back at the Gleaner. You do.
+-> left_town
+
+=== left_sam
+narration: Sam, by the car, with a box of new notebooks and his wristwatch held up to the light. "Ten forty," he says. "Write it down." He gets in.
+-> left_town
+
+=== leave_stay
+narration: You go back up the stairs. The car stays in the lot.
+
+=== cody_truck
+narration: At the end of the road, a pickup with its engine running and its lights off. Cody's mother at the wheel. Cody in the middle, the ice picks round his neck. They've kept the door open for you.
+> Get in. -> left_cody | flag=ran_with_cody | lean=warmth
+> Wave them on. -> leave_stay | lean=paranoia
+
+=== left_cody
+narration: You get in. The truck smells of dog and coffee. Nobody says anything. Cody's mother pulls out with the lights off and only turns them on at the town line.
+-> left_town
+
+=== left_town
+narration | if=flag:olstad_looks_away: The town line. The cruiser, parked on the shoulder, lights off. Olstad at the wheel, looking straight ahead, at nothing. She doesn't move as you pass. She said she wouldn't.
+narration | if=!flag:olstad_looks_away: The town line. Empty. Nobody stops you.
+narration | flag=left_kettle_lake: Behind you, in the mirror, Kettle Lake, with every window lit.
+-> morning_after
+
+# --- Burn it. ---
+
+=== burn_it
+narration: The bear. The ledger on the counter. The freezer in the back, humming. Abraham's tin of paraffin in your hands, and his matches.
+paranoia: No shop, no Keeper. No Keeper, no custom.
+> Burn it. -> burn_start | flag=set_fire | lean=animal
+> Not yet. -> burn_wait | lean=paranoia
+
+=== burn_wait
+narration: You put the tin down on the counter. Not yet.
+
+=== burn_start
+narration: The ledger first. Every name, every Keeper, since 1931. The paraffin soaks the pages till they're dark. One match. It goes up all at once, as if it had been waiting.
+narration: The freezer. You don't open it. You pour the rest along its lid, and along the floor to the back door.
+narration | if=flag:daniel_shot: Two of them in there now. You don't open it.
+narration: The bear last. You put the match to the seam. The straw takes. The bear stands in the middle of the shop with its mouth open on a roar nobody ever heard, burning, and doesn't fall.
+narration | flag=left_kettle_lake: You walk out of the front door and leave it open behind you, and don't look back until the road bends. When you do, the shop is a lantern. Up the hill, on the post, the straw man has caught too. Or you think he has.
+-> morning_after
