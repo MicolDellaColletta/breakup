@@ -242,7 +242,7 @@ func _night_thirtyfour() -> void:
 	await wait(2.0)
 	_route(current_scene.get_node("%Narrator"))
 	await wait(4.0)
-	check(current_scene.name == "Title", "the end of what's written")
+	check(current_scene.name == "Counter" and gs.day == 35, "into March: the counter, Saturday the eleventh")
 
 func _finds() -> void:
 	section("February finds: Ruth's diary, Abraham's letter, the bench notebook")

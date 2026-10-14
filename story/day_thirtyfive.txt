@@ -1,0 +1,95 @@
+# KEY DAY 35: Saturday, March 11, 2000. The frenzy.
+# Same format as the other counter days: the procession at dawn, the straw
+# man on the tower; notes under the door, read by the town's eye; Mrs.
+# Hollis with your page from the weigh-in book (a kept moment, Hollis); Ezra
+# and four men looking for Sam's notebooks (one outcome per hiding place),
+# unless Sam was given up. That night, whoever hurt MC goes missing (the
+# morning after reads it). See VISITS in scripts/counter.gd.
+# Design: docs/march.md.
+
+=== morning
+narration | time=06:40: Saturday, the eleventh of March. Six weeks. Light before seven now, and the snow on the road gone to grey sugar by noon.
+narration: At dawn, the procession. Past the shop, down the middle of the road, candles lit in daylight, nobody singing. The children at the front with the goat's red rope, and no goat on it.
+narration: Up the hill, on the post on the tower stump, under the iron ring and the three red ropes: a figure. Straw, tied at the wrists and ankles, in a coat.
+narration | if=flag:refused_scale: Your coat. The spare one, from the hook by the back door. You'd know the mended elbow anywhere.
+narration | if=!flag:refused_scale and flag:saw_locked_room: A long grey coat. You've seen it before, upstairs, behind a locked door, on a girl's chair. The 1989 Keeper's.
+narration | if=!flag:refused_scale and !flag:saw_locked_room: A long grey coat, too good for anyone on this road. Somebody kept it a long time for this.
+paranoia: It's a scarecrow. It's March. It's for the birds.
+unknown: There aren't any birds.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Nobody comes.
+
+# --- The notes, read by the eye. ---
+
+=== note_enters
+narration | time=+120: Eleven o'clock. Under the door, folded small, a page torn from a hymnal.
+narration | if=eye<=1: In pencil, in a careful hand: "We're praying for you, Keeper. Every one of us. Every night."
+narration | if=eye>=2 and eye<=3: In pencil, pressed so hard the paper's torn: "We know what you are."
+narration | if=eye>=4: Nothing written. Only a number, in red crayon, the way a child would write it: 6.
+paranoia: Six weeks. They're counting for you.
+
+# --- Mrs. Hollis, with your page. A kept moment with the Hollises. ---
+
+=== widow_enters
+narration | sound=bell | time=+60: The bell. Mrs. Hollis. Light enough to blow away. Her coat buttoned to the throat.
+narration | if=flag:weighed_hall: She puts a page on the glass, smoothed flat with her palm. Your page, from the book by the scale. JOHN, at the top. October. November. December. February. And April, ruled off, filled in, in pencil.
+widow | if=flag:weighed_hall: Ezra let me copy it. I wanted you to have it. I'm so proud of you. You're nearly there.
+narration | if=flag:refused_scale: She puts something on the glass and doesn't say anything. A brass weight, from the scale's set. A pound. Cold from her pocket.
+widow | if=flag:refused_scale: They said to bring it to you. So you'd know what a pound feels like. I'm sorry. I don't know what it means.
+narration | if=!flag:weighed_hall and !flag:refused_scale: She doesn't put anything on the glass. She stands with her hands in her pockets and looks at you as if she were measuring.
+widow: Ray went in light, you know. In '93. They said it was the cold. It wasn't the cold.
+> Take her hand across the glass. -> widow_hand | keep=hollis | lean=warmth
+> "Go home, Mrs. Hollis." -> widow_home | lean=paranoia
+
+=== widow_hand
+narration: You take her hand. It's all bones and a wedding band, loose, on the wrong finger now. She lets you hold it.
+widow: Nobody does that any more. Nobody touches the Keeper. I'll tell them you did. No. I won't tell them. I'll keep it.
+narration | sound=bell: She knocks twice on the frame. The bell.
+
+=== widow_home
+narration: She nods, as if you'd said something kind. Maybe you did.
+narration | sound=bell: She knocks twice on the frame. The bell.
+
+# --- The search: Ezra and four men, for Sam's notebooks. ---
+
+=== ezra_enters
+narration | sound=bell | time=+60: The bell, held open. Ezra, his right arm still in the altar-cloth sling, and behind him four men from the road, in their church coats, hats in their hands. Polite.
+ezra: Pastor says there are papers. Sam Wakeman's. He says the Keeper would know where. We won't break anything.
+narration: They don't wait for you to answer. Two go upstairs. Two go into the back. Ezra stays at the counter with you, and looks at the bear.
+-> search_safe | if=flag:notebooks_safe
+-> search_bear | if=flag:notebooks_bear
+-> search_room | if=flag:notebooks_room
+-> search_bed | if=flag:notebooks_bed
+-> search_nothing
+
+=== search_safe
+narration: In the office, a long silence. Then one of them comes out and says the safe's locked, and nobody knows the numbers.
+narration: Ezra goes and looks at it himself. He stands in front of the safe for a long time, the way you'd stand at a grave, and doesn't touch it.
+ezra: Abraham's safe. All right. All right.
+narration | flag=safe_marked: When they've gone, there's a chalk mark on the safe's door. A small cross. They know where to come back to.
+
+=== search_bear
+narration: They go round the bear twice. One of them reaches for the seam. Ezra says "No," very quietly, and the man takes his hand back as if it had been burned.
+ezra: That's the Keeper's. Nobody touches the Keeper's.
+narration | flag=bear_known: But they all looked at it. All four. They know there's a seam now, and they know you didn't watch them look.
+
+=== search_room
+narration: Upstairs, boots on the hall boards. They stop at the locked door at the end.
+narration: Then another pair of boots, lighter, coming up the outside stairs fast. Ruth. You hear her voice through the floor, not loud. "Not that one. That's mine. Nobody goes in that one."
+narration | flag=ruth_shielded: They come down without the notebooks. Ruth comes down behind them, white, with the key in her fist, and goes out without looking at you. She's paid for that. You don't know yet what it cost.
+
+=== search_bed
+narration: They're upstairs for less than a minute. Then one of them comes down with a box in his arms. The rubber bands. The school exercise books. Ten years of the clock's minute.
+narration | flag=notebooks_burned: Out on the step, Ezra takes a matchbook from his good hand with his teeth and gives it to the youngest of them. You watch through the glass. The pages curl one by one, the way snow goes when you breathe on it.
+paranoia: You knew. Under the bed. You knew it's the first place.
+
+=== search_nothing
+narration: They look everywhere and find nothing. Ezra thanks you. He means it, or he's good at it.
+
+# --- Closing. ---
+
+=== closing
+narration | time=18:40: Twenty to seven, and still light. You turn the sign. CLOSED.
+narration: Up the hill, the straw man in the coat, turning a little on his rope in the wind, as if to keep you in view.

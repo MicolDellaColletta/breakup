@@ -1,0 +1,103 @@
+# THE THIRTY-FIFTH NIGHT: Saturday, March 11. The frenzy.
+# Same format as the other nights. The radio: him, counting the weeks. The
+# procession stops outside at midnight; locked, candle stubs on the sill by
+# morning. In the morning: whoever hurt MC is gone (gone_ezra, or
+# gone_brekke if MC kept faith with Ezra), and exact change on the kitchen
+# table. Out of place: the straw man's twin, a coat on your hook with its
+# collar up (odd_candles). Design: docs/march.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment.
+narration | if=flag:notebooks_burned: The smell of the burning on the step still in the hall. Paper smoke. It doesn't go.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Saturday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Him. "Six weeks, friends. Six. Count with me." And the whole town counting, you can hear it through the walls, six, a beat, six.
+
+=== radio_off
+narration: You leave it off. Through the wall, from the house across the road, a whole family counting to six, together, slowly.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_thirtyfive
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_thirtyfive | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The windows.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold, and through the crack, singing, far off, coming nearer.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven. You don't sleep. At midnight, singing in the road. It stops outside the shop. Nobody knocks. Then it goes on.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_thirtyfive
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
+-> morning_after
+
+=== morning_after
+narration | time=07:00: Sunday.
+narration | if=locked_back_door: On the back step, a row of candle stubs along the threshold, lit, burning in the daylight. You blow them out one by one. They're warm all the way down.
+narration | flag=saw_table: On the kitchen table, a little stack of coins. Exact change. For what, it doesn't say.
+narration | if=faith:ezra>=1 and !faithless:ezra | flag=gone_brekke: By noon the radio says Dr. Brekke has gone to Anchorage to stay with his daughter. Dr. Brekke hasn't got a daughter.
+narration | if=faithless:ezra or faith:ezra<1 | flag=gone_ezra: By noon the radio says Ezra Lund has gone to his sister's in Palmer for a rest. Ezra hasn't got a sister.
+paranoia: He called you the goat. He signed the paper. One of them. Gone. Exact change.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_candles
+narration | time=+5: The coat on your hook by the door. Someone's turned its collar up, and tucked a sprig of spruce in the buttonhole, the way they've dressed the straw man on the hill.
+narration | flag=saw_coat_dressed: You take the spruce out. You put it back. You don't know why you put it back.

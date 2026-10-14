@@ -32,6 +32,10 @@ const ROOMS: Dictionary = {
 	"church_fire": ["place", "church_fire"],
 	"vestry_door": ["place", "vestry_door"],
 	"ruins": ["place", "ruins"],
+	"daniel_room": ["place", "daniel_room"],
+	"lake_1988": ["place", "lake_1988"],
+	"ice_tripod": ["place", "ice_tripod"],
+	"hall_cellar": ["place", "hall_cellar"],
 }
 
 @onready var narrator: DialogueColumn = %Narrator

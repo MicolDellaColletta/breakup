@@ -1,0 +1,80 @@
+# THE EVENING OF KEY DAY 38: Friday, March 31. Sam's lie (door 3).
+# A walked evening (scenes/visit.tscn; GameState.EVENINGS). If Sam was
+# kept: on the ice at the tripod, at the minute, MC catches him moving the
+# clock's hands. "Setting it back to the true minute." Ten years of
+# notebooks kept by a man who's been moving the clock. Forgive him (door
+# three) or don't. If his notebooks were burned, he only comes out if MC
+# brings something (the bench notebook will do: a record kept by hand).
+# If Sam was given up: the hall's cellar, a hatch, a voice. "What time is
+# it, John?" end=night. Design: docs/march.md.
+
+=== evening
+-> cellar | if=flag:gave_up_sam
+-> tripod_burned | if=flag:notebooks_burned
+-> tripod
+
+# --- Kept: the tripod. ---
+
+=== tripod
+narration | show=ice_tripod | time=21:40: The ice at night. Soft underfoot now, a skin of water on it that freezes as you walk. The clock on its tripod, far out, and a lamp beside it.
+narration: Sam, on his knees at the clock, his back to you. The case open. His bare hand inside it.
+narration: You're close enough to see before he hears you. The minute hand. He's turning it back. A little. Carefully. With one finger, the way you'd close a sleeping child's eye.
+-> tripod_caught
+
+=== tripod_burned
+-> tripod_with_notebook | if=has:bench_notebook
+-> tripod_dark
+
+=== tripod_dark
+narration | show=ice_tripod | time=21:40: The ice at night. The clock on its tripod, far out, and no lamp beside it.
+narration: You stand at the edge of the shore ice a long time. Nobody comes out of the dark. You haven't brought anything of his. He said not to come.
+narration | flag=sam_stayed_dark | end=night: You go home. Behind you, out on the ice, a lamp comes on, and goes out again, once, like a word.
+
+=== tripod_with_notebook
+narration | show=ice_tripod | time=21:40: The ice at night. You walk out with Abraham's notebook held up in front of you, open, like a lantern that gives no light.
+narration: A lamp comes on. Sam, at the clock. He looks at the notebook, at the dates, every mount Abraham ever made, in his hand. A record. Kept.
+sam: That'll do. That's somebody's ten years. That'll do.
+narration: He turns back to the clock. And you see it, close enough: his bare hand inside the case. Turning the minute hand back. A little. Carefully.
+-> tripod_caught
+
+=== tripod_caught
+narration: He feels you there. He doesn't take his hand out.
+sam: Setting it back to the true minute.
+sam: It drifts. Cold metal. A second a night, sometimes two. And the ice goes out at the minute, every year, at the same minute, John. It does. It has to. So when it drifts, I set it back.
+paranoia: Ten years. Ten years of the exact minute, written down. By a man with his hand in the clock.
+sam: I'm not lying. It's the true minute. I know where it should be. I'm only putting it there.
+narration: He takes his hand out. He looks at you in the lamplight as if he were waiting to be hit.
+> "It's all right, Sam." -> tripod_forgive | door=sam | lean=warmth
+> "You made it all up." -> tripod_refuse | flag=sam_unforgiven | lean=paranoia
+
+=== tripod_forgive
+narration: He breathes out. The breath goes up white between you and hangs there.
+sam: Then help me. Three weeks. Hold the lamp. I'll tell you where the minute is, and you'll write it down, so it's not just me.
+narration | time=23:30 | end=night: You hold the lamp. He sets the clock. You write the minute in his notebook, in your own hand, below his. Your initials. The ice talks under you all the way home.
+
+=== tripod_refuse
+narration: He nods. He closes the case. He doesn't argue. He picks up the lamp.
+sam: Yes. All right. Then go home, John. Count it yourself. I'll be here at the minute either way.
+narration | time=23:10 | end=night: You walk back across the soft ice alone. When you look round, the lamp is out, and you can't see him, or the clock, or anything.
+
+# --- Given up: the hall cellar. ---
+
+=== cellar
+narration | show=hall_cellar | time=21:40: The hall, dark. Behind the stage, past the counsel room, a hatch in the floor with a padlock and a hasp, and a tin plate beside it with a crust on it.
+narration: You kneel. Through the gap at the edge of the boards, warm air, and a smell of paraffin, and someone breathing.
+sam: Who's that? Is that you? Is that John?
+sam: They're kind. They bring me soup. They've given me a lamp and a Bible. They took my watch. Nobody here will tell me what time it is.
+sam: What time is it, John?
+> Tell him the time. -> cellar_time | flag=told_sam_time | lean=warmth
+> Say nothing, and go. -> cellar_go | lean=paranoia
+
+=== cellar_time
+narration: You look at your watch. You tell him. To the minute.
+narration: Through the boards, a long breath out, and a pencil moving on paper.
+sam: Thank you. Thank you. Come back tomorrow and tell me again. Somebody has to keep it.
+narration | time=22:30 | end=night: You walk home. You find yourself checking your watch every few minutes, as if it might drift.
+
+=== cellar_go
+narration: You don't answer. You get up off your knees. The boards creak.
+sam: John? John, is it after ten? Is it after —
+narration | time=22:10 | end=night: You close the hall door on it.

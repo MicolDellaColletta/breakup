@@ -1,0 +1,66 @@
+# KEY DAY 37: Saturday, March 25, 2000. His price (hard fork 6).
+# Same format as the other counter days: the goat at the door, twice now;
+# then him, to redeem a ticket: the sixth bullet, pawned on November 23 (or
+# kept by him, if MC refused it). He loads John's gun on the glass, six of
+# six, and gives it back (if he had it), or leaves the round. Then, after
+# closing, the counsel room (story/evening_thirtyseven.txt): his offer.
+# See VISITS in scripts/counter.gd. Design: docs/march.md.
+
+=== morning
+narration | time=06:30: Saturday, the twenty-fifth. Four weeks. Light at half past six. Water standing on the ice off the point, blue in the mornings, white by noon.
+narration: The dog came up the stairs again last night. It's come up every night this week, feed it or don't.
+narration | if=flag:took_from_room: Nobody has said anything about his room. Nobody needs to. On Thursday, under your door, a pencil sketch of the gap in a row of notebooks.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN.
+
+# --- The goat. ---
+
+=== goat_enters
+narration | time=+60: The goat at the door. Three red threads on its horns now. It stands with its face to the glass for an hour and leaves without being led.
+
+# --- Him: the sixth bullet. ---
+
+=== daniel_enters
+narration | sound=bell | time=+90 | red=alone: The bell. The good coat. He comes straight to the glass.
+narration | if=flag:took_bullet: He puts a pawn ticket on the glass, square to the edge. Your hand on it, from November: ONE (1) BULLET, .38, FLATTENED. LOAN $1.
+-> daniel_redeem | if=flag:took_bullet
+-> daniel_kept
+
+=== daniel_redeem
+narration | redeemed=sixth_bullet | cash=+2: He counts out the loan and four months' interest, to the cent, and waits while you fetch it from the back shelf. A dollar and ninety-two. He doesn't take his eyes off your hands.
+-> daniel_load
+
+=== daniel_kept
+daniel: You wouldn't take it. So I kept it. I've had it in my pocket since November, like a lucky penny. It's been very lucky.
+narration: He puts it on the glass. Flattened, cleaned. The sixth.
+-> daniel_load
+
+=== daniel_load
+-> daniel_load_gun | if=flag:pointed_gun
+-> daniel_load_round
+
+=== daniel_load_gun
+narration: He takes John's gun out of the good coat and lays it on the glass beside the bullet. He opens the cylinder. Five, and the empty.
+narration | take=revolver | flag=gun_six: He presses the flattened round into the empty chamber with his thumb. It shouldn't fit. It goes in. He closes the cylinder and turns the gun round on the glass so the grip faces you.
+daniel: Six. Now it's a whole thing. I said March.
+daniel | if=flag:pulled_trigger: You pulled it, that night. The empty one came round. I counted, after you'd gone. I laughed for an hour.
+-> daniel_after
+
+=== daniel_load_round
+narration | take=sixth_round | flag=has_sixth_round: He stands the flattened round on its end on the glass, between you, like a chess piece.
+daniel: For John's gun. Wherever you've put it. The bear, the board, the bottom drawer. One empty chamber, and now there's this. Six. It's a whole thing. I said March.
+-> daniel_after
+
+=== daniel_after
+daniel: After closing. The hall. The little room behind the stage. I'll leave the door open for you. You leave yours open for me every night.
+narration | sound=bell: The bell, once.
+paranoia: Don't go.
+unknown: You'll go.
+
+# --- Closing. ---
+
+=== closing
+narration | time=19:00: Seven o'clock. Light. It's still light. You turn the sign. CLOSED.
+narration: Up the road, the hall. One window lit at the back, behind the stage.

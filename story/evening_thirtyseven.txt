@@ -1,0 +1,71 @@
+# THE EVENING OF KEY DAY 37: Saturday, March 25. His price (hard fork 6).
+# A walked evening (scenes/visit.tscn; GameState.EVENINGS) in the counsel
+# room behind the hall's stage. He names his price, because he never lies:
+# not the books. MC. "Come with me." Yes (needs two of his doors, or he
+# laughs), confess (the lake, 1988: the thing he can't price), or refuse
+# ("Then it's a race"). His one lie, at the door: "I said I didn't know why
+# I let you go. I knew." (door 3). On the road home: the lake, the second
+# piece.
+# end=night. Design: docs/march.md, docs/daniel_v7.md.
+
+=== evening
+narration | show=booth | red=alone | time=20:30: The hall, dark. The benches stacked. Behind the stage, the little room, the door open, the one bulb. Two scorched chairs.
+narration: He's in one. On the other, waiting for you: a cardboard box. Ledgers. Cannery stamps on the spines. John's handwriting, columns and columns.
+daniel: The books. What John stole. What the men in Anchorage sent me north for. Take them. Burn them. Read them on the toilet. I never cared.
+narration: You sit. The box on your knees. He watches you hold it.
+daniel: I never lie. So I'll tell you my price, and you'll know it's the price. Not the books. Not the tin. Not your money, which is my employer's money anyway.
+daniel: You. After breakup. Wherever I go next. There's always a next town, and a tent, and a door. I'd like you at the door.
+narration | if=flag:lied_to_daniel: He tilts his head. "You lied to me in December, at your counter. About the Reverend's bolt. Your mouth did the thing. I'd like you anyway."
+narration | if=flag:told_daniel_hidden: He tilts his head. "You told me the truth in December. Where the Reverend was hiding. You gave him to me. I'd like you more for it."
+unknown: Yes. Say yes. Nobody's ever wanted you this much.
+paranoia: He'll put you on the ice himself and call it love.
+> "Yes." -> fork_yes | flag=fork6_yes | lean=unknown
+> Tell him about the lake. The summer. The money. -> fork_confess | flag=fork6_confess | lean=john
+> "No." -> fork_refuse | flag=fork6_refuse | lean=animal
+
+=== fork_yes
+-> fork_yes_meant | if=doors:daniel>=2
+-> fork_yes_not
+
+=== fork_yes_meant
+narration: You say it. He doesn't smile. He goes very still, the way a man does when he's been handed something he didn't think he'd be given, and is deciding whether to believe it.
+daniel: Then don't run. Whatever they open in April, the road, the car, the door. Don't run. Stand on the shore, and wait for me.
+-> fork_door
+
+=== fork_yes_not
+narration: You say it. He laughs. Fondly. That's the worst of it: he laughs the way you'd laugh at a child promising to marry you.
+daniel: You don't mean it yet. You will. I've got four weeks.
+narration | unflag=fork6_yes: He takes the yes back off you, as if it were a coin you'd dropped.
+-> fork_door
+
+=== fork_confess
+narration: You tell him. You don't decide to. The summer. The lake. A tent. A boy behind the tent at night, and a man counting money, laughing. A roll of bills held out. "What's your price?" Your hand taking it.
+narration: The girl in the water. Forty. You counted to forty.
+narration: He listens to every word without moving. When you've finished, the bulb ticks, and nothing else.
+daniel: There. You've given me the one thing I couldn't buy off you. You told me yourself. I've waited eleven years for you to tell me yourself.
+-> fork_door
+
+=== fork_refuse
+narration: You say no. You put the box of ledgers on the floor between the chairs.
+narration: He's delighted. He laughs out loud, a real laugh, the first you've heard from him that isn't for anyone else.
+daniel: Good. Good. Then it's a race. Four weeks. You and them and me and the ice. I'll be fair. I'll always tell you exactly what I'm doing. You'll still lose.
+-> fork_door
+
+# --- His one lie. Door three. ---
+
+=== fork_door
+narration: You get up. At the door, with your back to him, he says it.
+daniel: I said I didn't know why I let you go, in October. I said I'd come north to find out.
+daniel: I knew. I knew you the second you looked up. Eleven years older, and wet to the waist in my memory, and I knew.
+narration | door=daniel: It's the only lie he's ever told you. You know it the way you know the cold.
+narration | time=23:00: You walk home. The road, the dark, the slush.
+-> lake_two
+
+# --- On the road home: the lake, the second piece. ---
+
+=== lake_two
+narration | show=lake_1988: Halfway home you stop, in the middle of the road. And it's summer again. The tent, the piano, the singing.
+narration: But you're not on the shore this time. You're in the water. Up to the waist. Warm. Brother Abel's hand on your shoulder, heavy, kind.
+narration: And your hands are on the girl. On her shoulders. Pushing.
+narration: He leans to your ear. "Good. That's it. Forty. Count with me."
+narration | flag=lake_two | end=night: You come back to yourself on your knees in the slush at the side of the road, your arms out straight in front of you, pressing down on nothing.

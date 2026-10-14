@@ -1,0 +1,30 @@
+# KEY DAY 38: Friday, March 31, 2000. A fasting Friday, the last of March.
+# Same format as the other counter days, nearly empty: the notes; at
+# closing, a pencil line from Sam (if he was kept): "The minute. Tonight.
+# Come." Or, if he was given up, a note from nobody: "The hall cellar." Then
+# the walked evening (story/evening_thirtyeight.txt): Sam's lie at the
+# tripod, or Sam in the cellar. See VISITS in scripts/counter.gd.
+# Design: docs/march.md.
+
+=== morning
+narration | time=06:20: Friday, the thirty-first. Three weeks. The last day of March. Nobody eats on Fridays now, and the bakery chimney is cold.
+narration: The lake, from the window: a line of holes cut in the ice, out from the point, one every ten yards, toward the middle. A path. Each hole skinned with new ice by morning, and cut open again by noon.
+paranoia: It's for fishing. They're fishing.
+narration: Nobody fishes in a line.
+-> opening
+
+=== opening
+narration | time=09:00: You turn the sign. OPEN. Nobody comes. Fasting people don't shop.
+
+# --- A note. ---
+
+=== note_enters
+narration | time=+480: Five o'clock. Under the door, a page from a school exercise book.
+narration | if=flag:kept_sam and !flag:notebooks_burned: In Sam's square capitals: "THE MINUTE. TONIGHT. THE TRIPOD. COME."
+narration | if=flag:kept_sam and flag:notebooks_burned: In Sam's square capitals, but shaky, as if written on his knee: "THEY BURNED TEN YEARS. COME TO THE TRIPOD IF YOU HAVE ANYTHING OF MINE. IF YOU DON'T, DON'T."
+narration | if=flag:gave_up_sam: No name. Pencil, printed like a child's: "THE HALL CELLAR. HE ASKS FOR YOU."
+
+# --- Closing. ---
+
+=== closing
+narration | time=19:20: Twenty past seven, and the light only now going. You turn the sign. CLOSED.

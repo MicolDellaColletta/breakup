@@ -1,0 +1,100 @@
+# KEY DAY 36: Sunday, March 19, 2000. His room.
+# A walk-around day (scenes/visit.tscn): the service in the hall (the
+# anxious bench: he calls up Mrs. Lund; to MC, "Not yet"); the empty pew of
+# whoever went missing; then, while he's at the hall with the queue, his
+# room above the Gleaner, unlocked: the suitcase (the collection), his files
+# (MC's page: "July 1988"), the cigar box (the boy on the lake shore), the
+# drawer. What MC takes, or leaves as it was (a kept moment with Ruth, if
+# she let you in). At dusk, in the chair by the stove: the first piece of
+# the lake, 1988.
+# Spots in spots.cfg (if=day==36). end=night. Design: docs/march.md.
+
+=== morning
+narration | time=09:30 | show=hall: Sunday, the nineteenth. The hall. Leviticus, all of it, from memory, by everyone. The scale in the middle of the floor. The book on its lectern.
+narration | if=flag:gone_ezra: Ezra's place at the end of the third bench, empty. Nobody sits in it. Mrs. Lund says, to nobody, "Gone to his sister's in Palmer." Ezra hasn't got a sister.
+narration | if=flag:gone_brekke: Dr. Brekke's place on the anxious bench, empty. The bench is still pushed to the front. Nobody says where he's gone. His black bag is on the bench, where he left it, closed.
+daniel: Martha Lund.
+narration: His voice doesn't go up. It doesn't need to. Mrs. Lund stands.
+daniel: Come up. Sit. Your boy drinks from the bottle you keep behind the flour, and you fill it again on Fridays so he won't go looking for worse. Tell them. They'd like to know what you've been praying for.
+narration: She walks to the front and sits on the anxious bench with her hands in her lap. The hall prays over her, out loud, all of it, and she has to sit through every word.
+narration: Then he looks down the hall, past the benches, at you. The whole room turns to see what he's looking at.
+daniel: Not yet. He's not ready. I'll know when.
+paranoia: He let them see it. That you're his. That you're next.
+
+# --- After the service. ---
+
+=== ruth_door
+narration | show=gleaner: The Gleaner, shut for the Sabbath. Ruth at a table in the dark with her coffee, alone.
+ruth | if=doors:ruth>=1: He's at the hall till four, with the queue. I clean his room on Sundays. It's not locked. Nothing's locked now.
+ruth | if=doors:ruth>=1: Don't take anything. He'll know who let you up.
+ruth | if=doors:ruth<1: The stairs are round the back. I didn't tell you that.
+narration: Round the back, up the outside stairs. His door, at the top. Not locked.
+-> room_enter
+
+=== room_enter
+narration | show=daniel_room: His room. Small. A bed made tight enough to bounce a coin on. A washstand. A chair facing the window, facing the shop.
+narration: From the window you can see your counter. The stool. The bell over the door. The exact place where you stand.
+paranoia: Every day. He's watched every day.
+
+=== room_suitcase
+narration: Under the bed, a suitcase. Inside, the collection. Rings in a sock. Savings books with the passbook stamps. A man's watch, still going. A child's christening spoon.
+narration | if=!flag:gave_deed: And folded on top, in a paper sleeve: the church's deed. The Congregation of the Lake. He found it where you left it.
+narration: And on its own, in a twist of tissue, a wedding ring you know. Ray Hollis's. Mrs. Hollis put it on the plate in January.
+> Take the ring, for her. -> room_take_ring | take=hollis_ring | flag=took_from_room | eye=+1 | lean=warmth
+> Leave it. -> room_leave_case | lean=paranoia
+
+=== room_take_ring
+narration: You put it in your pocket. It's warm from the tissue, or from you.
+
+=== room_leave_case
+narration: You close the case and push it back under the bed, to exactly where it was. Exactly. You check twice.
+
+=== room_files
+narration: On the washstand, a row of school notebooks, the same kind Sam uses. On each cover, in his small upright hand, a name. HOLLIS. LUND. PRUITT. WAKEMAN. OLSTAD. BREKKE. Every house on the road.
+narration: You open LUND. Pages. Her son, her flour, her Fridays, her husband's drinking before him, the date she stopped going to the Gleaner. Hot reading. Homework. Every miracle he's done in the hall is in here first.
+narration: The last notebook has no name on the cover. Inside, one page used. A date, and nothing else. "July 1988."
+paranoia: Before Anchorage. Before John. Before any of it.
+> Take a notebook. Lund's. -> room_take_file | take=daniel_file | flag=took_files | flag=took_from_room | eye=+1 | lean=appraisal
+> Put them back in their row. -> room_leave_files | lean=paranoia
+
+=== room_take_file
+narration: You put LUND inside your coat. The row on the washstand has a gap in it now, like a pulled tooth. You move the others along to close it. It doesn't look the same. It never will.
+
+=== room_leave_files
+narration: You put them back. In order. By the dust, they're where they were.
+
+=== room_box
+narration: On the windowsill, a cigar box. Inside, one thing from every town. A wedding ring. A lock of yellow hair tied with thread. A baby tooth. A torn hymnal page. Dozens. You don't count them.
+narration: And a photograph. A boy, seventeen, maybe, on a lake shore, in summer. Wet to the waist. Looking at whoever's holding the camera as if he'd been caught at something.
+narration: You know the face. You've shaved it every morning since October.
+narration: And at the end of the box, an empty space, and a strip of paper in it, labelled in pencil: Kettle Lake.
+> Take the photograph. -> room_take_photo | take=boy_photo | flag=took_photo | flag=took_from_room | eye=+1 | lean=unknown
+> Close the box. -> room_leave_box | lean=paranoia
+
+=== room_take_photo
+narration: You put it inside your shirt, against your skin. It's cold, then it isn't.
+
+=== room_leave_box
+narration: You close the lid. Your hands are shaking so hard the hinge squeaks.
+
+=== room_drawer
+narration | if=flag:pointed_gun: The drawer of the washstand. John's gun, on a folded handkerchief, cleaned. Five in the cylinder. One empty. You don't touch it. He'll give it back himself. He said March.
+narration | if=!flag:pointed_gun: The drawer of the washstand. A Bible, the oldest kind. Leviticus cut out. A box of matches, nearly empty.
+
+=== room_leave
+narration | if=!flag:took_from_room and doors:ruth>=1 | keep=ruth: You leave it all as it was, the way Ruth asked. On the stairs down, the Gleaner's back window: she's watching. She nods, once.
+narration | if=flag:took_from_room and doors:ruth>=1: On the stairs down, the Gleaner's back window: Ruth, watching you go, with her hand over her mouth.
+narration | time=16:10: You're back behind your own counter at ten past four. At twenty past, across the road, a light goes on in the window above the Gleaner. A shape in the chair, facing the shop.
+-> lake_one
+
+# --- At dusk, in the chair by the stove: the lake, 1988. The first piece. ---
+
+=== lake_one
+narration | time=17:30 | show=lake_1988: You sit down in the customer chair by the stove, just for a minute, and close your eyes. And it's summer.
+narration: Hot. A lake, flat and blue, with green all round it. A white tent on the shore, sides rolled up, rows of folding chairs. Someone's playing a piano that's out of tune.
+narration: You're seventeen. You know it the way you know things in dreams.
+narration: A man in white shirtsleeves, waist-deep in the lake, his hands on a girl's shoulders. Everyone on the shore singing. He's saying something to the sky. Brother Abel, they call him. You know his voice. You'd know it anywhere.
+narration: He puts her under.
+narration: The singing goes on. You count, because somebody has to. You get to forty.
+narration: Then somebody on the shore calls your name, your real one, and it drops out of the air like a stone into water, and you don't hear it, and you wake.
+narration | flag=lake_one | end=night | time=19:40: The chair. The shop. Dark outside. Your hair wet, as if you'd been in the water too.

@@ -23,6 +23,7 @@
 -> map_day_twentythree | if=day==23
 -> map_day_twentysix | if=day==26
 -> map_day_twentyeight | if=day==28
+-> map_day_thirtyfive | if=day==35
 -> map_day_thirtyone | if=day==31
 -> map_day_thirtythree | if=day==33
 -> map_day_twentyfour | if=day==24
@@ -49,6 +50,7 @@ paranoia: Go if you have to. Come back before it's late.
 -> pub_twentythree | if=day==23
 -> pub_twentysix | if=day==26
 -> pub_twentyeight | if=day==28
+-> pub_thirtyfive | if=day==35
 -> pub_thirtyone | if=day==31
 -> pub_thirtythree | if=day==33
 -> pub_twentyfour | if=day==24
@@ -124,6 +126,7 @@ narration: The cold outside is almost a relief.
 -> lake_twentythree | if=day==23
 -> lake_twentysix | if=day==26
 -> lake_twentyeight | if=day==28
+-> lake_thirtyfive | if=day==35
 -> lake_thirtyone | if=day==31
 -> lake_thirtythree | if=day==33
 -> lake_twentyfour | if=day==24
@@ -202,6 +205,7 @@ narration: You leave money on the bar and go before the room can decide to be fr
 -> church_twentythree | if=day==23
 -> church_twentysix | if=day==26
 -> church_twentyeight | if=day==28
+-> church_thirtyfive | if=day==35
 -> church_thirtyone | if=day==31
 -> church_thirtythree | if=day==33
 -> church_twentyfour | if=day==24
@@ -279,6 +283,7 @@ narration | time=+120: You stay until the coffee's gone. Nobody asks you to leav
 -> cabin_twentythree | if=day==23 and flag:met_sam
 -> cabin_twentysix | if=day==26 and flag:met_sam
 -> cabin_twentyeight | if=day==28 and flag:met_sam
+-> cabin_thirtyfive | if=day==35 and flag:met_sam
 -> cabin_thirtyone | if=day==31 and flag:met_sam
 -> cabin_thirtythree | if=day==33 and flag:met_sam
 -> cabin_twentyfour | if=day==24 and flag:met_sam
@@ -1108,3 +1113,24 @@ narration | time=+20: The lake. The square hole in front of the clock has skinne
 === cabin_twentyeight
 narration | time=+10: The cabin. A lamp in the window, turned low. Sam comes to the door in his coat as if he'd been about to go out, or had just come in.
 sam: Did you hear him. On New Year's. On your phone. I heard it through the wall of the world. Go home, John. Lock nothing. Listen to everything.
+
+# --- Key day 35, Saturday March 11: the frenzy. ---
+
+=== map_day_thirtyfive
+narration: Saturday night, and light till seven. The straw man on the post on the hill, in his coat. Every window lit, and in most of them someone standing, looking out at the road, as if waiting for a parade.
+
+=== pub_thirtyfive
+narration | time=+60: The Gleaner. Nobody drinking. They sit with glasses of water, and nobody talks, and when the door opens behind you every head turns, and then turns back.
+narration | if=flag:ruth_shielded: Ruth behind the bar. She doesn't look at you. Her hands are shaking so badly she puts the glass down rather than drop it.
+narration | if=!flag:ruth_shielded: Ruth behind the bar, polishing the same glass. She looks at you once, a long look, as if she were memorising you.
+
+=== church_thirtyfive
+narration | time=+20: The ruin. The post on the tower stump, and the straw man on it, close enough now to see: the coat buttoned wrong, the way a child would button it. At his feet, in the snow, a ring of candle stubs, burned down.
+
+=== lake_thirtyfive
+narration | time=+20: The lake. The square hole in front of Sam's clock, cut open again, and a second hole now, ten yards out, toward the middle. Then a third. A line.
+
+=== cabin_thirtyfive
+narration | if=!flag:gave_up_sam and !flag:notebooks_burned | time=+10: The cabin. Sam on the step in the cold, without his coat, watching the ice. He doesn't get up. "They came. They didn't find them. They'll come again."
+narration | if=flag:notebooks_burned | time=+10: The cabin, dark. On the step, a ring of black ash where his notebooks burned. He's inside. He doesn't answer the door. Through it, very quietly, a pencil, writing, starting again.
+narration | if=flag:gave_up_sam | time=+10: The cabin, dark. Nobody's lived in it for three weeks. Somebody's taken the clock off the wall.

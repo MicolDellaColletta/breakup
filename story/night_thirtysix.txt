@@ -1,0 +1,101 @@
+# THE THIRTY-SIXTH NIGHT: Sunday, March 19. After his room.
+# Same format as the other nights. The radio: him, reading from a notebook,
+# one house at a time (if MC took Lund's, the reading stops at L). Out of
+# place: the photograph of the boy on the lake shore, propped on your
+# dresser (odd_photo). Design: docs/march.md.
+
+=== arrival
+narration | sound=stairs: Up the stairs.
+narration | stop=stairs: The apartment.
+narration | if=flag:took_files: The notebook inside your coat, against your ribs. LUND. You keep touching it to see if it's still there.
+paranoia: The rules.
+
+=== radio
+narration | time=+10: The radio. Sunday.
+paranoia: Rule seven.
+> Turn it on -> radio_on | flag=radio_on
+> Leave it off -> radio_off | break=radio
+
+=== radio_on
+narration | sound=click: Him, reading from a notebook. One house at a time. Hollis. Lund.
+narration | if=flag:took_files: He stops at Lund. A long silence on the air. Then, pleasantly, "I seem to have lost my place." And the next name.
+narration | if=!flag:took_files: Pruitt. Wakeman. He reads every sin as if it were a recipe.
+
+=== radio_off
+narration: You leave it off. You know he's reading. You can feel each name go by, like cars on the road.
+
+=== kitchen
+narration | time=+10: The bowl.
+paranoia: Rule five.
+> Fill it -> kitchen_fed | set=fed_dog | flag=fed_thirtysix
+> Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_thirtysix | flag=bowl_door
+> Leave it -> kitchen_unfed | break=dog
+
+=== kitchen_door
+narration: Down to the back door with the bowl.
+
+=== kitchen_fed
+narration: The kibble rattles. On the line.
+
+=== kitchen_unfed
+narration: You roll the sack shut.
+
+=== windows
+narration | time=+10: The windows.
+paranoia: Rule one.
+> Check the latches -> windows_closed
+> Open one, just a crack, for air -> windows_open | break=window | flag=window_open
+
+=== windows_closed
+narration | sound=latch: Latched.
+
+=== windows_open
+narration: Cold. Across the road, above the Gleaner, the window with the shape in the chair.
+
+=== back_door
+narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+paranoia: Rule one. Leave the back door unlocked.
+> Leave it unlocked -> back_door_unlocked | lean=paranoia
+> Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
+
+=== back_door_unlocked
+narration: You leave it.
+
+=== back_door_locked
+narration | sound=latch: The key turns.
+
+=== sleep
+narration | time=+20 | show=bedroom: You lie down. Eleven. You don't sleep. You can still feel the water at your waist.
+-> night_dog
+
+=== night_dog
+-> night_dog_door | if=flag:bowl_door
+-> night_dog_fed | if=flag:fed_thirtysix
+-> night_dog_unfed
+
+=== night_dog_fed
+narration | show=bedroom: Facing the door.
+narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | stop=stairs: The kitchen. Then down.
+-> morning_after
+
+=== night_dog_unfed
+narration | show=bedroom: Facing the door. Nothing comes up.
+-> morning_after
+
+=== night_dog_door
+narration | show=bedroom: Facing the door.
+narration: Three o'clock. The back door. In the morning the bowl is clean.
+-> morning_after
+
+=== morning_after
+narration | time=07:00: Monday.
+narration | if=flag:lake_one: Your pillow damp. Lake water, or sweat. It smells of lake water.
+
+# --- Something out of place (docs/nights.md). ---
+
+=== odd_photo
+narration | time=+5: On the dresser, propped against the mirror: a photograph. A boy of seventeen on a lake shore in summer, wet to the waist.
+narration | if=flag:took_photo: You touch your shirt. Yours is still there, against your skin. This is another. He had two.
+narration | if=!flag:took_photo: You left it in the box. You know you left it in the box.
+narration | flag=saw_photo_dresser: You turn it face down. In the morning it's face up.

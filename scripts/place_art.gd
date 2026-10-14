@@ -55,6 +55,10 @@ func _draw() -> void:
 		"church_fire": _draw_church_fire()
 		"vestry_door": _draw_vestry_door()
 		"ruins": _draw_ruins()
+		"daniel_room": _draw_daniel_room()
+		"lake_1988": _draw_lake_1988()
+		"ice_tripod": _draw_ice_tripod()
+		"hall_cellar": _draw_hall_cellar()
 
 func _draw_church() -> void:
 	# White walls, tall plain windows on both sides, pews running to the altar.
@@ -326,3 +330,72 @@ func _draw_ruins() -> void:
 		var y: float = 0.68 + fmod(k * 0.061, 0.26)
 		_rect(x, y, 0.006, 0.02, Color(0.95, 0.9, 0.8))
 		draw_circle(_p(x + 0.003, y - 0.006), size.y * 0.006, Color(1.0, 0.75, 0.3))
+
+func _draw_daniel_room() -> void:
+	# His room above the Gleaner: a bed made tight, a washstand with a row of
+	# notebooks, a chair at the window, and through the window, the shop.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.42, 0.38, 0.33))
+	_poly([Vector2(0, 0.7), Vector2(1, 0.7), Vector2(1, 1), Vector2(0, 1)], FLOOR)
+	# The window, and the shop's neon across the road in it.
+	_rect(0.56, 0.12, 0.3, 0.36, Color(0.16, 0.2, 0.3))
+	_rect(0.64, 0.3, 0.14, 0.12, Color(0.3, 0.26, 0.22))
+	_rect(0.67, 0.27, 0.08, 0.02, Color(0.95, 0.35, 0.3))
+	_rect(0.7, 0.12, 0.006, 0.36, WOOD_DARK)
+	# The chair facing it.
+	_rect(0.64, 0.56, 0.12, 0.04, WOOD_DARK)
+	_rect(0.64, 0.44, 0.02, 0.24, WOOD_DARK)
+	# The bed, tight.
+	_rect(0.04, 0.56, 0.36, 0.14, Color(0.82, 0.8, 0.76))
+	_rect(0.04, 0.52, 0.06, 0.18, WOOD_DARK)
+	# The washstand, the row of notebooks, the cigar box on the sill.
+	_rect(0.42, 0.5, 0.1, 0.2, WOOD)
+	for k in 6:
+		_rect(0.425 + k * 0.014, 0.44, 0.011, 0.06, Color(0.75, 0.7, 0.55))
+	_rect(0.6, 0.47, 0.06, 0.02, Color(0.55, 0.35, 0.2))
+
+func _draw_lake_1988() -> void:
+	# The only warm picture in the game: summer, 1988. A blue lake, green all
+	# round, a white tent on the shore with its sides rolled up, a man waist
+	# deep in the water with his hands on someone's shoulders.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.62, 0.82, 0.95))
+	_poly([Vector2(0, 0.42), Vector2(0.3, 0.36), Vector2(0.6, 0.4), Vector2(1, 0.34), Vector2(1, 0.5), Vector2(0, 0.5)], Color(0.3, 0.55, 0.28))
+	_rect(0, 0.5, 1, 0.26, Color(0.25, 0.5, 0.75))
+	_poly([Vector2(0, 0.76), Vector2(1, 0.72), Vector2(1, 1), Vector2(0, 1)], Color(0.86, 0.78, 0.55))
+	# The tent.
+	_poly([Vector2(0.06, 0.7), Vector2(0.2, 0.56), Vector2(0.34, 0.7)], Color(0.97, 0.96, 0.92))
+	for k in 5:
+		_rect(0.08 + k * 0.05, 0.78, 0.03, 0.03, Color(0.6, 0.45, 0.3))
+	# The man in the water, white shirtsleeves; the head going under.
+	_rect(0.6, 0.56, 0.04, 0.08, Color(0.98, 0.98, 0.95))
+	draw_circle(_p(0.62, 0.54), size.y * 0.02, Color(0.9, 0.72, 0.58))
+	draw_circle(_p(0.67, 0.63), size.y * 0.014, Color(0.55, 0.4, 0.25))
+	# The sun.
+	draw_circle(_p(0.86, 0.12), size.y * 0.06, Color(1.0, 0.92, 0.6))
+
+func _draw_ice_tripod() -> void:
+	# The lake at night in spring: soft grey ice, water on it, Sam's clock on
+	# its tripod far out, a lamp beside it.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.06, 0.07, 0.1))
+	_poly([Vector2(0, 0.5), Vector2(1, 0.48), Vector2(1, 1), Vector2(0, 1)], Color(0.42, 0.45, 0.5))
+	for k in 6:
+		_rect(0.1 + k * 0.14, 0.62 + fmod(k * 0.07, 0.2), 0.08, 0.015, Color(0.3, 0.34, 0.4))
+	# The tripod and the clock.
+	draw_line(_p(0.5, 0.36), _p(0.44, 0.56), Color(0.2, 0.18, 0.16), 2.0)
+	draw_line(_p(0.5, 0.36), _p(0.56, 0.56), Color(0.2, 0.18, 0.16), 2.0)
+	draw_line(_p(0.5, 0.36), _p(0.5, 0.57), Color(0.2, 0.18, 0.16), 2.0)
+	draw_circle(_p(0.5, 0.34), size.y * 0.03, Color(0.85, 0.82, 0.7))
+	# The lamp.
+	draw_circle(_p(0.58, 0.54), size.y * 0.016, Color(1.0, 0.8, 0.4))
+
+func _draw_hall_cellar() -> void:
+	# Behind the hall's stage: bare boards, a hatch with a padlock, a tin plate
+	# with a crust on it, and warm light through the gap at the hatch's edge.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.14, 0.11, 0.09))
+	_poly([Vector2(0, 0.5), Vector2(1, 0.5), Vector2(1, 1), Vector2(0, 1)], WOOD_DARK)
+	for k in 8:
+		draw_line(_p(0, 0.5 + k * 0.065), _p(1, 0.5 + k * 0.065), Color(0.1, 0.07, 0.05), 1.0)
+	_rect(0.38, 0.66, 0.24, 0.16, WOOD)
+	_rect(0.38, 0.82, 0.24, 0.006, Color(1.0, 0.75, 0.35))
+	_rect(0.48, 0.72, 0.04, 0.04, Color(0.5, 0.5, 0.52))
+	draw_circle(_p(0.72, 0.8), size.y * 0.03, Color(0.6, 0.6, 0.62))
+
