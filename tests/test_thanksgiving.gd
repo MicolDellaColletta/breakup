@@ -82,7 +82,7 @@ func _wednesday_olstad() -> void:
 	check(gs.flags.has("place_duck_call") and gs.sold.has("duck_call") and _log(column).contains("He'll hear that."), "the duck call: \"He'll hear that.\"")
 	await _next(column)
 	check(column._section == "daniel_asks" and _log(column).contains("the way you'd look at a word you'd taught someone"), "the man in the good coat says nothing of yesterday")
-	check(_log(column).contains("Whatever Mr. Lund buys on Thursdays."), "he asks for Ezra's Thursday box")
+	check(_log(column).contains("whatever Mr. Lund buys on Thursdays."), "he asks for Ezra's Thursday box")
 	await pick(column, "Sell him the box")
 	advance(column)
 	check(gs.flags.has("sold_ezra_shells") and gs.sold.has("shells"), "you sell him the shells")
