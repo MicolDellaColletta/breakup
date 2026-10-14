@@ -77,6 +77,7 @@ const DAY_STORIES: Dictionary = {
 	40: "res://story/day_forty.txt",
 	41: "res://story/day_fortyone.txt",
 	42: "res://story/day_fortytwo.txt",
+	43: "res://story/breakup.txt",
 }
 # Evenings that are walked instead of picked from the town map (key day 10:
 # the first-ice party on the lake). The story starts at "evening" and ends
@@ -119,6 +120,7 @@ const DAY_SCENES: Dictionary = {
 	36: "res://scenes/visit.tscn",
 	39: "res://scenes/visit.tscn",
 	41: "res://scenes/visit.tscn",
+	43: "res://scenes/visit.tscn",
 }
 # After week one, the story days are key days, with days skipped between them.
 # Which calendar day (counted from October 5, the drive) each one is. Days
@@ -561,6 +563,41 @@ var romance_locked: bool:
 var fire_open: bool:
 	get:
 		return not romance_locked and daniel_beaten and faith_kept >= 4 and someone_lets_go and has_item("paraffin")
+
+# ??? is the loudest voice (ties count): the ice, and into the ice together.
+var unknown_strongest: bool:
+	get:
+		var unknown: int = voices.get("unknown", 0)
+		if unknown <= 0:
+			return false
+		for name in voices:
+			if name != "unknown" and voices[name] > unknown:
+				return false
+		return true
+# Go with him: his offer held (yes with his doors, or the confession with
+# them), MC didn't leave, and he wasn't beaten.
+var daniel_ending: bool:
+	get:
+		if daniel_beaten or flags.has("left_kettle_lake"):
+			return false
+		var offered: bool = flags.has("fork6_yes") or flags.has("fork6_confess")
+		return offered and doors("daniel") >= 2
+
+# Which ending breakup plays (story/breakup.txt reads the same, in the same
+# order): docs/april.md, "KD43".
+func ending() -> String:
+	if flags.has("set_fire"):
+		return "fire"
+	for who in ["ruth", "sam", "cody"]:
+		if flags.has("ran_with_" + who):
+			return "run_" + who
+	if flags.has("ran_alone"):
+		return "run_alone" if daniel_beaten else "run_alone_him"
+	if daniel_ending:
+		return "daniel_ice" if unknown_strongest else "daniel"
+	if unknown_strongest and frayed:
+		return "the_ice"
+	return "season_ends"
 
 # How many kept moments with this person (0 once betrayed).
 func faith_count(person: String) -> int:

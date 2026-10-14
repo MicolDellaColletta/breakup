@@ -12,6 +12,8 @@ extends Control
 const USE_PATH: String = "res://story/use.txt"
 const MAP_SCENE: String = "res://scenes/map.tscn"
 const NIGHT_SCENE: String = "res://scenes/night.tscn"
+# Where an ending goes when it's over (end=title).
+const TITLE_SCENE: String = "res://scenes/title.tscn"
 const SCENE_ID: String = "visit"
 const VIEW_FADE: float = 0.25
 # Each room, and which picture shows it: [picture, view].
@@ -37,6 +39,9 @@ const ROOMS: Dictionary = {
 	"ice_tripod": ["place", "ice_tripod"],
 	"hall_cellar": ["place", "hall_cellar"],
 	"town_line": ["place", "town_line"],
+	"highway": ["place", "highway"],
+	"shore_breakup": ["place", "shore_breakup"],
+	"tent": ["place", "tent"],
 }
 
 @onready var narrator: DialogueColumn = %Narrator
@@ -159,9 +164,12 @@ func _ready_to_move() -> void:
 # show=church: the picture changes, with no walking. end=map: when this
 # section is over, so is the day (end=night: so is a walked evening).
 func _on_line_shown(line: Dictionary) -> void:
-	if line.get("end", "") in ["map", "night"]:
+	if line.get("end", "") in ["map", "night", "title"]:
 		_leaving = true
-		_leaving_to = MAP_SCENE if line["end"] == "map" else NIGHT_SCENE
+		match line["end"]:
+			"map": _leaving_to = MAP_SCENE
+			"night": _leaving_to = NIGHT_SCENE
+			"title": _leaving_to = TITLE_SCENE
 	var room: String = line.get("show", "")
 	if room != "" and room != (_fading_to if _fading_to != "" else _room):
 		_fade_to(room)

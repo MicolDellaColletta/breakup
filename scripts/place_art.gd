@@ -60,6 +60,9 @@ func _draw() -> void:
 		"ice_tripod": _draw_ice_tripod()
 		"hall_cellar": _draw_hall_cellar()
 		"town_line": _draw_town_line()
+		"highway": _draw_highway()
+		"shore_breakup": _draw_shore_breakup()
+		"tent": _draw_tent()
 
 func _draw_church() -> void:
 	# White walls, tall plain windows on both sides, pews running to the altar.
@@ -415,4 +418,52 @@ func _draw_town_line() -> void:
 	_rect(0.4, 0.62, 0.22, 0.08, Color(0.9, 0.9, 0.88))
 	_rect(0.45, 0.58, 0.12, 0.05, Color(0.3, 0.36, 0.42))
 	_rect(0.49, 0.565, 0.04, 0.015, Color(0.8, 0.2, 0.2))
+
+func _draw_highway() -> void:
+	# The highway south at dawn, from the driver's seat: the road running to a
+	# point, spruce either side, the sky going pale, the wipers parked.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.86, 0.78, 0.7))
+	_rect(0, 0, 1, 0.3, Color(0.6, 0.68, 0.8))
+	_poly([Vector2(0, 0.55), Vector2(1, 0.55), Vector2(1, 1), Vector2(0, 1)], Color(0.3, 0.38, 0.3))
+	_poly([Vector2(0.2, 1), Vector2(0.49, 0.55), Vector2(0.51, 0.55), Vector2(0.8, 1)], Color(0.32, 0.32, 0.33))
+	for k in 5:
+		_rect(0.495, 0.6 + k * 0.08, 0.01, 0.04, Color(0.9, 0.85, 0.5))
+	for k in 8:
+		_poly([Vector2(0.02 + k * 0.05, 0.56), Vector2(0.045 + k * 0.05, 0.3 + fmod(k * 0.07, 0.12)), Vector2(0.07 + k * 0.05, 0.56)], Color(0.12, 0.2, 0.14))
+		_poly([Vector2(0.58 + k * 0.05, 0.56), Vector2(0.605 + k * 0.05, 0.32 + fmod(k * 0.05, 0.1)), Vector2(0.63 + k * 0.05, 0.56)], Color(0.12, 0.2, 0.14))
+	# The dashboard and the wipers.
+	_rect(0, 0.88, 1, 0.12, Color(0.12, 0.11, 0.1))
+	draw_line(_p(0.18, 0.87), _p(0.46, 0.84), Color(0.08, 0.08, 0.08), 3.0)
+	draw_line(_p(0.54, 0.87), _p(0.82, 0.84), Color(0.08, 0.08, 0.08), 3.0)
+
+func _draw_shore_breakup() -> void:
+	# The shore at breakup: grey ice breaking into plates, black water between,
+	# a line of candles along the shore, the clock on its tripod far out.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.74, 0.78, 0.82))
+	_rect(0, 0.4, 1, 0.38, Color(0.2, 0.24, 0.28))
+	for k in 9:
+		var x: float = 0.04 + k * 0.11
+		_poly([Vector2(x, 0.46 + fmod(k * 0.03, 0.06)), Vector2(x + 0.08, 0.44), Vector2(x + 0.09, 0.56 + fmod(k * 0.05, 0.1)), Vector2(x + 0.01, 0.6)], Color(0.58, 0.6, 0.62))
+	_poly([Vector2(0, 0.78), Vector2(1, 0.76), Vector2(1, 1), Vector2(0, 1)], Color(0.45, 0.42, 0.38))
+	# The clock, far out.
+	draw_line(_p(0.7, 0.36), _p(0.68, 0.44), Color(0.15, 0.13, 0.12), 1.5)
+	draw_line(_p(0.7, 0.36), _p(0.72, 0.44), Color(0.15, 0.13, 0.12), 1.5)
+	draw_circle(_p(0.7, 0.35), size.y * 0.012, Color(0.85, 0.82, 0.7))
+	# The candles along the shore.
+	for k in 18:
+		draw_circle(_p(0.04 + k * 0.053, 0.8), size.y * 0.007, Color(1.0, 0.82, 0.45))
+
+func _draw_tent() -> void:
+	# June, Montana: a white tent on a riverbank, sides rolled up, folding
+	# chairs in rows, a figure at the door with a stack of hymnals.
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.7, 0.84, 0.94))
+	_poly([Vector2(0, 0.6), Vector2(1, 0.56), Vector2(1, 1), Vector2(0, 1)], Color(0.45, 0.62, 0.32))
+	_rect(0, 0.62, 1, 0.05, Color(0.35, 0.55, 0.72))
+	_poly([Vector2(0.2, 0.7), Vector2(0.5, 0.38), Vector2(0.8, 0.7)], Color(0.97, 0.96, 0.92))
+	for row in 3:
+		for col in 6:
+			_rect(0.3 + col * 0.07, 0.72 + row * 0.05, 0.04, 0.02, Color(0.55, 0.42, 0.3))
+	_rect(0.82, 0.62, 0.03, 0.1, Color(0.2, 0.2, 0.22))
+	draw_circle(_p(0.835, 0.6), size.y * 0.016, Color(0.9, 0.75, 0.62))
+	_rect(0.86, 0.66, 0.025, 0.03, Color(0.15, 0.1, 0.35))
 

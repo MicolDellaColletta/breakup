@@ -399,3 +399,39 @@ Leaving or burning goes straight to the morning.
 
 **Part two** is the shore and the endings: the ending reader, the endings
 and their epilogues, and the May lines.
+
+
+## As built, part two: breakup and the endings (Oct 14)
+
+**Day 43** is `story/breakup.txt`, in the visit scene. Its morning reads what
+happened, in the order the plan set:
+
+| Order | Ending | When |
+|---|---|---|
+| 1 | `fire` | `set_fire` |
+| 2 | `run_ruth`, `run_sam`, `run_cody` | the matching `ran_with_` flag |
+| 3 | `run_alone_him` | `ran_alone`, and he wasn't beaten (he finds you, exact change under a motel door) |
+| 4 | `run_alone` | `ran_alone`, and he was beaten (someone else walked out) |
+| 5 | `daniel_ice` | `daniel_ending` and ??? strongest |
+| 6 | `daniel` | `daniel_ending` |
+| 7 | `the_ice` | ??? strongest and frayed |
+| 8 | `season_ends` | otherwise. He lets go, bored ("for the ferry"); or, if he was beaten, Olstad can't stop the town alone. |
+
+- **The reader:** `GameState.ending()` names the same ending, using two new
+  checks: `unknown_strongest` and `daniel_ending` (his offer held with two of
+  his doors, MC didn't leave, and he wasn't beaten).
+- **May:** every ending but *into the ice together* and *the ice* closes on
+  the May section:
+  - the gun in the snowbank, if MC put it there in October (`gun_snow`);
+  - the bear, open;
+  - Sam's clock, sunk to its case and still ticking;
+  - the next Keeper's notice in the Anchorage paper, "Please don't be late".
+- **Scenes:** `end=title` is new in the visit scene, so an ending goes to the
+  title.
+- **Places:** `highway` (dawn, the wipers), `shore_breakup` and `tent`
+  (Montana, June).
+
+**Tests:** `test_endings.gd`, one hand-set state per ending, eleven runs.
+`test_april` now ends at breakup, on whichever ending its state leads to.
+
+**The season is written end to end,** from October 5 to May.

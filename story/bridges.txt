@@ -308,4 +308,4 @@ narration | card=Thursday. The last supper.: Every house lit, every table laid, 
 # --- After key day 42: breakup. ---
 
 === bridge_breakup
-narration | card=Saturday. Breakup.: (The story continues at breakup, which is still being written. Thank you for playing.)
+narration | card=Saturday. Breakup.: Five o'clock. The light already up. Out on the lake, the ice talking in one long sentence that doesn't stop.

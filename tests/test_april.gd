@@ -8,7 +8,7 @@ extends "res://tests/test_base.gd"
 # the town, the gun that fires or doesn't; the hall cellar); Good Friday's
 # evening (the procession; the last face in the lake); the last night
 # (leave, alone or with someone; he's in the car; burn it); the bridge to
-# breakup, the end of what's written.
+# breakup and its ending.
 
 const APR_2: int = 180 * 24 * 60 + 6 * 60
 const APR_8: int = 186 * 24 * 60 + 6 * 60
@@ -209,4 +209,4 @@ func _last_night(flags: Array, items: Array, spot: String, choice: String, outco
 		await wait(2.0)
 		_route(current_scene.get_node("%Narrator"))
 		await wait(4.0)
-		check(current_scene.name == "Title", "the end of what's written")
+		check(current_scene.name == "Visit" and gs.day == 43, "breakup: the ending (%s)" % gs.ending())

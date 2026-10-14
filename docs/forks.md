@@ -257,8 +257,9 @@ escape is alone, and it's the hardest. Details: `daniel_v7.md` section 7,
 | **Escape with someone** | **Run**, with Ruth, Sam or Cody (Break the cycle and The truth fold in here) | Their doors at three, and a way out (the road, the car, the plate). Each has a catch: someone else walked to the shore; Sam's new wall with MC's name first; Cody staying to bury Ray. |
 | **Escape alone** | **The fire** (the true one) | No romance locked; four of six kept faith with, including someone who lets MC go; and **Daniel beaten**, one attempt, one of three ways: Olstad takes him, the town turns on him (his files), or John's gun. Then the shop burns. |
 
-Order of reading at breakup: Run alone → escape with someone → Daniel → The fire
-→ The season ends (or The ice).
+Order of reading at breakup, as built (`story/breakup.txt`, `GameState.ending()`):
+the fire → escape with someone → run alone (he finds you, or he can't) → Daniel
+(into the ice together) → the ice → the season ends.
 
 **Olstad** is on the shore in every ending where MC is.
 

@@ -1,0 +1,129 @@
+# KEY DAY 43: Saturday, April 22, 2000. Breakup.
+# The ending (scenes/visit.tscn). The morning reads what happened, in the
+# order docs/april.md sets: the fire; a run with someone (Ruth, Sam, Cody);
+# a run alone (with him, or with him beaten); the Daniel ending (into the ice
+# together, with ??? strongest); the ice (??? strongest and frayed); the
+# season ends. GameState.ending() names the same one. Every ending where
+# MC is gone or dead closes on May. end=title. Design: docs/april.md.
+
+=== morning
+-> fire | if=flag:set_fire
+-> run_ruth | if=flag:ran_with_ruth
+-> run_sam | if=flag:ran_with_sam
+-> run_cody | if=flag:ran_with_cody
+-> run_alone_him | if=flag:ran_alone and !daniel_beaten
+-> run_alone | if=flag:ran_alone
+-> daniel_ice | if=daniel_ending and unknown_strongest
+-> daniel | if=daniel_ending
+-> the_ice | if=unknown_strongest and frayed
+-> season_ends
+
+# --- Escape alone: the fire. The true one. ---
+
+=== fire
+narration | show=highway | time=06:00: Morning. The highway south. John's car, or a truck that stopped for a man walking on the shoulder with his coat over his arm; you don't remember which. The wipers going, the sky clear.
+narration: The radio says the ice went out on Kettle Lake at five forty-one this morning. It says nothing else about Kettle Lake. Not a fire. Not a shop. Not a town. It plays a song, and then the weather.
+narration | if=flag:olstad_looks_away: The last thing you saw of it, in the mirror, at the town line: a cruiser on the shoulder, lights off, not moving. A woman at the wheel looking straight ahead, at nothing, the way she said she would.
+narration: Your coat smells of smoke. Or it doesn't. You put your face in the collar and you can't tell.
+narration: PREPARE TO MEET THY G... goes by on the other side of the road, from behind. You'd forgotten it was there. You don't look round.
+narration: You don't know if any of it happened. The shop, the rules, the bowl, the bell. The lake. For the first time since October, it doesn't matter.
+narration: Nobody's waiting for you. Nobody's paying for you. There's nothing left to pay.
+-> may
+
+# --- Escape with someone. ---
+
+=== run_ruth
+narration | show=highway | time=06:00: Morning. The highway south. Ruth asleep against the window with her mother's blue bowl in her lap, wrapped in a bar towel.
+narration: At five forty-one she wakes, all at once, as if somebody had said her name. She doesn't say anything. She looks at her watch, and then out of the back window, north, for a long time.
+narration: In June, in a rented kitchen in Washington State, she sets the table for three. Every night. You don't ask who the third place is for. You know who was holding the shop's keys when you left. So does she.
+-> may
+
+=== run_sam
+narration | show=highway | time=06:00: Morning. The highway south. Sam with a box of notebooks on his knees and his watch held up to the window. At five forty-one he writes it down. "It went," he says. "On the minute. I knew it would." You don't ask how he knows from two hundred miles away.
+narration: In a motel in Anchorage, the second night, he buys a corkboard and a box of pins from the drugstore across the road.
+narration: The first card he pins up has a name on it in his square capitals. Yours. The real one. You never told him. He worked it out.
+narration: "Just to keep it," he says. "So it's written down somewhere."
+-> may
+
+=== run_cody
+narration | show=highway | time=06:00: Morning. The Parks Highway north, in the back of a pickup that smells of dog and coffee. Cody asleep against you with the ice picks round his neck. His mother driving, not looking in the mirror.
+narration: At Fairbanks, at the aunt's house, there's a bed made up for you in a room with a window that faces south.
+narration: In May the phone rings. Ray's come up through the ice off the point. Cody's mother sits down on the kitchen floor with the phone in her lap.
+narration: Cody goes back to bury him. You drive him to the bus. At the bus he gives you the ice picks, cord and all, and gets on without them.
+narration: You don't go back. You drive on alone after all, south, with a pair of ice picks on the seat beside you where a revolver used to be.
+-> may
+
+# --- Run, alone. ---
+
+=== run_alone_him
+narration | show=highway | time=06:00: Morning. The highway south.
+narration | if=flag:daniel_in_car: He's still in the passenger seat. He hasn't said a word all night. At Whitehorse, at a motel with a broken sign, he gets out, and closes the door gently, and taps twice on the roof, and walks away without looking back.
+narration | if=!flag:daniel_in_car: Nobody follows you. Nobody's on the road at all. You check the mirror every mile until Whitehorse anyway.
+narration: You take a room at the next motel south. You sleep for a day.
+narration: On the third night there's a knock. Twice. When you open the door there's nobody there. On the mat, pushed under, a little stack of coins. Exact change. For the room. For the night. For you.
+narration: He always knows which way.
+-> may
+
+=== run_alone
+narration | show=highway | time=06:00: Morning. The highway south. Alone. The rental's heater roaring, and the wipers, for no reason, the sky clear.
+narration: Nobody follows you. He can't.
+narration: In June, at a truck stop in British Columbia, a radio on the shelf behind the counter says something about a town in Alaska, a custom, a man walked out onto the ice at breakup. It doesn't say your name. It says somebody else's.
+narration: You left the shop's keys with someone. You knew what that meant. You finish your coffee. You leave exact change.
+-> may
+
+# --- Go with him. ---
+
+=== daniel
+narration | show=shore_breakup | time=05:30 | red=on: The shore at dawn. The whole town in a line along the water's edge, candles lit in daylight, the straw man on his pole. Far out, Sam's clock on its tripod on grey ice. Olstad at the end of the line, in uniform. The ice talks.
+narration: He comes down the lake road in the good coat and stands beside you, and takes your arm. The left one. He said, at New Year's, which arm. He never said he'd let go.
+daniel: Watch.
+narration: He raises his other hand. Just that.
+narration: The town walks out onto the ice. All of them. Along the path of holes, single file, candles, singing. Mrs. Hollis. Martha Lund and her boy. The children with the goat's red rope. Out to the middle, where the clock is.
+narration: At five forty-one the ice goes out. All at once, the way Sam always said. The sound is like a building coming down.
+narration: Olstad, at the end of the shore, alone, with her hand on her holster and nothing to point it at.
+narration: He watches you watch. He's never looked at anything the way he looks at your face right now.
+narration | show=tent | time=12:00 | red=off: June. A town in Montana with a river instead of a lake. A white tent on the riverbank, sides rolled up, folding chairs, a piano that's out of tune.
+narration: You stand at the tent door handing out hymnals. Every one of them takes one from your hand and says thank you.
+narration: That night, in the trailer behind the tent, he says your name. Your real one. The first time anyone's said it aloud since you were seventeen.
+narration: You hear it. All of it. It's the boy's name, from the lake.
+-> may
+
+=== daniel_ice
+narration | show=shore_breakup | time=05:30 | red=alone: The shore at dawn. The town in its line, the candles, the straw man. Olstad at the end, in uniform.
+narration: He comes down the lake road and takes your arm. He doesn't stop at the edge.
+narration: You walk out together, along the path of holes, past the candles, past the clock. The ice is soft. It gives under you like a mattress, like a bed, like water. He doesn't believe in any of it. He doesn't let go.
+unknown: Yes.
+narration: At five forty-one, the ice goes out.
+narration: In May the lake gives back what it took. Cody, who has stood on the shore every morning since October waiting for Ray, sees two men come up off the point together, still holding on. Kept.
+narration | end=title: Nobody can make them let go.
+
+# --- Let the town have MC. ---
+
+=== season_ends
+narration | show=shore_breakup | time=05:30: The shore at dawn. The whole town in a line along the water's edge, candles lit in daylight. Far out, Sam's clock on its tripod on grey ice. Olstad at the end of the line, in uniform. The ice talks.
+narration: They come for you at five. Mrs. Hollis takes one arm. Someone you've never served takes the other. Nobody's rough. Nobody needs to be.
+narration | if=!daniel_beaten: He's there, on the shore, at the end of the path of holes. He takes your arm from Mrs. Hollis and walks you the last of the way himself. At the edge he presses something into your palm. Coins. Exact change. "For the ferry," he says. He looks bored. That's the worst of it. He lets go.
+narration | if=daniel_beaten: Olstad steps out of the line. "That's enough," she says. "That's enough. Go home." Nobody goes home. She stands in front of you with her hand on her holster, one woman, and the town walks round her the way water goes round a stone.
+narration: Out along the path of holes, single file, candles on either side. The ice soft as a mattress. Far out, the clock, ticking.
+narration: At five forty-one, the ice goes out.
+narration | show=shore_breakup | time=09:00: The town walks home. The straw man goes back up on his post. On the hall door, somebody paints the count again, from the top: 33.
+narration: In the Gleaner, Ruth takes down a photograph from behind the bar and pins it on the wall at the end of the last row. Your face. You never knew she'd taken it.
+-> may
+
+=== the_ice
+narration | show=shore_breakup | time=05:00: The shore, before anyone's there. Before the candles. Grey light. The ice talking.
+unknown: Now. Before they come. It's been waiting since October.
+narration: You walk out on your own. Along the path of holes, past the clock. Nobody walks you. Nobody needs to. The ice is soft. Under it, something moves, slow, the way a dog turns round before it lies down.
+narration: At the middle you stop. You look down through a hole into black water, and something looks back up, and it isn't your face.
+narration: At five forty-one the ice goes out.
+narration: When the town comes down to the shore at half past five with its candles, there's nobody to walk out. The holes in the ice are full of water. Olstad stands at the end of the line with her notebook open and nothing to write in it.
+narration | end=title: Was it there? Were you? The lake doesn't say.
+
+# --- May. ---
+
+=== may
+narration | show=shore_breakup | time=12:00: May. Kettle Lake, open water, blue, with the mountains in it upside down.
+narration | if=flag:gun_snow: By the back door of the pawn shop the snowbank melts, and there it is, where you pushed it in October, wrapped in a towel gone to rags. John's gun. Five in the cylinder. Nobody finds it for a year.
+narration | if=flag:found_paraffin: In the shop, if there's a shop, the bear in the corner with its chest open, straw on the floor, a feed sack, empty.
+narration: Far out, where the ice was, Sam's clock still on its tripod, sunk to the case, the water round its face. Still ticking. Nobody knows how.
+narration | end=title: The next Keeper is due on the third of October. The notice is already in the Anchorage paper. "Please don't be late."
