@@ -3,7 +3,114 @@
 The running list of what's next, in order. The shop redesign has its own
 step-by-step list (`shop.md`, "To do"); this is everything around it.
 
-## Next session
+## Pick up here (Oct 13)
+
+**Start with `docs/questions.md`.** It lists every decision I need from you,
+with a lean on each, and the order to merge the branches. The full review
+(item 2) is done (`review_full.md`, on the `full-review` branch). The red light
+(item 5) is built (`red-light`). March is planned (`march.md`).
+
+**Open branches:** `night-walks` and `february` are pushed. All of their tests
+pass: 24 test files on night-walks, 25 on february. Neither has a PR yet.
+
+1. **Merge the two branches, in order.** Open a PR for `night-walks` and merge
+   it. Then open a PR for `february`; it's built on night-walks, so its diff
+   only shrinks to February's own changes once night-walks is merged. After
+   each merge, update main.
+
+2. **A full review of everything built,** before any more building (it comes
+   before the Daniel rewrite and March). Write the findings down first, then
+   fix them. Like `review.md`, but complete, and covering:
+   - **Objects:** every item, stock piece and document. Is each one taken,
+     used, examined and paid off, or is it a dead end? Are its descriptions
+     consistent from month to month?
+   - **Branches:** every section reachable; no dead ends, loops, or jumps
+     placed in the middle of a section.
+   - **Flags:** every flag that's set, and where it's read. Set and never
+     read, read and never set, spelling mismatches.
+   - **Forks and counts:** the six hard forks, kept faith per person, the
+     doors, the eye. Does each choice actually change something later? Are
+     the counts balanced (can every ending still be reached)?
+   - **Exploration:** night walks, spots, use-item targets, map evenings. What
+     can be found, when, and is it findable without luck?
+   - **Dialogue:** voice per character (Daniel especially, per v7),
+     contradictions between months, repeated lines, too much text.
+   - **Choices:** every choice gives the player something real, no fake
+     choices, the voices' leans used evenly, gated choices reachable.
+   - **Continuity:** dates, days of the week, light hours, who knows what
+     when, dead people staying dead.
+   - **How:** a script that extracts the flag/item/section graph from
+     `story/` (set vs read, reachability), plus a read-through by month.
+     Output: `review_full.md`, with an order of fixes.
+
+3. **Answer the Daniel calls** in `daniel_v7.md`: calls 1–8 for v7, calls 9–11
+   for the darker version.
+   - The open questions: flashback A, B or C (lean A, the 1988 lake), and
+     who drowns (lean a girl from the town, not MC's brother).
+   - Once they're agreed, fold the decisions into `daniel.md`, `forks.md`
+     (endings: the four ways out) and `decisions.md`.
+
+4. **The Daniel rewrite pass** (its own PR, before March).
+   - Every built Daniel scene, from Thanksgiving to February, about 120 lines
+     over 18 days, plus the night-walks face-off. The rule: hard in public,
+     himself alone with MC, never kind.
+   - The confession booth becomes **the anxious bench** (in public) plus
+     **the counsel room** (in private), in the hall days (30, 34), the
+     December vestry and `town.txt`.
+   - Ezra's breaking, Olstad asleep in her cruiser with her rounds on the
+     dashboard (move it into February), and the "let in" offers (the
+     Reverend, the files, the collection).
+
+5. **The red light.** One overlay shared by the counter, visit and night
+   scenes.
+   - It comes up automatically on `daniel` lines, plus `red=on` / `red=off`
+     for scenes where he's there but silent.
+   - Deeper when he's alone with MC, and red when he *isn't* there if ???
+     is strong.
+   - Build it with the rewrite pass, with tests.
+
+6. **Plan March in a doc,** following `season.md`, now with v7:
+   - Fork 6 becomes his offer, "come with me".
+   - His one lie, "I knew", and the first piece of the 1988 flashback.
+   - Someone who hurt MC disappears (exact change on the kitchen table).
+   - Sam's lie (door 3). Olstad's 1988 file. The cigar box in his room
+     above the Gleaner.
+   - The gun "till March".
+
+7. **April and the endings.**
+   - The ending reader.
+   - The four ways out: go with him, the town takes MC, escape with someone,
+     escape alone.
+   - Three ways to beat Daniel for the fire: Olstad, the town, the gun.
+   - The flashback's last piece (the face).
+
+8. **Smaller things, any time:**
+   - **A `CLAUDE.md` for the repo,** so a fresh session starts fast. It should
+     cover the story file format (sections, lines, choices, effects,
+     conditions), the gotchas (jumps only at the end of a section; `redeemed=`
+     on lines, never choices; `use_*` sections in `use.txt`; runtime `load()`
+     in tests), how to run the tests headless, the plan-then-build
+     workflow, and the PR routine.
+   - **Godot in the cloud session.** The binary lived in a scratchpad that's
+     gone next session. Either a SessionStart hook that downloads Godot
+     4.7.2 (linux, headless) and runs `--import`, or a note in `CLAUDE.md`
+     on how to fetch it.
+   - **One long playthrough test:** from the prologue to the end of February
+     in one run, through the real bridges and saves, not day by day. It
+     catches state that leaks between months.
+   - **Old saves:** load a save from each month into the new build (new
+     flags, new counts, the eye seeded at day 18) and check nothing breaks.
+   - **Docs drift:** `pillars.md`, `story.md` and `daniel.md` still describe
+     Daniel as a hired killer (v6). Fold v7 in once the calls are answered.
+   - **The art list** (older item 8) now needs the new places: church_fire,
+     vestry_door, ruins, booth, gleaner, cabin, cabin_road, and the counsel
+     room.
+   - **The gap from Feb 20 to Mar 12** is the longest jump in the game. Does
+     the bridge carry three weeks, or does March need an extra early day?
+
+9. **Then the older list below,** from "Unreliable narration" down.
+
+## Next session (older)
 
 1. **Review: anything still missing.** First thing. A full, honest pass over
    the game as it plays now (the prologue to Daniel's arrival, the shop
