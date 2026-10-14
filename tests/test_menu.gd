@@ -131,5 +131,6 @@ func _title_with_saves() -> void:
 	# The last bridge in the table is the end of what's written; the one before leads on.
 	var last: int = gs.BRIDGES.keys().max()
 	var earlier: int = gs.BRIDGES.keys().filter(func(d: int) -> bool: return d < last).max()
-	check(script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": last}}), "a save on the last card is the end: no Continue")
+	# The season is written to the end now: even the last card leads on, to breakup.
+	check(not script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": last}}), "the last card leads on to breakup: Continue")
 	check(not script.at_the_end({"scene": gs.BRIDGE_SCENE, "state": {"day": earlier}}) and not script.at_the_end({"scene": "res://scenes/night.tscn", "state": {"day": earlier}}), "any other save can be continued")
