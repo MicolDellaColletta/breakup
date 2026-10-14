@@ -1,5 +1,7 @@
 # Questions for the morning (Oct 14)
 
+**Answered Oct 14: "agree with all your leans."** Logged in `decisions.md`.
+
 Everything I need from you, in one place, with my lean on each. The easiest
 way to answer: "agree with all your leans", plus the numbers you want
 different.
