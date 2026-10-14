@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_map"]
 [ext_resource type="PackedScene" path="res://scenes/dialogue_column.tscn" id="2_column"]
+[ext_resource type="Script" path="res://scripts/map_art.gd" id="3_art"]
 
 [node name="Map" type="Control" unique_id=1050607080]
 layout_mode = 3
@@ -29,6 +30,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="MapArt" type="Control" parent="MapArea" unique_id=1250627999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_art")
+
 [node name="Title" type="Label" parent="MapArea" unique_id=1350637383]
 layout_mode = 0
 offset_left = 40.0
@@ -46,7 +57,7 @@ anchor_top = 0.4
 anchor_right = 0.6
 anchor_bottom = 0.7
 mouse_filter = 2
-color = Color(0.13, 0.16, 0.2, 1)
+color = Color(0.13, 0.16, 0.2, 0)
 
 [node name="LakeLabel" type="Label" parent="MapArea/Lake" unique_id=1550657585]
 layout_mode = 1
@@ -61,7 +72,7 @@ offset_right = 80.0
 offset_bottom = 12.0
 theme_override_colors/font_color = Color(0.55, 0.62, 0.7, 0.45)
 theme_override_font_sizes/font_size = 16
-text = "the lake"
+text = ""
 horizontal_alignment = 1
 
 [node name="Places" type="Control" parent="MapArea" unique_id=1650667686]

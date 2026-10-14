@@ -6,13 +6,13 @@ extends Control
 # bedroom. Where things are drawn matches the apartment hotspots in
 # spots.cfg. See docs/layout.md, "The apartment".
 
-const DARK: Color = Color(0.02, 0.022, 0.03)
-const WALL: Color = Color(0.05, 0.048, 0.055)
-const FLOOR: Color = Color(0.045, 0.038, 0.035)
+const DARK: Color = Color(0.035, 0.038, 0.05)
+const WALL: Color = Color(0.08, 0.077, 0.088)
+const FLOOR: Color = Color(0.075, 0.063, 0.058)
 const NEON: Color = Color(0.9, 0.14, 0.16)
 const NIGHT: Color = Color(0.03, 0.04, 0.07)
 const AMBER: Color = Color(0.95, 0.62, 0.25)
-const FURNITURE: Color = Color(0.03, 0.028, 0.03)
+const FURNITURE: Color = Color(0.05, 0.047, 0.05)
 const STEEL: Color = Color(0.35, 0.36, 0.38)
 const PAPER: Color = Color(0.7, 0.67, 0.6)
 
@@ -120,6 +120,14 @@ func _draw_hall() -> void:
 	# Bathroom door (near) and bedroom door (far), on the left wall, open.
 	_poly([Vector2(0.08, 0.2), Vector2(0.2, 0.26), Vector2(0.2, 0.82), Vector2(0.08, 0.9)], Color(0.01, 0.01, 0.014))
 	_poly([Vector2(0.26, 0.3), Vector2(0.34, 0.33), Vector2(0.34, 0.74), Vector2(0.26, 0.78)], Color(0.01, 0.01, 0.014))
+	# A runner down the middle of the floor, worn pale in a line.
+	_poly([Vector2(0.38, 0.98), Vector2(0.45, 0.74), Vector2(0.55, 0.74), Vector2(0.62, 0.98)], Color(0.12, 0.06, 0.05))
+	# The bulb on its cord, off; the switch by the stairs.
+	draw_line(_p(0.5, 0.0), _p(0.5, 0.12), Color(0.12, 0.12, 0.12), 1.5)
+	draw_circle(_p(0.5, 0.13), size.y * 0.012, Color(0.25, 0.24, 0.2))
+	_rect(0.9, 0.48, 0.02, 0.04, Color(0.3, 0.29, 0.26))
+	# The thermostat between the doors, turned all the way up.
+	_rect(0.22, 0.4, 0.025, 0.035, Color(0.28, 0.26, 0.22))
 	# The locked door at the end, on the right: shut, a keyhole, cold.
 	_poly([Vector2(0.62, 0.26), Vector2(0.72, 0.22), Vector2(0.72, 0.78), Vector2(0.62, 0.72)], Color(0.09, 0.08, 0.07))
 	draw_circle(_p(0.64, 0.5), 3, Color(0.0, 0.0, 0.0))
@@ -150,5 +158,20 @@ func _draw_bedroom() -> void:
 	_rect(0.74, 0.34, 0.16, 0.26, Color(0.07, 0.055, 0.045))
 	for k in 3:
 		_rect(0.75, 0.37 + k * 0.075, 0.14, 0.004, Color(0.03, 0.025, 0.02))
+	# The window over the bed: the night, the snow on the sill, a thin curtain.
+	_rect(0.34, 0.1, 0.16, 0.22, Color(0.06, 0.05, 0.04))
+	_rect(0.35, 0.115, 0.14, 0.19, NIGHT)
+	_rect(0.35, 0.28, 0.14, 0.025, Color(0.5, 0.52, 0.56, 0.5))
+	draw_line(_p(0.42, 0.115), _p(0.42, 0.305), Color(0.06, 0.05, 0.04), 2.0)
+	_poly([Vector2(0.33, 0.09), Vector2(0.37, 0.09), Vector2(0.36, 0.34), Vector2(0.325, 0.34)], Color(0.12, 0.11, 0.1))
+	# The nightstand: a lamp, off, and the clock radio's red numbers.
+	_rect(0.07, 0.5, 0.1, 0.16, Color(0.065, 0.05, 0.04))
+	_rect(0.09, 0.46, 0.06, 0.04, Color(0.12, 0.11, 0.1))
+	_rect(0.1, 0.43, 0.04, 0.03, Color(0.3, 0.05, 0.05, 0.4))
+	_poly([Vector2(0.14, 0.34), Vector2(0.17, 0.34), Vector2(0.18, 0.41), Vector2(0.13, 0.41)], Color(0.16, 0.15, 0.13))
+	_rect(0.153, 0.41, 0.006, 0.05, Color(0.16, 0.15, 0.13))
+	# John's boots by the dresser, the laces still done up.
+	_rect(0.78, 0.62, 0.035, 0.05, Color(0.1, 0.08, 0.06))
+	_rect(0.82, 0.62, 0.035, 0.05, Color(0.1, 0.08, 0.06))
 	# Through the floor, the freezer: a faint cold line along the boards.
 	_rect(0.0, 0.94, 1.0, 0.004, Color(0.4, 0.55, 0.7, 0.08 + 0.04 * sin(_time * 2.0)))

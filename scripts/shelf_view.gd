@@ -278,12 +278,74 @@ func _draw() -> void:
 
 func _draw_shelves() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), BACK_WALL)
+	_draw_panelling(_inner_rect())
 	if mode == "back":
 		_draw_case(_inner_rect(), 3)
 	else:
 		_draw_case(_wall_shelves_rect(), WALL_SPOTS[mode][1])
 	if mode == "right":
 		_draw_door(_door_rect())
+	_draw_wall_dressing()
+
+# Tongue-and-groove boards behind everything, darker at the floor.
+func _draw_panelling(area: Rect2) -> void:
+	var boards: int = int(area.size.x / 38.0)
+	for k in boards:
+		var x: float = area.position.x + k * area.size.x / boards
+		draw_line(Vector2(x, area.position.y), Vector2(x, area.end.y), Color(0, 0, 0, 0.35), 1.0)
+	draw_rect(Rect2(Vector2(area.position.x, area.end.y - size.y * 0.05), Vector2(area.size.x, size.y * 0.05)), Color(0.05, 0.04, 0.035))
+
+# What's on the walls and the shelf ends: nothing to click, just the shop.
+# The left wall has the antlers and the trap chain; the right wall, the
+# calendar and the rules by the door; the back shelf, the gun rack and the
+# PAWN TICKETS sign.
+func _draw_wall_dressing() -> void:
+	var area: Rect2 = _inner_rect()
+	match mode:
+		"left":
+			# Antlers on a plaque, high on the upright between the rows.
+			var top: Vector2 = Vector2(area.get_center().x, area.position.y + size.y * 0.035)
+			_draw_antlers(top, size.y * 0.05)
+			# A leg-hold trap on its chain, hung off the end of the shelf.
+			var hook: Vector2 = Vector2(area.end.x - 10, area.position.y + area.size.y * 0.52)
+			for k in 5:
+				draw_arc(hook + Vector2(0, k * 7), 3.5, 0, TAU, 8, Color(0.35, 0.33, 0.3), 1.5)
+			draw_arc(hook + Vector2(0, 52), 14, PI, TAU, 12, Color(0.4, 0.38, 0.35), 2.5)
+			draw_line(hook + Vector2(-14, 52), hook + Vector2(14, 52), Color(0.4, 0.38, 0.35), 2.5)
+		"right":
+			var door: Rect2 = _door_rect()
+			# The calendar from the feed store, this month, by the door.
+			var cal: Rect2 = Rect2(Vector2(door.position.x - size.x * 0.005 - 54, size.y * 0.07), Vector2(50, 66))
+			cal.position.x = maxf(cal.position.x, _wall_shelves_rect().end.x + 2)
+			draw_rect(cal, Color(0.86, 0.84, 0.78))
+			draw_rect(Rect2(cal.position, Vector2(cal.size.x, 24)), Color(0.55, 0.2, 0.15))
+			draw_string(ThemeDB.fallback_font, cal.position + Vector2(4, 17), _month_name(), HORIZONTAL_ALIGNMENT_LEFT, cal.size.x - 6, 11, Color(0.95, 0.92, 0.85))
+			for k in 12:
+				draw_rect(Rect2(cal.position + Vector2(5 + (k % 4) * 11, 30 + (k / 4) * 11), Vector2(8, 7)), Color(0.4, 0.38, 0.35, 0.5))
+			# The rules, typed and taped up: NO REFUNDS.
+			var sign: Rect2 = Rect2(Vector2(door.position.x + door.size.x * 0.12, door.position.y + door.size.y * 0.56), Vector2(door.size.x * 0.76, door.size.y * 0.12))
+			draw_rect(sign, Color(0.8, 0.78, 0.7))
+			draw_string(ThemeDB.fallback_font, sign.position + Vector2(4, sign.size.y * 0.65), "NO REFUNDS", HORIZONTAL_ALIGNMENT_LEFT, sign.size.x - 6, 11, INK)
+		_:
+			# Behind the held things: PAWN TICKETS / 90 DAYS, painted on a board.
+			var board: Rect2 = Rect2(Vector2(area.get_center().x - 90, 22), Vector2(180, 20))
+			draw_rect(board, Color(0.16, 0.12, 0.08))
+			draw_string(ThemeDB.fallback_font, board.position + Vector2(8, 15), "LOANS · 90 DAYS · NO EXTENSIONS", HORIZONTAL_ALIGNMENT_LEFT, board.size.x - 10, 10, Color(0.85, 0.78, 0.55))
+
+func _draw_antlers(base: Vector2, s: float) -> void:
+	var bone: Color = Color(0.7, 0.64, 0.52)
+	draw_rect(Rect2(base + Vector2(-s * 0.5, -s * 0.2), Vector2(s, s * 0.7)), Color(0.25, 0.17, 0.1))
+	for side in [-1.0, 1.0]:
+		var root: Vector2 = base + Vector2(side * s * 0.15, 0)
+		var tip: Vector2 = root + Vector2(side * s * 1.8, -s * 0.4)
+		draw_line(root, tip, bone, 3.0)
+		for k in 3:
+			var at: Vector2 = root.lerp(tip, 0.35 + k * 0.25)
+			draw_line(at, at + Vector2(side * s * 0.15, -s * 0.55), bone, 2.0)
+
+func _month_name() -> String:
+	var month: String = GameState.date_text().split(" ")[0]
+	return month.to_upper().left(3) + (" '99" if month in ["Oct", "Nov", "Dec"] else " '00")
 
 # A shelving unit: planks under each row, uprights at the ends.
 func _draw_case(area: Rect2, rows: int) -> void:
@@ -308,8 +370,7 @@ func _draw_counter() -> void:
 	# The front window: night (or day) outside, the snow, the neon at its edge.
 	var window: Rect2 = _window_rect()
 	draw_rect(window.grow(6), Color(0.12, 0.1, 0.08))
-	draw_rect(window, GLASS)
-	draw_rect(Rect2(window.position + Vector2(0, window.size.y * 0.8), Vector2(window.size.x, window.size.y * 0.2)), Color(0.6, 0.62, 0.66, 0.25))
+	_draw_street(window)
 	draw_rect(Rect2(window.position, Vector2(window.size.x, 4)), Color(NEON, 0.5))
 	# The three spots on the window ledge.
 	var ledge_y: float = window.end.y - 4
@@ -330,6 +391,55 @@ func _draw_counter() -> void:
 		draw_rect(top, Color(HOVER, 0.4 if not _hovering_counter else 0.8), false, 1.5)
 		_draw_label("Hand it over", top.get_center() - Vector2(0, top.size.y * 0.5 + 4))
 
+# Out the front window: the road, the snowbank, the Gleaner's lit window
+# across the way, the streetlight, the back of the neon. Light by the hour
+# and the season (Alaska: a short winter day), snow from late October on.
+func _draw_street(window: Rect2) -> void:
+	var light: float = _daylight()
+	var sky: Color = Color(0.03, 0.04, 0.07).lerp(Color(0.62, 0.68, 0.74), light)
+	draw_rect(window, sky)
+	var calendar_day: int = GameState.minutes / 1440
+	var snow: bool = calendar_day >= 18 and calendar_day < 205
+	var ground: Color = (Color(0.75, 0.78, 0.82) if snow else Color(0.3, 0.28, 0.24)).lerp(Color(0.05, 0.05, 0.07), 1.0 - light * 0.9)
+	var horizon: float = window.position.y + window.size.y * 0.55
+	# Across the road: the Gleaner, and a second roof.
+	var bar: Rect2 = Rect2(Vector2(window.position.x + window.size.x * 0.08, horizon - window.size.y * 0.22), Vector2(window.size.x * 0.38, window.size.y * 0.22))
+	draw_rect(bar, Color(0.1, 0.08, 0.07).lerp(Color(0.35, 0.28, 0.24), light))
+	draw_colored_polygon(PackedVector2Array([bar.position + Vector2(-8, 0), bar.position + Vector2(bar.size.x * 0.5, -window.size.y * 0.08), Vector2(bar.end.x + 8, bar.position.y)]), Color(0.08, 0.07, 0.07).lerp(Color(0.25, 0.22, 0.2), light))
+	draw_rect(Rect2(bar.position + Vector2(bar.size.x * 0.15, bar.size.y * 0.3), Vector2(bar.size.x * 0.25, bar.size.y * 0.35)), Color(0.95, 0.75, 0.4, 0.9 - light * 0.5))
+	draw_rect(Rect2(bar.position + Vector2(bar.size.x * 0.6, bar.size.y * 0.3), Vector2(bar.size.x * 0.25, bar.size.y * 0.35)), Color(0.95, 0.75, 0.4, 0.9 - light * 0.5))
+	draw_rect(Rect2(Vector2(window.position.x + window.size.x * 0.6, horizon - window.size.y * 0.14), Vector2(window.size.x * 0.3, window.size.y * 0.14)), Color(0.07, 0.07, 0.08).lerp(Color(0.3, 0.3, 0.3), light))
+	# The road, and the bank the plough leaves.
+	draw_rect(Rect2(Vector2(window.position.x, horizon), Vector2(window.size.x, window.end.y - horizon)), ground)
+	draw_rect(Rect2(Vector2(window.position.x, horizon + window.size.y * 0.08), Vector2(window.size.x, window.size.y * 0.12)), ground.darkened(0.35))
+	if snow:
+		draw_colored_polygon(PackedVector2Array([Vector2(window.position.x, window.end.y), Vector2(window.position.x, window.end.y - window.size.y * 0.16), Vector2(window.position.x + window.size.x * 0.3, window.end.y - window.size.y * 0.1), Vector2(window.end.x * 0.7 + window.position.x * 0.3, window.end.y - window.size.y * 0.14), Vector2(window.end.x, window.end.y - window.size.y * 0.09), Vector2(window.end.x, window.end.y)]), ground.lightened(0.08))
+	# The streetlight, on when it's dark.
+	var pole_x: float = window.position.x + window.size.x * 0.52
+	draw_line(Vector2(pole_x, horizon + 4), Vector2(pole_x, window.position.y + window.size.y * 0.12), Color(0.12, 0.12, 0.13), 3.0)
+	draw_line(Vector2(pole_x, window.position.y + window.size.y * 0.12), Vector2(pole_x + 22, window.position.y + window.size.y * 0.12), Color(0.12, 0.12, 0.13), 3.0)
+	if light < 0.5:
+		draw_circle(Vector2(pole_x + 22, window.position.y + window.size.y * 0.13), 5, Color(1.0, 0.85, 0.55))
+		draw_colored_polygon(PackedVector2Array([Vector2(pole_x + 18, window.position.y + window.size.y * 0.14), Vector2(pole_x + 26, window.position.y + window.size.y * 0.14), Vector2(pole_x + 60, horizon + window.size.y * 0.1), Vector2(pole_x - 16, horizon + window.size.y * 0.1)]), Color(1.0, 0.85, 0.55, 0.12))
+	# The glass: a cold sheen, frost in the corners in winter.
+	draw_rect(window, Color(0.6, 0.7, 0.8, 0.06))
+	if snow:
+		for corner in [window.position, Vector2(window.end.x, window.position.y), window.end, Vector2(window.position.x, window.end.y)]:
+			draw_circle(corner, window.size.y * 0.06, Color(0.85, 0.9, 0.95, 0.08))
+	# The neon from behind: PAWN, backwards, red on the glass.
+	draw_string(ThemeDB.fallback_font, window.position + Vector2(window.size.x * 0.36, window.size.y * 0.11), "NWAP", HORIZONTAL_ALIGNMENT_LEFT, -1, int(window.size.y * 0.08), Color(NEON, 0.55))
+
+# 0 in the dark, 1 in full day, by the clock and the date (a rough Alaskan
+# day: about eighteen hours of light in June, under six at Christmas).
+func _daylight() -> float:
+	var calendar_day: int = GameState.minutes / 1440
+	var hour: float = (GameState.minutes % 1440) / 60.0
+	var day_of_year: int = (278 + calendar_day) % 365
+	var length: float = 12.3 + 6.4 * cos(TAU * (day_of_year - 172) / 365.0)
+	var noon: float = 13.5
+	var from_noon: float = absf(hour - noon)
+	return clampf((length / 2.0 - from_noon) / 1.2 + 0.5, 0.0, 1.0)
+
 func _draw_items() -> void:
 	var all: Array[Dictionary] = spots()
 	for i in all.size():
@@ -346,6 +456,8 @@ func _draw_items() -> void:
 		ItemArt.draw(self, _shape(item_id), r, item_id == held)
 		if all[i]["shelf"] == "back" and _tag_of.is_valid():
 			_draw_tag(r, str(_tag_of.call(item_id)))
+		elif all[i]["shelf"] == "floor" and _stock != null and _stock.has_section_key(item_id, "price"):
+			_draw_price(r, "$%d" % int(_stock.get_value(item_id, "price")))
 	if _hovered != -1 and _hovered < all.size():
 		var r: Rect2 = all[_hovered]["rect"]
 		var under: String = _item_in(all[_hovered])
@@ -374,6 +486,14 @@ func _draw_counter_objects() -> void:
 		var y: float = book.position.y + book.size.y * (0.25 + k * 0.17)
 		draw_line(Vector2(book.position.x + 6, y), Vector2(book.get_center().x - 4, y), Color(0.3, 0.25, 0.2, 0.6), 1.0)
 		draw_line(Vector2(book.get_center().x + 4, y), Vector2(book.end.x - 6, y), Color(0.3, 0.25, 0.2, 0.6), 1.0)
+	# Not to click: a mug gone cold, and a cup of pens and a loupe.
+	var mug: Vector2 = Vector2(counter_rect().position.x - size.y * 0.06, size.y * 0.93)
+	draw_rect(Rect2(mug - Vector2(size.y * 0.025, size.y * 0.06), Vector2(size.y * 0.05, size.y * 0.06)), Color(0.55, 0.52, 0.48))
+	draw_arc(mug + Vector2(size.y * 0.032, -size.y * 0.032), size.y * 0.014, -PI / 2, PI / 2, 8, Color(0.55, 0.52, 0.48), 2.0)
+	var cup: Vector2 = Vector2(counter_rect().end.x + size.y * 0.06, size.y * 0.93)
+	for k in 3:
+		draw_line(cup + Vector2(-size.y * 0.01 + k * size.y * 0.01, -size.y * 0.05), cup + Vector2(-size.y * 0.016 + k * size.y * 0.016, -size.y * 0.1), [Color(0.15, 0.2, 0.5), Color(0.6, 0.15, 0.1), Color(0.1, 0.1, 0.1)][k], 2.0)
+	draw_rect(Rect2(cup - Vector2(size.y * 0.022, size.y * 0.055), Vector2(size.y * 0.044, size.y * 0.055)), Color(0.3, 0.32, 0.28))
 	var bell: Rect2 = object_rect("bell")
 	var c: Vector2 = Vector2(bell.get_center().x, bell.end.y - bell.size.y * 0.2)
 	var radius: float = bell.size.y * 0.38
@@ -410,6 +530,12 @@ func _draw_tag(r: Rect2, tag: String) -> void:
 	var tag_rect: Rect2 = Rect2(r.position + Vector2(r.size.x - 44, r.size.y - 18), Vector2(42, 16))
 	draw_rect(tag_rect, TAG)
 	draw_string(ThemeDB.fallback_font, tag_rect.position + Vector2(4, 13), tag, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, INK)
+
+# A price, on a string tag at the front of the shelf.
+func _draw_price(r: Rect2, price: String) -> void:
+	var tag_rect: Rect2 = Rect2(Vector2(r.get_center().x - 18, r.end.y + 2), Vector2(36, 15))
+	draw_rect(tag_rect, Color(0.9, 0.86, 0.72))
+	draw_string(ThemeDB.fallback_font, tag_rect.position + Vector2(4, 12), price, HORIZONTAL_ALIGNMENT_LEFT, 30, 11, INK)
 
 # What's in your hand, following the mouse.
 func _draw_held() -> void:

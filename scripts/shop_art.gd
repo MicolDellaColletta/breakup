@@ -7,13 +7,13 @@ extends Control
 # back room behind the steel door. Where things are drawn matches the
 # "shop_night" hotspots in spots.cfg. See docs/layout.md for the plan.
 
-const DARK: Color = Color(0.018, 0.02, 0.028)
-const WALL: Color = Color(0.04, 0.042, 0.05)
-const FLOOR: Color = Color(0.032, 0.03, 0.034)
+const DARK: Color = Color(0.03, 0.033, 0.045)
+const WALL: Color = Color(0.068, 0.071, 0.085)
+const FLOOR: Color = Color(0.055, 0.051, 0.058)
 const NEON: Color = Color(0.9, 0.12, 0.15)
-const SHAPE: Color = Color(0.012, 0.013, 0.018)
+const SHAPE: Color = Color(0.022, 0.024, 0.032)
 const GLASS: Color = Color(0.2, 0.24, 0.28, 0.25)
-const WOOD: Color = Color(0.09, 0.07, 0.055)
+const WOOD: Color = Color(0.14, 0.11, 0.085)
 const BULB: Color = Color(1.0, 0.86, 0.55)
 const OFFICE_WALL: Color = Color(0.2, 0.17, 0.12)
 const PAPER: Color = Color(0.85, 0.82, 0.74)

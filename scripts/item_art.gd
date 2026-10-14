@@ -4,7 +4,8 @@ extends RefCounted
 # Placeholder pictures of the things in the shop, drawn in code until there
 # are paintings: one simple shape per kind of object (shape= in stock.cfg):
 # call, decoy, knife, snowshoes, picks, compass, fox, rifle, tin, coins, box,
-# name, jacket, musicbox, mirror, watch, jar, braid.
+# name, jacket, musicbox, mirror, watch, jar, braid, shells, bible, spectacles,
+# button, clapper, microphone, collar, bullet, batteries.
 # Each fits the box it's given, so the same drawing works small on a shelf and
 # big in a close-up. A shape this doesn't know is drawn as a wrapped bundle.
 
@@ -64,8 +65,88 @@ static func draw(ci: CanvasItem, shape: String, r: Rect2, faded: bool = false) -
 			# One glass eye set a little wrong.
 			ci.draw_circle(c + Vector2(u * 0.55, -u * 0.38), u * 0.06, Color(0.9, 0.7, 0.2, a))
 		"rifle":
-			_poly(ci, [c + Vector2(-u, u * 0.05), c + Vector2(-u * 0.45, -u * 0.05), c + Vector2(-u * 0.4, u * 0.08), c + Vector2(-u * 0.85, u * 0.3)], WOOD, a)
-			ci.draw_line(c + Vector2(-u * 0.45, 0), c + Vector2(u, -u * 0.12), Color(0.2, 0.2, 0.22, a), maxf(2.0, u * 0.08))
+			# Lying across the box, stock left: wood stock and fore-end, the
+			# barrel and the scope, the trigger guard, the bolt.
+			var w: float = r.size.x / 2.0 * 0.95
+			var gun: Color = Color(0.42, 0.43, 0.46)
+			_poly(ci, [c + Vector2(-w, -u * 0.02), c + Vector2(-w * 0.45, -u * 0.12), c + Vector2(-w * 0.3, -u * 0.12), c + Vector2(-w * 0.3, u * 0.06), c + Vector2(-w * 0.5, u * 0.08), c + Vector2(-w * 0.95, u * 0.3)], WOOD, a)
+			_poly(ci, [c + Vector2(-w * 0.3, -u * 0.1), c + Vector2(w * 0.35, -u * 0.12), c + Vector2(w * 0.35, -u * 0.02), c + Vector2(-w * 0.3, u * 0.04)], WOOD_DARK, a)
+			ci.draw_line(c + Vector2(-w * 0.3, -u * 0.13), c + Vector2(w, -u * 0.15), Color(gun, a), maxf(2.0, u * 0.07))
+			ci.draw_rect(Rect2(c + Vector2(-w * 0.32, -u * 0.32), Vector2(w * 0.42, u * 0.11)), Color(gun.darkened(0.3), a))
+			ci.draw_arc(c + Vector2(-w * 0.3, u * 0.08), u * 0.1, 0, PI, 8, Color(gun, a), 2.0)
+			ci.draw_line(c + Vector2(-w * 0.18, -u * 0.13), c + Vector2(-w * 0.12, u * 0.04), Color(METAL, a), 2.0)
+		"shells":
+			# A small cardboard box of .22s, lid off: rows of brass rims.
+			_poly(ci, [c + Vector2(-u * 0.6, -u * 0.35), c + Vector2(u * 0.6, -u * 0.35), c + Vector2(u * 0.6, u * 0.45), c + Vector2(-u * 0.6, u * 0.45)], Color(0.62, 0.22, 0.14), a)
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.5, -u * 0.27), Vector2(u * 1.0, u * 0.36)), Color(0.12, 0.1, 0.08, a))
+			for k in 10:
+				ci.draw_circle(c + Vector2(-u * 0.4 + (k % 5) * u * 0.2, -u * 0.18 + (k / 5) * u * 0.18), u * 0.07, Color(BRASS, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.45, u * 0.18), Vector2(u * 0.9, u * 0.16)), Color(0.9, 0.85, 0.7, a))
+			# The slip under the rubber band.
+			ci.draw_line(c + Vector2(-u * 0.6, u * 0.12), c + Vector2(u * 0.6, u * 0.12), Color(0.55, 0.4, 0.3, a), 2.0)
+		"bible":
+			# A thick black book, a ribbon, and a dark notch where pages are cut.
+			_poly(ci, [c + Vector2(-u * 0.55, -u * 0.7), c + Vector2(u * 0.5, -u * 0.7), c + Vector2(u * 0.55, u * 0.7), c + Vector2(-u * 0.5, u * 0.7)], Color(0.16, 0.14, 0.14), a)
+			_poly(ci, [c + Vector2(u * 0.5, -u * 0.66), c + Vector2(u * 0.62, -u * 0.62), c + Vector2(u * 0.66, u * 0.66), c + Vector2(u * 0.55, u * 0.7)], Color(0.82, 0.78, 0.66), a)
+			_poly(ci, [c + Vector2(u * 0.56, -u * 0.1), c + Vector2(u * 0.64, -u * 0.08), c + Vector2(u * 0.65, u * 0.12), c + Vector2(u * 0.57, u * 0.1)], DARK, a)
+			ci.draw_line(c + Vector2(-u * 0.1, -u * 0.45), c + Vector2(-u * 0.1, -u * 0.05), Color(BRASS, a), 2.0)
+			ci.draw_line(c + Vector2(-u * 0.28, -u * 0.3), c + Vector2(u * 0.08, -u * 0.3), Color(BRASS, a), 2.0)
+			ci.draw_line(c + Vector2(u * 0.2, u * 0.7), c + Vector2(u * 0.25, u * 0.95), Color(0.6, 0.12, 0.1, a), 3.0)
+		"spectacles":
+			# Wire frames, one arm bent.
+			var wire: Color = Color(0.55, 0.5, 0.42, a)
+			for dx in [-0.42, 0.42]:
+				ci.draw_circle(c + Vector2(u * dx, 0), u * 0.3, Color(0.75, 0.82, 0.86, 0.35 * a))
+				ci.draw_arc(c + Vector2(u * dx, 0), u * 0.3, 0, TAU, 20, wire, 2.0)
+			ci.draw_arc(c + Vector2(0, u * 0.02), u * 0.13, PI * 1.1, PI * 1.9, 8, wire, 2.0)
+			ci.draw_line(c + Vector2(-u * 0.72, -u * 0.05), c + Vector2(-u * 0.95, u * 0.15), wire, 2.0)
+			ci.draw_line(c + Vector2(u * 0.72, -u * 0.05), c + Vector2(u * 0.88, -u * 0.35), wire, 2.0)
+		"button":
+			# One big brass coat button, four holes, a scrap of wool on the shank.
+			ci.draw_circle(c, u * 0.5, Color(BRASS, a))
+			ci.draw_arc(c, u * 0.4, 0, TAU, 24, Color(BRASS.darkened(0.3), a), 2.0)
+			for k in 4:
+				ci.draw_circle(c + Vector2((k % 2 - 0.5) * u * 0.24, (k / 2 - 0.5) * u * 0.24), u * 0.06, Color(DARK, a))
+			_poly(ci, [c + Vector2(u * 0.35, u * 0.35), c + Vector2(u * 0.75, u * 0.45), c + Vector2(u * 0.6, u * 0.75), c + Vector2(u * 0.3, u * 0.55)], Color(0.45, 0.32, 0.2), a)
+		"clapper":
+			# The church bell's iron clapper: a ring at the top, a long shaft,
+			# a heavy ball at the end.
+			var iron: Color = Color(0.3, 0.28, 0.27)
+			ci.draw_arc(c + Vector2(0, -u * 0.72), u * 0.14, 0, TAU, 12, Color(iron, a), maxf(2.0, u * 0.06))
+			_poly(ci, [c + Vector2(-u * 0.06, -u * 0.6), c + Vector2(u * 0.06, -u * 0.6), c + Vector2(u * 0.1, u * 0.4), c + Vector2(-u * 0.1, u * 0.4)], iron, a)
+			ci.draw_colored_polygon(_ellipse(c + Vector2(0, u * 0.58), Vector2(u * 0.26, u * 0.3)), Color(iron, a))
+			ci.draw_circle(c + Vector2(-u * 0.08, u * 0.5), u * 0.06, Color(0.5, 0.45, 0.42, a))
+		"microphone":
+			# An old desk microphone, half melted: a round grille on a stand,
+			# slumped on one side, the cord a black stub.
+			var chrome: Color = Color(0.55, 0.55, 0.57)
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.45, u * 0.6), Vector2(u * 0.9, u * 0.15)), Color(0.35, 0.35, 0.37, a))
+			ci.draw_line(c + Vector2(0, u * 0.6), c + Vector2(0, u * 0.05), Color(chrome, a), maxf(2.0, u * 0.08))
+			_poly(ci, [c + Vector2(-u * 0.35, -u * 0.55), c + Vector2(u * 0.3, -u * 0.6), c + Vector2(u * 0.4, -u * 0.1), c + Vector2(u * 0.15, u * 0.15), c + Vector2(-u * 0.2, u * 0.05), c + Vector2(-u * 0.45, u * 0.2)], chrome, a)
+			for k in 4:
+				ci.draw_line(c + Vector2(-u * 0.28, -u * 0.42 + k * u * 0.13), c + Vector2(u * 0.28, -u * 0.45 + k * u * 0.13), Color(0.28, 0.28, 0.3, a), 1.0)
+			ci.draw_line(c + Vector2(u * 0.45, u * 0.68), c + Vector2(u * 0.8, u * 0.6), Color(DARK, a), maxf(2.0, u * 0.07))
+		"collar":
+			# A white clerical collar, folded once: a band, yellowed inside.
+			ci.draw_arc(c + Vector2(0, -u * 0.05), u * 0.55, PI * 0.05, PI * 0.95, 20, Color(0.93, 0.92, 0.88, a), maxf(3.0, u * 0.2))
+			ci.draw_arc(c + Vector2(0, -u * 0.05), u * 0.45, PI * 0.15, PI * 0.85, 16, Color(0.85, 0.78, 0.5, a), maxf(1.5, u * 0.05))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.12, u * 0.42), Vector2(u * 0.24, u * 0.12)), Color(0.93, 0.92, 0.88, a))
+		"bullet":
+			# A revolver bullet, flattened: a mushroomed lead head, a short base.
+			_poly(ci, [c + Vector2(-u * 0.2, u * 0.1), c + Vector2(u * 0.2, u * 0.1), c + Vector2(u * 0.18, u * 0.55), c + Vector2(-u * 0.18, u * 0.55)], Color(0.62, 0.55, 0.4), a)
+			_poly(ci, [c + Vector2(-u * 0.5, u * 0.12), c + Vector2(-u * 0.35, -u * 0.25), c + Vector2(-u * 0.05, -u * 0.38), c + Vector2(u * 0.3, -u * 0.3), c + Vector2(u * 0.55, -u * 0.05), c + Vector2(u * 0.4, u * 0.15)], Color(0.5, 0.5, 0.53), a)
+			ci.draw_line(c + Vector2(-u * 0.25, -u * 0.1), c + Vector2(u * 0.2, -u * 0.18), Color(0.32, 0.32, 0.34, a), 1.5)
+		"batteries":
+			# A card of D-cells, two of them gone.
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.7, -u * 0.7), Vector2(u * 1.4, u * 1.4)), Color(0.85, 0.8, 0.3, a))
+			for k in 4:
+				var x: float = -u * 0.55 + k * u * 0.3
+				if k == 1 or k == 2:
+					ci.draw_rect(Rect2(c + Vector2(x, -u * 0.45), Vector2(u * 0.22, u * 0.9)), Color(0.6, 0.55, 0.2, a), false, 1.0)
+					continue
+				ci.draw_rect(Rect2(c + Vector2(x, -u * 0.45), Vector2(u * 0.22, u * 0.9)), Color(0.15, 0.15, 0.16, a))
+				ci.draw_rect(Rect2(c + Vector2(x, -u * 0.45), Vector2(u * 0.22, u * 0.3)), Color(0.75, 0.55, 0.15, a))
+				ci.draw_rect(Rect2(c + Vector2(x + u * 0.07, -u * 0.52), Vector2(u * 0.08, u * 0.07)), Color(METAL, a))
 		"tin":
 			_poly(ci, [c + Vector2(-u * 0.65, -u * 0.35), c + Vector2(u * 0.65, -u * 0.35), c + Vector2(u * 0.65, u * 0.45), c + Vector2(-u * 0.65, u * 0.45)], Color(0.45, 0.5, 0.48), a)
 			_poly(ci, [c + Vector2(-u * 0.7, -u * 0.45), c + Vector2(u * 0.7, -u * 0.45), c + Vector2(u * 0.7, -u * 0.3), c + Vector2(-u * 0.7, -u * 0.3)], Color(0.55, 0.6, 0.58), a)
