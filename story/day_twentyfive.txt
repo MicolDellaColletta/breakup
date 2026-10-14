@@ -111,10 +111,22 @@ narration | end=night | time=01:00: The town goes down the hill with its candles
 
 === booth
 narration | time=01:30 | red=alone: The town goes down the hill with its candles. You stay. Nobody looks back at you. Nobody needs to.
-narration: Where the vestry was, where the booth was, a black square in the snow. And in it, two chairs. Wooden, scorched, facing each other, knee to knee, still standing. The fire took the walls round them and left them.
+narration: Where the vestry was, a black square in the snow. And in it, two chairs. Wooden, scorched, facing each other, knee to knee, still standing. The fire took the walls round them and left them.
 narration: He's in one of them, in his shirtsleeves, the good coat folded on the ash beside him.
 daniel: Sit down. The walls, the roof, a man, and not these. They'll call it a sign by Sunday. I'll let them.
+> Sit. -> booth_sit | lean=unknown
+> Stay on your feet. -> booth_stand | flag=stood_in_ash | lean=animal
+
+=== booth_sit
 narration: You sit. You don't remember deciding to. Your knees nearly touch his.
+-> booth_strip
+
+=== booth_stand
+narration: You stay on your feet in the ash. He doesn't mind. He looks up at you from the chair as if you'd done something charming.
+daniel: Stand, then. You'll sit before I've finished. They all do.
+-> booth_strip
+
+=== booth_strip
 daniel: The town comes to me to say what it's done. You never have. So I'll say it for you, and you can watch me do it.
 narration: It isn't a question. He doesn't leave room for an answer.
 daniel: You told Mrs. Hollis your name was John. You signed his name in the ledger. You drove his car, rented to a letter, J., and let them call it yours.
@@ -124,7 +136,7 @@ daniel | if=flag:wore_coat: You put your arms in their coat. You let six women b
 daniel | if=flag:refused_bullet: You told me you don't buy things like that. You've been buying things like that since October.
 daniel | if=flag:took_bullet: You wrote me a ticket for a dollar. You've kept it warm. I know you have.
 daniel: The town would call it sin. I don't care about sin. It's a costume, and a cheap one. I'm taking it off you, piece by piece, because I want to watch you get cold.
-narration: He goes on, quietly, in order, the way you'd strip a coat to the lining, until there's nothing left of John in the booth at all, only the chair, and you in it, and the cold. He watches you get colder. He doesn't hurry.
+narration: He goes on, quietly, in order, the way you'd strip a coat to the lining, until there's nothing left of John in the ash at all, only the two chairs, and you, and the cold. He watches you get colder. He doesn't hurry.
 unknown: Let him. Let him. Nobody's ever looked this hard.
 paranoia: Get up. Get up and walk out. He's taking you apart to see how you go together.
 > Stay -> booth_stay | door=daniel | lean=unknown

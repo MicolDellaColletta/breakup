@@ -105,6 +105,9 @@ func _disappointment(flags: Array, coat: String, outcome: String) -> void:
 	else:
 		check(_log(column).contains("You kept the tooth."), "without the notebook: the tooth you didn't throw away")
 	check(_log(column).contains("Your name. Not John.") or _log(column).contains("Not John. Yours."), "he says your real name, once")
+	await pick(column, "Get out of my shop")
+	advance(column)
+	check(gs.flags.has("ordered_daniel_out") and _log(column).contains("I like hearing you try it on."), "you order him out; he likes hearing you try it on")
 	ring_bell()
 	check(column._section == "closing", "closing")
 

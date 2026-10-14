@@ -148,6 +148,25 @@ daniel | if=flag:accused_on_air: You told every kitchen in town what I did. I to
 narration | if=flag:pointed_gun: He touches his coat, over his heart, where the gun is.
 daniel | if=flag:pointed_gun: Still here. It's been against me since the night you pointed it. You'll have it back in March, and you'll know what it's for.
 daniel: Look at your hands on the glass. Holding still. What did that cost you? I'll come back for the rest.
+> "Get out of my shop." -> daniel_out | flag=ordered_daniel_out | lean=animal
+> "Come back, then." -> daniel_invited | flag=invited_daniel | lean=unknown
+> Say nothing. -> daniel_silent | lean=paranoia
+
+=== daniel_out
+narration: It comes out louder than you meant. The stove ticks.
+daniel: Your shop. Say it again sometime. I like hearing you try it on.
+-> daniel_goes
+
+=== daniel_invited
+narration: You don't know why you say it. He does. It's all over his face, and he lets you see it.
+daniel: I will. You won't have to leave the door open. You always do.
+-> daniel_goes
+
+=== daniel_silent
+narration: You say nothing. He nods, as if that were an answer, and the right one.
+-> daniel_goes
+
+=== daniel_goes
 narration: He stands. He buttons the good coat.
 daniel: April. They'll be ready. You won't. I like you better that way.
 narration | sound=bell: The bell, once. Up the road, not hurrying, in the blue.

@@ -107,6 +107,8 @@ func _dawn(choice: String, flags: Array, outcome: String, items: Array = []) -> 
 	check(column._section == "widow_enters" and _log(column).contains("I heard it, you know."), "Mrs. Hollis and the first candle; she heard the duck call on the lake")
 	advance(column)
 	check(column._section == "daniel_enters" and _log(column).contains("One with Leviticus in it."), "him, coming in now: the oldest Bible, one with Leviticus in it")
+	await pick(column, "Go up and get it")
+	advance(column)
 	check(gs.ledger_lines[-1].contains("Bible, family, calfskin. Sold to D."), "the ledger: the Bible, sold to D.")
 	ring_bell()
 	check(column._section == "closing", "closing")

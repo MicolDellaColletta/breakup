@@ -1,4 +1,12 @@
-# Breakup — Daniel Hale, the whole arc (draft v6)
+# Breakup — Daniel Hale, the whole arc (draft v6, superseded in part by v7)
+
+**v7 (Oct 14), decided: see `daniel_v7.md`.** Where they disagree, v7 wins: a
+con man who kills, on the run, for amusement (the crew job is his cover); a
+hard revivalist in public, himself alone with MC, never kind; the anxious bench
+and the counsel room instead of the booth; he lets MC in; how far he'll go; the
+1988 lake (he knew MC at seventeen); a past that won't hold still; the red
+light; four ways out; fork 6 is his offer, not the books. Built so far: the
+rewrite pass (`daniel_rewrite.md`) and the red light (`red_light.md`).
 
 Designed in the Project chat, Oct 9. Builds on story.md ("Daniel Hale", "The preacher", "Backgrounds"). Decisions are logged in `decisions.md`. ✅ = decided in chat. Everything else is a proposal.
 

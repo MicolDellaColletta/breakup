@@ -165,6 +165,8 @@ func _christmas_eve(spot: String, choice: String, flags: Array) -> void:
 		_route(column)
 		check(gs.flags.has("took_communion" if choice == "Take it" else "refused_communion"), "communion: %s" % choice)
 		if flags.has("door_daniel_1"):
+			await pick(column, "Sit.")
+			_route(column)
 			check(_log(column).contains("two chairs") and _log(column).contains("You said \"No\" in church"), "after the Mass, two chairs left standing in the ash; he takes the costume off you")
 			await pick(column, "Stay")
 			_route(column)
@@ -187,7 +189,10 @@ func _road_shut(ezra_choice: String, outcome: String) -> void:
 	await pick(column, ezra_choice)
 	advance(column)
 	advance(column)
-	check(column._section == "daniel_enters" and gs.acquired.has("bible_cut") and _log(column).contains("Sixteen is gone."), "him, with your groceries, and the Bible, Leviticus 16 cut out")
+	check(column._section == "daniel_enters", "him, with your groceries")
+	await pick(column, "Take the box")
+	advance(column)
+	check(gs.acquired.has("bible_cut") and _log(column).contains("Sixteen is gone."), "you take the box; the Bible under it, Leviticus 16 cut out")
 	advance(column)
 	check(column._section.begins_with("trooper"), "Olstad, for the spectacles")
 	if outcome == "spectacles_to_olstad":

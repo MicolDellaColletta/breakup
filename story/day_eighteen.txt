@@ -89,15 +89,28 @@ narration | sound=bell | time=+120 | red=alone: The bell, once. The good coat. H
 daniel: I'd like a Bible. An old one. The oldest you have. One with Leviticus in it.
 paranoia: They all have Leviticus in them.
 narration: The oldest is upstairs, in the dresser under the flannel shirts: a family Bible, calfskin, names on the flyleaf back to 1871. You don't remember finding it. You remember where it is.
+> Go up and get it. -> bible_sell | lean=john
+> "There isn't one." -> bible_refuse | flag=refused_bible | lean=paranoia
+
+=== bible_sell
 narration: You bring it down. He turns the pages with one finger, to the middle of the book, and stops, and reads for a while with his lips moving.
 narration | cash=+5 | write=Bible, family, calfskin. Sold to D. $5: He pays five dollars, faced, square. He doesn't ask the price. He knew it.
+-> bible_bear
+
+=== bible_refuse
+narration: You tell him there isn't one. He doesn't argue. He looks up, at the ceiling, at the exact place above you where the dresser stands.
+daniel: Upstairs. Under the flannel. Eighteen seventy-one on the flyleaf. Keep it, then. I wanted to see if you'd lie to me over a book. Now I know what a book's worth to you.
+-> bible_bear
+
+=== bible_bear
 narration: Then he looks past you, at the bear in the corner, eight feet of it on its hind legs.
 daniel: Did Abraham stuff that himself?
 narration: You don't know. You say you don't know.
 daniel: He did. He sewed it shut twice. People always think once is enough.
 narration | if=flag:sold_ezra_shells: At the door he stops.
 daniel | if=flag:sold_ezra_shells: Ezra hasn't opened the shells. He keeps them on his kitchen table, like a clock. I sit across from him in the evenings and watch him not open them.
-narration | sound=bell: The bell, once. He walks up the road to the Gleaner with the Bible under his arm, like a man going to a meeting.
+narration | sound=bell | if=!flag:refused_bible: The bell, once. He walks up the road to the Gleaner with the Bible under his arm, like a man going to a meeting.
+narration | sound=bell | if=flag:refused_bible: The bell, once. He walks up the road to the Gleaner with nothing under his arm, and doesn't look back, because he doesn't need to.
 
 # --- Closing. ---
 

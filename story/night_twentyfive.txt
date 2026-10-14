@@ -8,7 +8,7 @@
 narration | sound=stairs: Up the stairs.
 narration | stop=stairs: The apartment. Cold. Christmas Eve.
 narration | if=doors:daniel>=2: "Lock nothing." Your knees still feel his, an inch away.
-narration | if=flag:booth_left: The empty chair in the booth, facing his. You keep seeing it from his side.
+narration | if=flag:booth_left: The empty chair in the ash, facing his. You keep seeing it from his side.
 paranoia: The rules. It's a night like any night. Say it.
 
 === radio

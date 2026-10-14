@@ -9,6 +9,57 @@ Replaces `breakup_decisions.md` (from the Project chat, never in the repo).
 
 ---
 
+## October 14 — Daniel v7, the full review, March and April (`questions.md`)
+
+All leans agreed ("agree with all your leans").
+
+- **Daniel v7** (`daniel_v7.md`, calls 1–11):
+  - a con man who kills, on the run, for amusement;
+  - a hard revivalist in public; himself alone with MC, never kind;
+  - the anxious bench and the counsel room;
+  - he lets MC in (his doors);
+  - how far he'll go;
+  - **the 1988 lake** (flashback A; a girl from the town drowns);
+  - a past that won't hold still, and the flashback decays;
+  - the red light;
+  - four ways out;
+  - fork 6 is his offer.
+  - Built: `daniel_rewrite.md`, `red_light.md`.
+- **The real name** drops out of the sound whenever he says it. He never
+  lies: four lines reworded. His big scenes get real choices.
+- **One canon each** (`review_full.md`, last section):
+  - the bear 1959;
+  - Thomas;
+  - Abraham dead Oct 3;
+  - the furnace card unnumbered;
+  - Ruth's mother three ways, on purpose;
+  - "David" was the 1989 Keeper's Keeper name;
+  - Edie, not Ida;
+  - "sweetheart" in the Witness flash.
+- **Design holes:**
+  - the cold snap before the ice party;
+  - Daniel wants MC to *say* Sam's name;
+  - night 34's lock matters;
+  - Olstad's prejudice shows in October and November;
+  - dead flags paid off in March or cut.
+- **March** (`march.md`, calls 1–9):
+  - four key days;
+  - the notebooks searched;
+  - someone disappears (Ezra, or Brekke);
+  - his room;
+  - the sixth bullet comes back;
+  - fork 6 as his offer;
+  - Sam's lie at the tripod, or the cellar;
+  - the flashback's first two pieces;
+  - the gap bridged.
+- **April** (`april.md`):
+  - breakup Sat Apr 22;
+  - the plate is the town buying MC from him;
+  - three ways to beat him, one attempt;
+  - a catch for each companion;
+  - the Daniel epilogue;
+  - four of six kept faith stays, with moments added in March.
+
 ## October 13 — after the review (`review.md`)
 
 - **MC is a man**, and it can be said: "he", "sir", "young man" from other

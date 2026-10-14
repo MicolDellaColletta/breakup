@@ -243,25 +243,22 @@ are read.
 
 ---
 
-## Six endings
+## The endings: four ways out (v7, decided Oct 14)
 
-| Ending | What it needs |
-|---|---|
-| **The season ends** (default) | Nothing else came together. The town gets its Keeper. |
-| ↳ *The ice* (variant) | The season ends, with ??? the strongest voice and MC frayed: told from inside MC's head. He walks out and meets what's under the ice, or loses his mind completely. The game never says which. |
-| **Run** | A late escape that works (only from April, when the road and the plate allow it). The town walks whoever MC left holding the keys to the shore; MC chooses, from the people he kept faith with. Their spring is the epilogue. |
-| **Daniel** | Fork 5 alone (or the Daniel strand), fork 6 confess and don't pay, enough closeness with Daniel. At the shore, he doesn't let go (`daniel.md`, 10b, outcome 3). |
-| ↳ *Into the ice together* (variant) | The Daniel ending with ??? the strongest voice: he doesn't stop at the shore (`daniel.md`, 10b, outcome 4). |
-| **Break the cycle** (Ruth) | Fork 5 with Ruth, fork 6 pay, all three of her doors. MC stays past breakup because she couldn't let go, and the town lets them be, at a price (her father's legacy, the town's protection). Love as a cage, on both sides. |
-| **The truth** (Sam) | Fork 5 with Sam, fork 6 pay, all three of his doors. Folie à deux: at breakup MC and Sam are on the ice at the minute, doing what they've worked out together, and both survive. Did they beat the pattern, or go mad together? Different from *The ice*: that's madness alone with ???; this is madness shared. |
-| **The fire** (the true good ending) | No romance locked; free of Daniel (fork 6 pay, or refuse and survive); four of six kept faith with, including **someone who lets MC go** (Olstad looking away at the town line, or Ruth giving back the keys). The night before breakup MC sets the shop on fire (the ledger, the freezer, the bear); the town's frenzy does the rest (the procession's candles, the church, the station), or MC only imagines it spreading. Morning, the highway south, John's car, the wipers; the radio says nothing about Kettle Lake; his coat smells of smoke, or doesn't. He doesn't know if any of it was real, and for the first time it doesn't matter. Alone, and free: nobody pays, because there's nothing left to pay. |
+Replaces the six endings above this line in earlier versions. The user's frame: **go with
+him, let the town have MC, escape with someone, or escape alone.** The only true
+escape is alone, and it's the hardest. Details: `daniel_v7.md` section 7,
+`april.md`.
 
-Order of reading at breakup: Run (if MC is gone) → a locked romance whose
-conditions hold → The fire → The season ends (or The ice).
+| Way out | Ending | What it needs |
+|---|---|---|
+| **Go with him** | **Daniel** (and *into the ice together*, ??? strongest) | "Yes" at fork 6 (his offer, "come with me") and his doors, or the confession of the 1988 lake. He gives the town to the ice; they walk out singing. A new town, a new tent, MC handing out hymnals. He says MC's real name, the only time it's heard. |
+| **Let the town have MC** | **The season ends** (and *The ice*, ??? strongest and frayed) | The default. Daniel on the shore lets go, exact change in MC's palm, "for the ferry". Bored. |
+| **Escape with someone** | **Run**, with Ruth, Sam or Cody (Break the cycle and The truth fold in here) | Their doors at three, and a way out (the road, the car, the plate). Each has a catch: someone else walked to the shore; Sam's new wall with MC's name first; Cody staying to bury Ray. |
+| **Escape alone** | **The fire** (the true one) | No romance locked; four of six kept faith with, including someone who lets MC go; and **Daniel beaten**, one attempt, one of three ways: Olstad takes him, the town turns on him (his files), or John's gun. Then the shop burns. |
 
-**Daniel's shore outcomes** (`daniel.md` 10b) sit inside these: he lets go
-(The season ends), he isn't there (Ruth, Sam, The fire), he doesn't let go
-(Daniel), into the ice together (its variant).
+Order of reading at breakup: Run alone → escape with someone → Daniel → The fire
+→ The season ends (or The ice).
 
 **Olstad** is on the shore in every ending where MC is.
 

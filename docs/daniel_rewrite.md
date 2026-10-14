@@ -78,15 +78,26 @@ change any line, if the direction is wrong.
 4. **Ruth's "None of us did"** (day 19) is now "You'd have had to be at the
    lake", which she hears as Kettle Lake.
 
-## What it couldn't do without new choices (for the next pass)
+## The choices added (Oct 14, after the leans were agreed)
 
-- **Day 18,** the Bible sale: there's no refusing.
-- **Day 26,** the groceries, and **day 28,** his first scene: MC has no
-  choice.
-- **Christmas Eve:** "You sit." is forced.
-- **Day 30,** the booth: "small true thing" and "nothing" set no flags, and
-  there's no accusing him.
-- **The v7 "let in" offers** (the files, the collection) are March's.
+- **The counsel room and the anxious bench** (call 2):
+  - the booth on days 30 and 34 is now the counsel room, the old props room
+    behind the stage, with one bulb and two chairs;
+  - on day 30 Dr. Brekke is called up to the anxious bench, the front pew,
+    where the hall prays over him out loud;
+  - Christmas Eve's two chairs stand in the ash.
+- **Day 18, the Bible:** "Go up and get it" or "There isn't one"
+  (`refused_bible`). If MC lied, on day 26 the Bible comes back anyway,
+  taken from MC's dresser through the open back door.
+- **Day 25, Christmas Eve:** "Sit." or "Stay on your feet." (`stood_in_ash`).
+- **Day 26, the groceries:** take the box, or push it back
+  (`refused_groceries`; he leaves it on the step).
+- **Day 28, his first scene:** "Get out of my shop." (`ordered_daniel_out`),
+  "Come back, then." (`invited_daniel`), or say nothing.
+- **Day 30, the counsel room:** the options set flags now
+  (`confessed_small`, `confessed_nothing`). There's a fourth: ask him about
+  the Reverend (`asked_about_reverend`). He answers, delighted: "Do you
+  know how many have asked? You. Only ever you."
 
 ## Tests changed
 
@@ -94,3 +105,5 @@ These now expect the new text:
 - `test_thanksgiving.gd` (the broadcast);
 - `test_december.gd` (the night 21 radio);
 - `test_presence.gd` (radio adds no red).
+- `test_december.gd`, `test_december_late.gd`, `test_january.gd` (the new
+  choices).
