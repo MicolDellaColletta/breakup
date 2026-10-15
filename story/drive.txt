@@ -36,11 +36,11 @@ narration | time=22:40: The wipers drag across the glass, squealing on every ret
 narration: Snow rushes the headlights and vanishes. Rushes and vanishes.
 narration: The heater smells of burning dust. Your fingers are still cold.
 narration: The radio drifts between stations. A voice, static, half a hymn, static.
-narration: No taillights ahead. None behind. Not for a long time.
+narration: No taillights ahead. None behind.
 paranoia: Good. Keep it that way.
 paranoia: Where are you going?
 paranoia: You don't know, do you.
-narration: A white cross at the side of the road, plastic flowers frozen to it. A mile on, another. Then two together. A road this empty shouldn't need so many.
+narration: A white cross at the side of the road, plastic flowers frozen to it. A mile on, another. Then two together.
 narration: The paper in your coat pocket. A typed letter, and folded inside it, directions in handwriting you don't recognize. You've touched it so often the folds have gone soft.
 paranoia: Don't take it out. You know what it says.
 narration: At the last gas station you signed for the fuel without thinking. The first letter came out wrong. You had to turn it into a different one.
@@ -73,7 +73,7 @@ paranoia: Good. Exactly where it was.
 
 === glovebox_ticket
 narration | time=+5: A pawn ticket, number 0527. The shop's name is stamped across the top. You know it. You've read it a hundred times, on the letterhead in your pocket.
-narration: On the back, in pencil, the address. Somebody wrote it down twice, in two different places, so they couldn't lose it.
+narration: On the back, in pencil, the address. Somebody wrote it down twice.
 narration | take=pawn_ticket: You slip the ticket into your pocket. You couldn't say why.
 
 === glovebox_papers
@@ -96,7 +96,7 @@ unknown: Or there was never anyone. Which would be worse, sweetheart?
 
 === mirror_eyes
 narration: Along the bottom of the glass, a strip of your own face. Just the eyes.
-narration: Red-rimmed. Older than you remember them. You hold your own gaze until it feels like a stranger's, one who knows something about you and hasn't decided what to do with it.
+narration: Red-rimmed. Older than you remember them. You hold your own gaze until it stops being yours.
 paranoia: John's eyes now. Get used to them.
 
 === passenger
@@ -116,7 +116,7 @@ unknown: You know exactly what it means, sweetheart.
 narration: You fold the towel back the way it was. Exactly the way it was.
 
 === passenger_wrapped
-narration: You leave it. Your eyes keep going back to it anyway, the way a tongue goes back to a loose tooth.
+narration: You leave it. Your eyes keep going back to it anyway.
 paranoia: Good. You don't need to know tonight.
 
 === coat
@@ -126,11 +126,11 @@ paranoia: Leave it. You've read it a hundred times.
 > Leave it -> coat_left | lean=paranoia
 
 === coat_left
-narration: You leave it where it is. Your hand stays on it a while anyway, the way you'd keep a hand pressed to a cut.
+narration: You leave it where it is. Your hand stays on it a while anyway.
 paranoia: Good. Eyes on the road.
 
 === job_offer_read
-narration: The key was taped to the bottom of the page when it arrived. It's in your other pocket now. You check that it's still there. It is.
+narration: The key was taped to the bottom of the page when it arrived. It's in your other pocket now. You check that it's still there. It is. You check again.
 paranoia: John.
 paranoia: That's your name now. Say it until it sounds right.
 narration: You say it, quietly, to the windshield. It doesn't sound right.

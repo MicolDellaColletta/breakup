@@ -23,11 +23,11 @@ paranoia: He's talking to you. He can't be talking to you.
 narration: You leave it on, low, and stand near it longer than you need to.
 
 === radio_off
-narration: You leave it. The quiet settles over the room like snow.
-narration: In the quiet, the freezer downstairs. And under it, so faint you could be making it up, a slow tapping. Like a fingernail on glass.
+narration: You leave it.
+narration: In the quiet, the freezer downstairs. And under it, a slow tapping. A fingernail on glass. Or the pipes.
 
 === kitchen
-narration | time=+10: The bowl by the stove. Empty again. Licked clean, as if it had never been anything else.
+narration | time=+10: The bowl by the stove. Empty again. Licked clean.
 paranoia: Rule five.
 > Fill the bowl -> kitchen_fed | set=fed_dog
 > Leave it -> kitchen_unfed | break=dog
@@ -47,7 +47,7 @@ paranoia: Rule one. It's been dark for hours.
 > Open one, just a crack, for air -> windows_open | break=window | flag=window_open
 
 === windows_closed
-narration | sound=latch: Both latched. You check them again anyway, then a third time, until the checking feels like a rule of its own.
+narration | sound=latch: Both latched. You check them again anyway, then a third time.
 
 === windows_open
 narration: Cold pours in at once, sweet and sharp. Down in the lot, nothing moves.
@@ -62,14 +62,14 @@ paranoia: Whoever lived here hid it. From whom?
 === painting
 narration | time=+10: Over the armchair, an oil painting in a plain frame. The lake, in spring, the ice breaking up into white plates on black water.
 narration: Far out, on one of the floating plates, a small figure stands with its back to you, looking at the far shore.
-narration: Somebody painted it carefully. The figure most carefully of all.
+narration: The figure is painted more carefully than anything else on the canvas.
 appraisal | if=appraisal>=1: No signature. Just a date in the corner, scraped half away. A spring, in the eighties.
 unknown: You'd look good out there.
 
 === locked_door
 narration | time=+5: The door at the end of the hall. You try the handle again. Still locked.
 narration: You crouch at the keyhole. Cold air on your eye, and the freezer's hum, louder than anywhere else in the apartment.
-narration: It's right underneath this room, you realize. Whatever's in the freezer is right under this door.
+narration: The freezer is right under this door.
 paranoia: Stand up. Walk away. You were never here.
 
 === back_door
@@ -84,9 +84,9 @@ paranoia: Rule one. The other half of it.
 > Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
 
 === back_door_unlocked
-narration: You leave it. Every part of you that has ever lived in a city wants to lock it.
+narration: You leave it unlocked.
 paranoia: Anyone in Kettle Lake can walk in now. The old man let them. Now you do.
-narration: You walk back past the freezer without looking at it. It's harder than it should be.
+narration: You walk back past the freezer without looking at it.
 
 === back_door_locked
 narration: Olstad's key turns with a clean, heavy sound. You try the handle. Locked.
@@ -96,14 +96,14 @@ unknown: She told you not to. Didn't she.
 === sleep
 narration | time=+10: The sheets are just as cold as last night. You lie there and count the rules you kept.
 narration | time=03:10 | sound=bell: Somewhere after three, a sound wakes you. Downstairs, at the front. Small and bright. The bell over the shop door.
-narration: Then quiet. The kind of quiet that's waiting for you to move.
+narration: Then quiet.
 paranoia: The front door is locked. You locked it.
 > Go down and look -> go_down | lean=animal
 > Stay in bed -> stay_in_bed | lean=paranoia
 
 === stay_in_bed
 narration: You pull the blanket up and lie there with your eyes open.
-narration: It doesn't come again. You almost wish it would. Not knowing sits on your chest until the window goes gray.
+narration: It doesn't come again. You lie on your back until the window goes gray.
 -> morning_after
 
 === go_down
@@ -113,7 +113,7 @@ narration: The front door is shut. Locked. The bell hangs still.
 narration: The neon is still on. In the dark glass of the window, there you are. A shape against the red.
 narration: The light is behind the glass and the dark is in front of it. It's hard to say what's on this side and what's out in the lot.
 narration: You stop. The shape stops.
-narration: Then your reflection raises one hand, slowly, as if to say hello.
+narration: Then your reflection raises one hand. Slowly. Hello.
 paranoia: Rule eight. Don't wave.
 paranoia: Your hands are at your sides. Both of them. You checked.
 > Wave back -> waved | break=wave | lean=unknown
@@ -121,8 +121,8 @@ paranoia: Your hands are at your sides. Both of them. You checked.
 > Look away -> didnt_wave | lean=paranoia
 
 === waved
-narration: You lift your hand. In the glass, your reflection lowers its own, as if it had only been waiting for you.
-narration: Then it's just your reflection again. Doing what you do. You think.
+narration: You lift your hand. In the glass, your reflection lowers its own.
+narration: Then it's your reflection again. Doing what you do.
 unknown: There. Was that so hard?
 -> back_room
 
@@ -138,7 +138,7 @@ narration | sound=door_shut: Back through the hallway. Through the steel door. T
 -> back_room_open
 
 === back_room_locked
-narration: The back door is shut and locked, the way you left it.
+narration: The back door is shut. Locked. You locked it. You remember the sound the key made.
 narration: As you watch, the handle turns. Slowly, all the way down, from outside.
 narration: It holds there. Then, just as slowly, it comes back up.
 narration: Nothing knocks. Nothing tries again.
@@ -155,4 +155,4 @@ paranoia: Don't open the freezer.
 -> morning_after
 
 === morning_after
-narration | time=07:30: In the morning you can't say for sure how much of it you dreamed.
+narration | time=07:30: In the morning the bowl is where it was, and the bed is made, and you don't remember making it.

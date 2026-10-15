@@ -6,13 +6,13 @@
 
 === arrival
 narration | time=23:25: The key in your pocket fits the lock. You're sure it isn't your key.
-narration | sound=bell: The door opens. A bell rings above it, small and bright, too cheerful for the dark.
+narration | sound=bell: The door opens. A bell rings above it, small and bright.
 narration | sound=door_shut | after=bell: The sound dies away. The door clicks shut behind you.
-narration: The only light is the neon sign outside, bleeding red through the front windows. It reaches a few feet into the shop and gives up.
-narration: No sound. Just a low mechanical hum, somewhere deeper in the dark. Steady. Patient.
+narration: The only light is the neon sign outside, bleeding red through the front windows. It reaches a few feet into the shop and stops.
+narration: No sound. A low mechanical hum, somewhere deeper in the dark.
 narration: The air smells of cold metal, gun oil and old fur.
 narration: Shapes in the dark. A glass counter. Antlers on the wall. Something standing very still in the corner.
-narration: It's only a bear. It's only a stuffed bear.
+narration: A bear. It's a stuffed bear. You count to three and it's still a stuffed bear.
 paranoia: Don't make a sound.
 paranoia: Not that it matters. There's no one here. Right?
 unknown: Right. Just us.
@@ -36,21 +36,21 @@ unknown: Aren't you going to get that?
 narration: You lift the receiver.
 narration: No voice. No dial tone. Not a dead line: an open one.
 narration: Somewhere on the other end, a room. A clock ticking in it.
-narration: You hold your breath. On the other end, someone lets theirs out. Slowly. Like a man with all the time in the world.
+narration: You hold your breath. On the other end, someone lets theirs out. Slowly.
 narration: He doesn't speak. Neither do you.
-narration | sound=deadline: Then a soft click on the other end, and he's gone. The line goes dead: a thin, steady tone in your ear, like a held note that will never end.
+narration | sound=deadline: Then a soft click on the other end, and he's gone. The line goes dead: a thin, steady tone in your ear.
 paranoia: Put it down.
 > Hang up -> after_call
 
 === after_call
-narration | flag=phone_done: You put it down. Carefully, as if it might notice.
+narration | flag=phone_done: You put it down. Carefully. Both hands.
 -> office_door
 
 === let_it_ring
 narration: You don't move. It rings. And rings.
 paranoia: Let it. Whoever it is, let them wait.
 narration | stop=ring | flag=phone_done: Then, in the middle of a ring, it stops.
-narration: The silence afterwards is very loud.
+narration: Then nothing. Then the hum again.
 -> office_door
 
 === office_door
@@ -67,7 +67,7 @@ narration: The blade of light lies across your shoes.
 > Push it open -> office
 
 === knock
-narration | sound=knock: You knock. Twice. Softly, the way you'd knock on a hospital room door.
+narration | sound=knock: You knock. Twice. Softly.
 narration: Nothing.
 narration | sound=knock_back: Then, from the other side, one knock back.
 paranoia: Pipes. Old buildings knock. That's all that was.
@@ -75,17 +75,17 @@ unknown: Come in. Don't be rude.
 -> office
 
 === office
-narration | time=+5 | flag=office_open: You push the door. It swings inward without a sound, as if someone oiled the hinges for you.
+narration | time=+5 | flag=office_open: You push the door. It swings inward without a sound. The hinges are wet with oil.
 narration | light=office: The light hurts your eyes. A bare bulb, far too bright, hanging from a cord.
-narration: A small room. A wooden desk. An office chair, pushed back, as if someone just stood up.
+narration: A small room. A wooden desk. An office chair, pushed back from the desk.
 narration: Above the desk, a ram's head, mounted, its horns curling back on themselves. Nothing else on the walls. Nothing else at all.
 narration: And a smell, sweet and chemical under the dust. Something they use on hides, you tell yourself.
 paranoia: Breathe through your mouth.
-narration: On the desk, squared neatly in the middle, an envelope. Propped up and waiting, as if it was put there for you to find.
+narration: On the desk, squared neatly in the middle, an envelope. Propped up against the lamp, facing the door.
 
 # Clicking the envelope on the desk.
 === envelope_held
-narration: It's heavier than a letter should be. The paper is soft, as if it's been handled many times.
+narration: It's heavier than a letter should be. The paper has gone soft at the corners.
 narration: Three words on the front: FOR THE KEEPER. The handwriting presses so hard you can feel it through the other side.
 paranoia: Not John. The Keeper. Whoever turned up.
 narration: Under the bulb, the ink is sharp and black. You won't have any trouble reading it.
@@ -125,7 +125,7 @@ paranoia: It's only a bear. Say it again.
 paranoia: It's only a bear.
 
 === look_furs_night
-narration: Fur coats on racks along the wall, hanging from their shoulders. In the dark they stand like people waiting their turn.
+narration: Fur coats on racks along the wall, hanging from their shoulders. In the dark they're a queue. One of them is shorter than the others. You count again: they're all the same.
 paranoia: Don't count them.
 
 === door_early
@@ -154,7 +154,7 @@ narration: The register drawer hangs open. Not a coin in it. Not even a paper cl
 paranoia: Whoever cleaned it out took their time.
 
 === look_shelves_night
-narration: Shelves behind the counter. Things with paper tags on strings: a rifle, a box, a clock that's stopped. Held, not for sale. Each one left here by somebody who meant to come back for it.
+narration: Shelves behind the counter. Things with paper tags on strings: a rifle, a box, a clock that's stopped. Held, not for sale.
 paranoia: Some of them did.
 
 === stairs_not_yet
@@ -184,6 +184,6 @@ narration: The ram's head above the desk. Its horns curl back on themselves unti
 paranoia: Somebody put real care into this one.
 
 === look_chair_night
-narration: The chair, pushed back from the desk at an angle, as if someone stood up in a hurry.
-narration: You put your hand on the seat. It's cold. Of course it's cold.
+narration: The chair, pushed back from the desk at an angle.
+narration: You put your hand on the seat. It's cold.
 paranoia: Whoever left the light on for you didn't stay to say so.
