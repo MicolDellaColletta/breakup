@@ -5,6 +5,9 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
 
 ## Pick up here (Oct 15, night)
 
+**Saturday, when the tokens reset:** start with another full review, then
+the changes it finds, before anything else.
+
 **Next:** roll the narration pass (`narration.md`) across days 2–42, the
 bridges and the endings, in the style of the sample you approved (the
 prologue, day one and night one; the comparison is in the "Breakup Narration
