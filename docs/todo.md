@@ -3,7 +3,16 @@
 The running list of what's next, in order. The shop redesign has its own
 step-by-step list (`shop.md`, "To do"); this is everything around it.
 
-## Pick up here (Oct 14, evening)
+## Pick up here (Oct 15, night)
+
+**Next:** roll the narration pass (`narration.md`) across days 2–42, the
+bridges and the endings, in the style of the sample you approved (the
+prologue, day one and night one; the comparison is in the "Breakup Narration
+Sample" artifact). Four writers by month, then one read-through. Budget across
+the season: about 25 each of "as if" / "the way you'd", about 15 slips,
+frayed lines, and rare retractions. Then the full suite and the routes.
+
+## Earlier (Oct 14, evening)
 
 **The season is written end to end** (prologue to breakup and May), and
 every ending can be reached by playing (`routes.md`).
@@ -22,6 +31,7 @@ every ending can be reached by playing (`routes.md`).
 11. `placeholders`
 12. `todo-fixes`
 13. `loose-ends`
+14. `narration`
 
 **Your notes from playing (Oct 14).** More to come once you finish the
 playthrough. Done on branch `todo-fixes` unless it says otherwise.
