@@ -153,6 +153,11 @@ func _walt(flags: Array, cody_alive: bool) -> void:
 	advance(column)
 	check(gs.sold.has("silver_dollars") and gs.faith_count("walt") >= 1, "the dollars go home: kept faith with Walt")
 	advance(column)
+	check(column._section == "teague_enters" and _log(column).contains("Keeps the dead from following you in."), "Teague, with a wolf's skull")
+	await pick(column, "Pay him")
+	advance(column)
+	check(gs.unshelved.has("wolf_skull"), "the skull, on the counter to put out")
+	advance(column)
 	if cody_alive:
 		check(column._section == "nephew_enters" and _log(column).contains("Like knuckles on a door."), "Cody: something knocked under the ice")
 	else:
