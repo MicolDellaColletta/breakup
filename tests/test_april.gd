@@ -99,7 +99,7 @@ func _light(flags: Array, outcome: String) -> void:
 
 func _race() -> void:
 	section("Key day 40: the race")
-	_reset(40, APR_8, ["told_olstad_john", "door_ruth_1", "door_ruth_2", "door_ruth_3", "ruth_has_keys", "door_sam_3", "kept_picks"], ["hollis_ring", "boy_photo"])
+	_reset(40, APR_8, ["told_olstad_john", "door_ruth_1", "door_ruth_2", "door_ruth_3", "ruth_has_keys", "door_sam_3", "gave_picks_back"], ["hollis_ring", "boy_photo"])
 	var counter: Node = await open_scene("res://scenes/counter.tscn")
 	var column: Node = counter.get_node("%DialogueColumn")
 	check(root.get_node("Hud").get_node("%ClockLabel").text.begins_with("Sat Apr 8"), "Saturday, April 8")

@@ -24,6 +24,7 @@
 narration | show=highway | time=06:00: Morning. The highway south. John's car, or a truck that stopped for a man walking on the shoulder with his coat over his arm; you don't remember which. The wipers going, the sky clear.
 narration: The radio says the ice went out on Kettle Lake at five forty-one this morning. It says nothing else about Kettle Lake. Not a fire. Not a shop. Not a town. It plays a song, and then the weather.
 narration | if=flag:olstad_looks_away: The last thing you saw of it, in the mirror, at the town line: a cruiser on the shoulder, lights off, not moving. A woman at the wheel looking straight ahead, at nothing, the way she said she would.
+narration | if=flag:coat_in_shop: The brown coat was on its hook by the door when the fire took the hall. The sleeves went first. Nobody will ever wear it onto the ice again.
 narration: Your coat smells of smoke. Or it doesn't. You put your face in the collar and you can't tell.
 narration: PREPARE TO MEET THY G... goes by on the other side of the road, from behind. You'd forgotten it was there. You don't look round.
 narration: You don't know if any of it happened. The shop, the rules, the bowl, the bell. The lake. For the first time since October, it doesn't matter.
@@ -35,7 +36,8 @@ narration: Nobody's waiting for you. Nobody's paying for you. There's nothing le
 === run_ruth
 narration | show=highway | time=06:00: Morning. The highway south. Ruth asleep against the window with her mother's blue bowl in her lap, wrapped in a bar towel.
 narration: At five forty-one she wakes, all at once, as if somebody had said her name. She doesn't say anything. She looks at her watch, and then out of the back window, north, for a long time.
-narration: In June, in a rented kitchen in Washington State, she sets the table for three. Every night. You don't ask who the third place is for. You know who was holding the shop's keys when you left. So does she.
+ruth | if=flag:gave_ruth_letter: It wasn't my fault. He wrote it down. I've got it in my coat.
+narration: In June, in a rented kitchen in Washington State, she sets the table for three. Every night. You don't ask who the third place is for. You know who was holding the shop's keys when you left. Mrs. Hollis, with the key she's had since Christmas. So does Ruth.
 -> may
 
 === run_sam
@@ -67,7 +69,7 @@ narration: He always knows which way.
 === run_alone
 narration | show=highway | time=06:00: Morning. The highway south. Alone. The rental's heater roaring, and the wipers, for no reason, the sky clear.
 narration: Nobody follows you. He can't.
-narration: In June, at a truck stop in British Columbia, a radio on the shelf behind the counter says something about a town in Alaska, a custom, a man walked out onto the ice at breakup. It doesn't say your name. It says somebody else's.
+narration: In June, at a truck stop in British Columbia, a radio on the shelf behind the counter says something about a town in Alaska, a custom, someone walked out onto the ice at breakup. It doesn't say your name. It says somebody else's. Hollis.
 narration: You left the shop's keys with someone. You knew what that meant. You finish your coffee. You leave exact change.
 -> may
 
@@ -91,10 +93,12 @@ narration: You hear it. All of it. It's the boy's name, from the lake.
 === daniel_ice
 narration | show=shore_breakup | time=05:30 | red=alone: The shore at dawn. The town in its line, the candles, the straw man. Olstad at the end, in uniform.
 narration: He comes down the lake road and takes your arm. He doesn't stop at the edge.
+narration | if=flag:coat_in_shop: At the edge he unbuttons the brown coat they made for you, and takes it off you, and lets it go on the wind. "Not theirs," he says. "Mine."
 narration: You walk out together, along the path of holes, past the candles, past the clock. The ice is soft. It gives under you like a mattress, like a bed, like water. He doesn't believe in any of it. He doesn't let go.
 unknown: Yes.
 narration: At five forty-one, the ice goes out.
-narration: In May the lake gives back what it took. Cody, who has stood on the shore every morning since October waiting for Ray, sees two men come up off the point together, still holding on. Kept.
+narration | if=flag:gave_picks_back: In May the lake gives back what it took. Cody, who has stood on the shore every morning since October waiting for Ray, sees two men come up off the point together, still holding on. Kept.
+narration | if=!flag:gave_picks_back: In May the lake gives back what it took. Mrs. Hollis, who has stood on the shore every morning since October waiting for Ray, and then for Cody, sees two men come up off the point together, still holding on. Kept.
 narration | end=title: Nobody can make them let go.
 
 # --- Let the town have MC. ---
@@ -102,11 +106,15 @@ narration | end=title: Nobody can make them let go.
 === season_ends
 narration | show=shore_breakup | time=05:30: The shore at dawn. The whole town in a line along the water's edge, candles lit in daylight. Far out, Sam's clock on its tripod on grey ice. Olstad at the end of the line, in uniform. The ice talks.
 narration: They come for you at five. Mrs. Hollis takes one arm. Someone you've never served takes the other. Nobody's rough. Nobody needs to be.
+narration: At the shore Mrs. Hollis buttons you into the brown coat, top to bottom, and turns the collar up. "We let it out at Christmas," she says. "It fits you now."
+narration: Dr. Brekke holds out a paper cup. It tastes of cloves.
+narration | if=flag:took_communion: You know the taste. Christmas, the wine. Your lips go numb, and then your hands. So the Keeper doesn't feel the cold.
+narration | if=!flag:took_communion: Your lips go numb. Your hands don't, quite. You'll feel all of it.
 narration | if=!daniel_beaten: He's there, on the shore, at the end of the path of holes. He takes your arm from Mrs. Hollis and walks you the last of the way himself. At the edge he presses something into your palm. Coins. Exact change. "For the ferry," he says. He looks bored. That's the worst of it. He lets go.
 narration | if=daniel_beaten: Olstad steps out of the line. "That's enough," she says. "That's enough. Go home." Nobody goes home. She stands in front of you with her hand on her holster, one woman, and the town walks round her the way water goes round a stone.
 narration: Out along the path of holes, single file, candles on either side. The ice soft as a mattress. Far out, the clock, ticking.
 narration: At five forty-one, the ice goes out.
-narration | show=shore_breakup | time=09:00: The town walks home. The straw man goes back up on his post. On the hall door, somebody paints the count again, from the top: 33.
+narration | show=shore_breakup | time=09:00: The town walks home. The straw man goes back up on his post. On the hall door, somebody paints the count again, from the top: 33. Mrs. Hollis says it aloud, as the brush goes down. "Thirty-three." The number on the back of the money order. The weeks from one breakup to the next.
 narration: In the Gleaner, Ruth takes down a photograph from behind the bar and pins it on the wall at the end of the last row. Your face. You never knew she'd taken it.
 -> may
 
@@ -125,5 +133,12 @@ narration | end=title: Was it there? Were you? The lake doesn't say.
 narration | show=shore_breakup | time=12:00: May. Kettle Lake, open water, blue, with the mountains in it upside down.
 narration | if=flag:gun_snow: By the back door of the pawn shop the snowbank melts, and there it is, where you pushed it in October, wrapped in a towel gone to rags. John's gun. Five in the cylinder. Nobody finds it for a year.
 narration | if=flag:found_paraffin: In the shop, if there's a shop, the bear in the corner with its chest open, straw on the floor, a feed sack, empty.
+narration | if=flag:left_kettle_lake and !flag:set_fire: By the door, the coat hook, empty. The brown coat went out on the ice on Mrs. Hollis, let out at Christmas, taken in again in April. She knew the way up the stairs. She knew the way out. Somebody has to.
+narration | if=!flag:set_fire: In June, Olstad opens the freezer. She does it alone, on a Sunday, with the shop closed. She writes down what's inside. All of it.
+narration | if=flag:daniel_taken: A letter comes to the shop from the court in Anchorage, in your real name. A subpoena. Witness for the State. Nobody's there to sign for it. It finds you anyway, in the end. That kind always does.
+narration | if=flag:daniel_given: The straw man goes back up on his post on the hill. He's wearing a good coat now, charcoal, with a velvet collar. Nobody asks whose.
+narration | if=flag:gone_ezra: Off the point the water gives back Ezra Lund, his splint still on, facing the shore. Martha takes him home in the truck.
+narration | if=flag:gone_brekke: Off the point the water gives back Dr. Brekke, his good hands folded on his chest, steady at last.
+narration | if=flag:round_thrown: On the shingle by the dock, at the waterline, a flattened bullet, cleaned by the ice. Nobody picks it up.
 narration: Far out, where the ice was, Sam's clock still on its tripod, sunk to the case, the water round its face. Still ticking. Nobody knows how.
 narration | end=title: The next Keeper is due on the third of October. The notice is already in the Anchorage paper. "Please don't be late."

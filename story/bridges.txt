@@ -173,8 +173,8 @@ narration | card=Wednesday. The Keeper is paid. | cash=+150 | time=07:30: The en
 narration | if=flag:ruth_saw_father: The Gleaner shut, Wednesday. A card on the door in Ruth's hand: FAMILY. Nobody in Kettle Lake asks which family.
 narration | if=flag:freezer_closed: Ezra, at the post office, asks you if you've heard from Abraham. His sister in Anchorage hasn't. You say no. He writes it down.
 narration | card=Thursday. Teeth.: The teeth go up to the Gleaner's back room in a procession at dusk, in jars and envelopes and a cigar box, every family, the children carrying their own.
-narration | if=eye>=3 | flag=kept_teeth_jar: Nobody knocks for the shop's jar. It stays on your back shelf. Somehow that's worse.
-narration | if=eye<3: Ezra knocks for the shop's jar, and you give it to him, and he thanks you as if you'd given blood.
+narration | if=flag:kept_teeth_jar: Nobody knocks for the shop's jar. It stays on your back shelf. Somehow that's worse.
+narration | if=!flag:kept_teeth_jar: The shop's jar goes up at the front, inside Ezra's coat. He carries it with both hands.
 
 # --- Before key day 26 (Wednesday, December 29): Christmas. ---
 
@@ -254,6 +254,7 @@ narration: On the hall door, the eight crossed out, a seven painted under it. An
 === bridge_mid_march
 narration | card=Monday. The holes.: Nine holes now, a line of them, out from the point. Men with an auger in the mornings, singing. The holes skin over at night and they cut them open again.
 narration | if=flag:gone_ezra: Ezra's Thursday comes and goes. Nobody buys the shells. The ledger's line for Thursday stays empty, and you look at it longer than you mean to.
+narration | if=flag:safe_marked: Wednesday morning, the office safe stands open. Nobody's taken anything. The notebooks are inside, squared up. The chalk cross on the door has been wiped off, carefully, by someone who wanted you to know they'd been.
 narration | if=flag:gone_brekke: Dr. Brekke's house dark. His car in the drive, snowed in. On his porch, every morning, somebody sweeps the step, though nobody goes in or out.
 narration | card=Wednesday. The Keeper is paid. | cash=+150: The envelope, under the door. A hundred and fifty, faced. And folded into it, a page from the weigh-in book, your column, every Sunday since October, and the April figure circled.
 narration | card=Friday. Fasting.: Nobody eats. The radio plays the clock ticking for an hour at noon, with nobody speaking over it.

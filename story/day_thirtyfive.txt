@@ -20,6 +20,8 @@ unknown: There aren't any birds.
 
 === opening
 narration | time=09:00: You turn the sign. OPEN. Nobody comes.
+narration | take=john_polaroid: On the mat inside the door, face down, a Polaroid. Pushed under in the night. You turn it over. Your face, from the Gleaner's wall. JOHN. 1999. A pencil line ruled across the top of your head, like a mark on a kitchen doorframe. On the back: APRIL 22.
+paranoia: Somebody measured you.
 
 # --- The notes, read by the eye. ---
 
@@ -39,7 +41,9 @@ widow | if=flag:weighed_hall: Ezra let me copy it. I wanted you to have it. I'm 
 narration | if=flag:refused_scale: She puts something on the glass and doesn't say anything. A brass weight, from the scale's set. A pound. Cold from her pocket.
 widow | if=flag:refused_scale: They said to bring it to you. So you'd know what a pound feels like. I'm sorry. I don't know what it means.
 narration | if=!flag:weighed_hall and !flag:refused_scale: She doesn't put anything on the glass. She stands with her hands in her pockets and looks at you as if she were measuring.
-widow: Ray went in light, you know. In '93. They said it was the cold. It wasn't the cold.
+widow: Ray went in light, you know. In September. They said it was the cold. It wasn't the cold.
+narration | if=flag:saw_stairs_hair: Her stockings, worn through at both knees. Grey hairs on her coat, long ones. She sees you looking.
+widow | if=flag:saw_stairs_hair: Somebody has to.
 > Take her hand across the glass. -> widow_hand | keep=hollis | lean=warmth
 > "Go home, Mrs. Hollis." -> widow_home | lean=paranoia
 
@@ -69,24 +73,41 @@ narration: In the office, a long silence. Then one of them comes out and says th
 narration: Ezra goes and looks at it himself. He stands in front of the safe for a long time, the way you'd stand at a grave, and doesn't touch it.
 ezra: Abraham's safe. All right. All right.
 narration | flag=safe_marked: When they've gone, there's a chalk mark on the safe's door. A small cross. They know where to come back to.
+-> ezra_gun
 
 === search_bear
 narration: They go round the bear twice. One of them reaches for the seam. Ezra says "No," very quietly, and the man takes his hand back as if it had been burned.
 ezra: That's the Keeper's. Nobody touches the Keeper's.
 narration | flag=bear_known: But they all looked at it. All four. They know there's a seam now, and they know you didn't watch them look.
+-> ezra_gun
 
 === search_room
 narration: Upstairs, boots on the hall boards. They stop at the locked door at the end.
 narration: Then another pair of boots, lighter, coming up the outside stairs fast. Ruth. You hear her voice through the floor, not loud. "Not that one. That's mine. Nobody goes in that one."
 narration | flag=ruth_shielded: They come down without the notebooks. Ruth comes down behind them, white, with the key in her fist, and goes out without looking at you. She's paid for that. You don't know yet what it cost.
+-> ezra_gun
 
 === search_bed
 narration: They're upstairs for less than a minute. Then one of them comes down with a box in his arms. The rubber bands. The school exercise books. Ten years of the clock's minute.
 narration | flag=notebooks_burned: Out on the step, Ezra takes a matchbook from his good hand with his teeth and gives it to the youngest of them. You watch through the glass. The pages curl one by one, the way snow goes when you breathe on it.
 paranoia: You knew. Under the bed. You knew it's the first place.
+-> ezra_gun
 
 === search_nothing
 narration: They look everywhere and find nothing. Ezra thanks you. He means it, or he's good at it.
+-> ezra_gun
+
+# --- Ezra's Thursday gun. ---
+
+=== ezra_gun
+narration: The men go out to the step. Ezra doesn't. He lays a rifle on the glass with his left hand. His .22, the bluing worn silver, the stock notched all down one side.
+ezra: Thursdays at nine I go to the end of my dock and put one into the ice. Twenty-two years. So it doesn't set too hard to cut, come April. My father did it before me.
+ezra: I've done it left-handed since the hall door. Five Thursdays. I can't hit the lake.
+ezra: I won't be needing it Thursday. Forty, if you'll go to forty.
+narration | pawned=ezra_22 | loan=40: Forty dollars. He counts it twice with his good hand and puts it away without looking at it.
+narration: Along the stock, the notches. One for every Thursday. The last one fresh, the wood still pale in it.
+ezra | if=faith:ezra>=1 and !faithless:ezra: You were good to me, Keeper. Somebody should say so out loud. There. I've said it.
+narration | sound=bell: The bell. He doesn't knock on the frame.
 
 # --- Closing. ---
 

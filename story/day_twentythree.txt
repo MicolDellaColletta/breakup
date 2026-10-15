@@ -29,8 +29,12 @@ narration | pawned=spectacles | loan=0: Wire spectacles, black and bent. The Rev
 narration | pawned=bell_clapper | loan=0: The bell's iron clapper, the length of your forearm, black.
 narration | pawned=microphone | loan=0: The microphone from the booth, melted half through, its grille slumped into something like a face.
 narration | pawned=reverend_collar | loan=0: And at the bottom, folded small, a white collar. Clean. Not a mark on it.
+narration | pawned=hymnal_marked | loan=0: Under the collar, a hymnal, the cover scorched at one corner. Pencil circles all through it. One page torn out at the gutter.
 appraisal | if=appraisal>=1: Glass cracks in a fire hot enough to blacken wire. These lenses didn't.
 ezra: Hold them. No price. The Keeper keeps.
+ezra | if=eye<3: And the jar. The children's teeth. It was to be in the vestry by Christmas. There's no vestry. It goes to the Gleaner, in the back, till we build.
+narration | if=eye<3 | redeemed=tooth_jar: You take it down off the back shelf. Tag 0398. He holds it up to the window, the little papers turning, and puts it inside his coat.
+narration | if=eye>=3 | flag=kept_teeth_jar: He looks past you at the jar of milk teeth on the back shelf. He doesn't ask for it. He looks at it the way you'd look at a child who's gone quiet.
 narration | sound=bell: He touches his hat. At the door he stops, and looks back at the box, and you'd swear his lips move. Then the bell.
 
 # --- Dr. Brekke: the ruling. ---

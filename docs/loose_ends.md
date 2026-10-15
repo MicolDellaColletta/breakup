@@ -336,3 +336,112 @@ the drawer.
    March–May.
 5. **Order:** **Lean:** Part 1 first, since the Cody bug affects an ending;
    then calls 1–5 (the core of the town's horror); then the rest.
+
+---
+
+## As built (Oct 15, branch `loose-ends`)
+
+Every lean was approved and built. Where something landed differently from
+the plan, it's because shop effects (`pawned=`, `unpacked=`, `redeemed=`) only
+work at the counter.
+
+**Part 1.**
+- **Cody:** the day-40 truck now needs `gave_picks_back` (he's alive).
+  daniel_ice reads Cody or Mrs. Hollis accordingly.
+- **Names:** one Keeper list everywhere: Thomas (Jonah Marsh) 1998, Annie
+  1997, Paul 1996, Dale 1995, Luis 1994, the Fairbanks boy 1993, David (J.W.)
+  1989.
+- **Edie:** replaces Ida in December.
+- **The Lunds:** Ezra is Hanna's grandfather. Martha is his son Ole's widow
+  (Ole died in 1988); Peter and Hanna are her children. Only town.txt said
+  "Ezra's wife"; it now says "daughter-in-law".
+- **The fox:** Annie's, January '98, in the ledger, the catalogue and the
+  bench notebook. Olstad still thinks it's Abraham's work, and she's wrong.
+- **The eyes in the jar:** the Fairbanks boy's. The bench notebook says so,
+  and David got away.
+- **Pocket watch 0402:** Sundqvist & Sons. It counts when wound. Behind the
+  movement is an unused one-way bus ticket from Anchorage, April 1989.
+- **The collar:** came in Ezra's box.
+- **The ledger:** back under the door on night 39.
+- **The last night:** on the step and in the car, said outright.
+- **Night 22:** "Nine o'clock".
+- **Abraham:** died on the 3rd; found on the 4th. The Master padlock is
+  Olstad's from the 4th, plus a second Department lock in December.
+- **Ray:** went through in September, not '93.
+
+**Part 2.**
+- **The dog:** confirmed in three beats. Christmas morning, she rinses the
+  bowl at your sink. Night 34, the grey hair on the stairs. Day 35, the knees
+  of her stockings, then "Somebody has to". On the last night he moves his
+  feet to let her by.
+- **Ruth's evening (32):** now one confession. It covers the bowl, the case,
+  the painting, Anchorage every fall, and "David" (if you hold the photo). If
+  her doors are 2 or more, it adds sitting at his table at night and taping
+  the bell, and "I've done his hand since I was nine".
+- **Olstad:** feeds the furnace (day 24). On evening 29 she says what Daniel
+  told her: your real name. She also asks about the missing carbon.
+- **The cloves:**
+  - The pie foil says FOR THE WALK (day 17, if you refused the pie).
+  - The Christmas wine is clove oil.
+  - At breakup, the cup at the shore, numb or not, depending on whether you
+    took communion.
+- **The Seattle man:** on the Palmer bus (day 13).
+- **Jonah Marsh:** said by Sam on evening 19 (door 1). It's on the scarf's
+  name tape, and the J.M. mirror is his.
+- **Daniel's watch:** redeemed on day 37, with nine o'clock and the boy. Rule
+  9 is a paranoia line at his offer (evening 37).
+- **The church box:** Ezra collects the clapper, microphone and collar on day
+  40, and redeems rifle 0431 "for the walk".
+- **May:**
+  - The freezer opened in June.
+  - The subpoena.
+  - The straw man in the good coat.
+  - Ezra or Brekke given back by the lake.
+  - The bullet on the shingle.
+  - Mrs. Hollis goes out in the coat in your place if you ran.
+- **"33":** said aloud as it's painted.
+- **Daniel's lines:**
+  - Day 28: "I stopped paying for you."
+  - Day 30, the booth: the trees, the Polaroid, the Saturday call.
+  - Evening 37: what happened to Ezra or Brekke.
+- **The Reverend:** wrote on the glass (day 21).
+- **The four not fed:** named by doors (night 26).
+- **Sam:** Daniel at his window (December). The burned scrap goes on his
+  wall (January cabin).
+- **The safe:** found open in mid-March.
+- **The bench notebook:** the bear's first seam, "what the lake gave back,
+  May '59".
+- **Abraham's letter:** the stoat and the hook. The hook is in his pocket in
+  the freezer.
+
+**Part 3:** all the one-line echoes, as listed.
+
+**Part 4.**
+- **Existing objects:**
+  - **Decoy no. 14:** Arne Sveen's ring, 1931 (Mrs. Hollis, day 15).
+  - **Thermos:** Ray's (day 18).
+  - **Knife:** its eleven lines (Sam, day 13).
+  - **Tooth jar:** Ezra takes it on day 23, unless the town's eye is on you.
+  - **CB radio:** counts to 33 on night 21.
+  - **Lantern:** lights the power cut on night 24.
+  - **Trap:** Teague takes it back, day 29.
+- **New objects:**
+  - Thomas's scarf, Ruth's camera and the snow globe (day 19; moved from
+    days 13 and 17).
+  - The hymnal (day 23).
+  - Cody's mitten (day 24; she'd already given the teeth to Ezra).
+  - The matchbook (day 15).
+  - Ray's tackle box (day 28; moved from 30).
+  - Ida's sewing tin and the wolf skull (day 29; Teague's visit moved from
+    30).
+  - Sam's envelopes (day 33; a new Sam visit).
+  - The Polaroid (day 35).
+  - Ezra's .22 (day 35, the day before he may vanish; moved from February).
+  - The collection plate (day 42).
+- **New pictures:** scarf, globe, book, mitten, camera, tackle, skull,
+  envelopes, plate.
+
+**Left as texture** (set, never read; no line needed): the `saw_*` odd-thing
+flags, `confessed_*`, `asked_about_reverend`, `wont_promise`, `lake_two`,
+`lake_three`, `daylight_call`, `rental_call`, `invited_ice`, `road_closed`,
+`prayed_again`, `fed_furnace`, `ruth_refused`, `showed_olstad_letter`.

@@ -17,6 +17,11 @@ narration | time=09:00: You turn the sign. OPEN. For the last time, you think. Y
 === note_enters
 narration | time=+180: Noon. The whole road walks past the window, toward the hall, singing. At the front, on a pole, the straw man in his coat, nodding as they carry him.
 narration: Nobody looks in. They look straight ahead. Then, as the end of the procession passes, the children at the back, holding the goat's red rope, all turn their heads at once and wave.
+narration | if=!flag:gone_ezra: One man steps out of the line. Ezra, with something flat in his arms, wrapped in an altar cloth. He comes in without the bell ringing, because he holds the tongue with his crooked hand.
+ezra | if=!flag:gone_ezra: The plate. From Sunday. For the Keeper to carry.
+narration | if=!flag:gone_ezra | pawned=collection_plate | loan=0: He puts it on the glass and unwraps it. The brass plate, still full. Rings. Folded papers. The children's teeth. He won't take a ticket. You write one. He goes back out to the end of the line and doesn't look round.
+narration | if=flag:gone_ezra: When the last of them has passed, there's something on your step, wrapped in an altar cloth. You bring it in. The brass plate from Sunday, still full. Rings. Folded papers. The children's teeth. Pinned to the cloth, a card: FOR THE KEEPER TO CARRY.
+narration | if=flag:gone_ezra | pawned=collection_plate | loan=0: There's nobody to write the ticket to. You write it anyway.
 paranoia: Goodbye. That's goodbye.
 
 === closing

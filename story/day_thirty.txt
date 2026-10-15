@@ -40,7 +40,7 @@ narration | if=flag:accused_on_air: In the queue, a space opens round you. A yar
 
 === queue_widow
 narration: Mrs. Hollis, three ahead of you, in her best coat, the brooch.
-widow: I gave him Ray's teeth, did I tell you? For the jar. I've never felt so light.
+widow: I gave him Ray's teeth, did I tell you? For the jar. And you've got his box. I told you I'd never felt so light. I'm lighter now.
 widow: I don't know what I'll confess. I've nothing left. That's the strange part. I've been carrying something forty years and I put it down at Christmas and I can't remember what it was.
 narration | if=flag:picks_for_place: Under her coat, two wooden handles knock together when she moves.
 
@@ -69,6 +69,8 @@ narration: Ruth, near the front. She goes into the counsel room before you're ha
 narration | show=booth | red=alone: Your turn. The door. Inside, one bulb, two chairs, scorched, knee to knee: the ones from the ruin. He's in one.
 daniel: Sit. Closer. Mrs. Hollis was in that chair before you. She confessed to forgetting what she came to confess. I gave her a penance for it, and she thanked me.
 narration: You sit. Your knees touch his. He watches your face, all of it, the way you watch a needle settle on the scale.
+daniel: I've been here longer than you think. I stood in those trees across the road the week before you came. I took a picture of John's car. I rang once on a Saturday, to see if you'd jump.
+daniel: You jumped.
 > Tell him a small true thing. -> confess_small | flag=confessed_small | lean=warmth
 > Tell him about the John night. -> confess_john | flag=offered_john_night | lean=unknown
 > Ask him about the Reverend. -> confess_accuse | flag=asked_about_reverend | lean=appraisal

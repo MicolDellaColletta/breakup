@@ -12,13 +12,17 @@
 narration | show=booth | red=alone | time=20:30: The hall, dark. The benches stacked. Behind the stage, the little room, the door open, the one bulb. Two scorched chairs.
 narration: He's in one. On the other, waiting for you: a cardboard box. Ledgers. Cannery stamps on the spines. John's handwriting, columns and columns.
 daniel: The books. What John stole. What the men in Anchorage sent me north for. Take them. Burn them. Read them on the toilet. I never cared.
+daniel | if=flag:has_books: The rest of them. You've had the first three in a bread bag in your drawer since January. Now you've got the set.
 narration: You sit. The box on your knees. He watches you hold it.
+daniel | if=flag:gone_ezra: Ezra's not at his sister's. He went out to count the holes. I counted with him.
+daniel | if=flag:gone_brekke: The doctor's not in Anchorage. He went out to see how thick it was. I held the lamp for him.
 daniel: I never lie. So I'll tell you my price, and you'll know it's the price. Not the books. Not the tin. Not your money, which is my employer's money anyway.
 daniel: You. After breakup. Wherever I go next. There's always a next town, and a tent, and a door. I'd like you at the door.
 narration | if=flag:lied_to_daniel: He tilts his head. "You lied to me in December, at your counter. About the Reverend's bolt. Your mouth did the thing. I'd like you anyway."
 narration | if=flag:told_daniel_hidden: He tilts his head. "You told me the truth in December. Where the Reverend was hiding. You gave him to me. I'd like you more for it."
 unknown: Yes. Say yes. Nobody's ever wanted you this much.
 paranoia: He'll put you on the ice himself and call it love.
+paranoia | if=has:abraham_rules: Rule nine, on the card from the drawer. If he comes back, give him what he asks for. He came back.
 > "Yes." -> fork_yes | flag=fork6_yes | lean=unknown
 > Tell him about the lake. The summer. The money. -> fork_confess | flag=fork6_confess | lean=john
 > "No." -> fork_refuse | flag=fork6_refuse | lean=animal

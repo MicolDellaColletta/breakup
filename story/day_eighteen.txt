@@ -30,7 +30,7 @@ narration | time=09:00: You turn the sign. OPEN. December. The light comes at te
 narration | sound=bell | time=+60: The bell. Olstad, slower than she was. Eight months gone, under the uniform coat. She lays two things on the glass: a letter, and an envelope with a window in it.
 trooper: Mail's slow up here, so I bring it. This one's yours.
 narration | take=money_order_kettle: A money order. Eleven dollars and twenty-seven cents. Interest, ticket 0527. Anchorage, then Wasilla. This one is postmarked Kettle Lake. Yesterday.
-trooper: Whoever's paying the interest on that tin is in town, Johnny. Posted it from Edie's window at the store. Ida says a man in a good coat.
+trooper: Whoever's paying the interest on that tin is in town, Johnny. Posted it from Edie's window at the store. Edie says a man in a good coat.
 paranoia: He's paying to keep the tin on your shelf. He's paying to keep it here.
 narration: Then she turns the letter round so you can read it. Northern Lights Auto Rental. Anchorage.
 trooper: Dark blue sedan, rented in Anchorage October fourth. Never came back. They've reported it.
@@ -80,6 +80,10 @@ widow | if=flag:place_duck_call: I heard it, you know. Friday night. On the lake
 widow | if=flag:place_jacket: The jacket's back on the hook by the door. The house is warmer. I don't know how that works.
 widow | if=flag:place_bare: The place stayed bare. That's all right. I set it again on Sunday, at home. You never know.
 widow | if=flag:sat_in_place: And you sat in it. Everybody saw. I was so proud of you.
+narration | if=held:thermos: On her way to the door she stops at the shelf. The green Stanley thermos, where you put it out.
+widow | if=held:thermos | learn=thermos/story: That's Ray's. The dent's from the dock, the spring we were married. He took it out on the ice every morning, full. He brought it home every night, empty.
+narration | if=held:thermos: She puts her hand on it. She takes her hand away. She doesn't ask the price.
+widow | if=held:thermos: No. You keep it out. It's warmer here.
 narration | sound=bell: She knocks twice on the frame. The candle stays.
 
 # --- The man in the good coat. He comes in now. ---

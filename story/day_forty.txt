@@ -44,10 +44,40 @@ trooper: I've got nothing I can take to a judge. You never gave me the night. Wi
 trooper: Two weeks. Stay where I can see you.
 narration | sound=bell: The bell.
 
+# --- Ezra, for the church's box, and the rifle. ---
+
+=== ezra_enters
+narration | sound=bell | time=+30: The bell. Ezra. The cast off now, the right hand thin and white and crooked, held against his coat. He comes to the glass in his church coat, his hat in his good hand.
+ezra: Palm Sunday next week. The church's things, Keeper. Held till we build again. We're not building again. We're giving it all to the plate.
+narration | if=held:bell_clapper | redeemed=bell_clapper: The clapper, from the back shelf. He takes the weight of it in his left hand and doesn't flinch.
+narration | if=held:microphone | redeemed=microphone: The microphone, melted into its face. He wraps it in his handkerchief so he won't have to look at it.
+narration | if=held:reverend_collar | redeemed=reverend_collar: The collar, last. He holds it a moment longer than the others, then folds it into his breast pocket.
+ezra: And 0431. The rifle.
+narration | if=!sold:rifle | redeemed=rifle: He puts the ticket on the glass. Forty dollars, counted out left-handed. You bring the rifle down off the back shelf. The cross carved in the stock. He doesn't look at it. He knows where it is.
+ezra | if=!sold:rifle: Every autumn I bring it in. Every breakup I take it out. Somebody has to carry it on the walk.
+paranoia: On the walk. Behind you. All the way out.
+narration | sound=bell: The bell. He goes up the road with the rifle on his shoulder and the church in his arms.
+
 # --- Ruth. ---
 
 === ruth_enters
 narration | sound=bell | time=+60: The bell. Ruth, in her coat, at ten in the morning, sober. She hasn't been sober at ten in the morning since you've known her.
+-> ruth_letter_ask | if=has:abraham_letter
+-> ruth_after_letter
+
+=== ruth_letter_ask
+narration: In your coat, the letter. Her name on the front, in his hand. The paper still soft from the cold.
+> Give her the letter. -> ruth_letter | lose=abraham_letter | flag=gave_ruth_letter | lean=warmth
+> Leave it in your coat. -> ruth_after_letter | lean=paranoia
+
+=== ruth_letter
+narration: You put it on the glass. She knows the hand before she knows what it is. She knows it better than anyone.
+narration: She reads it standing up. Then she reads the line again, with her finger under it. It wasn't your fault.
+ruth: He never said that. Not once. He wrote it down and put it in his pocket and went and sat down.
+narration: She folds it along its old folds and puts it inside her coat, against her chest, and stands there with her hand over it.
+-> ruth_after_letter
+
+=== ruth_after_letter
 -> ruth_offer | if=doors:ruth>=3
 -> ruth_keys | if=flag:ruth_has_keys and doors:ruth>=2
 -> ruth_place
@@ -96,6 +126,7 @@ narration | sound=bell: The bell.
 
 === sam_enters
 narration | sound=bell | time=+60: The bell. Sam, in the duct-taped parka, a notebook open in his hand. A new one. The first page full already.
+sam | if=flag:sam_stayed_dark: You didn't come out. You stood on the shore with nothing of mine, and you didn't come out. I was there with the lamp off. I saw.
 sam: The minute is five forty-one, on the twenty-second. I've checked it every night. I'll be at the clock.
 sam: Come and stand with me. Or drive me out of here the night before. Either. I'd understand either.
 > "Be at the car, Friday night." -> sam_yes | flag=sam_comes | lean=warmth

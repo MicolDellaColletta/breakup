@@ -36,6 +36,16 @@ ruth: They found her at breakup. In the morning. On the ice, off the point, wher
 ruth: Every Keeper since. Every one. I keep them in town. I keep their keys. I take their picture. So it's never empty again. So it's never her again.
 narration | if=has:ruth_diary: You know. You read it in her diary, in her room: "Mom says she'll go and sit in the shop so it's not empty." You don't tell her you know. Or she sees it in your face.
 narration | if=flag:saw_locked_room: She looks at you. "You've been in my room. Haven't you. You saw his coat. I couldn't give it back. I couldn't give it to the shop."
+narration | if=has:keeper_photo: You put the photograph on the table, by the bowl. The young man on the shop step, in red flannel, squinting.
+ruth | if=has:keeper_photo: David.
+narration | if=has:keeper_photo: She touches the edge of it. Not his face.
+ruth: He didn't even take his case. He got in the truck in his shirt. Dad put the case in a crate and never said a word about it.
+ruth: Mom painted that one over your armchair. That spring. She sat out on the point every afternoon with her paints. There was nobody on the ice when she did.
+ruth: The bowl started the winter after. The steel one, in your kitchen. Dad put it down the first winter without her and filled it every night. I've never been able to look at it.
+ruth: And every fall he went away. To Anchorage, to the paper. He'd come home with a name.
+ruth | if=doors:ruth>=2: I still come and sit. At night, at his table. I've got the keys. I tape the bell so it won't wake you. I make two cups. I sit in his chair till it's warm and I go home.
+ruth | if=doors:ruth>=2: The ledger. "Oct 12. One week." The card on the furnace. That's not him. I did that. I've done his hand since I was nine.
+ruth | if=doors:ruth>=2: I wanted it to be his shop one more winter. That's all. One more.
 narration | if=flag:ruth_has_keys: She pushes the ring of keys an inch toward you. Then stops, with her hand flat on them.
 narration | red=on: At the end of the bar, in the dark, where the light from the candle doesn't reach, a chair creaks. Somebody's been sitting there the whole time. Neither of you looks.
 paranoia: Him. He's been here the whole time. He heard all of it.

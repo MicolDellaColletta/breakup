@@ -10,6 +10,12 @@
 
 === morning
 narration | time=09:00: Christmas Eve. The fourth candle.
+narration: A knock at the top of the outside stairs. Mrs. Hollis, in her church coat, with a plate under a cloth. She comes in without waiting to be asked.
+narration: She sets the plate on your table. Then she bends, slowly, a hand on her knee, and picks up the bowl from beside the stove.
+narration: She rinses it at your sink. Hot water, her thumb going round the rim, over the dent. She dries it on her skirt and sets it back exactly where it was, on its line.
+widow: You line it up so neatly. Abraham never did.
+paranoia: She didn't look for it. She knew where it goes.
+narration: She goes down the stairs one at a time, both hands on the rail.
 narration | if=flag:ruth_saw_father: No envelope from the Gleaner this week, no glass, no Ruth. On the bar, they say, a scarf, folded, by the till. She serves with her coat on.
 narration | if=flag:power_sign: People nod to you in the road. More than nod. Mr. Pruitt shakes your hand. "Kept your light on," he says. "The longest night."
 narration | show=shop | time=14:00: The shop, shut for Christmas Eve, the sign turned. Four candles in the window. The light going at half past three.
@@ -91,6 +97,8 @@ narration | if=flag:sam_pie_note: Sam's note, a month ago, underlined twice. Don
 
 === mass_take
 narration: You eat. You drink. It's sweet, and thick, and there's something under the sweetness, something like cloves.
+appraisal: Clove oil. What Dr. Brekke gives you for a toothache. It numbs.
+paranoia: Your lips. You can't feel your lips. The cold's gone out of your hands.
 narration: The woman beside you squeezes your hand, hard, and lets go. Across the ruin, he's watching. He closes his eyes, like a man hearing a note he wanted.
 -> mass_after
 
@@ -133,6 +141,8 @@ daniel: You told Mrs. Hollis your name was John. You signed his name in the ledg
 daniel | if=flag:lied_to_ruth: You lied to Ruth across her own bar, and she knew, and poured you another.
 daniel | if=flag:lied_in_church: You said "No" in church, with the doors barred, in front of me. To keep a man you'd met twice from taking you with him.
 daniel | if=flag:wore_coat: You put your arms in their coat. You let six women button you into it.
+daniel | if=flag:sang_at_fire: You sang, Wednesday. With the roof coming in. You knew every word, and you didn't know you knew them. I did.
+daniel | if=flag:tried_church: You went at that door with your bare hands. The only one. They held you in the snow for it and called it kindness. Show me your hands. No. Keep them.
 daniel | if=flag:refused_bullet: You told me you don't buy things like that. You've been buying things like that since October.
 daniel | if=flag:took_bullet: You wrote me a ticket for a dollar. You've kept it warm. I know you have.
 daniel: The town would call it sin. I don't care about sin. It's a costume, and a cheap one. I'm taking it off you, piece by piece, because I want to watch you get cold.

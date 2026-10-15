@@ -49,6 +49,13 @@ trooper: Okay.
 -> trooper_goes
 
 === trooper_goes
+narration: She stops with her hand on the door.
+trooper: Put a man on the Palmer bus Tuesday. From Seattle. Thomas's friend, the one who came up last Thanksgiving. He came back to look for him.
+trooper: A month out on the north shore, in a fish shack. Two fingers gone white. He wouldn't let the clinic look at them.
+trooper | if=!broke:warm: He had Ray Hollis's hunting jacket on. Off her line, I'd guess. I let him keep it. Ray won't miss it.
+trooper | if=broke:warm: No coat. He said he'd had a good one, and sold it in town for ten dollars. I didn't ask who to.
+trooper: He asked me where Thomas went. I told him April. That's what's in my book.
+paranoia: Blue hands on your counter, in October. No gloves. He went toward the lake, not the road.
 narration | sound=bell: At the door, her hand comes up toward the frame. This time it touches, once, before she pulls it back. She looks at her hand. Then she goes.
 appraisal | if=appraisal>=1: Once. Not twice. She's fighting it.
 
@@ -83,6 +90,9 @@ narration | flag=sam_arrow: He opens the map. The circle at Wasilla, with "him" 
 sam: Coming up the valley. Anchorage, then Wasilla. Next month, here. He'll post it himself, from our post office. You'll see.
 unknown | if=frayed: He's right. You both are. Nobody else can see it.
 paranoia: He's guessing. He's guessing and he's right, and you can't tell the difference any more.
+narration | if=!sold:skinning_knife: On his way out he stops at the skinning knife on the shelf. He tips the bolster to the light with one finger. He doesn't pick it up.
+sam | if=!sold:skinning_knife | learn=skinning_knife/story: Eleven lines. One a Keeper, every year since eighty-eight. Somebody keeps the count on the knife.
+sam | if=!sold:skinning_knife: The last one's bright. That's August. You came in October.
 narration | sound=bell: He goes, without knocking on the frame. Through the window you watch him stop in the road and write something in the notebook, standing in the snow.
 
 # --- Closing. ---

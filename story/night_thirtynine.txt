@@ -88,6 +88,8 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 
 === morning_after
 narration | time=07:00: Monday. The light at half past six. You didn't sleep for any of the dark there was.
+narration: Downstairs, on the mat inside the front door, the ledger. Abraham's. Pushed back under the door in the night, though it shouldn't fit. The spine split down the middle where it was forced.
+narration: You put it on the counter where it lives. It falls open by itself at the last page. JOHN. A sprig of spruce laid in the fold.
 
 # --- Something out of place (docs/nights.md). ---
 

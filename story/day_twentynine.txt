@@ -16,6 +16,9 @@ narration | time=09:00: You turn the sign. OPEN.
 
 === seller_enters
 narration | sound=bell | time=+90: The bell. An old man in a good coat, the coat too big for him now. Walt Pruitt. He stands just inside the door the way he did in October, as if no time had passed, and looks around for something he can't name.
+narration: He puts a round blue biscuit tin on the glass. Thread in it, a thimble, bronze hairpins stuck through a pincushion like a hedgehog.
+seller: Her sewing things. I don't sew. She'd want it used. I don't want anything for it.
+narration | unpacked=ida_sewing_tin: He takes his hand off the lid slowly, as if it might open by itself.
 -> walt_name | if=flag:ida_pawned
 -> walt_dollars | if=held:silver_dollars
 -> walt_thanks
@@ -69,8 +72,42 @@ narration | sound=bell: He goes. On the shelf, the roll goes cold under your han
 === walt_thanks
 seller: I don't know why I came. I wanted to say thank you. For something in October. I can't remember what.
 narration: You know. You turned him away, with the coins and with her name. Gently.
-seller: She'd have liked you. Ida. That's her name. I can still say it. Some can't. Ezra's wife can't say her boy's.
+seller: She'd have liked you. Ida. That's her name. I can still say it. Some can't. Ezra's wife can't say her boy's. Not since '88.
 narration | sound=bell: He goes. You stand there with her name in the air of the shop, said out loud, the way it should be.
+
+# --- Teague, with a skull. And the trap, if it's still here. ---
+
+=== teague_enters
+narration | sound=bell | time=+60: The bell. A big man in a fur hat, stooping under the door frame though he doesn't have to. Teague. Woodsmoke and cold come in with him, and the animal smell under them.
+narration: He puts a skull on the glass. A wolf's, bleached white, the long teeth all there. A hole drilled through the crown, and a loop of rawhide through the hole.
+teague: Twenty-five. My dad hung one of these over every door he had. Keeps the dead from following you in.
+teague: I've sold the rest. I don't need this one.
+narration | if=held:leg_trap: He isn't looking at you. He's looking past you, at the floor shelf, the whole time. At the trap.
+> Pay him the twenty-five. -> teague_buy | lean=appraisal
+> "Hang it over your own door." -> teague_keep | lean=paranoia
+
+=== teague_buy
+narration | unpacked=wolf_skull | cash=-25: Twenty-five dollars. He folds it into the binder clip without counting it, and pushes the skull an inch toward you, teeth first.
+-> teague_trap | if=held:leg_trap
+-> teague_goes
+
+=== teague_keep
+teague: I haven't got a door I'm worried about. You have.
+narration: He puts the skull back in his coat.
+-> teague_trap | if=held:leg_trap
+-> teague_goes
+
+=== teague_trap
+narration: He goes to the floor shelf and picks up the trap. Turns the tag over with his thumb. NOT FOR FOX.
+teague: That's mine. Victor Number Three. I lent it to Abraham, years back. For the stairs, he said. I didn't ask what was on his stairs.
+teague: He oiled it. Every year, by the look. Never set it once.
+paranoia: For the stairs. Something comes up the stairs at three.
+narration | redeemed=leg_trap: He hangs it over his shoulder by the chain. He doesn't offer to pay. You don't ask him to.
+teague: Whatever it was for, he couldn't do it. Don't you either.
+-> teague_goes
+
+=== teague_goes
+narration | sound=bell: The bell. Through the window he stops at his truck and looks back at the shop a long while before he gets in.
 
 # --- Cody, or Cody's place. ---
 

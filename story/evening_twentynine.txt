@@ -28,6 +28,12 @@ trooper: Brekke signed it. The county'll read what he signed, because there was 
 narration | if=flag:asked_daniel: You tell her. You asked him. He said yes. She looks at you a long time. "I believe you. God help me. I can't write down 'he said yes.'"
 narration | if=flag:accused_on_air: "I heard you. On the radio. Then I heard him. My sister turned it off. She wanted to know who John was."
 narration | if=flag:pointed_gun: "And he's got your gun. Ezra saw it in his coat. I'm not going to ask."
+trooper | if=flag:backed_doctor: You said the stove. In front of all of them, after the doctor. I heard you.
+trooper | if=flag:silent_on_fire and !flag:backed_doctor: You said the stove. You didn't open your mouth, and they all heard you say it.
+trooper: In November, in your shop, I told you he'd given me the truth about something else, so I'd swallow the lie. It was you. He told me your real name. He wanted me to know he had it.
+narration: She doesn't say it. She looks at you as if she might, and doesn't.
+narration | if=has:carbon_copies: You give her the carbons from the office desk. She reads them by the light off the snow, one sheet at a time. Thomas. Annie. Paul. Dale. Luis.
+trooper | if=has:carbon_copies: Every September, a new name. There's no carbon for this year. Who wrote to you?
 trooper: I need one person to say different. Out loud. In front of them. When it comes to it.
 narration: She closes the bag.
 trooper: Will you? When it comes to it?

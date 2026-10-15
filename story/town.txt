@@ -509,7 +509,7 @@ narration | time=+10: The cabin. Six new batteries are already in the lamp on th
 === cabin_four_notebook
 narration: He sees your headlights and comes in. He doesn't say hello. He unlocks the three locks, and lets you into the lean-to, and puts the notebook on the table, open at the first page.
 sam: The ten.
-narration: Ten names in quotation marks. "Thomas." "Paul." "Dale." "Annie." Each with a date in October, and a date in May, and a blank between them where the right name should be.
+narration: Ten names in quotation marks. "Thomas." "Annie." "Paul." "Dale." "Luis." Back to "David," in 1989. Each with a date in October, and a date in May, and a blank between them where the right name should be.
 sam: I don't want you to do anything. I want you to read them. Out loud, if you can stand it. Somebody should say them who isn't me.
 narration: You read them out. Ten names that weren't anybody's.
 narration: When you finish, he's looking at the page, not at you.
@@ -672,7 +672,7 @@ paranoia: They're making you a coat. They're making you a coat to walk out onto 
 === lunds_knock
 narration | flag=saw_coat: The door opens before your knuckles have finished. Warmth, and coffee, and the smell of wet wool and lanolin.
 narration: They're delighted. They sit you by the stove. Someone puts a cup in your hands. Nobody hides the coat. Why would they.
-narration: Mrs. Lund, Ezra's wife, holds it up by the shoulders, against you, the way you'd hold up a coat for a child. It reaches your ankles.
+narration: Mrs. Lund, Ezra's daughter-in-law, holds it up by the shoulders, against you, the way you'd hold up a coat for a child. It reaches your ankles.
 narration: "Not yet," she says, and takes it back. "Not till it's done. It's bad luck to wear it before."
 narration: Before you can say anything, a tape measure, round your arm, wrist to shoulder. Someone writes the number down.
 narration: Hanna, from the end of the table, beaming: "Mine's in the hem. So you'll walk on it."
@@ -1014,6 +1014,7 @@ narration | time=+20: The church, dark. The manse behind it, one window lit, and
 narration | time=+10: The cabin. Sam on the porch, smoking, the binoculars on the rail.
 sam: Hands don't just stop. Tremors are neurological. I looked it up. Well. I looked it up in 1994, for something else. They don't just stop.
 sam: Unless they were never real. Unless he's been shaking for thirty years for the same reason everybody here does what they do. Because it's expected.
+sam: The preacher stood at my window an hour on Saturday. He didn't knock. I didn't move. He was smiling at the clock.
 
 === lake_twenty
 narration | time=+20: The lake. The shanties. On the ice in front of the Gleaner, somebody's laid out a word in pine boughs, big enough to read from the hill. You can't read it from the shore. You don't walk up the hill to find out.
@@ -1118,6 +1119,8 @@ narration | time=+20: The lake. The square hole in front of the clock has skinne
 === cabin_twentyeight
 narration | time=+10: The cabin. A lamp in the window, turned low. Sam comes to the door in his coat as if he'd been about to go out, or had just come in.
 sam: Did you hear him. On New Year's. On your phone. I heard it through the wall of the world. Go home, John. Lock nothing. Listen to everything.
+narration | if=has:burned_corner | lose=burned_corner | flag=gave_sam_scrap: You give him the scrap from the furnace. He reads it twice. Not the ice. They walk you out onto it.
+sam | if=flag:gave_sam_scrap: He pins it on the wall, under Thomas. Under Jonah. "That's his hand. Now it's written down."
 
 # --- Key day 35, Saturday March 11: the frenzy. ---
 

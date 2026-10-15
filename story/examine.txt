@@ -76,7 +76,9 @@ paranoia: Put it down. You don't need to see that.
 
 === examine_mirror_back
 narration: You turn it over. Engraved in the silver, worn almost flat: J.M.
-appraisal | if=appraisal>=1: Somebody's initials, not a name. And it's never made a sound in its life.
+appraisal | if=appraisal>=1 and !flag:knows_jonah and !knows:thomas_scarf/marks: Somebody's initials, not a name. And it's never made a sound in its life.
+appraisal | if=knows:thomas_scarf/marks: J.M. The same as the name tape in the scarf. J. Marsh. Thomas's.
+appraisal | if=flag:knows_jonah: Jonah Marsh. Thomas, looking into this every morning, getting thinner.
 
 === examine_watch_case
 narration: The case opens with a thumbnail. Inside the lid, the maker's name, engraved in a looping hand: SUNDQVIST & SONS, ANCHORAGE.

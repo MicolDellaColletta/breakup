@@ -21,6 +21,7 @@ every ending can be reached by playing (`routes.md`).
 10. `routes`
 11. `placeholders`
 12. `todo-fixes`
+13. `loose-ends`
 
 **Your notes from playing (Oct 14).** More to come once you finish the
 playthrough. Done on branch `todo-fixes` unless it says otherwise.
@@ -51,8 +52,9 @@ playthrough. Done on branch `todo-fixes` unless it says otherwise.
       ("New stock on the counter. Put it out on the shelves.") and you shelve
       them by hand. The ledger writes them in. New story effect:
       `unpacked=item,item` (`arrives=true` items).
-- [ ] **Still not enough objects.** Started: four new things from the crates
-      (above), so there are 31. The right wall and the left wall's bottom row
+- [x] **Not enough objects:** 13 more, each with a place (`loose_ends.md`,
+      part 4), so there are 44, arriving month by month. Previously: four from the crates
+      (above). The right wall and the left wall's bottom row
       still need filling, and the shelves should change by month. More ideas: a
       chainsaw, a fishing reel, binoculars, a Polaroid camera, a VHS player, a
       guitar with five strings, a box of cassettes, a wolf pelt, a .410 shotgun

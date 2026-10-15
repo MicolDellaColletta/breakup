@@ -20,6 +20,12 @@ paranoia: Rule seven.
 === radio_on
 narration | sound=click: Him, reading the households fed. Then a hymn. Then the hymn again. Then again. The same verse, over and over, for an hour, as if nobody were there to lift the needle.
 narration: At eleven it stops in the middle of a word. Then his voice, very close, very loud: "Forty-one houses fed. Four not. You know the four. Leviticus: the unclean shall dwell alone; without the camp shall his habitation be. Tie your threads, friends. I'm counting doors."
+narration: You do know them. Everybody on the road does.
+narration | if=!flag:wears_thread: This one. Your door, with nothing on the handle.
+narration: Olstad's, at the end of the road. A trooper's door. Nobody's going to tie anything on that.
+narration: Sam's, on the shore. Nobody's walked down the path to tie one on.
+narration: The Gleaner's back door. Ruth wears hers on her wrist. She won't put one on her door.
+narration | if=flag:wears_thread: And the manse on the hill, dark. There's nobody left in it to tie one on.
 
 === radio_off
 narration: You leave it off. Through the wall, the same verse of a hymn, over and over, for an hour.
@@ -96,6 +102,7 @@ narration | if=flag:saw_peaches: The tin of peaches, washed, upside down on the 
 
 === odd_peaches
 narration | time=+5: The kitchen table. The tin of peaches from his box, open, the lid folded back. A spoon standing in it.
+narration | if=flag:refused_groceries: His box is on the floor by the door. In from the step. You didn't bring it in. You remember not bringing it in.
 narration | flag=saw_peaches: Half eaten. The syrup still cold. A chair pulled out a little, the way you'd leave it if you'd been called away in the middle.
 paranoia: You ate them. You were hungry. You ate half and forgot.
 narration: You hate peaches. You've always hated peaches.

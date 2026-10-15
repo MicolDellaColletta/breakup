@@ -76,7 +76,7 @@ narration | time=+20 | show=bedroom: You lie down at six. The light won't come f
 
 === night_dog_fed
 narration | show=bedroom: Facing the door.
-narration | sound=stairs: Three o'clock. The stairs. One and then the other.
+narration | sound=stairs: Nine o'clock, and still dark. The stairs. One and then the other.
 narration | stop=stairs: The kitchen. Then down.
 -> morning_after
 
@@ -86,7 +86,7 @@ narration | show=bedroom: Facing the door. Nothing comes up.
 
 === night_dog_door
 narration | show=bedroom: Facing the door.
-narration: Three o'clock. The back door. In the morning the bowl is clean.
+narration: Nine o'clock, and still dark. The back door. In the morning the bowl is clean.
 -> morning_after
 
 === morning_after

@@ -68,8 +68,8 @@ const ROUTES: Array = [
 	},
 	{
 		"ending": "run_cody",
-		"why": "kept Cody's picks; no car; the truck to Fairbanks",
-		"flags": ["kept_picks", "car_towed"],
+		"why": "gave Cody his picks back (he lives); no car; the truck to Fairbanks",
+		"flags": ["gave_picks_back", "car_towed"],
 		"items": [],
 		"picks": {40: ["I'll be there"], 42: ["Watch from the step", "Get in."]},
 		"spots": {34: ["hall_scale_book", "hall_booth_sam"], 36: ["hall_to_gleaner", "room_leave"], 39: ["hall_to_line"]},

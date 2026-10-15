@@ -95,6 +95,9 @@ narration: Your line. Near the bottom, in his hand: October 5, 1999.
 narration | if=flag:sam_crossed: And then the name. Not "John". Crossed out, where you took his pencil in October and did it yourself. And above it, in his hand, small, careful, in capitals: your own. The first time you've seen it written since you came. It looks like somebody else's.
 narration | if=!flag:sam_crossed: And the name in quotes: "John". The quotes gone over twice. And the blank after it, waiting.
 narration: The blank's been gone over too. Not filled in. Just gone over, again and again, as if he'd sat here with the pen at it, deciding.
+narration | if=flag:door_sam_1: Above yours, the 1998 line. "Thomas." And after it, where the blank was, his hand. Two words.
+sam | if=flag:door_sam_1 | flag=knows_jonah: Jonah Marsh. From Seattle. You gave me yours, so you get his. Somebody should say it out loud once.
+paranoia | if=flag:door_sam_1: Somebody knew his name. It didn't help him.
 
 === cabin_eyes
 narration: Near the 1989 line, a Polaroid with the face cut out. Under it, in his hand, a list: tall, fair, a scar on the left hand. Brown eyes.

@@ -35,6 +35,7 @@ narration: It comes back to him. He takes it. He says nothing. He doesn't look a
 === attempt
 narration: The hymn. The blessing. The queue forming for the little room behind the stage.
 narration | if=!flag:olstad_case and !has:daniel_file and !has:revolver: You've got nothing to stop him with. You know it. So does he.
+narration | if=flag:olstad_case and faith:olstad<2: You signed. You look out through the door at the hall steps. The steps are empty.
 > Go out to the steps, where Olstad's waiting. -> way_olstad | if=flag:olstad_case and faith:olstad>=2 | flag=attempted | lean=appraisal
 > Walk up to the anxious bench with Lund's notebook. -> way_town | if=has:daniel_file | flag=attempted | lean=paranoia
 > Join the queue, with John's gun in your coat. -> way_gun | if=has:revolver | flag=attempted | lean=john
@@ -61,6 +62,7 @@ narration | flag=daniel_given: That night, from your window, the lanterns go up 
 narration | show=booth | red=alone: The queue. An hour. Then the little room. One bulb. Two scorched chairs. He's in one.
 narration: He sees your hand in your coat. He smiles.
 daniel: I wondered if you would.
+daniel | if=flag:round_loaded: You put it at the back. Good.
 -> gun_fails | if=flag:gun_six
 -> gun_fires
 

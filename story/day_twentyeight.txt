@@ -24,6 +24,9 @@ narration | time=09:00: You turn the sign. OPEN. The light comes at ten. Four mi
 === widow_enters
 narration | sound=bell | time=+60: The bell. Mrs. Hollis, the candles gone from her arms now, carrying something long in a dry cleaner's bag over her shoulder, like a body.
 widow: He says April. Breakup. I've never minded waiting. I waited forty years for Ray to come in for supper.
+narration: She puts a green steel box on the glass first. A tackle box, the paint worn off the corners where a man's knees held it.
+widow: Ray's. Sell it. I don't want anything for it. The teeth, and now this. I've never felt so light.
+narration | unpacked=ray_tackle_box: She pushes it across to you with both hands and doesn't look at it again.
 narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel: She pats your hand. "And thank you, dear, for what you said at the potluck. About Ray. Nobody's ever said that to me." You said nothing at the potluck. You're almost sure you said nothing.
 narration: She unzips the bag. The coat. Long, brown, the brass buttons, the hem done.
 widow: It should hang here. In the shop. So it's handy. On the back of the door, where Abraham's used to go.
@@ -142,11 +145,15 @@ daniel | if=flag:has_books: You went to Anchorage the day the road opened. Six h
 daniel | if=flag:new_year_ruth: She kissed you at midnight. Did she taste of sorry? She always does. She's saving it up for something.
 daniel | if=flag:new_year_sam: Did you hear the ice at midnight? Sam wrote it down. Your initials beside his. He thinks that's a wedding.
 daniel | if=flag:new_year_daniel: You said my name. Down a phone, in the dark, first. You broke rule four for me with your own mouth.
+daniel | if=flag:gun_pillow: You sleep on his gun. Mrs. Hollis says you sleep on it. I didn't ask her how she knows.
 daniel | if=flag:gun_dresser: You keep his gun in the dresser. Under the flannel, with your papers. I wouldn't. I'd keep it where I could reach it at three, when the stairs go.
 daniel | if=flag:asked_daniel: You came to my room and asked me, and I said yes. You've carried that word round ever since. Say it. No? Your mouth did, a little.
 daniel | if=flag:accused_on_air: You told every kitchen in town what I did. I told them what you did. They had to choose which of us to be afraid of. They chose you. They don't even know what to call you now. I do.
 narration | if=flag:pointed_gun: He touches his coat, over his heart, where the gun is.
 daniel | if=flag:pointed_gun: Still here. It's been against me since the night you pointed it. You'll have it back in March, and you'll know what it's for.
+daniel | if=flag:stood_in_ash: You stood in it. Christmas, in the ash, with a chair right there for you. You stood in it. I saw.
+daniel: The money orders stopped. You noticed. Every morning in December you stood at the door for Olstad and the mail.
+daniel: I stopped paying for you. You're mine now. I don't need to rent you.
 daniel: Look at your hands on the glass. Holding still. What did that cost you? I'll come back for the rest.
 > "Get out of my shop." -> daniel_out | flag=ordered_daniel_out | lean=animal
 > "Come back, then." -> daniel_invited | flag=invited_daniel | lean=unknown

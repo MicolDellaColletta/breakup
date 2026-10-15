@@ -24,6 +24,11 @@ widow: He's coming today. The minister. Ezra had a call. He'll be at the church 
 narration: She's pink. She's excited, the way you'd be excited for a wedding.
 widow: I made a pie for him. And this is for you. You won't be forgotten, dear. Not this week.
 narration | if=flag:wore_coat: She touches your shoulder, where the coat sat. Just touches it.
+narration | if=!sold:decoy: On her way out she picks up the old decoy, and turns it over, and finds the 14 under the paint with her thumb.
+widow | if=!sold:decoy: Ray's granddad carved that. Number fourteen. He carved twenty for the Club, the year it started, one for every man.
+narration | if=!sold:decoy: She shakes it. Something small rolls inside, end to end.
+widow | if=!sold:decoy | learn=decoy/story: That's a ring. Arne Sveen's. He had the twentieth, and he went through in the spring of thirty-one. They found his glove with the ring in it. Granddad put it in there and painted over the hole.
+widow | if=!sold:decoy: The Club took in nineteen, after. Nobody would carve another twentieth.
 narration | sound=bell: She knocks twice on the frame. The bell.
 
 # --- The man in the good coat. ---
@@ -102,6 +107,9 @@ narration: He picks the bullet up and puts it back in its envelope, and the enve
 daniel: Then a box of matches. My room is cold. And I like to watch a thing burn down to the fingers.
 narration | cash=+1: You put a box of matches on the glass. He puts down a dollar. Then, after a moment, a quarter beside it, faced, exactly square, pushed across with one finger while he watches your hand not take it.
 daniel: Keep the change. I'd hate to owe you.
+narration: When he lifts his finger off the quarter, there's a matchbook under it. Not yours. NORTHERN LIGHTS MOTOR INN, WASILLA.
+narration | take=wasilla_matchbook: You open the flap. In pencil: Room 11. And under it: Nov 1-3.
+paranoia | if=has:money_order_wasilla: Wasilla. The money order. Postmarked the second.
 -> daniel_goes
 
 === daniel_door

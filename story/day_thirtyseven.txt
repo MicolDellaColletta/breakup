@@ -46,11 +46,22 @@ narration: He takes John's gun out of the good coat and lays it on the glass bes
 narration | take=revolver | flag=gun_six: He presses the flattened round into the empty chamber with his thumb. It shouldn't fit. It goes in. He closes the cylinder and turns the gun round on the glass so the grip faces you.
 daniel: Six. Now it's a whole thing. I said March.
 daniel | if=flag:pulled_trigger: You pulled it, that night. The empty one came round. I counted, after you'd gone. I laughed for an hour.
--> daniel_after
+-> daniel_watch
 
 === daniel_load_round
 narration | take=sixth_round | flag=has_sixth_round: He stands the flattened round on its end on the glass, between you, like a chess piece.
 daniel: For John's gun. Wherever you've put it. The bear, the board, the bottom drawer. One empty chamber, and now there's this. Six. It's a whole thing. I said March.
+-> daniel_watch
+
+=== daniel_watch
+narration | if=held:father_watch | redeemed=father_watch | cash=+3: "And my father's." The second ticket, from inside his coat, and three dollars on top of it. You bring the watch from the back shelf. Stopped at nine.
+narration | if=!held:father_watch: He takes the watch out of his waistcoat and opens the case on the glass. Stopped at nine.
+daniel | if=flag:refused_watch: You wouldn't hold it. I remember.
+daniel: Nine o'clock. Thursday nights your whole town sits by the radio at nine and watches the lake. My father kept the same watch. Minnesota, a lake, nine o'clock, every Thursday. The night the boy went in, he was watching.
+daniel: He stopped it when they found the boy. He made me wear it.
+narration: He puts it back in his waistcoat. It doesn't tick.
+daniel | if=flag:ordered_daniel_out: Your shop. Say it again.
+narration | if=flag:ordered_daniel_out: You don't. He waits long enough for you to know he's waiting.
 -> daniel_after
 
 === daniel_after

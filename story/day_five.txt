@@ -115,7 +115,7 @@ narration: One of the women writes something in the book anyway. A guess. You wa
 
 === vestry_frame
 narration: The doorframe. The white paint covered in pencil lines, one above another, the way a family marks a child growing.
-narration: Beside each line, a name, and a year. "Thomas" 1998. "Paul" 1997. "Annie" 1996. Ten of them, eleven, going back past where the paint was touched up.
+narration: Beside each line, a name, and a year. "Thomas" 1998. "Annie" 1997. "Paul" 1996. "Dale" 1995. "Luis" 1994. Ten of them, eleven, going back past where the paint was touched up.
 narration: The other woman takes your shoulders, kindly, and turns you, and stands you with your back to the frame. A pencil, flat on the top of your head. A scratch.
 narration | flag=measured: When you step away, there's a new line, a little higher than Thomas's. JOHN. 1999.
 paranoia: A height. They want your height. What do you need a height for.

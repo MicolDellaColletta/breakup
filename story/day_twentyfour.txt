@@ -33,6 +33,10 @@ narration: She lights it from the other two. Her hand shakes, the match goes out
 widow: Ezra's asked for the children's teeth, for the jar. He keeps it at the Gleaner now, in the back, since the vestry. By Friday. I gave him Ray's. Ray's baby teeth. I'd kept them in an envelope fifty years.
 narration: She looks at you.
 widow: You'd think that would be a hard thing, wouldn't you. It wasn't. It was the easiest thing I've done all year.
+narration: From her coat pocket, a small red mitten. Knitted. The thumb worn through.
+widow: Cody's. The winter he was three. His tooth went in the jar that winter.
+widow: Ezra didn't ask for this. It isn't a tooth. I just don't want it in the house this year.
+narration | pawned=cody_mitten | loan=0: She won't take a loan. She writes the ticket out herself, in her round hand, and pins it to the cuff.
 narration | sound=bell: She knocks twice on the frame. Three candles in the window now, and the light outside already going.
 
 # --- Him, with the thread. ---
@@ -72,13 +76,16 @@ narration | sound=bell: The bell, once. Through the window you watch him tie the
 narration | sound=bell | time=+60: The bell. Olstad. She doesn't stand at the counter. She sits down in the customer chair by the stove because she has to, a hand on each knee, breathing.
 trooper: January. Any day after the first. The doctor in Wasilla says the roads'll decide, not the baby.
 narration: She looks past you, through the door to the back. To the steel door. To what's behind it.
-trooper: The freezer. Abraham kept it padlocked. That padlock's mine. Department issue. I put it on.
-trooper: I've got the only key.
+trooper: The freezer. That Master on it, I bought in Palmer on the fourth of October. This month I put a second lock on. Department issue.
+trooper: I've got the only keys.
+trooper: The furnace is me too. On my rounds, every day since the fourth. That box won't run if the back room freezes. The oil goes thick.
+trooper: His card on the steel door. I found it in his drawer and pinned it up. So it'd go on when I couldn't come.
+paranoia: Every day. With her key. While you slept upstairs.
 -> trooper_offers | if=faith:olstad
 -> trooper_keeps
 
 === trooper_offers
-narration: She takes a small key off her ring and puts it on the glass. Brass, a number stamped on it.
+narration: She takes two small keys off her ring and puts them on the glass. One brass, from the store. One steel, a number stamped on it.
 trooper | flag=olstad_freezer_key: If you need to look, look. I've looked enough for both of us.
 narration: She gets up, slowly, one hand on the chair back.
 trooper: Don't take anybody in there you can't carry out again, Johnny.
@@ -95,7 +102,7 @@ narration | sound=bell: She gets up slowly and goes. She doesn't knock on the fr
 narration | time=15:33: Twenty-seven minutes to four. The light goes all at once, like a held breath let out. You turn the sign. CLOSED.
 narration: The furnace has run hot all month. The back room's warm enough to sweat in. And under it, behind the steel door, the freezer, humming, the only cold thing left.
 narration | if=flag:listened_freezer: In October you put your ear to it and heard something. Tonight it's quieter. As if whatever it was has settled.
-narration: On the calendar by the furnace, October. Nobody's turned it. The fourth circled in pencil, twice.
+narration: On the calendar by the furnace, October. Nobody's turned it. The third circled in pencil, twice.
 -> freezer_olstad_key | if=flag:olstad_freezer_key
 -> freezer_bear
 
@@ -105,15 +112,19 @@ narration: Down its back, under the fur, a second seam. Not the old one, gone br
 narration: You open it with a knife from the counter. Stitch by stitch. The stuffing's straw, old and dry, and in it, on a red tag, a key.
 narration | if=flag:gun_bear: And deeper, where you pushed it in October, your fingers touch the towel. John's gun, in the bear's chest, cold. You leave it there. It's in good company.
 paranoia: A spare. There's always a spare. Somebody always has a key.
+narration: Two padlocks on the hasp. The Master, and under it the new one, grey, DEPARTMENT OF PUBLIC SAFETY stamped on the body. The bear's key opens the Master.
+narration: The new one isn't shut. Its shackle is hooked through the hasp and not pressed home.
+paranoia: She left it. On the shortest day, she left it open.
 -> freezer_open
 
 === freezer_olstad_key
-narration: Olstad's key, brass, numbered, warm from your pocket.
+narration: Olstad's keys, brass and steel, warm from your pocket.
+narration: Two padlocks on the hasp. The Master, and under it the new one, grey, DEPARTMENT OF PUBLIC SAFETY stamped on the body. Her keys open both.
 -> freezer_open
 
 === freezer_open
 narration: Through the steel door. The back room.
-narration: The padlock opens. The lid is heavy, and the seal holds, and then lets go with a sound like a kiss.
+narration: The lid is heavy, and the seal holds, and then lets go with a sound like a kiss.
 narration: Cold comes up out of it like something standing up.
 narration: Abraham. On an upturned crate inside the chest, folded into it the way you'd fold into a small boat. His coat buttoned to the neck. His hands on his knees. Frost on his eyebrows and his lashes, white, delicate, like something that grew there.
 narration: His eyes are open.
@@ -148,5 +159,5 @@ paranoia: Somebody will tell her. Somebody who never lies.
 
 === freezer_close
 narration: You close the lid. Slowly, so the seal won't make the sound again. It makes it anyway.
-narration: You lock the padlock. You put the key in your pocket. You stand there with your hand flat on the lid until it's warm under your hand.
+narration: You lock both padlocks. You put the key in your pocket. You stand there with your hand flat on the lid until it's warm under your hand.
 narration: Somebody will tell her. In this town somebody always tells. The only question is who, and whether they'll be kind.

@@ -6,7 +6,8 @@ extends RefCounted
 # call, decoy, knife, snowshoes, picks, compass, fox, rifle, tin, coins, box,
 # name, jacket, musicbox, mirror, watch, jar, braid, shells, bible, spectacles,
 # button, clapper, microphone, collar, bullet, batteries, lantern, radio,
-# thermos, trap.
+# thermos, trap, scarf, globe, book, mitten, camera, tackle, skull, envelopes,
+# plate.
 # Each fits the box it's given, so the same drawing works small on a shelf and
 # big in a close-up. A shape this doesn't know is drawn as a wrapped bundle.
 
@@ -137,6 +138,81 @@ static func draw(ci: CanvasItem, shape: String, r: Rect2, faded: bool = false) -
 			_poly(ci, [c + Vector2(-u * 0.2, u * 0.1), c + Vector2(u * 0.2, u * 0.1), c + Vector2(u * 0.18, u * 0.55), c + Vector2(-u * 0.18, u * 0.55)], Color(0.62, 0.55, 0.4), a)
 			_poly(ci, [c + Vector2(-u * 0.5, u * 0.12), c + Vector2(-u * 0.35, -u * 0.25), c + Vector2(-u * 0.05, -u * 0.38), c + Vector2(u * 0.3, -u * 0.3), c + Vector2(u * 0.55, -u * 0.05), c + Vector2(u * 0.4, u * 0.15)], Color(0.5, 0.5, 0.53), a)
 			ci.draw_line(c + Vector2(-u * 0.25, -u * 0.1), c + Vector2(u * 0.2, -u * 0.18), Color(0.32, 0.32, 0.34, a), 1.5)
+		"scarf":
+			# A grey wool scarf, folded in a loose S, fringed at the ends.
+			var wool: Color = Color(0.55, 0.55, 0.58)
+			_poly(ci, [c + Vector2(-u * 0.7, -u * 0.5), c + Vector2(u * 0.6, -u * 0.6), c + Vector2(u * 0.65, -u * 0.25), c + Vector2(-u * 0.65, -u * 0.15)], wool, a)
+			_poly(ci, [c + Vector2(-u * 0.65, -u * 0.15), c + Vector2(u * 0.6, -u * 0.05), c + Vector2(u * 0.55, u * 0.3), c + Vector2(-u * 0.7, u * 0.2)], wool.darkened(0.15), a)
+			_poly(ci, [c + Vector2(-u * 0.7, u * 0.2), c + Vector2(u * 0.55, u * 0.3), c + Vector2(u * 0.6, u * 0.62), c + Vector2(-u * 0.6, u * 0.55)], wool, a)
+			for k in 6:
+				ci.draw_line(c + Vector2(u * (0.6 + k * 0.0), u * (0.32 + k * 0.05)), c + Vector2(u * 0.78, u * (0.34 + k * 0.05)), Color(wool, a), 1.5)
+		"globe":
+			# A snow globe: the glass ball, a pine and a little red-signed shop,
+			# on a dark base.
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.45, u * 0.45), Vector2(u * 0.9, u * 0.3)), Color(0.2, 0.15, 0.1, a))
+			ci.draw_circle(c + Vector2(0, -u * 0.05), u * 0.55, Color(0.75, 0.85, 0.95, 0.35 * a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.4, u * 0.2), Vector2(u * 0.8, u * 0.2)), Color(0.9, 0.92, 0.95, a))
+			_poly(ci, [c + Vector2(-u * 0.25, u * 0.2), c + Vector2(-u * 0.12, -u * 0.25), c + Vector2(0.0, u * 0.2)], Color(0.15, 0.35, 0.2), a)
+			ci.draw_rect(Rect2(c + Vector2(u * 0.05, u * 0.02), Vector2(u * 0.22, u * 0.18)), Color(0.35, 0.25, 0.18, a))
+			ci.draw_rect(Rect2(c + Vector2(u * 0.05, -u * 0.02), Vector2(u * 0.22, u * 0.04)), Color(0.85, 0.15, 0.15, a))
+			for k in 7:
+				ci.draw_circle(c + Vector2(((k * 37) % 9 - 4) * u * 0.1, ((k * 23) % 7 - 4) * u * 0.1), u * 0.025, Color(1, 1, 1, a))
+		"book":
+			# A hymnal: dark blue cloth, a scorched corner, pencil slips sticking out.
+			_poly(ci, [c + Vector2(-u * 0.5, -u * 0.65), c + Vector2(u * 0.5, -u * 0.65), c + Vector2(u * 0.5, u * 0.65), c + Vector2(-u * 0.5, u * 0.65)], Color(0.15, 0.2, 0.35), a)
+			_poly(ci, [c + Vector2(u * 0.2, -u * 0.65), c + Vector2(u * 0.5, -u * 0.65), c + Vector2(u * 0.5, -u * 0.35)], Color(0.08, 0.06, 0.05), a)
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.3, -u * 0.3), Vector2(u * 0.5, u * 0.08)), Color(BRASS, a))
+			for k in 3:
+				ci.draw_rect(Rect2(c + Vector2(-u * 0.3 + k * u * 0.25, -u * 0.8), Vector2(u * 0.06, u * 0.18)), Color(PAPER, a))
+		"mitten":
+			# A child's red knitted mitten, the thumb worn through.
+			var red: Color = Color(0.7, 0.15, 0.12)
+			ci.draw_colored_polygon(_ellipse(c + Vector2(0, -u * 0.1), Vector2(u * 0.35, u * 0.5)), Color(red, a))
+			ci.draw_colored_polygon(_ellipse(c + Vector2(u * 0.38, u * 0.05), Vector2(u * 0.14, u * 0.22)), Color(red, a))
+			ci.draw_circle(c + Vector2(u * 0.42, -u * 0.08), u * 0.05, Color(DARK, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.32, u * 0.32), Vector2(u * 0.64, u * 0.3)), Color(0.85, 0.82, 0.75, a))
+			for k in 5:
+				ci.draw_line(c + Vector2(-u * 0.26 + k * u * 0.13, u * 0.34), c + Vector2(-u * 0.26 + k * u * 0.13, u * 0.6), Color(0.7, 0.66, 0.6, a), 1.0)
+		"camera":
+			# An Instamatic: a flat black body, the lens, the flash cube on top.
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.7, -u * 0.25), Vector2(u * 1.4, u * 0.6)), Color(0.12, 0.12, 0.13, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.7, -u * 0.25), Vector2(u * 1.4, u * 0.12)), Color(0.6, 0.6, 0.62, a))
+			ci.draw_circle(c + Vector2(-u * 0.15, u * 0.08), u * 0.2, Color(0.3, 0.3, 0.32, a))
+			ci.draw_circle(c + Vector2(-u * 0.15, u * 0.08), u * 0.11, Color(0.15, 0.2, 0.3, a))
+			ci.draw_rect(Rect2(c + Vector2(u * 0.3, -u * 0.55), Vector2(u * 0.3, u * 0.3)), Color(0.85, 0.88, 0.9, a))
+			ci.draw_rect(Rect2(c + Vector2(u * 0.35, u * 0.0), Vector2(u * 0.2, u * 0.12)), Color(0.4, 0.4, 0.42, a))
+		"tackle":
+			# A green steel tackle box, the lid up, the trays cantilevered out.
+			var green: Color = Color(0.22, 0.4, 0.28)
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.7, u * 0.05), Vector2(u * 1.4, u * 0.5)), Color(green, a))
+			_poly(ci, [c + Vector2(-u * 0.7, u * 0.05), c + Vector2(u * 0.7, u * 0.05), c + Vector2(u * 0.55, -u * 0.25), c + Vector2(-u * 0.55, -u * 0.25)], Color(0.5, 0.5, 0.52), a)
+			for k in 5:
+				ci.draw_circle(c + Vector2(-u * 0.45 + k * u * 0.22, -u * 0.1), u * 0.04, Color([Color(0.85, 0.2, 0.15), Color(0.9, 0.8, 0.2), Color(0.8, 0.8, 0.85)][k % 3], a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.12, u * 0.2), Vector2(u * 0.24, u * 0.08)), Color(METAL, a))
+		"skull":
+			# A wolf skull in profile: the long snout, the eye socket, the teeth.
+			var bone: Color = Color(0.85, 0.82, 0.72)
+			_poly(ci, [c + Vector2(-u * 0.75, -u * 0.25), c + Vector2(-u * 0.2, -u * 0.4), c + Vector2(u * 0.85, -u * 0.05), c + Vector2(u * 0.85, u * 0.08), c + Vector2(-u * 0.2, u * 0.15), c + Vector2(-u * 0.75, u * 0.15)], bone, a)
+			ci.draw_circle(c + Vector2(-u * 0.25, -u * 0.12), u * 0.11, Color(DARK, a))
+			ci.draw_circle(c + Vector2(-u * 0.6, -u * 0.25), u * 0.04, Color(DARK, a))
+			for k in 6:
+				_poly(ci, [c + Vector2(u * (0.0 + k * 0.13), u * 0.1), c + Vector2(u * (0.06 + k * 0.13), u * 0.1), c + Vector2(u * (0.03 + k * 0.13), u * (0.22 if k == 4 else 0.16))], bone, a)
+		"envelopes":
+			# A bundle of cream envelopes in a rubber band, the top one typed.
+			for k in 4:
+				ci.draw_rect(Rect2(c + Vector2(-u * 0.65 + k * u * 0.03, -u * 0.35 + k * u * 0.05), Vector2(u * 1.2, u * 0.7)), Color(0.88, 0.84, 0.72, a))
+				ci.draw_rect(Rect2(c + Vector2(-u * 0.65 + k * u * 0.03, -u * 0.35 + k * u * 0.05), Vector2(u * 1.2, u * 0.7)), Color(0.6, 0.55, 0.45, a), false, 1.0)
+			ci.draw_line(c + Vector2(-u * 0.2, -u * 0.25), c + Vector2(u * 0.4, -u * 0.25), Color(0.25, 0.22, 0.2, a), 1.5)
+			ci.draw_line(c + Vector2(u * 0.0, -u * 0.4), c + Vector2(u * 0.05, u * 0.55), Color(0.6, 0.3, 0.2, a), 3.0)
+		"plate":
+			# A brass collection plate, full: rings, folded papers, a key.
+			ci.draw_colored_polygon(_ellipse(c, Vector2(u * 0.85, u * 0.45)), Color(BRASS, a))
+			ci.draw_colored_polygon(_ellipse(c, Vector2(u * 0.65, u * 0.32)), Color(BRASS.darkened(0.25), a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.45, -u * 0.15), Vector2(u * 0.35, u * 0.2)), Color(PAPER, a))
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.05, -u * 0.05), Vector2(u * 0.3, u * 0.18)), Color(PAPER.darkened(0.1), a))
+			for k in 3:
+				ci.draw_arc(c + Vector2(u * (0.3 + k * 0.08), u * (-0.08 + k * 0.06)), u * 0.06, 0, TAU, 10, Color(0.85, 0.75, 0.35, a), 2.0)
+			ci.draw_line(c + Vector2(-u * 0.3, u * 0.15), c + Vector2(-u * 0.05, u * 0.2), Color(METAL, a), 2.0)
 		"lantern":
 			# A green camp lantern: the tank, the glass globe with two mantles,
 			# the vented cap and the bail handle.

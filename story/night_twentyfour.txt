@@ -45,6 +45,18 @@ narration: You stand in the dark with your hand on the fuse box, and listen to i
 narration: No radio. No sign. The road outside black.
 
 === radio_dark
+-> radio_dark_lantern | if=held:lantern
+-> radio_dark_none
+
+=== radio_dark_lantern
+narration: Abraham's lantern. Down the stairs by feel, to the shelf where you put it out, and the matches from the drawer.
+narration: The mantles catch with a soft thump. White light, and a hiss, and the smell of the white gas somebody filled it with and never lit.
+narration: You sit with it on the table upstairs. Fifteen hours. The cold comes in through the walls, but it doesn't come near the light.
+narration: Below you, the freezer, silent. Thawing.
+paranoia: Somebody filled it for a night like this. Somebody knew there'd be one.
+
+=== radio_dark_none
+narration | if=sold:lantern: Abraham's lantern would be on the shelf downstairs. You sold it. Somewhere up the road, somebody's sitting in its light.
 narration: You sit in the dark. Fifteen hours of it. The cold starts coming in through the walls at once, the way water comes into a boat.
 narration: Below you, the freezer, silent. Thawing.
 
@@ -118,3 +130,4 @@ narration | time=07:30: Wednesday. The power comes back at six, all at once, eve
 narration | if=flag:power_sign: At the Gleaner, they're saying the Keeper kept his light on, the longest night. Mrs. Hollis says it twice.
 narration | if=!flag:power_freezer: Under the freezer, on the back-room floor, a little water. Not much. You mop it up with a towel before anybody sees.
 narration | if=flag:power_freezer: The freezer hummed all night. You lay awake listening to it, like a man listening to someone else breathe.
+narration | if=flag:power_left or flag:power_upstairs: The freezer's hum, back. On the steel, the frost has a line of melt across it at waist height, frozen again. A tide mark.

@@ -21,6 +21,22 @@ narration | time=09:00: You turn the sign. OPEN.
 narration | time=+90: The goat at the door. The red thread round its horn, and a second one now round the other.
 narration: It stays an hour. Then it goes, on its own, up the hill, toward the post.
 
+# --- Sam: the wall, read through his window; the envelopes. ---
+
+=== sam_enters
+narration | sound=bell | time=+30: The bell. Sam, in the duct-taped parka, snow to the knees. He doesn't come to the counter. He stands by the stove and looks past you, out at the road.
+sam: They've been at my window. Three nights. Not knocking. Reading the wall through the glass, with a torch.
+sam | if=flag:pin_bullet: Your card's in the middle. The bullet, where the strings cross. They've all read that one.
+sam | if=flag:pin_ezra: Ezra came himself on Wednesday. He stood a long time at the pane where his initials are. He took his hat off. He didn't knock.
+sam | if=flag:pin_money_order: The money order. Somebody's copied it down. There was a pencil rubbing on the glass in the morning, eleven twenty-seven, backwards.
+sam | if=flag:window_nativity: And your window. The crib, at Christmas. I took a picture of it and put it up. They all know whose window that is.
+sam: Ten years nobody looked. Now everybody does.
+narration: He takes a bundle out of the parka. Envelopes, in a rubber band. Cream paper. The same paper as your letter.
+sam: Keep these somewhere he won't look.
+narration | pawned=sam_envelopes | loan=0: He won't take money. You write the ticket anyway, and put them on the back shelf with the things people come back for.
+narration: The top one is sealed. He watches you see that. He doesn't say anything about it.
+narration | sound=bell: The bell.
+
 # --- Olstad and Daniel. ---
 
 === trooper_enters

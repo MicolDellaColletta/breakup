@@ -832,7 +832,7 @@ func record_unpacked(item_name: String, item_id: String) -> void:
 		return
 	acquired.append(item_id)
 	unshelved.append(item_id)
-	ledger_lines.append("%s. %s, from the crates in the back. Put out for sale." % [date_text(), item_name])
+	ledger_lines.append("%s. %s, new stock. Put out for sale." % [date_text(), item_name])
 
 # --- What you know about things ---
 

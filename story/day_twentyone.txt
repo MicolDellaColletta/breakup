@@ -79,6 +79,8 @@ narration: He looks up. He isn't surprised it's you.
 reverend: They'll come tonight. Not to hurt me. They're not cruel. They'll just come and sit with me, the way they sit with the Keeper, and be very kind, until spring.
 reverend: Twenty-two years I gave them hymn numbers. Hints. Three in the first verse means keep the stove in. Seven means don't answer. I thought if one of you lived through it, just one, it would break.
 reverend: None of them did. Not one. Did you know that?
+reverend: I wrote on your glass once. On the back door. Hymns weren't enough.
+paranoia: LOCK IT NOW. On the inside of the glass. He had a key.
 narration: He zips the bag.
 reverend: I'm not asking you for anything. The Keeper can't help anyone. That's the rule above the rules.
 > "Go tonight. I'll get you to the town line." -> reverend_warn_walk | flag=reverend_warned | lean=warmth

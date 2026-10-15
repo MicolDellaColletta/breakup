@@ -28,6 +28,15 @@ ruth: He comes in every night now. Him and Ezra. The back table. They don't drin
 ruth: Ezra's drunk something in my bar every night for ten years. Not tonight.
 narration: She looks at the shelves. At the back shelf. At the tin.
 ruth: He asked me what you were like. Before. I said I didn't know you before. He said, "No. You'd have had to be at the lake." I don't know what he meant. We've only got the one.
+narration: She takes something else out of the man's coat. A grey wool scarf, darned at one end. She lays it on the glass by the pint.
+ruth: Thomas's. He came in on Sundays. He left it on his stool in April and never came back for it. It's been a year in the drawer under the bar.
+ruth: I don't want anything for it. I just don't want it in the drawer.
+narration | pawned=thomas_scarf | loan=0: You write the ticket and pin it to the darned end. In the hem, a laundry name-tape. THOMAS, crossed out in biro, and something smaller under it.
+narration | if=flag:door_ruth_2: Then, from the other pocket, a camera. A Kodak Instamatic in a cracked leather case.
+ruth | if=flag:door_ruth_2: You've seen my cellar. That's not all I took. This was before the Polaroids.
+ruth | if=flag:door_ruth_2: Ten dollars. I'll be back for it.
+narration | if=flag:door_ruth_2 | pawned=ruth_camera | loan=10: You count out ten. The little window on top says one frame left. She watches you write the ticket and doesn't look at the camera once.
+ruth | if=flag:door_ruth_2: There's one left on it. Don't use it.
 narration | sound=bell: She goes. The glass stays on the counter, catching the light.
 
 === ruth_cold
@@ -50,12 +59,14 @@ narration | if=!window:empty: Whatever's in your window now would have to come o
 narration: She builds it herself, in the window, kneeling on the sill, humming. The stable. The animals. The doll. And last, very carefully, the Keeper, at the edge of the snow, facing out at the road.
 june: There. Now everybody'll stop.
 narration | sound=bell: They do. All afternoon. Mothers, children, the plow driver. They stop and look at the little figure in the brown coat, and then they look past it, into the shop, at you.
+narration | unpacked=snow_globe: On the glass where her box was, a snow globe she didn't take with her. A lake, a pine, a little shop with a red sign. KETTLE LAKE on the base.
 
 === june_window_no
 narration: Her face does a small thing and then puts itself back.
 june: No. Of course. It's your shop now.
 narration: She closes the box.
 narration | sound=bell: By evening, you'll learn later, Ezra knows. By Sunday the whole church does. The Keeper wouldn't have the children's crib.
+narration | unpacked=snow_globe: On the glass where her box was, a snow globe she didn't take with her. A lake, a pine, a little shop with a red sign. KETTLE LAKE on the base.
 
 # --- Closing. Then the walk to Sam's. ---
 

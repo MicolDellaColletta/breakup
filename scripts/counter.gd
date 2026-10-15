@@ -93,17 +93,17 @@ const VISITS: Dictionary = {
 	# and the cut Bible; Olstad for the spectacles.
 	26: ["ezra", "daniel", "trooper"],
 	28: ["widow", "ruth", "daniel"],
-	29: ["seller", "nephew | if=flag:gave_picks_back", "widow | if=flag:kept_picks"],
+	29: ["seller", "teague", "nephew | if=flag:gave_picks_back", "widow | if=flag:kept_picks"],
 	# February: Ezra and his hand (brought in by him); Mrs. Hollis, fasting;
 	# the goat at the door. A fasting Friday: the goat, and Ruth's note. The
 	# duel: the goat again, and Olstad with him in the chair.
 	31: ["ezra", "widow", "goat"],
 	32: ["goat", "note"],
-	33: ["goat", "trooper"],
+	33: ["goat", "sam | if=doors:sam>=1 and !faithless:sam", "trooper"],
 	35: ["note", "widow", "ezra | if=!flag:gave_up_sam"],
 	37: ["goat", "daniel"],
 	38: ["note"],
-	40: ["trooper", "ruth | if=!faithless:ruth", "widow | if=has:hollis_ring", "sam | if=flag:door_sam_3 and !flag:gave_up_sam", "nephew | if=flag:kept_picks"],
+	40: ["trooper", "ezra | if=!flag:gone_ezra", "ruth | if=!faithless:ruth", "widow | if=has:hollis_ring", "sam | if=flag:door_sam_3 and !flag:gave_up_sam", "nephew | if=flag:gave_picks_back"],
 	42: ["note"],
 }
 # From the bell to the door opening.

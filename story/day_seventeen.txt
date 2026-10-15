@@ -200,6 +200,8 @@ paranoia: Go. Go back. Go home.
 
 === walk_home
 narration | time=22:00: You walk home down the hill with a foil plate Mrs. Hollis put in your hands at the door.
+narration | if=flag:refused_pie: Under the streetlight, you see it's the pie. Your slice, wrapped on its own. On the foil, in marker, in her round hand: FOR THE WALK.
+paranoia | if=flag:refused_pie: You walked up. You're walking down. That's all the walk there is.
 narration: Every house on the road, the windows lit. Every one with a radio on in it. The same voice from every window, a half-second apart, so that walking down the hill you hear him from all sides, a little out of step with himself, like a choir.
 daniel | on=radio: You've had one since October.
 narration | end=night | red=off: The shop, dark. The neon, the only thing on the whole road that isn't him.

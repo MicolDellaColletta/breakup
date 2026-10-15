@@ -63,6 +63,9 @@ narration: Cold. Up the hill, at the manse, a light goes on in an upstairs windo
 
 === back_door
 narration | time=+20 | sound=floorboards: Down the stairs, through the steel door. The back door.
+narration | if=held:cb_radio: Behind you, out in the dark shop, a hiss. The CB radio on its shelf, its little red light on. You never turned it on. Under the hiss, on 19, somebody counting. Slow. Thirty-one. Thirty-two.
+narration | if=held:cb_radio: Thirty-three. Then nothing. Just the hiss. Then the light goes out on its own.
+paranoia | if=held:cb_radio: Somebody up the valley, counting fence posts in a truck. The road's closing. People get bored.
 paranoia: Rule one. Leave the back door unlocked.
 > Leave it unlocked -> back_door_unlocked | lean=paranoia
 > Lock it with the key on the red tag -> back_door_locked | if=has:back_door_key | set=locked_back_door | break=back_door | lean=animal
