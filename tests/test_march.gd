@@ -105,8 +105,11 @@ func _frenzy(flags: Array, eye: int, widow: String, outcome: String) -> void:
 	if flags.has("gave_up_sam"):
 		check(column._section == "closing", "Sam already taken: nobody comes to search")
 		return
-	check(column._section.begins_with("search") or column._section == "ezra_enters", "Ezra and four men, for Sam's notebooks")
+	check(column._section.begins_with("search") or column._section in ["ezra_enters", "ezra_gun"], "Ezra and four men, for Sam's notebooks")
 	check(gs.flags.has(outcome), "the search: %s" % outcome)
+	for i in 12:
+		advance(column)
+	check(gs.acquired.has("ezra_22"), "then Ezra pawns his .22: no more Thursdays")
 	ring_bell()
 	check(column._section == "closing", "closing")
 

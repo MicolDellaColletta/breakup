@@ -112,6 +112,12 @@ func _race() -> void:
 	advance(column)
 	check(gs.flags.has("olstad_case"), "you sign: the Olstad way is open")
 	advance(column)
+	check(column._section == "ezra_enters" and _log(column).contains("We're giving it all to the plate."), "Ezra, for the church's things and the rifle")
+	for i in 12:
+		if column._section != "ezra_enters":
+			break
+		advance(column)
+	check(gs.sold.has("rifle"), "0431 goes out on his shoulder, for the walk")
 	check(_log(column).contains("Take me with you."), "Ruth: take me with you")
 	check(gs.flags.has("keys_returned") and not gs.flags.has("ruth_has_keys"), "and your keys, back")
 	await pick(column, "Be at the car")
