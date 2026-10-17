@@ -144,9 +144,9 @@ func spots() -> Array[Dictionary]:
 					out.append({"shelf": "floor", "spot": layout[0] + row * layout[2] + col, "rect": _cell(area, layout[1], layout[2], row, col)})
 		_:
 			var area: Rect2 = _inner_rect()
-			for row in 3:
-				for col in 4:
-					out.append({"shelf": "back", "spot": row * 4 + col, "rect": _cell(area, 3, 4, row, col)})
+			for row in 4:
+				for col in 5:
+					out.append({"shelf": "back", "spot": row * 5 + col, "rect": _cell(area, 4, 5, row, col)})
 	return out
 
 # Each spot's box, in the same order as spots().
@@ -164,7 +164,7 @@ func _cell(area: Rect2, rows: int, columns: int, row: int, col: int) -> Rect2:
 # Where new stock waits: along the back of the counter, under the window.
 func _new_stock_rect() -> Rect2:
 	var window: Rect2 = _window_rect()
-	return Rect2(Vector2(window.position.x, window.end.y + 6), Vector2(window.size.x, size.y * 0.82 - window.end.y - 8))
+	return Rect2(Vector2(window.position.x, window.end.y + 6), Vector2(window.size.x, maxf(size.y * 0.82 - window.end.y - 8, 0.0)))
 
 func counter_rect() -> Rect2:
 	return Rect2(Vector2(size.x * 0.32, size.y * 0.85), Vector2(size.x * 0.36, size.y * 0.13))
@@ -294,7 +294,7 @@ func _draw_shelves() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), BACK_WALL)
 	_draw_panelling(_inner_rect())
 	if mode == "back":
-		_draw_case(_inner_rect(), 3)
+		_draw_case(_inner_rect(), 4)
 	else:
 		_draw_case(_wall_shelves_rect(), WALL_SPOTS[mode][1])
 	if mode == "right":

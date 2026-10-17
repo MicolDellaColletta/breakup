@@ -136,6 +136,10 @@ func _fade_to(room: String) -> void:
 		return
 	_show_room(_fading_to)
 	_fading_to = ""
+	# The section may have ended during the fade and set out the last room's
+	# spots: set out this one's.
+	if not _busy and not _ending:
+		_ready_to_move()
 	fade = create_tween()
 	fade.tween_property(self, "modulate", Color.WHITE, VIEW_FADE)
 

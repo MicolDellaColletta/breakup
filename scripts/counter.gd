@@ -270,6 +270,10 @@ func _ready() -> void:
 	column.add_story(USE_PATH)
 	column.add_story(EXAMINE_PATH)
 	_show_view("counter")
+	# Buttons never keep the keyboard: Space and Enter are for the story, not
+	# for pressing Take again.
+	for button in find_children("*", "BaseButton", true, false):
+		button.focus_mode = Control.FOCUS_NONE
 	column.set_input_enabled(false)
 	await Transition.fade_in(2.0)
 	column.set_input_enabled(true)
@@ -502,7 +506,9 @@ func _on_spot_clicked(shelf: String, spot: int) -> void:
 	if there == _selected:
 		_put_down()
 		return
-	if not _fits(_selected, shelf) or (there != "" and not _fits(there, GameState.shelf_spot_of(_selected)[0])):
+	# New stock on the counter isn't on a shelf: whatever it displaces goes back on the counter.
+	var from_shelf: String = GameState.shelf_spot_of(_selected)[0]
+	if not _fits(_selected, shelf) or (there != "" and from_shelf != "" and not _fits(there, from_shelf)):
 		_tool_note = _wont_fit(_selected, shelf)
 		_show_details()
 		return

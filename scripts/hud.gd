@@ -37,6 +37,9 @@ func _ready() -> void:
 	toast.modulate.a = 0.0
 	pockets_button.pressed.connect(open_pockets)
 	menu_button.pressed.connect(_open_menu)
+	# Space and Enter belong to the story, never to a button that was clicked.
+	pockets_button.focus_mode = Control.FOCUS_NONE
+	menu_button.focus_mode = Control.FOCUS_NONE
 	close_button.pressed.connect(close_pockets)
 	read_button.pressed.connect(_on_read_pressed)
 	use_button.pressed.connect(_on_use_pressed)

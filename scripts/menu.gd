@@ -51,14 +51,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif pause_panel.visible:
 		resume()
 	elif not _on_title() and not Transition.busy:
+		Hud.close_pockets()
 		open_pause()
 
 # --- Public: what other scenes can use ---
 
 # A small grey line with KEYS_HINT on it.
-func keys_hint_label() -> Label:
+func keys_hint_label(on_title: bool = false) -> Label:
 	var hint: Label = Label.new()
-	hint.text = KEYS_HINT
+	hint.text = KEYS_HINT.replace("   ·   Esc: menu", "") if on_title else KEYS_HINT
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	hint.add_theme_font_size_override("font_size", 14)
 	hint.add_theme_color_override("font_color", Color(0.7, 0.72, 0.76, 0.6))

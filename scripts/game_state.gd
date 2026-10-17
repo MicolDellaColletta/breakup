@@ -343,7 +343,7 @@ var unshelved: Array[String] = []
 # (duck_call/marks): scripts/props.gd.
 var known_props: Array[String] = []
 
-const SHELF_SPOTS: Dictionary = {"floor": 16, "back": 12, "window": 3}
+const SHELF_SPOTS: Dictionary = {"floor": 16, "back": 20, "window": 3}
 var shelf_floor: Array[String] = []
 var shelf_back: Array[String] = []
 var shelf_window: Array[String] = []
@@ -793,6 +793,7 @@ func day_scene(which_day: int) -> String:
 
 func record_sale(item_name: String, item_id: String, price: int, buyer: String) -> void:
 	sold.append(item_id)
+	unshelved.erase(item_id)
 	take_off_shelves(item_id)
 	till += price
 	till_by_ledger += price
@@ -803,6 +804,7 @@ func record_sale(item_name: String, item_id: String, price: int, buyer: String) 
 # leaves the shop, and the ledger says so. No money changes hands.
 func record_release(item_name: String, item_id: String, to: String) -> void:
 	sold.append(item_id)
+	unshelved.erase(item_id)
 	take_off_shelves(item_id)
 	var who: String = (" to " + to) if to != "" else ""
 	ledger_lines.append("%s. %s, given back%s. No ticket." % [date_text(), item_name, who])

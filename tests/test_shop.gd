@@ -22,7 +22,7 @@ func _open(day: int) -> Node:
 func _shelves() -> void:
 	section("The shelves: pick up, put down, swap")
 	var counter: Node = await _open(1)
-	check(gs.shelf_floor.size() == 16 and gs.shelf_back.size() == 12 and gs.shelf_window.size() == 3, "sixteen spots out front, twelve on the back shelf, three in the window")
+	check(gs.shelf_floor.size() == 16 and gs.shelf_back.size() == 20 and gs.shelf_window.size() == 3, "sixteen spots out front, twenty on the back shelf, three in the window")
 	check(gs.shelf_floor.has("duck_call") and gs.shelf_back.has("tin_box") and not gs.shelf_back.has("silver_dollars"), "everything in the shop has a spot; what hasn't come in yet doesn't")
 	counter._show_view("left")
 	var view: Node = counter.get_node("%ShelfView")
@@ -76,7 +76,7 @@ func _turning() -> void:
 	counter.turn("around")
 	check(view.mode == "right" and view.spots()[0]["spot"] == 10, "turning around from there: the right wall, with the door")
 	counter.turn("right")
-	check(view.mode == "back" and view.spots().size() == 12 and view.spots()[0]["shelf"] == "back", "turning right again: the back shelf")
+	check(view.mode == "back" and view.spots().size() == 20 and view.spots()[0]["shelf"] == "back", "turning right again: the back shelf")
 	view.object_clicked.emit("register")
 	check(counter.get_node("%RegisterPanel").visible and not counter.get_node("%ShelfPanel").visible and counter.get_node("%PanelBar").visible, "the register opens over the shelves")
 	check(not counter.get_node("%FlipButton").visible, "(a register has no back half)")

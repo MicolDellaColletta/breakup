@@ -15,7 +15,7 @@ var _confirming: bool = false
 
 func _ready() -> void:
 	Hud.visible = false
-	$Layout.add_child(Menu.keys_hint_label())
+	$Layout.add_child(Menu.keys_hint_label(true))
 	continue_button.pressed.connect(_continue)
 	new_game_button.pressed.connect(_new_game)
 	load_button.pressed.connect(Menu.open_slots.bind(false, true))
