@@ -5,8 +5,8 @@ step-by-step list (`shop.md`, "To do"); this is everything around it.
 
 ## Pick up here (Oct 15, night)
 
-**Saturday, when the tokens reset:** start with another full review, then
-the changes it finds, before anything else.
+**Saturday (Oct 17):** review two is done and fixed (`review_two.md`, branch
+`review-two`; all tests and all 8 routes pass). Next: the narration pass below.
 
 **Next:** roll the narration pass (`narration.md`) across days 2–42, the
 bridges and the endings, in the style of the sample you approved (the
@@ -35,6 +35,7 @@ every ending can be reached by playing (`routes.md`).
 12. `todo-fixes`
 13. `loose-ends`
 14. `narration`
+15. `review-two`
 
 **Your notes from playing (Oct 14).** More to come once you finish the
 playthrough. Done on branch `todo-fixes` unless it says otherwise.

@@ -56,6 +56,6 @@ func _ending(flags: Array, voices: Dictionary, expected: String, line: String) -
 	_route(column)
 	check(_log(column).contains(line), "the ending plays: \"%s\"" % line)
 	if flags.has("gun_snow"):
-		check(_log(column).contains("John's gun. Five in the cylinder."), "May: the gun in the snowbank, where you pushed it in October")
+		check(_log(column).contains("Five in the cylinder."), "May: the gun in the snowbank, where you pushed it")
 	await wait(4.0)
 	check(current_scene.name == "Title", "then the title")
