@@ -23,7 +23,7 @@ narration: At eleven it stops in the middle of a word. Then his voice, very clos
 narration: You do know them. Everybody on the road does.
 narration | if=!flag:wears_thread: This one. Your door, with nothing on the handle.
 narration: Olstad's, at the end of the road. A trooper's door. Nobody's going to tie anything on that.
-narration: Sam's, on the shore. Nobody's walked down the path to tie one on.
+narration: Sam's, on the shore. Somebody tied one on his handle. He cut it.
 narration: The Gleaner's back door. Ruth wears hers on her wrist. She won't put one on her door.
 narration | if=flag:wears_thread: And the manse on the hill, dark. There's nobody left in it to tie one on.
 

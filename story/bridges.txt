@@ -244,8 +244,8 @@ narration | card=Friday. Fasting.: Friday again. Nobody eats. The bakery dark. A
 === bridge_into_march
 narration | card=Tuesday. The doors.: In the morning every door on the road is shut again, as if nothing happened. In every house, a drift of snow in the hallway, and everyone sweeping it out, and nobody talking about it.
 narration | if=flag:gave_up_sam: Sam's cabin dark. Sam in the hall, sleeping on the floor with the others, his hands folded on his chest. He says good morning to you. He doesn't say anything else.
-narration | card=Friday. Wasilla.: Olstad's cruiser gone from the end of the road. The radio says the trooper's taken her daughter to Wasilla to be christened. A week. Nobody on the road says anything. Everybody on the road notices.
-narration | if=flag:told_olstad_john or flag:gave_deed: Under your door, on a page from her notebook: "Back Friday. Don't do anything I'll have to write down. M.O."
+narration | card=Friday. Wasilla.: Olstad's cruiser gone from the end of the road. The radio says the trooper's taken her daughter to Wasilla to be christened. Nobody says for how long. Nobody on the road says anything. Everybody on the road notices.
+narration | if=flag:told_olstad_john or flag:gave_deed: Under your door, on a page from her notebook: "Back soon. Don't do anything I'll have to write down. M.O."
 narration | card=Wednesday. March.: March. Seven weeks. The light past ten hours. The sun on the snow so bright at noon you can't look at the lake.
 narration: On the hall door, the eight crossed out, a seven painted under it. And out on the lake, the first hole cut in the ice off the point, square, a yard across. By the next Wednesday there are four, in a line.
 
@@ -309,4 +309,5 @@ narration | card=Thursday. The last supper.: Every house lit, every table laid, 
 # --- After key day 42: breakup. ---
 
 === bridge_breakup
-narration | card=Saturday. Breakup.: Five o'clock. The light already up. Out on the lake, the ice talking in one long sentence that doesn't stop.
+narration | card=Saturday. Breakup. | if=!flag:left_kettle_lake: Five o'clock. The light already up. Out on the lake, the ice talking in one long sentence that doesn't stop.
+narration | card=Saturday. Breakup. | if=flag:left_kettle_lake: Five o'clock. The light already up. Behind you, a long way back, a lake you can't hear.

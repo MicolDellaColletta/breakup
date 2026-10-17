@@ -27,7 +27,7 @@ widow: He says April. Breakup. I've never minded waiting. I waited forty years f
 narration: She puts a green steel box on the glass first. A tackle box, the paint worn off the corners where a man's knees held it.
 widow: Ray's. Sell it. I don't want anything for it. The teeth, and now this. I've never felt so light.
 narration | unpacked=ray_tackle_box: She pushes it across to you with both hands and doesn't look at it again.
-narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel: She pats your hand. "And thank you, dear, for what you said at the potluck. About Ray. Nobody's ever said that to me." You said nothing at the potluck. You're almost sure you said nothing.
+narration | if=fray>=4 or unknown>=4 or flag:new_year_daniel: She pats your hand. "And thank you, dear, for what you said at the potluck. About Ray. Nobody's ever said that to me." You said nothing at the potluck. You're almost sure you said nothing.
 narration: She unzips the bag. The coat. Long, brown, the brass buttons, the hem done.
 widow: It should hang here. In the shop. So it's handy. On the back of the door, where Abraham's used to go.
 > "All right." -> widow_coat_yes | flag=coat_in_shop | lean=warmth

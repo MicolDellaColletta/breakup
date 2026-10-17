@@ -53,7 +53,7 @@ narration | if=held:bell_clapper | redeemed=bell_clapper: The clapper, from the 
 narration | if=held:microphone | redeemed=microphone: The microphone, melted into its face. He wraps it in his handkerchief so he won't have to look at it.
 narration | if=held:reverend_collar | redeemed=reverend_collar: The collar, last. He holds it a moment longer than the others, then folds it into his breast pocket.
 ezra: And 0431. The rifle.
-narration | if=!sold:rifle | redeemed=rifle: He puts the ticket on the glass. Forty dollars, counted out left-handed. You bring the rifle down off the back shelf. The cross carved in the stock. He doesn't look at it. He knows where it is.
+narration | if=!sold:rifle | redeemed=rifle | cash=+40: He puts the ticket on the glass. Forty dollars, counted out left-handed. You bring the rifle down off the back shelf. The cross carved in the stock. He doesn't look at it. He knows where it is.
 ezra | if=!sold:rifle: Every autumn I bring it in. Every breakup I take it out. Somebody has to carry it on the walk.
 paranoia: On the walk. Behind you. All the way out.
 narration | sound=bell: The bell. He goes up the road with the rifle on his shoulder and the church in his arms.

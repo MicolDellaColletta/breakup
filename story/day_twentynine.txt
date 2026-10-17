@@ -6,7 +6,7 @@
 
 === morning
 narration | time=07:30: Saturday, the fifteenth. Light at a quarter to ten now. Forty minutes more than the shortest day. The radio counts it like money.
-narration | if=fray>=4 or unknown>=4 or flag:new_year_ruth or flag:new_year_sam or flag:new_year_daniel | write=One coat. Held.: The ledger, open on the counter. The last line in your handwriting: One coat. Held. You don't remember writing it. You don't remember a coat coming in.
+narration | if=fray>=4 or unknown>=4 | write=One coat. Held.: The ledger, open on the counter. The last line in your handwriting: One coat. Held. You don't remember writing it. You don't remember a coat coming in.
 -> opening
 
 === opening
@@ -131,7 +131,7 @@ paranoia: Ray traded them. Cody never got them back. And now his place at the ta
 > "They're spoken for." -> widow_picks_kept | lean=paranoia
 
 === widow_picks_given
-narration | redeemed=ice_picks: You put them in her hands. She hangs them round her own neck, under her coat, the cord against her throat.
+narration | redeemed=ice_picks_held: You put them in her hands. She hangs them round her own neck, under her coat, the cord against her throat.
 widow: There. Now he'll find his way.
 narration | sound=bell: She goes. You hear them knock together under her coat as she walks, two wooden handles, like someone tapping to be let in.
 

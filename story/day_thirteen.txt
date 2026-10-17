@@ -91,7 +91,7 @@ sam: Coming up the valley. Anchorage, then Wasilla. Next month, here. He'll post
 unknown | if=frayed: He's right. You both are. Nobody else can see it.
 paranoia: He's guessing. He's guessing and he's right, and you can't tell the difference any more.
 narration | if=!sold:skinning_knife: On his way out he stops at the skinning knife on the shelf. He tips the bolster to the light with one finger. He doesn't pick it up.
-sam | if=!sold:skinning_knife | learn=skinning_knife/story: Eleven lines. One a Keeper, every year since eighty-eight. Somebody keeps the count on the knife.
+sam | if=!sold:skinning_knife | learn=skinning_knife/story: Eleven lines. One a Keeper, every year since eighty-nine. Somebody keeps the count on the knife.
 sam | if=!sold:skinning_knife: The last one's bright. That's August. You came in October.
 narration | sound=bell: He goes, without knocking on the frame. Through the window you watch him stop in the road and write something in the notebook, standing in the snow.
 

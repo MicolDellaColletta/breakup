@@ -113,7 +113,7 @@ func _wednesday_sam() -> void:
 	check(gs.flags.has("kept_ezra_shells") and not gs.sold.has("shells") and _log(column).contains("Everything here is someone's."), "\"That's spoken for.\" \"Everything here is someone's.\"")
 	advance(column)
 	await process_frame
-	check(column._section == "sam_enters" and gs.flags.has("sam_pie_note") and _log(column).contains("Don't eat the pie."), "you told Sam: a note under the door, \"Don't eat the pie.\"")
+	check(column._section == "note_enters" and gs.flags.has("sam_pie_note") and _log(column).contains("Don't eat the pie."), "you told Sam: a note under the door, \"Don't eat the pie.\"")
 
 func _wednesday_june() -> void:
 	section("Key day 16: the jacket, and June's program")

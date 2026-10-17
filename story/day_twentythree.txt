@@ -119,9 +119,9 @@ narration: On the glass, Ezra's box. The spectacles on top, their whole lenses c
 # --- Sam, at closing, if his doors are open. ---
 
 === sam_enters
-narration | sound=bell | time=+60: The bell. Sam Wakeman, in the shop, for the first time. He doesn't take his hat off. He doesn't come to the counter.
+narration | sound=bell | time=+60: The bell. Sam Wakeman. He doesn't take his hat off. He doesn't come to the counter.
 sam: Petrol.
-sam: Under the vestry. Where the booth was. I can smell it from the shore when the wind's right. Three days later. You don't get that from a stove.
+sam: Under the vestry. Where the booth was. I can smell it from the shore when the wind's right. Two days later. You don't get that from a stove.
 sam: Nobody else can smell it. Apparently. I asked. Nobody else can smell a thing.
 narration | if=flag:told_olstad_fire: You tell him you told Olstad. He closes his eyes. "Good. Good. Then there's two of us on the wall."
 narration | if=flag:backed_doctor: You don't tell him what you told Olstad. He looks at your face and doesn't ask.

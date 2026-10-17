@@ -49,7 +49,7 @@ narration: No radio. No sign. The road outside black.
 -> radio_dark_none
 
 === radio_dark_lantern
-narration: Abraham's lantern. Down the stairs by feel, to the shelf where you put it out, and the matches from the drawer.
+narration | flag=lit_lantern: Abraham's lantern. Down the stairs by feel, to the shelf where you put it out, and the matches from the drawer.
 narration: The mantles catch with a soft thump. White light, and a hiss, and the smell of the white gas somebody filled it with and never lit.
 narration: You sit with it on the table upstairs. Fifteen hours. The cold comes in through the walls, but it doesn't come near the light.
 narration: Below you, the freezer, silent. Thawing.
@@ -61,7 +61,8 @@ narration: You sit in the dark. Fifteen hours of it. The cold starts coming in t
 narration: Below you, the freezer, silent. Thawing.
 
 === kitchen
-narration | time=+10: The bowl. In the dark, by feel.
+narration | time=+10 | if=!flag:power_upstairs and !flag:lit_lantern: The bowl. In the dark, by feel.
+narration | time=+10 | if=flag:power_upstairs or flag:lit_lantern: The bowl.
 paranoia: Rule five.
 > Fill it -> kitchen_fed | set=fed_dog | flag=fed_twentyfour
 > Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_twentyfour | flag=bowl_door
@@ -77,7 +78,8 @@ narration: The kibble rattles. On the line, you think. You can't see the line.
 narration: You roll the sack shut.
 
 === windows
-narration | time=+10: The front windows. You check them by feel.
+narration | time=+10 | if=!flag:power_upstairs and !flag:lit_lantern: The front windows. You check them by feel.
+narration | time=+10 | if=flag:power_upstairs or flag:lit_lantern: The front windows.
 narration | if=flag:frozen_taped: The taped one. Your fingers find the tape, stiff as bark.
 paranoia: Rule one.
 > Check the latches -> windows_closed
@@ -130,4 +132,4 @@ narration | time=07:30: Wednesday. The power comes back at six, all at once, eve
 narration | if=flag:power_sign: At the Gleaner, they're saying the Keeper kept his light on, the longest night. Mrs. Hollis says it twice.
 narration | if=!flag:power_freezer: Under the freezer, on the back-room floor, a little water. Not much. You mop it up with a towel before anybody sees.
 narration | if=flag:power_freezer: The freezer hummed all night. You lay awake listening to it, like a man listening to someone else breathe.
-narration | if=flag:power_left or flag:power_upstairs: The freezer's hum, back. On the steel, the frost has a line of melt across it at waist height, frozen again. A tide mark.
+narration | if=!flag:power_freezer: The freezer's hum, back. On the steel, the frost has a line of melt across it at waist height, frozen again. A tide mark.

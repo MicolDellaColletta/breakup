@@ -6,7 +6,7 @@
 # end=night. Design: docs/december_revised.md, docs/january.md.
 
 === evening
-narration | show=ruins | time=19:00: The ruin, at night. The scaffold against the tower stump, and on top of it now, finished, a thing of new pine: a cross, or a mast, or a gallows. You can't tell from below. The snow inside the walls trodden flat, and the candles in it out.
+narration | show=ruins | time=19:00: The ruin, at night. The scaffold against the tower stump, and on top of it now, a thing of new pine: a cross, or a mast, or a gallows. You can't tell from below. The snow inside the walls trodden flat, and the candles in it out.
 narration: Olstad, waiting by the black square where the vestry was. A week since the baby. She's thin in the face, and her coat closes now, and she's holding a paper evidence bag the way you'd hold a hymn book.
 trooper: I left her with my sister in Wasilla. First night I've been away from her. I came back for this.
 -> evening_bolt_told | if=flag:told_olstad_fire
@@ -30,9 +30,9 @@ narration | if=flag:accused_on_air: "I heard you. On the radio. Then I heard him
 narration | if=flag:pointed_gun: "And he's got your gun. Ezra saw it in his coat. I'm not going to ask."
 trooper | if=flag:backed_doctor: You said the stove. In front of all of them, after the doctor. I heard you.
 trooper | if=flag:silent_on_fire and !flag:backed_doctor: You said the stove. You didn't open your mouth, and they all heard you say it.
-trooper: In November, in your shop, I told you he'd given me the truth about something else, so I'd swallow the lie. It was you. He told me your real name. He wanted me to know he had it.
-narration: She doesn't say it. She looks at you as if she might, and doesn't.
-narration | if=has:carbon_copies: You give her the carbons from the office desk. She reads them by the light off the snow, one sheet at a time. Thomas. Annie. Paul. Dale. Luis.
+trooper | if=flag:told_olstad_daniel: In November, in your shop, I told you he'd given me the truth about something else, so I'd swallow the lie. It was you. He told me your real name. He wanted me to know he had it.
+narration | if=flag:told_olstad_daniel: She doesn't say it. She looks at you, and doesn't.
+narration | if=has:carbon_copies | lose=carbon_copies: You give her the carbons from the office desk. She reads them by the light off the snow, one sheet at a time. Thomas. Annie. Paul. Dale. Luis.
 trooper | if=has:carbon_copies: Every September, a new name. There's no carbon for this year. Who wrote to you?
 trooper: I need one person to say different. Out loud. In front of them. When it comes to it.
 narration: She closes the bag.

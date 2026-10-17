@@ -10,7 +10,7 @@
 === morning
 narration | time=09:30 | show=hall: Palm Sunday. Sprigs of spruce laid on every bench, and on the scale, and on the lectern. The hall smells like a forest after rain.
 narration: Leviticus. All of it. Then he lifts his hand, and the plate goes round.
-narration: It's a baking tray. It goes from hand to hand down every bench. Money, first, folded small. Then rings. Then the deeds to three houses on the road, folded twice. The pages of the weigh-in book, torn out. And from every family, out of a jar, one child's tooth.
+narration: A brass plate, the church's, as wide as a baking tray. It goes from hand to hand down every bench. Money, first, folded small. Then rings. Then the deeds to three houses on the road, folded twice. The pages of the weigh-in book, torn out. And from every family, out of a jar, one child's tooth.
 narration: When it comes to you, it's heavy. Everyone watches you hold it. You pass it on.
 paranoia: They're paying him. For you. So he'll let go at the shore.
 -> plate_yes | if=flag:fork6_yes
@@ -27,7 +27,7 @@ narration: It comes back to him. He takes it, and walks down the aisle, and hand
 -> attempt
 
 === plate_refuse
-narration: It comes back to him. He takes it. He says nothing. He doesn't look at you. That's the worst of it.
+narration: It comes back to him. He takes it. He says nothing. He doesn't look at you.
 -> attempt
 
 # --- The attempt. One. ---

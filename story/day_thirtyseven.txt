@@ -9,7 +9,7 @@
 === morning
 narration | time=06:30: Saturday, the twenty-fifth. Four weeks. Light at half past six. Water standing on the ice off the point, blue in the mornings, white by noon.
 narration: The dog came up the stairs again last night. It's come up every night this week, feed it or don't.
-narration | if=flag:took_from_room: Nobody has said anything about his room. Nobody needs to. On Thursday, under your door, a pencil sketch of the gap in a row of notebooks.
+narration | if=flag:took_files: Nobody has said anything about his room. Nobody needs to. On Thursday, under your door, a pencil sketch of the gap in a row of notebooks.
 -> opening
 
 === opening

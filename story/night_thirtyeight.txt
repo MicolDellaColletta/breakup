@@ -17,7 +17,7 @@ paranoia: Rule seven.
 > Leave it off -> radio_off | break=radio
 
 === radio_on
-narration | sound=click: Him, counting holes. "Forty-one, friends. One every ten yards, from the point to the middle. One for every Keeper. And one more."
+narration | sound=click: Him, counting holes. "Forty-one, friends. One every ten yards, from the point to the middle. And more to cut."
 
 === radio_off
 narration: You leave it off. From the window you can count them yourself.

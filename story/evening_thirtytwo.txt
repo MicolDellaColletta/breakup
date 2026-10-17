@@ -49,17 +49,17 @@ ruth | if=doors:ruth>=2: I wanted it to be his shop one more winter. That's all.
 narration | if=flag:ruth_has_keys: She pushes the ring of keys an inch toward you. Then stops, with her hand flat on them.
 narration | red=on: At the end of the bar, in the dark, where the light from the candle doesn't reach, a chair creaks. Somebody's been sitting there the whole time. Neither of you looks.
 paranoia: Him. He's been here the whole time. He heard all of it.
-> "It wasn't your fault." -> evening_forgive | door=ruth | lean=warmth
+> "It wasn't your fault." -> evening_forgive | door=ruth | flag=forgave_ruth | lean=warmth
 > "You'd keep me here to die. Like the others." -> evening_refuse | lean=paranoia
 
 === evening_forgive
-narration: You say it. You put your hand over hers, on the keys.
+narration: You say it. You put your hand over hers.
 narration: She cries. Not prettily. The way people cry who haven't for eleven years.
 -> evening_keys_back | if=flag:ruth_has_keys
 -> evening_forgiven
 
 === evening_keys_back
-narration | flag=keys_returned | unflag=ruth_has_keys: She takes her hand off the keys. She pushes them the rest of the way across the table, into yours.
+narration | flag=keys_returned | unflag=ruth_has_keys: Under your hand, the keys. She takes her hand off them. She pushes them the rest of the way across the table, into yours.
 ruth: Take them. Take them before I change my mind. I always change my mind.
 -> evening_forgiven
 

@@ -5,7 +5,7 @@
 # See VISITS in scripts/counter.gd. Design: docs/december.md.
 
 === morning
-narration | time=07:30: Saturday, the fourth. The second candle isn't till tomorrow. The first one's still burning in the window. You didn't light it again. You're almost sure you didn't.
+narration | time=07:30: Saturday, the fourth. The second candle isn't for a week. The first one's still burning in the window. You didn't light it again. You're almost sure you didn't.
 narration | if=flag:car_towed: You go to the back window out of habit to look at the car. The trench where it was has filled in with snow overnight. Smooth. Like nothing was ever there.
 -> opening
 
@@ -25,11 +25,11 @@ narration: It isn't yours. It's the Gleaner's. You don't say so. She doesn't eit
 === ruth_warm
 narration | if=flag:ruth_has_keys: When she puts her hands in her pockets you hear them: keys. Yours. The rental's, on the plastic tag. She keeps her hand on them in the pocket, the way you'd keep a hand on a dog.
 ruth: He comes in every night now. Him and Ezra. The back table. They don't drink. They just talk, with their heads together, till I put the chairs up.
-ruth: Ezra's drunk something in my bar every night for ten years. Not tonight.
+ruth: Ezra's drunk something in my bar every night for twenty years. Not tonight.
 narration: She looks at the shelves. At the back shelf. At the tin.
 ruth: He asked me what you were like. Before. I said I didn't know you before. He said, "No. You'd have had to be at the lake." I don't know what he meant. We've only got the one.
 narration: She takes something else out of the man's coat. A grey wool scarf, darned at one end. She lays it on the glass by the pint.
-ruth: Thomas's. He came in on Sundays. He left it on his stool in April and never came back for it. It's been a year in the drawer under the bar.
+ruth: Thomas's. He came in on Sundays. He left it on his stool in April and never came back for it. It's been in the drawer under the bar since.
 ruth: I don't want anything for it. I just don't want it in the drawer.
 narration | pawned=thomas_scarf | loan=0: You write the ticket and pin it to the darned end. In the hem, a laundry name-tape. THOMAS, crossed out in biro, and something smaller under it.
 narration | if=flag:door_ruth_2: Then, from the other pocket, a camera. A Kodak Instamatic in a cracked leather case.

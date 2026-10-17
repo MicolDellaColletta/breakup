@@ -100,7 +100,7 @@ sam | if=flag:door_sam_1 | flag=knows_jonah: Jonah Marsh. From Seattle. You gave
 paranoia | if=flag:door_sam_1: Somebody knew his name. It didn't help him.
 
 === cabin_eyes
-narration: Near the 1989 line, a Polaroid with the face cut out. Under it, in his hand, a list: tall, fair, a scar on the left hand. Brown eyes.
+narration: Near the bottom line, a snapshot with the face cut out. Under it, in his hand, a list: tall, fair, a scar on the left hand. Brown eyes.
 narration | if=flag:seen_human_eyes: The jar in the back room. Glass eyes for the animals, and two that aren't glass. Brown.
 narration | if=flag:seen_human_eyes: You don't tell him. You look at "brown eyes" until he asks what you're looking at.
 narration | if=!flag:seen_human_eyes: Brown eyes, underlined. And a question mark: where?

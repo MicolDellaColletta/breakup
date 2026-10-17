@@ -509,7 +509,7 @@ narration | time=+10: The cabin. Six new batteries are already in the lamp on th
 === cabin_four_notebook
 narration: He sees your headlights and comes in. He doesn't say hello. He unlocks the three locks, and lets you into the lean-to, and puts the notebook on the table, open at the first page.
 sam: The ten.
-narration: Ten names in quotation marks. "Thomas." "Annie." "Paul." "Dale." "Luis." Back to "David," in 1989. Each with a date in October, and a date in May, and a blank between them where the right name should be.
+narration: Ten names in quotation marks. "Thomas." "Annie." "Paul." "Dale." "Luis." Back to "David," at the bottom of the page. Each with a date in October, and a date in May, and a blank between them where the right name should be.
 sam: I don't want you to do anything. I want you to read them. Out loud, if you can stand it. Somebody should say them who isn't me.
 narration: You read them out. Ten names that weren't anybody's.
 narration: When you finish, he's looking at the page, not at you.
@@ -1005,7 +1005,8 @@ narration: Monday night. Every door on the road shut, for now. The Gleaner lit a
 === pub_twenty
 narration | time=+60: The Gleaner. Full, on a Monday. Everyone wants to see the doctor's hands. He holds them out over the bar for anyone who asks, and people touch them, the backs of them, gently, the way you'd touch a relic.
 narration: The clock over the bar, stopped at nine. Ruth hasn't wound it. "Leave it," she says, when somebody reaches up. "He likes it."
-narration: At the back table, the man in the good coat, alone for once, reading the Bible you sold him with his finger on the line.
+narration | if=!flag:refused_bible: At the back table, the man in the good coat, alone for once, reading the Bible you sold him with his finger on the line.
+narration | if=flag:refused_bible: At the back table, the man in the good coat, alone for once, reading a calfskin Bible with his finger on the line. You told him there wasn't one.
 
 === church_twenty
 narration | time=+20: The church, dark. The manse behind it, one window lit, and the Reverend in it, at his desk, his head in his hands.
@@ -1072,6 +1073,9 @@ narration: At the foot of the post, in the snow, the goat's prints, round and ro
 narration | time=+10: The cabin. Sam on the porch.
 sam: They're calling it Sam Wakeman's ice now. At the Gleaner. "Out on Sam Wakeman's ice." Like I own it. Like it's mine to give.
 sam: I've seen that look before. It's how they said "the Keeper" in ninety-three.
+narration | if=has:burned_corner | lose=burned_corner | flag=gave_sam_scrap_31: You give him the scrap from the furnace. He reads it twice. Not the ice. They walk you out onto it.
+narration | if=flag:gave_sam_scrap_31 and flag:knows_jonah: He pins it on the wall, under Thomas. Under Jonah. "That's his hand. Now it's written down."
+narration | if=flag:gave_sam_scrap_31 and !flag:knows_jonah: He pins it on the wall, under Thomas. "That's his hand. Now it's written down."
 
 === lake_thirtyone
 narration | time=+20: The lake. The shanties. Out past them, by the clock, a light moving: a torch, low, someone kneeling at the clock with a notebook. Sam. Everyone can see him. Everyone does.
@@ -1120,7 +1124,8 @@ narration | time=+20: The lake. The square hole in front of the clock has skinne
 narration | time=+10: The cabin. A lamp in the window, turned low. Sam comes to the door in his coat as if he'd been about to go out, or had just come in.
 sam: Did you hear him. On New Year's. On your phone. I heard it through the wall of the world. Go home, John. Lock nothing. Listen to everything.
 narration | if=has:burned_corner | lose=burned_corner | flag=gave_sam_scrap: You give him the scrap from the furnace. He reads it twice. Not the ice. They walk you out onto it.
-sam | if=flag:gave_sam_scrap: He pins it on the wall, under Thomas. Under Jonah. "That's his hand. Now it's written down."
+narration | if=flag:gave_sam_scrap and flag:knows_jonah: He pins it on the wall, under Thomas. Under Jonah. "That's his hand. Now it's written down."
+narration | if=flag:gave_sam_scrap and !flag:knows_jonah: He pins it on the wall, under Thomas. "That's his hand. Now it's written down."
 
 # --- Key day 35, Saturday March 11: the frenzy. ---
 
@@ -1136,11 +1141,11 @@ narration | if=!flag:ruth_shielded: Ruth behind the bar, polishing the same glas
 narration | time=+20: The ruin. The post on the tower stump, and the straw man on it, close enough now to see: the coat buttoned wrong, the way a child would button it. At his feet, in the snow, a ring of candle stubs, burned down.
 
 === lake_thirtyfive
-narration | time=+20: The lake. The square hole in front of Sam's clock, cut open again, and a second hole now, ten yards out, toward the middle. Then a third. A line.
+narration | time=+20: The lake. The holes off the point, cut open again in the night. Five now, ten yards apart, toward the middle. A line.
 
 === cabin_thirtyfive
 narration | if=!flag:gave_up_sam and !flag:notebooks_burned | time=+10: The cabin. Sam on the step in the cold, without his coat, watching the ice. He doesn't get up. "They came. They didn't find them. They'll come again."
-narration | if=flag:notebooks_burned | time=+10: The cabin, dark. On the step, a ring of black ash where his notebooks burned. He's inside. He doesn't answer the door. Through it, very quietly, a pencil, writing, starting again.
+narration | if=flag:notebooks_burned | time=+10: The cabin, dark. He's heard about the step of your shop, and what burned on it. He's inside. He doesn't answer the door. Through it, very quietly, a pencil, writing, starting again.
 narration | if=flag:gave_up_sam | time=+10: The cabin, dark. Nobody's lived in it for three weeks. Somebody's taken the clock off the wall.
 
 # --- Key day 40, Saturday April 8: the race. ---
@@ -1154,7 +1159,7 @@ narration | if=flag:ruth_comes: Ruth behind the bar. She doesn't look at you. Sh
 narration | if=!flag:ruth_comes: Ruth behind the bar, polishing the same glass, looking at the space at the end of the wall.
 
 === church_forty
-narration | time=+20: The ruin. The post on the tower stump, empty: they've taken the straw man down to carry him. Only the iron ring, and the ropes, and the light coming through the black beams.
+narration | time=+20: The ruin. The post on the tower stump, the straw man on it, his coat blown open, straw at his feet. The iron ring, and the ropes, and the light coming through the black beams.
 
 === lake_forty
 narration | time=+20: The lake. The path of holes, all the way to the middle, each one open, black, with a ring of slush round it. The ice between them the colour of wet cardboard. Far out, Sam's clock on its tripod, leaning a little now.

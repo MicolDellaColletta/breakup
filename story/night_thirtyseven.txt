@@ -81,7 +81,7 @@ narration | if=flag:fork6_yes: At the top of the stairs it stops, and stays, and
 -> morning_after
 
 === night_dog_unfed
-narration | show=bedroom: Facing the door. Nothing comes up.
+narration | show=bedroom: Facing the door. You didn't fill it. Three o'clock. The stairs, anyway.
 -> morning_after
 
 === night_dog_door
@@ -91,7 +91,7 @@ narration: Three o'clock. The back door. In the morning the bowl is clean.
 
 === morning_after
 narration | time=07:00: Sunday.
-narration: The dog came up, as it has every night this week. Fed or not. It stood at the bedroom door until it was light.
+narration | if=!flag:bowl_door: The dog came up, as it has every night this week. Fed or not. It stood at the bedroom door until it was light.
 
 # --- Something out of place (docs/nights.md). ---
 

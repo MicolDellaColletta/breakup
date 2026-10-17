@@ -9,7 +9,7 @@
 narration | sound=stairs: Up the stairs.
 narration | stop=stairs: The apartment. Ruth's voice still in your ears. "So it's never empty again."
 narration | if=flag:keys_returned: The car keys in your pocket. Heavy. The rental's tag.
-narration | if=doors:ruth>=3: You put your hand over hers. You keep feeling it, the keys under both your hands.
+narration | if=flag:forgave_ruth: You put your hand over hers. You keep feeling it.
 paranoia: The rules. She'll set a place for you at breakup. The rules.
 
 === radio

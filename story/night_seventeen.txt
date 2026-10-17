@@ -29,7 +29,8 @@ narration: You leave it off. Through the wall, the neighbors' radio, the same vo
 narration: You put the pillow over your head. You can still count the words.
 
 === kitchen
-narration | time=+10: The bowl. On the counter, the foil plate. Turkey, stuffing, a slice of pie wrapped separately.
+narration | time=+10 | if=flag:refused_pie: The bowl. On the counter, the foil. FOR THE WALK. You don't unwrap it.
+narration | time=+10 | if=!flag:refused_pie: The bowl. On the counter, the foil plate. Turkey, stuffing, pie.
 paranoia: Rule five.
 > Fill it -> kitchen_fed | set=fed_dog | flag=fed_seventeen
 > Take it down to the back door -> kitchen_door | if=has:note_bowl | set=fed_dog | flag=fed_seventeen | flag=bowl_door

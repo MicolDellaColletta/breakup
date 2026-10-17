@@ -21,6 +21,7 @@ narration: At the last hole, in the middle, they stop, and stand, and then they 
 -> lake_three
 
 === watch_step
+narration: Someone going past puts a lit candle in your hand, and goes on.
 narration: You stay on the step. From there you can see them go out onto the ice, a line of candles, single file, along the path of holes, all the way to the middle.
 narration: They stand there a long time. Then the line of lights turns round and comes back. It was practice.
 -> lake_three

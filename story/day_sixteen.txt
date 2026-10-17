@@ -157,7 +157,7 @@ narration: She zips her coat up to the chin.
 trooper: Stay where I can see you.
 narration | sound=bell: She doesn't knock on the frame. Through the window, the cruiser, the exhaust, the patience.
 
-=== sam_enters
+=== note_enters
 narration | time=+120: The afternoon. Nobody. The bell doesn't ring.
 narration: Then a sound at the door, low down, paper on wood. A folded sheet, pushed under, the way the envelopes come. Nobody on the step when you look. Prints going back down the shore.
 narration: Sam's writing, small and square. Numbers down the left side: the hymns from Sunday's radio, all of them, with the dates. A calendar for November, drawn with a ruler, and tomorrow's date circled three times.

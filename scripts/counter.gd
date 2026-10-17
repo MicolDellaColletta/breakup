@@ -73,7 +73,7 @@ const VISITS: Dictionary = {
 	# man in the good coat, for Ezra's Thursday box; then whoever MC told about
 	# him (Olstad first), or June with the pageant's program.
 	16: ["widow", "daniel", "trooper | if=flag:told_olstad_daniel",
-		"sam | if=flag:told_sam_daniel and !flag:told_olstad_daniel",
+		"note | if=flag:told_sam_daniel and !flag:told_olstad_daniel",
 		"june | if=!flag:told_olstad_daniel and !flag:told_sam_daniel"],
 	# December: Olstad and the car; the first candle; him, for the oldest
 	# Bible. Then Ruth, with your glass, and June, for the window.
@@ -103,7 +103,7 @@ const VISITS: Dictionary = {
 	35: ["note", "widow", "ezra | if=!flag:gave_up_sam"],
 	37: ["goat", "daniel"],
 	38: ["note"],
-	40: ["trooper", "ezra | if=!flag:gone_ezra", "ruth | if=!faithless:ruth", "widow | if=has:hollis_ring", "sam | if=flag:door_sam_3 and !flag:gave_up_sam", "nephew | if=flag:gave_picks_back"],
+	40: ["trooper", "ezra | if=!flag:gone_ezra", "ruth | if=!faithless:ruth", "widow | if=has:hollis_ring", "sam | if=flag:door_sam_3 and !flag:gave_up_sam or flag:sam_stayed_dark and !flag:gave_up_sam", "nephew | if=flag:gave_picks_back"],
 	42: ["note"],
 }
 # From the bell to the door opening.

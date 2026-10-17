@@ -39,7 +39,7 @@ paranoia: Rule five.
 
 === kitchen_door
 narration: Down to the back door with the bowl.
-narration | if=flag:reverend_in_back_room: Past the steel door. You don't stop. You don't knock. You set the bowl down and go back up, and behind the steel door the praying stops while you pass, and starts again.
+narration | if=flag:reverend_in_back_room: Through the steel door, past the bench. You don't look at him. You set the bowl inside the back door and go back up, and the praying stops while you pass, and starts again.
 
 === kitchen_fed
 narration: The kibble rattles. On the line.
