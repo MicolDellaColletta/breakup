@@ -27,7 +27,7 @@ narration: The needle swings, wavers, and settles on north. Slowly. As if it has
 narration: You turn it over. Engraved on the back, worn almost smooth: a single letter, E., and a line under it, the way a man signs a thing he means to keep.
 
 === examine_fox_eye
-narration: One glass eye is set a hair too high. The fox looks past you, at the door, as if it's waiting for someone.
+narration: The glass eyes are set too far apart. The fox looks past you, at the door, as if it's waiting for someone.
 
 === examine_fox_seam
 narration: The stitching along the belly is coarse and quick, done by somebody who didn't know how, or didn't care.
@@ -55,9 +55,9 @@ paranoia: Deer. It's a skinning knife. It's for deer.
 narration: The rawhide lacing has been mended in three places, each with a different knot. Three people, at least, walked a long way in these.
 
 === examine_snowshoes_frame
-narration: Burned into the ash frame, small, with a hot nail: T. 98.
+narration: Burned into the ash frame, small, with a hot nail: K. 97-98.
 narration: Under it, scratched in later and fainter, one word: KEEPER.
-paranoia: Last winter's. From the Keeper's things, after breakup, the ledger said.
+paranoia: The winter before last. From the Keeper's things, after breakup, the ledger said.
 paranoia: Things. Not the Keeper. The Keeper's things.
 
 === examine_box_lid

@@ -93,7 +93,7 @@ narration | if=!has:revolver: You sit down at the kitchen table without it. You'
 > Sit with it. Wait for the static to clear. Listen to what it says. -> gun_listen | if=has:revolver | lean=unknown
 
 === gun_pillow
-narration | flag=gun_pillow: You carry it to the bedroom and put it under your pillow, and lie down with your head on it, and your hand under the pillow, on it.
+narration | lose=revolver | flag=gun_pillow: You carry it to the bedroom and put it under your pillow, and lie down with your head on it, and your hand under the pillow, on it.
 narration: It's the first time all week you've felt like nobody could come in.
 narration: It's the first time all week you've felt like somebody might have to.
 -> john_night
@@ -187,5 +187,4 @@ paranoia: Or you were standing outside your own door. Breathing. Looking in.
 -> morning_after
 
 === morning_after
-narration | time=07:30: Wednesday. On the mat inside the door, an envelope. A hundred and fifty dollars, every bill the same way up.
-narration: The second week.
+narration | time=07:30: Wednesday.

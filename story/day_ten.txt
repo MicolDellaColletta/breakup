@@ -31,7 +31,7 @@ narration: She does. For a while.
 trooper: No ring. No girl calling the shop from Anchorage. Thomas didn't have one either. I notice that kind of thing. It's my job to.
 trooper: Rental's due Saturday next, Johnny. Roads permitting.
 narration | if=flag:gave_return_date: She says the thirtieth the way you'd say a number you'd written on your hand.
-narration: She picks up the compass, sets it down, picks it up.
+narration: She puts a finger in one pan of the balance and lets it swing. Stills it. Lets it swing.
 trooper: Kids are saying something about the ice off the point. Something under it.
 trooper: Kids say a lot.
 narration: She doesn't look at you while she says it. She looks out the window, at the lake, at the line of people walking out on it.
@@ -49,7 +49,7 @@ trooper: Ya. Kids say a lot. There's a party on the ice tonight. Keep your eyes 
 
 === trooper_ask
 trooper: The kind kids say.
-narration: She puts the compass down. Exactly where it was.
+narration: She stills the pan. Level.
 trooper: There's a party on the ice tonight. Whole town. You'll go. Everybody goes. Keep your eyes on the fire.
 -> trooper_goes
 

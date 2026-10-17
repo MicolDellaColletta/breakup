@@ -144,7 +144,6 @@ trooper | if=window:fox: The fox. With the eyes. Well. Folks'll stop for it, I'l
 trooper | if=window:snowshoes: Snowshoes. Practical. Somebody in this town'll be glad of them by Thanksgiving.
 trooper | if=window:ice_picks: Ice picks in the window. Two days after Cody Hollis. Huh.
 trooper | if=window:skinning_knife: A knife in the window, Johnny. Real welcoming.
-trooper | if=window:compass: A compass. For folks who know where they're going, I guess. Hardly anybody here does.
 trooper | if=window:decoy: The old decoy. Ray Hollis used to say that one was his granddad's.
 trooper | if=window:duck_call: A duck call. Ray had one just like it.
 paranoia: She read the window like a report. Like you'd written something in it.
@@ -255,9 +254,9 @@ narration | sound=bell | time=+180 | flag=teague_came: The bell. A big man in a 
 narration: He doesn't look at you. He goes straight to the fox, in the window, and squats down to look it in the face.
 teague: Who did this.
 narration: Not a question, quite. More like a man reading a name off a headstone he doesn't think much of.
-teague: That's bad work. Eyes set too deep. Skin's shrunk off the lip, see. He never thinned it right.
-teague: Abraham's? No. He did the ram at the Gleaner. That's Abraham's. This isn't.
-> "Abraham's, the ledger says." -> teague_ledger | lean=appraisal
+teague: That's bad work. Eyes set too far apart. Skin's shrunk off the lip, see. He never thinned it right.
+teague: Abraham's? No. He did the ram in his office. That's Abraham's. This isn't.
+> "A Keeper did it, the ledger says." -> teague_ledger | lean=appraisal
 > "Does it matter who?" -> teague_matters
 
 === teague_ledger
@@ -331,7 +330,7 @@ june: Then one day it was just gone. And then she was.
 narration: She holds the box against her coat with both arms.
 june: Dr. Wakeman came to see her. That winter. Did you know that? Nobody else would. He sat in our kitchen and asked her questions and wrote everything down.
 june: Then he stopped coming. I never knew why.
-paranoia: Ninety-three. The winter Sam said no. Don't. Don't start drawing lines.
+paranoia | if=flag:met_sam: Wakeman. The man in the cabin. Ninety-three. Don't. Don't start drawing lines.
 narration | sound=bell: The bell. You can hear the box through the door, faintly, as she winds it in the lot.
 
 === june_kept
@@ -374,7 +373,8 @@ narration | sound=bell | time=+90: The bell. A man you've never seen. A thin can
 narration: He opens his coat. Folded against his chest, inside it, a hunting jacket. Waxed canvas, the color of dead grass.
 stranger: Found this on the north shore. In the reeds. Thought somebody'd want to buy it back.
 narration: He lays it on the glass. Inside the collar, in red thread: R. HOLLIS.
-paranoia: Cody. Day two. "It had his jacket."
+paranoia | if=sold:ice_picks: Cody, yesterday. "It had his jacket."
+paranoia | if=!sold:ice_picks: Ray's. In the reeds, he says.
 narration: You put your hand on it before you mean to. It's warm.
 stranger: Carried it inside my coat the whole way. Didn't want it to freeze stiff. It's nine degrees out.
 narration: His bare hands, on the counter, beside it. Blue. Shaking.

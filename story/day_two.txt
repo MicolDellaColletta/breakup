@@ -279,6 +279,7 @@ unknown: There. Was that so hard?
 narration | sound=bell | time=+90: The bell. Then nothing. Whoever opened the door is standing in it, letting the cold in, not coming further.
 narration: Ruth. She's looking at the shop the way you'd look at a grave you haven't visited in a long time.
 narration: Then she comes in, all at once, and drops a bundle of mail on the counter. She smells of the cold, and of peppermint. A lot of peppermint.
+ruth | if=!visited:pub: Ruth. The Gleaner. It's my dad's building.
 ruth: Post office was holding these. Dad never picks up in September. Bills, mostly. Seed catalogs. God knows.
 ruth: This one's yours, I guess.
 narration: A window envelope. NORTHERN LIGHTS AUTO RENTAL, ANCHORAGE. In the window, typed: J. and then a pale ghost of letters where the ribbon ran dry. c/o Kettle Lake Pawn.

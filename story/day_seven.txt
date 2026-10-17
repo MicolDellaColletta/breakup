@@ -46,7 +46,9 @@ paranoia: He doesn't knock. Walt doesn't knock. Write that down. Who doesn't.
 # --- The boy, if MC broke rule six. ---
 
 === boy_enters
-narration | sound=bell | time=+180: The bell, at noon. The boy with the paper bag, in the parka a size too big. Fry bread again. He puts it on the counter, and doesn't run, this time.
+narration | if=!sold:duck_call | sound=bell | time=+180: The bell, at noon. The boy with the paper bag, in the parka a size too big. Fry bread again. He puts it on the counter, and doesn't run, this time.
+narration | if=sold:duck_call | sound=bell | time=+180: The bell, at noon. A boy, ten or so, in a parka a size too big. He holds out a paper bag at arm's length. Fry bread, still warm. He puts it on the counter and doesn't run.
+boy | if=sold:duck_call: Mom says the Keeper eats alone.
 boy: Mom says you'll be gone in May.
 boy: Are you scared?
 paranoia: Children ask. Children know. Children are told.

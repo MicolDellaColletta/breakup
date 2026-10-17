@@ -38,7 +38,8 @@ paranoia: Rule five.
 
 === kitchen_fed
 narration: The kibble rattles into the steel. You set it down and line it up with the scuff. Then you move it an inch off, on purpose.
-narration | if=flag:met_sam: Sam's idea. An inch. You check it twice.
+narration | if=flag:sam_bowl_test: Sam's idea. An inch. You check it twice.
+narration | if=!flag:sam_bowl_test: An inch. You check it twice.
 paranoia: Now you'll know. If it's back on the line in the morning, you'll know it wasn't you.
 paranoia: You'll know something.
 
@@ -147,7 +148,6 @@ narration | if=window:empty: Nothing on the ledge. Nothing between you and the g
 narration | if=window:fox: The fox on the ledge, with its back to the road. Its glass eyes have caught the neon. Both of them are looking in.
 narration | if=window:snowshoes: The snowshoes stand up on the ledge, the height of a person, the shape of a person, if you don't look straight at them.
 narration | if=window:ice_picks: The ice picks on the ledge, hanging from their cord, turning very slightly, though there's no draft.
-narration | if=window:compass: The compass on the ledge. You can't see the needle from here. You know which way it points.
 narration: And laid over all of it, faint on the dark glass, you. Your reflection, standing by the counter in a dead man's flannel shirt.
 narration: It raises its hand.
 narration: Before you do.

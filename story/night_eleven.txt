@@ -91,11 +91,12 @@ narration | stop=ring: It stops. 1:44.
 narration | time=01:59: 1:59. You watch the clock on the stove. It's an old electric one. Somebody, every October, has to get up on a chair and set it back.
 narration | time=02:00 | rewind=60: 2:00. And then it isn't. You get up on the chair and turn the hand back, and it's 1:00 again.
 narration: An hour you've already lived, starting over. Nobody will count it. Nobody will remember what anyone did in it. It isn't there.
-paranoia: The tin. You've been thinking about the tin since Halloween was a word on a calendar. It's down there on the back shelf, with its little padlock, and you have the ticket.
+paranoia | if=has:pawn_ticket: The tin. You've been thinking about the tin since Halloween was a word on a calendar. It's down there on the back shelf, with its little padlock, and you have the ticket.
+paranoia | if=!has:pawn_ticket: The tin. You've been thinking about the tin since Halloween was a word on a calendar. It's down there on the back shelf, with its little padlock.
 unknown: Go on. Nobody's counting.
 narration: You go down. The back shelf, in the neon from the window. The tin box. Tag 0527. A padlock no bigger than your thumbnail.
 narration | if=has:pawn_ticket: The ticket in your wallet. 0527. You're its holder. You could redeem it, from yourself, to yourself.
-> Write it out of the ledger, properly, and open it -> tin_redeem | lean=appraisal
+> Write it out of the ledger, properly, and open it -> tin_redeem | if=has:pawn_ticket | lean=appraisal
 > Get the hammer from under the counter, and open it -> tin_hammer | lean=animal
 > Put it back. Turn the tag to the wall. -> tin_shut | flag=tin_shut | lean=paranoia
 > Run. Now, in the hour nobody counts. -> tin_run | flag=tried_to_run | lean=animal

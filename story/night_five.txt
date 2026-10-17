@@ -96,7 +96,7 @@ narration | sound=latch: The key turns. A hundred people put their hands on you 
 narration | time=+20 | show=bedroom: You lie down. You can still feel the hands, if you let yourself. On your shoulders. The back of your neck.
 narration: Eleven.
 narration | sound=ring: Downstairs, the shop phone rings.
-narration | if=flag:spoke_first: Three nights of silence, and now this. As if your sentence were served.
+narration | if=flag:spoke_first: Two nights of silence, and now this. As if your sentence were served.
 paranoia: Rule four.
 > Go down to it -> phone_go_down | lean=animal
 > Let it ring -> phone_ignored | lean=paranoia

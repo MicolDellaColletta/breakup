@@ -43,7 +43,7 @@ narration | stop=ring | sound=pickup: You pick it up, because she's watching you
 narration: A woman's voice, bored, far away. "Northern Lights Auto Rental, Anchorage. I'm trying to reach Mister John..."
 narration: The line crackles on the surname. Just on the surname. Then it's clear again.
 narration: "...just confirming the vehicle's return date, sir. It's blank on our copy."
-narration: Olstad has picked up the brass compass and is turning it in her fingers. Not looking at you. Listening with her whole body.
+narration: She puts a finger in one pan of the balance and lets it swing. Not looking at you. Listening with her whole body.
 john | if=john>=1: You're John. John rented a car. Give the woman a date.
 > "End of the month. The thirtieth." -> trooper_date | flag=gave_return_date | lean=john
 > "Wrong number." -> trooper_wrong | lean=paranoia
@@ -53,7 +53,7 @@ john | if=john>=1: You're John. John rented a car. Give the woman a date.
 narration: "The thirtieth. Thank you, Mister..." The crackle again. "...have a good day."
 narration | sound=hangup: You put the receiver down.
 trooper: The thirtieth.
-narration: She sets the compass down, a little to the left of where it was.
+narration: She stills the pan, a little to the left.
 trooper: That's three weeks, hon. Lot can happen in three weeks. Roads close.
 -> trooper_thomas
 

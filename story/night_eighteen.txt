@@ -56,6 +56,9 @@ narration: Cold like a hand over your mouth. Up the road, at the Gleaner, two me
 === dresser
 narration | time=+5 | sound=drawer: The dresser.
 narration | if=has:notebook: The notebook, under the flannel. The pen.
+narration | if=has:money_order and has:money_order_wasilla and has:money_order_kettle: You lay the three money orders on the dresser, in order. Anchorage. Wasilla. Kettle Lake. Eleven twenty-seven, three times, in the same hand. Coming up the road.
+narration | if=has:money_order and has:money_order_wasilla and has:money_order_kettle: You turn the last one over. In pencil, very light: 31. 32. 33.
+narration | if=has:notebook and has:money_order and has:money_order_wasilla and has:money_order_kettle: You copy it into the notebook, in the first column. Anchorage. Wasilla. Kettle Lake. 31. 32. 33.
 > Write "Ezra." -> dresser_ezra | if=has:notebook | flag=notebook_ezra
 > Write "Whoever's paying the interest is in town." -> dresser_interest | if=has:notebook and has:money_order_kettle | flag=notebook_interest
 > Write nothing -> dresser_quiet | if=has:notebook

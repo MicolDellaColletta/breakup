@@ -106,7 +106,7 @@ narration: Nothing comes up. Just before dawn, from the back door, the sound of 
 -> morning_after
 
 === morning_after
-narration | time=07:30: Tuesday. October twelfth. One week.
+narration | time=07:30: Tuesday.
 
 # --- Something out of place (docs/nights.md). ---
 

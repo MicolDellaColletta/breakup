@@ -114,7 +114,8 @@ appraisal | if=appraisal>=1: Somebody with a broom and a key. Olstad has a key.
 
 === look_furnace
 narration | time=+5: The furnace. Squat, black iron, its belly glowing through the grate. The heat of it on your face from three steps away.
-narration: It's lit. It's always lit. You've never once fed it. The coal scuttle beside it is full to the brim, and the ash pan's been emptied.
+narration | if=flag:fed_furnace: It's lit. It's always lit. You've fed it once, one night, three shovels. The coal scuttle beside it is full to the brim, and the ash pan's been emptied.
+narration | if=!flag:fed_furnace: It's lit. It's always lit. You've never once fed it. The coal scuttle beside it is full to the brim, and the ash pan's been emptied.
 paranoia: Somebody comes in and feeds it. While you sleep. While you stand at the counter.
 appraisal: Somebody with a key could do it on their rounds. A furnace this old wants feeding twice a day.
 warmth | if=warmth>=1: Somebody doesn't want you cold.

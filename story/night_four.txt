@@ -23,7 +23,7 @@ narration: "A request from up the shore. For the Keeper, who's settling in. Numb
 narration: "Three."
 narration: Then a hymn, far off, an old one, a lot of voices.
 appraisal | if=appraisal>=1: Rule three. Every item gets a price. Somebody up the shore heard about the braid.
-paranoia: For the Keeper, who's settling in. The same words the ledger used. In the owner's hand.
+paranoia: For the Keeper, who's settling in. Who told them you were settling in?
 
 === radio_off
 narration: You leave it off. Tonight the quiet has the hymn in it anyway, very faint, from somebody else's radio, up the shore.

@@ -155,7 +155,6 @@ paranoia: Whoever cleaned it out took their time.
 
 === look_shelves_night
 narration: Shelves behind the counter. Things with paper tags on strings: a rifle, a box, a clock that's stopped. Held, not for sale.
-paranoia: Some of them did.
 
 === stairs_not_yet
 narration: The stairs climb into the dark along the wall. The offer said there'd be a room up there.

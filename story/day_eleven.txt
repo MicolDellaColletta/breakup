@@ -8,9 +8,6 @@
 === morning
 narration | time=07:30: Saturday. The car in the lot, under a foot of snow. The Northern Lights sticker on the bumper is the only thing showing, a little blue square.
 narration: Today's the day. Four weeks, prepaid, from the second. Today it stops being a rental.
-narration | if=flag:furnace_out: The apartment is cold enough to see your breath. Downstairs, the hand mirror on the back shelf has a crack across the glass, corner to corner.
-narration | if=flag:furnace_out: And the furnace, when you go down: lit. Fed. Full. Somebody came in the night and fed it.
-paranoia | if=flag:furnace_out: Olstad has a key. Somebody always has a key.
 -> morning_flash_guilt | if=background:guilt
 -> morning_flash_witness | if=background:witness
 -> morning_flash_debt | if=background:debt
@@ -46,7 +43,7 @@ narration | sound=bell | time=+30: The bell. Olstad, in uniform again; the road'
 trooper: Today's the day, Johnny.
 narration: She doesn't say which day. She doesn't need to.
 trooper: Northern Lights opens Monday. I'd say they file Monday afternoon. Or they get bored and call it in Sunday. They're like that, in Anchorage.
-narration: She picks up the compass. Sets it down. Looks at you.
+narration: She puts a finger in one pan of the balance and lets it swing. Looks at you.
 trooper: Who's John?
 narration: Not who are you. Who's John. As if John were a third person in the room, standing just behind you.
 paranoia: She knows something. What does she know. What could she know.
@@ -86,6 +83,7 @@ narration | sound=bell: At the door, her hand comes up to the frame, and stops. 
 
 === widow_enters
 narration | sound=bell | time=+60: The bell. Mrs. Hollis. No dish. In her hand, a yellow tailor's tape measure, coiled.
+widow | if=flag:kept_picks: Cody's truck's still at the point. They'll find him in May.
 widow: Turn round, dear. For the shoulders. They're nearly done.
 narration: She doesn't wait. She comes behind the counter, where nobody's supposed to come, and turns you by the elbows, gently, the way you'd turn a child to button their coat.
 narration: The tape across your back, shoulder to shoulder. Her hands warm through your shirt. She holds it there a long time.
@@ -124,7 +122,8 @@ narration | sound=bell: She knocks twice on the frame. The bell.
 === sam_enters
 narration | sound=bell | time=+60: The bell. Sam, with the notebook already open, as if he'd been reading it all the way down the road.
 sam: Your caller. The one at eleven. You've heard a train behind him.
-narration: You haven't told him that. You're almost sure you haven't told him that.
+narration | if=flag:heard_train: You haven't told him that. You're almost sure you haven't told him that.
+narration | if=!flag:heard_train: You never heard a train. You let it ring.
 sam: Two trains, opposite ways, twelve minutes apart, both blowing for a crossing. That's the siding at Wasilla. There's a motel right on it. Cheap. Weekly rates.
 sam: He's an hour from here. Less, on a good road.
 narration: He says it with a kind of joy. The joy of a column of figures that adds up.
@@ -135,7 +134,8 @@ unknown | if=frayed: Two of you now. Two of you can't be wrong.
 
 === sam_how
 sam: You told me. You called the cabin at four this morning and told me. You don't remember?
-narration: You don't remember. You remember the train, and lying down after, and then it was light.
+narration | if=flag:heard_train: You don't remember. You remember the train, and lying down after, and then it was light.
+narration | if=!flag:heard_train: You don't remember. You remember the phone ringing, and not going down, and then it was light.
 appraisal | if=appraisal>=1: Or he's been listening to the same calls. He's got a scanner. He's got a notebook of everything.
 sam: Write it down next time. That's what it's for.
 -> sam_goes

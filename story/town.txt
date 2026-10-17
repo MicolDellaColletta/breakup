@@ -71,7 +71,7 @@ ruth: You'll be John. First one's on the house. I'm Ruth. I own the place, for m
 narration: She tips her head toward the far end of the bar.
 ruth: You're down at the end there. Nobody's going to fight you for it.
 narration: Twelve stools along the bar, every one taken. A thirteenth at the far end, a little apart from the rest, its seat worn smooth.
-narration: As you sit down, a flash. Ruth lowers a Polaroid camera and waves the picture dry.
+narration | flag=gleaner_photo: As you sit down, a flash. Ruth lowers a Polaroid camera and waves the picture dry.
 ruth: Oh, don't make that face. It's for the wall. Everybody gets one.
 narration: Behind the bar, between the bottles, a row of Polaroids. Faces you don't know, every one of them on this stool, every one with the look you can feel on your own face right now.
 narration: You count them. Ten. She tapes yours up at the end, and presses the corners down with her thumb, one at a time, longer than tape needs. Eleven.
@@ -158,6 +158,7 @@ paranoia: The Thursday watch. Somebody sits up there with the radio all night, s
 
 === pub_two_warm
 narration | time=+60: The Gleaner, quieter on a Thursday. Half the stools empty. The jukebox playing something nobody chose.
+narration | if=!flag:gleaner_photo | flag=gleaner_photo: As you sit down, a flash. Ruth lowers a Polaroid camera and waves the picture dry. For the wall, she says. Everybody gets one. She tapes it up at the end of the row.
 narration: Ruth sets a beer in front of you before you ask, and then, after a moment, a coffee mug for herself. She pours into it from a bottle under the bar. Clear. She doesn't say what's in it, and you don't ask.
 ruth: Thanks. For today. For letting me.
 ruth: I hadn't been in that room in ten years. It still smells like crayons. Can you believe that?
@@ -185,6 +186,7 @@ narration: It isn't an invitation. It's a fact about you she's already decided.
 
 === pub_two_cold
 narration | time=+60: The Gleaner, quieter on a Thursday. Half the stools empty.
+narration | if=!flag:gleaner_photo | flag=gleaner_photo: A flash, before you've sat down. Ruth lowers a Polaroid camera and waves the picture dry without looking at it. She tapes it up behind the bar.
 narration: Ruth serves you without a word and goes to the far end of the bar, where there's nothing to do, and does it.
 narration: Behind the bar, between the bottles, the row of Polaroids. Yours is at the end. You look like someone you'd cross the road to avoid.
 narration: She's still put you up there. She hasn't taken you down.
@@ -300,11 +302,11 @@ narration | time=+10: The shack on the shore, the one with the lit window. Up cl
 narration: Three locks on the door. A thermometer by the frame, and a pencilled column of figures on the wood beside it, one for every day.
 narration: Nobody answers your knock. Out on the ice, a lamp moves.
 narration: It comes toward you, slowly, straight across the gray skin of ice that wouldn't hold a dog. A man, carrying it. He walks as if it were a floor.
-paranoia: That ice is two inches thick. You saw it yesterday.
+paranoia: That ice is two inches thick. You saw it from the bank.
 narration: He steps onto the bank. Thirties, maybe forty. A beard that has given up being a decision. A parka held together with duct tape at one elbow.
 sam: It'll hold me. I know where it holds.
-sam: You're the Keeper. You came yesterday and looked at the poles and didn't knock. Today you knocked. That's quicker than most.
-paranoia: He watched you yesterday. From that window, or from out there in the dark.
+sam: You're the Keeper. You came down and looked at the poles and didn't knock. This time you knocked. That's quicker than most.
+paranoia: He watched you. From that window, or from out there in the dark.
 > "Who are you?" -> cabin_who | lean=appraisal
 > "You were out on that ice." -> cabin_ice | lean=paranoia
 
@@ -324,7 +326,7 @@ narration: Inside it's a laboratory: shelves of jars, each labelled in a tiny pr
 narration: On the table, a notebook, open. Columns of figures. Dates. Thicknesses.
 narration: He closes it before you can read it. Not hurriedly. The way you'd close a door on a room you haven't cleaned.
 appraisal | if=appraisal>=2: The last line on that page was a date in October, and then a blank. You didn't see the name.
--> cabin_cody | if=sold:ice_picks
+-> cabin_cody | if=sold:ice_picks and day==2
 -> cabin_talk
 
 === cabin_cody
@@ -372,6 +374,7 @@ narration | if=window:fox: Someone at a table says the word fox, and someone els
 narration | if=window:empty: Someone at a table says, not quietly, "Nothing in the window. Abraham always had something in the window."
 narration | if=flag:gave_music_box: Down the bar, June Merrill lifts her glass an inch toward you, and then looks away, as if she'd been caught at something.
 narration: Your stool at the end. Nobody's in it. Nobody's been in it all night; there's a coat on the next one over, keeping it from being next to anybody.
+narration | if=!flag:gleaner_photo | flag=gleaner_photo: As you sit down, a flash. Ruth lowers a Polaroid camera and waves the picture dry. For the wall, she says. Everybody gets one. She tapes it up at the end of the row, and presses the corners down with her thumb.
 -> pub_three_warm | if=flag:ruth_upstairs
 -> pub_three_cold
 
@@ -445,7 +448,7 @@ sam | if=!window:empty: You dressed the window. I drove past. Everybody drove pa
 sam | if=window:empty: You left the window empty. People noticed. People here notice an empty thing faster than a full one.
 sam | if=flag:gave_music_box: June Merrill came by this afternoon. She was holding a music box. She stood out on the road and played it at my cabin and walked away. I'd rather not talk about that.
 sam: Something happened last night. To you. I can tell. You're standing like it's still happening.
-> Tell him about the bowl -> cabin_three_tell | lean=appraisal
+> Tell him about the bowl -> cabin_three_tell | flag=sam_bowl_test | lean=appraisal
 > "Nothing happened." -> cabin_three_nothing | lean=paranoia
 
 === cabin_three_tell
@@ -715,7 +718,7 @@ narration: She looks at you a long time. Then at the camera. Then at the wall.
 ruth: Your own copy.
 narration: Something in her face that might be belief, or might be choosing to.
 ruth: Okay. Take yours. Not the others. They're mine.
-narration: You take one more. Your own face, on the stool, the first night. You don't take the rest. When you give Sam the camera, there'll be seven, and he'll count them.
+narration: You take one more. Your own face, on the stool, the first night. You don't take the rest. When you give Sam the camera, there'll be eight. Seven of them, and you. He'll count them.
 paranoia | flag=broke_faith_sam: He'll know you stopped. He'll know who stopped you. He'll know you let her.
 
 === pub_eight_hide
@@ -768,8 +771,8 @@ sam: The coat. Did you see it today? They had it at the church. In the vestry, o
 paranoia: You walked past it. You walked past it twice.
 
 === cabin_nine_cold
-narration: He takes the camera. He counts the exposures on the little dial. Seven.
-sam: Seven.
+narration: He takes the camera. He counts the exposures on the little dial. Eight.
+sam: Eight.
 narration: He doesn't say anything else. He puts it on the shelf, unopened, with the batteries you sold him.
 sam: You stopped. Somebody stopped you, and you let them.
 narration: He walks you to the door. Three locks. He checks the first one twice, the way he does, but tonight it feels like he's checking it against you.

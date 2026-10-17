@@ -127,7 +127,7 @@ narration | sound=stairs: You go back up.
 narration: Behind the counter.
 narration | stop=ring | sound=pickup | break=phone: You lift the receiver. You don't speak.
 narration: The room. The clock. The breathing, easier now. He's healing.
-narration: And then, outside his window, far away: a train horn. Long. Twice. The way they blow it for a crossing.
+narration | flag=heard_train: And then, outside his window, far away: a train horn. Long. Twice. The way they blow it for a crossing.
 narration: A long while later, another, the other way.
 paranoia: A train. There's no train here. There's no train anywhere near here.
 appraisal | if=appraisal>=2: There's a railroad. Anchorage to Fairbanks, through the valley. Through Wasilla. Through Palmer. He's on the line.

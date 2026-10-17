@@ -37,7 +37,8 @@ paranoia: Good. Twice is enough. Twice is plenty.
 narration: The bowl by the stove is licked clean.
 narration: Last night you set it an inch off the line, on purpose. It's back on the line. Exactly on it, square with the scuff, the way you always leave it.
 paranoia: So somebody watches you closely enough to know. Or you got up in the night and fixed it, and don't remember.
-narration | if=flag:met_sam: Sam's test. It answered nothing. You stand there a long time, and that feels like an answer too.
+narration | if=!flag:sam_bowl_test: The inch answered nothing. You stand there a long time, and that feels like an answer too.
+narration | if=flag:sam_bowl_test: Sam's test. It answered nothing. You stand there a long time, and that feels like an answer too.
 -> morning_bell
 
 === morning_knees
@@ -141,7 +142,8 @@ narration: It isn't. You don't say so.
 
 === widow_held
 widow: Ten dollars.
-narration: She opens her purse and counts it out in ones, smoothed flat, every bill turned the same way up, the way she paid for the duck call.
+narration | if=sold:duck_call: She opens her purse and counts it out in ones, smoothed flat, every bill turned the same way up, the way she paid for the duck call.
+narration | if=!sold:duck_call: She opens her purse and counts it out in ones, smoothed flat, every bill turned the same way up.
 narration | sold=hollis_jacket: You take it. She takes the jacket. Neither of you looks at the other.
 paranoia: It's a shop. You run a shop.
 -> widow_goes

@@ -44,9 +44,11 @@ paranoia: Sit. Look at the cross. Don't turn around.
 
 === church_board
 narration: By the door, the corkboard. The prayer list in a dozen hands. At the bottom, in block capitals: OUR KEEPER.
-narration: Next to it, pinned with care, a Polaroid. You, on the stool at the Gleaner, the first night. The face you were making.
+narration | if=flag:gleaner_photo: Next to it, pinned with care, a Polaroid. You, on the stool at the Gleaner. The face you were making.
+narration | if=!flag:gleaner_photo: Next to it, pinned with care, a Polaroid. You, behind the counter, not looking up. Taken through the window.
 narration: Somebody has written under it, in pencil: JOHN. 1999.
-paranoia: Ruth's camera. Ruth's wall. And now the church's.
+paranoia | if=flag:gleaner_photo: Ruth's camera. Ruth's wall. And now the church's.
+paranoia | if=!flag:gleaner_photo: Somebody stood at your window with a camera. You never saw the flash.
 
 === church_people
 narration: You turn, just once. Every face is turned toward you, pleasantly, the way you'd look at a bride.

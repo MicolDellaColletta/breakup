@@ -54,7 +54,8 @@ narration: Cold. The idling engine. Somewhere, a child still out, laughing, and 
 === dresser
 narration | time=+5 | sound=drawer: The dresser.
 narration | if=flag:tin_opened: The locker key. You put it under the shirts, then in your pocket, then under the mattress, then back in your pocket. Anchorage is three hours away. The road's open. And she's at the end of it.
-narration | if=!flag:tin_opened: The flannel shirts. One fewer, if you lent it. A child wore it tonight, somewhere, in a brown coat over it.
+narration | if=!flag:tin_opened and flag:lent_shirt: The flannel shirts. One fewer. June has it, for the pageant. A child wore it tonight, somewhere, in a brown coat over it.
+narration | if=!flag:tin_opened and !flag:lent_shirt: The flannel shirts. All five.
 
 === painting
 narration | time=+5: The painting. The figure in its long coat, far out on the ice. Small. Child-sized, tonight.
